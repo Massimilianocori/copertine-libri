@@ -2,12 +2,56 @@
 "_nota": "Scritto da genera.py: percorso -> [data dell'ultima modifica del contenuto, impronta]. Non modificare a mano.",
 "pagine": {
 "": [
-"2026-11-11",
-"ba34a4d4a33de940ba94"
+"2026-11-19",
+"f676c34d078e75007712"
 ],
 "about/": [
 "2026-11-12",
 "5597311a120cbad776e6"
+],
+"australia-visas/": [
+"2026-11-19",
+"91966b14df02341bac65"
+],
+"australia-visas/189-visa/": [
+"2026-11-19",
+"03f1d46401bb50100cb0"
+],
+"australia-visas/190-visa/": [
+"2026-11-19",
+"d99ad35ec5b89fd84b4d"
+],
+"australia-visas/482-visa/": [
+"2026-11-19",
+"2f32bdad5db4f163bc4c"
+],
+"australia-visas/491-visa/": [
+"2026-11-19",
+"26a34165088f3acd3764"
+],
+"australia-visas/partner-visa/": [
+"2026-11-19",
+"531c5b8213abeb59d46a"
+],
+"australia-visas/pr-points-calculator/": [
+"2026-11-19",
+"c6e1bd57c1a77d5e6ff1"
+],
+"australia-visas/student-visa-500/": [
+"2026-11-19",
+"323863d45c2bd37dd444"
+],
+"australia-visas/visa-fees/": [
+"2026-11-19",
+"c3e6f912889347d6534f"
+],
+"australia-visas/visitor-visa-600/": [
+"2026-11-19",
+"2e4ee6ff3b8d12a62856"
+],
+"australia-visas/working-holiday-visa/": [
+"2026-11-19",
+"60493664a66c5b04a242"
 ],
 "australian-citizenship-ceremony-wait-times/": [
 "2026-11-11",
@@ -706,8 +750,8 @@
 "490adae45023eaa4e047"
 ],
 "australian-citizenship-processing-time/": [
-"2026-11-11",
-"9816058eb5ea802d8256"
+"2026-11-18",
+"1e40aa8f924b374ddf81"
 ],
 "austria-eu-blue-card/": [
 "2026-11-13",
@@ -770,8 +814,8 @@
 "83735f1d8942ac9ff9f1"
 ],
 "croatia-digital-nomad-visa/": [
-"2026-11-16",
-"57384c3c8be0077fa065"
+"2026-11-19",
+"4c854bf05c68bfee7311"
 ],
 "denmark-pay-limit-scheme/": [
 "2026-11-13",
@@ -1214,8 +1258,8 @@
 "6e1b6fc4d9fd3b852389"
 ],
 "hungary-white-card/": [
-"2026-11-16",
-"94a1a108eb54e0daecdc"
+"2026-11-19",
+"a77dccf23a720c0fc92b"
 ],
 "ireland-critical-skills-employment-permit/": [
 "2026-11-13",
@@ -1230,8 +1274,8 @@
 "24188910bc3a2ec8edbe"
 ],
 "italy-digital-nomad-visa/": [
-"2026-11-16",
-"4d5a72834d3c122ad996"
+"2026-11-19",
+"1debda31ad166b5415b9"
 ],
 "mexico-residency/": [
 "2026-11-13",
@@ -1990,96 +2034,96 @@
 "2282616e78cdbe270efb"
 ],
 "thailand-dtv-visa/": [
-"2026-11-13",
-"c01d21e0139cf1254a28"
+"2026-11-19",
+"52320916a92b89bb662a"
 ],
 "thailand-dtv-visa/bucharest/": [
-"2026-11-09",
-"830b9433007d308a6d39"
+"2026-11-19",
+"d3cac5a473876cbb6e56"
 ],
 "thailand-dtv-visa/chicago/": [
-"2026-11-09",
-"8976dd746c6bd4f3d1d2"
+"2026-11-19",
+"9a686812b1d1054635b8"
 ],
 "thailand-dtv-visa/dtv-vs-ltr-elite-retirement/": [
-"2026-11-09",
-"5b3b1ec65cec41ca27d0"
+"2026-11-19",
+"0b7734aecb850fd1d7e2"
 ],
 "thailand-dtv-visa/duration-and-extension/": [
-"2026-11-09",
-"0f6bf5a3ac8c62a0a644"
+"2026-11-19",
+"e4f1edcc3014d5fc0381"
 ],
 "thailand-dtv-visa/fee/": [
-"2026-11-09",
-"86abaa24f0c2039f3528"
+"2026-11-19",
+"e5b67319c9d710005a7e"
 ],
 "thailand-dtv-visa/ho-chi-minh-city/": [
-"2026-11-09",
-"aa0ccbebae88b42249b7"
+"2026-11-19",
+"28129c175a771dbf937b"
 ],
 "thailand-dtv-visa/hong-kong/": [
-"2026-11-09",
-"3ab12d8a447f39e25e0d"
+"2026-11-19",
+"03cc92ab9a21a3a3ba83"
 ],
 "thailand-dtv-visa/kuala-lumpur/": [
-"2026-11-09",
-"fc32cee991d1c5f1377d"
+"2026-11-19",
+"62cccd4044a0afeac2cb"
 ],
 "thailand-dtv-visa/london/": [
-"2026-11-09",
-"5610b2b7d4e3107e55ba"
+"2026-11-19",
+"de762861252e671c956c"
 ],
 "thailand-dtv-visa/los-angeles/": [
-"2026-11-09",
-"4fc716616d4897949177"
+"2026-11-19",
+"38a61af26fcbd8a4069a"
 ],
 "thailand-dtv-visa/madrid/": [
-"2026-11-09",
-"c2da561e527753d26ab3"
+"2026-11-19",
+"14eaf76d797311b42913"
 ],
 "thailand-dtv-visa/moscow/": [
-"2026-11-09",
-"ac1b391de105dae26841"
+"2026-11-19",
+"edbb49606bff189dd75b"
 ],
 "thailand-dtv-visa/new-delhi/": [
-"2026-11-09",
-"0861ba9a43273e635500"
+"2026-11-19",
+"76bcedb66e3f827e8eb4"
 ],
 "thailand-dtv-visa/proof-of-funds/": [
-"2026-11-13",
-"6faae0c4a71b536f3f77"
+"2026-11-19",
+"ceda93c891ec63082a4f"
 ],
 "thailand-dtv-visa/requirements/": [
-"2026-11-13",
-"3794483efa3f4c0823d1"
+"2026-11-19",
+"66b51e7c3584dec1fefc"
 ],
 "thailand-dtv-visa/rome/": [
-"2026-11-09",
-"5dd6f60136e6820933fb"
+"2026-11-19",
+"ea643e3c6c72ff3ed245"
 ],
 "thailand-dtv-visa/singapore/": [
-"2026-11-09",
-"1010c526eeae729e50f7"
+"2026-11-19",
+"c939941445f833b38a66"
 ],
 "thailand-dtv-visa/soft-power-activities/": [
-"2026-11-09",
-"55c48b4afb8173b12c09"
+"2026-11-19",
+"20e95628766838b424ac"
 ],
 "thailand-dtv-visa/vientiane/": [
-"2026-11-09",
-"e48736982f3660b82c6e"
+"2026-11-19",
+"2a19cffdd28cc366d91f"
 ],
 "thailand-dtv-visa/warsaw/": [
-"2026-11-09",
-"ba31476eab02c67278dd"
+"2026-11-19",
+"036446611acd01c9c942"
 ],
 "thailand-dtv-visa/washington-dc/": [
-"2026-11-09",
-"9d8579a3af06c5eddb10"
+"2026-11-19",
+"d3c769d0850daae0ba80"
 ],
 "thailand-dtv-visa/yangon/": [
-"2026-11-09",
-"1e5cbc79cb7ffafc157b"
+"2026-11-19",
+"b62d65d60a9e2fafe291"
 ],
 "top-university-visas/": [
 "2026-11-08",
@@ -2526,8 +2570,8 @@
 "d8e5172aabad93c67d4c"
 ],
 "visa-health-insurance/": [
-"2026-11-16",
-"1836991b474c887d899b"
+"2026-11-19",
+"236c667f10b471de499c"
 ],
 "visa-health-insurance/germany-eu-blue-card/": [
 "2026-11-14",
@@ -2538,8 +2582,8 @@
 "d7c9c5511833423ed653"
 ],
 "visa-health-insurance/portugal-d8-digital-nomad-visa/": [
-"2026-11-16",
-"202c230d0b142a09acc6"
+"2026-11-19",
+"dfc0508b31a692136bd1"
 ],
 "visa-health-insurance/portugal-student-visa/": [
 "2026-11-08",
@@ -2558,8 +2602,8 @@
 "d4eaecf9f9c2b220b299"
 ],
 "visa-health-insurance/thailand-dtv-visa/": [
-"2026-11-09",
-"17f23efe3477d3bdec90"
+"2026-11-19",
+"881254b1c0a60c9fe1f0"
 ],
 "visa-health-insurance/thailand-ltr-visa/": [
 "2026-11-08",
@@ -2594,8 +2638,8 @@
 "182579b3586f8b6a99cc"
 ],
 "visa-refusal-rates/australia-visas/": [
-"2026-11-08",
-"51aae87ca944c0b8add1"
+"2026-11-18",
+"1c56476ee50e0a7a5470"
 ],
 "visa-refusal-rates/australia/": [
 "2026-11-08",

@@ -1721,7 +1721,7 @@ def _controlla_dtv_temi(D, aff, sitemap, letto, costo):
                     errori.append(f"DTV requirements: voce di {s_['sede']} nella tabella per nazionalità diversa dai dati")
     # attività soft power: conteggi ricalcolati
     if "soft-power-activities" in pagine:
-        fonti = [("londra_dtv", "dtv2"), ("washington_dtv", "dtv2"), ("budapest_dtv", "attivita"), ("phnompenh_dtv", "attivita"),
+        fonti = [("londra_dtv_sp", "dtv2"), ("washington_dtv", "dtv2"), ("budapest_dtv", "attivita"), ("phnompenh_dtv", "attivita"),
                  ("telaviv_dtv", "attivita"), ("canberra_dtv", "attivita"), ("hcm_dtv", "attivita"), ("savannakhet_dtv", "attivita")]
         testi = [T[k]["frammenti"][nm].lower() for k, nm in fonti]
         for nome, pat in (("Muay Thai", r"muay ?thai"), ("Thai cooking or culinary training", r"cooking|culinary"), ("Medical treatment", r"medical"),
@@ -1767,7 +1767,7 @@ def _controlla_dtv_temi(D, aff, sitemap, letto, costo):
             errori.append("DTV confronto: tassa LTR del BOI (in Thailandia, in euro, all'estero) assente o diversa dal ricalcolo")
     if "requirements" in pagine:
         m_r = html.unescape(pagine["requirements"])
-        for k, nm in (("londra_dtv", "brp"), ("londra_dtv", "datore"), ("washington_dtv", "green_card")):
+        for k, nm in (("londra_dtv", "non_cittadini"), ("washington_dtv", "green_card")):
             if T[k]["frammenti"][nm] not in m_r:
                 errori.append(f"DTV requirements: manca il documento per i non cittadini {k}.{nm}")
         if "Your passport does not change" in m_r or "not limited by nationality" in m_r:
@@ -1781,7 +1781,7 @@ def _controlla_dtv_temi(D, aff, sitemap, letto, costo):
             errori.append("DTV: Los Angeles, la prima frase non distingue la data della pagina DTV e quella della tabella delle tariffe")
     # durata: le tre frasi di Londra nella tabella
     if "duration-and-extension" in pagine:
-        for nm in ("validita", "soggiorno", "estensione", "uscita"):
+        for nm in ("validita", "soggiorno", "estensione"):   # "uscita" tolta il 18/11/2026: Londra non lo scrive più
             if html.escape(T["londra_dtv"]["frammenti"][nm], quote=False) not in pagine["duration-and-extension"].replace("&#x27;", "'"):
                 errori.append(f"DTV durata: frase {nm} di Londra assente")
     # indice e sedi: FAQ legate alle ricerche, link alle pagine per tema
@@ -5939,6 +5939,281 @@ def controlla_de(online=True):
     return errori, len(trovate), note
 
 
+_RE_BOX_ME = re.compile(r'<section class="card aff-r" aria-labelledby="aff-me-h">.*?</section>', re.S)
+
+
+def controlla_av(online=True):
+    """40 (18/11/2026): sezione "Australia visas" (/australia-visas/): calcolatore dei punti (189, 190, 491), tariffe ufficiali (visa
+    application charge) e una pagina per visto; riquadro del partner Migration Expert (interruttore _migration_expert in dati/affiliati.json).
+    Impronta e fonti di dati/australia_visti.json (solo homeaffairs.gov.au, legislation.gov.au, mara.gov.au; il sito del partner solo per le
+    letture me_*); valori = numeri scritti nei frammenti; importi delle tariffe = numeri del frammento della Schedule 1; punti = voce della
+    Schedule 6D; 11 pagine attese, nessuna in più; titoli ≤ 65 con l'anno, che cominciano con la frase misurata; descrizioni ≤ 160, tutti
+    diversi; sitemap, canonical, FAQPage, BreadcrumbList, avviso "Information, not migration advice" con gli agenti registrati (MARA), data
+    di lettura; ogni <q class="cit-av"> e ogni frase tra virgolette lunga è un frammento ufficiale (o un suo pezzo); ogni importo "AUD n"
+    delle pagine è scritto in un frammento; ogni pagina cita le sue letture; ogni FAQ è legata a una frase con volume; tabella dei punti
+    completa; calcolatore JS = calcola_av di genera.py (node, 400 casi) e dati del calcolatore = dati; collegamenti dalle pagine australiane;
+    pagine dell'esperimento A/B senza link. Riquadro: spento = nessuna traccia (né riquadro, né link, né nome, né privacy); acceso = solo
+    nelle pagine previste, una volta, prima delle FAQ, link = dati, rel="sponsored nofollow noopener", etichetta Affiliate, trasparenza,
+    nessun prezzo né promessa. Online: 6 frammenti a caso riletti e compilazione in vigore. Ritorna (errori, pagine, note)."""
+    import hashlib
+    import importlib.util
+    import os
+    import urllib.parse as up
+    errori, note = [], []
+    D = json.loads((SITO.parent / "dati" / "australia_visti.json").read_text(encoding="utf-8"))
+    A = json.loads((SITO.parent / "dati" / "affiliati.json").read_text(encoding="utf-8"))
+    errori += [f"40: {e}" for e in G.controlli_av()]
+    cont = {"url": {k: f["url"] for k, f in D["fonti"].items()}, "letture": D["letture"], "punti": D["punti"], "nomina": D["nomina"], "tariffe": D["tariffe"], "domanda": D["domanda"]}
+    if hashlib.sha256(json.dumps(cont, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20] != D["impronta"]:
+        errori.append("40: impronta di dati/australia_visti.json diversa dal contenuto")
+    ufficiali = ("homeaffairs.gov.au", "legislation.gov.au", "mara.gov.au")
+    for k, f in D["fonti"].items():
+        if f.get("http") != 200 or not re.fullmatch(r"[0-9a-f]{64}", f.get("sha256_testo") or "") or f.get("letto_il") != D["letto_il"]:
+            errori.append(f"40: fonte {k} senza HTTP 200, impronta o data di lettura")
+        host = up.urlsplit(f["url"]).netloc
+        if not f["url"].startswith("https://") or (not f.get("partner") and not host.endswith(ufficiali)):
+            errori.append(f"40: fonte {k} senza https o su un dominio non ufficiale ({host})")
+    L = D["letture"]
+    for k, v in L.items():
+        if "valore" in v and str(v["valore"]) not in re.findall(r"\d+", v["frammento"].replace(",", "")):
+            errori.append(f"40: valore di {k} ({v['valore']}) non scritto nel frammento")
+        if "elenco" in v and " ".join(v["elenco"]) != v["frammento"]:
+            errori.append(f"40: elenco di {k} diverso dal frammento")
+        if bool(D["fonti"][v["fonte"]].get("partner")) != k.startswith("me_"):
+            errori.append(f"40: lettura {k}: solo le letture me_* vengono dal sito del partner")
+    for visto, t in D["tariffe"].items():
+        for r in t["righe"]:
+            letti = [int(re.sub(r"[ ,]", "", x)) for x in re.findall(r"\$(\d{1,3}(?:[ ,]\d{3})*)", r["frammento"])]
+            if letti != r["importi"] or not letti or min(letti) < 100 or max(letti) > 20000:
+                errori.append(f"40: tariffa {visto}/{r['id']}: importi {r['importi']} diversi dal frammento o fuori misura")
+        if not any(r["id"] == "std" and r["dal_1_luglio"] for r in t["righe"]):
+            errori.append(f"40: tariffa {visto}: la riga principale non risulta fissata dal regolamento del 1° luglio")
+    if len(D["punti"]) != 28 or len(D["nomina"]) != 2 or {r["visto"]: r["punti"] for r in D["nomina"]} != {"190": 5, "491": 15}:
+        errori.append("40: righe della tabella dei punti diverse dalle attese (28 + 2 di nomina: 5 e 15)")
+    for r in D["punti"] + D["nomina"]:
+        if (r["punti"] > 0) != bool(r["legge"]):
+            errori.append(f"40: punti {r['id']}: una riga con punti deve avere la voce della Schedule 6D (e una da 0 no)")
+
+    def volume(frase):
+        return sum((D["domanda"]["query"].get(f"{p}|{frase}") or {}).get("volume") or 0 for p in D["domanda"]["paesi"])
+    attese = {G.SEZ_AV, G.SEZ_AV_CALC, G.SEZ_AV_TAR} | {f"{G.SEZ_AV}{v['id']}/" for v in G.PAG_AV}
+    trovate = {str(f.parent.relative_to(SITO)) + "/" for f in (SITO / G.SEZ_AV).rglob("index.html")}
+    if trovate != attese or len(attese) != 11:
+        errori.append(f"40: pagine diverse dalle 11 attese: in più {sorted(trovate - attese)}, mancanti {sorted(attese - trovate)}")
+    mappa = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    pezzi = set()
+    for k, v in L.items():
+        if not k.startswith("me_"):
+            pezzi.add(v["frammento"])
+            pezzi.update(v.get("elenco", []))
+    pezzi |= {r["frammento"] for t in D["tariffe"].values() for r in t["righe"]} | {r["parole"] for r in D["punti"] + D["nomina"]}
+    numeri_ok = {n for t in D["tariffe"].values() for r in t["righe"] for n in r["importi"]}
+    for v in L.values():
+        numeri_ok |= {int(x.replace(",", "")) for x in re.findall(r"(?:AUD|\$)\s?(\d{1,3}(?:,\d{3})+|\d+)", v["frammento"])}
+    frasi_titolo = {G.SEZ_AV: "australia visa", G.SEZ_AV_CALC: "australia pr points calculator", G.SEZ_AV_TAR: "australia visa fees",
+                    "189-visa/": "189 visa", "190-visa/": "190 visa", "491-visa/": "491 visa", "482-visa/": "482 visa", "student-visa-500/": "student visa australia",
+                    "working-holiday-visa/": "working holiday visa australia", "visitor-visa-600/": "visitor visa australia", "partner-visa/": "partner visa australia"}
+    frasi_titolo = {(k if k.startswith(G.SEZ_AV) else G.SEZ_AV + k): f for k, f in frasi_titolo.items()}
+    titoli, descr = {}, {}
+    per_id = {f"{G.SEZ_AV}{v['id']}/": v for v in G.PAG_AV}
+    acceso = G.ME_ATTIVO
+    con_box = set()
+    for p in sorted(attese & trovate):
+        t = leggi(p + "index.html")
+        tit = html.unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        de = html.unescape(re.search(r'<meta name="description" content="([^"]*)"', t).group(1))
+        if len(tit) > 65 or str(G.ANNO) not in tit or "Australia" not in tit:
+            errori.append(f"40: {p}: titolo oltre 65 caratteri, senza l'anno o senza Australia ({tit})")
+        fr_t = frasi_titolo.get(p)
+        if not fr_t or volume(fr_t) <= 0 or not tit.lower().startswith(fr_t):
+            errori.append(f"40: {p}: il titolo non comincia con la frase misurata «{fr_t}»")
+        if len(de) > 160 or len(de) < 90 or de.endswith("…"):
+            errori.append(f"40: {p}: descrizione fuori misura ({len(de)})")
+        titoli.setdefault(tit, []).append(p)
+        descr.setdefault(de, []).append(p)
+        if f"<loc>{G.URL_SITO}/{p}</loc>" not in mappa or f'rel="canonical" href="{G.URL_SITO}/{p}"' not in t or 'content="noindex' in t:
+            errori.append(f"40: {p}: fuori dalla sitemap, senza canonical o noindex")
+        if '"FAQPage"' not in t or '"BreadcrumbList"' not in t:
+            errori.append(f"40: {p}: FAQPage o BreadcrumbList mancanti")
+        if "Information, not migration advice." not in t or "registered migration agent" not in t or "MARA" not in t or "We are not registered migration agents" not in t:
+            errori.append(f"40: {p}: avviso «Information, not migration advice» con gli agenti registrati (MARA) mancante")
+        if f"read on {G.data_lunga(D['letto_il'])}" not in t:
+            errori.append(f"40: {p}: nessuna data di lettura della fonte")
+        if t.count("<h1") != 1:
+            errori.append(f"40: {p}: {t.count('<h1')} h1")
+        main = t.split('<main id="main">', 1)[1].split("</main>", 1)[0]
+        box = _RE_BOX_ME.findall(main)
+        senza_box = _RE_BOX_ME.sub("", main)
+        cit = [html.unescape(q) for q in re.findall(r'<q class="cit-av">(.*?)</q>', main, re.S)]
+        if len(cit) < 8:
+            errori.append(f"40: {p}: meno di 8 citazioni ufficiali ({len(cit)})")
+        for q in cit:
+            if q not in pezzi:
+                errori.append(f"40: {p}: citazione che non è un frammento ufficiale: {q[:60]}")
+        testo = html.unescape(re.sub(r"<[^>]+>", " ", re.sub(r"<(script|style|svg)\b.*?</\1>", " ", senza_box, flags=re.S)))
+        testo_ld = ""
+        for b in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t, re.S):
+            j = json.loads(b)
+            if isinstance(j, dict) and j.get("@type") == "FAQPage":
+                testo_ld += html.unescape(" ".join(x["name"] + " " + x["acceptedAnswer"]["text"] for x in j["mainEntity"]))
+        for q in re.findall(r"“([^”]{30,})”", testo + " " + testo_ld):
+            q = re.sub(r"\s+", " ", q).strip()
+            if not any(q in fr for fr in pezzi):
+                errori.append(f"40: {p}: frase tra virgolette che non è nei frammenti ufficiali: {q[:70]}")
+        for n in re.findall(r"AUD\s?(\d{1,3}(?:,\d{3})+|\d+)", testo + " " + testo_ld + " " + de):
+            if int(n.replace(",", "")) not in numeri_ok:
+                errori.append(f"40: {p}: importo AUD {n} che non è scritto in nessun frammento ufficiale")
+        for url in re.findall(r'<a href="(https?://[^"]+)"', senza_box):
+            host = up.urlsplit(html.unescape(url)).netloc
+            if not host.endswith(ufficiali):
+                errori.append(f"40: {p}: link esterno a un dominio non ufficiale ({host})")
+        if 'rel="sponsored' in senza_box:
+            errori.append(f"40: {p}: link di affiliazione fuori dal riquadro")
+        n_faq = len(re.findall(r'"@type": ?"Question"', t))
+        faq_attese = G.FAQ_AV.get(p, [])
+        if n_faq != len(faq_attese) or n_faq < 4:
+            errori.append(f"40: {p}: {n_faq} domande nel JSON-LD, attese {len(faq_attese)} (almeno 4)")
+        for f in faq_attese:
+            if volume(f) <= 0:
+                errori.append(f"40: {p}: FAQ legata a una frase senza volume misurato ({f})")
+        pulito = html.unescape(main)
+        v = per_id.get(p)
+        if v:
+            for b in v["blocchi"]:
+                for k in b[2]:
+                    for x in (L[k].get("elenco") or [L[k]["frammento"]]):
+                        if x not in pulito:
+                            errori.append(f"40: {v['id']}: lettura {k} non citata nella pagina")
+            if G.entro(v["titoli"], 65) != tit:
+                errori.append(f"40: {p}: titolo diverso dalla prima variante entro 65 caratteri")
+            if "The answer in short" not in main or main.index("The answer in short") > main.index("What Home Affairs asks"):
+                errori.append(f"40: {p}: la risposta in breve non è prima delle citazioni")
+            for x in v["visti"]:
+                for r in D["tariffe"][x]["righe"]:
+                    if r["frammento"] not in pulito or any(f"AUD {n:,}" not in pulito for n in r["importi"]):
+                        errori.append(f"40: {p}: riga di tariffa {x}/{r['id']} senza frammento o senza importi")
+        # riquadro
+        pid = {G.SEZ_AV: "indice", G.SEZ_AV_CALC: "pr-points-calculator", G.SEZ_AV_TAR: "visa-fees"}.get(p) or p[len(G.SEZ_AV):-1]
+        if not acceso:
+            if box or "migration expert" in t.lower() or "migrationexpert" in t.lower() or 'id="aff-me-h"' in t:
+                errori.append(f"40: {p}: riquadro spento ma la pagina contiene il riquadro, il nome o un link del partner")
+        else:
+            if (pid in G.PAGINE_ME) != (len(box) == 1) or len(box) > 1:
+                errori.append(f"40: {p}: riquadro presente/assente in modo diverso da _migration_expert.pagine")
+            if box:
+                con_box.add(pid)
+                b = box[0]
+                link = [html.unescape(u) for u in re.findall(r'<a [^>]*href="(https?://[^"]+)"', b)]
+                if link != [G.URL_ME] or 'rel="sponsored nofollow noopener"' not in b or 'target="_blank"' not in b:
+                    errori.append(f"40: {p}: link del riquadro diverso dai dati o senza rel=\"sponsored nofollow noopener\"")
+                if '<span class="aff-tag">Affiliate</span>' not in b or G.MON.RIGA_EN not in b or "We have not used its service" not in b:
+                    errori.append(f"40: {p}: riquadro senza etichetta Affiliate, riga di trasparenza o avvertenza")
+                if re.search(r"AUD|\$\s?\d|€|guarantee|best |cheapest|success rate|approved|discount", b, re.I):
+                    errori.append(f"40: {p}: prezzo o promessa nel riquadro")
+                if main.index('id="aff-me-h"') > main.index("Questions people ask") or main.index('id="aff-me-h"') < main.index("Who can help with an application"):
+                    errori.append(f"40: {p}: riquadro fuori posto (deve stare dopo le parole ufficiali e prima delle FAQ)")
+                if "migration expert" in (senza_box + t.split('<main id="main">', 1)[0] + t.split("</main>", 1)[1]).lower():
+                    errori.append(f"40: {p}: nome del partner fuori dal riquadro")
+    for d, nome in ((titoli, "titolo"), (descr, "descrizione")):
+        for x, pp in d.items():
+            if len(pp) > 1:
+                errori.append(f"40: {nome} uguale in {pp}")
+    if acceso and con_box != set(G.PAGINE_ME):
+        errori.append(f"40: riquadro acceso in {sorted(con_box)} invece di {sorted(G.PAGINE_ME)}")
+    me = A.get("_migration_expert", {})
+    if bool(me.get("attivo")) != acceso or (acceso and me.get("url") != G.URL_ME):
+        errori.append("40: interruttore _migration_expert e genera.ME_ATTIVO non coincidono (link mancante o dominio non ammesso?)")
+    priv = leggi("privacy.html")
+    if ("Migration Expert" in priv) != acceso:
+        errori.append("40: privacy non coerente con l'interruttore _migration_expert")
+    if not acceso:
+        for f in SITO.rglob("*.html"):
+            x = f.read_text(encoding="utf-8").lower()
+            if "migrationexpert" in x or 'id="aff-me-h"' in x:
+                errori.append(f"40: riquadro spento ma {f.relative_to(SITO)} contiene un link o il riquadro del partner")
+    note.append(f"Migration Expert {'acceso' if acceso else 'spento'}: {len(con_box)} pagine con il riquadro")
+    # tabella dei punti completa nella pagina del calcolatore; dati del calcolatore = dati
+    tc = leggi(G.SEZ_AV_CALC + "index.html")
+    for r in D["punti"] + D["nomina"]:
+        if f'<q class="cit-av">{html.escape(r["parole"])}</q></td><td class="n"><strong>{r["punti"]}</strong>' not in tc:
+            errori.append(f"40: calcolatore: riga {r['id']} ({r['punti']} punti) non in tabella con le parole ufficiali")
+        if r["legge"] and f"Schedule 6D, item {r['voce']}" not in tc:
+            errori.append(f"40: calcolatore: riga {r['id']} senza la voce della Schedule 6D")
+    for f in ("pts189", "pts190", "pts491", "reg3"):
+        if html.escape(D["fonti"][f].get("pubblico") or D["fonti"][f]["url"]) not in tc:
+            errori.append(f"40: calcolatore: manca il link alla fonte {f}")
+    m = re.search(r"data-punti-au data-k='([^']*)'", tc)
+    K = json.loads(html.unescape(m.group(1))) if m else {}
+    if not K or K.get("punti") != {r["id"]: r["punti"] for r in D["punti"]} or K.get("nomina") != {"189": 0, "190": 5, "491": 15} or K.get("soglia") != 65 or K.get("tetto") != 20:
+        errori.append("40: calcolatore: i dati scritti nella pagina non sono quelli di dati/australia_visti.json")
+    else:
+        random.seed(40)
+        per_cat = lambda c: [r["id"] for r in D["punti"] if r["categoria"] == c]
+        casi = []
+        for _ in range(400):
+            si = tuple(x for x in ("spec", "studio_au", "anno_prof", "lingua", "regionale") if random.random() < 0.4)
+            casi.append({"visto": random.choice(["189", "190", "491"]), "eta": random.choice(per_cat("eta") + ["no"]), "inglese": random.choice(per_cat("inglese") + ["no"]),
+                         "estero": random.choice(per_cat("estero")), "australia": random.choice(per_cat("australia")), "titolo": random.choice(per_cat("titolo") + [""]),
+                         "partner": random.choice(per_cat("partner") + [""]), **{x: "si" for x in si}})
+        with tempfile.NamedTemporaryFile("w", suffix=".js", delete=False, encoding="utf-8") as fh:
+            fh.write("var window={},document={querySelectorAll:function(){return [];}};\n" + G.PUNTI_AV_JS +
+                     f"\nvar K={json.dumps(K)},C={json.dumps(casi)};console.log(JSON.stringify(C.map(function(d){{var x=window.CALC_PUNTI_AU.calcola(K,d);return x.no?null:x.tot;}})));")
+        r = subprocess.run(["node", fh.name], capture_output=True, text=True, timeout=120)
+        os.unlink(fh.name)
+        try:
+            js = json.loads(r.stdout)
+        except ValueError:
+            js = None
+            errori.append(f"40: calcolatore: node non ha dato un risultato ({r.stderr[:120]})")
+        if js is not None:
+            for d, x in zip(casi, js):
+                py = G.calcola_av(d["visto"], None if d["eta"] == "no" else d["eta"], None if d["inglese"] == "no" else d["inglese"], d["estero"], d["australia"],
+                                  d["titolo"], tuple(k for k in ("spec", "studio_au", "anno_prof", "lingua", "regionale") if d.get(k) == "si"), d["partner"])
+                if (py[0] if py else None) != x:
+                    errori.append(f"40: calcolatore: JS {x} diverso da Python {py and py[0]} per {d}")
+                    break
+            note.append(f"calcolatore: {len(casi)} casi JS = Python; massimo {max(x for x in js if x is not None)} punti")
+    # pagina delle tariffe: tutte le voci
+    tt = html.unescape(leggi(G.SEZ_AV_TAR + "index.html"))
+    for visto, t in D["tariffe"].items():
+        for r in t["righe"]:
+            if r["frammento"] not in tt or any(f"AUD {n:,}" not in tt for n in r["importi"]):
+                errori.append(f"40: tariffe: riga {visto}/{r['id']} senza frammento o importi")
+    # collegamenti dalle pagine australiane; pagine dell'esperimento intatte
+    for p in ("", G.SEZ_AU, G.SEZ_TEMPI_CER):
+        if G.SEZ_AV_CALC not in leggi(p + "index.html"):
+            errori.append(f"40: {p or 'home'}: manca il link alla sezione")
+    for f in (SITO / "visa-refusal-rates").glob("*/index.html"):
+        if f.parent.name != "australia-visas" and G.SEZ_AV_CALC in f.read_text(encoding="utf-8"):
+            errori.append(f"40: {f.parent.relative_to(SITO)}: link alla sezione in una pagina dei rifiuti che non è quella australiana")
+    note.append("frasi misurate con volume: " + str(sum(1 for q in {k.split('|', 1)[1] for k in D['domanda']['query']} if volume(q) > 0))
+                + f" su {len({k.split('|', 1)[1] for k in D['domanda']['query']})} (misura del {D['domanda']['data']})")
+    if online:
+        spec = importlib.util.spec_from_file_location("au_visti_racc", SITO.parent / "raccolta" / "australia_visti.py")
+        R = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(R)
+        random.seed()
+        scelte = random.sample(sorted(k for k in L if not k.startswith("me_")), 6)
+        cache = {}
+
+        def testo_fonte(fk):
+            if fk not in cache:
+                st, b = R.get(D["fonti"][fk]["url"], tentativi=2)
+                cache[fk] = R.testo(b, bool(R.FONTI[fk].get("legge"))) if st == 200 else None
+            return cache[fk]
+        for k in scelte:
+            x = testo_fonte(L[k]["fonte"])
+            if x is None:
+                avviso(40, f"{k}: fonte {L[k]['fonte']} non raggiungibile ora")
+            elif L[k]["frammento"] not in x:
+                errori.append(f"40: frammento {k} non più presente in {L[k]['fonte']}: rileggere la fonte")
+        x = testo_fonte("reg_ultima")
+        if x is not None and D["compilazione"]["id"] not in x:
+            errori.append(f"40: la compilazione in vigore delle Migration Regulations non è più la {D['compilazione']['id']}: rilanciare raccolta/australia_visti.py e rileggere")
+        note.append(f"riletti online: {len(scelte)} frammenti; compilazione in vigore {'= ' + D['compilazione']['id'] if x and D['compilazione']['id'] in x else 'non controllata'}")
+    return errori, len(trovate), note
+
+
 def main():
     errori = controlla_esempi()
     print(f"1. Esempi a mano: {len(ESEMPI)} importi e {len(ESITI)} confronti con il reddito, {len(errori)} errori")
@@ -6070,7 +6345,13 @@ def main():
           f"trasparenza, nessun prezzo né promessa, nessun widget, nessun riquadro doppio, colonna dell'indice senza link, privacy: {len(e39)} errori")
     for x in r39:
         print("    ·", x)
-    tutti = errori +e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31 + e32 + e33 + e34 + e35 + e36 + e37 + e38 + e39
+    e40, n40, r40 = controlla_av(online="--offline" not in sys.argv)
+    print(f"40. Australia visas (sezione del 18/11/2026) e riquadro Migration Expert (interruttore {'acceso' if G.ME_ATTIVO else 'spento'}): {n40} pagine, impronta e fonti ufficiali "
+          f"(Home Affairs, Federal Register of Legislation), punti = Schedule 6D, importi = frammenti della Schedule 1, citazioni = frammenti, calcolatore JS = Python, "
+          f"titoli sulle frasi misurate, FAQ con volume, avviso (MARA), sitemap, collegamenti, riquadro: {len(e40)} errori")
+    for x in r40:
+        print("    ·", x)
+    tutti = errori +e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31 + e32 + e33 + e34 + e35 + e36 + e37 + e38 + e39 + e40
     if AVVISI:  # fonti che rispondono non-200 o con una pagina anti-robot (controllo 28): non sono errori
         per_punto = {}
         for k, _ in AVVISI:

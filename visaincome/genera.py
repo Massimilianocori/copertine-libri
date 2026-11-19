@@ -79,7 +79,7 @@ def ci_sono_affiliati():
     """True se il sito pubblica almeno un link di affiliazione (voce con "url" in dati/affiliati.json e il link SafetyWing delle pagine dei rifiuti):
     accende la sezione privacy sui link di affiliazione. Domini ammessi in monetizzazione.json, controlli in verifica.py."""
     return (any(isinstance(v, dict) and v.get("url") for k, v in AFFILIATI.items() if not k.startswith("_")) or bool(URL_SAFETYWING) or HS_ATTIVO
-            or AL_ATTIVO or WISE_ATTIVO or GK_ATTIVO)
+            or AL_ATTIVO or WISE_ATTIVO or GK_ATTIVO or ME_ATTIVO)
 
 
 def riquadro_trasparenza(corpo, lingua="en"):
@@ -1324,6 +1324,7 @@ def box_al(percorso):
 # «Moving money for your visa?»: nessun prezzo, commissione o tasso nella pagina (si rimanda al sito di Wise), nessuna promessa sul visto,
 # e la frase che non sappiamo se un consolato accetta gli estratti conto Wise. Solo pagine inglesi in indice che parlano di soldi in
 # un'altra valuta (in_wise); mai pagine fuori indice, pagine dell'esperimento /visa-refusal-rates/ o sezioni es/pt. Controllo 36 di verifica.py.
+SEZ_AV = "australia-visas/"   # sezione del 18/11/2026 (in fondo al file): punti, tariffe e requisiti dei visti australiani
 SEZ_ASS_DE = "germany-health-insurance/"   # sezione del 14/11/2026 (in fondo al file): serve prima per i collegamenti
 _WISE = AFFILIATI.get("_wise", {})
 URL_WISE = _WISE.get("url", "")
@@ -1595,6 +1596,9 @@ def home():
 <h2>Italy 7% flat tax for foreign pensioners</h2>
 <p class="lead">A person with a foreign pension who moves to a town of up to {intero(SOGLIA_F7)} inhabitants in southern Italy or in the earthquake areas can pay 7% on foreign income for ten years (article 24-ter of the income tax code, read on {data_lunga(LETTO_F7)}). Check any town against ISTAT's population figure for the year that counts.</p>
 <p><a href="{SEZ_F7}">Italy 7% flat tax: rules and town check</a> · <a href="{SEZ_F7}regions/">7% tax regions and earthquake towns</a></p>
+<h2>Australia visas: points, fees and requirements</h2>
+<p class="lead">Add up your points for the Australian skilled visas (subclass 189, 190 and 491) with the rows of the official points table, and see the visa application charges set from {data_lunga(DAL_AV)}: {aud(base_av("600"))} for a Visitor visa, {aud(base_av("500"))} for a Student visa, {aud(base_av("189"))} for a Skilled Independent visa (Migration Regulations 1994, read on {data_lunga(LETTO_AV)}).</p>
+<p><a href="{SEZ_AV_CALC}">Australia PR points calculator</a> · <a href="{SEZ_AV_TAR}">Australia visa fees {ANNO_FIN_AV}</a> · <a href="{SEZ_AV}">All Australian visas</a> · {" · ".join(f'<a href="{perc_av(v)}">{escape(v["nome"])}</a>' for v in PAG_AV)}</p>
 <h2>Australian citizenship ceremony wait times</h2>
 <p class="lead">On {data_lunga(AL_CER)}, {intero(media_cer(RIGHE_CER)[0])} people approved for Australian citizenship were waiting for a ceremony in {len(RIGHE_CER)} council areas (Department of Home Affairs, published {data_lunga(PUB_CER)}). Search your council, and see the official processing times for the whole application.</p>
 <p><a href="{SEZ_CER}">Citizenship ceremony wait times by council</a> · <a href="{SEZ_TEMPI_CER}">Australian citizenship processing time</a> · {" · ".join(f'<a href="{SEZ_CER}{SLUG_CER[r[0]]}/">{escape(nome_cer(r, True))}</a>' for r in PAG_CER[:6])}</p>
@@ -1847,6 +1851,10 @@ def privacy():
                    "health insurance in Germany section: our site sets no cookie for them, but if you click one you go to ottonova's website through its affiliate network, "
                    "Awin, which uses its own cookies under its own privacy policy and tells ottonova that you came from us. Taking out a policy does not decide your visa "
                    "or residence permit.</p>")
+    if cookie and ME_ATTIVO:
+        cookie += ("\n<p>Affiliate links to Migration Expert (a company of registered migration agents) appear in the box marked “Affiliate” on some pages of the "
+                   "Australia visas section: our site sets no cookie for them, but if you click one you go to Migration Expert's website, which uses its own cookies under its "
+                   "own privacy policy and learns that you came from us. Using an agent does not decide your visa.</p>")
     if cookie and GK_ATTIVO:
         cookie += ("\n<p>Affiliate links to Genki (a company that sells health insurance for travellers and digital nomads) appear in the box marked “Affiliate” on the "
                    "Portugal D8 health insurance page and on the Italy, Croatia and Hungary digital nomad visa pages: our site sets no cookie for them and loads no "
@@ -3909,7 +3917,7 @@ def pagina_rif_au():
 <li><a href="{escape(F_AUT["url"])}" rel="noopener">{escape(F_AUT["titolo"])}</a> – Department of Home Affairs, PDF, downloaded on {data_lunga(F_AUT["scaricato_il"])}. Licence: {lic_link(F_AUT)} (<a href="{escape(F_AUT["copyright"])}" rel="noopener">copyright and disclaimer</a>).</li>
 <li><a href="{escape(F_AUC["url"])}" rel="noopener">{escape(F_AUC["titolo"])}</a> – Department of Home Affairs on data.gov.au, XLSX, downloaded on {data_lunga(F_AUC["scaricato_il"])}, {lic_link(F_AUC)} (used only to check that each visitor visa rate rests on at least {intero(SOGLIA_ALTRI)} decisions).</li></ul>
 <p><a href="../">Schengen visa refusal rates</a> · <a href="../uk/">UK visa refusal rates by nationality</a> · <a href="../new-zealand-visas/">New Zealand</a> · <a href="../canada-visas/">Canada</a> · <a href="{rel}">Visa income calculator</a></p>
-<p class="small">{ico("check")} Becoming an Australian citizen? See <a href="{rel}{SEZ_CER}">citizenship ceremony wait times by council</a> and the <a href="{rel}{SEZ_TEMPI_CER}">official citizenship processing time</a>.</p>"""
+<p class="small">{ico("check")} Becoming an Australian citizen? See <a href="{rel}{SEZ_CER}">citizenship ceremony wait times by council</a> and the <a href="{rel}{SEZ_TEMPI_CER}">official citizenship processing time</a>.</p>{link_av(rel)}"""
     ld = {"@context": "https://schema.org", "@type": "Dataset", "name": f"Australia student visa refusal rates by nationality {AU_A1}",
           "description": "Australian student visa (subclass 500) refusal rates by citizenship, financial year, month and education sector, and visitor visa grant rates, recalculated from Department of Home Affairs files.",
           "url": f"{URL_SITO}/{SEZ_AU}", "creator": {"@type": "Organization", "name": NOME, "url": URL_SITO + "/"},
@@ -6294,12 +6302,17 @@ for _f in ("domanda_temi", "domanda"):
             SUGG_DTV.setdefault(_s, (_f, _k))
 FAQ_DTV = {}    # percorso -> [(fonte, chiave, suggerimento, domanda)]
 NOMI_TEMI_DTV = {
-    "londra_dtv": "Royal Thai Embassy, London: Destination Thailand Visa",
-    "londra_info": "Royal Thai Embassy, London: Visa General Information",
+    "londra_dtv": "Royal Thai Embassy, London: Destination Thailand Visa (DTV) for Workcation",
+    "londra_dtv_sp": "Royal Thai Embassy, London: DTV for Soft Power Activities",
+    "londra_dtv_fam": "Royal Thai Embassy, London: DTV for Dependents",
+    "londra_info": "Royal Thai Embassy, London: Thai E-Visa Information",
+    "londra_come": "Royal Thai Embassy, London: How to Apply for a Thai E-Visa",
+    "londra_req": "Royal Thai Embassy, London: Visa Categories and Requirements",
     "londra_tariffe": "Royal Thai Embassy, London: Visa Fees",
-    "londra_pensione": "Royal Thai Embassy, London: Retirement Visa",
-    "londra_studio": "Royal Thai Embassy, London: Education Visa",
-    "londra_ltr": "Royal Thai Embassy, London: Long Term Resident Visa",
+    "londra_pensione": "Royal Thai Embassy, London: Non-Immigrant Visa (O-A) for Retirement",
+    "londra_ox": "Royal Thai Embassy, London: Non-Immigrant Visa (O-X) for Retirement",
+    "londra_studio": "Royal Thai Embassy, London: Non-Immigrant Visa (ED) to Study a Short Course",
+    "londra_ltr": "Royal Thai Embassy, London: Long-Term Resident Visa (LTR)",
     "boi_ltr": "Thailand Board of Investment (BOI): LTR Visa",
     "privilege": "Thailand Privilege Card Co., Ltd.: Bronze membership",
     "privilege_chi": "Thailand Privilege Card Co., Ltd.: Who We Are",
@@ -6332,7 +6345,7 @@ SALDO_THB_DTV = 500000
 # attività "soft power" nominate dalle sedi: nome, espressione cercata nei frammenti (controllo 18 ricalcola i conteggi)
 ATTIVITA_DTV = [("Muay Thai", r"muay ?thai"), ("Thai cooking or culinary training", r"cooking|culinary"), ("Medical treatment", r"medical"),
                 ("Sports training", r"sport"), ("Seminars", r"seminar"), ("Music festivals", r"music festival")]
-FONTI_ATTIVITA_DTV = [("londra_dtv", "dtv2"), ("washington_dtv", "dtv2"), ("budapest_dtv", "attivita"), ("phnompenh_dtv", "attivita"),
+FONTI_ATTIVITA_DTV = [("londra_dtv_sp", "dtv2"), ("washington_dtv", "dtv2"), ("budapest_dtv", "attivita"), ("phnompenh_dtv", "attivita"),
                       ("telaviv_dtv", "attivita"), ("canberra_dtv", "attivita"), ("hcm_dtv", "attivita"), ("savannakhet_dtv", "attivita")]
 
 
@@ -6487,18 +6500,18 @@ def pagina_dtv_costo():
 <p class="fonte">Source: the official page linked in each row (websites of the Royal Thai Embassies and Consulates-General, Ministry of Foreign Affairs of Thailand), read on {data_lunga(LETTO_DTV)}. The consulates in Los Angeles, New York and Chicago give the amount in a fee table without a currency sign. Egyptian pounds have no ECB reference rate.</p>
 <p class="small">{len(senza)} other missions have a DTV page that does not write the fee in its text ({", ".join(escape(L["sede"]) for L in sorted(senza, key=lambda L: L["sede"]))}): the e-Visa system shows it when you apply. See the <a href="../#table">table of all embassies</a> for their residence rules.</p>
 <h2>What the fee pays for</h2>
-<ul class="testo"><li>One visa for the three DTV purposes: remote work, Thai soft power activities and the spouse and children of a DTV holder. London lists one fee for a visa with {qt("londra_dtv", "validita")}, and the Consulate-General in Los Angeles lists the same amount, {num_tabella("la_tariffe", "dtv1")} (US dollars; its table has no currency sign), for each of the three purposes.</li>
-<li>{qt("londra_dtv", "soggiorno")}; the stay can be extended once, {qt("londra_dtv", "estensione")} (London). See <a href="../duration-and-extension/">DTV duration and extension</a>.</li></ul>
+<ul class="testo"><li>One visa for the three DTV purposes: remote work, Thai soft power activities and the spouse and children of a DTV holder. London lists one fee for the visa ({qt("londra_dtv", "validita")}), and the Consulate-General in Los Angeles lists the same amount, {num_tabella("la_tariffe", "dtv1")} (US dollars; its table has no currency sign), for each of the three purposes.</li>
+<li>{qt("londra_dtv", "soggiorno")}; the stay can be extended once: {qt("londra_dtv", "estensione")} (London). See <a href="../duration-and-extension/">DTV duration and extension</a>.</li></ul>
 {fonte_temi_p(["londra_dtv", "la_tariffe"])}
 <h2>Payment and refunds</h2>
-<ul class="testo"><li>The Embassy in London writes that {qt("londra_info", "rimborso")}, and that {qt("londra_info", "non_garantito")}.</li>
+<ul class="testo"><li>The Embassy in London writes that {qt("londra_come", "non_garantito")}, and that {qt("londra_come", "rimborso")}; its DTV page gives the fee as {qt("londra_dtv", "tariffa")}.</li>
 {"".join(f'<li>{escape(L["sede"])}: {escape(L["costo"]["nota"])}.</li>' for L in pagamento)}</ul>
-{fonte_temi_p(["londra_info"])}
+{fonte_temi_p(["londra_come", "londra_dtv"])}
 <h2 id="extension-fee">Is there a fee for the extension of stay?</h2>
-<p>None of the DTV pages we read gives a fee for the 180-day extension. Extensions are made in Thailand, at the Immigration Bureau, not at the embassy: {qt("londra_dtv", "contatto_estensione")} (London). Check the fee with the Immigration Bureau when you apply.</p>
+<p>None of the DTV pages we read gives a fee for the 180-day extension. Extensions are made in Thailand, at the Immigration Bureau, not at the embassy: {qt("londra_dtv", "estensione")} (London). Check the fee with the Immigration Bureau when you apply.</p>
 <h2>Other costs</h2>
-<p>The pages also ask for documents that usually cost money, but they do not give amounts: a police clearance certificate ({qt("londra_dtv", "doc_polizia")}) and translations (documents issued outside Thailand and the UK {qt("londra_dtv", "traduzioni")}). See <a href="../requirements/">all DTV requirements</a>.</p>
-{fonte_temi_p(["londra_dtv"])}
+<p>The pages also ask for documents that usually cost money, but they do not give amounts: a police clearance certificate ({qt("londra_dtv", "doc_polizia")}) and translations (London: {qt("londra_req", "lingua")}; {qt("londra_req", "traduzioni")}). See <a href="../requirements/">all DTV requirements</a>.</p>
+{fonte_temi_p(["londra_dtv", "londra_req"])}
 {box_assicurazione_dtv("../../")}"""
     vie, was = L_dtv("vientiane"), L_dtv("washington-dc")
     hcm = L_dtv("ho-chi-minh-city")
@@ -6512,7 +6525,7 @@ def pagina_dtv_costo():
         ("muay thai dtv visa cost", "Does the DTV for Muay Thai cost the same?",
          f"Yes. The fee does not change with the purpose: the Consulate-General in Los Angeles lists {num_tabella('la_tariffe', 'dtv2')} (US dollars) for soft power activities such as Muay Thai, the same as for remote work and for family members, and London lists one fee of {costo_dtv(lon['costo'])}."),
         ("thailand dtv visa application fee", "Is the DTV application fee refunded if the visa is refused?",
-         f"No. The Embassy in London writes that \"{ft('londra_info', 'rimborso')}\". Paying the fee does not mean the visa will be granted."),
+         f"No. The Embassy in London writes that \"{ft('londra_come', 'rimborso')}\". Paying the fee does not mean the visa will be granted."),
         ("dtv visa thailand extension fee", "How much is the DTV extension fee?",
          "None of the DTV pages we read gives it. The 180-day extension is made at the Immigration Bureau in Thailand, which sets its own fee."),
         ("dtv visa cost vietnam", "How much is the DTV visa in Vietnam?",
@@ -6552,13 +6565,14 @@ ESENZIONE_PAESE_DTV = {
 def pagina_dtv_requisiti():
     slug = "requirements"
     lon = L_dtv("london")
-    docs = [("Passport", "doc_passaporto", (1, 1, 1)), ("Photo", "doc_foto", (1, 1, 1)), ("Proof of permanent residence where you apply", "doc_residenza", (1, 1, 1)),
-            ("Money (financial evidence)", "doc_fondi", (1, 1, 1)), ("Proof of remote work or freelance status", "doc_lavoro", (1, 0, 0)),
-            ("Proof you will attend the activity or treatment", "doc_attivita", (0, 1, 0)), ("Police clearance certificate", "doc_polizia", (1, 1, 1)),
-            ("The DTV of the main holder", "doc_visto_titolare", (0, 0, 1)), ("Proof of your relationship to the DTV holder", "doc_famiglia", (0, 0, 1))]
+    d_, sp_, fam_ = "londra_dtv", "londra_dtv_sp", "londra_dtv_fam"   # Londra, dal 18/11/2026: una pagina per scopo
+    docs = [("Passport", d_, "doc_passaporto", (1, 1, 1)), ("Photo", d_, "doc_foto", (1, 1, 1)), ("Citizenship or permanent residence where you apply", d_, "doc_residenza", (1, 1, 1)),
+            ("Money (financial evidence)", d_, "doc_fondi", (1, 1, 1)), ("Proof of remote work or freelance status", d_, "doc_lavoro", (1, 0, 0)),
+            ("Proof you will attend the activity or treatment", sp_, "doc_attivita", (0, 1, 0)), ("Police clearance certificate", d_, "doc_polizia", (1, 1, 1)),
+            ("The DTV of the main holder", fam_, "doc_visto_titolare", (0, 0, 1)), ("Proof of your relationship to the DTV holder", fam_, "doc_famiglia", (0, 0, 1))]
     si = '<td class="n">Yes</td>'
     no = '<td class="n">–</td>'
-    righe = "".join(f'<tr><th scope="row">{escape(n)}</th><td class="small">{qt("londra_dtv", k)}</td>{"".join(si if x else no for x in v)}</tr>' for n, k, v in docs)
+    righe = "".join(f'<tr><th scope="row">{escape(n)}</th><td class="small">{qt(t_, k)}</td>{"".join(si if x else no for x in v)}</tr>' for n, t_, k, v in docs)
     sg, hcm = L_dtv("singapore"), L_dtv("ho-chi-minh-city")
     sg_banca = next(a for a in sg.get("altre", []) if "bank" in a["frammento"])
     righe_naz = ""
@@ -6569,18 +6583,18 @@ def pagina_dtv_requisiti():
         righe_naz += (f'<tr><th scope="row">{escape(chi)}</th><td>{escape(paese_art(paese))}</td><td class="small">{"<br>".join(miss) or "no Thai mission on the list"}</td>'
                       f'<td class="small">{escape(ESENZIONE_PAESE_DTV.get(paese, "Not checked on this site: ask the Thai embassy"))}</td></tr>')
     lead = (f'To apply for a DTV you upload your passport, a photo taken in the last six months, proof of permanent residence in the country where you apply, '
-            f'financial evidence of at least 500,000 baht, a police clearance certificate and proof of your purpose (remote work, a soft power activity such as Muay Thai, '
-            f'or your family link to a DTV holder), according to the Royal Thai Embassy in London (page updated {data_lunga(TEMI_DTV["londra_dtv"]["modificata"])}) '
+            f'financial evidence (at least 500,000 baht on most pages; £12,000 in London), a police clearance certificate and proof of your purpose (remote work, a soft power activity such as Muay Thai, '
+            f'or your family link to a DTV holder), according to the Royal Thai Embassy in London (pages updated {data_lunga(TEMI_DTV["londra_dtv"]["modificata"])}) '
             f'and the other official pages we read on {data_lunga(LETTO_DTV)}.')
     riassunto = riassunto_dtv("Documents for a remote-work DTV (London)", "6",
                               [("500,000 baht", "money to show, usually 3 months of bank statements"), ("31 Aug 2026", "proof of permanent residence and police certificate required since"),
                                ("15 working days", "processing time in London"), ("90 days", "earliest you can apply before travel (London)")],
                               fonte_temi_p(["londra_dtv", "londra_info"]))
     corpo = f"""<h2 id="documents">DTV documents by purpose</h2>
-<p class="small">The list of the Royal Thai Embassy in London, in its own words. Other missions ask for the same documents with small differences (below). "Yes" means the London page lists the document for that purpose.</p>
+<p class="small">The lists of the Royal Thai Embassy in London, in its own words (it has one page for each purpose). Other missions ask for the same documents with small differences (below). "Yes" means the London page lists the document for that purpose.</p>
 <div class="tab compatta"><table id="t-documenti"><caption class="sr">Documents for the Thailand DTV visa by purpose</caption><thead><tr><th scope="col">Document</th><th scope="col">Official wording (London)</th><th scope="col" class="n">Remote work</th><th scope="col" class="n">Soft power</th><th scope="col" class="n">Spouse or child</th></tr></thead><tbody>{righe}</tbody></table></div>
-<p>All documents issued outside Thailand and the UK {qt("londra_dtv", "traduzioni")}. Missions can ask for more documents or an interview.</p>
-{fonte_temi_p(["londra_dtv"])}
+<p>London writes that {qt("londra_req", "lingua")}; {qt("londra_req", "traduzioni")}. Missions can ask for more documents or an interview.</p>
+{fonte_temi_p(["londra_dtv", "londra_dtv_sp", "londra_dtv_fam", "londra_req"])}
 <h2>How missions differ</h2>
 <ul class="testo"><li>Police certificate: London asks for a {qt("londra_dtv", "doc_polizia")}; Washington for a {qt("washington_dtv", "polizia")}.</li>
 <li>Passport: Washington asks for a {qt("washington_dtv", "passaporto")}.</li>
@@ -6593,7 +6607,7 @@ def pagina_dtv_requisiti():
 <h2 id="income">Is there an income requirement?</h2>
 <p>The DTV pages we read ask for money in the bank, not for a minimum monthly income: usually at least 500,000 baht, shown with bank statements. London writes {qt("londra_dtv", "doc_fondi")}. Remote workers also show an employment contract or a portfolio ({qt("londra_dtv", "doc_lavoro")}). See <a href="../proof-of-funds/">DTV proof of funds</a> for the amount each mission writes.</p>
 <h2 id="by-nationality">Requirements by nationality: where you apply</h2>
-<p>Where you live decides the mission: since 31 August 2026 you apply at the Thai embassy or consulate for the country where you have permanent residence. Non-citizens of that country must add proof of their immigration status: London writes {qt("londra_dtv", "non_cittadini")}, namely {qt("londra_dtv", "brp")} and {qt("londra_dtv", "datore")}; Washington asks non-US citizens for {qt("washington_dtv", "green_card")}. The table shows, for the nationalities people search for most, the Thai missions in their home country and what their DTV page says. If you live permanently in another country, apply there.</p>
+<p>Where you live decides the mission: since 31 August 2026 you apply at the Thai embassy or consulate for the country where you have permanent residence. Non-citizens of that country must add proof of their immigration status: London asks for {qt("londra_dtv", "non_cittadini")}; Washington asks non-US citizens for {qt("washington_dtv", "green_card")}. The table shows, for the nationalities people search for most, the Thai missions in their home country and what their DTV page says. If you live permanently in another country, apply there.</p>
 <div class="tab compatta"><table id="t-nazionalita"><caption class="sr">Where to apply for the Thailand DTV visa by nationality</caption><thead><tr><th scope="col">Nationality</th><th scope="col">If you live in</th><th scope="col">Thai missions there and their DTV page</th><th scope="col">30-day visa exemption for tourism</th></tr></thead><tbody>{righe_naz}</tbody></table></div>
 <p class="fonte">Sources: list of Royal Thai Embassies and Consulates-General (<a href="{DTV["fonti"]["elenco"]["url"]}" rel="noopener">Ministry of Foreign Affairs of Thailand</a>), the DTV pages of London and Washington for non-citizens, and the DTV pages linked in the <a href="../#table">table of all embassies</a>; visa exemption: pages of the Embassies in London, Washington and New Delhi. Read on {data_lunga(LETTO_DTV)}.</p>
 <h2 id="processing-time">How long it takes</h2>
@@ -6636,38 +6650,37 @@ def pagina_dtv_durata():
     righe = [("Validity", [("londra_dtv", "validita"), ("savannakhet_dtv", "validita")]),
              ("Stay per entry", [("londra_dtv", "soggiorno")]),
              ("Extension", [("londra_dtv", "estensione"), ("helsinki_dtv", "estensione"), ("hcm_dtv", "estensione")]),
-             ("After 180 + 180 days", [("londra_dtv", "uscita")]),
-             ("Family", [("londra_dtv", "dtv3")])]
+             ("Family", [("londra_dtv_fam", "dtv3")])]
     tab = "".join(f'<tr><th scope="row" style="vertical-align:top">{escape(a)}</th><td>' + "<br>".join(f'{qt(k, n)} <span class="small">({escape(NOMI_TEMI_DTV[k].split(":")[0])})</span>' for k, n in v) + "</td></tr>" for a, v in righe)
     lead = (f'The DTV is valid for <strong>5 years</strong> with multiple entries, and each entry allows a stay of up to <strong>180 days</strong>, which can be extended once by up to 180 days '
-            f'at Thailand\'s Immigration Bureau; after 180 + 180 days you must leave Thailand and can come back with the same visa (Royal Thai Embassy in London, page updated '
+            f'at Thailand\'s Immigration Bureau (Royal Thai Embassy in London, page updated '
             f'{data_lunga(TEMI_DTV["londra_dtv"]["modificata"])}, read on {data_lunga(LETTO_DTV)}).')
     riassunto = riassunto_dtv("Validity of the DTV", "5 years",
                               [("Multiple", "entries"), ("180 days", "stay per entry"), ("+180 days", "one extension per entry, at the Immigration Bureau"),
                                (costo_dtv(lon["costo"]), "one fee for the 5 years (London)")], fonte_temi_p(["londra_dtv"]))
     corpo = f"""<h2 id="official">What the official pages say</h2>
 <div class="tab compatta"><table id="t-durata"><caption class="sr">Thailand DTV visa validity, stay and extension: official wording</caption><thead><tr><th scope="col">Item</th><th scope="col">Official wording</th></tr></thead><tbody>{tab}</tbody></table></div>
-{fonte_temi_p(["londra_dtv", "savannakhet_dtv", "helsinki_dtv", "hcm_dtv"])}
+{fonte_temi_p(["londra_dtv", "londra_dtv_fam", "savannakhet_dtv", "helsinki_dtv", "hcm_dtv"])}
 <h2 id="benefits">What the DTV gives you, according to the official pages</h2>
 <ul class="testo"><li><strong>Five years of travel on one visa</strong>, with multiple entries, for one fee ({costo_dtv(lon["costo"])} in London; see <a href="../fee/">the fee at each embassy</a>).</li>
 <li><strong>Up to 180 days per entry</strong>, plus one extension of up to 180 days at the Immigration Bureau in Thailand.</li>
-<li><strong>Three purposes</strong>: remote work for employers or clients outside Thailand ({qt("londra_dtv", "dtv1")}), Thai soft power activities such as Muay Thai, cooking courses and medical treatment (<a href="../soft-power-activities/">soft power activities</a>), and family: {qt("londra_dtv", "dtv3")}.</li>
+<li><strong>Three purposes</strong>: remote work for employers or clients outside Thailand ({qt("londra_dtv", "dtv1")}), Thai soft power activities such as Muay Thai, cooking courses and medical treatment (<a href="../soft-power-activities/">soft power activities</a>), and family: {qt("londra_dtv_fam", "dtv3")}.</li>
 <li><strong>Savings, not income</strong>: you show about 500,000 baht in the bank, not a monthly salary (<a href="../proof-of-funds/">proof of funds</a>).</li></ul>
 <h2 id="limits">What the DTV does not allow</h2>
 <p>The Embassy in Budapest writes that DTV {qt("budapest_dtv", "lavoro")} (page updated {data_lunga(TEMI_DTV["budapest_dtv"]["modificata"])}). Remote work for an employer or clients abroad is the purpose of the visa. The DTV pages we read do not mention tax: ask a tax adviser about your own situation.</p>
 {fonte_temi_p(["budapest_dtv"])}
 <h2 id="extension">How the extension works</h2>
-<p>The embassies do not extend the stay. {qt("londra_dtv", "contatto_estensione")} (London). None of the DTV pages we read gives the extension fee.</p>
+<p>The embassies do not extend the stay: {qt("londra_dtv", "estensione")} (London). None of the DTV pages we read gives the extension fee, and the London pages do not say what happens when the extension ends: ask the Immigration Bureau.</p>
 {box_assicurazione_dtv("../../")}"""
     domande = faq_dtv(f"{SEZ_DTV}{slug}/", [
         ("dtv visa how long can stay", "How long can I stay in Thailand with a DTV?",
          "Up to 180 days per entry. You can extend the stay once, by up to 180 days, at the Immigration Bureau in Thailand. The visa itself is valid for 5 years with multiple entries."),
         ("dtv visa 180 day extension", "How do I get the 180-day DTV extension?",
-         f"At the Immigration Bureau, once you are in Thailand: the Embassy in London writes \"{ft('londra_dtv', 'contatto_estensione')}\". The embassy pages do not give the extension fee."),
+         f"At the Immigration Bureau, once you are in Thailand: the Embassy in London writes \"{ft('londra_dtv', 'estensione')}\". The embassy pages do not give the extension fee."),
         ("dtv visa after 180 days", "What happens after 180 days on a DTV?",
-         "You either extend once, by up to 180 days, or leave Thailand. After 180 + 180 days you must leave and can re-enter with the same DTV while it is still valid."),
+         f"You either extend once, by up to 180 days, at the Immigration Bureau, or leave Thailand. London writes \"{ft('londra_dtv', 'validita')}\", so a new entry while the visa is valid gives a new stay of up to 180 days. The London pages do not say what happens when the extension ends: ask the Immigration Bureau."),
         ("dtv visa multiple entry", "Is the DTV a multiple-entry visa?",
-         "Yes. London writes \"Visa Validity: 5 years / Multiple Entries\"; every entry gives a new stay of up to 180 days."),
+         f"Yes. London writes \"{ft('londra_dtv', 'validita')}\"; every entry gives a new stay of up to 180 days."),
         ("dtv visa can work in thailand", "Can I work in Thailand with a DTV?",
          f"Not for Thai employers or clients. The Embassy in Budapest writes that holders \"{ft('budapest_dtv', 'lavoro').replace('holders ', '', 1)}\". The DTV is for remote work for employers or clients abroad."),
         ("thailand dtv visa benefits", "What are the benefits of the DTV?",
@@ -6708,10 +6721,10 @@ def pagina_dtv_soft_power():
 <div class="tab compatta"><table id="t-conteggio"><caption class="sr">Number of official DTV pages that name each soft power activity</caption><thead><tr><th scope="col">Activity</th><th scope="col" class="n">Pages that name it</th></tr></thead><tbody>{righe_c}</tbody></table></div>
 <p class="small">Counted on the {len(FONTI_ATTIVITA_DTV)} quotes above. An activity that a page does not name is not excluded by that page: the lists are examples.</p>
 <h2 id="documents">Documents for the soft power DTV</h2>
-<ul class="testo"><li>Proof of the activity: London asks for {qt("londra_dtv", "doc_attivita")}; Washington for a {qt("washington_dtv", "attivita")}.</li>
-<li>The same money as other DTV applicants: {qt("londra_dtv", "doc_fondi")} (London). See <a href="../proof-of-funds/">proof of funds</a>.</li>
+<ul class="testo"><li>Proof of the activity: London asks for a {qt("londra_dtv_sp", "doc_attivita")} and adds: {qt("londra_dtv_sp", "durata_attivita")}; Washington asks for a {qt("washington_dtv", "attivita")}.</li>
+<li>The same money as other DTV applicants: {qt("londra_dtv_sp", "doc_fondi")} (London). See <a href="../proof-of-funds/">proof of funds</a>.</li>
 <li>Proof of permanent residence where you apply and a police clearance certificate, like every DTV applicant since 31 August 2026. See <a href="../requirements/">all requirements</a>.</li></ul>
-{fonte_temi_p(["londra_dtv", "washington_dtv"])}
+{fonte_temi_p(["londra_dtv_sp", "washington_dtv"])}
 <h2>Fee</h2>
 <p>The fee is the same as for the other DTV purposes: the Consulate-General in Los Angeles lists {num_tabella("la_tariffe", "dtv2")} (US dollars; its table has no currency sign) for soft power activities, as for remote work, and London charges {costo_dtv(lon["costo"])} for every DTV. For a single course of up to 90 days there is also the education (ED) visa: Los Angeles lists an ED visa “To study in a short course (Thai or English language) / attend Muaythai traning” for {num_tabella("la_tariffe", "ed_muay")} (US dollars), single entry, 90 days. See <a href="../dtv-vs-ltr-elite-retirement/">DTV compared with other visas</a>.</p>
 {fonte_temi_p(["la_tariffe"])}
@@ -6777,9 +6790,9 @@ def pagina_dtv_fondi():
 <p class="fonte">Source: the official page linked in each row, read on {data_lunga(LETTO_DTV)}.</p>
 <h2 id="rules">Rules for the bank statements</h2>
 <ul class="testo"><li>Washington: {qt("washington_dtv", "estratti")}. {qt("washington_dtv", "famiglia")}.</li>
-<li>London: {qt("londra_info", "estratti_esteri")}.</li>
+<li>London: {qt("londra_dtv", "estratti_esteri")}.</li>
 <li>Singapore: {citazione(sg_banca)}.</li></ul>
-{fonte_temi_p(["washington_dtv", "londra_info"])}
+{fonte_temi_p(["washington_dtv", "londra_dtv"])}
 {fonte_dtv_p(sg)}
 <p>It is a balance, not an income: the pages do not ask for a monthly salary. Some missions convert the 500,000 baht into their own currency with a rounded amount, so the figure in your currency can differ from today's exchange rate; show at least the amount your mission writes.</p>
 {box_assicurazione_dtv("../../")}"""
@@ -6788,7 +6801,7 @@ def pagina_dtv_fondi():
         ("dtv visa bank balance", "How much money do I need in the bank for the DTV?",
          f"At least 500,000 baht on most pages, about €{intero(round(e500))} at the ECB rate of {data_lunga(CAMBI['data'])}. Some missions write their own currency: £12,000 in London, US$16,000 in Washington, €15,000 in Helsinki, 20,000 Singapore dollars in Singapore, 150,000 Hong Kong dollars in Hong Kong and 850,000 Egyptian pounds in Cairo."),
         ("dtv visa proof of funds", "What counts as proof of funds for the DTV?",
-         "Bank statements in your name. Washington asks for saving or checking account statements for the last three months with an ending balance of at least 500,000 baht (US$16,000) each month; London asks for financial evidence such as bank statements."),
+         "Bank statements in your name. Washington asks for saving or checking account statements for the last three months with an ending balance of at least 500,000 baht (US$16,000) each month; London asks for recent bank statements with a minimum closing balance of £12,000."),
         ("dtv visa bank statement", "How many months of bank statements do I need for the DTV?",
          "Three months on the pages that say it: Washington (\"for the last three months\") and Singapore (\"for the past 3 months\")."),
         ("thailand dtv visa income requirements", "Is the 500,000 baht a monthly income?",
@@ -6819,14 +6832,14 @@ def pagina_dtv_confronto():
          "Bronze membership: 5 years", f"THB {intero(priv)} membership fee (Bronze)", "The Bronze membership page does not write an income or savings threshold", "privilege"),
         ("Retirement O-A", "Retirement long stay", f'{qt("londra_pensione", "oa")}', gbp(f_oa),
          f'{qt("londra_pensione", "oa_fondi")}; health insurance {qt("londra_pensione", "oa_assicurazione")}', "londra_pensione"),
-        ("Retirement O-X", "Retirement long stay", f'{qt("londra_pensione", "ox")}', gbp(f_ox), f'{qt("londra_pensione", "ox_fondi")} in a Thai bank', "londra_pensione"),
-        ("Education (ED)", f'For {qt("londra_studio", "chi")}', f'{qt("londra_studio", "ingresso")}; {qt("londra_studio", "soggiorno")}',
-         gbp(f_ni) + " (Non-Immigrant, single entry)", "Financial evidence such as bank statements or a sponsor letter (no amount written)", "londra_studio"),
+        ("Retirement O-X", "Retirement long stay", f'{qt("londra_ox", "ox")}', gbp(f_ox), f'{qt("londra_ox", "ox_banca")}: {qt("londra_ox", "ox_fondi")}', "londra_ox"),
+        ("Education (ED), short course", f'The visa {qt("londra_studio", "chi")}', f'{qt("londra_studio", "ingresso")}; {qt("londra_studio", "soggiorno")}',
+         gbp(f_ni) + " (Non-Immigrant, single entry)", f'Bank statements with {qt("londra_studio", "fondi")}', "londra_studio"),
     ]
     tab = "".join(f'<tr><th scope="row" style="vertical-align:top">{escape(a)}</th><td class="small">{b}</td><td class="small">{c}</td><td>{d}</td><td class="small">{e}</td>'
                   f'<td><a href="{escape(TEMI_DTV[k]["url"])}" rel="noopener">source</a></td></tr>' for a, b, c, d, e, k in righe)
     lead = (f'The DTV costs {costo_dtv(lon["costo"])} in London for 5 years of stays of up to 180 days with 500,000 baht in savings, while the LTR visa costs {gbp(f_ltr)} '
-            f'for 10 years in London (fee list of {d_tar}; the BOI gives {intero(ltr_thb)} baht, about €{intero(round(thb_eur(ltr_thb)))}, if the visa is collected in Thailand, and says it can be considerably more expensive abroad) and asks remote workers for an average income of USD 80,000 a year over the last two years (less in some cases), the retirement O-A visa costs {gbp(f_oa)} for 1 year with 800,000 baht or 65,000 baht a month, '
+            f'for 10 years in London (fee list of {d_tar}; the BOI gives {intero(ltr_thb)} baht, about €{intero(round(thb_eur(ltr_thb)))}, if the visa is collected in Thailand, and says it can be considerably more expensive abroad) and asks remote workers for an average income of USD 80,000 a year over the last two years (less in some cases), the retirement O-A visa costs {gbp(f_oa)} for 1 year with £18,000 in the bank or more than £1,500 a month, '
             f'and Thailand Privilege membership starts at THB {intero(priv)} for 5 years (Royal Thai Embassy in London, Thailand Board of Investment and Thailand Privilege, read on {data_lunga(LETTO_DTV)}).')
     riassunto = riassunto_dtv("DTV fee in London, 5 years", costo_dtv(lon["costo"]),
                               [(gbp(f_oa), "retirement O-A, 1 year"), (gbp(f_ox), "retirement O-X, 5 years"), (gbp(f_ltr), "LTR, 10 years"),
@@ -6835,12 +6848,12 @@ def pagina_dtv_confronto():
     corpo = f"""<h2 id="table">DTV compared with Thailand's other long-stay visas</h2>
 <p class="small">Fees are those of the Royal Thai Embassy in London, in pounds (the fee list was last updated on {d_tar}; the DTV fee is on the DTV page); other missions charge in their own currency. Thailand Privilege is a membership, not a visa fee. Quotes are the official wording.</p>
 <div class="tab compatta"><table class="larga" id="t-confronto"><caption class="sr">Thailand DTV, LTR, Thailand Privilege, retirement and education visas compared</caption><thead><tr><th scope="col">Visa</th><th scope="col">For whom</th><th scope="col">Validity and stay</th><th scope="col">Fee</th><th scope="col">Money or income asked</th><th scope="col">Source</th></tr></thead><tbody>{tab}</tbody></table></div>
-{fonte_temi_p(["londra_dtv", "londra_tariffe", "boi_ltr", "londra_ltr", "privilege", "privilege_chi", "la_tariffe", "londra_pensione", "londra_studio"])}
+{fonte_temi_p(["londra_dtv", "londra_tariffe", "boi_ltr", "londra_ltr", "privilege", "privilege_chi", "la_tariffe", "londra_pensione", "londra_ox", "londra_studio"])}
 <h2>How they differ</h2>
-<ul class="testo"><li><strong>DTV vs LTR</strong>: the LTR is approved first by the Board of Investment (London: applicants {qt("londra_ltr", "boi")}), lasts longer and gives more rights, such as {qt("boi_ltr", "lavoro")} and, as the BOI writes, {qt("boi_ltr", "tasse")}; it asks for high income or assets. The DTV asks for savings of about 500,000 baht and does not allow work for Thai employers.</li>
+<ul class="testo"><li><strong>DTV vs LTR</strong>: the LTR is approved first by the Board of Investment (London: {qt("londra_ltr", "boi")}), lasts longer and gives more rights, such as {qt("boi_ltr", "lavoro")} and, as the BOI writes, {qt("boi_ltr", "tasse")}; it asks for high income or assets. The DTV asks for savings of about 500,000 baht and does not allow work for Thai employers.</li>
 <li><strong>DTV vs Thailand Privilege (Elite)</strong>: Privilege is a paid membership run by Thailand Privilege Card Co., Ltd. ({qt("privilege_chi", "ente")}); the Bronze membership costs THB {intero(priv)} for 5 years, against {costo_dtv(lon["costo"])} for a 5-year DTV in London.</li>
 <li><strong>DTV vs retirement visa</strong>: the O-A and O-X visas are for retirement and ask for more money ({qt("londra_pensione", "oa_fondi")} for the O-A) and health insurance; the DTV has no age condition on the pages we read and asks for 500,000 baht. The BOI's LTR for pensioners is for {qt("boi_ltr", "pensionati")}.</li>
-<li><strong>DTV vs ED visa</strong>: the ED visa is for students of approved schools, single entry, up to 90 days, and {qt("londra_studio", "estensione")}. For Muay Thai or Thai cooking courses the DTV soft power category gives 5 years of entries (see <a href="../soft-power-activities/">soft power activities</a>).</li></ul>
+<li><strong>DTV vs ED visa</strong>: the ED visa read here is for short courses (Thai or English language) and Muay Thai training, single entry, up to 90 days; to stay longer, London writes, {qt("londra_studio", "estensione")}. For Muay Thai or Thai cooking courses the DTV soft power category gives 5 years of entries (see <a href="../soft-power-activities/">soft power activities</a>).</li></ul>
 {box_assicurazione_dtv("../../")}"""
     domande = faq_dtv(f"{SEZ_DTV}{slug}/", [
         ("dtv vs ltr visa thailand", "What is the difference between the DTV and the LTR visa?",
@@ -6848,7 +6861,7 @@ def pagina_dtv_confronto():
         ("dtv visa vs elite visa", "DTV or Thailand Privilege (Elite): which costs less?",
          f"The DTV: {costo_dtv(lon['costo'])} in London for 5 years. Thailand Privilege membership starts at THB {intero(priv)} (Bronze, 5 years)."),
         ("dtv vs retirement visa thailand", "DTV or retirement visa if I am retired?",
-         f"The retirement O-A visa ({gbp(f_oa)} in London, 1 year) asks for 800,000 baht in the bank or 65,000 baht a month and health insurance of at least USD 100,000; the DTV asks for 500,000 baht and has no age condition, but stays are limited to 180 days per entry plus one extension."),
+         f"The retirement O-A visa ({gbp(f_oa)} in London, 1 year) asks for a closing balance of at least £18,000 or a monthly income of more than £1,500, and health insurance of at least USD 100,000 or 3,000,000 baht; the DTV asks for 500,000 baht and has no age condition, but stays are limited to 180 days per entry plus one extension."),
         ("dtv vs ed visa thailand", "DTV or ED visa for a Muay Thai or language course?",
          f"The ED visa is single entry for up to 90 days ({gbp(f_ni)} in London for a single-entry Non-Immigrant visa); the DTV covers soft power activities such as Muay Thai for 5 years with stays of up to 180 days, for {costo_dtv(lon['costo'])} in London."),
     ])
@@ -10643,7 +10656,7 @@ def pagina_cer_tempi():
 <div class="tab compatta cer"><table><thead><tr><th scope="col">Updated</th><th class="n" scope="col">Decision, 90%</th><th class="n" scope="col">Approval to ceremony, 90%</th><th class="n" scope="col">Application to ceremony, 90%</th><th class="n" scope="col">Conferral on hand</th></tr></thead><tbody>{storia}</tbody></table></div>
 <h2>Questions people ask</h2>
 <div class="testo">{faq_html([(q, escape(a)) for q, a in domande])}</div>
-<p><a href="{rel}{SEZ_CER}">Citizenship ceremony wait times by council</a> · <a href="{rel}{SEZ}australia-visas/">Australian visa refusal rates</a></p>"""
+<p><a href="{rel}{SEZ_CER}">Citizenship ceremony wait times by council</a> · <a href="{rel}{SEZ}australia-visas/">Australian visa refusal rates</a></p>{link_av(rel)}"""
     titolo = f"Australian citizenship processing time: official figures ({mese_cer(T_CER['aggiornata'], True)})"
     descr = (f"90% of Australian citizenship by conferral applications processed within {nov['conferimento_mesi']} months; application to ceremony up to "
              f"{P['conferimento']['domanda_cerimonia'][3]} for 90% (Home Affairs, updated {data_lunga(T_CER['aggiornata'])}).")
@@ -13972,6 +13985,7 @@ def controlli():
     errori += controlli_h1b()
     errori += controlli_ass()
     errori += controlli_de()
+    errori += controlli_av()
     if errori:
         raise SystemExit("ERRORI NEI DATI:\n" + "\n".join(errori))
 
@@ -16573,6 +16587,790 @@ def controlli_de():
     return errori
 
 
+# ---------------------------------------------------------------- Australia visas: points calculator, official fees, requirements (18/11/2026)
+# Dati: dati/australia_visti.json, scritto da raccolta/australia_visti.py. Fonti: Department of Home Affairs (tabelle dei punti e pagine
+# dei visti) e Federal Register of Legislation (Migration Regulations 1994, compilazione n. 291 del 3/11/2026: Schedule 1 = visa
+# application charge, Schedule 6D = test a punti; regolamento F2026L00874 = importi dal 1° luglio 2026). La tabella dei prezzi di Home
+# Affairs non è nell'HTML: tutti gli importi vengono dalla Schedule 1 e si leggono dai frammenti (mai scritti a mano).
+# Pagine: indice /australia-visas/, calcolatore dei punti (189, 190, 491), tabella delle tariffe, una pagina per visto.
+# Titoli e FAQ sulle frasi misurate con lo strumento dei volumi (chiave "domanda" del JSON). Riquadro del partner Migration Expert
+# (interruttore _migration_expert in dati/affiliati.json): SPENTO e senza link (nessun link di affiliazione esiste); da spento non stampa niente.
+# Avviso fisso: "Information, not migration advice" + agenti registrati (OMARA/MARA). verifica.py, controllo 40.
+AV = json.loads((DATI / "australia_visti.json").read_text(encoding="utf-8"))
+F_AV, L_AV, T_AV = AV["fonti"], AV["letture"], AV["tariffe"]
+PUNTI_AV, NOMINA_AV = AV["punti"], AV["nomina"]
+P_AV = {r["id"]: r for r in PUNTI_AV + NOMINA_AV}
+DOM_AV = AV["domanda"]["query"]
+PAESI_DOM_AV = AV["domanda"]["paesi"]
+LETTO_AV = AV["letto_il"]
+DAL_AV = AV["modifica"]["dal"]            # 1° luglio 2026: importi della Schedule 1 riscritti da F2026L00874
+COMP_AV = AV["compilazione"]["data"]      # data della compilazione letta (3 novembre 2026)
+ANNO_FIN_AV = f"{DAL_AV[:4]}–{str(int(DAL_AV[:4]) + 1)[2:]}"   # anno finanziario australiano: 2026–27
+SOGLIA_PUNTI_AV = L_AV["v189_65"]["valore"]     # 65
+ETA_MAX_AV = L_AV["v189_eta"]["valore"]         # 45
+TETTO_LAVORO_AV = L_AV["pt_tetto"]["valore"]    # 20
+_ME = AFFILIATI.get("_migration_expert", {})
+URL_ME = _ME.get("url", "")
+ME_ATTIVO = bool(_ME.get("attivo")) and URL_ME.startswith("https://") and MON.dominio_ammesso(URL_ME)
+REL_ME = "sponsored nofollow noopener"
+PAGINE_ME = tuple(_ME.get("pagine", []))
+
+
+def vol_av(frase):
+    """Ricerche al mese della frase, somma dei Paesi misurati (0 se la frase non è nel database)."""
+    return sum((DOM_AV.get(f"{p}|{frase}") or {}).get("volume") or 0 for p in PAESI_DOM_AV)
+
+
+def aud(n):
+    return f"AUD {n:,}"
+
+
+def pezzi_av(k):
+    v = L_AV[k]
+    return v.get("elenco") or [v["frammento"]]
+
+
+def fr_av(k):
+    """Il frammento ufficiale tra virgolette, per le risposte delle FAQ (testo semplice); un elenco puntato della fonte = un pezzo per virgolette."""
+    return "; ".join("“" + x + "”" for x in pezzi_av(k))
+
+
+def q_av(k):
+    return "; ".join(f'<q class="cit-av">{escape(x)}</q>' for x in pezzi_av(k))
+
+
+def q_testo_av(t):
+    return f'<q class="cit-av">{escape(t)}</q>'
+
+
+def link_f_av(f, testo=None):
+    x = F_AV[f]
+    return f'<a href="{escape(x.get("pubblico") or x["url"])}" rel="noopener">{escape(testo or x["titolo"])}</a>'
+
+
+def fonte_av_fonti(fonti):
+    fonti = list(dict.fromkeys(fonti))
+    def una(f):
+        x = F_AV[f]
+        agg = ""
+        if x.get("aggiornata"):   # "5/11/2026" (giorno/mese/anno) -> 5 November 2026
+            g, m, a = (int(n) for n in x["aggiornata"].split("/"))
+            agg = f", page last updated on {g} {MESI[m - 1]} {a}"
+        return f'{link_f_av(f)} ({escape(x["editore"])}{agg}, read on {data_lunga(x["letto_il"])})'
+    return '<p class="fonte">Source' + ("s" if len(fonti) > 1 else "") + ": " + "; ".join(una(f) for f in fonti) + ".</p>"
+
+
+def fonte_av_p(chiavi):
+    return fonte_av_fonti([L_AV[k]["fonte"] for k in chiavi])
+
+
+def voci_av(k):
+    return "".join(f"<li>{q_testo_av(x)}</li>" for x in pezzi_av(k))
+
+
+def blocco_av(titolo, intro, chiavi, coda=""):
+    """Un gruppo di citazioni con il suo titolo: le parole della fonte in elenco, la fonte e la data sotto."""
+    return (f"<h3>{escape(titolo)}</h3>" + (f"<p>{intro}</p>" if intro else "") +
+            '<ul class="testo">' + "".join(voci_av(k) for k in chiavi) + "</ul>" + (f"<p>{coda}</p>" if coda else "") + fonte_av_p(chiavi))
+
+
+AVVISO_AV = ('<p class="avviso"><strong>Information, not migration advice.</strong> These are the words of the Department of Home Affairs and of the Migration '
+             'Regulations on the date we read them. We are not registered migration agents and we do not assess individual cases. In Australia only a registered '
+             'migration agent, a legal practitioner or an exempt person may give immigration assistance; migration agents are registered with the Office of the '
+             'Migration Agents Registration Authority (OMARA, often called MARA). The Department decides every application: check its website before you apply or pay.</p>')
+CSS_AV = (".r-righe{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:6px}"
+          ".r-righe li{display:flex;justify-content:space-between;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-s);padding:8px 12px;font-size:.92rem;line-height:1.4}"
+          ".r-righe li b{font-variant-numeric:tabular-nums;white-space:nowrap}.calc .tot span{font-size:.95rem}"
+          "table.t-av td.n,table.t-av th.n{text-align:right;font-variant-numeric:tabular-nums}table.t-av thead th{white-space:normal;vertical-align:bottom}"
+          "table.t-av td.n{white-space:nowrap}table.t-av td.n[colspan],table.t-av td.n .small{white-space:normal}table.t-av td.n .small{display:block}"
+          "table.t-av tbody td:first-child,table.t-av tbody th:first-child{min-width:150px}table.t-av td[colspan] q{overflow-wrap:anywhere}table.t-av .cq{display:block;max-width:calc(100vw - 66px)}"
+          "table.t-av td q{quotes:'“' '”'}")
+
+# ------------------------------------------------------------ tariffe
+# visto -> etichette per le tabelle (nome, sottoclassi). L'ordine è quello delle pagine.
+NOMI_AV = {
+    "189": ("Skilled Independent visa", "subclass 189"), "190": ("Skilled Nominated visa", "subclass 190"),
+    "491": ("Skilled Work Regional (Provisional) visa", "subclass 491"), "482": ("Skills in Demand visa", "subclass 482"),
+    "500": ("Student visa", "subclass 500"), "417": ("Working Holiday visa", "subclass 417"), "462": ("Work and Holiday visa", "subclass 462"),
+    "600": ("Visitor visa", "subclass 600"), "820": ("Partner visa, applying in Australia", "subclasses 820 and 801"),
+    "309": ("Partner visa, applying outside Australia", "subclasses 309 and 100"),
+}
+
+
+def riga_tar_av(visto, rid="std"):
+    return next(r for r in T_AV[visto]["righe"] if r["id"] == rid)
+
+
+def base_av(visto):
+    """Importo base del richiedente principale (riga 'std' della voce della Schedule 1)."""
+    return riga_tar_av(visto)["importi"][0]
+
+
+def seconda_av(visto):
+    r = next((r for r in T_AV[visto]["righe"] if r["id"] == "seconda"), None)
+    return r["importi"][0] if r else None
+
+
+def data_tar_av(r):
+    return (f"set from {data_lunga(DAL_AV)} by the amending regulations" if r["dal_1_luglio"] else f"as in force on {data_lunga(COMP_AV)}")
+
+
+def celle_tar_av(r):
+    """Le tre celle degli importi di una riga della Schedule 1."""
+    n = r["importi"]
+    if r["tipo"] == "tab":
+        return f'<td class="n">{aud(n[0])}</td><td class="n">{aud(n[1])}</td><td class="n">{aud(n[2])}</td>'
+    if r["tipo"] == "due":
+        return f'<td class="n" colspan="3">{aud(n[0])} for an applicant who has not been in Australia on this visa; {aud(n[1])} for any other applicant</td>'
+    return f'<td class="n" colspan="3">{aud(n[0])}</td>'
+
+
+def costi_av(visti, h="h2"):
+    """Tabella degli importi di una o più voci della Schedule 1, con il frammento parola per parola sotto ogni riga e la fonte."""
+    out = ""
+    for visto in visti:
+        t = T_AV[visto]
+        nome, sub = NOMI_AV[visto]
+        righe = "".join(f'<tr><th scope="row" style="vertical-align:top">{escape(r["chi"])}<br><span class="small">{data_tar_av(r)}</span></th>{celle_tar_av(r)}</tr>'
+                        f'<tr><td colspan="4" class="small"><span class="cq">Schedule 1, item {t["voce"]}: {q_testo_av(r["frammento"])}</span></td></tr>' for r in t["righe"])
+        out += (f'<{h}>{escape(nome)} ({sub}): visa application charge</{h}>'
+                f'<div class="tab compatta"><table class="t-av"><caption class="sr">Visa application charge for the {escape(nome)} ({sub}), Schedule 1 item {t["voce"]}</caption>'
+                f'<thead><tr><th scope="col">Who pays</th><th scope="col" class="n">Base application charge</th><th scope="col" class="n">Each additional applicant, 18 or over</th>'
+                f'<th scope="col" class="n">Each additional applicant, under 18</th></tr></thead><tbody>{righe}</tbody></table></div>'
+                f'<p class="small">Class of visa in the Regulations: {escape(t["classe"])}. Amounts are in Australian dollars; in the Regulations a space separates thousands (“$6 135”).</p>'
+                + fonte_av_fonti(["reg1", "amd"]))
+    return out
+
+
+NOTA_COSTI_AV = ("The Home Affairs price table and its Visa Pricing Estimator are loaded by the Department's own tool, which we do not query, so every amount on this page comes "
+                 "from Schedule 1 of the Migration Regulations. The charge does not include other costs: the Regulations add a subsequent temporary application charge "
+                 "and a non-Internet application charge in some cases, and the Department's pages mention health checks, police certificates and biometrics. "
+                 "The Regulations give no card surcharge and no fee of a state, an assessing authority or an agent.")
+
+# ------------------------------------------------------------ calcolatore dei punti
+CAT_AV = [  # categoria -> (titolo della tabella, etichetta del campo, lettura di spiegazione)
+    ("eta", "Age", "Age when invited", None),
+    ("inglese", "English language skills", "English", None),
+    ("estero", "Skilled employment outside Australia", "Skilled employment outside Australia", "pt_lavoro_occ"),
+    ("australia", "Skilled employment in Australia", "Skilled employment in Australia", "pt_lavoro_20h"),
+    ("titolo", "Educational qualifications", "Highest qualification", "pt_titolo_piu_alto"),
+    ("specialistico", "Specialist education qualification", "Specialist education qualification", None),
+    ("studio", "Australian study requirement", "Australian study requirement", "pt_studio"),
+    ("anno", "Professional Year in Australia", "Professional Year in Australia", "pt_anno"),
+    ("lingua", "Credentialled community language", "Credentialled community language", "pt_lingua"),
+    ("regionale", "Study in regional Australia", "Study in regional Australia", "pt_regionale"),
+    ("partner", "Partner skills", "Partner", "pt_partner_stesso"),
+]
+BREVI_AV = {  # etichette brevi delle opzioni dove le parole della tabella sono lunghe (le parole intere stanno nella tabella sotto il calcolatore)
+    "tit_dott": "Doctorate (PhD) of a recognised standard", "tit_laurea": "At least a Bachelor degree of a recognised standard",
+    "tit_diploma": "Diploma or trade qualification from an Australian institution", "tit_ente": "Qualification or award recognised by the assessing authority",
+    "partner_skill": "Partner applies with you and meets age, English and skill criteria", "partner_solo": "Single, or partner is an Australian citizen or permanent resident",
+    "partner_ing": "Partner applies with you and has competent English",
+}
+SI_NO_AV = [("spec", "specialistico"), ("studio_au", "studio"), ("anno_prof", "anno"), ("lingua", "lingua"), ("regionale", "regionale")]
+PUNTI_NOMINA_AV = {"189": 0, **{r["visto"]: r["punti"] for r in NOMINA_AV}}
+
+
+def righe_cat_av(cat):
+    return [r for r in PUNTI_AV if r["categoria"] == cat]
+
+
+def calcola_av(visto, eta, inglese, estero, australia, titolo, si=(), partner=None):
+    """Punteggio indicativo (stessa regola del JS): None se la fonte esclude l'invito (45 anni o più, inglese sotto 'competent').
+    Ritorna (totale, [(voce, punti)])."""
+    if eta is None or inglese is None:
+        return None
+    p = lambda x: P_AV[x]["punti"] if x else 0
+    lavoro = min(TETTO_LAVORO_AV, p(estero) + p(australia))
+    voci = [("Age", p(eta)), ("English", p(inglese)), ("Skilled employment", lavoro), ("Educational qualification", p(titolo))]
+    voci += [(next(c[1] for c in CAT_AV if c[0] == cat), p(pid)) for pid, cat in SI_NO_AV if pid in si]
+    voci.append(("Partner", p(partner)))
+    if PUNTI_NOMINA_AV[visto]:
+        voci.append(("Nomination or sponsorship", PUNTI_NOMINA_AV[visto]))
+    return sum(n for _, n in voci), voci
+
+
+def calc_av(rel, visto="189"):
+    def opz(cat, primo=None, ultimo=None):
+        o = "".join(f'<option value="{r["id"]}">{escape(BREVI_AV.get(r["id"], r["parole"][0].upper() + r["parole"][1:]))} · {r["punti"]} points</option>' for r in righe_cat_av(cat))
+        return (primo or "") + o + (ultimo or "")
+    k = {"soglia": SOGLIA_PUNTI_AV, "tetto": TETTO_LAVORO_AV, "punti": {r["id"]: r["punti"] for r in PUNTI_AV}, "nomina": PUNTI_NOMINA_AV,
+         "nomi": {pid: next(c[1] for c in CAT_AV if c[0] == cat) for pid, cat in SI_NO_AV},
+         "t": {"eta": f"Home Affairs says: “{L_AV['v189_eta']['frammento']}” The points table has no row for age {ETA_MAX_AV} or over.",
+               "inglese": f"Home Affairs says: “{L_AV['v189_inglese']['frammento']}”. The points table starts at Competent English.",
+               "sotto": f"Home Affairs says: “{L_AV['v189_65']['frammento']}”",
+               "sopra": f"This reaches the {SOGLIA_PUNTI_AV} points below which Home Affairs says you will not be invited. Reaching {SOGLIA_PUNTI_AV} does not mean an invitation: "
+                        "the Department chooses whom to invite, and the invitation states the score you must show."}}
+    sel_v = "".join(f'<option value="{v}"{" selected" if v == visto else ""}>Subclass {v} · {escape(NOMI_AV[v][0])}</option>' for v in ("189", "190", "491"))
+    si_no = "".join(f'<label><span class="lt">{ico("check")}{escape(next(c[2] for c in CAT_AV if c[0] == cat))}</span><select name="{pid}">'
+                    f'<option value="no">No · 0 points</option><option value="si">Yes · {P_AV[pid]["punti"]} points</option></select></label>' for pid, cat in SI_NO_AV)
+    campi = (f'<label class="pieno"><span class="lt">{ico("passport")}Visa</span><select name="visto">{sel_v}</select></label>'
+             f'<label><span class="lt">{ico("calendar")}Age when invited</span><select name="eta">{opz("eta", ultimo=f"""<option value="no">{ETA_MAX_AV} or over</option>""")}</select></label>'
+             f'<label><span class="lt">{ico("globe")}English</span><select name="inglese">{opz("inglese", ultimo="""<option value="no">Below competent English</option>""")}</select></label>'
+             f'<label><span class="lt">{ico("briefcase")}Skilled employment outside Australia</span><select name="estero">{opz("estero")}</select></label>'
+             f'<label><span class="lt">{ico("briefcase")}Skilled employment in Australia</span><select name="australia">{opz("australia")}</select></label>'
+             f'<label class="pieno"><span class="lt">{ico("list")}Highest qualification</span><select name="titolo">{opz("titolo", primo="""<option value="">None of these · 0 points</option>""")}</select></label>'
+             f'{si_no}'
+             f'<label class="pieno"><span class="lt">{ico("family")}Partner</span><select name="partner">{opz("partner", primo="""<option value="">None of these · 0 points</option>""")}</select></label>')
+    return (f'<section class="card calc" data-punti-au data-k=\'{escape(json.dumps(k, separators=(",", ":"), ensure_ascii=False), quote=True)}\' aria-label="Australia skilled visa points calculator">'
+            f'<div class="calc-grid"><form autocomplete="off"><h2 style="margin:0 0 14px;font-size:1.2rem">{ico("calc")} Points for subclass 189, 190 and 491</h2><div class="campi">{campi}</div>'
+            f'<p class="small" style="margin:12px 0 0">Points from the Home Affairs points tables read on {data_lunga(LETTO_AV)}. An indicative score only: the Department assesses your claims. '
+            'Runs in your browser and sends nothing.</p></form>'
+            '<div class="calc-out"><div class="risultato" data-out aria-live="polite"><noscript>Turn on JavaScript to use the calculator; every row of the points table is on this page.</noscript></div></div></div></section>')
+
+
+PUNTI_AV_JS = r"""
+(function(){
+function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+function calcola(K,d){
+ if(d.eta==='no')return {no:'eta'};if(d.inglese==='no')return {no:'inglese'};
+ function p(id){return id&&K.punti[id]?K.punti[id]:0;}
+ var e=p(d.estero),a=p(d.australia),lav=Math.min(K.tetto,e+a),r=[];
+ r.push(['Age',p(d.eta)]);r.push(['English',p(d.inglese)]);
+ r.push(['Skilled employment'+(e+a>K.tetto?' (capped at '+K.tetto+')':''),lav]);
+ r.push(['Educational qualification',p(d.titolo)]);
+ Object.keys(K.nomi).forEach(function(x){if(d[x]==='si')r.push([K.nomi[x],p(x)]);});
+ r.push(['Partner',p(d.partner)]);
+ if(K.nomina[d.visto])r.push(['Nomination or sponsorship (subclass '+d.visto+')',K.nomina[d.visto]]);
+ var tot=0;r.forEach(function(x){tot+=x[1];});return {tot:tot,righe:r};}
+window.CALC_PUNTI_AU={calcola:calcola};
+document.querySelectorAll('[data-punti-au]').forEach(function(box){
+ var K=JSON.parse(box.getAttribute('data-k')),f=box.querySelector('form'),out=box.querySelector('[data-out]');
+ function go(){
+  var d={};Array.prototype.forEach.call(f.elements,function(el){if(el.name)d[el.name]=el.value;});
+  var x=calcola(K,d);
+  if(x.no){out.innerHTML='<div class="esito no"><span>'+esc(K.t[x.no])+'</span></div>';return;}
+  var h='<p class="r-lab">Indicative score · subclass '+esc(d.visto)+'</p><p class="tot">'+x.tot+' <span>points</span></p>';
+  h+=x.tot>=K.soglia?'<div class="esito si"><span>'+esc(K.t.sopra)+'</span></div>':'<div class="esito warn"><span>'+(K.soglia-x.tot)+' points short of '+K.soglia+'. '+esc(K.t.sotto)+'</span></div>';
+  h+='<ul class="r-righe">'+x.righe.map(function(r){return '<li><span>'+esc(r[0])+'</span><b>'+r[1]+'</b></li>';}).join('')+'</ul>';
+  out.innerHTML=h;}
+ f.addEventListener('input',go);f.addEventListener('change',go);f.addEventListener('submit',function(e){e.preventDefault();go();});go();});
+})();
+"""
+
+
+def tabella_punti_av(cat, titolo, nota_k):
+    righe = "".join(f'<tr><td>{q_testo_av(r["parole"])}</td><td class="n"><strong>{r["punti"]}</strong></td>'
+                    f'<td class="small">{("Schedule 6D, item " + r["voce"]) if r["voce"] else "No item: it is the minimum, not a points row"}</td></tr>' for r in righe_cat_av(cat))
+    nota = f"<p>{q_av(nota_k)}</p>" if nota_k else ""
+    return (f'<h3 id="p-{cat}">{escape(titolo)}</h3><div class="tab compatta"><table class="t-av"><caption class="sr">{escape(titolo)}: points</caption>'
+            f'<thead><tr><th scope="col">Words of the Home Affairs points table</th><th scope="col" class="n">Points</th><th scope="col">Migration Regulations</th></tr></thead>'
+            f'<tbody>{righe}</tbody></table></div>{nota}' + fonte_av_fonti(["pts189", "pts190", "pts491", "reg3"]))
+
+
+def tabella_nomina_av():
+    righe = "".join(f'<tr><td>Subclass {r["visto"]}: {q_testo_av(r["parole"])}</td><td class="n"><strong>{r["punti"]}</strong></td><td class="small">Schedule 6D, item {r["voce"]}</td></tr>' for r in NOMINA_AV)
+    return ('<h3 id="p-nomina">State or territory nomination, family sponsorship</h3><div class="tab compatta"><table class="t-av"><caption class="sr">Nomination and sponsorship: points</caption>'
+            '<thead><tr><th scope="col">Words of the Home Affairs points table</th><th scope="col" class="n">Points</th><th scope="col">Migration Regulations</th></tr></thead>'
+            f'<tbody><tr><td>Subclass 189: the points table has no nomination row</td><td class="n"><strong>0</strong></td><td class="small">None</td></tr>{righe}</tbody></table></div>'
+            f'<p>{q_av("pt_nomina_190")} {q_av("pt_nomina_491")}</p>' + fonte_av_fonti(["pts190", "pts491", "reg3"]))
+
+
+def esempi_av():
+    """Tre esempi calcolati con calcola_av (la stessa regola del calcolatore)."""
+    casi = [("189", "Aged 29, proficient English, 5 years of skilled work outside Australia, bachelor degree, single",
+             ("189", "eta_25", "ing_prof", "est_5", "aus_0", "tit_laurea", (), "partner_solo")),
+            ("190", "Aged 35, competent English, 3 years of skilled work in Australia, bachelor degree with the Australian study requirement, partner with competent English, state nomination",
+             ("190", "eta_33", "ing_comp", "est_0", "aus_3", "tit_laurea", ("studio_au",), "partner_ing")),
+            ("491", "Aged 41, superior English, 8 years outside and 8 years in Australia (capped), doctorate, single, regional nomination",
+             ("491", "eta_40", "ing_sup", "est_8", "aus_8", "tit_dott", (), "partner_solo"))]
+    out = ""
+    for visto, testo, a in casi:
+        tot, voci = calcola_av(*a)
+        out += (f"<li><strong>Subclass {visto}.</strong> {escape(testo)}: " + " + ".join(f"{n} ({escape(v if v.startswith(('English', 'Australian', 'Professional')) else v[0].lower() + v[1:])})" for v, n in voci if n) + f" = <strong>{tot} points</strong>.</li>")
+    return f'<ul class="testo">{out}</ul>'
+
+
+# ------------------------------------------------------------ pagine dei visti
+def _costo_breve_av(visto):
+    r = riga_tar_av(visto)
+    n = r["importi"]
+    if r["tipo"] == "tab":
+        return f"{aud(n[0])} for the main applicant; {aud(n[1])} for each additional applicant aged 18 or over; {aud(n[2])} for each one under 18"
+    if r["tipo"] == "due":
+        return f"{aud(n[0])} if you have not been in Australia on this visa; {aud(n[1])} for any other applicant"
+    return aud(n[0])
+
+
+_AGENTE_AV = ("Home Affairs says: " + fr_av("ai_solo") + " " + fr_av("ai_chi") + ". Migration agents are registered with the Office of the Migration Agents Registration Authority "
+              "(OMARA). This site gives information, not migration advice.")
+_CSIT_AV = ("The Regulations define both thresholds and add that they are indexed on each 1 July, so the amount in force can be higher than the amount printed in the definition; "
+            "the Department publishes the indexed amount on its website. We could not read the current figure in the Home Affairs pages we read, so we give only the words of the Regulations.")
+
+PAG_AV = [
+    {"id": "189-visa", "nome": "189 visa (Skilled Independent)", "ico": "passport", "visti": ["189"], "punti": True,
+     "h1": "189 visa Australia: points, official fee and requirements",
+     "titoli": [f"189 Visa Australia: Points, Fees and Requirements ({ANNO_FIN_AV})", f"189 Visa Australia: Points, Fees, Requirements ({ANNO})"],
+     "descr": [f"189 visa (Skilled Independent): at least {SOGLIA_PUNTI_AV} points, under {ETA_MAX_AV}, competent English, charge {aud(base_av('189'))} from 1 July 2026. Official words and sources.",
+               f"189 visa: at least {SOGLIA_PUNTI_AV} points, under {ETA_MAX_AV}, charge {aud(base_av('189'))} from 1 July 2026. Official words and sources."],
+     "lead": f"The Skilled Independent visa (subclass 189) is a permanent, points-tested visa with no state nomination and no employer sponsor. Home Affairs says you need an occupation "
+             f"on the relevant skilled occupation list, a suitable skills assessment, an invitation, at least {SOGLIA_PUNTI_AV} points and to be under {ETA_MAX_AV} when invited. "
+             f"The visa application charge for the main applicant is {aud(base_av('189'))} from {data_lunga(DAL_AV)}.",
+     "righe": lambda: [("Visa application charge", _costo_breve_av("189")), ("Second instalment", f"{aud(seconda_av('189'))} for an applicant aged 18 or over who is assessed as not having functional English"),
+                       ("Points test", f"At least {SOGLIA_PUNTI_AV} points to be invited; no nomination points"), ("Age", f"Under {ETA_MAX_AV} when invited"),
+                       ("English", "At least competent English at the time of invitation"), ("Stay", "Permanent visa")],
+     "blocchi": [("What you must have", "Home Affairs lists these under “You must”.", ["v189_devi"], ""),
+                 ("Age, English and points", "", ["v189_eta", "v189_inglese", "v189_65", "v189_65_piu"], ""),
+                 ("How the invitation works", "", ["pt_invito", "pt_deve"], ""),
+                 ("With this visa you can", "", ["v189_puoi"], "")],
+     "non_dice": "What these sources do not say: how many points recent invitation rounds needed, which occupations are on the list today, and how long processing takes. "
+                 "Home Affairs publishes those separately and changes them often.",
+     "faq": [("189 visa", "What is the 189 visa in Australia?", "It is the Skilled Independent visa, a points-tested permanent visa. Home Affairs lists what you must do: " + fr_av("v189_devi") + "."),
+             ("189 visa points", f"How many points do I need for a 189 visa?", f"At least {SOGLIA_PUNTI_AV} to be invited. Home Affairs says: " + fr_av("v189_65") + " It adds: " + fr_av("v189_65_piu")),
+             ("189 visa fees", f"How much is the 189 visa fee in {ANNO_FIN_AV}?", lambda: f"The base application charge is {aud(base_av('189'))} for the main applicant, {aud(riga_tar_av('189')['importi'][1])} for each additional applicant aged 18 or over and {aud(riga_tar_av('189')['importi'][2])} for each one under 18 (Migration Regulations, Schedule 1, item 1137, amounts set from {data_lunga(DAL_AV)})."),
+             ("189 visa requirements", "What are the 189 visa requirements?", "Home Affairs says: " + fr_av("v189_eta") + " And: " + fr_av("v189_inglese") + ". You also need an occupation on the relevant list, a suitable skills assessment and an invitation.")]},
+    {"id": "190-visa", "nome": "190 visa (Skilled Nominated)", "ico": "passport", "visti": ["190"], "punti": True,
+     "h1": "190 visa Australia: state nomination, points, official fee and requirements",
+     "titoli": [f"190 Visa Australia: Points, Fees and Requirements ({ANNO_FIN_AV})", f"190 Visa Australia: Points, Fees, Requirements ({ANNO})"],
+     "descr": [f"190 visa (Skilled Nominated): state nomination worth 5 points, at least {SOGLIA_PUNTI_AV} points, charge {aud(base_av('190'))} from 1 July 2026. Official words and sources.",
+               f"190 visa: state nomination worth 5 points, at least {SOGLIA_PUNTI_AV} points, charge {aud(base_av('190'))}. Official sources."],
+     "lead": f"The Skilled Nominated visa (subclass 190) is a permanent, points-tested visa for people nominated by an Australian state or territory. The nomination is worth "
+             f"{P_AV['nom_190']['punti']} points in the points table, and Home Affairs says that without {SOGLIA_PUNTI_AV} points you will not be invited. "
+             f"The visa application charge for the main applicant is {aud(base_av('190'))} from {data_lunga(DAL_AV)}.",
+     "righe": lambda: [("Visa application charge", _costo_breve_av("190")), ("Second instalment", f"{aud(seconda_av('190'))} for an applicant aged 18 or over who is assessed as not having functional English"),
+                       ("Points test", f"At least {SOGLIA_PUNTI_AV} points to be invited"), ("Nomination", f"Required; {P_AV['nom_190']['punti']} points while the state or territory has not withdrawn it"),
+                       ("Stay", "Permanent visa")],
+     "blocchi": [("What you must have", "Home Affairs lists these under “You must”.", ["v190_devi"], ""),
+                 ("Nomination and points", f"The points table for this visa has one row more than the table for subclass 189: {q_testo_av(P_AV['nom_190']['parole'])}, {P_AV['nom_190']['punti']} points.",
+                  ["pt_nomina_190", "v190_65"], ""),
+                 ("The second instalment", "", ["v190_seconda"], "")],
+     "non_dice": "What these sources do not say: which occupations each state or territory nominates, the conditions and fees each one sets for a nomination, and how many points "
+                 "its recent invitations needed. Each state and territory publishes its own rules.",
+     "faq": [("190 visa", "What is the 190 visa in Australia?", "It is the Skilled Nominated visa, a points-tested permanent visa for people nominated by a state or territory. Home Affairs lists what you must do: " + fr_av("v190_devi") + "."),
+             ("190 visa points", "How many points does state nomination give for the 190 visa?", f"{P_AV['nom_190']['punti']} points. The Home Affairs points table says: “{P_AV['nom_190']['parole']}”. " + fr_av("pt_nomina_190")),
+             ("190 visa fees", f"How much is the 190 visa fee in {ANNO_FIN_AV}?", lambda: f"The base application charge is {aud(base_av('190'))} for the main applicant, {aud(riga_tar_av('190')['importi'][1])} for each additional applicant aged 18 or over and {aud(riga_tar_av('190')['importi'][2])} for each one under 18 (Migration Regulations, Schedule 1, item 1138, amounts set from {data_lunga(DAL_AV)}). A state or territory may charge its own nomination fee, which the Regulations do not set."),
+             ("190 visa requirements", "What are the 190 visa requirements?", "Home Affairs lists: " + fr_av("v190_devi") + ". It also says: " + fr_av("v190_65"))]},
+    {"id": "491-visa", "nome": "491 visa (Skilled Work Regional)", "ico": "globe", "visti": ["491"], "punti": True,
+     "h1": "491 visa Australia: regional nomination, points, official fee and the road to permanent residence",
+     "titoli": [f"491 Visa Australia: Points, Fees and Requirements ({ANNO_FIN_AV})", f"491 Visa Australia: Points, Fees, Requirements ({ANNO})"],
+     "descr": [f"491 visa (Skilled Work Regional): nomination or family sponsorship worth 15 points, 5 years, charge {aud(base_av('491'))} from 1 July 2026. Official words and sources.",
+               f"491 visa: nomination or family sponsorship worth 15 points, 5 years, charge {aud(base_av('491'))}. Official sources."],
+     "lead": f"The Skilled Work Regional (Provisional) visa (subclass 491) is a 5-year, points-tested visa for people nominated by a state or territory or sponsored by an eligible "
+             f"relative, who live, work and study in a designated regional area. The nomination or sponsorship is worth {P_AV['nom_491']['punti']} points. "
+             f"The visa application charge for the main applicant is {aud(base_av('491'))} from {data_lunga(DAL_AV)}.",
+     "righe": lambda: [("Visa application charge", _costo_breve_av("491")), ("Second instalment", f"{aud(seconda_av('491'))} for an applicant aged 18 or over who is assessed as not having functional English"),
+                       ("Points test", f"Points-tested; {P_AV['nom_491']['punti']} points for nomination or family sponsorship"), ("Age", f"Under {ETA_MAX_AV} to be invited"),
+                       ("Stay", "5 years, in a designated regional area"), ("Permanent residence", "Home Affairs: you can apply after 3 years from the time the visa is granted")],
+     "blocchi": [("What you must have", "Home Affairs lists these under “You must”.", ["v491_devi", "v491_eta"], ""),
+                 ("Nomination or sponsorship and points", f"The points table for this visa has its own row: {q_testo_av(P_AV['nom_491']['parole'])}, {P_AV['nom_491']['punti']} points.", ["pt_nomina_491"], ""),
+                 ("With this visa you can", "", ["v491_puoi"], ""),
+                 ("Before permanent residence", "", ["v491_3anni"], "")],
+     "non_dice": "What these sources do not say: which areas are designated regional areas today, which occupations each state or territory nominates, and the income or other "
+                 "conditions of the permanent visa that follows. Home Affairs and each state publish those separately.",
+     "faq": [("491 visa", "What is the 491 visa in Australia?", "It is the Skilled Work Regional (Provisional) visa. Home Affairs says that with it you can: " + fr_av("v491_puoi")),
+             ("491 visa requirements", "What are the 491 visa requirements?", "Home Affairs lists: " + fr_av("v491_devi") + " It also says: " + fr_av("v491_eta")),
+             ("491 visa fees", f"How much is the 491 visa fee in {ANNO_FIN_AV}?", lambda: f"The base application charge is {aud(base_av('491'))} for the main applicant, {aud(riga_tar_av('491')['importi'][1])} for each additional applicant aged 18 or over and {aud(riga_tar_av('491')['importi'][2])} for each one under 18 (Migration Regulations, Schedule 1, item 1241, amounts set from {data_lunga(DAL_AV)})."),
+             ("491 visa to pr", "How long before a 491 visa holder can apply for permanent residence?", "Home Affairs says you can " + fr_av("v491_puoi").split("; ")[-1] + " It also says: " + fr_av("v491_3anni"))]},
+    {"id": "482-visa", "nome": "482 visa (Skills in Demand)", "ico": "briefcase", "visti": ["482"], "punti": False,
+     "h1": "482 visa Australia (Skills in Demand): official fee, income thresholds and requirements",
+     "titoli": [f"482 Visa Australia: Requirements and Fees ({ANNO_FIN_AV})", f"482 Visa: Requirements and Fees ({ANNO})"],
+     "descr": [f"482 visa (Skills in Demand): employer sponsorship, 1 year of experience, income threshold, charge {aud(base_av('482'))} from 1 July 2026. Official words and sources.",
+               f"482 visa (Skills in Demand): employer sponsorship, income threshold, charge {aud(base_av('482'))}. Official sources."],
+     "lead": f"The Skills in Demand visa (subclass 482) is a temporary visa for a worker sponsored and nominated by an employer; it is not points-tested. Home Affairs says you need "
+             f"at least 1 year of relevant work experience and a salary that is no less than the income threshold of your stream. The visa application charge is {aud(base_av('482'))} "
+             f"for the main applicant and the same amount for each additional applicant aged 18 or over, from {data_lunga(DAL_AV)}.",
+     "righe": lambda: [("Visa application charge", _costo_breve_av("482")), ("Second instalment", "Nil"), ("Points test", "None: employer sponsorship and nomination"),
+                       ("Salary", "Core Skills stream: no less than the Core Skills Income Threshold; Specialist Skills stream: the Specialist Skills Income Threshold"),
+                       ("Stay", "Up to 4 years; Hong Kong passport holders up to 5 years")],
+     "blocchi": [("What the visa is", "", ["v482_cosa", "v482_devi"], ""),
+                 ("Core Skills stream: you must", "", ["v482core_devi", "v482core_durata"], ""),
+                 ("Specialist Skills stream: you must", "", ["v482spec_devi"], ""),
+                 ("The income thresholds in the Migration Regulations", "", ["reg_csit", "reg_ssit", "reg_indice"], _CSIT_AV)],
+     "non_dice": "What these sources do not say: the income thresholds as indexed on 1 July 2026, the occupations on the Core Skills Occupation List, and what the sponsoring "
+                 "employer pays for sponsorship and nomination. The charge on this page is only the visa application charge of the worker and family.",
+     "faq": [("482 visa", "What is the 482 visa in Australia?", "It is the Skills in Demand visa. Home Affairs says: " + fr_av("v482_cosa")),
+             ("482 visa requirements", "What are the 482 visa requirements?", "For the Core Skills stream Home Affairs lists: " + fr_av("v482core_devi")),
+             ("482 visa fees", f"How much is the 482 visa fee in {ANNO_FIN_AV}?", lambda: f"The base application charge is {aud(base_av('482'))} for the main applicant, {aud(riga_tar_av('482')['importi'][1])} for each additional applicant aged 18 or over and {aud(riga_tar_av('482')['importi'][2])} for each one under 18; the second instalment is nil (Migration Regulations, Schedule 1, item 1240, amounts set from {data_lunga(DAL_AV)})."),
+             ("skills in demand visa", "How long can I stay on a Skills in Demand visa?", "Home Affairs says: " + fr_av("v482core_durata"))]},
+    {"id": "student-visa-500", "nome": "Student visa (500)", "ico": "user", "visti": ["500"], "punti": False,
+     "h1": "Student visa Australia (subclass 500): official fee, money and requirements",
+     "titoli": [f"Student Visa Australia: Requirements and Fees ({ANNO_FIN_AV})", f"Student Visa Australia: Requirements, Fees ({ANNO})"],
+     "descr": [f"Student visa Australia (subclass 500): charge {aud(base_av('500'))} from 1 July 2026, 12-month living costs of AUD 29,710, CoE and OSHC. Official words and sources.",
+               f"Student visa Australia (subclass 500): charge {aud(base_av('500'))}, living costs AUD 29,710, CoE and OSHC. Official sources."],
+     "lead": f"For a Student visa (subclass 500) Home Affairs asks for enrolment in a course with a valid Confirmation of Enrolment, Overseas Student Health Cover and enough money for "
+             f"your stay: the 12-month living costs it lists are AUD 29,710 for a student. The visa application charge for the main applicant is {aud(base_av('500'))} from "
+             f"{data_lunga(DAL_AV)}, and lower for some passports and courses.",
+     "righe": lambda: [("Visa application charge", _costo_breve_av("500")),
+                       ("Lower charge", f"{aud(riga_tar_av('500', 'asean')['importi'][0])} with a passport of a listed ASEAN country or for an ELICOS or non-award course; {aud(riga_tar_av('500', 'pac')['importi'][0])} with a passport of a Pacific-regional country"),
+                       ("Money", "12-month living costs: AUD 29,710 for the student, AUD 10,394 for a partner, AUD 4,449 for a child, plus course fees and travel"),
+                       ("Work", "Up to 48 hours a fortnight while the course is in session"), ("Stay", "Up to 6 years, in line with your enrolment"),
+                       ("Where to apply", "From 2 October 2026 most applications must be lodged outside Australia")],
+     "blocchi": [("What you must have", "", ["v500_devi", "v500_genuino", "v500_fuori"], ""),
+                 ("Money for your stay", "", ["v500_denaro", "v500_costi", "v500_scuola", "v500_reddito"], ""),
+                 ("With this visa you can", "", ["v500_puoi", "v500_durata"], ""),
+                 ("Who pays a lower charge", "", ["v500_concessione", "reg_5a"], "")],
+     "non_dice": "What these sources do not say on this page: the English test scores, the evidence each education provider or country needs, and the price of health cover. "
+                 "The Home Affairs page has them, and they depend on your course and passport.",
+     "faq": [("student visa australia", "How much money do I need for a student visa in Australia?", "Home Affairs says: " + fr_av("v500_denaro") + " It lists: " + fr_av("v500_costi") + " Course fees and travel costs are added to these."),
+             ("student visa australia requirements", "What are the requirements for a student visa in Australia?", "Home Affairs lists, among others: " + fr_av("v500_devi") + ". You must also " + fr_av("v500_genuino")),
+             ("student visa fees australia", f"How much is the Australian student visa fee in {ANNO_FIN_AV}?", lambda: f"The base application charge is {aud(base_av('500'))} for the main applicant, {aud(riga_tar_av('500')['importi'][1])} for each additional applicant aged 18 or over and {aud(riga_tar_av('500')['importi'][2])} for each one under 18 (Migration Regulations, Schedule 1, item 1222, amounts set from {data_lunga(DAL_AV)}). Home Affairs says: " + fr_av("v500_concessione")),
+             ("500 visa", "How many hours can I work on a 500 visa?", "Home Affairs says that with this visa you can: " + fr_av("v500_puoi"))]},
+    {"id": "working-holiday-visa", "nome": "Working holiday visa (417 and 462)", "ico": "sun", "visti": ["417", "462"], "punti": False,
+     "h1": "Working holiday visa Australia (subclass 417 and 462): official fee, age limit and requirements",
+     "titoli": [f"Working Holiday Visa Australia: Requirements, Fees ({ANNO_FIN_AV})", f"Working Holiday Visa Australia: Requirements ({ANNO})"],
+     "descr": [f"Working holiday visa Australia (417 and 462): charge {aud(base_av('417'))} from 1 July 2026, age limit, about AUD 5,000 of funds, 12 months. Official words and sources.",
+               f"Working holiday visa Australia (417, 462): charge {aud(base_av('417'))}, age limit, about AUD 5,000 of funds. Official sources."],
+     "lead": f"Australia has two working holiday visas: the Working Holiday visa (subclass 417) and the Work and Holiday visa (subclass 462), depending on your passport. For both, the "
+             f"visa application charge is {aud(base_av('417'))} if you have not been in Australia on that visa and {aud(riga_tar_av('417')['importi'][1])} for any other applicant, "
+             f"from {data_lunga(DAL_AV)} ({aud(riga_tar_av('462', 'pac')['importi'][0])} for a subclass 462 applicant with a passport of a Pacific-regional country). Home Affairs says you usually need about AUD 5,000 for your initial stay, plus the fare to leave.",
+     "righe": lambda: [("Visa application charge", _costo_breve_av("417") + f"; {aud(riga_tar_av('462', 'pac')['importi'][0])} with a passport of a Pacific-regional country (462)"),
+                       ("Age", "Home Affairs pages: 18 to 30, or 35 for some countries (417); 18 to 30 inclusive (462). The Regulations now set 35 unless a younger age is specified for your country"),
+                       ("Money", "Usually about AUD 5,000 for the initial stay, plus the fare to leave"), ("Family", "You apply on your own; no dependent children with you"),
+                       ("Stay", "12 months; a second visa after 3 months of specified work")],
+     "blocchi": [("Working Holiday visa (subclass 417): you must", "", ["v417_primo", "v417_denaro"], ""),
+                 ("Work and Holiday visa (subclass 462): you must", "", ["v462_primo", "v462_denaro"], ""),
+                 ("With a first Working Holiday visa you can", "", ["v417_puoi"], ""),
+                 ("The age limit in the Migration Regulations",
+                  "The Home Affairs pages above still give 30 as the general limit. The Regulations in force on the compilation date say something different, so we quote both and do not choose between them.",
+                  ["reg_417_eta", "reg_462_eta"], "The instrument that lists the age for each country is separate from the Regulations and we did not read it: check the age for your passport on the Home Affairs page."),
+                 ("Who pays a lower charge", "", ["v462_concessione"], "")],
+     "non_dice": "What these sources do not say on this page: the list of eligible countries for each visa and the age the instrument gives for each one, the education and English "
+                 "conditions of the subclass 462 visa for your country, and the work that counts as specified work.",
+     "faq": [("working holiday visa australia", "How much is the working holiday visa for Australia?", lambda: f"From {data_lunga(DAL_AV)} the base application charge is {aud(base_av('417'))} for an applicant who has not been in Australia on that visa and {aud(riga_tar_av('417')['importi'][1])} for any other applicant, for both subclass 417 and subclass 462 (Migration Regulations, Schedule 1, items 1225 and 1224A)."),
+             ("working holiday visa australia age limit", "What is the age limit for the Australian working holiday visa?", "The Home Affairs page for subclass 417 says: " + fr_av("v417_devi").split("; ")[0] + ". The Migration Regulations in force on " + data_lunga(COMP_AV) + " say: " + fr_av("reg_417_eta") + " Check the age for your passport with Home Affairs."),
+             ("working holiday visa australia requirements", "What are the requirements for the working holiday visa in Australia?", "For a first subclass 417 visa Home Affairs lists: " + fr_av("v417_primo") + " On money it says: " + fr_av("v417_denaro")),
+             ("462 visa", "What is the difference between the 417 and the 462 visa?", "They are two visas for different passports. For subclass 462 Home Affairs lists: " + fr_av("v462_primo") + " The charge is the same; the subclass 462 visa has further conditions that depend on your country.")]},
+    {"id": "visitor-visa-600", "nome": "Visitor visa (600)", "ico": "globe", "visti": ["600"], "punti": False,
+     "h1": "Visitor visa Australia (subclass 600): official tourist visa fee and requirements",
+     "titoli": [f"Visitor Visa Australia (600): Tourist Visa Fees ({ANNO_FIN_AV})", f"Visitor Visa Australia: Tourist Visa Fees ({ANNO})"],
+     "descr": [f"Visitor visa Australia (subclass 600): charge {aud(base_av('600'))} outside Australia, {aud(riga_tar_av('600', 'dentro')['importi'][0])} in Australia, from 1 July 2026. Genuine visitor, enough money. Official sources.",
+               f"Visitor visa Australia (subclass 600): charge {aud(base_av('600'))} outside Australia, from 1 July 2026. Official sources."],
+     "lead": f"The Visitor visa (subclass 600) is for tourists, business visitors and family visits of 3, 6 or 12 months. The base application charge is {aud(base_av('600'))} if you apply "
+             f"from outside Australia and {aud(riga_tar_av('600', 'dentro')['importi'][0])} if you apply in Australia, from {data_lunga(DAL_AV)}. Home Affairs asks you to be a genuine "
+             "visitor with enough money for your stay; it gives no fixed amount.",
+     "righe": lambda: [("Charge, applying outside Australia", aud(base_av("600"))), ("Charge, applying in Australia", aud(riga_tar_av("600", "dentro")["importi"][0])),
+                       ("Frequent Traveller stream", aud(riga_tar_av("600", "frequente")["importi"][0])), ("Money", "Enough to support yourself; no amount is given"),
+                       ("Work", "Tourist stream: you must not work in Australia"), ("Stay", "Up to 12 months")],
+     "blocchi": [("What the visa is", "", ["v600_cosa", "v600_devi"], ""),
+                 ("Tourist stream, applying outside Australia: you must", "", ["v600_tour", "v600_denaro", "v600_durata"], "")],
+     "non_dice": "What these sources do not say: an amount of money that counts as enough, which passports can use the electronic visitor visas instead of subclass 600, and the "
+                 "charge of the other streams' sponsors. Some applicants pay nothing: the Regulations set a nil charge for representatives of a foreign government and for classes "
+                 "of persons the Minister specifies.",
+     "faq": [("visitor visa australia", "How much is a visitor visa for Australia?", lambda: f"For the Visitor visa (subclass 600) the base application charge is {aud(base_av('600'))} if you are outside Australia when you apply and {aud(riga_tar_av('600', 'dentro')['importi'][0])} if you are in Australia (Migration Regulations, Schedule 1, item 1236, amounts set from {data_lunga(DAL_AV)})."),
+             ("australia tourist visa fees", f"What are the Australia tourist visa fees in {ANNO_FIN_AV}?", lambda: f"{aud(base_av('600'))} for a subclass 600 application made outside Australia; {aud(riga_tar_av('600', 'frequente')['importi'][0])} in the Frequent Traveller stream. With a passport of a Pacific-regional country the charge outside Australia is {aud(riga_tar_av('600', 'pac')['importi'][0])}."),
+             ("australia tourist visa requirements", "What are the Australia tourist visa requirements?", "For the Tourist stream applied for outside Australia, Home Affairs lists: " + fr_av("v600_tour") + "."),
+             ("australia tourist visa", "How long can I stay in Australia on a tourist visa?", "Home Affairs describes the subclass 600 visa as: " + fr_av("v600_cosa") + ". For the Tourist stream it gives the stay as: " + fr_av("v600_durata") + ".")]},
+    {"id": "partner-visa", "nome": "Partner visa (820/801 and 309/100)", "ico": "family", "visti": ["820", "309"], "punti": False,
+     "h1": "Partner visa Australia (820/801 and 309/100): official cost and requirements",
+     "titoli": [f"Partner Visa Australia: Cost and Requirements ({ANNO_FIN_AV})", f"Partner Visa Australia: Cost, Requirements ({ANNO})"],
+     "descr": [f"Partner visa Australia (820/801 or 309/100): charge {aud(base_av('820'))} from 1 July 2026, one payment for the temporary and the permanent visa. Official words and sources.",
+               f"Partner visa Australia: charge {aud(base_av('820'))} from 1 July 2026, one payment for both visas. Official sources."],
+     "lead": f"A partner visa lets the spouse or de facto partner of an Australian citizen, permanent resident or eligible New Zealand citizen live in Australia. You apply for the temporary "
+             f"and the permanent visa together and pay one charge: {aud(base_av('820'))} for the main applicant from {data_lunga(DAL_AV)}, whether you apply in Australia "
+             "(subclass 820 and 801) or outside (subclass 309 and 100).",
+     "righe": lambda: [("Visa application charge", _costo_breve_av("820")), ("Temporary visa (820 or 309)", "Nil: the charge is on the permanent visa class, applied for at the same time"),
+                       ("Second instalment", "Nil"), ("Holder of a Prospective Marriage visa", aud(riga_tar_av("820", "pmv")["importi"][0])),
+                       ("Who can apply", "Spouse or de facto partner of an Australian citizen, permanent resident or eligible New Zealand citizen")],
+     "blocchi": [("What the visa is", "", ["v820_cosa"], ""),
+                 ("Applying in Australia (subclass 820 and 801)", "", ["v820_devi"], ""),
+                 ("Applying outside Australia (subclass 309 and 100)", "", ["v309_devi"], ""),
+                 ("Why there is one charge for two visas", "In Schedule 1 the temporary visa has no charge of its own and must be applied for together with the permanent one.", ["reg_1214c", "reg_1220a"], "")],
+     "non_dice": "What these sources do not say on this page: the evidence of the relationship, the rules for sponsors, and how long the permanent stage takes. Schedule 1 has more "
+                 "rows for rare cases (old entry permits, people without a substantive visa) that this page does not list: read item 1124B at the source if one applies to you.",
+     "faq": [("partner visa australia", "How much is a partner visa in Australia?", lambda: f"The base application charge is {aud(base_av('820'))} for the main applicant, {aud(riga_tar_av('820')['importi'][1])} for each additional applicant aged 18 or over and {aud(riga_tar_av('820')['importi'][2])} for each one under 18 (Migration Regulations, Schedule 1, items 1124B and 1129, amounts set from {data_lunga(DAL_AV)})."),
+             ("partner visa australia cost", "Do I pay twice for the temporary and the permanent partner visa?", "No. Home Affairs says: " + fr_av("v820_cosa") + " In Schedule 1 the temporary class has a nil charge and the second instalment of the permanent class is nil."),
+             ("partner visa australia requirements", "What are the partner visa requirements in Australia?", "For an application in Australia Home Affairs says: " + fr_av("v820_devi") + ". For an application outside Australia: " + fr_av("v309_devi") + "."),
+             ("820 visa", "What is the difference between the 820 and the 309 visa?", "Subclass 820 (with 801) is the partner visa applied for in Australia; subclass 309 (with 100) is applied for outside Australia. The charge in Schedule 1 is the same.")]},
+]
+V_AV = {v["id"]: v for v in PAG_AV}
+SEZ_AV_CALC = f"{SEZ_AV}pr-points-calculator/"
+SEZ_AV_TAR = f"{SEZ_AV}visa-fees/"
+
+
+def _faq_av(voci):
+    return [(f, d, a() if callable(a) else a) for f, d, a in voci]
+
+
+FAQ_IDX_AV = [
+    ("australia visa", "How much does an Australian visa cost?", lambda: f"It depends on the visa. From {data_lunga(DAL_AV)} the base application charge in the Migration Regulations is {aud(base_av('600'))} for a Visitor visa applied for outside Australia, {aud(base_av('417'))} for a first working holiday visa, {aud(base_av('500'))} for a Student visa, {aud(base_av('482'))} for a Skills in Demand visa, {aud(base_av('189'))} for a Skilled Independent visa and {aud(base_av('820'))} for a partner visa."),
+    ("australia pr", "Which Australian visas are points-tested?", f"Among the visas on this page, subclass 189, 190 and 491. Home Affairs says of subclass 189: " + fr_av("v189_65")),
+    ("australia pr requirements", "What are the requirements for Australian PR through a skilled visa?", "For the Skilled Independent visa (subclass 189) Home Affairs lists: " + fr_av("v189_devi") + ". It also says: " + fr_av("v189_eta")),
+    ("australia skilled visa", "What is the difference between the 189, 190 and 491 visas?", lambda: f"All three use the same points table. Subclass 189 has no nomination; subclass 190 needs a state or territory nomination, worth {P_AV['nom_190']['punti']} points; subclass 491 needs a nomination or a family sponsor, worth {P_AV['nom_491']['punti']} points, and is a provisional visa for regional Australia."),
+    ("migration agent", "Do I need a migration agent for an Australian visa?", "No official source we read says you need one. " + _AGENTE_AV),
+]
+FAQ_CALC_AV = [
+    ("pr points calculator", "How many points do I need for Australian PR?", f"At least {SOGLIA_PUNTI_AV} to be invited for a points-tested visa. Home Affairs says: " + fr_av("v189_65") + " It adds: " + fr_av("v189_65_piu")),
+    ("australia pr points calculator", "How are Australia PR points calculated?", "By adding the points of each row of the Home Affairs points table that you can claim: age, English, skilled employment, qualifications, Australian study, partner and, for subclass 190 and 491, nomination or sponsorship. Home Affairs says applicants must " + fr_av("pt_soddisfa") + " and " + fr_av("pt_documenti")),
+    ("189 visa points calculator", "What is the maximum for work experience in the 189 visa points test?", "Home Affairs says: " + fr_av("pt_tetto")),
+    ("australia points calculator", "Which age gives the most points for Australia?", lambda: f"{P_AV['eta_25']['punti']} points, for an applicant aged “{P_AV['eta_25']['parole']}”. The table gives {P_AV['eta_18']['punti']} points from 18 to 24, {P_AV['eta_33']['punti']} from 33 to 39 and {P_AV['eta_40']['punti']} from 40 to 44; it has no row from {ETA_MAX_AV}."),
+    ("australia pr points", "Does a partner add points for Australian PR?", "Yes, in three ways. " + fr_av("pt_partner_stesso") + f" A single applicant, or one whose partner is an Australian citizen or permanent resident, gets {P_AV['partner_solo']['punti']} points. Home Affairs warns: " + fr_av("pt_partner_stato")),
+]
+FAQ_TAR_AV = [
+    ("australia visa fees", f"What are the Australia visa fees in {ANNO_FIN_AV}?", lambda: f"The table on this page lists them. From {data_lunga(DAL_AV)}: Visitor visa (subclass 600) {aud(base_av('600'))} outside Australia; working holiday visas {aud(base_av('417'))}; Student visa {aud(base_av('500'))}; Skills in Demand visa {aud(base_av('482'))}; skilled visas 189, 190 and 491 from {aud(base_av('189'))}; partner visas {aud(base_av('820'))}."),
+    ("australian visa fees", "When do Australian visa fees change?", f"The amounts on this page were set from {data_lunga(DAL_AV)} by amending regulations that say: " + fr_av("amd_data") + " In recent years the charges have been changed by regulations that commenced on 1 July; we read the Regulations again every month."),
+    ("australia visa price", "What is the visa application charge made of?", "The Migration Regulations say: " + fr_av("reg_212c") + " They add: " + fr_av("reg_alternativi")),
+    ("student visa fees australia", f"How much is the Australian student visa fee?", lambda: f"{aud(base_av('500'))} for the main applicant from {data_lunga(DAL_AV)}; {aud(riga_tar_av('500', 'asean')['importi'][0])} with a passport of a country listed in subitem (5A) or for an ELICOS or non-award course; {aud(riga_tar_av('500', 'pac')['importi'][0])} with a passport of a Pacific-regional country."),
+    ("partner visa fees australia", "How much is the partner visa fee in Australia?", lambda: f"{aud(base_av('820'))} for the main applicant from {data_lunga(DAL_AV)}, for an application in Australia (subclass 820 and 801) or outside (subclass 309 and 100); the temporary visa class has a nil charge of its own."),
+    ("482 visa fees", "How much is the 482 visa fee?", lambda: f"{aud(base_av('482'))} for the main applicant and for each additional applicant aged 18 or over, and {aud(riga_tar_av('482')['importi'][2])} for each one under 18, from {data_lunga(DAL_AV)}."),
+]
+FAQ_AV = {SEZ_AV: [f for f, _, _ in FAQ_IDX_AV], SEZ_AV_CALC: [f for f, _, _ in FAQ_CALC_AV], SEZ_AV_TAR: [f for f, _, _ in FAQ_TAR_AV],
+          **{f"{SEZ_AV}{v['id']}/": [f for f, _, _ in v["faq"]] for v in PAG_AV}}   # percorso -> frasi misurate (controllo 40)
+
+
+def perc_av(v):
+    return f"{SEZ_AV}{v['id']}/"
+
+
+def box_me(pid):
+    """Riquadro del partner Migration Expert, sotto le parole ufficiali e prima delle FAQ. '' con l'interruttore spento o fuori dalle pagine previste."""
+    if not ME_ATTIVO or pid not in PAGINE_ME:
+        return ""
+    return (f'\n<section class="card aff-r" aria-labelledby="aff-me-h"><div class="aff-r-t"><span class="ic">{ico("user")}</span>'
+            f'<h2 id="aff-me-h">Want a registered migration agent to look at your case?</h2><span class="aff-tag">Affiliate</span></div>'
+            f'<p>The official rule comes first. Home Affairs says: {q_av("ai_solo")} {q_av("ai_chi")}. You can also apply on your own: nothing on this page says you need an agent.</p>'
+            f'<p>Migration Expert describes its staff as “{escape(L_AV["me_agenti"]["frammento"])}” (the company\'s own words, read on {data_lunga(F_AV["migexp"]["letto_il"])}). '
+            'We have not used its service and cannot assess it. Before you pay any agent, ask for the Migration Agents Registration Number (MARN) of the person who will handle your '
+            'case and check it in the register of the Office of the Migration Agents Registration Authority.</p>'
+            f'<p class="aff-r-cta"><a class="btn" href="{escape(URL_ME)}" rel="{REL_ME}" target="_blank">See Migration Expert\'s consultations{ico("arrow")}'
+            f'<span class="sr"> (opens in a new tab)</span></a></p>'
+            f'<p class="small">{MON.RIGA_EN} Fees are on Migration Expert\'s website. Using an agent does not decide your visa, and the official words and amounts on this page do not depend on this link.</p></section>')
+
+
+def risposta_av(righe):
+    return ('<div class="tab compatta"><table class="t-av"><caption class="sr">The answer in short</caption><tbody>' +
+            "".join(f'<tr><th scope="row" style="vertical-align:top">{escape(a)}</th><td>{escape(b)}</td></tr>' for a, b in righe) + "</tbody></table></div>")
+
+
+def griglia_av(rel, salta=None):
+    voci = [(SEZ_AV_CALC, "calc", "PR points calculator", "Subclass 189, 190 and 491"), (SEZ_AV_TAR, "coins", "Visa fees", f"From {data_lunga(DAL_AV)}")]
+    voci += [(perc_av(x), x["ico"], x["nome"], _costo_griglia_av(x)) for x in PAG_AV]
+    return ('<div class="griglia">' + "".join(f'<a href="{rel}{p}"><span class="ic">{ico(i)}</span><span>{escape(n)}<small>{escape(s)}</small></span></a>'
+                                              for p, i, n, s in voci if p != salta) + "</div>")
+
+
+def _costo_griglia_av(v):
+    return f"Charge {aud(base_av(v['visti'][0]))}"
+
+
+def link_sito_av(rel, v=None):
+    """Collegamenti alle pagine del sito che parlano dell'Australia o dello stesso tipo di visto."""
+    voci = [(f"{rel}{SEZ_AU}", f"Australia visa refusal rates by nationality ({AU_A1})"), (f"{rel}{SEZ_TEMPI_CER}", "Australian citizenship processing time"),
+            (f"{rel}{SEZ_CER}", "Citizenship ceremony wait times by council")]
+    if v and v["id"] == "482-visa":
+        voci.insert(0, (f"{rel}work-visa-salary-thresholds/", "Work visa salary thresholds in other countries"))
+    if v and v["id"] == "student-visa-500":
+        voci.insert(0, (f"{rel}{SEZ_AU}", f"Australia student visa refusal rate by nationality ({AU_A1})"))
+        voci.pop(1)
+    if v is None or v.get("punti"):
+        voci.insert(0, (f"{rel}", "Visa income calculator: minimum income for visas in other countries"))
+    return "<p>" + " · ".join(f'<a href="{h}">{escape(t)}</a>' for h, t in voci) + "</p>"
+
+
+def pagina_av_visto(v):
+    percorso = perc_av(v)
+    rel = "../../"
+    faq_v = _faq_av(v["faq"])
+    faq = [(d, escape(a)) for _, d, a in faq_v]
+    punti = (f'<h2>Points for this visa</h2><p>This visa uses the points table of the General Skilled Migration visas (Schedule 6D of the Migration Regulations). '
+             f'Home Affairs says: {q_av("v189_65")} Add up your points with the <a href="{rel}{SEZ_AV_CALC}">PR points calculator</a>, which has every row of the table with its source.</p>'
+             + fonte_av_p(["v189_65"]) if v["punti"] else "")
+    corpo = f"""<section class="hero">{h1_diviso(v["h1"])}
+<p class="lead">{escape(v["lead"])} Official sources read on {data_lunga(LETTO_AV)}.</p></section>
+{risposta_av(v["righe"]())}
+{AVVISO_AV}
+{costi_av(v["visti"])}
+<p class="small">{escape(NOTA_COSTI_AV)} <a href="{rel}{SEZ_AV_TAR}">All Australian visa fees in one table</a>.</p>
+{punti}
+{AD}
+<h2>What Home Affairs asks, in its own words</h2>
+<div class="testo">{"".join(blocco_av(*b) for b in v["blocchi"])}</div>
+<p class="small">{escape(v["non_dice"])}</p>
+<h2>Who can help with an application</h2>
+<div class="testo"><ul class="testo">{voci_av("ai_solo")}{voci_av("ai_chi")}{voci_av("ai_prima")}</ul>{fonte_av_p(["ai_solo", "ai_prima", "mara_nome"])}</div>{box_me(v["id"])}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(faq)}</div>
+<h2>Other Australian visas</h2>
+{griglia_av(rel, salta=percorso)}
+{link_sito_av(rel, v)}"""
+    pagina(percorso, entro(v["titoli"], LIM_TIT_NUOVE), entro(v["descr"], LIM_DESCR_NUOVE), corpo, jsonld_extra=[ld_faq(faq)], css_extra=CSS_AV,
+           briciole=[("Australia visas", SEZ_AV), (v["nome"], percorso)])
+
+
+def pagina_av_calc():
+    percorso = SEZ_AV_CALC
+    rel = "../../"
+    faq = [(d, escape(a)) for _, d, a in _faq_av(FAQ_CALC_AV)]
+    tabelle = "".join(tabella_punti_av(c, t, nk) for c, t, _, nk in CAT_AV) + tabella_nomina_av()
+    corpo = f"""<section class="hero">{h1_diviso("Australia PR points calculator: subclass 189, 190 and 491")}
+<p class="lead">Add up your points for the Australian skilled visas with the rows of the official points table. Home Affairs says that without {SOGLIA_PUNTI_AV} points you will not be invited to apply, that you must be under {ETA_MAX_AV} and have at least competent English; state nomination adds {P_AV['nom_190']['punti']} points for subclass 190 and regional nomination or family sponsorship {P_AV['nom_491']['punti']} for subclass 491. Points tables read on {data_lunga(LETTO_AV)}.</p></section>
+{calc_av(rel)}
+{AVVISO_AV}
+<h2>Three worked examples</h2>
+<div class="testo">{esempi_av()}<p class="small">Examples worked out with the same rows as the calculator. Points for employment in and outside Australia together stop at {TETTO_LAVORO_AV}.</p></div>
+{AD}
+<h2>The official points table, row by row</h2>
+<p>Each row below has the words of the Home Affairs points table and the item of Schedule 6D of the Migration Regulations 1994 that gives the same points. We checked every row in the three tables (subclass 189, 190 and 491): they are the same, apart from the nomination row.</p>
+<div class="testo">{tabelle}</div>
+<h2>How the points test works</h2>
+<div class="testo"><ul class="testo">{voci_av("pt_invito")}{voci_av("pt_deve")}{voci_av("v189_65")}{voci_av("v189_65_piu")}{voci_av("pt_tetto")}{voci_av("pt_phd")}{voci_av("pt_partner_stato")}</ul>{fonte_av_p(["pt_invito", "v189_65"])}
+<p>The legal text is {q_av("l6d_titolo")}. On employment it says: {q_av("l6d_tetto")}</p>{fonte_av_p(["l6d_titolo"])}</div>
+<p class="small">What these sources do not say: how many points recent invitation rounds needed, which occupations are on the lists, and what English test scores count as competent, proficient or superior. The calculator does not check any of your claims: the Department does, with your documents.</p>
+<h2>Who can help with an application</h2>
+<div class="testo"><ul class="testo">{voci_av("ai_solo")}{voci_av("ai_chi")}{voci_av("ai_prima")}</ul>{fonte_av_p(["ai_solo", "ai_prima", "mara_nome"])}</div>{box_me("pr-points-calculator")}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(faq)}</div>
+<h2>The visas and their fees</h2>
+{griglia_av(rel, salta=percorso)}
+{link_sito_av(rel)}"""
+    titolo = entro([f"Australia PR Points Calculator: 189, 190, 491 Visa ({ANNO_FIN_AV})", f"Australia PR Points Calculator: 189, 190, 491 Visa ({ANNO})", f"Australia PR Points Calculator ({ANNO})"], LIM_TIT_NUOVE)
+    descr = entro([f"PR points calculator for Australia: subclass 189, 190 and 491, every row of the official points table with its source. At least {SOGLIA_PUNTI_AV} points to be invited.",
+                   f"PR points calculator for Australia: subclass 189, 190 and 491, with the official points table and its sources."], LIM_DESCR_NUOVE)
+    app = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Australia PR points calculator", "url": URL_SITO + "/" + percorso,
+           "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(faq), app], script=PUNTI_AV_JS, css_extra=CSS_AV,
+           briciole=[("Australia visas", SEZ_AV), ("PR points calculator", percorso)])
+
+
+def _riga_riassunto_av(visto, rel, pagina_v):
+    r = riga_tar_av(visto)
+    n = r["importi"]
+    nome, sub = NOMI_AV[visto]
+    if r["tipo"] == "tab":
+        celle = f'<td class="n">{aud(n[0])}</td><td class="n">{aud(n[1])}</td><td class="n">{aud(n[2])}</td>'
+    elif r["tipo"] == "due":
+        celle = f'<td class="n">{aud(n[0])}<span class="small">{aud(n[1])} if you have been in Australia on this visa</span></td><td class="n">–</td><td class="n">–</td>'
+    else:
+        celle = f'<td class="n">{aud(n[0])}<span class="small">{aud(riga_tar_av(visto, "dentro")["importi"][0])} if you apply in Australia</span></td><td class="n">–</td><td class="n">–</td>'
+    s = seconda_av(visto)
+    return (f'<tr><td><a href="{rel}{perc_av(pagina_v)}">{escape(nome)}</a><br><span class="small">{sub} · item {T_AV[visto]["voce"]}</span></td>{celle}'
+            f'<td class="n">{aud(s) + '<span class="small">18 or over, without functional English</span>' if s else "Nil"}</td></tr>')
+
+
+def tabella_riassunto_av(rel):
+    per_visto = {x: v for v in PAG_AV for x in v["visti"]}
+    righe = "".join(_riga_riassunto_av(x, rel, per_visto[x]) for x in NOMI_AV)
+    return (f'<div class="tab compatta"><table class="t-av" id="t-av"><caption class="sr">Australian visa application charges from {data_lunga(DAL_AV)}</caption><thead><tr><th scope="col">Visa</th>'
+            '<th scope="col" class="n">Base application charge</th><th scope="col" class="n">Each additional applicant, 18 or over</th><th scope="col" class="n">Each additional applicant, under 18</th>'
+            f'<th scope="col" class="n">Second instalment</th></tr></thead><tbody>{righe}</tbody></table></div>')
+
+
+def pagina_av_tariffe():
+    percorso = SEZ_AV_TAR
+    rel = "../../"
+    faq = [(d, escape(a)) for _, d, a in _faq_av(FAQ_TAR_AV)]
+    corpo = f"""<section class="hero">{h1_diviso(f"Australia visa fees {ANNO_FIN_AV}: the official visa application charges")}
+<p class="lead">The Australian visa application charge is set in Schedule 1 of the Migration Regulations 1994. The amounts below were set from {data_lunga(DAL_AV)} by amending regulations and are in the compilation in force on {data_lunga(COMP_AV)}: {aud(base_av('600'))} for a Visitor visa applied for outside Australia, {aud(base_av('500'))} for a Student visa, {aud(base_av('189'))} for a Skilled Independent visa, {aud(base_av('820'))} for a partner visa. Read on {data_lunga(LETTO_AV)}.</p></section>
+{tabella_riassunto_av(rel)}
+<p class="small">Amounts in Australian dollars, for an applicant who does not qualify for a lower charge. “–” means that the item of Schedule 1 has no additional applicant charge. Each visa has its own section below with every row we read and the words of the Regulations.</p>
+{AVVISO_AV}
+<h2>How the charge is built</h2>
+<div class="testo"><ul class="testo">{voci_av("reg_212c")}{voci_av("reg_alternativi")}{voci_av("reg_familiare")}{voci_av("reg_successiva")}</ul>{fonte_av_p(["reg_212c"])}
+<h3>When the amounts were set</h3><ul class="testo">{voci_av("amd_titolo")}{voci_av("amd_data")}{voci_av("reg_compilazione")}{voci_av("reg_testo")}</ul>{fonte_av_p(["amd_data", "reg_compilazione"])}
+<h3>Lower charges for some passports</h3><ul class="testo">{voci_av("pr_concessione")}{voci_av("v189_concessione")}{voci_av("reg_pacifico")}</ul>{fonte_av_p(["pr_concessione", "v189_concessione", "reg_pacifico"])}
+<h3>What Home Affairs says about its own price table</h3><ul class="testo">{voci_av("pr_tabella")}{voci_av("pr_stima")}</ul>{fonte_av_p(["pr_tabella"])}</div>
+<p class="small">{escape(NOTA_COSTI_AV)}</p>
+{AD}
+{costi_av(list(NOMI_AV))}
+<p class="small">Partner visas: {q_av("reg_1214c")} For applications outside Australia, item 1220A says the same of the provisional class. The second instalment of {aud(seconda_av('189'))} for subclass 189 and 190 and {aud(seconda_av('491'))} for subclass 491 is in the Regulations in force on {data_lunga(COMP_AV)}; the amending regulations of {data_lunga(DAL_AV)} did not change it.</p>
+<h2>Who can help with an application</h2>
+<div class="testo"><ul class="testo">{voci_av("ai_solo")}{voci_av("ai_chi")}{voci_av("ai_prima")}</ul>{fonte_av_p(["ai_solo", "ai_prima", "mara_nome"])}</div>{box_me("visa-fees")}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(faq)}</div>
+<h2>The visas, one by one</h2>
+{griglia_av(rel, salta=percorso)}
+{link_sito_av(rel)}"""
+    titolo = entro([f"Australia Visa Fees {ANNO_FIN_AV}: Official Charges from 1 July {DAL_AV[:4]}", f"Australia Visa Fees {ANNO_FIN_AV}: Official Charges"], LIM_TIT_NUOVE)
+    descr = entro([f"Australia visa fees from 1 July {DAL_AV[:4]}: visitor {aud(base_av('600'))}, student {aud(base_av('500'))}, 482 {aud(base_av('482'))}, 189 {aud(base_av('189'))}, partner {aud(base_av('820'))}. From the Migration Regulations.",
+                   f"Australia visa fees from 1 July {DAL_AV[:4]}: visitor {aud(base_av('600'))}, student {aud(base_av('500'))}, partner {aud(base_av('820'))}. Official source."], LIM_DESCR_NUOVE)
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(faq)], css_extra=CSS_AV, briciole=[("Australia visas", SEZ_AV), ("Visa fees", percorso)])
+
+
+def pagina_av_indice():
+    percorso = SEZ_AV
+    rel = "../"
+    faq = [(d, escape(a)) for _, d, a in _faq_av(FAQ_IDX_AV)]
+    righe = ""
+    for v in PAG_AV:
+        x = v["visti"][0]
+        righe += (f'<tr><td><a href="{v["id"]}/">{escape(v["nome"])}</a></td><td class="n">{aud(base_av(x))}</td>'
+                  f'<td>{("Yes: at least " + str(SOGLIA_PUNTI_AV) + " points") if v["punti"] else "No"}</td><td>{escape(dict(v["righe"]()).get("Stay", "Temporary, then permanent"))}</td></tr>')
+    corpo = f"""<section class="hero">{h1_diviso("Australia visas: points test, official fees and requirements")}
+<p class="lead">The main Australian visas with the figures that people look for, each one from an official source: the points of the skilled visas (subclass 189, 190 and 491), the visa application charges set from {data_lunga(DAL_AV)} and what the Department of Home Affairs asks for each visa. Sources read on {data_lunga(LETTO_AV)}.</p></section>
+{griglia_av(rel)}
+{AVVISO_AV}
+<h2>The main visas at a glance</h2>
+<div class="tab compatta"><table class="t-av" id="t-av"><caption class="sr">Main Australian visas: charge, points test and stay</caption><thead><tr><th scope="col">Visa</th><th scope="col" class="n">Charge for the main applicant</th><th scope="col">Points test</th><th scope="col">Stay</th></tr></thead><tbody>{righe}</tbody></table></div>
+<p class="small">Charge: base application charge in Schedule 1 of the Migration Regulations 1994, in Australian dollars, for an applicant who does not qualify for a lower charge. Working holiday: first visa. Visitor: applying outside Australia. <a href="{SEZ_AV_TAR[len(SEZ_AV):]}">Every amount, with the words of the Regulations</a>.</p>
+{fonte_av_fonti(["reg1", "amd", "v189", "v491", "v482core", "v500", "v417first", "v600tour"])}
+{AD}
+<h2>The points test in short</h2>
+<div class="testo"><p>Three of these visas are points-tested and share one points table. The <a href="{SEZ_AV_CALC[len(SEZ_AV):]}">PR points calculator</a> adds up the rows for you.</p>
+<ul class="testo">{voci_av("v189_65")}{voci_av("v189_eta")}{voci_av("v189_inglese")}{voci_av("pt_tetto")}</ul>{fonte_av_p(["v189_65", "pt_tetto"])}</div>
+<h2>Where the figures come from</h2>
+<div class="testo"><p>Points: the three points tables of the Department of Home Affairs, checked row by row against Schedule 6D of the Migration Regulations 1994. Charges: Schedule 1 of the same Regulations, in the compilation in force on {data_lunga(COMP_AV)}, with the amounts set from {data_lunga(DAL_AV)}. Requirements: the Department's page for each visa, quoted word for word.</p>
+<p>Home Affairs material is used under its licence: {q_av("lic_cc")}. {q_av("lic_attr")}</p>{fonte_av_p(["lic_cc"])}</div>
+<h2>Sources we could not use</h2>
+<p>We publish a figure only when we have read it at an official source. The Home Affairs price table and the Visa Pricing Estimator are filled in by the Department's own tool, which we do not query, so no charge on these pages comes from them. The same pages show no cost in their text, and we found no current figure there for the income thresholds of the Skills in Demand visa after the indexation of 1 July 2026. We did not read the instruments that list occupations, eligible countries and English test scores.</p>
+<h2>Who can help with an application</h2>
+<div class="testo"><ul class="testo">{voci_av("ai_solo")}{voci_av("ai_chi")}{voci_av("ai_prima")}</ul>{fonte_av_p(["ai_solo", "ai_prima", "mara_nome"])}</div>{box_me("indice")}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(faq)}</div>
+{link_sito_av(rel)}"""
+    titolo = entro([f"Australia Visa: Points Test, Fees and Requirements ({ANNO_FIN_AV})", f"Australia Visa: Points, Fees and Requirements ({ANNO})"], LIM_TIT_NUOVE)
+    descr = entro([f"Australia visa guide from official sources: PR points calculator (189, 190, 491), visa fees from 1 July {DAL_AV[:4]} and requirements for 9 visas.",
+                   "Australia visa guide from official sources: PR points calculator, visa fees and requirements."], LIM_DESCR_NUOVE)
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(faq)], css_extra=CSS_AV, briciole=[("Australia visas", percorso)])
+
+
+def link_av(rel):
+    """Riga di collegamento alla sezione dalle pagine australiane del sito (visti rifiutati, tempi della cittadinanza)."""
+    return (f'\n<p class="small">{ico("passport")} <strong>Applying for an Australian visa?</strong> <a href="{rel}{SEZ_AV_CALC}">PR points calculator (189, 190, 491)</a> · '
+            f'<a href="{rel}{SEZ_AV_TAR}">official visa fees from {data_lunga(DAL_AV)}</a> · <a href="{rel}{SEZ_AV}">requirements for the main visas</a>.</p>')
+
+
+def genera_av():
+    pagina_av_indice()
+    pagina_av_calc()
+    pagina_av_tariffe()
+    for v in PAG_AV:
+        pagina_av_visto(v)
+
+
+def controlli_av():
+    import hashlib
+    errori = []
+    cont = {"url": {k: f["url"] for k, f in F_AV.items()}, "letture": L_AV, "punti": PUNTI_AV, "nomina": NOMINA_AV, "tariffe": T_AV, "domanda": AV["domanda"]}
+    if hashlib.sha256(json.dumps(cont, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20] != AV["impronta"]:
+        errori.append("australia_visti: impronta del JSON diversa dal contenuto (file modificato a mano?)")
+    for k, f in F_AV.items():
+        if f.get("http") != 200:
+            errori.append(f"australia_visti: fonte {k} non letta (HTTP {f.get('http')})")
+    for v in PAG_AV:
+        for b in v["blocchi"]:
+            for k in b[2]:
+                if k not in L_AV:
+                    errori.append(f"australia_visti: {v['id']} cita una lettura inesistente ({k})")
+        for x in v["visti"]:
+            if x not in T_AV:
+                errori.append(f"australia_visti: {v['id']}: visto {x} senza voce di tariffa")
+    for percorso, frasi in FAQ_AV.items():
+        for f in frasi:
+            if vol_av(f) <= 0:
+                errori.append(f"australia_visti: {percorso}: FAQ sulla frase «{f}», che non ha un volume misurato")
+    for visto, t in T_AV.items():
+        for r in t["righe"]:
+            letti = [int(re.sub(r"[ ,]", "", x)) for x in re.findall(r"\$(\d{1,3}(?:[ ,]\d{3})*)", r["frammento"])]
+            if letti != r["importi"]:
+                errori.append(f"australia_visti: tariffa {visto}/{r['id']}: importi diversi da quelli scritti nel frammento")
+    for r in PUNTI_AV + NOMINA_AV:
+        if r["legge"] and not re.search(rf"(^| ){r['punti']}( |$)", r["legge"]):
+            errori.append(f"australia_visti: punti {r['id']}: il punteggio {r['punti']} non è nella voce della Schedule 6D")
+    if SOGLIA_PUNTI_AV != 65 or ETA_MAX_AV != 45 or TETTO_LAVORO_AV != 20:
+        errori.append("australia_visti: soglia dei punti, età massima o tetto del lavoro cambiati: rileggere i testi delle pagine")
+    tot, _ = calcola_av("189", "eta_25", "ing_prof", "est_5", "aus_0", "tit_laurea", (), "partner_solo")
+    if tot != 30 + 10 + 10 + 15 + 10:
+        errori.append(f"australia_visti: esempio a mano del calcolatore = {tot}, atteso 75")
+    tot, _ = calcola_av("491", "eta_40", "ing_sup", "est_8", "aus_8", "tit_dott", (), "partner_solo")
+    if tot != 15 + 20 + 20 + 20 + 10 + 15:
+        errori.append(f"australia_visti: esempio a mano del calcolatore (tetto del lavoro) = {tot}, atteso 100")
+    for x in PAGINE_ME:
+        if x not in V_AV and x not in ("indice", "pr-points-calculator", "visa-fees"):
+            errori.append(f"australia_visti: _migration_expert.pagine contiene una pagina che non esiste ({x})")
+    if _ME.get("attivo") and not ME_ATTIVO:
+        errori.append("australia_visti: _migration_expert attivo ma senza un link https ammesso in monetizzazione.json")
+    return errori
+
+
 NOINDEX = json.loads((DATI / "noindex.json").read_text(encoding="utf-8"))
 SEZIONI_IN_SCALA = {
     "moved-to": re.compile(r"^moved-to/[^/]+/[^/]+/$"),
@@ -16648,6 +17446,7 @@ def main():
     genera_h1b()
     genera_ass()
     genera_de()
+    genera_av()
     pagina_come_funziona()
     about()
     contatti()

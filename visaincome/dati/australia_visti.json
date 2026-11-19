@@ -1,0 +1,2673 @@
+{
+ "_nota": "Generato da raccolta/australia_visti.py: non modificare a mano. Letture, punti e tariffe sono frammenti dei testi ufficiali, ricontrollati a ogni lancio; gli importi si leggono dai frammenti.",
+ "letto_il": "2026-11-19",
+ "compilazione": {
+  "id": "F2026C01194",
+  "numero": 291,
+  "data": "2026-11-03"
+ },
+ "modifica": {
+  "id": "F2026L00874",
+  "dal": "2026-07-01"
+ },
+ "fonti": {
+  "pts189": {
+   "titolo": "Points table for Skilled Independent visa (subclass 189)",
+   "editore": "Australian Government Department of Home Affairs",
+   "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/skilled-independent-189/points-table",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 1328332,
+   "sha256_testo": "eb7d7013fa2ffeacf1873d9b952a28b1105426f52e6e2b8daddc67e4952f10ec",
+   "aggiornata": "4/11/2026"
+  },
+  "pts190": {
+   "titolo": "Points table for Skilled Nominated visa (subclass 190)",
+   "editore": "Australian Government Department of Home Affairs",
+   "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/skilled-nominated-190/points-table",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 1329419,
+   "sha256_testo": "ddfa03b55d1f4b7c0c312853e3e0ac82e5ba18fbb8d3f7fd6ae6fea11250c35d",
+   "aggiornata": "16/07/2026"
+  },
+  "pts491": {
+   "titolo": "Points table for Skilled Work Regional (Provisional) visa (subclass 491)",
+   "editore": "Australian Government Department of Home Affairs",
+   "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/skilled-work-regional-provisional-491/points-table",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 1330327,
+   "sha256_testo": "acdef0afb44eda75a0dfeafbcbc76e758de6914bcf56748f5af92311d0c724c5",
+   "aggiornata": "16/07/2026"
+  },
+  "v189": {
+   "titolo": "Skilled Independent visa (subclass 189), Points-tested stream",
+   "editore": "Australian Government Department of Home Affairs",
+   "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/skilled-independent-189/points-tested",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 1385153,
+   "sha256_testo": "63b90e76b390ebd84e42458e3b9319697728f453498722ca72e5aae5a7318820",
+   "aggiornata": "5/11/2026"
+  },
+  "v190": {
+   "titolo": "Skilled Nominated visa (subclass 190)",
+   "editore": "Australian Government Department of Home Affairs",
+   "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/skilled-nominated-190",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 1385717,
+   "sha256_testo": "b153ecadf3b900c8c302c476a38761f415e23e3533ea16b9def1ad4fa8f85679",
+   "aggiornata": "10/11/2026"
+  },
+  "v491": {
+   "titolo": "Skilled Work Regional (Provisional) visa (subclass 491), main applicant",
+   "editore": "Australian Government Department of Home Affairs",
+   "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/skilled-work-regional-provisional-491/application",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 1396855,
+   "sha256_testo": "d205351dd1ddc8b0e286b71ae1695df8f68f85da274f4f192ee399bae18ecb55",
+   "aggiornata": "10/11/2026"
+  },
+  "v482": {
+   "titolo": "Skills in Demand visa (subclass 482)",
+   "editore": "Australian Government Department of Home Affairs",
+   "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/skills-in-demand-visa-subclass-482",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 1302496,
+   "sha256_testo": "dba3368f9a2300ae258d7292660ead2c41f243f30775290660e16c5ec55ed04d",
+   "aggiornata": "2/11/2026"
+  },
+  "v482core": {
+   "titolo": "Skills in Demand visa (subclass 482), Core Skills stream",
+   "editore": "Australian Government Department of Home Affairs",
+   "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/skills-in-demand-visa-subclass-482/core-skills-stream",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 1425470,
+   "sha256_testo": "e2e2851d403af21750d97d28190ddce1fd626b82e30723f1d7c32b1ea59abf6b",
+   "aggiornata": "12/10/2026"
+  },
+  "v482spec": {
+   "titolo": "Skills in Demand visa (subclass 482), Specialist Skills stream",
+   "editore": "Australian Government Department of Home Affairs",
+   "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/skills-in-demand-visa-subclass-482/specialist-skills-stream",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 1429112,
+   "sha256_testo": "861f1d27651bb96ecdc1cb6e62da64987a8bedb2d2d868f3507308906c0afa75",
+   "aggiornata": "12/10/2026"
+  },
+  "v500": {
+   "titolo": "Student visa (subclass 500)",
+   "editore": "Australian Government Department of Home Affairs",
+   "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 1460759,
+   "sha256_testo": "85c4f18bfc25806c2f17f331002c9391e8f6abeaf93d5c396d4e4ce45f38230c",
+   "aggiornata": "9/11/2026"
+  },
+  "v417": {
+   "titolo": "Working Holiday visa (subclass 417)",
+   "editore": "Australian Government Department of Home Affairs",
+   "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/work-holiday-417",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 1302042,
+   "sha256_testo": "23c56edf8b7bb341eea152a10e6ca3ca78f318587f35d811d052700e7ce3a5dc",
+   "aggiornata": "9/12/2024"
+  },
+  "v417first": {
+   "titolo": "First Working Holiday visa (subclass 417)",
+   "editore": "Australian Government Department of Home Affairs",
+   "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/work-holiday-417/first-working-holiday-417",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 1359089,
+   "sha256_testo": "d5d1d9329482d9049e8958593bca06559e81af09f54e06602845683f1f0e0e22",
+   "aggiornata": "5/11/2026"
+  },
+  "v462first": {
+   "titolo": "First Work and Holiday visa (subclass 462)",
+   "editore": "Australian Government Department of Home Affairs",
+   "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/work-holiday-462/first-work-holiday-462",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 1385156,
+   "sha256_testo": "37cac5110ba58906d7dee0e488d6f87a068513881e871c52b62a8a27452827e0",
+   "aggiornata": "5/11/2026"
+  },
+  "v600": {
+   "titolo": "Visitor visa (subclass 600)",
+   "editore": "Australian Government Department of Home Affairs",
+   "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/visitor-600",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 1302074,
+   "sha256_testo": "cf2b2ad7331171695cc0c07e0456b8735f6385767c688f65736867672b6bbe56",
+   "aggiornata": "23/09/2024"
+  },
+  "v600tour": {
+   "titolo": "Visitor visa (subclass 600), Tourist stream (apply outside Australia)",
+   "editore": "Australian Government Department of Home Affairs",
+   "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/visitor-600/tourist-stream-overseas",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 1348595,
+   "sha256_testo": "e9b7c030b1e87d610923956f1a0a6c17351adce3d29aba5533d5802bcdb0d808",
+   "aggiornata": "5/11/2026"
+  },
+  "v820": {
+   "titolo": "Partner visa (apply in Australia) (subclass 820 and 801)",
+   "editore": "Australian Government Department of Home Affairs",
+   "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/partner-onshore",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 1302363,
+   "sha256_testo": "30d733fa9c4c410f2853755cf80faa5798f95b2fad3fee4ca34ecf815f2d4836",
+   "aggiornata": "10/08/2026"
+  },
+  "v309": {
+   "titolo": "Partner visa (apply overseas) (subclass 309 and 100)",
+   "editore": "Australian Government Department of Home Affairs",
+   "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/partner-offshore",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 1302369,
+   "sha256_testo": "39f388426d79471a72cd9a226c78f30dad1d65e614fdb99cae12b315bec67389",
+   "aggiornata": "10/08/2026"
+  },
+  "prezzi": {
+   "titolo": "Visa fees and charges: current visa pricing table",
+   "editore": "Australian Government Department of Home Affairs",
+   "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/fees-and-charges/current-visa-pricing",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 1308602,
+   "sha256_testo": "b7cbbe08c838f78ef30eb7ce37147e70fdf7945c53a76147627cefeee94788d7",
+   "aggiornata": "1/07/2026"
+  },
+  "aiuto": {
+   "titolo": "Who can help you with your application?",
+   "editore": "Australian Government Department of Home Affairs",
+   "url": "https://immi.homeaffairs.gov.au/help-support/who-can-help-with-your-application/overview",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 1308290,
+   "sha256_testo": "a37532a27406eb8a64aaf31b50a620688c8a48e1ab82db8d60cd43b716114b2b",
+   "aggiornata": "16/04/2026"
+  },
+  "licenza": {
+   "titolo": "Copyright and disclaimer",
+   "editore": "Australian Government Department of Home Affairs",
+   "url": "https://www.homeaffairs.gov.au/access-and-accountability/using-our-website/copyright-and-disclaimer",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 1374284,
+   "sha256_testo": "ba62aa30246f34305f586f21e6b8f8d9fe28d5c5b9244eabe1d4ff6d307aa155",
+   "aggiornata": "21/10/2026"
+  },
+  "mara": {
+   "titolo": "Office of the Migration Agents Registration Authority (OMARA)",
+   "editore": "Office of the Migration Agents Registration Authority",
+   "url": "https://www.mara.gov.au/",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 163368,
+   "sha256_testo": "dda5770ffb7bfed17770199406ec1ff392c51da4e2afd02b905d0555f4603341",
+   "aggiornata": "18/08/2026"
+  },
+  "migexp": {
+   "titolo": "Migration Expert, home page (the company's own description; not an official source)",
+   "editore": "Migration Expert",
+   "url": "https://www.migrationexpert.com.au/",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 285581,
+   "partner": true,
+   "sha256_testo": "4c7f6a33c05c104265df2c13230b8110abb2866869d99eb26952cc8c353c4486",
+   "aggiornata": null
+  },
+  "reg_ultima": {
+   "titolo": "Migration Regulations 1994, latest version (page of the register)",
+   "editore": "Federal Register of Legislation (Australian Government)",
+   "url": "https://www.legislation.gov.au/F1996B03551/latest/text",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 645021,
+   "sha256_testo": "1270656bc5d72cd456349b31bf1715f3ecaae12a15f512fa0fe4441f22a66593"
+  },
+  "reg1": {
+   "titolo": "Migration Regulations 1994, compilation No. 291 (3 November 2026), volume 1: regulations and Schedule 1",
+   "editore": "Federal Register of Legislation (Australian Government)",
+   "url": "https://www.legislation.gov.au/F1996B03551/2026-11-03/2026-11-03/text/original/epub/OEBPS/document_1/document_1.html",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 4069070,
+   "pubblico": "https://www.legislation.gov.au/F1996B03551/latest/text",
+   "sha256_testo": "1cbfbca602610c9e16061ebee6eb0fd0cec9dc7ea5cd6417bb9ac74f32ba95c0"
+  },
+  "reg3": {
+   "titolo": "Migration Regulations 1994, compilation No. 291 (3 November 2026), volume 3: Schedule 6D (general points test)",
+   "editore": "Federal Register of Legislation (Australian Government)",
+   "url": "https://www.legislation.gov.au/F1996B03551/2026-11-03/2026-11-03/text/original/epub/OEBPS/document_3/document_3.html",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 2005417,
+   "pubblico": "https://www.legislation.gov.au/F1996B03551/latest/text",
+   "sha256_testo": "51906b3957cc1c3f35a45046f131a7f79583caedadb040d702526f866c18f2aa"
+  },
+  "amd": {
+   "titolo": "Home Affairs Legislation Amendment (2026 Measures No. 1) Regulations 2026 (F2026L00874), Schedule 3: fees for visa applications",
+   "editore": "Federal Register of Legislation (Australian Government)",
+   "url": "https://www.legislation.gov.au/F2026L00874/asmade/2026-06-30/text/original/epub/OEBPS/document_1/document_1.html",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 673527,
+   "pubblico": "https://www.legislation.gov.au/F2026L00874/asmade/text",
+   "sha256_testo": "4a1ecb5805d8828f03030d9b5085ae8a0256f7ffaec2ff7f2ace7faa9624b45b"
+  }
+ },
+ "letture": {
+  "pt_invito": {
+   "fonte": "pts189",
+   "frammento": "Under the SkillSelect model, the Department of Home Affairs invite skilled workers to apply for a Skilled Independent visa (subclass 189) based on the claims presented in their expression of interest (EOI) in SkillSelect."
+  },
+  "pt_deve": {
+   "fonte": "pts189",
+   "frammento": "The applicant must: satisfy most criteria specified in the points test at the time of invitation provide documents to support all claims made in their EOI.",
+   "elenco": [
+    "The applicant must:",
+    "satisfy most criteria specified in the points test at the time of invitation",
+    "provide documents to support all claims made in their EOI."
+   ]
+  },
+  "pt_soddisfa": {
+   "fonte": "pts189",
+   "frammento": "satisfy most criteria specified in the points test at the time of invitation"
+  },
+  "pt_documenti": {
+   "fonte": "pts189",
+   "frammento": "provide documents to support all claims made in their EOI."
+  },
+  "pt_lavoro_occ": {
+   "fonte": "pts189",
+   "frammento": "You can only claim points for employment if the employment was in your nominated skilled occupation or a closely related skilled occupation; and you were employed for the relevant periods set out in the table, in the 10 years before you are invited to apply.",
+   "valore": 10
+  },
+  "pt_lavoro_20h": {
+   "fonte": "pts189",
+   "frammento": "Employed means engaged in an occupation for remuneration for at least 20 hours a week.",
+   "valore": 20
+  },
+  "pt_tetto": {
+   "fonte": "pts189",
+   "frammento": "The maximum number of points that can be awarded is 20, this means that even if you score more than 20 combined points for your employment experience only 20 points will be awarded.",
+   "valore": 20
+  },
+  "pt_titolo_piu_alto": {
+   "fonte": "pts189",
+   "frammento": "For points based migration you will receive points for your highest qualification only."
+  },
+  "pt_phd": {
+   "fonte": "pts189",
+   "frammento": "You can only be awarded points for a doctoral degree if you have completed a qualification at the relevant level, that is, a Doctor of Philosophy (PhD)."
+  },
+  "pt_studio": {
+   "fonte": "pts189",
+   "frammento": "You must have at least 1 degree, diploma or trade qualification from an Australian educational institution that meets the Australian study requirement."
+  },
+  "pt_anno": {
+   "fonte": "pts189",
+   "frammento": "To be eligible for the award of these points your Professional Year must have been in Accounting, ICT/Computing or Engineering"
+  },
+  "pt_lingua": {
+   "fonte": "pts189",
+   "frammento": "To be credentialled in a community language and eligible for the award of points you must have been accredited at the paraprofessional level or above, certified at the certified provisional level or above, or have a community language credential for interpreting or translating by the National Accreditation Authority for Translators and Interpreters"
+  },
+  "pt_regionale": {
+   "fonte": "pts189",
+   "frammento": "have been obtained while you lived in, and studied at a campus in, a designated regional area"
+  },
+  "pt_partner_stesso": {
+   "fonte": "pts189",
+   "frammento": "For you to be eligible for the award of these points your partner must be an applicant for the same visa subclass and must not be an Australian permanent resident or an Australian citizen."
+  },
+  "pt_partner_stato": {
+   "fonte": "pts189",
+   "frammento": "If your marital status changes during the processing of your visa, we may not award you points for this item."
+  },
+  "pt_nomina_190": {
+   "fonte": "pts190",
+   "frammento": "You must be nominated to be invited to apply for this visa. Provided your nomination remains in effect, you may be eligible for the award of these points."
+  },
+  "pt_nomina_491": {
+   "fonte": "pts491",
+   "frammento": "You must have been nominated or stated you would be sponsored by an eligible family member to be invited to apply for this visa."
+  },
+  "l6d_titolo": {
+   "fonte": "reg3",
+   "frammento": "Schedule 6D—General points test for General Skilled Migration visas mentioned in subregulation 2.26AC(1)"
+  },
+  "l6d_tetto": {
+   "fonte": "reg3",
+   "frammento": "6D51 (1) If an applicant has a qualification mentioned in Part 6D.3 and a qualification mentioned in Part 6D.4, and the combined number of points that would be awarded under those Parts for the qualifications is more than 20 points: (a) the Minister must give the applicant 20 points under this Part for the qualifications; and (b) no points are given under Part 6D.3 or 6D.4.",
+   "valore": 20
+  },
+  "v189_devi": {
+   "fonte": "v189",
+   "frammento": "have an occupation on the relevant skilled occupation list have a suitable skills assessment for the occupation be invited to apply for this visa satisfy the points test",
+   "elenco": [
+    "have an occupation on the relevant skilled occupation list",
+    "have a suitable skills assessment for the occupation",
+    "be invited to apply for this visa",
+    "satisfy the points test"
+   ]
+  },
+  "v189_puoi": {
+   "fonte": "v189",
+   "frammento": "work and study anywhere in Australia sponsor eligible relatives for permanent residence if eligible, become an Australian citizen",
+   "elenco": [
+    "work and study anywhere in Australia",
+    "sponsor eligible relatives for permanent residence",
+    "if eligible, become an Australian citizen"
+   ]
+  },
+  "v189_eta": {
+   "fonte": "v189",
+   "frammento": "You must be aged under 45 when we invite you to apply for the visa. You can still apply for the visa if you turn 45 after we invite you to apply.",
+   "valore": 45
+  },
+  "v189_65": {
+   "fonte": "v189",
+   "frammento": "If you do not obtain a score of 65 points you will not be invited to apply for this visa.",
+   "valore": 65
+  },
+  "v189_65_piu": {
+   "fonte": "v189",
+   "frammento": "If we do invite you to apply for the visa, your invitation will state the number of points that you must score when we assess your application for grant of the visa (this score may be higher than 65 points, depending on your claims in the EOI).",
+   "valore": 65
+  },
+  "v189_inglese": {
+   "fonte": "v189",
+   "frammento": "At the time of invitation, you must have at least competent English"
+  },
+  "v189_concessione": {
+   "fonte": "v189",
+   "frammento": "From 1 July 2026, a lower visa cost applies to eligible Pacific Island and Timor-Leste citizens who lodge a valid visa application."
+  },
+  "v189_stima": {
+   "fonte": "v189",
+   "frammento": "To work out what your visa will cost, use the Visa Pricing Estimator"
+  },
+  "v190_devi": {
+   "fonte": "v190",
+   "frammento": "have an occupation on the relevant skilled list have a suitable skills assessment for the occupation be invited to apply for this visa satisfy the points test",
+   "elenco": [
+    "have an occupation on the relevant skilled list",
+    "have a suitable skills assessment for the occupation",
+    "be invited to apply for this visa",
+    "satisfy the points test"
+   ]
+  },
+  "v190_65": {
+   "fonte": "v190",
+   "frammento": "If you do not obtain a score of 65 points you will not be invited to apply for this visa.",
+   "valore": 65
+  },
+  "v190_seconda": {
+   "fonte": "v190",
+   "frammento": "The second instalment charge for family members is AUD4,885.",
+   "valore": 4885
+  },
+  "v491_devi": {
+   "fonte": "v491",
+   "frammento": "be nominated to apply by a state or territory government agency, or an eligible relative must sponsor you have an occupation on a relevant skilled occupation list have a suitable skills assessment for the occupation be invited to apply satisfy the points test.",
+   "elenco": [
+    "be nominated to apply by a state or territory government agency, or an eligible relative must sponsor you",
+    "have an occupation on a relevant skilled occupation list",
+    "have a suitable skills assessment for the occupation",
+    "be invited to apply",
+    "satisfy the points test."
+   ]
+  },
+  "v491_puoi": {
+   "fonte": "v491",
+   "frammento": "stay in Australia for 5 years live, work and study in a designated regional area of Australia travel to and from Australia as many times as you want, while the visa is valid apply for permanent residence after 3 years from the time your visa is granted.",
+   "valore": 5,
+   "elenco": [
+    "stay in Australia for 5 years",
+    "live, work and study in a designated regional area of Australia",
+    "travel to and from Australia as many times as you want, while the visa is valid",
+    "apply for permanent residence after 3 years from the time your visa is granted."
+   ]
+  },
+  "v491_eta": {
+   "fonte": "v491",
+   "frammento": "You must be aged under 45 to be invited to apply for the visa.",
+   "valore": 45
+  },
+  "v491_3anni": {
+   "fonte": "v491",
+   "frammento": "You cannot apply for other permanent visas until you have held your subclass 491 visa for 3 years.",
+   "valore": 3
+  },
+  "v482_cosa": {
+   "fonte": "v482",
+   "frammento": "This temporary visa lets an employer sponsor a suitably skilled worker to fill a position they can't find a suitably skilled Australian to fill."
+  },
+  "v482_devi": {
+   "fonte": "v482",
+   "frammento": "Have an approved sponsor and be nominated for the visa"
+  },
+  "v482core_devi": {
+   "fonte": "v482core",
+   "frammento": "be nominated to work in an occupation on the Core Skills Occupation List (CSOL) be paid the Annual Market Salary Rate (AMSR) for the occupation and no less than the Core Skills Income Threshold (CSIT) have at least 1 year relevant work experience in your nominated occupation or a related field have a relevant skills assessment if this is required for your occupation work only for your sponsor or associated entity, unless you are exempt meet minimum standards of English language proficiency unless you are exempt from needing to show this.",
+   "elenco": [
+    "be nominated to work in an occupation on the Core Skills Occupation List (CSOL)",
+    "be paid the Annual Market Salary Rate (AMSR) for the occupation and no less than the Core Skills Income Threshold (CSIT)",
+    "have at least 1 year relevant work experience in your nominated occupation or a related field",
+    "have a relevant skills assessment if this is required for your occupation",
+    "work only for your sponsor or associated entity, unless you are exempt",
+    "meet minimum standards of English language proficiency unless you are exempt from needing to show this."
+   ]
+  },
+  "v482core_durata": {
+   "fonte": "v482core",
+   "frammento": "Up to 4 years. Hong Kong passport holders may stay up to 5 years.",
+   "valore": 4
+  },
+  "v482spec_devi": {
+   "fonte": "v482spec",
+   "frammento": "be nominated to work in an Australian and New Zealand Standard Classification of Occupations (ANZSCO) occupation listed in Major Groups 1,2,4,5 or 6. The salary must meet the Specialist Skills Income Threshold have at least 1 year relevant work experience in your nominated occupation or a related field",
+   "elenco": [
+    "be nominated to work in an Australian and New Zealand Standard Classification of Occupations (ANZSCO) occupation listed in Major Groups 1,2,4,5 or 6. The salary must meet the Specialist Skills Income Threshold",
+    "have at least 1 year relevant work experience in your nominated occupation or a related field"
+   ]
+  },
+  "reg_csit": {
+   "fonte": "reg1",
+   "frammento": "core skills income threshold means $73,150. Note: This amount is indexed under regulation 5.42A.",
+   "valore": 73150
+  },
+  "reg_ssit": {
+   "fonte": "reg1",
+   "frammento": "specialist skills income threshold means $135,000. Note: This amount is indexed under regulation 5.42A.",
+   "valore": 135000
+  },
+  "reg_indice": {
+   "fonte": "reg1",
+   "frammento": "indexation day means the first 1 July to occur after the commencement of this regulation and each later 1 July."
+  },
+  "v500_devi": {
+   "fonte": "v500",
+   "frammento": "be enrolled in a course of study in Australia and hold a valid Confirmation of Enrolment (CoE) when we decide your visa hold Overseas Student Health Cover (OSHC), or fall in one of the exemption categories be 6 years or older prove you have a welfare arrangement, if you are under 18",
+   "elenco": [
+    "be enrolled in a course of study in Australia and hold a valid Confirmation of Enrolment (CoE) when we decide your visa",
+    "hold Overseas Student Health Cover (OSHC), or fall in one of the exemption categories",
+    "be 6 years or older",
+    "prove you have a welfare arrangement, if you are under 18"
+   ]
+  },
+  "v500_fuori": {
+   "fonte": "v500",
+   "frammento": "From 2 October 2026, most Student visa applications must be lodged outside Australia."
+  },
+  "v500_puoi": {
+   "fonte": "v500",
+   "frammento": "participate in an eligible course of study in Australia travel in and out of Australia work up to 48 hours a fortnight when your course of study or training is in session.",
+   "valore": 48,
+   "elenco": [
+    "participate in an eligible course of study in Australia",
+    "travel in and out of Australia",
+    "work up to 48 hours a fortnight when your course of study or training is in session."
+   ]
+  },
+  "v500_durata": {
+   "fonte": "v500",
+   "frammento": "Up to 6 years and in line with your enrolment.",
+   "valore": 6
+  },
+  "v500_denaro": {
+   "fonte": "v500",
+   "frammento": "You must have enough money to pay for your stay in Australia."
+  },
+  "v500_costi": {
+   "fonte": "v500",
+   "frammento": "12-month living costs are for: students - AUD29,710 partners coming with you - AUD10,394 a child coming with you - AUD4,449.",
+   "valore": 29710,
+   "elenco": [
+    "12-month living costs are for:",
+    "students - AUD29,710",
+    "partners coming with you - AUD10,394",
+    "a child coming with you - AUD4,449."
+   ]
+  },
+  "v500_scuola": {
+   "fonte": "v500",
+   "frammento": "If you are including any school-age children in your application, add schooling costs of at least AUD13,502 per year for each child.",
+   "valore": 13502
+  },
+  "v500_reddito": {
+   "fonte": "v500",
+   "frammento": "Alternatively, you can give evidence that your parents or your partner had a personal annual income of at least AUD87,856 in the 12 months before you apply. If you bring family members, your parents' or partner's income must be at least AUD102,500 in the 12 months before you apply.",
+   "valore": 87856
+  },
+  "v500_genuino": {
+   "fonte": "v500",
+   "frammento": "be a genuine student for entry be able to show an understanding that studying in Australia is the primary reason of your Student visa.",
+   "elenco": [
+    "be a genuine student for entry",
+    "be able to show an understanding that studying in Australia is the primary reason of your Student visa."
+   ]
+  },
+  "v500_concessione": {
+   "fonte": "v500",
+   "frammento": "A lower visa cost applies to eligible Pacific Island and Timor-Leste citizens, eligible ASEAN citizens and applicants in the ELICOS and Non-Award sector who lodge a valid Student visa application."
+  },
+  "reg_5a": {
+   "fonte": "reg1",
+   "frammento": "(5A) For the purposes of subparagraphs (2)(a)(ib) and (ic) and (3)(da)(i), the following countries are specified: (a) Brunei; (b) Cambodia; (c) Indonesia; (d) Laos; (e) Malaysia; (f) Myanmar; (g) Philippines; (h) Singapore; (i) Thailand; (j) Vietnam."
+  },
+  "v417_devi": {
+   "fonte": "v417",
+   "frammento": "Must be 18 to 30 years old (or 35 years old for some countries) Must have a passport from an eligible country or jurisdiction Must not be accompanied by dependent children",
+   "valore": 30,
+   "elenco": [
+    "Must be 18 to 30 years old (or 35 years old for some countries)",
+    "Must have a passport from an eligible country or jurisdiction",
+    "Must not be accompanied by dependent children"
+   ]
+  },
+  "v417_primo": {
+   "fonte": "v417first",
+   "frammento": "hold a passport from an eligible country or jurisdiction be 18 to 30 years old (or 35 years old for some countries) apply online from outside Australia not be accompanied by dependent children apply on your own.",
+   "valore": 30,
+   "elenco": [
+    "hold a passport from an eligible country or jurisdiction",
+    "be 18 to 30 years old (or 35 years old for some countries)",
+    "apply online from outside Australia",
+    "not be accompanied by dependent children",
+    "apply on your own."
+   ]
+  },
+  "v417_denaro": {
+   "fonte": "v417first",
+   "frammento": "This is usually about AUD5,000 for your initial stay, plus the fare to where you are going after leaving Australia.",
+   "valore": 5000
+  },
+  "v417_puoi": {
+   "fonte": "v417first",
+   "frammento": "do short-term work in Australia to help pay for your holiday study for up to 4 months travel to and from Australia as many times as you want do 3 months of specified work to become eligible for a second Working Holiday visa",
+   "valore": 4,
+   "elenco": [
+    "do short-term work in Australia to help pay for your holiday",
+    "study for up to 4 months",
+    "travel to and from Australia as many times as you want",
+    "do 3 months of specified work to become eligible for a second Working Holiday visa"
+   ]
+  },
+  "v462_primo": {
+   "fonte": "v462first",
+   "frammento": "have a passport from an eligible country be 18 to 30 years old (inclusive) apply from outside Australia not be accompanied by dependent children apply on your own.",
+   "valore": 30,
+   "elenco": [
+    "have a passport from an eligible country",
+    "be 18 to 30 years old (inclusive)",
+    "apply from outside Australia",
+    "not be accompanied by dependent children",
+    "apply on your own."
+   ]
+  },
+  "v462_denaro": {
+   "fonte": "v462first",
+   "frammento": "This is usually about AUD5,000 for your initial stay, plus the fare to where you are going after leaving Australia.",
+   "valore": 5000
+  },
+  "v462_concessione": {
+   "fonte": "v462first",
+   "frammento": "From 1 July 2026, a lower visa cost applies to eligible Papua New Guinea passport holders who lodge a valid first Work and Holiday (subclass 462) visa application."
+  },
+  "reg_417_eta": {
+   "fonte": "reg1",
+   "frammento": "(3AA) The applicant is aged at least 18 and no more than: (a) unless paragraph (b) applies—35; or (b) if the instrument mentioned in subitem (3) specifies a younger age for the foreign country that issued the passport the applicant holds (or, if paragraph (3BC)(b) applies, held)—that younger age.",
+   "valore": 35
+  },
+  "reg_462_eta": {
+   "fonte": "reg1",
+   "frammento": "(aab) The applicant must be aged at least 18 and no more than: (i) unless subparagraph (ii) applies—35; or (ii) if the instrument mentioned in paragraph (a) specifies a younger age for the foreign country that issued the passport the applicant holds (or, if paragraph (aaa) applies, held)—that age.",
+   "valore": 35
+  },
+  "v600_cosa": {
+   "fonte": "v600",
+   "frammento": "For tourists, business visitors or to visit family for 3, 6 or 12 months"
+  },
+  "v600_devi": {
+   "fonte": "v600",
+   "frammento": "be a genuine visitor have enough funds to support your stay and leave",
+   "elenco": [
+    "be a genuine visitor",
+    "have enough funds to support your stay and leave"
+   ]
+  },
+  "v600_tour": {
+   "fonte": "v600tour",
+   "frammento": "intend to come to Australia to visit only have enough money for your stay in Australia not work in Australia you must be outside Australia when you apply and when we decide your visa",
+   "elenco": [
+    "intend to come to Australia to visit only",
+    "have enough money for your stay in Australia",
+    "not work in Australia",
+    "you must be outside Australia when you apply and when we decide your visa"
+   ]
+  },
+  "v600_denaro": {
+   "fonte": "v600tour",
+   "frammento": "You must have, or have access to, enough money to support yourself while you are in Australia."
+  },
+  "v600_durata": {
+   "fonte": "v600tour",
+   "frammento": "Up to 12 months",
+   "valore": 12
+  },
+  "v820_cosa": {
+   "fonte": "v820",
+   "frammento": "Allows the partner or spouse of an Australian citizen, Australian permanent resident or eligible New Zealand citizen to live in Australia. You apply for the temporary and the permanent partner visas together."
+  },
+  "v820_devi": {
+   "fonte": "v820",
+   "frammento": "In most circumstances, you must be the spouse (married) or de facto partner of an: Australian citizen Australian permanent resident or eligible New Zealand citizen"
+  },
+  "v309_devi": {
+   "fonte": "v309",
+   "frammento": "You must be in a genuine relationship with your spouse or de facto partner who is: an Australian citizen Australian permanent resident eligible New Zealand citizen"
+  },
+  "reg_1214c": {
+   "fonte": "reg1",
+   "frammento": "1214C Partner (Temporary) (Class UK) (1) Form: The approved form specified by the Minister in a legislative instrument made for this item under subregulation 2.07(5). (2) Visa application charge: Nil. (3) Other: (a) Application must be made at the same time and place as an application for a Partner (Residence) (Class BS) visa."
+  },
+  "reg_1220a": {
+   "fonte": "reg1",
+   "frammento": "(2) Visa application charge: Nil. (3) Other: (a) An application must be made at the place, and in the manner, (if any) specified by the Minister in a legislative instrument made for this item under subregulation 2.07(5). (b) Applicant must be outside Australia. (c) Application must be made at the same time and place as an application for a Partner (Migrant) (Class BC) visa."
+  },
+  "reg_212c": {
+   "fonte": "reg1",
+   "frammento": "the visa application charge (if any) in relation to an application for a visa of a class to which an item of Schedule 1 relates is the sum of: (a) the first instalment (which is payable when the application is made), consisting of the following components: (i) the base application charge or the additional applicant charge; (ii) any subsequent temporary application charge; (iii) any non-Internet application charge; and (b) the second instalment (which is payable before the grant of the visa)."
+  },
+  "reg_alternativi": {
+   "fonte": "reg1",
+   "frammento": "Base application charge and additional applicant charge are alternatives. An applicant does not pay both components for the one application."
+  },
+  "reg_familiare": {
+   "fonte": "reg1",
+   "frammento": "Additional applicant charge is paid by an applicant who claims to be a member of the family unit of another applicant and seeks to combine the application with that applicant's application."
+  },
+  "reg_successiva": {
+   "fonte": "reg1",
+   "frammento": "(6) The amount of subsequent temporary application charge is $700.",
+   "valore": 700
+  },
+  "reg_pacifico": {
+   "fonte": "reg1",
+   "frammento": "Pacific-regional country means each of the following: (a) Federated States of Micronesia; (b) Fiji; (c) Kiribati; (d) Nauru; (e) Palau; (f) Papua New Guinea; (g) Republic of the Marshall Islands; (h) Samoa; (i) Solomon Islands; (j) Timor-Leste; (k) Tonga; (l) Tuvalu; (m) Vanuatu."
+  },
+  "reg_compilazione": {
+   "fonte": "reg1",
+   "frammento": "Compilation No. 291 Compilation date: 3 November 2026"
+  },
+  "reg_testo": {
+   "fonte": "reg1",
+   "frammento": "This is a compilation of the Migration Regulations 1994 that shows the text of the law as amended and in force on 3 November 2026"
+  },
+  "amd_data": {
+   "fonte": "amd",
+   "frammento": "1. The whole of this instrument 1 July 2026."
+  },
+  "amd_titolo": {
+   "fonte": "amd",
+   "frammento": "Schedule 3—Fees for visa applications"
+  },
+  "pr_tabella": {
+   "fonte": "prezzi",
+   "frammento": "Use the Visa Prices table to help find the price of your visa. The table groups visas by what you plan to do in Australia."
+  },
+  "pr_concessione": {
+   "fonte": "prezzi",
+   "frammento": "For some visas, a lower visa cost may apply if you are an eligible citizen of a Pacific Island country, Timor-Leste or an ASEAN member country and you lodge a valid visa application."
+  },
+  "pr_stima": {
+   "fonte": "prezzi",
+   "frammento": "To work out your visa cost, use the Visa Pricing Estimator"
+  },
+  "pr_aggiornata": {
+   "fonte": "prezzi",
+   "frammento": "Last updated: 1/07/2026"
+  },
+  "ai_solo": {
+   "fonte": "aiuto",
+   "frammento": "Only certain people can help you with your visa application. This help is immigration assistance."
+  },
+  "ai_chi": {
+   "fonte": "aiuto",
+   "frammento": "If you appoint someone to give you immigration assistance, they must be: a registered migration agent a legal practitioner, or an exempt person",
+   "elenco": [
+    "If you appoint someone to give you immigration assistance, they must be:",
+    "a registered migration agent",
+    "a legal practitioner, or",
+    "an exempt person"
+   ]
+  },
+  "mara_nome": {
+   "fonte": "mara",
+   "frammento": "Welcome to the Office of the Migration Agents Registration Authority"
+  },
+  "me_agenti": {
+   "fonte": "migexp",
+   "frammento": "Registered Australian Migration Agents"
+  },
+  "me_consulto": {
+   "fonte": "migexp",
+   "frammento": "Book a consultation to discuss your visa options with our Registered Migration Agents in Australia."
+  },
+  "ai_prima": {
+   "fonte": "v189",
+   "frammento": "If you are getting help with your visa, before you pay someone, read information on Who can help with your visa application"
+  },
+  "lic_cc": {
+   "fonte": "licenza",
+   "frammento": "All material presented on this website is provided under a Creative Commons Attribution 3.0 Australia licence"
+  },
+  "lic_attr": {
+   "fonte": "licenza",
+   "frammento": "You should attribute material you get from this website as Australian Government Department of Home Affairs."
+  }
+ },
+ "punti": [
+  {
+   "id": "eta_18",
+   "categoria": "eta",
+   "parole": "at least 18 but less than 25 years",
+   "punti": 25,
+   "fonte": "pts189",
+   "legge": "6D11 not less than 18 and under 25 25",
+   "voce": "6D11"
+  },
+  {
+   "id": "eta_25",
+   "categoria": "eta",
+   "parole": "at least 25 but less than 33 years",
+   "punti": 30,
+   "fonte": "pts189",
+   "legge": "6D12 not less than 25 and under 33 30",
+   "voce": "6D12"
+  },
+  {
+   "id": "eta_33",
+   "categoria": "eta",
+   "parole": "at least 33 but less than 40 years",
+   "punti": 25,
+   "fonte": "pts189",
+   "legge": "6D13 not less than 33 and under 40 25",
+   "voce": "6D13"
+  },
+  {
+   "id": "eta_40",
+   "categoria": "eta",
+   "parole": "at least 40 but less than 45 years",
+   "punti": 15,
+   "fonte": "pts189",
+   "legge": "6D14 not less than 40 and under 45 15",
+   "voce": "6D14"
+  },
+  {
+   "id": "ing_comp",
+   "categoria": "inglese",
+   "parole": "Competent English",
+   "punti": 0,
+   "fonte": "pts189",
+   "legge": null,
+   "voce": null
+  },
+  {
+   "id": "ing_prof",
+   "categoria": "inglese",
+   "parole": "Proficient English",
+   "punti": 10,
+   "fonte": "pts189",
+   "legge": "6D22 proficient English 10",
+   "voce": "6D22"
+  },
+  {
+   "id": "ing_sup",
+   "categoria": "inglese",
+   "parole": "Superior English",
+   "punti": 20,
+   "fonte": "pts189",
+   "legge": "6D21 superior English 20",
+   "voce": "6D21"
+  },
+  {
+   "id": "est_0",
+   "categoria": "estero",
+   "parole": "Less than 3 years",
+   "punti": 0,
+   "fonte": "pts189",
+   "legge": null,
+   "voce": null
+  },
+  {
+   "id": "est_3",
+   "categoria": "estero",
+   "parole": "At least 3 but less than 5 years",
+   "punti": 5,
+   "fonte": "pts189",
+   "legge": "6D31 had been employed outside Australia in: (a) the applicant's nominated skilled occupation; or (b) a closely related skilled occupation; for a period totalling at least 36 months in the 10 years immediately before that time 5",
+   "voce": "6D31"
+  },
+  {
+   "id": "est_5",
+   "categoria": "estero",
+   "parole": "At least 5 but less than 8 years",
+   "punti": 10,
+   "fonte": "pts189",
+   "legge": "6D32 had been employed outside Australia in: (a) the applicant's nominated skilled occupation; or (b) a closely related skilled occupation; for a period totalling at least 60 months in the 10 years immediately before that time 10",
+   "voce": "6D32"
+  },
+  {
+   "id": "est_8",
+   "categoria": "estero",
+   "parole": "At least 8 years",
+   "punti": 15,
+   "fonte": "pts189",
+   "legge": "6D33 had been employed outside Australia in: (a) the applicant's nominated skilled occupation; or (b) a closely related skilled occupation; for a period totalling at least 96 months in the 10 years immediately before that time 15",
+   "voce": "6D33"
+  },
+  {
+   "id": "aus_0",
+   "categoria": "australia",
+   "parole": "Less than 1 year",
+   "punti": 0,
+   "fonte": "pts189",
+   "legge": null,
+   "voce": null
+  },
+  {
+   "id": "aus_1",
+   "categoria": "australia",
+   "parole": "At least 1 but less than 3 years",
+   "punti": 5,
+   "fonte": "pts189",
+   "legge": "6D41 had been employed in Australia in: (a) the applicant's nominated skilled occupation; or (b) a closely related skilled occupation; for a period totalling at least 12 months in the 10 years immediately before that time 5",
+   "voce": "6D41"
+  },
+  {
+   "id": "aus_3",
+   "categoria": "australia",
+   "parole": "At least 3 but less than 5 years",
+   "punti": 10,
+   "fonte": "pts189",
+   "legge": "6D42 had been employed in Australia in: (a) the applicant's nominated skilled occupation; or (b) a closely related skilled occupation; for a period totalling at least 36 months in the 10 years immediately before that time 10",
+   "voce": "6D42"
+  },
+  {
+   "id": "aus_5",
+   "categoria": "australia",
+   "parole": "At least 5 but less than 8 years",
+   "punti": 15,
+   "fonte": "pts189",
+   "legge": "6D43 had been employed in Australia in: (a) the applicant's nominated skilled occupation; or (b) a closely related skilled occupation; for a period totalling at least 60 months in the 10 years immediately before that time 15",
+   "voce": "6D43"
+  },
+  {
+   "id": "aus_8",
+   "categoria": "australia",
+   "parole": "At least 8 years",
+   "punti": 20,
+   "fonte": "pts189",
+   "legge": "6D44 had been employed in Australia in: (a) the applicant's nominated skilled occupation; or (b) a closely related skilled occupation; for a period totalling at least 96 months in the 10 years immediately before that time 20",
+   "voce": "6D44"
+  },
+  {
+   "id": "tit_dott",
+   "categoria": "titolo",
+   "parole": "A Doctorate from an Australian educational institution or a Doctorate from another educational institution, that is of a recognised standard.",
+   "punti": 20,
+   "fonte": "pts189",
+   "legge": "6D71 met the requirements for: (a) the award of a doctorate by an Australian educational institution; or (b) the award of a doctorate, by another educational institution, that is of a recognised standard 20",
+   "voce": "6D71"
+  },
+  {
+   "id": "tit_laurea",
+   "categoria": "titolo",
+   "parole": "At least a Bachelor degree from an Australian educational institution or at least a Bachelor qualification, from another educational institution, that is of a recognised standard.",
+   "punti": 15,
+   "fonte": "pts189",
+   "legge": "6D72 met the requirements for: (a) the award of at least a bachelor degree by an Australian educational institution; or (b) the award of at least a bachelor qualification, by another educational institution, that is of a recognised standard 15",
+   "voce": "6D72"
+  },
+  {
+   "id": "tit_diploma",
+   "categoria": "titolo",
+   "parole": "A diploma or trade qualification from an Australian educational institution.",
+   "punti": 10,
+   "fonte": "pts189",
+   "legge": "6D73 met the requirements for the award of a diploma by an Australian educational institution 10 6D74 met the requirements for the award of a trade qualification by an Australian educational institution 10",
+   "voce": "6D73"
+  },
+  {
+   "id": "tit_ente",
+   "categoria": "titolo",
+   "parole": "Attained a qualification or award recognised by the relevant assessing authority for your nominated skilled occupation as being suitable for that occupation",
+   "punti": 10,
+   "fonte": "pts189",
+   "legge": "6D75 attained a qualification or award recognised by the relevant assessing authority for the applicant's nominated skilled occupation as being suitable for the occupation 10",
+   "voce": "6D75"
+  },
+  {
+   "id": "spec",
+   "categoria": "specialistico",
+   "parole": "A Masters degree by research or a Doctorate degree from an Australian educational institution that included at least 2 academic years study in a relevant field.",
+   "punti": 10,
+   "fonte": "pts189",
+   "legge": "6D7A1 the applicant met the requirements for the award of a specialist educational qualification 10",
+   "voce": "6D7A1"
+  },
+  {
+   "id": "studio_au",
+   "categoria": "studio",
+   "parole": "Meet the Australian study requirement",
+   "punti": 5,
+   "fonte": "pts189",
+   "legge": "6D81 the applicant met the Australian study requirement 5",
+   "voce": "6D81"
+  },
+  {
+   "id": "anno_prof",
+   "categoria": "anno",
+   "parole": "Completion of a Professional Year in Australia",
+   "punti": 5,
+   "fonte": "pts189",
+   "legge": "6D61 a professional year in Australia in: (a) the applicant's nominated skilled occupation; or (b) a closely related skilled occupation; for a period totalling at least 12 months in the 48 months immediately before that time 5",
+   "voce": "6D61"
+  },
+  {
+   "id": "lingua",
+   "categoria": "lingua",
+   "parole": "Hold a recognised qualification in a credentialled community language",
+   "punti": 5,
+   "fonte": "pts189",
+   "legge": "6D91 a qualification in a particular language: (a) awarded or accredited by a body specified by the Minister in an instrument in writing for this item; and (b) at a standard for the language specified in the instrument 5",
+   "voce": "6D91"
+  },
+  {
+   "id": "regionale",
+   "categoria": "regionale",
+   "parole": "You must have at least 1 degree, diploma or trade qualification from an Australian educational institution that satisfies the Australian study requirement obtained while living and studying in an eligible area of regional Australia",
+   "punti": 5,
+   "fonte": "pts189",
+   "legge": "6D101 each of the following applied: (a) the applicant met the Australian study requirement; (b) the location of the campus or campuses at which that study was undertaken is in a designated regional area; (c) while the applicant undertook the course of study the applicant lived in a designated regional area; (d) none of the study undertaken constituted distance education 5",
+   "voce": "6D101"
+  },
+  {
+   "id": "partner_skill",
+   "categoria": "partner",
+   "parole": "Your spouse or de facto partner must also be an applicant for this visa and meet age, English and skill criteria",
+   "punti": 10,
+   "fonte": "pts189",
+   "legge": "at the time of invitation to apply for the visa, had competent English 10 6D112",
+   "voce": "6D111"
+  },
+  {
+   "id": "partner_solo",
+   "categoria": "partner",
+   "parole": "You are single or your partner is an Australian citizen or permanent resident",
+   "punti": 10,
+   "fonte": "pts189",
+   "legge": "6D112 Either: (a) the applicant does not have a spouse or de facto partner; or (b) the applicant has a spouse or de facto partner who is an Australian permanent resident or an Australian citizen 10",
+   "voce": "6D112"
+  },
+  {
+   "id": "partner_ing",
+   "categoria": "partner",
+   "parole": "Your spouse or de facto partner must also be an applicant for this visa and has competent English",
+   "punti": 5,
+   "fonte": "pts189",
+   "legge": "6D113 The spouse or de facto partner of the applicant (the primary applicant): (a) is an applicant for the same subclass of visa as the primary applicant; and (b) is not an Australian permanent resident or an Australian citizen; and (c) at the time of invitation to apply for the visa, had competent English 5",
+   "voce": "6D113"
+  }
+ ],
+ "nomina": [
+  {
+   "id": "nom_190",
+   "visto": "190",
+   "parole": "You were invited to apply for a Subclass 190 (Skilled — Nominated) visa and the nominating State or Territory government agency has not withdrawn the nomination",
+   "punti": 5,
+   "fonte": "pts190",
+   "legge": "6D121 The applicant has been invited to apply for a Subclass 190 (Skilled—Nominated) visa, and the nominating State or Territory government agency has not withdrawn the nomination 5",
+   "voce": "6D121"
+  },
+  {
+   "id": "nom_491",
+   "visto": "491",
+   "parole": "You were invited to apply for a Skilled Work Regional (Provisional) visa (subclass 491) because you were nominated and the nominating State or Territory government agency has not withdrawn that nomination or You are being sponsored for a Skilled Work Regional (Provisional) visa (subclass 491) by a family member and the Minister has accepted that sponsorship",
+   "punti": 15,
+   "fonte": "pts491",
+   "legge": "6D131 The applicant has been invited to apply for a Subclass 489 (Skilled—Regional) (Provisional) visa or a Subclass 491 (Skilled Work Regional (Provisional)) visa, and: (a) the nominating State or Territory government agency has not withdrawn the nomination; or (b) if the applicant is sponsored by a family member, the Minister has accepted the sponsorship 15",
+   "voce": "6D131"
+  }
+ ],
+ "tariffe": {
+  "189": {
+   "voce": "1137",
+   "classe": "Skilled—Independent (Permanent) (Class SI)",
+   "righe": [
+    {
+     "id": "std",
+     "chi": "Main applicant, Points-tested stream",
+     "frammento": "(b) for any other applicant: First instalment—Visas in the Points-tested stream etc. Item Component Amount 1 Base application charge $6 135 2 Additional applicant charge for an applicant who is at least 18 $3 070 3 Additional applicant charge for an applicant who is less than 18 $1 540",
+     "tipo": "tab",
+     "importi": [
+      6135,
+      3070,
+      1540
+     ],
+     "dal_1_luglio": true
+    },
+    {
+     "id": "pac",
+     "chi": "Passport of a Pacific-regional country",
+     "frammento": "First instalment—Visas in the Points-tested stream etc. Item Component Amount 1 Base application charge $5 030 2 Additional applicant charge for an applicant who is at least 18 $2 515 3 Additional applicant charge for an applicant who is less than 18 $1 260",
+     "tipo": "tab",
+     "importi": [
+      5030,
+      2515,
+      1260
+     ],
+     "dal_1_luglio": true
+    },
+    {
+     "id": "seconda",
+     "chi": "Second instalment: applicant aged 18 or over without functional English",
+     "frammento": "(b) is assessed as not having functional English; and (c) is an applicant to whom item 1A does not apply $4,885",
+     "tipo": "uno",
+     "importi": [
+      4885
+     ],
+     "dal_1_luglio": false
+    }
+   ]
+  },
+  "190": {
+   "voce": "1138",
+   "classe": "Skilled—Nominated (Permanent) (Class SN)",
+   "righe": [
+    {
+     "id": "std",
+     "chi": "Main applicant",
+     "frammento": "(ii) for any other applicant: First instalment Item Component Amount 1 Base application charge $6 140 2 Additional applicant charge for an applicant who is at least 18 $3 070 3 Additional applicant charge for an applicant who is less than 18 $1 535",
+     "tipo": "tab",
+     "importi": [
+      6140,
+      3070,
+      1535
+     ],
+     "dal_1_luglio": true
+    },
+    {
+     "id": "pac",
+     "chi": "Passport of a Pacific-regional country",
+     "frammento": "First instalment Item Component Amount 1 Base application charge $5 035 2 Additional applicant charge for an applicant who is at least 18 $2 515 3 Additional applicant charge for an applicant who is less than 18 $1 260",
+     "tipo": "tab",
+     "importi": [
+      5035,
+      2515,
+      1260
+     ],
+     "dal_1_luglio": true
+    },
+    {
+     "id": "seconda",
+     "chi": "Second instalment: applicant aged 18 or over without functional English",
+     "frammento": "(b) is assessed as not having functional English; and (c) is an applicant to whom item 1A does not apply $4 885",
+     "tipo": "uno",
+     "importi": [
+      4885
+     ],
+     "dal_1_luglio": false
+    }
+   ]
+  },
+  "491": {
+   "voce": "1241",
+   "classe": "Skilled Work Regional (Provisional) (Class PS)",
+   "righe": [
+    {
+     "id": "std",
+     "chi": "Main applicant",
+     "frammento": "(ii) for any other applicant: First instalment Item Component Amount 1 Base application charge $6 140 2 Additional applicant charge for an applicant who is at least 18 $3 070 3 Additional applicant charge for an applicant who is less than 18 $1 535",
+     "tipo": "tab",
+     "importi": [
+      6140,
+      3070,
+      1535
+     ],
+     "dal_1_luglio": true
+    },
+    {
+     "id": "pac",
+     "chi": "Passport of a Pacific-regional country",
+     "frammento": "First instalment Item Component Amount 1 Base application charge $5 035 2 Additional applicant charge for an applicant who is at least 18 $2 515 3 Additional applicant charge for an applicant who is less than 18 $1 260",
+     "tipo": "tab",
+     "importi": [
+      5035,
+      2515,
+      1260
+     ],
+     "dal_1_luglio": true
+    },
+    {
+     "id": "seconda",
+     "chi": "Second instalment: applicant aged 18 or over without functional English",
+     "frammento": "(b) is assessed as not having functional English $4,890",
+     "tipo": "uno",
+     "importi": [
+      4890
+     ],
+     "dal_1_luglio": false
+    }
+   ]
+  },
+  "482": {
+   "voce": "1240",
+   "classe": "Skills in Demand (Class GK)",
+   "righe": [
+    {
+     "id": "std",
+     "chi": "Main applicant",
+     "frammento": "(iii) for any other applicant: First instalment Item Component Amount 1 Base application charge $4 015 2 Additional applicant charge for an applicant who is at least 18 $4 015 3 Additional applicant charge for an applicant who is less than 18 $1 005",
+     "tipo": "tab",
+     "importi": [
+      4015,
+      4015,
+      1005
+     ],
+     "dal_1_luglio": true
+    },
+    {
+     "id": "pac",
+     "chi": "Passport of a Pacific-regional country",
+     "frammento": "First instalment Item Component Amount 1 Base application charge $3 290 2 Additional applicant charge for an applicant who is at least 18 $3 290 3 Additional applicant charge for an applicant who is less than 18 $825",
+     "tipo": "tab",
+     "importi": [
+      3290,
+      3290,
+      825
+     ],
+     "dal_1_luglio": true
+    }
+   ]
+  },
+  "500": {
+   "voce": "1222",
+   "classe": "Student (Temporary) (Class TU)",
+   "righe": [
+    {
+     "id": "std",
+     "chi": "Main applicant",
+     "frammento": "(ii) for any other applicant: First instalment Item Component Amount 1 Base application charge $2 500 2 Additional applicant charge for any other applicant who is at least 18 $1 530 3 Additional applicant charge for any other applicant who is less than 18 $500",
+     "tipo": "tab",
+     "importi": [
+      2500,
+      1530,
+      500
+     ],
+     "dal_1_luglio": true
+    },
+    {
+     "id": "asean",
+     "chi": "Passport of a country listed in subitem (5A), or enrolment in an ELICOS or non-award course",
+     "frammento": "First instalment Item Component Amount 1 Base application charge $2 050 2 Additional applicant charge for any other applicant who is at least 18 $1 255 3 Additional applicant charge for any other applicant who is less than 18 $410",
+     "tipo": "tab",
+     "importi": [
+      2050,
+      1255,
+      410
+     ],
+     "dal_1_luglio": true
+    },
+    {
+     "id": "pac",
+     "chi": "Passport of a Pacific-regional country",
+     "frammento": "First instalment Item Component Amount 1 Base application charge $745 2 Additional applicant charge for an applicant who is at least 18 $555 3 Additional applicant charge for an applicant who is less than 18 $185",
+     "tipo": "tab",
+     "importi": [
+      745,
+      555,
+      185
+     ],
+     "dal_1_luglio": true
+    }
+   ]
+  },
+  "417": {
+   "voce": "1225",
+   "classe": "Working Holiday (Temporary) (Class TZ)",
+   "righe": [
+    {
+     "id": "std",
+     "chi": "First Working Holiday visa; second or third visa",
+     "frammento": "is not, and has not previously been, in Australia as the holder of a Subclass 417 (Working Holiday) visa other than an offshore COVID-19 affected visa—$840; or (iii) for any other applicant—$1 000",
+     "tipo": "due",
+     "importi": [
+      840,
+      1000
+     ],
+     "dal_1_luglio": true
+    }
+   ]
+  },
+  "462": {
+   "voce": "1224A",
+   "classe": "Work and Holiday (Temporary) (Class US)",
+   "righe": [
+    {
+     "id": "std",
+     "chi": "First Work and Holiday visa; second or third visa",
+     "frammento": "is not, and has not previously been, in Australia as the holder of a Subclass 462 (Work and Holiday) visa other than an offshore COVID-19 affected visa—$840; or (iv) for any other applicant—$1 000",
+     "tipo": "due",
+     "importi": [
+      840,
+      1000
+     ],
+     "dal_1_luglio": true
+    },
+    {
+     "id": "pac",
+     "chi": "Passport of a Pacific-regional country",
+     "frammento": "who holds a valid passport issued by a Pacific-regional country—$690",
+     "tipo": "uno",
+     "importi": [
+      690
+     ],
+     "dal_1_luglio": true
+    }
+   ]
+  },
+  "600": {
+   "voce": "1236",
+   "classe": "Visitor (Class FA)",
+   "righe": [
+    {
+     "id": "std",
+     "chi": "Applying from outside Australia",
+     "frammento": "who is outside Australia at the time of application, the base application charge is $250",
+     "tipo": "uno",
+     "importi": [
+      250
+     ],
+     "dal_1_luglio": true
+    },
+    {
+     "id": "dentro",
+     "chi": "Applying in Australia",
+     "frammento": "for an applicant who does not hold a valid passport issued by a Pacific-regional country, to whom subparagraphs (i) and (ii) do not apply, and who is in Australia at the time of application, the base application charge is $630",
+     "tipo": "uno",
+     "importi": [
+      630
+     ],
+     "dal_1_luglio": true
+    },
+    {
+     "id": "pac",
+     "chi": "Passport of a Pacific-regional country, outside Australia",
+     "frammento": "who is outside Australia at the time of application, the base application charge is $205",
+     "tipo": "uno",
+     "importi": [
+      205
+     ],
+     "dal_1_luglio": true
+    },
+    {
+     "id": "pac_dentro",
+     "chi": "Passport of a Pacific-regional country, in Australia",
+     "frammento": "who is in Australia at the time of application, the base application charge is $515",
+     "tipo": "uno",
+     "importi": [
+      515
+     ],
+     "dal_1_luglio": true
+    },
+    {
+     "id": "frequente",
+     "chi": "Frequent Traveller stream",
+     "frammento": "for an applicant who does not hold a valid passport issued by a Pacific-regional country, the base application charge is $1 845",
+     "tipo": "uno",
+     "importi": [
+      1845
+     ],
+     "dal_1_luglio": true
+    }
+   ]
+  },
+  "820": {
+   "voce": "1124B",
+   "classe": "Partner (Residence) (Class BS)",
+   "righe": [
+    {
+     "id": "std",
+     "chi": "Main applicant (most cases)",
+     "frammento": "(xvii) for any other applicant: First instalment Item Component Amount 1 Base application charge $11 710 2 Additional applicant charge for an applicant who is at least 18 $5 860 3 Additional applicant charge for an applicant who is less than 18 $2 935",
+     "tipo": "tab",
+     "importi": [
+      11710,
+      5860,
+      2935
+     ],
+     "dal_1_luglio": true
+    },
+    {
+     "id": "pac",
+     "chi": "Passport of a Pacific-regional country",
+     "frammento": "(C) who holds a valid passport issued by a Pacific-regional country; or whose application is combined, or sought to be combined, with an application made by that person: First instalment Item Component Amount 1 Base application charge $9 600 2 Additional applicant charge for an applicant who is at least 18 $4 805 3 Additional applicant charge for an applicant who is less than 18 $2 405",
+     "tipo": "tab",
+     "importi": [
+      9600,
+      4805,
+      2405
+     ],
+     "dal_1_luglio": true
+    },
+    {
+     "id": "pmv",
+     "chi": "Holder of a Prospective Marriage visa (subclass 300)",
+     "frammento": "(E) does not hold a valid passport issued by a Pacific-regional country; or whose application is combined, or sought to be combined, with an application made by that person: First instalment Item Component Amount 1 Base application charge $1 955 2 Additional applicant charge for an applicant who is at least 18 $980 3 Additional applicant charge for an applicant who is less than 18 $485",
+     "tipo": "tab",
+     "importi": [
+      1955,
+      980,
+      485
+     ],
+     "dal_1_luglio": true
+    }
+   ]
+  },
+  "309": {
+   "voce": "1129",
+   "classe": "Partner (Migrant) (Class BC)",
+   "righe": [
+    {
+     "id": "std",
+     "chi": "Main applicant",
+     "frammento": "(iii) for any other applicant: First instalment Item Component Amount 1 Base application charge $11 710 2 Additional applicant charge for an applicant who is at least 18 $5 860 3 Additional applicant charge for an applicant who is less than 18 $2 935",
+     "tipo": "tab",
+     "importi": [
+      11710,
+      5860,
+      2935
+     ],
+     "dal_1_luglio": true
+    },
+    {
+     "id": "pac",
+     "chi": "Passport of a Pacific-regional country",
+     "frammento": "First instalment Item Component Amount 1 Base application charge $9 600 2 Additional applicant charge for an applicant who is at least 18 $4 805 3 Additional applicant charge for an applicant who is less than 18 $2 405",
+     "tipo": "tab",
+     "importi": [
+      9600,
+      4805,
+      2405
+     ],
+     "dal_1_luglio": true
+    }
+   ]
+  }
+ },
+ "domanda": {
+  "data": "2026-11-18",
+  "metodo": "strumento dei volumi (api.seodata.dev /v1/keyword): volume medio mensile di Google Ads e costo per clic, per Paese; null = frase non nel database",
+  "paesi": [
+   "au",
+   "in",
+   "gb",
+   "us"
+  ],
+  "query": {
+   "au|pr points calculator": {
+    "volume": 12100,
+    "cpc": 2.09
+   },
+   "au|australia pr points calculator": {
+    "volume": 5400,
+    "cpc": 1.04
+   },
+   "au|australia points calculator": {
+    "volume": 4400,
+    "cpc": 1.01
+   },
+   "au|australian immigration points calculator": {
+    "volume": 320,
+    "cpc": 2.7
+   },
+   "au|189 visa points calculator": {
+    "volume": 1600,
+    "cpc": 1.85
+   },
+   "au|skilled migration points calculator": {
+    "volume": 90,
+    "cpc": 1.88
+   },
+   "au|points test australia": {
+    "volume": 140,
+    "cpc": 0
+   },
+   "au|australia pr points": {
+    "volume": 1900,
+    "cpc": 0.28
+   },
+   "au|189 visa points": {
+    "volume": 590,
+    "cpc": 0
+   },
+   "au|190 visa points": {
+    "volume": 260,
+    "cpc": 0
+   },
+   "au|491 visa points": {
+    "volume": 90,
+    "cpc": 1.31
+   },
+   "au|australia visa points calculator": {
+    "volume": 170,
+    "cpc": 0.31
+   },
+   "au|immigration points calculator australia": {
+    "volume": 590,
+    "cpc": 1.85
+   },
+   "au|189 visa": {
+    "volume": 12100,
+    "cpc": 1.76
+   },
+   "au|190 visa": {
+    "volume": 9900,
+    "cpc": 2.44
+   },
+   "au|491 visa": {
+    "volume": 14800,
+    "cpc": 3.78
+   },
+   "au|482 visa": {
+    "volume": 33100,
+    "cpc": 2.12
+   },
+   "au|skills in demand visa": {
+    "volume": 6600,
+    "cpc": 0.76
+   },
+   "au|500 visa": {
+    "volume": 2400,
+    "cpc": 2.79
+   },
+   "au|student visa australia": {
+    "volume": 9900,
+    "cpc": 2.59
+   },
+   "au|417 visa": {
+    "volume": 3600,
+    "cpc": 4.75
+   },
+   "au|462 visa": {
+    "volume": 4400,
+    "cpc": 1.7
+   },
+   "au|working holiday visa australia": {
+    "volume": 14800,
+    "cpc": 1.96
+   },
+   "au|work and holiday visa australia": {
+    "volume": 14800,
+    "cpc": 1.96
+   },
+   "au|600 visa": {
+    "volume": 2900,
+    "cpc": 4.43
+   },
+   "au|visitor visa australia": {
+    "volume": 22200,
+    "cpc": 2.91
+   },
+   "au|australia tourist visa": {
+    "volume": 3600,
+    "cpc": 4.76
+   },
+   "au|partner visa australia": {
+    "volume": 14800,
+    "cpc": 5.94
+   },
+   "au|820 visa": {
+    "volume": 4400,
+    "cpc": 2.6
+   },
+   "au|309 visa": {
+    "volume": 2400,
+    "cpc": 2.9
+   },
+   "au|801 visa": {
+    "volume": 2900,
+    "cpc": 4.42
+   },
+   "au|spouse visa australia": {
+    "volume": 2900,
+    "cpc": 4.17
+   },
+   "au|australia visa fees": {
+    "volume": 1000,
+    "cpc": 2.36
+   },
+   "au|australian visa fees": {
+    "volume": 210,
+    "cpc": 4.52
+   },
+   "au|visa application charge": {
+    "volume": 260,
+    "cpc": 0
+   },
+   "au|australia visa cost": {
+    "volume": 260,
+    "cpc": 0
+   },
+   "au|189 visa cost": {
+    "volume": 260,
+    "cpc": 4.68
+   },
+   "au|189 visa fees": {
+    "volume": 720,
+    "cpc": 0
+   },
+   "au|190 visa cost": {
+    "volume": 170,
+    "cpc": 0
+   },
+   "au|190 visa fees": {
+    "volume": 720,
+    "cpc": 1.8
+   },
+   "au|491 visa cost": {
+    "volume": 110,
+    "cpc": 0
+   },
+   "au|491 visa fees": {
+    "volume": 590,
+    "cpc": 0
+   },
+   "au|482 visa cost": {
+    "volume": 590,
+    "cpc": 0
+   },
+   "au|482 visa fees": {
+    "volume": 1600,
+    "cpc": 1.53
+   },
+   "au|student visa australia cost": {
+    "volume": 480,
+    "cpc": 3.11
+   },
+   "au|australian student visa fees": {
+    "volume": 480,
+    "cpc": 3.5
+   },
+   "au|student visa fees australia": {
+    "volume": 1300,
+    "cpc": 1.53
+   },
+   "au|partner visa australia cost": {
+    "volume": 1900,
+    "cpc": 3.59
+   },
+   "au|partner visa cost": {
+    "volume": 720,
+    "cpc": 1.94
+   },
+   "au|partner visa fees australia": {
+    "volume": 1900,
+    "cpc": 3.59
+   },
+   "au|working holiday visa australia cost": {
+    "volume": 140,
+    "cpc": 1.16
+   },
+   "au|417 visa cost": {
+    "volume": null,
+    "cpc": null
+   },
+   "au|australia tourist visa fees": {
+    "volume": 2400,
+    "cpc": 2.04
+   },
+   "au|australia visitor visa fees": {
+    "volume": 590,
+    "cpc": 0
+   },
+   "au|600 visa cost": {
+    "volume": null,
+    "cpc": null
+   },
+   "au|australia visa price": {
+    "volume": 1000,
+    "cpc": 2.36
+   },
+   "au|189 visa requirements": {
+    "volume": 720,
+    "cpc": 1.61
+   },
+   "au|190 visa requirements": {
+    "volume": 720,
+    "cpc": 0.97
+   },
+   "au|491 visa requirements": {
+    "volume": 2900,
+    "cpc": 1.66
+   },
+   "au|482 visa requirements": {
+    "volume": 6600,
+    "cpc": 1.24
+   },
+   "au|student visa australia requirements": {
+    "volume": 1000,
+    "cpc": 1.89
+   },
+   "au|partner visa australia requirements": {
+    "volume": 1900,
+    "cpc": 2.66
+   },
+   "au|working holiday visa australia requirements": {
+    "volume": 1000,
+    "cpc": 2.05
+   },
+   "au|visitor visa australia requirements": {
+    "volume": 110,
+    "cpc": 0.61
+   },
+   "au|australia tourist visa requirements": {
+    "volume": 2400,
+    "cpc": 4.78
+   },
+   "au|working holiday visa australia age limit": {
+    "volume": 390,
+    "cpc": 2.21
+   },
+   "au|189 visa age limit": {
+    "volume": null,
+    "cpc": null
+   },
+   "au|491 visa to pr": {
+    "volume": 90,
+    "cpc": 0
+   },
+   "au|migration agent": {
+    "volume": 5400,
+    "cpc": 8.79
+   },
+   "au|registered migration agent": {
+    "volume": 880,
+    "cpc": 8.12
+   },
+   "au|australia visa": {
+    "volume": 5400,
+    "cpc": 3.47
+   },
+   "au|australian visa": {
+    "volume": 4400,
+    "cpc": 3.92
+   },
+   "au|australia pr": {
+    "volume": 9900,
+    "cpc": 2.85
+   },
+   "au|australia pr requirements": {
+    "volume": 1600,
+    "cpc": 2.19
+   },
+   "au|how many points for australian pr": {
+    "volume": 70,
+    "cpc": 0
+   },
+   "au|australia immigration points": {
+    "volume": 140,
+    "cpc": 0.88
+   },
+   "au|australia skilled visa": {
+    "volume": 4400,
+    "cpc": 1.95
+   },
+   "in|pr points calculator": {
+    "volume": 590,
+    "cpc": 0.51
+   },
+   "in|australia pr points calculator": {
+    "volume": 5400,
+    "cpc": 0.4
+   },
+   "in|australia points calculator": {
+    "volume": 1900,
+    "cpc": 0.4
+   },
+   "in|australian immigration points calculator": {
+    "volume": 720,
+    "cpc": 0.66
+   },
+   "in|189 visa points calculator": {
+    "volume": 260,
+    "cpc": 0.33
+   },
+   "in|skilled migration points calculator": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|points test australia": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|australia pr points": {
+    "volume": 1000,
+    "cpc": 0.35
+   },
+   "in|189 visa points": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|190 visa points": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|491 visa points": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|australia visa points calculator": {
+    "volume": 210,
+    "cpc": 0.5
+   },
+   "in|immigration points calculator australia": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|189 visa": {
+    "volume": 320,
+    "cpc": 0.38
+   },
+   "in|190 visa": {
+    "volume": 260,
+    "cpc": 0.42
+   },
+   "in|491 visa": {
+    "volume": 720,
+    "cpc": 0.7
+   },
+   "in|482 visa": {
+    "volume": 1300,
+    "cpc": 1.12
+   },
+   "in|skills in demand visa": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|500 visa": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|student visa australia": {
+    "volume": 6600,
+    "cpc": 1.52
+   },
+   "in|417 visa": {
+    "volume": 30,
+    "cpc": 0.51
+   },
+   "in|462 visa": {
+    "volume": 590,
+    "cpc": 0.91
+   },
+   "in|working holiday visa australia": {
+    "volume": 12100,
+    "cpc": 1.01
+   },
+   "in|work and holiday visa australia": {
+    "volume": 12100,
+    "cpc": 1.01
+   },
+   "in|600 visa": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|visitor visa australia": {
+    "volume": 6600,
+    "cpc": 0.65
+   },
+   "in|australia tourist visa": {
+    "volume": 4400,
+    "cpc": 0.66
+   },
+   "in|partner visa australia": {
+    "volume": 590,
+    "cpc": 1.13
+   },
+   "in|820 visa": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|309 visa": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|801 visa": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|spouse visa australia": {
+    "volume": 880,
+    "cpc": 0.75
+   },
+   "in|australia visa fees": {
+    "volume": 5400,
+    "cpc": 1.05
+   },
+   "in|australian visa fees": {
+    "volume": 4400,
+    "cpc": 0.36
+   },
+   "in|visa application charge": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|australia visa cost": {
+    "volume": 390,
+    "cpc": 0.26
+   },
+   "in|189 visa cost": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|189 visa fees": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|190 visa cost": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|190 visa fees": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|491 visa cost": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|491 visa fees": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|482 visa cost": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|482 visa fees": {
+    "volume": 260,
+    "cpc": 1.55
+   },
+   "in|student visa australia cost": {
+    "volume": 390,
+    "cpc": 0.79
+   },
+   "in|australian student visa fees": {
+    "volume": 390,
+    "cpc": 1.25
+   },
+   "in|student visa fees australia": {
+    "volume": 1600,
+    "cpc": 1.17
+   },
+   "in|partner visa australia cost": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|partner visa cost": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|partner visa fees australia": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|working holiday visa australia cost": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|417 visa cost": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|australia tourist visa fees": {
+    "volume": 3600,
+    "cpc": 0.56
+   },
+   "in|australia visitor visa fees": {
+    "volume": 1900,
+    "cpc": 0.61
+   },
+   "in|600 visa cost": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|australia visa price": {
+    "volume": 5400,
+    "cpc": 0.74
+   },
+   "in|189 visa requirements": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|190 visa requirements": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|491 visa requirements": {
+    "volume": 260,
+    "cpc": 0.32
+   },
+   "in|482 visa requirements": {
+    "volume": 480,
+    "cpc": 0.61
+   },
+   "in|student visa australia requirements": {
+    "volume": 1900,
+    "cpc": 0.94
+   },
+   "in|partner visa australia requirements": {
+    "volume": 260,
+    "cpc": 1.2
+   },
+   "in|working holiday visa australia requirements": {
+    "volume": 880,
+    "cpc": 0.59
+   },
+   "in|visitor visa australia requirements": {
+    "volume": 390,
+    "cpc": 0.23
+   },
+   "in|australia tourist visa requirements": {
+    "volume": 2400,
+    "cpc": 0.71
+   },
+   "in|working holiday visa australia age limit": {
+    "volume": 260,
+    "cpc": 0.69
+   },
+   "in|189 visa age limit": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|491 visa to pr": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|migration agent": {
+    "volume": 320,
+    "cpc": 0.68
+   },
+   "in|registered migration agent": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|australia visa": {
+    "volume": 12100,
+    "cpc": 0.62
+   },
+   "in|australian visa": {
+    "volume": 2400,
+    "cpc": 0.69
+   },
+   "in|australia pr": {
+    "volume": 5400,
+    "cpc": 0.63
+   },
+   "in|australia pr requirements": {
+    "volume": 880,
+    "cpc": 0.48
+   },
+   "in|how many points for australian pr": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|australia immigration points": {
+    "volume": 260,
+    "cpc": 0.4
+   },
+   "in|australia skilled visa": {
+    "volume": 1000,
+    "cpc": 0.68
+   },
+   "gb|pr points calculator": {
+    "volume": 50,
+    "cpc": 10.02
+   },
+   "gb|australia pr points calculator": {
+    "volume": 590,
+    "cpc": 0.74
+   },
+   "gb|australia points calculator": {
+    "volume": 1000,
+    "cpc": 0.95
+   },
+   "gb|australian immigration points calculator": {
+    "volume": 260,
+    "cpc": 0.62
+   },
+   "gb|189 visa points calculator": {
+    "volume": 170,
+    "cpc": 1.07
+   },
+   "gb|skilled migration points calculator": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|points test australia": {
+    "volume": 70,
+    "cpc": 1.35
+   },
+   "gb|australia pr points": {
+    "volume": 140,
+    "cpc": 0.5
+   },
+   "gb|189 visa points": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|190 visa points": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|491 visa points": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|australia visa points calculator": {
+    "volume": 170,
+    "cpc": 0.79
+   },
+   "gb|immigration points calculator australia": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|189 visa": {
+    "volume": 320,
+    "cpc": 1.32
+   },
+   "gb|190 visa": {
+    "volume": 260,
+    "cpc": 0
+   },
+   "gb|491 visa": {
+    "volume": 320,
+    "cpc": 0.73
+   },
+   "gb|482 visa": {
+    "volume": 590,
+    "cpc": 1.11
+   },
+   "gb|skills in demand visa": {
+    "volume": 170,
+    "cpc": 0.8
+   },
+   "gb|500 visa": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|student visa australia": {
+    "volume": 1300,
+    "cpc": 1.38
+   },
+   "gb|417 visa": {
+    "volume": 260,
+    "cpc": 2
+   },
+   "gb|462 visa": {
+    "volume": 90,
+    "cpc": 1.39
+   },
+   "gb|working holiday visa australia": {
+    "volume": 14800,
+    "cpc": 1.7
+   },
+   "gb|work and holiday visa australia": {
+    "volume": 14800,
+    "cpc": 1.7
+   },
+   "gb|600 visa": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|visitor visa australia": {
+    "volume": 5400,
+    "cpc": 4.04
+   },
+   "gb|australia tourist visa": {
+    "volume": 4400,
+    "cpc": 4
+   },
+   "gb|partner visa australia": {
+    "volume": 1000,
+    "cpc": 3.37
+   },
+   "gb|820 visa": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|309 visa": {
+    "volume": 30,
+    "cpc": 0
+   },
+   "gb|801 visa": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|spouse visa australia": {
+    "volume": 590,
+    "cpc": 1.84
+   },
+   "gb|australia visa fees": {
+    "volume": 320,
+    "cpc": 2.39
+   },
+   "gb|australian visa fees": {
+    "volume": 140,
+    "cpc": 2.74
+   },
+   "gb|visa application charge": {
+    "volume": 70,
+    "cpc": 0
+   },
+   "gb|australia visa cost": {
+    "volume": 320,
+    "cpc": 1.92
+   },
+   "gb|189 visa cost": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|189 visa fees": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|190 visa cost": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|190 visa fees": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|491 visa cost": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|491 visa fees": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|482 visa cost": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|482 visa fees": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|student visa australia cost": {
+    "volume": 90,
+    "cpc": 0
+   },
+   "gb|australian student visa fees": {
+    "volume": 30,
+    "cpc": 0
+   },
+   "gb|student visa fees australia": {
+    "volume": 70,
+    "cpc": 0
+   },
+   "gb|partner visa australia cost": {
+    "volume": 110,
+    "cpc": 0.74
+   },
+   "gb|partner visa cost": {
+    "volume": 70,
+    "cpc": 0
+   },
+   "gb|partner visa fees australia": {
+    "volume": 110,
+    "cpc": 0.74
+   },
+   "gb|working holiday visa australia cost": {
+    "volume": 390,
+    "cpc": 1.42
+   },
+   "gb|417 visa cost": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|australia tourist visa fees": {
+    "volume": 320,
+    "cpc": 2.7
+   },
+   "gb|australia visitor visa fees": {
+    "volume": 170,
+    "cpc": 1.73
+   },
+   "gb|600 visa cost": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|australia visa price": {
+    "volume": 320,
+    "cpc": 1.58
+   },
+   "gb|189 visa requirements": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|190 visa requirements": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|491 visa requirements": {
+    "volume": 40,
+    "cpc": 0
+   },
+   "gb|482 visa requirements": {
+    "volume": 70,
+    "cpc": 1.06
+   },
+   "gb|student visa australia requirements": {
+    "volume": 170,
+    "cpc": 1.12
+   },
+   "gb|partner visa australia requirements": {
+    "volume": 170,
+    "cpc": 2.01
+   },
+   "gb|working holiday visa australia requirements": {
+    "volume": 720,
+    "cpc": 1.38
+   },
+   "gb|visitor visa australia requirements": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|australia tourist visa requirements": {
+    "volume": 880,
+    "cpc": 3.37
+   },
+   "gb|working holiday visa australia age limit": {
+    "volume": 320,
+    "cpc": 1.42
+   },
+   "gb|189 visa age limit": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|491 visa to pr": {
+    "volume": 10,
+    "cpc": 0
+   },
+   "gb|migration agent": {
+    "volume": 90,
+    "cpc": 5.51
+   },
+   "gb|registered migration agent": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|australia visa": {
+    "volume": 9900,
+    "cpc": 3.35
+   },
+   "gb|australian visa": {
+    "volume": 8100,
+    "cpc": 4.01
+   },
+   "gb|australia pr": {
+    "volume": 1600,
+    "cpc": 1.46
+   },
+   "gb|australia pr requirements": {
+    "volume": 590,
+    "cpc": 1.09
+   },
+   "gb|how many points for australian pr": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|australia immigration points": {
+    "volume": 90,
+    "cpc": 1.44
+   },
+   "gb|australia skilled visa": {
+    "volume": 1900,
+    "cpc": 1.01
+   },
+   "us|pr points calculator": {
+    "volume": 70,
+    "cpc": 0
+   },
+   "us|australia pr points calculator": {
+    "volume": 480,
+    "cpc": 0.23
+   },
+   "us|australia points calculator": {
+    "volume": 320,
+    "cpc": 2
+   },
+   "us|australian immigration points calculator": {
+    "volume": 170,
+    "cpc": 0.96
+   },
+   "us|189 visa points calculator": {
+    "volume": 50,
+    "cpc": 0.67
+   },
+   "us|skilled migration points calculator": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|points test australia": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|australia pr points": {
+    "volume": 170,
+    "cpc": 0
+   },
+   "us|189 visa points": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|190 visa points": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|491 visa points": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|australia visa points calculator": {
+    "volume": 50,
+    "cpc": 0
+   },
+   "us|immigration points calculator australia": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|189 visa": {
+    "volume": 90,
+    "cpc": 0
+   },
+   "us|190 visa": {
+    "volume": 90,
+    "cpc": 0
+   },
+   "us|491 visa": {
+    "volume": 140,
+    "cpc": 0
+   },
+   "us|482 visa": {
+    "volume": 210,
+    "cpc": 4.01
+   },
+   "us|skills in demand visa": {
+    "volume": 70,
+    "cpc": 0
+   },
+   "us|500 visa": {
+    "volume": 40,
+    "cpc": 0
+   },
+   "us|student visa australia": {
+    "volume": 1600,
+    "cpc": 2.21
+   },
+   "us|417 visa": {
+    "volume": 40,
+    "cpc": 2.71
+   },
+   "us|462 visa": {
+    "volume": 70,
+    "cpc": 1.99
+   },
+   "us|working holiday visa australia": {
+    "volume": 8100,
+    "cpc": 2.57
+   },
+   "us|work and holiday visa australia": {
+    "volume": 8100,
+    "cpc": 2.57
+   },
+   "us|600 visa": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|visitor visa australia": {
+    "volume": 4400,
+    "cpc": 4.77
+   },
+   "us|australia tourist visa": {
+    "volume": 18100,
+    "cpc": 4.73
+   },
+   "us|partner visa australia": {
+    "volume": 880,
+    "cpc": 5.18
+   },
+   "us|820 visa": {
+    "volume": 40,
+    "cpc": 0
+   },
+   "us|309 visa": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|801 visa": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|spouse visa australia": {
+    "volume": 390,
+    "cpc": 1.35
+   },
+   "us|australia visa fees": {
+    "volume": 260,
+    "cpc": 2.18
+   },
+   "us|australian visa fees": {
+    "volume": 70,
+    "cpc": 0
+   },
+   "us|visa application charge": {
+    "volume": 40,
+    "cpc": 0
+   },
+   "us|australia visa cost": {
+    "volume": 390,
+    "cpc": 2.83
+   },
+   "us|189 visa cost": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|189 visa fees": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|190 visa cost": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|190 visa fees": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|491 visa cost": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|491 visa fees": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|482 visa cost": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|482 visa fees": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|student visa australia cost": {
+    "volume": 170,
+    "cpc": 0
+   },
+   "us|australian student visa fees": {
+    "volume": 30,
+    "cpc": 0
+   },
+   "us|student visa fees australia": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|partner visa australia cost": {
+    "volume": 90,
+    "cpc": 0
+   },
+   "us|partner visa cost": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|partner visa fees australia": {
+    "volume": 90,
+    "cpc": 0
+   },
+   "us|working holiday visa australia cost": {
+    "volume": 70,
+    "cpc": 0
+   },
+   "us|417 visa cost": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|australia tourist visa fees": {
+    "volume": 210,
+    "cpc": 0.9
+   },
+   "us|australia visitor visa fees": {
+    "volume": 90,
+    "cpc": 0
+   },
+   "us|600 visa cost": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|australia visa price": {
+    "volume": 260,
+    "cpc": 0
+   },
+   "us|189 visa requirements": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|190 visa requirements": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|491 visa requirements": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|482 visa requirements": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|student visa australia requirements": {
+    "volume": 140,
+    "cpc": 0.91
+   },
+   "us|partner visa australia requirements": {
+    "volume": 70,
+    "cpc": 0.01
+   },
+   "us|working holiday visa australia requirements": {
+    "volume": 260,
+    "cpc": 2.17
+   },
+   "us|visitor visa australia requirements": {
+    "volume": 90,
+    "cpc": 2.06
+   },
+   "us|australia tourist visa requirements": {
+    "volume": 590,
+    "cpc": 3.06
+   },
+   "us|working holiday visa australia age limit": {
+    "volume": 110,
+    "cpc": 0
+   },
+   "us|189 visa age limit": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|491 visa to pr": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|migration agent": {
+    "volume": 390,
+    "cpc": 8.9
+   },
+   "us|registered migration agent": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|australia visa": {
+    "volume": 6600,
+    "cpc": 4.73
+   },
+   "us|australian visa": {
+    "volume": 4400,
+    "cpc": 3.67
+   },
+   "us|australia pr": {
+    "volume": 1900,
+    "cpc": 1.55
+   },
+   "us|australia pr requirements": {
+    "volume": 390,
+    "cpc": 4.1
+   },
+   "us|how many points for australian pr": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|australia immigration points": {
+    "volume": 50,
+    "cpc": 0
+   },
+   "us|australia skilled visa": {
+    "volume": 480,
+    "cpc": 1.81
+   }
+  }
+ },
+ "impronta": "78e1786f29c1f254e2f3"
+}

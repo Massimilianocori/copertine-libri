@@ -152,7 +152,7 @@
     "url_traveler": "https://genki.world/products/traveler?with=massinico72",
     "codice": "massinico72",
     "attivo_dal": "2026-11-16",
-    "letto_il": "2026-11-16",
+    "letto_il": "2026-11-18",
     "programma": "Programma partner di Genki: contratto firmato da Massimiliano il 13/11/2026; link personale mandato da Massimiliano il 16/11/2026 (la sua decisione di accendere Genki). Link per prodotto dalla email di benvenuto di Genki del 16/11/2026. I compensi stanno solo nelle note interne (studio-business/intelaiatura/fronti-2026-11-12-genki-visti.md), mai nelle pagine.",
     "link_verificato": "16/11/2026 (curl): https://genki.world/with/massinico72 risponde 307 verso https://genki.world/?with=massinico72; i due link di prodotto rispondono 200. Usato nelle pagine: il link del prodotto che Genki stessa nomina per quel visto (url_traveler, url_native); il link generico 'url' resta di riserva e non è in nessuna pagina.",
     "fonti": {
@@ -161,14 +161,14 @@
         "titolo": "Digital nomad visas: all countries compared & how to apply",
         "editore": "Genki",
         "http": 200,
-        "letto_il": "2026-11-16"
+        "letto_il": "2026-11-18"
       },
       "native": {
         "url": "https://genki.world/products/native",
         "titolo": "Genki Native",
         "editore": "Genki",
         "http": 200,
-        "letto_il": "2026-11-16"
+        "letto_il": "2026-11-18"
       }
     },
     "letture": {
@@ -182,7 +182,7 @@
       },
       "verificata": {
         "fonte": "guida",
-        "frammento": "All figures verified October 2026."
+        "frammento": "All figures verified November 2026."
       },
       "pt_d8": {
         "fonte": "guida",
@@ -256,5 +256,20 @@
     },
     "nota": "INTERRUTTORE del riquadro Genki «What one insurer says about this visa» (box_gk in genera.py, 16/11/2026): con 'attivo': false le pagine escono senza riquadro, senza alcun link a genki.world, senza la colonna «What one insurer says» nella tabella indice e senza la frase nella privacy; la pagina Portogallo D8 torna al riquadro SafetyWing (verifica.py, controllo 39). Il riquadro compare SOLO nelle pagine elencate in 'pagine': dove la guida di Genki dichiara quale suo prodotto calza per quel visto E la regola ufficiale è tra le letture di dati/assicurazione.json. Ogni riquadro riporta prima la regola ufficiale parola per parola (con la fonte e la data) e la via che non passa da una polizza dove esiste (accordi sanitari per il Portogallo, prova dei mezzi per l'Ungheria), poi la frase di Genki tra virgolette con link e data, l'avvertenza di Genki stessa («can't guarantee…») e l'invito a chiedere al consolato. Mai due riquadri assicurativi nella stessa pagina. Le frasi di Genki sono le 'letture' qui sotto, rilette online a ogni verifica.py completo: se Genki cambia la guida la verifica fallisce e il riquadro va riletto (le regole dei partner Genki chiedono informazioni esatte).",
     "regole": "rel=\"sponsored nofollow noopener\", target _blank, etichetta Affiliate, riga di trasparenza; solo link semplici (MAI il widget di Genki né altri script di terzi); nessun prezzo e nessun compenso nelle pagine (i prezzi si leggono sul sito di Genki); nessuna promessa che un consolato accetti la polizza; nessuna pagina con il marchio Genki. Per spegnere: 'attivo': false e rigenerare."
+  },
+  "_migration_expert": {
+    "attivo": false,
+    "nome": "Migration Expert",
+    "url": "",
+    "programma": "Letto nello studio studio-business/intelaiatura/fronti-2026-11-14-pagatori-prima.md (idea C): «20% commission on the sale value (excluding any government fees)»; la parcella media non è in pagina. Massimiliano non è iscritto: NESSUN link di affiliazione esiste, nessuno va inventato.",
+    "pagine": [
+      "pr-points-calculator",
+      "189-visa",
+      "190-visa",
+      "491-visa",
+      "482-visa",
+      "partner-visa"
+    ],
+    "nota": "INTERRUTTORE del riquadro Migration Expert «Want a registered migration agent to look at your case?» (box_me in genera.py, 18/11/2026), sezione /australia-visas/. SPENTO in attesa della decisione di Massimiliano (regole del 15/11: riquadri nuovi spenti, forma editoriale): con 'attivo': false (o senza un link https ammesso) le pagine escono senza riquadro, senza alcun link e senza il nome del partner, e senza la frase nella privacy (verifica.py, controllo 40). Per accenderlo, dopo l'iscrizione al programma: 1) mettere in 'url' il link tracciato dato dal programma, mai un link scritto a mano; 2) aggiungere il dominio del link ai domini ammessi di studio-business/strumenti/monetizzazione.json; 3) 'attivo': true; 4) python3 visaincome/genera.py && python3 visaincome/verifica.py && python3 studio-business/strumenti/monetizzazione.py verifica visaincome. Il riquadro compare solo nelle pagine elencate in 'pagine' (calcolatore dei punti e visti dove un agente è più richiesto), sotto le parole ufficiali e prima delle FAQ, con etichetta Affiliate, rel sponsored nofollow noopener, la regola ufficiale su chi può dare assistenza prima del partner, nessun prezzo e nessuna promessa. Le parole sul partner vengono dalla sua home (letture me_agenti e me_consulto in dati/australia_visti.json)."
   }
 }

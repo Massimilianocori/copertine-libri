@@ -53,11 +53,13 @@ EVISA = "https://www.thaievisa.go.th/"
 # chiavi: parole che, insieme a "dtv", in un suggerimento di ricerca contano come domanda per questa sede.
 LETTURE = [
     {"id": "london", "sede": "London", "paese": "United Kingdom", "tipo": "Embassy",
-     "pagine": ["https://london.thaiembassy.org/en/page/destination-thailand-visa", "https://london.thaiembassy.org/en/page/visa-general-information"],
-     "costo": {"importo": 300, "valuta": "GBP", "frammento": "Visa Fee: £300", "p": 0},
-     "residenza": {"tipo": "paese", "frammento": "Proof of permanent residence in the UK, Ireland, or the British Overseas Territories", "p": 0},
-     "saldo": {"frammento": "amount of no less than £12,000 (500,000 THB)", "p": 0},
-     "altre": [{"frammento": "the Embassy is unable to issue visas for foreign nationals who are outside the United Kingdom (UK), Ireland, or UK Territories", "p": 1},
+     # 18/11/2026: l'ambasciata ha rifatto tutte le pagine dei visti (una pagina per scopo del DTV); frammenti riletti quel giorno
+     "pagine": ["https://london.thaiembassy.org/en/page/dtv-for-workcation", "https://london.thaiembassy.org/en/page/visa-general-information",
+                "https://london.thaiembassy.org/en/page/visa-categories-and-requirements"],
+     "costo": {"importo": 300, "valuta": "GBP", "frammento": "Fee: £300 (non-refundable under any circumstances)", "p": 0},
+     "residenza": {"tipo": "paese", "frammento": "hold citizenship or proof of permanent residence in the UK, Ireland, or British Overseas Territories", "p": 0},
+     "saldo": {"frammento": "a minimum closing balance of £12,000", "p": 0},
+     "altre": [{"frammento": "the Embassy is unable to issue visas for foreign nationals who are outside the UK, Ireland, or British Overseas Territories", "p": 2},
                {"frammento": "The police clearance certificate must be issued within 6 months from the date of submission", "p": 1}],
      "chiavi": ["london", "uk", "united kingdom"]},
     {"id": "washington-dc", "sede": "Washington, DC", "paese": "United States", "tipo": "Embassy",
@@ -189,7 +191,7 @@ LETTURE = [
      "pagine": ["https://newdelhi.thaiembassy.org/en/page/visa"],
      "costo": {"importo": 30000, "valuta": "INR", "frammento": "DTV | Multiple | 5 years | 180 days | 30,000 INR |", "p": 0,
                "nota": "fee table of the embassy"},
-     "altre": [{"frammento": "The 30-day visa exemption for Indian ordinary passport holders for tourism purposes remains effective from 15 September 2026 until further announcement.", "p": 0}],
+     "altre": [{"frammento": "The 30-day visa exemption for Indian ordinary passport holders for tourism purposes ONLY remains effective from 15 September 2026 until further announcement.", "p": 0}],
      "chiavi": ["new delhi", "delhi", "india", "indians", "indian"]},
     {"id": "hong-kong", "sede": "Hong Kong", "paese": "China", "tipo": "Consulate-General",
      "pagine": ["https://hongkong.thaiembassy.org/en/page/visa-info"],
@@ -255,53 +257,66 @@ GENERALE = {
 # Ogni voce: URL ufficiale, "generico" = pagina fuori dal sistema thaiembassy.org (testo dell'HTML), frammenti con un nome
 # (genera.py li cita per nome; se uno sparisce lo script si ferma come per LETTURE).
 TEMI = {
-    "londra_dtv": {"url": "https://london.thaiembassy.org/en/page/destination-thailand-visa", "frammenti": {
-        "dtv1": "DTV1 - Workcation (Digital nomad/remote worker/foreign talent/freelancer)",
-        "dtv2": "DTV2 - Thai soft power related activities (e.g., Muay Thai, Thai culinary training, and medical treatment)",
-        "dtv3": "DTV3 - Spouse and children under 20 years old of DTV visa holders",
-        "validita": "Visa Validity: 5 years / Multiple Entries",
-        "soggiorno": "Period of Stay: 180 days per entry",
-        "estensione": "One time for a period not exceeding 180 days per entry",
-        "uscita": "After the maximum stay of 180 days + 180 days, the visa holders need to depart Thailand and re-enter the country with the same DTV visa within the visa's validity date",
-        "doc_passaporto": "Biodata page of Passport or Travel Document",
-        "doc_foto": "Photograph taken within the last six months",
-        "doc_residenza": "Proof of permanent residence in the UK, Ireland, or the British Overseas Territories",
-        "doc_fondi": "Financial evidence: amount of no less than £12,000 (500,000 THB) (e.g., bank statements)",
+    # Londra: pagine rifatte dall'ambasciata il 18/11/2026 (una per scopo del DTV, una per visto); frammenti riletti quel giorno
+    "londra_dtv": {"url": "https://london.thaiembassy.org/en/page/dtv-for-workcation", "frammenti": {
+        "dtv1": "Workcation (Digital nomads/remote workers/foreign talents/freelancers)",
+        "validita": "DTV is valid for multiple entries within 5 years from the date of issue",
+        "soggiorno": "Visa holders will be permitted to stay in Thailand for up to 180 days from the date of entry",
+        "estensione": "DTV holders can request one-time extension for another set of 180 days with the Immigration Bureau without having to leave Thailand",
+        "tariffa": "Fee: £300 (non-refundable under any circumstances)",
+        "doc_passaporto": "Passport or travel document biodata page",
+        "doc_foto": "Photograph taken within the last 6 months in a passport format",
+        "doc_residenza": "hold citizenship or proof of permanent residence in the UK, Ireland, or British Overseas Territories",
+        "doc_fondi": "Recent bank statements in the UK, Ireland, or British Overseas Territories, showing the applicant’s name, address, and a minimum closing balance of £12,000",
         "doc_lavoro": "Employment contract or employment certificate in their country or professional portfolio showcasing digital nomad, remote worker, foreign talent or freelancer status",
-        "doc_polizia": "Police clearance certificate issued within 6 months from the date of submission",
-        "doc_attivita": "Proof of confirmation to attend the activity or letter of appointment from hospital/medical center",
-        "doc_famiglia": "Proof of relationship to the DTV visa holder (e.g., a copy of marriage certificate, birth certificate, or certificate of adoption)",
-        "doc_visto_titolare": "DTV visa of the DTV holder",
-        "traduzioni": "must be accompanied by certified English translations",
-        "contatto_estensione": "For an extension of stay, please contact the Immigration Bureau directly once you are in Thailand",
-        "non_cittadini": "For non-UK citizens, please provide additional documents",
-        "brp": "A copy of BRP card or letter from UKVI (UK visa) settlement status",
-        "datore": "A letter confirming employment details from an employer in the UK or Ireland"}},
+        "doc_polizia": "Certificate of criminal record clearance issued within the last 6 months",
+        "non_cittadini": "The UK indefinite leave to remain/settlement or Irish long-term residency for non-British and non-Irish nationals",
+        "estratti_esteri": "any bank statements issued outside of the UK, Ireland, or British Overseas Territories, need to be submitted together with a letter from the bank stating the balance equivalent to Pound Sterling (GBP), United States Dollars (USD), or Euro (EUR)"}},
+    "londra_dtv_sp": {"url": "https://london.thaiembassy.org/en/page/dtv-for-soft-power-activities", "frammenti": {
+        "dtv2": "Thai soft power-related activities (e.g., Muay Thai, Thai culinary training, and medical treatment)",
+        "doc_attivita": "Confirmation letter of enrolment from a gym/school, or a long-term medical appointment letter from a hospital/medical centre",
+        "durata_attivita": "The chosen activity must be at least 6 months at a minimum",
+        "doc_fondi": "a minimum closing balance of £12,000"}},
+    "londra_dtv_fam": {"url": "https://london.thaiembassy.org/en/page/dtv-for-dependents", "frammenti": {
+        "dtv3": "Spouse and children under 20 years old of DTV visa holders",
+        "doc_famiglia": "Proof of relationship to the DTV visa holder: marriage certificate, full birth certificate, or adoption certificate (where applicable)",
+        "doc_visto_titolare": "Copy of the DTV visa of the main visa holder"}},
     "londra_info": {"url": "https://london.thaiembassy.org/en/page/visa-general-information", "frammenti": {
         "tempi": "The current processing time is approximately 15 working days",
-        "anticipo": "At the earliest, applicants can apply for a visa 90 days before their intended arrival date",
-        "rimborso": "the visa fee is non-refundable and non-transferable",
-        "non_garantito": "Submission of a visa application cannot be implied that a visa will be granted",
-        "estratti_esteri": "Any bank statements issued outside of the UK, Ireland, or UK Territories, need to be submitted together with a letter from the bank stating the balance equivalent to Pound Sterling (GBP), United States Dollars (USD), or Euro (EUR)"}},
+        "anticipo": "At the earliest, applicants can apply for a visa 90 days before their intended arrival date"}},
+    "londra_come": {"url": "https://london.thaiembassy.org/en/page/how-to-apply-for-a-thai-e-visa", "frammenti": {
+        "rimborso": "the visa fee and all costs cannot be reimbursed with the Embassy under any circumstance",
+        "non_garantito": "Submission of a visa application cannot be implied that a visa will be granted"}},
+    "londra_req": {"url": "https://london.thaiembassy.org/en/page/visa-categories-and-requirements", "frammenti": {
+        "lingua": "all supporting documents must be issued in Thai or English by official authorities in Thailand, the UK, Ireland, or British Overseas Territories",
+        "traduzioni": "Otherwise, legalisation and certified translation into Thai or English will be requested"}},
     "londra_tariffe": {"url": "https://london.thaiembassy.org/en/publicservice/81755-visa-fees", "frammenti": {
         "non_imm": "4. Non-Immigrant (3 months validity / Up to 90 days / Single Entry) | 60 |",
         "oa": "6 . Non-Immigrant O-A (1 year validity / Up to 1 year / Multiple Entries) | 150 |",
         "ox": "7. Non-Immigrant O-X (5 year validity / Up to 5 year / Multiple Entries) | 300 |",
         "ltr": "13. Long-Term Resident (10 year validity / Multiple Entries) | 1,500 |",
         "valuta": "Visa fees are payable in pound sterling (£) only"}},
-    "londra_pensione": {"url": "https://london.thaiembassy.org/en/page/retirement-visa", "frammenti": {
-        "oa": "NON-IMMIGRANT VISA TYPE O-A (For retirement long stay: valid for 1 year / Multiple entries)",
-        "oa_fondi": "Financial evidence showing monthly income of no less than 65,000 THB (£1,500) or having the current balance of 800,000 THB (£18,000)",
-        "oa_assicurazione": "with the insured sum of no less than 100,000 USD or 3,000,000 THB",
-        "ox": "NON-IMMIGRANT VISA TYPE O-X (For retirement long stay: valid for 5 years / Multiple entries)",
-        "ox_fondi": "fixed deposit of no less than 3,000,000 THB"}},
-    "londra_studio": {"url": "https://london.thaiembassy.org/en/page/education-visa", "frammenti": {
-        "chi": "students of educational establishments in Thailand approved by Thai authorities",
-        "ingresso": "The ED Visa is valid for a single entry into Thailand",
-        "soggiorno": "They will be allowed to stay in Thailand for a period of up to 90 days, counting from the date of entry",
-        "estensione": "The extension of stay is at the discretion of the immigration officer"}},
-    "londra_ltr": {"url": "https://london.thaiembassy.org/en/page/long-term-resident-visa", "frammenti": {
-        "boi": "will have to submit their application and documents online with the Thailand Board of Investment (BOI)"}},
+    "londra_pensione": {"url": "https://london.thaiembassy.org/en/page/non-o-a-visa-for-retirement", "frammenti": {
+        "oa": "Non-O-A Visa is valid for multiple entries within 1 year from the date of issue",
+        "oa_eta": "are 50 years old or above",
+        "oa_fondi": "a minimum closing balance of £18,000 or monthly income of more than £1,500 for the last 3 months",
+        "oa_assicurazione": "with a minimum insured sum of 100,000 USD or 3,000,000 THB",
+        "oa_tariffa": "Fee: £150"}},
+    "londra_ox": {"url": "https://london.thaiembassy.org/en/page/non-o-x-visa-for-retirement", "frammenti": {
+        "ox": "Non-Immigrant Visa (O-X) is valid for multiple entries within 5 years",
+        "ox_fondi": "a fixed deposit of at least 3,000,000 THB held for 1 year",
+        "ox_banca": "Bank statement in Thailand only",
+        "ox_tariffa": "Fee: £300"}},
+    "londra_studio": {"url": "https://london.thaiembassy.org/en/page/non-ed-visa-for-a-short-course", "frammenti": {
+        "chi": "allows foreign students to study short courses, such as Thai or English language, or attend Muay Thai training",
+        "ingresso": "Non-ED Visa is valid for a single entry within 90 days from the date of issue",
+        "soggiorno": "Visa holders will be permitted to stay in Thailand for up to 90 days from the date of entry",
+        "estensione": "they can request an extension of stay and re-entry permit by directly contacting the Immigration Bureau after arriving in Thailand",
+        "fondi": "a minimum closing balance of £700",
+        "tariffa": "Fee: £60"}},
+    "londra_ltr": {"url": "https://london.thaiembassy.org/en/page/long-term-resident-visa-boi", "frammenti": {
+        "boi": "LTR applicants are required to apply with Thailand Board of Investment (BOI) on the LTR application portal",
+        "tariffa": "Fee: £1,500"}},
     "boi_ltr": {"url": "https://ltr.boi.go.th/", "generico": True, "frammenti": {
         "durata": "Permission will be granted to stay in Thailand the first time for five years which can be extended for 5 more years if qualifications are met",
         "lavoro": "Permission to work in Thailand (Digital Work permit)",
