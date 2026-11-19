@@ -93,6 +93,12 @@ Regola comune: un aggiornamento pubblica **solo se i dati sono cambiati**; se lo
 | **Tenere fermi** (costano zero) | Cruise Health Scores, Aste in Chiaro, Tourist Tax, Balcony Solar Europe | Solo dati; Tourist Tax: tariffe 2027 e Stay22; Balcony Solar: Germania solo con l'ok sull'Impressum |
 | **Congelati** | EsamiDiStato, FloodCost, ApprovedCondos, Italy Strikes (da spostare dentro BYF prima di febbraio 2027) | Nessuna ora; aggiornamento mensile o fermo |
 
+**Togliere un sito (regola di Massimiliano, 19/11/2026: «se qualcuno non funziona si tolgono»).** Ogni 1° del mese, per ogni sito online da almeno 90 giorni (i siti stagionali: dopo la loro stagione):
+- **meno di 100 visite al mese** e nessuna crescita negli ultimi 2 mesi → **si toglie**;
+- **dati che non riusciamo a tenere aggiornati e corretti** (fonte chiusa, aggiornamento impossibile) → si toglie subito, a qualsiasi età: un dato sbagliato online costa credibilità a tutta la rete;
+- prima di togliere: le pagine utili si spostano dentro un sito della rete che va bene (con redirect 301), il resto si spegne.
+Come: proposta a Massimiliano con i numeri (visite, impressioni, incassi) e il suo sì; poi è lui a cancellare il progetto su Netlify, io tolgo il sito da `indexnow.py`, `salute.py` e dal cruscotto. Primo giro: 1/12/2026.
+
 **Ciclo mensile (il 1° del mese; il primo è la previsione del 30/11).**
 1. GoatCounter del mese per sito e per sezione; crescita sul mese prima; quota Tier 1.
 2. Search Console: foto di Massimiliano (Rendimento 28 giorni + Pagine) dei 3 siti da spingere e dei siti arrivati a 30, 45, 90 giorni.
