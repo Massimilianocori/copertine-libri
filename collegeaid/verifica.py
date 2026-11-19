@@ -633,13 +633,15 @@ def sc_usd(v):
 
 
 def sc_pc(v):
-    """«0.0365» -> «3.65%» spostando la virgola a mano (nessuna aritmetica in virgola mobile)."""
+    """«0.0365» -> «3.65%», «0.848» -> «84.80%» spostando la virgola a mano (nessuna aritmetica in virgola mobile)."""
     if not sc_num(v):
         return M_SC_MANCA[v]
     intera, _, dec = v.partition(".")
     cifre = intera + dec.ljust(2, "0")
     a, b = cifre[:len(intera) + 2].lstrip("0") or "0", cifre[len(intera) + 2:].rstrip("0")
-    return a + ("." + b if b else "") + "%"
+    if len(b) > 2:
+        raise SystemExit(f"quota {v} con più di quattro decimali")
+    return a + "." + b.ljust(2, "0") + "%"   # sempre due decimali
 
 
 def sc_slug(nome):
@@ -844,16 +846,54 @@ def controlla_universita():
             if x not in pc_ammesse:
                 err(f"{p}: percentuale non prevista {x}%")
         # le altre università dello stesso Stato: nome e tasse dal file
-        for sl, nome_, tasse in re.findall(r'<li><a href="/college-costs/([a-z0-9-]+)/"><b>([^<]*)</b><small>(\S+) tuition and fees', main):
+        netto_di = lambda u_: int(righe[u_]["NPT4_PUB" if righe[u_]["CONTROL"] == "1" else "NPT4_PRIV"])  # noqa: E731
+        ids = [x["unitid"] for x in scelte]
+        stesso_stato = [x for x in ids if righe[x]["STABBR"] == r["STABBR"]]
+        carte = re.findall(r'<li><a href="/college-costs/([a-z0-9-]+)/"><b>([^<]*)</b><small>(\S+) tuition and fees', main)
+        for sl, nome_, tasse in carte:
             n += 1
             uid = next((k for k, v in slug_di.items() if v == sl), None)
-            if not uid or unescape(nome_) != righe[uid]["INSTNM"] or tasse != sc_usd(righe[uid]["TUITIONFEE_IN"]) or righe[uid]["STABBR"] != r["STABBR"]:
+            if not uid or unescape(nome_) != righe[uid]["INSTNM"] or tasse != sc_usd(righe[uid]["TUITIONFEE_IN"]) or (len(stesso_stato) > 1 and righe[uid]["STABBR"] != r["STABBR"]):
                 err(f"{p}: riquadro «altre università» sbagliato per {sl}")
+        if len(stesso_stato) > 1:
+            attese_c = sorted((slug_di[x] for x in sorted((x for x in stesso_stato if x != s["unitid"]), key=lambda x: righe[x]["INSTNM"])[:8]))
+            if sorted(c[0] for c in carte) != attese_c or "Other colleges in " not in vis:
+                err(f"{p}: le altre università dello Stato non sono quelle del file")
+        else:
+            vicine = sorted((x for x in ids if x != s["unitid"]), key=lambda x: (abs(netto_di(x) - netto_di(s["unitid"])), righe[x]["INSTNM"]))[:6]
+            if [c[0] for c in carte] != [slug_di[x] for x in vicine] or "Colleges with a similar net price" not in vis:
+                err(f"{p}: università unica nel suo Stato senza il riquadro delle più vicine per prezzo netto")
+        # posto del prezzo netto tra le 200, nel tipo e nello Stato (1 = il più basso), rifatto dal file
+        gruppi = {"tutte": ids, "tipo": [x for x in ids if righe[x]["CONTROL"] == r["CONTROL"]], "stato": stesso_stato}
+        attesi_p = {k: (1 + sum(1 for x in g if netto_di(x) < netto_di(s["unitid"])), len(g)) for k, g in gruppi.items()}
+        if len(stesso_stato) == 1:
+            del attesi_p["stato"]
+        mostrati = {k: (int(a), int(b)) for k, a, b in re.findall(r'<span data-posto="(\w+):(\d+):(\d+)">', main)}
+        n += len(mostrati)
+        if mostrati != attesi_p:
+            err(f"{p}: posti del prezzo netto {mostrati}, dal file {attesi_p}")
+        for k, (a, b) in attesi_p.items():
+            suff_o = "th" if 10 <= a % 100 <= 20 else {1: "st", 2: "nd", 3: "rd"}.get(a % 10, "th")
+            if not re.search(rf'<span data-posto="{k}:{a}:{b}">the {"lowest" if a == 1 else f"{a}{suff_o} lowest"} of the {b} ', main):
+                err(f"{p}: frase del posto «{k}» diversa dal conto")
+        # università pubbliche: il costo totale del file vale solo per i residenti, e la pagina lo dice
+        pub = r["CONTROL"] == "1"
+        for pezzo, solo_pub in (("Average cost of attendance, in-state students: tuition", True), ("The cost of attendance and the gap table are also in-state only; the file has no out-of-state cost of attendance.", True)):
+            if (pezzo in vis) != pub:
+                err(f"{p}: dicitura «in-state» del costo totale {'mancante' if pub else 'fuori posto'}: {pezzo[:40]}")
+        if sc_num(r["COSTT4_A"]) and ("No grants at all: full in-state cost of attendance" in vis) != pub:
+            err(f"{p}: riga del buco sul costo totale senza (o con) «in-state»")
+        if "Median federal student loan debt of borrowers who completed" not in vis or "Independent students have higher limits of their own and no Parent PLUS" not in vis:
+            err(f"{p}: manca l'etichetta del debito o l'avvertenza sugli studenti indipendenti")
         # titolo dalla frase misurata, nome ufficiale, Stato, link
         tit = unescape(re.search(r"<title>(.*?)</title>", html_)[1])
         piatto = lambda x: re.sub(r"\s+", " ", re.sub(r"[.\-:,]", " ", x.lower())).strip()  # noqa: E731  («St. John's» = «st john's»: la punteggiatura non conta in una ricerca)
         if not piatto(tit).startswith(piatto(s["frase_titolo"]) + " ") and piatto(tit) != piatto(s["frase_titolo"]):
             err(f"{p}: il titolo «{tit}» non comincia con la frase misurata «{s['frase_titolo']}»")
+        if pub and r["TUITIONFEE_IN"] != r["TUITIONFEE_OUT"] and "In-State" not in tit:
+            corto = tit.split(":")[0].split(" 2025")[0] + (f": {sc_usd(r['COSTT4_A'])} a Year In-State" if s["frase_titolo"].endswith(" cost") and sc_num(r["COSTT4_A"]) else f": {sc_usd(r['TUITIONFEE_IN'])} In-State")
+            if len(corto) <= 65:
+                err(f"{p}: università pubblica con il titolo senza «In-State»: {tit}")
         h1 = unescape(re.search(r"<h1>(.*?)</h1>", html_)[1])
         if not h1.startswith(r["INSTNM"]):
             err(f"{p}: h1 senza il nome ufficiale")
@@ -890,11 +930,16 @@ def controlla_universita():
         g = sc_gap(r[f"NPT4_{suff}"])
         oltre += g["resto"] > 0
         celle = re.findall(r'data-c="([A-Z0-9_]+)">([^<]*)</td>', resto)
-        if (sl != slug_di[uid] or unescape(nome_) != r["INSTNM"] or tipo != M_SC_TIPO[r["CONTROL"]][0] or r["INSTNM"].lower() not in unescape(cerca) or r["STABBR"].lower() not in unescape(cerca).split()
+        if (sl != slug_di[uid] or unescape(nome_) != r["INSTNM"] or tipo != M_SC_TIPO[r["CONTROL"]][0] or r["INSTNM"].lower() not in unescape(cerca) or r["STABBR"].lower() not in unescape(cerca).split(" | ")
                 or celle != [("TUITIONFEE_IN", sc_usd(r["TUITIONFEE_IN"])), ("TUITIONFEE_OUT", sc_usd(r["TUITIONFEE_OUT"])), (f"NPT4_{suff}", sc_usd(r[f"NPT4_{suff}"]))]
                 or f'data-g="resto">{usd(g["resto"])}</td>' not in resto or f"{r['CITY']}, {r['STABBR']} · {M_SC_TIPO[r['CONTROL']][1]}" not in unescape(resto)):
             err(f"indice delle università: riga di {r['INSTNM']} diversa dal file o dal conto di riferimento")
     vis = visibile(principale(ind))
+    sigle = {righe[u]["STABBR"] for u in slug_di}
+    territori = {"AS", "GU", "MP", "PR", "VI", "FM", "MH", "PW"}
+    n_stati = len(sigle - {"DC"} - territori)
+    if sigle & territori or f'<b>{n_stati}</b><span>{"states, plus the District of Columbia" if "DC" in sigle else "states"}</span>' not in ind:
+        err(f"indice delle università: il conto degli Stati non è {n_stati} (Distretto di Columbia a parte)")
     if f"<b>{oltre}</b>" not in ind or agg not in vis or A_T not in vis or A_N not in vis:
         err("indice delle università: conteggio del buco, data del file o anni mancanti")
     for x in importi(vis):
@@ -958,12 +1003,25 @@ def attesi_browser():
         if ids:
             tipi_u[cod] = ids
     nomi_stati = {v["sigla"]: v["nome"] for v in A["fafsa"]["voci"]}
-    def trova(q):  # noqa: E306
-        return [x["unitid"] for x in scelte if q in " ".join([x["nome"], righe_[x["unitid"]]["CITY"], nomi_stati[righe_[x["unitid"]]["STABBR"]], righe_[x["unitid"]]["STABBR"], x["frase_titolo"]]).lower()]
+    def trova(q, sigla=None, esatto=False):  # noqa: E306
+        """Chi DEVE comparire: nome, città o Stato che contengono la ricerca all'inizio di una parola; con sigla, le università con quelle iniziali."""
+        out = []
+        for x in scelte:
+            r_ = righe_[x["unitid"]]
+            testo_ = " ".join([x["nome"], r_["CITY"], nomi_stati[r_["STABBR"]], r_["STABBR"]]).lower()
+            iniz = "".join(w[0] for w in re.sub(r"[^A-Za-z ]", " ", re.sub(r"^The ", "", r_["INSTNM"]).replace("-", " ")).split() if w.lower() not in ("of", "at", "and", "the", "in", "for", "a", "an", "on")).lower()
+            if (sigla and iniz.startswith(sigla)) or (not sigla and re.search(r"(?<![a-z0-9])" + re.escape(q), testo_)):
+                out.append(x["unitid"])
+        return out
+    per_nome = lambda n_: [x["unitid"] for x in scelte if x["nome"] == n_]  # noqa: E731
     manca = [x for x in scelte if any(righe_[x["unitid"]][c] in ("NA", "PS") for c in ("COSTT4_A", "ADM_RATE", "C150_4", "GRAD_DEBT_MDN", "PLUS_DEBT_INST_MD", "TUITIONFEE_OUT"))]
     lunghi = sorted(scelte, key=lambda x: -len(x["nome"]))[:2]
     campione = [f"/{P_UNI}/{sc_slug(x['nome'])}/" for x in {y["unitid"]: y for y in scelte[:4] + manca[:4] + lunghi}.values()]
-    universita = {"tipi": tipi_u, "cerca": [[q, trova(q)] for q in ("ohio", "university of california", "harvard", "tx")], "campione": campione}
+    universita = {"tipi": tipi_u, "campione": campione,
+                  # [ricerca, chi deve esserci, True se non deve esserci nessun altro]
+                  "cerca": [["ohio", trova("ohio"), False], ["university of california", trova("university of california"), True], ["harvard", trova("harvard"), True], ["tx", trova("tx"), False],
+                            ["ucla", per_nome("University of California-Los Angeles"), True], ["penn state", per_nome("Pennsylvania State University-Main Campus"), False],
+                            ["mit", per_nome("Massachusetts Institute of Technology"), True], ["usc", trova("usc", "usc"), True], ["msu", trova("msu", "msu"), False], ["MIT", per_nome("Massachusetts Institute of Technology"), True]]}
     return {"rata": rata, "tipi": [["6.52"], ["8.07"], ["9.07"]], "rap": rap, "buco": buco, "oggi": oggi, "universita": universita,
             "scadenze": {"tipi": tipi, "cerca_new": [v["sigla"] for v in A["fafsa"]["voci"] if "new" in v["nome"].lower()],
                          "giorni": [["2027-01-15", f"in {g('2027-01-15')} days"], ["2028-06-30", f"in {g('2028-06-30')} days"], ["2026-10-01", f"passed {-g('2026-10-01')} days ago"]]}}

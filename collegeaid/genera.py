@@ -1144,8 +1144,10 @@ def pc_sc(v):
     if not num(v):
         return MANCA[v]
     from decimal import Decimal
-    x = (Decimal(v) * 100).normalize()
-    return f"{x:f}%"
+    x = Decimal(v) * 100
+    if x != x.quantize(Decimal("0.01")):
+        raise SystemExit(f"file Scorecard: quota {v} con più di quattro decimali")
+    return f"{x.quantize(Decimal('0.01'))}%"   # sempre due decimali: è la cifra del file, non un arrotondamento
 
 
 def cella(col, v, forte=False, pc=False):
@@ -1186,7 +1188,56 @@ def prepara_universita():
         u["percorso"] = f'{P_UNI}{u["slug"]}/'
         u["buco_medio"] = buco_4(u["netto"])
         out.append(u)
+    # confronti calcolati dal file: posto del prezzo netto medio (1 = il più basso; a pari prezzo, stesso posto) tra le 200, nel tipo e nello Stato
+    for u in out:
+        n = int(u["netto"])
+        tipo = [x for x in out if x["r"]["CONTROL"] == u["r"]["CONTROL"]]
+        stato = [x for x in out if x["r"]["STABBR"] == u["r"]["STABBR"]]
+        u["posto"] = {k: (1 + sum(1 for x in g if int(x["netto"]) < n), len(g)) for k, g in (("tutte", out), ("tipo", tipo), ("stato", stato))}
+        u["vicine"] = sorted((x for x in stato if x is not u), key=lambda x: x["nome"])[:8]
+        u["simili"] = [] if u["vicine"] else sorted((x for x in out if x is not u), key=lambda x: (abs(int(x["netto"]) - n), x["nome"]))[:6]
     return out
+
+
+def ordinale(n):
+    return f"{n}{'th' if 10 <= n % 100 <= 20 else {1: 'st', 2: 'nd', 3: 'rd'}.get(n % 10, 'th')}"
+
+
+def frase_posto(u, stato):
+    def posto(k, di_che):
+        p, su = u["posto"][k]
+        return f'<span data-posto="{k}:{p}:{su}">{"the lowest" if p == 1 else f"the {ordinale(p)} lowest"} of the {su} {di_che}</span>'
+    tipo = TIPO_UNI[u["r"]["CONTROL"]][1].lower()
+    testo = (f'<p>Among the {u["posto"]["tutte"][1]} colleges with a page on this site, the average net price at {h(u["nome"])} ({usd_s(int(u["netto"]))}) is {posto("tutte", "colleges")}, '
+             f'and {posto("tipo", f"{tipo} colleges")}. ')
+    if u["posto"]["stato"][1] > 1:
+        testo += f'In {h(stato)} it is {posto("stato", f"colleges with a page here")}. '
+    else:
+        testo += f'It is the only college in {h(stato)} with a page here so far. '
+    return testo + 'Net prices at public colleges count in-state students only, so a public and a private figure are not measured on quite the same students.</p>'
+
+
+
+def sigla_nome(nome):
+    return "".join(w[0] for w in re.sub(r"[^A-Za-z ]", " ", nome).split() if w.lower() not in ("of", "at", "and", "the", "in", "for", "a", "an", "on")).lower()
+
+
+def parole_ricerca(u):
+    """Che cosa trova la ricerca dell'indice: nome, città, Stato, i nomi misurati, gli alias scritti nel file e le iniziali del nome
+    (con e senza campus). Una sigla di più università, come «usc» o «msu», sta su tutte: la ricerca le mostra tutte."""
+    r = u["r"]
+    senza_campus = re.sub(r"^The ", "", re.split(r"\s*-\s*(?=[^-]*$)", r["INSTNM"])[0]) if re.search(r"(University|College|Institute)[^-]*-", r["INSTNM"]) else r["INSTNM"]
+    pezzi = [u["nome"], r["CITY"], VOCI[r["STABBR"]]["nome"], r["STABBR"]] + [f["frase"].rsplit(" ", 1)[0] for f in u["s"]["frasi"]]
+    if r["ALIAS"] not in ("NA", ""):
+        pezzi += [x.strip() for x in re.split(r"[|;,]", r["ALIAS"]) if x.strip()]
+    pezzi += [sigla_nome(re.sub(r"^The ", "", r["INSTNM"]).replace("-", " ")), sigla_nome(senza_campus)]
+    visti, out = set(), []
+    for x in pezzi:
+        x = re.sub(r"\s+", " ", x.lower()).strip()
+        if x and x not in visti:
+            visti.add(x)
+            out.append(x)
+    return " | ".join(out)
 
 
 def buco_4(v):
@@ -1206,11 +1257,15 @@ def titolo_universita(u):
     tin, tout, costo = r["TUITIONFEE_IN"], r["TUITIONFEE_OUT"], r["COSTT4_A"]
     if s["frase_titolo"].endswith(" tuition") or not num(costo):
         cifra = f"{usd(int(tin))} In-State" if (u["pubblica"] and tin != tout) else usd(int(tin))
-        prove = [f"{F} {A_TASSE}: {cifra}, Net Price by Income, Loan Gap", f"{F} {A_TASSE}: {cifra}, Net Price, Loan Gap", f"{F} {A_TASSE}: {usd(int(tin))}, Net Price, Loan Gap",
+        prove = [f"{F} {A_TASSE}: {cifra}, Net Price by Income, Loan Gap", f"{F} {A_TASSE}: {cifra}, Net Price, Loan Gap", f"{F}: {cifra}, Net Price, Loan Gap"]
+        if cifra.endswith("In-State"):   # università pubbliche: «In-State» resta nel titolo finché ci sta
+            prove += [f"{F}: {cifra}, Net Price", f"{F}: {cifra}"]
+        prove += [f"{F} {A_TASSE}: {usd(int(tin))}, Net Price, Loan Gap",
                  f"{F}: {usd(int(tin))}, Net Price, Loan Gap", f"{F}: {usd(int(tin))} and Net Price", f"{F}: Net Price, Loan Gap",
                  f"{F}: {usd(int(tin))}, Loan Gap", f"{F}: {usd(int(tin))} a Year", f"{F} and Net Price", f"{F} {A_TASSE}", F]
     else:
-        prove = [f"{F}: {usd(int(costo))} a Year, Net Price by Income, Loan Gap", f"{F}: {usd(int(costo))} a Year, Net Price, Loan Gap", f"{F}: {usd(int(costo))} a Year and Net Price", f"{F}: Net Price, Loan Gap", F]
+        dentro = [f"{F}: {usd(int(costo))} a Year In-State, Net Price, Loan Gap", f"{F}: {usd(int(costo))} a Year In-State, Net Price", f"{F}: {usd(int(costo))} a Year In-State"] if u["pubblica"] else []
+        prove = dentro + [f"{F}: {usd(int(costo))} a Year, Net Price by Income, Loan Gap", f"{F}: {usd(int(costo))} a Year, Net Price, Loan Gap", f"{F}: {usd(int(costo))} a Year and Net Price", f"{F}: Net Price, Loan Gap", F]
     for t in prove:
         if len(t) <= 65 and t not in TITOLI.values():
             return t
@@ -1257,7 +1312,7 @@ def pagina_universita(u, tutte):
                  else "first-time, full-time undergraduates who received federal student aid")
     # ---- riquadro in alto
     voci = [(soldi_sc(tin), f"tuition and fees, {A_TASSE}" + ("" if stesse else ", in-state")),
-            (soldi_sc(tout) if not stesse else soldi_sc(costo), (f"tuition and fees, {A_TASSE}, out-of-state" if not stesse else f"average cost of attendance, {A_COSTO}")),
+            (soldi_sc(tout) if not stesse else soldi_sc(costo), (f"tuition and fees, {A_TASSE}, out-of-state" if not stesse else f"average cost of attendance, {A_COSTO}" + (", in-state students" if u["pubblica"] else ""))),
             (usd_s(int(netto)), f"average net price a year, {A_NETTO}" + (", in-state students with federal aid" if u["pubblica"] else ", students with federal aid")),
             (pc_sc(r["ADM_RATE"]) if num(r["ADM_RATE"]) else "Not reported", f"admission rate, {A_AMM}")]
     sotto = (f'{ico("info")} From the U.S. Department of Education’s College Scorecard file updated <strong>{agg}</strong>, read on {giorno(FONTI["scorecard"]["letto_il"])}{ref} · '
@@ -1266,12 +1321,12 @@ def pagina_universita(u, tutte):
     # ---- tasse e costo totale
     righe = [f'<tr><th scope="row">Tuition and fees, in-state</th>{cella("TUITIONFEE_IN", tin, True)}<td>{A_TASSE}</td></tr>',
              f'<tr><th scope="row">Tuition and fees, out-of-state</th>{cella("TUITIONFEE_OUT", tout, True)}<td>{A_TASSE}</td></tr>',
-             f'<tr><th scope="row">Average cost of attendance: tuition, fees, books, supplies and living expenses</th>{cella("COSTT4_A", costo, True)}<td>{A_COSTO}</td></tr>']
+             f'<tr><th scope="row">Average cost of attendance{", in-state students" if u["pubblica"] else ""}: tuition, fees, books, supplies and living expenses</th>{cella("COSTT4_A", costo, True)}<td>{A_COSTO}</td></tr>']
     corpo += (f'<h2 id="tuition">{h(nome)} tuition and total cost</h2><div class="testo"><p>'
               + (f'The College Scorecard file lists the same tuition and required fees for in-state and out-of-state students at {h(nome)}: {soldi_sc(tin)} for the {ANNO_COL["TUITIONFEE_IN"][1]}. '
                  if stesse else
                  f'For the {ANNO_COL["TUITIONFEE_IN"][1]}, the College Scorecard file lists tuition and required fees of {soldi_sc(tin)} for in-state students and {soldi_sc(tout)} for out-of-state students at {h(nome)}. ')
-              + (f'The average cost of attendance, which adds books, supplies and living expenses, was {soldi_sc(costo)} in {A_COSTO}, the latest year in the file.' if num(costo)
+              + (f'The average cost of attendance{" for in-state students" if u["pubblica"] else ""}, which adds books, supplies and living expenses, was {soldi_sc(costo)} in {A_COSTO}, the latest year in the file.' if num(costo)
                  else 'The file has no average cost of attendance for this college.') + f'{ref}</p></div>'
               + tabella(f'Published price at {h(nome)} ({h(r["CITY"])}, {sigla}; {tipo.lower()}). Source: College Scorecard file updated {agg}.{ref}',
                         [("Figure", 0), ("Amount a year", 1), ("Year of the data", 0)], righe, "ampia"))
@@ -1280,14 +1335,16 @@ def pagina_universita(u, tutte):
     righe.append(f'<tr class="ora"><th scope="row">All income levels (average)</th>{cella(u["col_netto"], netto, True)}</tr>')
     corpo += (f'<h2 id="net-price">Average net price by family income</h2><div class="testo"><p>Net price is the cost of attendance minus the average grant and scholarship aid. '
               f'It is what families paid on average for one year, before loans. The file gives it for {chi_netto}, in {A_NETTO}, by the family income used to work out aid.{ref}</p></div>'
-              + tabella(f'Average net price for one year at {h(nome)}, {A_NETTO}, {chi_netto}.{ref}', [("Family income", 0), ("Average net price a year", 1)], righe, stretta=True))
+              + tabella(f'Average net price for one year at {h(nome)}, {A_NETTO}, {chi_netto}.{ref}', [("Family income", 0), ("Average net price a year", 1)], righe, stretta=True)
+              + f'<div class="testo" data-confronto>{frase_posto(u, stato)}</div>')
     if u["pubblica"]:
         corpo += nota(f'<p><strong>Out-of-state students are not in these averages.</strong> For public colleges the file counts only students who pay in-state tuition, and it has no net price for out-of-state students. '
-                      f'Out-of-state tuition and fees at {h(nome)} are {soldi_sc(tout)}, against {soldi_sc(tin)} in-state.</p>', info=True)
+                      f'Out-of-state tuition and fees at {h(nome)} are {soldi_sc(tout)}, against {soldi_sc(tin)} in-state. '
+                      'The cost of attendance and the gap table are also in-state only; the file has no out-of-state cost of attendance.</p>', info=True)
     # ---- ammissione, laurea, debito
     righe = [f'<tr><th scope="row">Admission rate</th>{cella("ADM_RATE", r["ADM_RATE"], True, pc=True)}<td>{A_AMM}</td></tr>',
              f'<tr><th scope="row">Graduation rate: first-time, full-time students who finished within 150% of the normal time (six years for a bachelor’s degree)</th>{cella("C150_4", r["C150_4"], True, pc=True)}<td>{A_LAUREA}</td></tr>',
-             f'<tr><th scope="row">Median federal student loan debt of students who completed</th>{cella("GRAD_DEBT_MDN", r["GRAD_DEBT_MDN"], True)}<td>{A_DEBITO}</td></tr>',
+             f'<tr><th scope="row">Median federal student loan debt of borrowers who completed</th>{cella("GRAD_DEBT_MDN", r["GRAD_DEBT_MDN"], True)}<td>{A_DEBITO}</td></tr>',
              f'<tr><th scope="row">Median Parent PLUS loan debt at this college</th>{cella("PLUS_DEBT_INST_MD", r["PLUS_DEBT_INST_MD"], True)}<td>{A_PLUS}</td></tr>',
              f'<tr><th scope="row">Undergraduate students</th><td class="n forte" data-c="UGDS">{int(r["UGDS"]):,}</td><td>{A_ISCR}</td></tr>']
     corpo += (f'<h2 id="outcomes">Admission rate, graduation rate and median debt</h2>'
@@ -1306,7 +1363,7 @@ def pagina_universita(u, tutte):
     righe = [riga_buco(etich, col, v) for etich, (col, v) in zip(FASCE_REDDITO, u["fasce"])]
     righe.append(riga_buco("All income levels (average)", u["col_netto"], netto).replace("<tr ", '<tr class="ora" ', 1))
     if num(costo):
-        righe.append(riga_buco("No grants at all: full cost of attendance", "COSTT4_A", costo))
+        righe.append(riga_buco("No grants at all: full in-state cost of attendance" if u["pubblica"] else "No grants at all: full cost of attendance", "COSTT4_A", costo))
     frase_buco = (f'the federal limits could cover all of it' if b["resto"] == 0 else f'the federal limits leave <strong>{usd(b["resto"])}</strong> to find elsewhere')
     corpo += (f'<h2 id="gap">The gap after federal loans at {h(nome)}</h2><div class="testo">'
               + rim.t(f'<p>For students starting now, federal loans have a ceiling. A dependent undergraduate can borrow {usd(dip["anni"][0]["totale"])} in the first year, {usd(dip["anni"][1]["totale"])} in the second and {usd(dip["anni"][2]["totale"])} a year after that, '
@@ -1319,7 +1376,8 @@ def pagina_universita(u, tutte):
                         [("Family income", 0), ("Net price a year", 1), ("Four years", 1), ("Student loans, at most", 1), ("Parent PLUS, at most", 1), ("Left uncovered", 1)], righe, "ampia")
               + nota('<p><strong>This is arithmetic, not a forecast and not advice to borrow the maximum.</strong> Prices usually rise each year, a family can borrow less than the limit, a loan fee is taken from each disbursement, '
                      'and a Parent PLUS loan needs a credit check. “Left uncovered” has to come from savings, income, work, more scholarships or private loans. '
-                     f'Students who were already enrolled and borrowing before July 1, 2026 may keep the old Parent PLUS rules for a time: see <a href="/{P_LIM}">federal loan limits</a>.</p>')
+                     f'Students who were already enrolled and borrowing before July 1, 2026 may keep the old Parent PLUS rules for a time: see <a href="/{P_LIM}">federal loan limits</a>. '
+                     f'Independent students have higher limits of their own and no Parent PLUS: see <a href="/{P_LIM}#undergraduate">federal loan limits</a>.</p>')
               + f'<p class="azioni"><a class="btn" href="/{P_PLUS}#gap">Try your own cost in the gap calculator{ico("arrow")}</a><a class="btn sec" href="/{P_LIM}">All federal loan limits</a></p>')
     # ---- come leggere
     npc = url_calcolatore(r["NPCURL"])
@@ -1345,10 +1403,11 @@ def pagina_universita(u, tutte):
               f'<p class="azioni"><a class="btn sec" href="/{P_TASSI}">Loan interest rates</a><a class="btn sec" href="/{P_LIM}">Loan limits</a><a class="btn sec" href="/{P_PLUS}">Parent PLUS loans</a>'
               f'<a class="btn sec" href="/{P_RATA}">Payment calculator</a><a class="btn sec" href="/{P_RAP}">Repayment Assistance Plan</a></p>')
     # ---- altre università dello stesso Stato
-    vicine = sorted((x for x in tutte if x["r"]["STABBR"] == sigla and x is not u), key=lambda x: x["nome"])[:8]
+    vicine = u["vicine"] or u["simili"]
     if vicine:
         griglia = "".join(f'<li><a href="/{x["percorso"]}"><b>{h(x["nome"])}</b><small>{soldi_sc(x["r"]["TUITIONFEE_IN"])} tuition and fees{"" if x["r"]["TUITIONFEE_IN"] == x["r"]["TUITIONFEE_OUT"] else ", in-state"}</small></a></li>' for x in vicine)
-        corpo += f'<h2 id="others">Other colleges in {h(stato)}</h2><ul class="griglia larga uni">{griglia}</ul>'
+        corpo += (f'<h2 id="others">Other colleges in {h(stato)}</h2>' if u["vicine"] else
+                  f'<h2 id="others">Colleges with a similar net price</h2><p class="small">No other college in {h(stato)} has a page here yet. These are the closest by average net price.</p>') + f'<ul class="griglia larga uni">{griglia}</ul>'
     corpo += f'<p class="azioni"><a class="btn sec" href="/{P_UNI}">All {len(tutte)} colleges{ico("arrow")}</a></p>'
     # ---- FAQ da ricerche misurate
     faq = []
@@ -1362,7 +1421,7 @@ def pagina_universita(u, tutte):
         faq.append((s["cost"]["frase"], f"What does {nome} cost per year after grants and scholarships?",
                     f"The average net price at {nome} was {usd_s(int(netto))} a year in {A_NETTO}, for {chi_netto}. "
                     + (f"By family income it went from {usd_s(con[0][1])} (income of {con[0][0]}) to {usd_s(con[-1][1])} (income of {con[-1][0]}). " if len(con) >= 2 else "")
-                    + (f"The average cost of attendance before aid was {soldi_sc(costo)}." if num(costo) else ""), "scorecard,scorecard_diz"))
+                    + (f"The average cost of attendance{' for in-state students' if u['pubblica'] else ''} before aid was {soldi_sc(costo)}." + (" The file has no out-of-state cost of attendance." if u["pubblica"] else "") if num(costo) else ""), "scorecard,scorecard_diz"))
     ld = []
     if faq:
         faq_html, faq_ld = faq_blocco(faq, rim)
@@ -1385,8 +1444,11 @@ def indice_universita(tutte):
     quattro = sum(dip["anni"][min(i, 2)]["totale"] for i in range(4))
     per_tipo = {k: sum(1 for u in tutte if u["r"]["CONTROL"] == k) for k in TIPO_UNI}
     oltre = sum(1 for u in tutte if u["buco_medio"]["resto"] > 0)
-    stati = len({u["r"]["STABBR"] for u in tutte})
-    voci = [(str(len(tutte)), "colleges with a page: the ones people search for most"), (str(stati), "states and the District of Columbia" if any(u["r"]["STABBR"] == "DC" for u in tutte) else "states"),
+    sigle = {u["r"]["STABBR"] for u in tutte}
+    stati = len([x for x in sigle if x != "DC" and not VOCI[x]["territorio"]])
+    if any(VOCI[x]["territorio"] for x in sigle):
+        raise SystemExit("indice delle università: c'è un territorio tra gli Stati: riscrivere l'etichetta")
+    voci = [(str(len(tutte)), "colleges with a page: the ones people search for most"), (str(stati), "states, plus the District of Columbia" if "DC" in sigle else "states"),
             (str(oltre), f"where four years at the average net price cost more than federal loans can cover"), (A_TASSE, f"year of the tuition figures; net price is for {A_NETTO}")]
     sotto = f'{ico("info")} College Scorecard file updated <strong>{agg}</strong>, read on {giorno(FONTI["scorecard"]["letto_il"])}{ref}'
     corpo = fatti(voci, sotto)
@@ -1397,7 +1459,7 @@ def indice_universita(tutte):
     righe = []
     for u in sorted(tutte, key=lambda x: x["nome"].lower()):
         r = u["r"]
-        cerca = " ".join([u["nome"], r["CITY"], VOCI[r["STABBR"]]["nome"], r["STABBR"], u["s"]["frase_titolo"]]).lower()
+        cerca = parole_ricerca(u)
         righe.append(f'<tr data-nome="{h(cerca)}" data-tipo="{TIPO_UNI[r["CONTROL"]][0]}" data-sigla="{r["UNITID"]}"><th scope="row"><a href="/{u["percorso"]}">{h(u["nome"])}</a><br><span class="small">{h(r["CITY"])}, {r["STABBR"]} · {TIPO_UNI[r["CONTROL"]][1]}</span></th>'
                      f'{cella("TUITIONFEE_IN", r["TUITIONFEE_IN"])}{cella("TUITIONFEE_OUT", r["TUITIONFEE_OUT"])}{cella(u["col_netto"], u["netto"], True)}<td class="n" data-g="resto">{usd(u["buco_medio"]["resto"])}</td></tr>')
     corpo += (f'<div data-scadenze data-cosa="colleges"><div class="card filtri" data-filtri hidden><label>Find a college<input type="search" data-cerca placeholder="Name, city or state, for example Ohio" autocomplete="off"></label>'

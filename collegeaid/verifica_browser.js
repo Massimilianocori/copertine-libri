@@ -236,9 +236,15 @@ function pagine(dir = SITO, pre = '/') {
       prove++;
     }
     await page.selectOption('[data-scadenze] [data-tipo]', '');
-    for (const [q, attese] of U.cerca || []) {
+    for (const [q, attese, soloQuelle] of U.cerca || []) {
       await scrivi('[data-scadenze] [data-cerca]', q); const v = await visteU();
-      if (JSON.stringify(v.slice().sort()) !== JSON.stringify(attese.slice().sort())) problemi.push(`università: la ricerca «${q}» mostra ${v.length} righe, attese ${attese.length}`);
+      const mancano = attese.filter(x => !v.includes(x));
+      if (!attese.length || mancano.length || (soloQuelle && v.length !== attese.length)) problemi.push(`università: la ricerca «${q}» mostra ${v.length} righe, attese ${attese.length}${soloQuelle ? ' e nessun\'altra' : ' almeno'} (mancano ${mancano.length})`);
+      // fino a 4 lettere: la ricerca deve stare all'inizio di una parola in ogni riga mostrata
+      if (q.length <= 4) {
+        const fuori = await page.evaluate(q => [...document.querySelectorAll('[data-scadenze] tbody tr')].filter(tr => !tr.hidden && !new RegExp('(^|[^a-z0-9])' + q.toLowerCase()).test(tr.getAttribute('data-nome'))).length, q);
+        if (fuori) problemi.push(`università: la ricerca «${q}» mostra ${fuori} righe dove non è all'inizio di una parola`);
+      }
       prove++;
     }
     const st = await testo('[data-scadenze] [data-stato]');

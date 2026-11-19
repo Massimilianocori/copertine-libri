@@ -91,3 +91,13 @@ Modulo FAFSA: a ogni ristampa (uno Stato che cambia data) e ogni ottobre per l'a
 
 **Non fatto / da sapere:** niente commit e niente IndexNow (da decidere dopo la revisione indipendente, non ancora fatta su queste pagine). L'indirizzo del calcolatore del prezzo netto di ogni università è quello scritto nel file (link esterno `nofollow`, non provato uno per uno). Stipendio a 10 anni e pagine per Stato dell'idea A non ci sono. Misura a 45 giorni: 3/1/2027.
 Aggiornare: `python3 collegeaid/raccolta/scorecard.py` (cambiare `URL_ZIP` quando esce un file nuovo, e le trascrizioni `M_SC_*` in `verifica.py`), poi `genera.py` e `verifica.py --browser`.
+
+### Dopo la revisione indipendente delle schede (8,3): che cosa è cambiato
+1. Università pubbliche: il costo totale del file vale solo per i residenti. Detto nella riga della tabella, nella riga del buco («full in-state cost of attendance»), nella nota sui non residenti e nella FAQ 2.
+2. Indice: 44 Stati più il Distretto di Columbia (prima contava DC tra gli Stati); `verifica.py` rifà il conto.
+3. Titoli delle pubbliche: «In-State» resta finché ci sta nei 65 caratteri (anche nei titoli «Cost»: «$X a Year In-State»).
+4. Ricerca dell'indice: `data-nome` ha anche i nomi misurati, gli alias del file e le iniziali del nome (una sigla di più università, come «usc» o «msu», le mostra tutte); in `app.js` una ricerca fino a 4 lettere vale solo all'inizio di una parola («mit» non trova più Smithfield). Vale anche per la tabella degli Stati.
+5. Nota del buco: gli studenti indipendenti hanno tetti loro e niente PLUS dei genitori (link ai tetti).
+6. «Median federal student loan debt of borrowers who completed».
+7. Testo calcolato per ogni scheda: posto del prezzo netto medio tra le 200, tra quelle dello stesso tipo e nello Stato (1 = il più basso), rifatto da `verifica.py`. Le 13 università sole nel loro Stato hanno il riquadro «Colleges with a similar net price» (le 6 più vicine per prezzo netto).
+8. Percentuali sempre con due decimali (la cifra del file, senza arrotondare).

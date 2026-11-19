@@ -131,10 +131,20 @@ if (typeof module !== 'undefined') module.exports = CA;
   document.querySelectorAll('[data-scadenze]').forEach(function (box) {
     var righe = Array.prototype.slice.call(box.querySelectorAll('tbody tr')), cerca = box.querySelector('[data-cerca]'), tipo = box.querySelector('[data-tipo]');
     var stato = box.querySelector('[data-stato]'), vuoto = box.querySelector('[data-vuoto]');
+    // Fino a 4 lettere la ricerca vale solo all'inizio di una parola: «mit» non trova Smithfield, «usc» non trova Tuscaloosa.
+    function trova(nome, q) {
+      var i = nome.indexOf(q);
+      if (q.length > 4) return i >= 0;
+      while (i >= 0) {
+        if (i === 0 || !/[a-z0-9]/.test(nome.charAt(i - 1))) return true;
+        i = nome.indexOf(q, i + 1);
+      }
+      return false;
+    }
     function agg() {
       var q = (cerca.value || '').trim().toLowerCase(), t = tipo.value, n = 0;
       righe.forEach(function (tr) {
-        var ok = (!q || tr.getAttribute('data-nome').indexOf(q) >= 0) && (!t || tr.getAttribute('data-tipo') === t);
+        var ok = (!q || trova(tr.getAttribute('data-nome'), q)) && (!t || tr.getAttribute('data-tipo') === t);
         tr.hidden = !ok; if (ok) n++;
       });
       vuoto.hidden = n > 0;
