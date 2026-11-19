@@ -48,7 +48,10 @@ function pagine(dir = SITO, pre = '/') {
   const locale = u => u.startsWith(base);
   const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
   const problemi = [];
-  const tutte = pagine().concat(['/does-not-exist/']);
+  // schede delle università: tutte le viste solo per un campione scelto da verifica.py (con e senza dati mancanti); le altre a 375 px più sotto
+  const U = ATTESI.universita || {};
+  const schede = pagine().filter(p => /^\/college-costs\/[^/]+\/$/.test(p));
+  const tutte = pagine().filter(p => !schede.includes(p) || (U.campione || []).includes(p)).concat(['/does-not-exist/']);
   let n = 0, bloccate = 0;
   for (const [w, hgt] of [[375, 812], [1280, 900]]) {
     for (const tema of ['light', 'dark']) {
@@ -85,7 +88,7 @@ function pagine(dir = SITO, pre = '/') {
             return basi.map(c0 => { let c = c0.slice(0, 3); for (const s of strati.slice().reverse()) c = mix(s, c); return c; }); };
           const out = [];
           for (const sel of ['main .testo p', 'main .testo a', 'main .small', '.fatto span', '.fatto.main b', 'blockquote.cit cite', '.disclaimer', 'table.dati thead th', 'table.dati td', '.chip', '.chip.oro', '.chip.grigio', '.conto',
-            '.ris-big', '.ris-lab', '.ris-nota', '.ris-righe li', '.calc .aiuto', '.date-l .cosa small', '.date-l .quando small', '.schede p', '.schede .big', '.nota p', '.faq p', '.formula', '.griglia a small', '.btn', '.btn.sec', 'footer p', '.band .sub', '.eyebrow']) {
+            '.ris-big', '.ris-lab', '.ris-nota', '.ris-righe li', '.calc .aiuto', '.date-l .cosa small', '.date-l .quando small', '.schede p', '.schede .big', '.nota p', '.faq p', '.formula', '.griglia a small', '.btn', '.btn.sec', 'footer p', '.band .sub', '.eyebrow', 'table.dati td.na', 'table.dati th[scope=row] .small', '.fatti .asof']) {
             const e = [...document.querySelectorAll(sel)].find(x => x.offsetParent !== null && x.textContent.trim()); if (!e) continue;
             const a = lum(rgb(getComputedStyle(e).color).slice(0, 3)); const r = Math.min(...fondi(e).map(f => { const b = lum(f); return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05); }));
             if (r < 4.5) out.push(sel + ' ' + r.toFixed(2));
@@ -101,6 +104,29 @@ function pagine(dir = SITO, pre = '/') {
       }
       await ctx.close();
     }
+  }
+
+  // ---------------------------------------------------------------- tutte le schede delle università a 375 px: niente scorrimento orizzontale, niente errori JS, tabelle complete
+  let nSchede = 0;
+  {
+    const ctx = await browser.newContext({ viewport: { width: 375, height: 812 }, deviceScaleFactor: 1 });
+    await ctx.route(u => !locale(u.toString()), r => { bloccate++; return r.abort(); });
+    const page = await ctx.newPage();
+    let errori = [];
+    page.on('pageerror', e => errori.push('JS: ' + e.message));
+    page.on('response', r => { if (r.status() >= 400) errori.push(r.status() + ' ' + r.url()); });
+    for (const p of schede) {
+      errori = [];
+      await page.goto(base + p, { waitUntil: 'load' });
+      const x = await page.evaluate(() => ({ sw: document.documentElement.scrollWidth, cw: document.documentElement.clientWidth, tab: document.querySelectorAll('main table.dati').length,
+        gap: document.querySelectorAll('main tr[data-gap]').length, h1: document.querySelectorAll('h1').length,
+        fuori: [...document.querySelectorAll('main *')].filter(e => e.getBoundingClientRect().right > document.documentElement.clientWidth + 1 && !e.closest('.tab')).slice(0, 3).map(e => e.tagName + '.' + e.className) }));
+      if (x.sw > x.cw + 1 || x.fuori.length) errori.push(`scorrimento orizzontale ${x.sw} > ${x.cw}: ${x.fuori.join(', ')}`);
+      if (x.tab !== 4 || x.gap < 6 || x.h1 !== 1) errori.push('struttura: ' + JSON.stringify(x));
+      if (errori.length) problemi.push(`${p} @375px: ` + errori.join(' ; '));
+      nSchede++;
+    }
+    await ctx.close();
   }
 
   // ---------------------------------------------------------------- calcolatori e strumenti
@@ -198,6 +224,30 @@ function pagine(dir = SITO, pre = '/') {
     if (!g || g[0] !== atteso || g[1]) problemi.push(`conto dei giorni per ${iso}: ${JSON.stringify(g)}, atteso «${atteso}»`);
     prove++;
   }
+  // indice delle università: filtro per tipo e ricerca
+  if (U.tipi) {
+    await page.goto(base + '/college-costs/', { waitUntil: 'load' });
+    const visteU = () => page.evaluate(() => [...document.querySelectorAll('[data-scadenze] tbody tr')].filter(tr => !tr.hidden).map(tr => tr.getAttribute('data-sigla')));
+    if (!(await visibile('[data-filtri]'))) problemi.push('università: filtri nascosti con JavaScript acceso');
+    for (const t of Object.keys(U.tipi)) {
+      await page.selectOption('[data-scadenze] [data-tipo]', t === 'tutti' ? '' : t);
+      const v = await visteU();
+      if (JSON.stringify(v.slice().sort()) !== JSON.stringify(U.tipi[t].slice().sort())) problemi.push(`università: filtro «${t}» mostra ${v.length} righe, attese ${U.tipi[t].length}`);
+      prove++;
+    }
+    await page.selectOption('[data-scadenze] [data-tipo]', '');
+    for (const [q, attese] of U.cerca || []) {
+      await scrivi('[data-scadenze] [data-cerca]', q); const v = await visteU();
+      if (JSON.stringify(v.slice().sort()) !== JSON.stringify(attese.slice().sort())) problemi.push(`università: la ricerca «${q}» mostra ${v.length} righe, attese ${attese.length}`);
+      prove++;
+    }
+    const st = await testo('[data-scadenze] [data-stato]');
+    if (!/colleges\.$/.test(st || '')) problemi.push('università: testo di stato del filtro: ' + st);
+    await scrivi('[data-scadenze] [data-cerca]', 'zzzz');
+    if (!(await visibile('[data-scadenze] [data-vuoto]'))) problemi.push('università: nessun messaggio con una ricerca senza risultati');
+    await scrivi('[data-scadenze] [data-cerca]', '');
+    await page.screenshot({ path: path.join(SHOT, 'college-costs-filtro-375.png') });
+  }
   // tema
   const prima = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
   await page.click('[data-tema]');
@@ -215,7 +265,7 @@ function pagine(dir = SITO, pre = '/') {
   await ctx2.close();
   await browser.close();
   srv.close();
-  console.log(`Browser: ${n} viste (${tutte.length} pagine a 375/1280 px, chiaro e scuro), ${prove} prove su calcolatori e strumenti, ${bloccate} richieste esterne bloccate; screenshot in ${SHOT}`);
+  console.log(`Browser: ${n} viste (${tutte.length} pagine a 375/1280 px, chiaro e scuro), ${nSchede} schede delle università a 375 px, ${prove} prove su calcolatori e strumenti, ${bloccate} richieste esterne bloccate; screenshot in ${SHOT}`);
   if (problemi.length) {
     console.log(problemi.length + ' PROBLEMI:\n - ' + problemi.slice(0, 60).join('\n - '));
     process.exit(1);

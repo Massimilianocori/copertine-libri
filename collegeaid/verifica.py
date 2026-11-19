@@ -5,6 +5,8 @@ tetti, scaglioni del RAP, fasce del piano standard, date dei 10 Stati) e confron
 I calcolatori (app.js, eseguito con node) sono confrontati con un conto scritto a parte in questo file (Decimal, niente codice in comune).
 Poi: impronte dei file grezzi e frasi alla lettera, ogni citazione in pagina = frase della fonte, voci FAFSA = testo del PDF riletto,
 ogni importo in dollari e ogni percentuale delle pagine dentro l'insieme delle cifre trascritte o ricalcolate, titoli e descrizioni,
+schede delle università: ogni cella riletta dal file College Scorecard (dallo zip ufficiale se è in cache), anni trascritti a mano dal dizionario,
+«buco» rifatto con un conto in forma chiusa e con quello anno per anno, scelta delle 200 ricontrollata sulle misure,
 FAQ visibili = JSON-LD e solo da ricerche misurate, link, modulo senza dati personali, riquadro dei partner assente se spenti, nessuna chiave.
 --browser: Playwright, tutte le pagine a 375 e 1280 px chiaro e scuro, calcolatori digitati con i casi attesi calcolati qui.
 """
@@ -30,7 +32,7 @@ import testo as T  # noqa: E402
 
 URL_SITO = "https://us-college-aid.netlify.app"
 GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"
-DOMINI_UFFICIALI = {"studentaid.gov", "www.govinfo.gov", "fsapartners.ed.gov"}
+DOMINI_UFFICIALI = {"studentaid.gov", "www.govinfo.gov", "fsapartners.ed.gov", "collegescorecard.ed.gov", "ed-public-download.scorecard.network"}
 getcontext().prec = 60
 ERR = []
 
@@ -252,6 +254,9 @@ def controlla_pagine(A, F):
     pagine = pagine_html()
     attese = (["index.html", "404.html", "fafsa-deadlines/index.html"] + [f"fafsa-deadlines/{sl}/index.html" for sl, _ in M_STATI.values()]
               + [f"{p}/index.html" for p in ("student-loan-interest-rates", "federal-student-loan-limits", "student-loan-payment-calculator", "repayment-assistance-plan", "parent-plus-loans", "how-we-check", "about", "privacy")])
+    scelte_uni = json.loads((DATI / "domanda_universita.json").read_text(encoding="utf-8"))["scelte"]
+    attese += [f"{P_UNI}/index.html"] + [f"{P_UNI}/{sc_slug(x['nome'])}/index.html" for x in scelte_uni]
+    dom.update({f["frase"]: f["volume_mese"] for x in scelte_uni for f in x["frasi"]})   # FAQ delle schede: frasi «<università> tuition» e «<università> cost»
     if sorted(attese) != pagine:
         err(f"pagine diverse da quelle attese: {set(attese) ^ set(pagine)}")
     titoli, descr, n_faq, n_cit, n_link = {}, {}, 0, 0, 0
@@ -319,8 +324,11 @@ def controlla_pagine(A, F):
             if f'<li id="f{n}">' not in html_:
                 err(f"{p}: rimando [{n}] senza voce nelle fonti")
         # link
+        npc = set(re.findall(r'<a class="btn sec" href="([^"]+)" rel="nofollow noopener" data-npc>', html_)) if p.startswith(f"{P_UNI}/") else set()   # calcolatore dell'università: indirizzo del file, controllato in controlla_universita
         for href in re.findall(r'<a [^>]*href="([^"]+)"', html_):
             n_link += 1
+            if href in npc:
+                continue
             if href.startswith("/"):
                 dest = href.split("#")[0]
                 f = SITO / (dest.lstrip("/") + "index.html" if dest.endswith("/") else dest.lstrip("/"))
@@ -590,6 +598,311 @@ console.log(JSON.stringify(out));
     return len(casi_rata) + len(casi_rap) + len(casi_mese) + len(casi_buco)
 
 
+# ---------------------------------------------------------------- schede delle università (file College Scorecard)
+# Trascritto a mano: indirizzo e data del file, anno di ogni colonna come lo scrive il foglio «Most_Recent_Inst_Cohort_Map» del dizionario
+# ufficiale, e come deve comparire in pagina. Le fasce di reddito sono quelle dei nomi delle colonne nel dizionario.
+M_SC_URL = "https://ed-public-download.scorecard.network/downloads/Most-Recent-Cohorts-Institution_11022026.zip"
+M_SC_AGG = "2026-11-02"
+M_SC_ANNI = {
+    "TUITIONFEE_IN": ("AcadYr 2025-26, reported in IPEDS DCY2025-26", "2025–26"),
+    "TUITIONFEE_OUT": ("AcadYr 2025-26, reported in IPEDS DCY2025-26", "2025–26"),
+    "COSTT4_A": ("AcadYr 2024-25, reported in IPEDS DCY2025-26", "2024–25"),
+    "NPT4": ("AcadYr 2024-25, reported in IPEDS DCY2025-26", "2024–25"),
+    "ADM_RATE": ("Fall 2024, reported in IPEDS DCY2024-25", "fall 2024"),
+    "UGDS": ("Fall 2024, reported in IPEDS DCY2024-25", "fall 2024"),
+    "C150_4": ("Fall 2019 or AcadYr 2019-20 cohort (differs by institutional calendar), reported in IPEDS DCY2025-26", "2019–20 entering class"),
+    "GRAD_DEBT_MDN": ("NSLDS FY2024, FY2025 pooled cohorts", "fiscal years 2024 and 2025"),
+    "PLUS_DEBT_INST_MD": ("NSLDS AY2023-24, AY2024-25 pooled cohorts", "2023–24 and 2024–25"),
+}
+M_SC_FASCE = ["$0 to $30,000", "$30,001 to $48,000", "$48,001 to $75,000", "$75,001 to $110,000", "$110,000 or more"]
+M_SC_TIPO = {"1": ("public", "Public"), "2": ("nonprofit", "Private nonprofit"), "3": ("forprofit", "Private for-profit")}
+M_SC_MANCA = {"NA": "Not reported in the file", "PS": "Suppressed in the file (privacy)"}
+N_UNIVERSITA = 200
+P_UNI = "college-costs"
+
+
+def sc_num(v):
+    return re.fullmatch(r"-?\d+(\.\d+)?", v) is not None
+
+
+def sc_usd(v):
+    if not sc_num(v):
+        return M_SC_MANCA[v]
+    n = int(v)
+    return "−$" + format(-n, ",") if n < 0 else "$" + format(n, ",")
+
+
+def sc_pc(v):
+    """«0.0365» -> «3.65%» spostando la virgola a mano (nessuna aritmetica in virgola mobile)."""
+    if not sc_num(v):
+        return M_SC_MANCA[v]
+    intera, _, dec = v.partition(".")
+    cifre = intera + dec.ljust(2, "0")
+    a, b = cifre[:len(intera) + 2].lstrip("0") or "0", cifre[len(intera) + 2:].rstrip("0")
+    return a + ("." + b if b else "") + "%"
+
+
+def sc_slug(nome):
+    out, prec = [], "-"
+    for ch in nome.lower().replace("&", " and ").replace("'", ""):
+        ch = ch if (ch.isascii() and ch.isalnum()) else "-"
+        if ch != "-" or prec != "-":
+            out.append(ch)
+        prec = ch
+    return "".join(out).strip("-")
+
+
+def sc_gap(prezzo):
+    """Quattro anni al prezzo annuo dato (dollari): quanto coprono al massimo i prestiti federali, con i tetti trascritti a mano.
+    Conto in forma chiusa, diverso da quello delle pagine: studente = somma dei minimi tra tetto annuo e prezzo; genitori = il minimo tra
+    il tetto totale e la somma, anno per anno, del minimo tra tetto annuo e ciò che resta dopo lo studente."""
+    c = max(int(prezzo), 0)
+    tetti = [M_LIM["dip"][min(i, 2)][0] for i in range(4)]
+    s_anni = [min(t, c) for t in tetti]
+    if sum(tetti) > M_LIM["dip_tot"][0]:
+        raise SystemExit("i tetti annui dello studente superano il totale: il conto in forma chiusa non vale più")
+    genitori = min(M_LIM["genitori"][1], sum(min(M_LIM["genitori"][0], c - s) for s in s_anni))
+    out = {"quattro": 4 * c, "studente": sum(s_anni), "genitori": genitori, "resto": 4 * c - sum(s_anni) - genitori}
+    passo = rif_buco(c * 100, 4)   # e il conto anno per anno deve dare lo stesso
+    if (sum(x["studente"] for x in passo), sum(x["genitori"] for x in passo), sum(x["resto"] for x in passo)) != (out["studente"] * 100, out["genitori"] * 100, out["resto"] * 100):
+        err(f"buco delle università: i due conti di riferimento non coincidono per {prezzo}")
+    return out
+
+
+def sc_file():
+    """Le righe del file: dallo zip ufficiale se è in cache (e allora l'estratto deve essere identico), altrimenti dall'estratto registrato."""
+    import csv
+    import io
+    import zipfile
+    S = json.loads((DATI / "fonti_scorecard.json").read_text(encoding="utf-8"))
+    f, d = S["fonti"]["scorecard"], S["fonti"]["scorecard_diz"]
+    if f["url"] != M_SC_URL or f["aggiornato_il"] != M_SC_AGG or f["http"] != 200 or d["http"] != 200:
+        err("Scorecard: indirizzo, data o stato HTTP diversi dalla trascrizione")
+    for x in (f, d):
+        if not any(x["url"].startswith(f"https://{dom}/") for dom in DOMINI_UFFICIALI) or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", x["letto_il"]) or not re.fullmatch(r"[0-9a-f]{64}", x["sha256"]):
+            err(f"Scorecard: registrazione incompleta della fonte {x['url']}")
+    estratto = (RADICE / f["estratto"]).read_bytes()
+    if hashlib.sha256(estratto).hexdigest() != f["estratto_sha256"]:
+        err("Scorecard: sha256 dell'estratto diverso da quello registrato")
+    diz = (RADICE / d["file"]).read_bytes()
+    if hashlib.sha256(diz).hexdigest() != d["sha256"]:
+        err("Scorecard: sha256 del dizionario diverso da quello registrato")
+    righe_e = list(csv.DictReader(io.StringIO(estratto.decode("utf-8"), newline="")))
+    per_id = {r["UNITID"]: r for r in righe_e}
+    zip_ = RADICE / f["file"]
+    origine = "estratto registrato (lo zip non è in cache)"
+    if zip_.exists():
+        grezzo = zip_.read_bytes()
+        if hashlib.sha256(grezzo).hexdigest() != f["sha256"] or len(grezzo) != f["byte"]:
+            err("Scorecard: sha256 dello zip diverso da quello registrato")
+        dati = zipfile.ZipFile(io.BytesIO(grezzo)).read(f["csv"])
+        if hashlib.sha256(dati).hexdigest() != f["csv_sha256"]:
+            err("Scorecard: sha256 del CSV nello zip diverso da quello registrato")
+        righe_z = list(csv.DictReader(io.StringIO(dati.decode("utf-8-sig"), newline="")))
+        if len(righe_z) != f["istituti"] or len(righe_z) != len(righe_e):
+            err(f"Scorecard: {len(righe_z)} righe nello zip, {len(righe_e)} nell'estratto, {f['istituti']} registrate")
+        diverse = sum(1 for z, e in zip(righe_z, righe_e) if any(z[c] != e[c] for c in e))
+        if diverse:
+            err(f"Scorecard: {diverse} righe dell'estratto diverse dal file ufficiale")
+        per_id = {r["UNITID"]: r for r in righe_z}
+        origine = f"zip ufficiale ({len(righe_z)} righe, estratto identico cella per cella)"
+    # anni: la trascrizione a mano = fonti_scorecard.json, e il testo è davvero nel dizionario (cercato nel file .xlsx, senza il lettore di raccolta/)
+    import html as _html
+    xml = "".join(zipfile.ZipFile(io.BytesIO(diz)).read(n).decode("utf-8", errors="replace") for n in zipfile.ZipFile(io.BytesIO(diz)).namelist() if n.endswith(".xml"))
+    xml = _html.unescape(xml)
+    for col, anno in S["anni"].items():
+        chiave = "NPT4" if col.startswith("NPT4") else col
+        if chiave in M_SC_ANNI and anno != M_SC_ANNI[chiave][0]:
+            err(f"Scorecard: anno di {col} «{anno}» diverso dalla trascrizione")
+    for col, (testo_, _) in M_SC_ANNI.items():
+        if testo_ not in xml:
+            err(f"Scorecard: «{testo_}» non si ritrova nel dizionario ufficiale")
+    return S, per_id, origine
+
+
+def controlla_universita():
+    """Ogni cifra delle schede contro il file; il «buco» rifatto con un conto scritto a parte; scelta delle 200 contro le misure
+    (domanda di un'università = volume della sua frase più cercata)."""
+    S, righe, origine = sc_file()
+    D = json.loads((DATI / "domanda_universita.json").read_text(encoding="utf-8"))
+    scelte = D["scelte"]
+    n = 0
+    # ---- la scelta: 200, in ordine di domanda, ogni domanda = frase tuition migliore + frase cost migliore, misure = risposte conservate
+    if len(scelte) != N_UNIVERSITA or len({s["unitid"] for s in scelte}) != N_UNIVERSITA:
+        err(f"università: {len(scelte)} scelte invece di {N_UNIVERSITA}")
+    if [s["domanda_mese"] for s in scelte] != sorted((s["domanda_mese"] for s in scelte), reverse=True) or D["domanda_totale_scelte"] != sum(s["domanda_mese"] for s in scelte):
+        err("università: scelte non in ordine di domanda o totale sbagliato")
+    fuori = max((a["domanda_mese"] for a in D["altre"]), default=0)
+    senza = {e["unitid"] for e in D["escluse_senza_dati"]}
+    if any(a["domanda_mese"] > scelte[-1]["domanda_mese"] and a["unitid"] not in senza for a in D["altre"]):
+        err(f"università: una candidata rimasta fuori ha più domanda ({fuori}) dell'ultima scelta ({scelte[-1]['domanda_mese']})")
+    cache = RADICE / "cache" / "domanda_universita"
+    risposte = 0
+    for s in scelte:
+        vol = {f["frase"]: f["volume_mese"] for f in s["frasi"]}
+        t = max((v for f, v in vol.items() if f.endswith(" tuition")), default=0)
+        c = max((v for f, v in vol.items() if f.endswith(" cost")), default=0)
+        if s["domanda_mese"] != max(t, c) or s["somma_tuition_cost"] != t + c or s["domanda_mese"] <= 0:
+            err(f"università {s['nome']}: domanda {s['domanda_mese']} diversa dal massimo tra {t} e {c}")
+        if vol.get(s["frase_titolo"], 0) <= 0 or vol[s["frase_titolo"]] != s["volume_titolo"] or s["volume_titolo"] != max(t, c):
+            err(f"università {s['nome']}: la frase del titolo «{s['frase_titolo']}» non è la più cercata o non è misurata")
+        if s["nome"] != righe[s["unitid"]]["INSTNM"]:
+            err(f"università {s['unitid']}: nome diverso dal file")
+        if cache.exists():
+            for f, v in vol.items():
+                g = cache / (hashlib.sha1(f.encode("utf-8")).hexdigest()[:16] + ".json")
+                if g.exists():
+                    risposte += 1
+                    x = json.loads(g.read_text(encoding="utf-8"))
+                    if x.get("keyword", "").lower() != f or (x.get("volume") or 0) != v:
+                        err(f"università: «{f}» = {v} nel file, {x.get('volume')} nella risposta conservata")
+    # ---- le pagine
+    A_T, A_C, A_N = M_SC_ANNI["TUITIONFEE_IN"][1], M_SC_ANNI["COSTT4_A"][1], M_SC_ANNI["NPT4"][1]
+    agg = lunga(M_SC_AGG)
+    limiti = {x for coppia in M_LIM["dip"] for x in coppia[:1]} | {M_LIM["dip_tot"][0]} | set(M_LIM["genitori"])
+    quattro = sum(M_LIM["dip"][min(i, 2)][0] for i in range(4))
+    limiti |= {quattro, quattro + M_LIM["genitori"][1]}
+    fasce_usd = {0, 30000, 30001, 48000, 48001, 75000, 75001, 110000}
+    slug_di = {s["unitid"]: sc_slug(s["nome"]) for s in scelte}
+    if len(set(slug_di.values())) != len(slug_di):
+        err("università: slug doppi")
+    npc_ammessi = set()
+    for s in scelte:
+        r = righe[s["unitid"]]
+        p = f"{P_UNI}/{slug_di[s['unitid']]}/index.html"
+        if not (SITO / p).exists():
+            err(f"università {s['nome']}: manca la pagina {p}")
+            continue
+        html_ = leggi(p)
+        main = principale(html_)
+        suff = "PUB" if r["CONTROL"] == "1" else "PRIV"
+        altro = "PRIV" if suff == "PUB" else "PUB"
+        if any(r[f"NPT4{i}_{altro}"] != "NA" for i in ("", "1", "2", "3", "4", "5")):
+            err(f"{p}: il file ha prezzi netti anche nelle colonne {altro}: la pagina ne mostra solo una serie")
+        if f'data-universita="{s["unitid"]}"' not in main:
+            err(f"{p}: UNITID mancante o diverso")
+        # ogni cella con una colonna del file: il testo è quello del file
+        celle = re.findall(r'<td class="[^"]*" (?:colspan="5" )?data-c="([A-Z0-9_]+)">([^<]*)</td>', main)
+        viste = {}
+        for col, testo_ in celle:
+            n += 1
+            atteso = (format(int(r[col]), ",") if col == "UGDS" else sc_pc(r[col]) if col in ("ADM_RATE", "C150_4") else sc_usd(r[col]))
+            if unescape(testo_) != atteso:
+                err(f"{p}: {col} = «{testo_}», nel file {r[col]} (atteso «{atteso}»)")
+            viste[col] = viste.get(col, 0) + 1
+        attese = {"TUITIONFEE_IN": 1, "TUITIONFEE_OUT": 1, "COSTT4_A": 2 if sc_num(r["COSTT4_A"]) else 1, "ADM_RATE": 1, "C150_4": 1, "GRAD_DEBT_MDN": 1, "PLUS_DEBT_INST_MD": 1, "UGDS": 1, f"NPT4_{suff}": 2}
+        attese.update({f"NPT4{i}_{suff}": 2 for i in "12345"})
+        if viste != attese:
+            err(f"{p}: celle del file {viste}, attese {attese}")
+        # l'anno accanto a ogni cifra
+        for col, anno in re.findall(r'data-c="([A-Z0-9_]+)">[^<]*</td><td>([^<]*)</td></tr>', main):
+            n += 1
+            if anno != M_SC_ANNI[col][1]:
+                err(f"{p}: anno di {col} «{anno}», atteso «{M_SC_ANNI[col][1]}»")
+        vis = visibile(main)
+        if len(re.findall(r'data-c="[A-Z0-9_]+">[^<]*</td><td>[^<]*</td></tr>', main)) != 8 or f"net price a year, {A_N}" not in vis or agg not in vis:
+            err(f"{p}: manca l'anno di una cifra o la data del file")
+        # etichette delle fasce di reddito, nell'ordine del file
+        for tab_id in ("net-price", "gap"):
+            pezzo = main[main.index(f'<h2 id="{tab_id}">'):]
+            pezzo = pezzo[:pezzo.index("</table>")]
+            etichette = re.findall(r'<th scope="row">([^<]*)</th><td class="[^"]*" (?:colspan="5" )?data-c="NPT4(\d)_', pezzo)
+            if etichette != [(e, str(i)) for i, e in enumerate(M_SC_FASCE, 1)]:
+                err(f"{p}: fasce di reddito della tabella {tab_id} diverse dal file: {etichette}")
+        # il buco: ogni riga rifatta
+        gap_num = set()
+        righe_gap = re.findall(r'<tr(?: class="ora")? data-gap="([A-Z0-9_]+)"><th scope="row">[^<]*</th>(.*?)</tr>', main)
+        cols_gap = [c for c, _ in righe_gap]
+        if cols_gap != [f"NPT4{i}_{suff}" for i in "12345"] + [f"NPT4_{suff}"] + (["COSTT4_A"] if sc_num(r["COSTT4_A"]) else []):
+            err(f"{p}: righe del buco {cols_gap}")
+        for col, celle_ in righe_gap:
+            n += 1
+            if not sc_num(r[col]):
+                if "data-g=" in celle_:
+                    err(f"{p}: buco calcolato per {col}, che nel file manca")
+                continue
+            g = sc_gap(r[col])
+            mostrato = dict(re.findall(r'data-g="(\w+)">([^<]*)</td>', celle_))
+            if mostrato != {k: usd(v) for k, v in g.items()}:
+                err(f"{p}: buco di {col} {mostrato}, riferimento {g}")
+            gap_num |= set(g.values())
+        medio = sc_gap(r[f"NPT4_{suff}"])
+        if (usd(medio["resto"]) not in vis and medio["resto"] > 0) or f'four years at {s["nome"]} come to {usd(medio["quattro"])}' not in vis:
+            err(f"{p}: la frase sul buco medio non ha le cifre del conto di riferimento")
+        # ogni importo e ogni percentuale del testo: file, tetti trascritti, fasce, conto di riferimento
+        corpo = re.sub(r'(?s)<blockquote class="cit" data-voce.*?</blockquote>|<section class="fonti-box".*?</section>|<h2 id="others">.*?</ul>', " ", main)
+        ammessi = limiti | fasce_usd | gap_num | {abs(int(r[c])) for c in ["TUITIONFEE_IN", "TUITIONFEE_OUT", "COSTT4_A", "GRAD_DEBT_MDN", "PLUS_DEBT_INST_MD", f"NPT4_{suff}"] + [f"NPT4{i}_{suff}" for i in "12345"] if sc_num(r[c])}
+        testa = " ".join(unescape(x) for x in re.findall(r'<title>(.*?)</title>|<meta (?:name="description"|property="og:(?:title|description)") content="(.*?)">', html_)[0:4] for x in x) + " " + " ".join(
+            json.dumps(json.loads(x), ensure_ascii=False) for x in re.findall(r'<script type="application/ld\+json">(.*?)</script>', html_))
+        for x in importi(visibile(corpo)) | importi(testa):   # anche titolo, descrizione e dati strutturati
+            n += 1
+            if x not in ammessi:
+                err(f"{p}: importo non previsto ${x:,}")
+        pc_ammesse = {sc_pc(r[c])[:-1] for c in ("ADM_RATE", "C150_4") if sc_num(r[c])} | {M_TASSI["ug"][2], M_TASSI["plus"][2], "150"}
+        for x in re.findall(r"(\d+(?:\.\d+)?)%", visibile(corpo)):
+            n += 1
+            if x not in pc_ammesse:
+                err(f"{p}: percentuale non prevista {x}%")
+        # le altre università dello stesso Stato: nome e tasse dal file
+        for sl, nome_, tasse in re.findall(r'<li><a href="/college-costs/([a-z0-9-]+)/"><b>([^<]*)</b><small>(\S+) tuition and fees', main):
+            n += 1
+            uid = next((k for k, v in slug_di.items() if v == sl), None)
+            if not uid or unescape(nome_) != righe[uid]["INSTNM"] or tasse != sc_usd(righe[uid]["TUITIONFEE_IN"]) or righe[uid]["STABBR"] != r["STABBR"]:
+                err(f"{p}: riquadro «altre università» sbagliato per {sl}")
+        # titolo dalla frase misurata, nome ufficiale, Stato, link
+        tit = unescape(re.search(r"<title>(.*?)</title>", html_)[1])
+        piatto = lambda x: re.sub(r"\s+", " ", re.sub(r"[.\-:,]", " ", x.lower())).strip()  # noqa: E731  («St. John's» = «st john's»: la punteggiatura non conta in una ricerca)
+        if not piatto(tit).startswith(piatto(s["frase_titolo"]) + " ") and piatto(tit) != piatto(s["frase_titolo"]):
+            err(f"{p}: il titolo «{tit}» non comincia con la frase misurata «{s['frase_titolo']}»")
+        h1 = unescape(re.search(r"<h1>(.*?)</h1>", html_)[1])
+        if not h1.startswith(r["INSTNM"]):
+            err(f"{p}: h1 senza il nome ufficiale")
+        tipo = M_SC_TIPO[r["CONTROL"]][1]
+        if f"{r['CITY']}, {r['STABBR']} · {tipo} ·" not in vis:
+            err(f"{p}: città, Stato o tipo diversi dal file")
+        fafsa = f"/fafsa-deadlines/{M_STATI[r['STABBR']][0]}/" if r["STABBR"] in M_STATI else "/fafsa-deadlines/"
+        if f'<a class="btn sec" href="{fafsa}">' not in main or f'<blockquote class="cit" data-voce="{r["STABBR"]}">' not in main:
+            err(f"{p}: manca il link alla scadenza FAFSA di {r['STABBR']} o la voce del modulo")
+        for dest in ("/federal-student-loan-limits/", "/parent-plus-loans/", "/student-loan-interest-rates/", "/student-loan-payment-calculator/", f"/{P_UNI}/"):
+            if f'href="{dest}"' not in main:
+                err(f"{p}: manca il link a {dest}")
+        if '<h2 id="read">How to read this page</h2>' not in main or "not a forecast and not advice" not in vis:
+            err(f"{p}: manca la nota «come leggere» o l'avvertenza sul conto")
+        if any(not sc_num(r[c]) for c in ("TUITIONFEE_OUT", "COSTT4_A", "ADM_RATE", "C150_4", "GRAD_DEBT_MDN", "PLUS_DEBT_INST_MD") + tuple(f"NPT4{i}_{suff}" for i in "12345")) and "Some figures are missing." not in vis:
+            err(f"{p}: valori mancanti nel file senza la nota che lo dice")
+        m = re.search(r'<a class="btn sec" href="([^"]+)" rel="nofollow noopener" data-npc>', main)
+        v = r["NPCURL"].strip()
+        atteso_npc = None if v in ("NA", "PS", "") or " " in v else (v if re.match(r"https?://", v, re.I) else "https://" + v)
+        if (unescape(m[1]) if m else None) != atteso_npc:
+            err(f"{p}: indirizzo del calcolatore «{m and m[1]}», nel file «{v}»")
+        if atteso_npc:
+            npc_ammessi.add(atteso_npc)
+    # ---- indice
+    ind = leggi(f"{P_UNI}/index.html")
+    righe_i = re.findall(r'<tr data-nome="([^"]*)" data-tipo="(\w+)" data-sigla="(\d+)"><th scope="row"><a href="/college-costs/([a-z0-9-]+)/">([^<]*)</a>(.*?)</tr>', ind)
+    if len(righe_i) != N_UNIVERSITA or {x[2] for x in righe_i} != set(slug_di):
+        err(f"indice delle università: {len(righe_i)} righe invece di {N_UNIVERSITA}")
+    oltre = 0
+    for cerca, tipo, uid, sl, nome_, resto in righe_i:
+        n += 1
+        r = righe[uid]
+        suff = "PUB" if r["CONTROL"] == "1" else "PRIV"
+        g = sc_gap(r[f"NPT4_{suff}"])
+        oltre += g["resto"] > 0
+        celle = re.findall(r'data-c="([A-Z0-9_]+)">([^<]*)</td>', resto)
+        if (sl != slug_di[uid] or unescape(nome_) != r["INSTNM"] or tipo != M_SC_TIPO[r["CONTROL"]][0] or r["INSTNM"].lower() not in unescape(cerca) or r["STABBR"].lower() not in unescape(cerca).split()
+                or celle != [("TUITIONFEE_IN", sc_usd(r["TUITIONFEE_IN"])), ("TUITIONFEE_OUT", sc_usd(r["TUITIONFEE_OUT"])), (f"NPT4_{suff}", sc_usd(r[f"NPT4_{suff}"]))]
+                or f'data-g="resto">{usd(g["resto"])}</td>' not in resto or f"{r['CITY']}, {r['STABBR']} · {M_SC_TIPO[r['CONTROL']][1]}" not in unescape(resto)):
+            err(f"indice delle università: riga di {r['INSTNM']} diversa dal file o dal conto di riferimento")
+    vis = visibile(principale(ind))
+    if f"<b>{oltre}</b>" not in ind or agg not in vis or A_T not in vis or A_N not in vis:
+        err("indice delle università: conteggio del buco, data del file o anni mancanti")
+    for x in importi(vis):
+        if x not in limiti and not any(x == abs(int(righe[u][c])) for u in slug_di for c in ("TUITIONFEE_IN", "TUITIONFEE_OUT", "NPT4_PUB", "NPT4_PRIV") if sc_num(righe[u][c])) and x not in {sc_gap(righe[u]["NPT4_PUB" if righe[u]["CONTROL"] == "1" else "NPT4_PRIV"])["resto"] for u in slug_di}:
+            err(f"indice delle università: importo non previsto ${x:,}")
+    return n, origine, D, npc_ammessi, risposte
+
+
 def controlla_segreti():
     # i modelli sono spezzati per non far scattare la ricerca di chiavi su questo stesso file
     modello = re.compile("|".join([r"pk\.ey" + "J", "sk_" + "live", "sk_" + "test", "AI" + "za", "gh" + "p_", "api" + "key=[A-Za-z0-9]{8}", "sd_" + "live"]))
@@ -636,7 +949,22 @@ def attesi_browser():
         tipi["tutti"].append(v["sigla"])
     oggi = "2026-12-01"
     g = lambda iso: (date.fromisoformat(iso) - date.fromisoformat(oggi)).days  # noqa: E731
-    return {"rata": rata, "tipi": [["6.52"], ["8.07"], ["9.07"]], "rap": rap, "buco": buco, "oggi": oggi,
+    # università: filtro dell'indice (atteso dal file, non dalle pagine) e campione di schede per tutte le viste (le prime per domanda e quelle con dati mancanti)
+    S_, righe_, _o = sc_file()
+    scelte = json.loads((DATI / "domanda_universita.json").read_text(encoding="utf-8"))["scelte"]
+    tipi_u = {"tutti": [x["unitid"] for x in scelte]}
+    for k, (cod, _) in M_SC_TIPO.items():
+        ids = [x["unitid"] for x in scelte if righe_[x["unitid"]]["CONTROL"] == k]
+        if ids:
+            tipi_u[cod] = ids
+    nomi_stati = {v["sigla"]: v["nome"] for v in A["fafsa"]["voci"]}
+    def trova(q):  # noqa: E306
+        return [x["unitid"] for x in scelte if q in " ".join([x["nome"], righe_[x["unitid"]]["CITY"], nomi_stati[righe_[x["unitid"]]["STABBR"]], righe_[x["unitid"]]["STABBR"], x["frase_titolo"]]).lower()]
+    manca = [x for x in scelte if any(righe_[x["unitid"]][c] in ("NA", "PS") for c in ("COSTT4_A", "ADM_RATE", "C150_4", "GRAD_DEBT_MDN", "PLUS_DEBT_INST_MD", "TUITIONFEE_OUT"))]
+    lunghi = sorted(scelte, key=lambda x: -len(x["nome"]))[:2]
+    campione = [f"/{P_UNI}/{sc_slug(x['nome'])}/" for x in {y["unitid"]: y for y in scelte[:4] + manca[:4] + lunghi}.values()]
+    universita = {"tipi": tipi_u, "cerca": [[q, trova(q)] for q in ("ohio", "university of california", "harvard", "tx")], "campione": campione}
+    return {"rata": rata, "tipi": [["6.52"], ["8.07"], ["9.07"]], "rap": rap, "buco": buco, "oggi": oggi, "universita": universita,
             "scadenze": {"tipi": tipi, "cerca_new": [v["sigla"] for v in A["fafsa"]["voci"] if "new" in v["nome"].lower()],
                          "giorni": [["2027-01-15", f"in {g('2027-01-15')} days"], ["2028-06-30", f"in {g('2028-06-30')} days"], ["2026-10-01", f"passed {-g('2026-10-01')} days ago"]]}}
 
@@ -647,6 +975,7 @@ def main():
     A, F, n_frasi = controlla_dati()
     n_faq, n_cit, n_link, n_pag = controlla_pagine(A, F)
     n_cifre = controlla_cifre(A)
+    n_uni, origine_uni, D_uni, _npc, n_risposte = controlla_universita()
     n_js = controlla_js(A)
     n_file = controlla_segreti()
     errori_mon, _info = MON.controlla_sito("collegeaid", SITO)
@@ -654,6 +983,8 @@ def main():
         err("monetizzazione: " + e)
     print(f"{n_pag} pagine, {len(F)} fonti, {n_frasi} frasi alla lettera, {n_cit} citazioni in pagina, {n_faq} FAQ da ricerche misurate, {n_link} link, "
           f"{n_cifre} cifre confrontate con le trascrizioni a mano, {n_js} casi dei calcolatori (app.js = conto di riferimento), {n_file} file senza chiavi.")
+    print(f"Università: {len(D_uni['scelte'])} schede + indice, {n_uni} cifre e righe confrontate con il file College Scorecard ({origine_uni}); buco rifatto con due conti di riferimento; "
+          f"domanda misurata {D_uni['domanda_totale_scelte']:,} ricerche al mese su {D_uni['frasi_misurate']} frasi ({n_risposte} volumi riletti dalle risposte conservate).")
     if "--browser" in sys.argv:
         r = subprocess.run(["node", str(RADICE / "verifica_browser.js")], env=dict(os.environ, ATTESI=json.dumps(attesi_browser())), capture_output=True, text=True)
         print(r.stdout.strip())

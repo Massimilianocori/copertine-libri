@@ -11,6 +11,8 @@ ricerche misurate), tassi dei prestiti federali 2026-27 e dal 2013, tetti dei pr
 Repayment Assistance Plan con la formula della legge, prestiti PLUS dei genitori con il conto di quanto resta scoperto.
 Ogni cifra viene da dati/aiuti.json, che raccolta/fonti.py ricava dai file ufficiali in dati/grezzi/. Le frasi tra virgolette sono copiate
 alla lettera dalle fonti (dati/fonti.json). Le FAQ nascono da ricerche misurate (dati/domanda.json). Solo informazione, non consulenza.
+Schede dei costi di 200 università (prova dell'idea A): raccolta/scorecard.py scarica il file College Scorecard e il dizionario dei dati,
+raccolta/domanda_universita.py sceglie le 200 con più ricerche misurate; ogni cifra è copiata dal file, l'anno viene dal dizionario.
 Riquadro dei partner (Splash Financial, SoFi): spento finché dati/affiliati.json non ha un link tracciato vero e "attivo": true.
 """
 import hashlib
@@ -252,7 +254,7 @@ class Rimandi:
         voci = []
         for n, i in enumerate(self.ordine, 1):
             f = FONTI[i]
-            voci.append(f'<li id="f{n}"><a href="{h(f["url"])}" rel="noopener">{h(f["titolo"])}</a> · {h(f["chi"])}. '
+            voci.append(f'<li id="f{n}"><a href="{h(f.get("pagina") or f["url"])}" rel="noopener">{h(f["titolo"])}</a> · {h(f["chi"])}. '
                         f'<span class="small">read {giorno(f["letto_il"])}</span></li>')
         return (f'<section class="fonti-box" aria-labelledby="fonti-h"><h2 id="fonti-h">{ico("doc")}Sources</h2><ol>{"".join(voci)}</ol>'
                 + (nota or '<p class="small">Dates, rates and dollar limits are copied from the official documents above; where a figure is our own arithmetic, the page says so. '
@@ -285,7 +287,7 @@ URLS = []
 TITOLI, DESCRIZIONI = {}, {}
 P_SCAD, P_TASSI, P_LIM, P_RATA, P_RAP, P_PLUS = ("fafsa-deadlines/", "student-loan-interest-rates/", "federal-student-loan-limits/",
                                                  "student-loan-payment-calculator/", "repayment-assistance-plan/", "parent-plus-loans/")
-MENU = [(P_SCAD, "FAFSA deadlines"), (P_TASSI, "Loan rates"), (P_LIM, "Loan limits"), (P_RATA, "Payment calculator"), (P_RAP, "RAP"), (P_PLUS, "Parent PLUS")]
+MENU = [(P_SCAD, "FAFSA deadlines"), (P_TASSI, "Loan rates"), (P_LIM, "Loan limits"), (P_RATA, "Payment calculator"), (P_RAP, "RAP"), (P_PLUS, "Parent PLUS"), ("college-costs/", "College costs")]
 DISCLAIMER = ("<strong>Information, not financial advice.</strong> This is an independent site, not affiliated with the U.S. Department of Education, Federal Student Aid or any state agency, college or lender. "
               "Dates, rates and limits are copied from the official documents listed under Sources on the date shown; they can change, and your own case can differ. "
               "Before you decide anything, confirm it with the financial aid office of your college or with your loan servicer.")
@@ -317,7 +319,7 @@ def pagina(percorso, titolo, descrizione, corpo, testata="", briciole=None, json
     f_scad = f'<li><a href="/{P_SCAD}">All states, {ANNO}</a></li>' + "".join(f'<li><a href="/{slug_stato(s)}">{h(VOCI[s]["nome"])} FAFSA deadline</a></li>' for s in ORDINE_STATI)
     f_prestiti = "".join(f'<li><a href="/{u}">{h(t)}</a></li>' for u, t in [(P_TASSI, f"Federal loan interest rates {ANNO_TASSI}"), (P_LIM, "Federal loan limits"),
                                                                          (P_RATA, "Student loan payment calculator"), (P_RAP, "Repayment Assistance Plan (RAP)"), (P_PLUS, "Parent PLUS loans")])
-    guide = "".join(f'<li><a href="/{u}">{h(t)}</a></li>' for u, t in [("", "Home"), ("how-we-check/", "How we check and sources"), ("about/", "About"),
+    guide = "".join(f'<li><a href="/{u}">{h(t)}</a></li>' for u, t in [("", "Home"), ("college-costs/", "College costs: tuition and net price"), ("how-we-check/", "How we check and sources"), ("about/", "About"),
                                                                     ("how-we-check/#corrections", "Report an error"), ("privacy/", "Privacy")])
     testo = f"""<!DOCTYPE html>
 <html lang="en-US">
@@ -413,7 +415,7 @@ def volume(frase):
     for r in DOM["ricerche"]:
         if r["frase"] == frase:
             return r["volume_mese"]
-    return 0
+    return VOLUMI_UNI.get(frase, 0)   # frasi «<università> tuition» e «<università> cost» (dati/domanda_universita.json)
 
 
 def faq_blocco(voci, rim):
@@ -771,7 +773,7 @@ def pagina_limiti():
               + '<div class="testo">' + rim.t('<p><strong>Limits set by the school.</strong> A college may set a lower loan limit for a whole program of study, as long as it applies the same limit to every student in that program.[[legge]] '
                                               'And no federal loan can exceed the school’s cost of attendance minus the student’s other financial assistance.[[fr_regola]]</p>') + '</div>')
     corpo += (f'<h2 id="tools">Work out your own numbers</h2><p class="azioni"><a class="btn" href="/{P_PLUS}#gap">How much do the limits cover?{ico("arrow")}</a>'
-              f'<a class="btn sec" href="/{P_RATA}">Payment calculator</a><a class="btn sec" href="/{P_TASSI}">Interest rates</a></p>')
+              f'<a class="btn sec" href="/{P_RATA}">Payment calculator</a><a class="btn sec" href="/{P_TASSI}">Interest rates</a><a class="btn sec" href="/{P_UNI}">The gap at {len(DOMU["scelte"])} colleges</a></p>')
     faq_html, faq_ld = faq_blocco([
         ("federal student loan limits", "What are the federal student loan limits for 2026–27?",
          f"Dependent undergraduates: {usd(dip['anni'][0]['totale'])}, {usd(dip['anni'][1]['totale'])} and {usd(dip['anni'][2]['totale'])} a year by year of study, {usd(dip['totale'])} in total. Graduate students: {usd(LIM['laureato']['anno'])} a year, {usd(LIM['laureato']['totale'])} in total. "
@@ -1010,7 +1012,7 @@ def pagina_plus():
     calc = (f'<div class="card calc" id="gap" data-calc="buco" data-regole="{attr_json({"limiti": {"dipendente": dip, "genitori": gen}})}"><form class="calc-in" novalidate>'
             '<h2>How much do the federal limits cover?</h2>'
             '<label>Cost left to pay per year, after grants and scholarships<span class="conprefisso"><span>$</span><input type="text" inputmode="decimal" name="costo" value="32,000" autocomplete="off"></span>'
-            '<span class="aiuto">Your own figure, from the college’s award letter or net price calculator. We do not supply college prices.</span></label>'
+            '<span class="aiuto">Your own figure, from the college’s award letter or net price calculator.</span></label>'
             '<label>Years of study<select name="anni"><option value="1">1 year</option><option value="2">2 years</option><option value="3">3 years</option><option value="4" selected>4 years</option><option value="5">5 years</option><option value="6">6 years</option></select></label>'
             '<p class="aiuto">Assumes a dependent student starting the first year who borrows the full federal limit every year, and parents who borrow PLUS loans for the rest up to their limit. Both can borrow less.</p>'
             '</form><div class="calc-out" aria-live="polite"><p class="errore" data-errore hidden></p><div data-uscita>'
@@ -1026,6 +1028,7 @@ def pagina_plus():
     corpo += ('<div class="testo">' + rim.t('<p><strong>Two things the calculator leaves out.</strong> A loan fee is deducted from each disbursement, so the college receives less than the amount borrowed: the regulations set the fee on a Direct PLUS loan at four percent of the principal; the fee actually charged in a given year can be slightly different. '
                                              'Ask the financial aid office for the exact figure and the net amount of your loan.[[cfr_202]] And a Parent PLUS loan depends on a credit check: the parent must not have an adverse credit history, or must obtain an endorser or document extenuating circumstances.[[cfr_200]]</p>') + '</div>'
               + rim.cit("cfr_202", "rate") + rim.cit("cfr_200", "credito"))
+    corpo += (f'<div class="testo"><p>No figure to start from? The <a href="/{P_UNI}">college cost pages</a> show the average net price by family income at {len(DOMU["scelte"])} colleges, from the federal College Scorecard file, with this same sum already done.</p></div>')
     corpo += nota('<p><strong>This is arithmetic, not a recommendation to borrow the maximum.</strong> The limits say how much the federal government will lend, not how much a family can afford to repay. '
                   'The financial aid office of the college can tell you the exact amounts you are eligible for.</p>')
     corpo += (f'<h2 id="rate">Interest rate: {T_PLUS}% for {ANNO_TASSI}</h2><div class="testo">'
@@ -1066,6 +1069,362 @@ def pagina_plus():
            corpo, testata, briciole=[("Home", ""), ("Parent PLUS loans", P_PLUS)], jsonld=[faq_ld])
 
 
+# ---------------------------------------------------------------- schede dei costi delle università (prova di 200, dal file College Scorecard)
+P_UNI = "college-costs/"
+SC = carica("fonti_scorecard.json")
+DOMU = carica("domanda_universita.json")
+FONTI.update(SC["fonti"])
+SC_AGG = date.fromisoformat(SC["fonti"]["scorecard"]["aggiornato_il"])
+VOLUMI_UNI = {f["frase"]: f["volume_mese"] for s in DOMU["scelte"] for f in s["frasi"]}
+TIPO_UNI = {"1": ("public", "Public"), "2": ("nonprofit", "Private nonprofit"), "3": ("forprofit", "Private for-profit")}
+MANCA = {"NA": "Not reported in the file", "PS": "Suppressed in the file (privacy)"}
+
+
+def _righe_scorecard():
+    import csv
+    with open(RADICE / SC["fonti"]["scorecard"]["estratto"], encoding="utf-8", newline="") as f:
+        return {r["UNITID"]: r for r in csv.DictReader(f)}
+
+
+def _anno_colonna(col):
+    """L'anno di una colonna, come lo scrive il dizionario ufficiale (foglio Most_Recent_Inst_Cohort_Map), reso leggibile. Si ferma se il testo cambia forma."""
+    t = SC["anni"][col]
+    m = re.fullmatch(r"AcadYr (\d{4})-(\d{2}), reported in IPEDS DCY\d{4}-\d{2}", t)
+    if m:
+        return f"{m[1]}–{m[2]}", f"{m[1]}–{m[2]} academic year"
+    m = re.fullmatch(r"Fall (\d{4}), reported in IPEDS DCY\d{4}-\d{2}", t)
+    if m:
+        return f"fall {m[1]}", f"fall {m[1]}"
+    m = re.fullmatch(r"Fall (\d{4}) or AcadYr (\d{4})-(\d{2}) cohort \(differs by institutional calendar\), reported in IPEDS DCY(\d{4})-(\d{2})", t)
+    if m:
+        return f"{m[2]}–{m[3]} entering class", f"students who started in fall {m[1]} or during {m[2]}–{m[3]}, counted in the {m[4]}–{m[5]} data collection"
+    m = re.fullmatch(r"NSLDS FY(\d{4}), FY(\d{4}) pooled cohorts", t)
+    if m:
+        return f"fiscal years {m[1]} and {m[2]}", f"federal fiscal years {m[1]} and {m[2]}, pooled"
+    m = re.fullmatch(r"NSLDS AY(\d{4})-(\d{2}), AY(\d{4})-(\d{2}) pooled cohorts", t)
+    if m:
+        return f"{m[1]}–{m[2]} and {m[3]}–{m[4]}", f"award years {m[1]}–{m[2]} and {m[3]}–{m[4]}, pooled"
+    raise SystemExit(f"dizionario Scorecard: anno di {col} in una forma non prevista: {t}")
+
+
+ANNO_COL = {c: _anno_colonna(c) for c in SC["anni"]}
+A_TASSE, A_COSTO, A_NETTO, A_AMM, A_LAUREA, A_DEBITO, A_PLUS, A_ISCR = (ANNO_COL[c][0] for c in ("TUITIONFEE_IN", "COSTT4_A", "NPT4_PUB", "ADM_RATE", "C150_4", "GRAD_DEBT_MDN", "PLUS_DEBT_INST_MD", "UGDS"))
+if ANNO_COL["TUITIONFEE_IN"] != ANNO_COL["TUITIONFEE_OUT"] or len({ANNO_COL[c] for c in SC["anni"] if c.startswith("NPT4")}) != 1:
+    raise SystemExit("dizionario Scorecard: tasse o prezzi netti con anni diversi tra loro")
+
+
+def _fasce_reddito():
+    out = []
+    for i in "12345":
+        m = re.search(r"for (\$[\d,]+)(?:-(\$[\d,]+)|\+) family income", SC["nomi"][f"NPT4{i}_PUB"])
+        if not m or SC["nomi"][f"NPT4{i}_PRIV"].split(" (")[0] != SC["nomi"][f"NPT4{i}_PUB"].split(" (")[0]:
+            raise SystemExit(f"dizionario Scorecard: fascia di reddito {i} in una forma non prevista")
+        out.append(f"{m[1]} to {m[2]}" if m[2] else f"{m[1]} or more")
+    return out
+
+
+FASCE_REDDITO = _fasce_reddito()
+
+
+def num(v):
+    return re.fullmatch(r"-?\d+(\.\d+)?", v) is not None
+
+
+def usd_s(n):
+    return f"−${-n:,}" if n < 0 else f"${n:,}"
+
+
+def soldi_sc(v):
+    """Importo del file («64796») -> «$64,796»; NA e PS restano detti a parole."""
+    return usd_s(int(v)) if num(v) else MANCA[v]
+
+
+def pc_sc(v):
+    """Quota del file («0.0365») -> «3.65%» (la stessa cifra, per cento, senza arrotondare)."""
+    if not num(v):
+        return MANCA[v]
+    from decimal import Decimal
+    x = (Decimal(v) * 100).normalize()
+    return f"{x:f}%"
+
+
+def cella(col, v, forte=False, pc=False):
+    testo = pc_sc(v) if pc else soldi_sc(v)
+    if not num(v):
+        return f'<td class="na" data-c="{col}">{testo}</td>'
+    return f'<td class="n{" forte" if forte else ""}" data-c="{col}">{testo}</td>'
+
+
+def slug_uni(nome):
+    return re.sub(r"[^a-z0-9]+", "-", nome.lower().replace("&", " and ").replace("'", "")).strip("-")
+
+
+def url_calcolatore(v):
+    """L'indirizzo del calcolatore del prezzo netto scritto nel file (NPCURL); None se manca o non è un indirizzo web pulito."""
+    if v in ("NA", "PS", ""):
+        return None
+    u = v.strip() if re.match(r"https?://", v.strip(), re.I) else "https://" + v.strip()
+    p = urlparse(u)
+    if not p.hostname or " " in u or '"' in u or "<" in u or "." not in p.hostname:
+        return None
+    return u
+
+
+def prepara_universita():
+    righe = _righe_scorecard()
+    out, slug_visti = [], set()
+    for s in DOMU["scelte"]:
+        r = righe[s["unitid"]]
+        if r["INSTNM"] != s["nome"] or r["CONTROL"] not in TIPO_UNI or r["STABBR"] not in VOCI:
+            raise SystemExit(f"università {s['unitid']}: nome, tipo o Stato non previsti ({r['INSTNM']}, {r['CONTROL']}, {r['STABBR']})")
+        suff = "PUB" if r["CONTROL"] == "1" else "PRIV"
+        u = {"r": r, "s": s, "nome": r["INSTNM"], "slug": slug_uni(r["INSTNM"]), "suff": suff, "pubblica": r["CONTROL"] == "1",
+             "netto": r[f"NPT4_{suff}"], "fasce": [(f"NPT4{i}_{suff}", r[f"NPT4{i}_{suff}"]) for i in "12345"], "col_netto": f"NPT4_{suff}"}
+        if u["slug"] in slug_visti or not num(r["TUITIONFEE_IN"]) or not num(u["netto"]):
+            raise SystemExit(f"università {u['nome']}: slug doppio o dati di base mancanti")
+        slug_visti.add(u["slug"])
+        u["percorso"] = f'{P_UNI}{u["slug"]}/'
+        u["buco_medio"] = buco_4(u["netto"])
+        out.append(u)
+    return out
+
+
+def buco_4(v):
+    """Quattro anni al prezzo annuo v (dollari, dal file): totali di studente, genitori e resto. Un prezzo negativo conta zero."""
+    c = max(int(v), 0) * 100
+    rr = buco(c, 4)
+    return {"anno": int(v), "quattro": 4 * c // 100, "studente": sum(x["studente"] for x in rr) // 100, "genitori": sum(x["genitori"] for x in rr) // 100, "resto": sum(x["resto"] for x in rr) // 100}
+
+
+def link_fafsa(sigla):
+    return slug_stato(sigla) if sigla in STATI else P_SCAD
+
+
+def titolo_universita(u):
+    r, s = u["r"], u["s"]
+    F = s["frase_titolo_scritta"]
+    tin, tout, costo = r["TUITIONFEE_IN"], r["TUITIONFEE_OUT"], r["COSTT4_A"]
+    if s["frase_titolo"].endswith(" tuition") or not num(costo):
+        cifra = f"{usd(int(tin))} In-State" if (u["pubblica"] and tin != tout) else usd(int(tin))
+        prove = [f"{F} {A_TASSE}: {cifra}, Net Price by Income, Loan Gap", f"{F} {A_TASSE}: {cifra}, Net Price, Loan Gap", f"{F} {A_TASSE}: {usd(int(tin))}, Net Price, Loan Gap",
+                 f"{F}: {usd(int(tin))}, Net Price, Loan Gap", f"{F}: {usd(int(tin))} and Net Price", f"{F}: Net Price, Loan Gap",
+                 f"{F}: {usd(int(tin))}, Loan Gap", f"{F}: {usd(int(tin))} a Year", f"{F} and Net Price", f"{F} {A_TASSE}", F]
+    else:
+        prove = [f"{F}: {usd(int(costo))} a Year, Net Price by Income, Loan Gap", f"{F}: {usd(int(costo))} a Year, Net Price, Loan Gap", f"{F}: {usd(int(costo))} a Year and Net Price", f"{F}: Net Price, Loan Gap", F]
+    for t in prove:
+        if len(t) <= 65 and t not in TITOLI.values():
+            return t
+    raise SystemExit(f"università {u['nome']}: nessun titolo entro 65 caratteri che cominci con «{F}»")
+
+
+def descrizione_universita(u):
+    r = u["r"]
+    n, tin, tout = u["nome"], usd(int(r["TUITIONFEE_IN"])), soldi_sc(r["TUITIONFEE_OUT"])
+    tasse = f"{tin} in-state, {tout} out-of-state" if (num(r["TUITIONFEE_OUT"]) and r["TUITIONFEE_IN"] != r["TUITIONFEE_OUT"]) else tin
+    prove = [f"{n}: tuition and fees {tasse} ({A_TASSE}), average net price {usd_s(int(u['netto']))} by family income, and the gap after federal loans. Official data.",
+             f"{n}: tuition and fees {tasse} ({A_TASSE}), net price {usd_s(int(u['netto']))} by income, gap after federal loans. Official data.",
+             f"{n}: tuition and fees {tasse} ({A_TASSE}), net price by income, gap after federal loans.",
+             f"{n}: tuition {tin} ({A_TASSE}), net price by income, loan gap. Official data."]
+    for d in prove:
+        if 70 <= len(d) <= 160 and d not in DESCRIZIONI.values():
+            return d
+    raise SystemExit(f"università {u['nome']}: nessuna descrizione entro 160 caratteri")
+
+
+def riga_buco(etichetta, col, v):
+    if not num(v):
+        return f'<tr data-gap="{col}"><th scope="row">{etichetta}</th><td class="na" colspan="5" data-c="{col}">{MANCA[v]}</td></tr>'
+    b = buco_4(v)
+    return (f'<tr data-gap="{col}"><th scope="row">{etichetta}</th><td class="n" data-c="{col}">{usd_s(b["anno"])}</td><td class="n" data-g="quattro">{usd(b["quattro"])}</td>'
+            f'<td class="n" data-g="studente">{usd(b["studente"])}</td><td class="n" data-g="genitori">{usd(b["genitori"])}</td><td class="n forte" data-g="resto">{usd(b["resto"])}</td></tr>')
+
+
+def pagina_universita(u, tutte):
+    rim = Rimandi()
+    r, s, nome = u["r"], u["s"], u["nome"]
+    sigla = r["STABBR"]
+    stato = VOCI[sigla]["nome"]
+    tipo = TIPO_UNI[r["CONTROL"]][1]
+    if SC["etichette"]["CONTROL"][r["CONTROL"]] != tipo:
+        raise SystemExit("dizionario Scorecard: etichette di CONTROL diverse")
+    dip, gen = LIM["dipendente"], LIM["genitori"]
+    quattro = sum(dip["anni"][min(i, 2)]["totale"] for i in range(4))
+    agg = data_lunga(SC_AGG)
+    tin, tout, costo, netto = r["TUITIONFEE_IN"], r["TUITIONFEE_OUT"], r["COSTT4_A"], u["netto"]
+    stesse = tin == tout
+    ref = rim.ref("scorecard,scorecard_diz")
+    chi_netto = ("first-time, full-time undergraduates who paid in-state tuition and received federal student aid" if u["pubblica"]
+                 else "first-time, full-time undergraduates who received federal student aid")
+    # ---- riquadro in alto
+    voci = [(soldi_sc(tin), f"tuition and fees, {A_TASSE}" + ("" if stesse else ", in-state")),
+            (soldi_sc(tout) if not stesse else soldi_sc(costo), (f"tuition and fees, {A_TASSE}, out-of-state" if not stesse else f"average cost of attendance, {A_COSTO}")),
+            (usd_s(int(netto)), f"average net price a year, {A_NETTO}" + (", in-state students with federal aid" if u["pubblica"] else ", students with federal aid")),
+            (pc_sc(r["ADM_RATE"]) if num(r["ADM_RATE"]) else "Not reported", f"admission rate, {A_AMM}")]
+    sotto = (f'{ico("info")} From the U.S. Department of Education’s College Scorecard file updated <strong>{agg}</strong>, read on {giorno(FONTI["scorecard"]["letto_il"])}{ref} · '
+             f'each figure carries the year the Department assigns to it')
+    corpo = f'<div data-universita="{r["UNITID"]}">' + fatti(voci, sotto)
+    # ---- tasse e costo totale
+    righe = [f'<tr><th scope="row">Tuition and fees, in-state</th>{cella("TUITIONFEE_IN", tin, True)}<td>{A_TASSE}</td></tr>',
+             f'<tr><th scope="row">Tuition and fees, out-of-state</th>{cella("TUITIONFEE_OUT", tout, True)}<td>{A_TASSE}</td></tr>',
+             f'<tr><th scope="row">Average cost of attendance: tuition, fees, books, supplies and living expenses</th>{cella("COSTT4_A", costo, True)}<td>{A_COSTO}</td></tr>']
+    corpo += (f'<h2 id="tuition">{h(nome)} tuition and total cost</h2><div class="testo"><p>'
+              + (f'The College Scorecard file lists the same tuition and required fees for in-state and out-of-state students at {h(nome)}: {soldi_sc(tin)} for the {ANNO_COL["TUITIONFEE_IN"][1]}. '
+                 if stesse else
+                 f'For the {ANNO_COL["TUITIONFEE_IN"][1]}, the College Scorecard file lists tuition and required fees of {soldi_sc(tin)} for in-state students and {soldi_sc(tout)} for out-of-state students at {h(nome)}. ')
+              + (f'The average cost of attendance, which adds books, supplies and living expenses, was {soldi_sc(costo)} in {A_COSTO}, the latest year in the file.' if num(costo)
+                 else 'The file has no average cost of attendance for this college.') + f'{ref}</p></div>'
+              + tabella(f'Published price at {h(nome)} ({h(r["CITY"])}, {sigla}; {tipo.lower()}). Source: College Scorecard file updated {agg}.{ref}',
+                        [("Figure", 0), ("Amount a year", 1), ("Year of the data", 0)], righe, "ampia"))
+    # ---- prezzo netto per fascia di reddito
+    righe = [f'<tr><th scope="row">{etich}</th>{cella(col, v, True)}</tr>' for etich, (col, v) in zip(FASCE_REDDITO, u["fasce"])]
+    righe.append(f'<tr class="ora"><th scope="row">All income levels (average)</th>{cella(u["col_netto"], netto, True)}</tr>')
+    corpo += (f'<h2 id="net-price">Average net price by family income</h2><div class="testo"><p>Net price is the cost of attendance minus the average grant and scholarship aid. '
+              f'It is what families paid on average for one year, before loans. The file gives it for {chi_netto}, in {A_NETTO}, by the family income used to work out aid.{ref}</p></div>'
+              + tabella(f'Average net price for one year at {h(nome)}, {A_NETTO}, {chi_netto}.{ref}', [("Family income", 0), ("Average net price a year", 1)], righe, stretta=True))
+    if u["pubblica"]:
+        corpo += nota(f'<p><strong>Out-of-state students are not in these averages.</strong> For public colleges the file counts only students who pay in-state tuition, and it has no net price for out-of-state students. '
+                      f'Out-of-state tuition and fees at {h(nome)} are {soldi_sc(tout)}, against {soldi_sc(tin)} in-state.</p>', info=True)
+    # ---- ammissione, laurea, debito
+    righe = [f'<tr><th scope="row">Admission rate</th>{cella("ADM_RATE", r["ADM_RATE"], True, pc=True)}<td>{A_AMM}</td></tr>',
+             f'<tr><th scope="row">Graduation rate: first-time, full-time students who finished within 150% of the normal time (six years for a bachelor’s degree)</th>{cella("C150_4", r["C150_4"], True, pc=True)}<td>{A_LAUREA}</td></tr>',
+             f'<tr><th scope="row">Median federal student loan debt of students who completed</th>{cella("GRAD_DEBT_MDN", r["GRAD_DEBT_MDN"], True)}<td>{A_DEBITO}</td></tr>',
+             f'<tr><th scope="row">Median Parent PLUS loan debt at this college</th>{cella("PLUS_DEBT_INST_MD", r["PLUS_DEBT_INST_MD"], True)}<td>{A_PLUS}</td></tr>',
+             f'<tr><th scope="row">Undergraduate students</th><td class="n forte" data-c="UGDS">{int(r["UGDS"]):,}</td><td>{A_ISCR}</td></tr>']
+    corpo += (f'<h2 id="outcomes">Admission rate, graduation rate and median debt</h2>'
+              + tabella(f'{h(nome)}: admission, completion and debt figures in the College Scorecard file. The debt figures count federal loans only.{ref}',
+                        [("Figure", 0), ("Value", 1), ("Year of the data", 0)], righe, "ampia"))
+    assenti = [c for c in ("TUITIONFEE_OUT", "COSTT4_A", "ADM_RATE", "C150_4", "GRAD_DEBT_MDN", "PLUS_DEBT_INST_MD") + tuple(c for c, _ in u["fasce"]) if not num(r[c])]
+    if assenti:
+        ps = any(r[c] == "PS" for c in assenti)
+        na = any(r[c] == "NA" for c in assenti)
+        corpo += nota('<p><strong>Some figures are missing.</strong> '
+                      + ('“Not reported in the file” means the Department’s file has no value for this college (it is written NA there). ' if na else '')
+                      + ('“Suppressed in the file” means the Department hides the value to protect the privacy of a small group of students (it is written PS there). ' if ps else '')
+                      + 'We do not fill the gaps with estimates or with figures from other sites.</p>', info=True)
+    # ---- il buco dopo i prestiti federali
+    b = u["buco_medio"]
+    righe = [riga_buco(etich, col, v) for etich, (col, v) in zip(FASCE_REDDITO, u["fasce"])]
+    righe.append(riga_buco("All income levels (average)", u["col_netto"], netto).replace("<tr ", '<tr class="ora" ', 1))
+    if num(costo):
+        righe.append(riga_buco("No grants at all: full cost of attendance", "COSTT4_A", costo))
+    frase_buco = (f'the federal limits could cover all of it' if b["resto"] == 0 else f'the federal limits leave <strong>{usd(b["resto"])}</strong> to find elsewhere')
+    corpo += (f'<h2 id="gap">The gap after federal loans at {h(nome)}</h2><div class="testo">'
+              + rim.t(f'<p>For students starting now, federal loans have a ceiling. A dependent undergraduate can borrow {usd(dip["anni"][0]["totale"])} in the first year, {usd(dip["anni"][1]["totale"])} in the second and {usd(dip["anni"][2]["totale"])} a year after that, '
+                      f'up to {usd(dip["totale"])} in all.[[manuale]] Since July 1, 2026 parents can borrow at most {usd(gen["anno"])} a year and {usd(gen["totale"])} in total for each student with Parent PLUS loans.[[fr_regola]] '
+                      f'Over four years that is at most {usd(quattro)} for the student plus {usd(gen["totale"])} for the parents: {usd(quattro + gen["totale"])} (our addition).</p>'
+                      f'<p>At the average net price of {usd_s(b["anno"])} a year, four years at {h(nome)} come to {usd(b["quattro"])}; {frase_buco}. '
+                      f'The table does the same sum for each income band, holding the {A_NETTO} price flat for four years.</p></div>')
+              + '<p class="small scorri">Swipe the table sideways to see every column.</p>'
+              + tabella(f'Four years at {h(nome)} at the {A_NETTO} net price, against the federal loan limits for a dependent student starting on or after July 1, 2026. Our arithmetic on official figures.{rim.ref("scorecard,manuale,fr_regola")}',
+                        [("Family income", 0), ("Net price a year", 1), ("Four years", 1), ("Student loans, at most", 1), ("Parent PLUS, at most", 1), ("Left uncovered", 1)], righe, "ampia")
+              + nota('<p><strong>This is arithmetic, not a forecast and not advice to borrow the maximum.</strong> Prices usually rise each year, a family can borrow less than the limit, a loan fee is taken from each disbursement, '
+                     'and a Parent PLUS loan needs a credit check. “Left uncovered” has to come from savings, income, work, more scholarships or private loans. '
+                     f'Students who were already enrolled and borrowing before July 1, 2026 may keep the old Parent PLUS rules for a time: see <a href="/{P_LIM}">federal loan limits</a>.</p>')
+              + f'<p class="azioni"><a class="btn" href="/{P_PLUS}#gap">Try your own cost in the gap calculator{ico("arrow")}</a><a class="btn sec" href="/{P_LIM}">All federal loan limits</a></p>')
+    # ---- come leggere
+    npc = url_calcolatore(r["NPCURL"])
+    corpo += ('<h2 id="read">How to read this page</h2><div class="testo"><ul>'
+              f'<li><strong>Every figure is copied from one federal file</strong>, the College Scorecard institution file the Department of Education updated on {agg}. Nothing is estimated or taken from other websites.</li>'
+              f'<li><strong>The file runs behind the college’s own website.</strong> Tuition and fees are for {A_TASSE}; cost of attendance and net price are for {A_NETTO}. For next year’s price, check {h(nome)} directly.</li>'
+              f'<li><strong>Net price is an average, not an offer.</strong> It covers {chi_netto}. Your own price depends on your aid package.</li>'
+              '<li><strong>Family income</strong> is the income the college used to work out financial aid: for a dependent student, the student’s and the parents’ income together.</li>'
+              f'<li><strong>The graduation rate</strong> follows the {A_LAUREA}; the admission rate is for {A_AMM}.</li>'
+              '<li><strong>The gap is our own arithmetic</strong> on the file’s net price and the official loan limits. It is not a figure published by the college or the Department.</li></ul></div>')
+    if npc:
+        corpo += (f'<p class="azioni"><a class="btn sec" href="{h(npc)}" rel="nofollow noopener" data-npc>{h(nome)} net price calculator (address listed in the file){ico("arrow")}</a></p>')
+    else:
+        corpo += '<p class="small">The file lists no usable address for this college’s net price calculator.</p>'
+    # ---- scadenza FAFSA dello Stato
+    ha_pagina = sigla in STATI
+    corpo += (f'<h2 id="fafsa">FAFSA deadline in {h(stato)} for {ANNO}</h2><div class="testo"><p>{h(nome)} is in {h(r["CITY"])}, {h(stato)}. Aid starts with the FAFSA form: for federal aid the {ANNO} form must be received by {giorno(FAFSA["chiusura_federale"])}, '
+              f'and this is what the official form says about state aid in {h(stato)}.{rim.ref("fafsa_2728")} The college can set an earlier date of its own: ask its financial aid office.</p></div>'
+              + rim.voce(sigla)
+              + f'<p class="azioni"><a class="btn sec" href="/{link_fafsa(sigla)}">{h(stato) + " FAFSA deadline, explained" if ha_pagina else "FAFSA deadlines for every state"}{ico("arrow")}</a></p>')
+    # ---- prestiti
+    corpo += (f'<h2 id="loans">Federal loan numbers for {ANNO_TASSI}</h2><div class="testo"><p>Loans first disbursed from {giorno(TASSI["dal"])} to June 30, {TASSI["al"][:4]} carry a fixed rate of {T_UG}% for undergraduates and {T_PLUS}% for Parent PLUS loans.{rim.ref("fr_tassi")}</p></div>'
+              f'<p class="azioni"><a class="btn sec" href="/{P_TASSI}">Loan interest rates</a><a class="btn sec" href="/{P_LIM}">Loan limits</a><a class="btn sec" href="/{P_PLUS}">Parent PLUS loans</a>'
+              f'<a class="btn sec" href="/{P_RATA}">Payment calculator</a><a class="btn sec" href="/{P_RAP}">Repayment Assistance Plan</a></p>')
+    # ---- altre università dello stesso Stato
+    vicine = sorted((x for x in tutte if x["r"]["STABBR"] == sigla and x is not u), key=lambda x: x["nome"])[:8]
+    if vicine:
+        griglia = "".join(f'<li><a href="/{x["percorso"]}"><b>{h(x["nome"])}</b><small>{soldi_sc(x["r"]["TUITIONFEE_IN"])} tuition and fees{"" if x["r"]["TUITIONFEE_IN"] == x["r"]["TUITIONFEE_OUT"] else ", in-state"}</small></a></li>' for x in vicine)
+        corpo += f'<h2 id="others">Other colleges in {h(stato)}</h2><ul class="griglia larga uni">{griglia}</ul>'
+    corpo += f'<p class="azioni"><a class="btn sec" href="/{P_UNI}">All {len(tutte)} colleges{ico("arrow")}</a></p>'
+    # ---- FAQ da ricerche misurate
+    faq = []
+    if s["tuition"] and s["tuition"]["volume_mese"] > 0:
+        faq.append((s["tuition"]["frase"], f"How much is tuition at {nome}?",
+                    (f"Tuition and required fees at {nome} are {soldi_sc(tin)} for the {ANNO_COL['TUITIONFEE_IN'][1]}, the same for in-state and out-of-state students. " if stesse else
+                     f"Tuition and required fees at {nome} are {soldi_sc(tin)} for in-state students and {soldi_sc(tout)} for out-of-state students for the {ANNO_COL['TUITIONFEE_IN'][1]}. ")
+                    + f"The figure comes from the U.S. Department of Education’s College Scorecard file updated on {agg}.", "scorecard,scorecard_diz"))
+    if s["cost"] and s["cost"]["volume_mese"] > 0:
+        con = [(e, int(v)) for e, (c, v) in zip(FASCE_REDDITO, u["fasce"]) if num(v)]
+        faq.append((s["cost"]["frase"], f"What does {nome} cost per year after grants and scholarships?",
+                    f"The average net price at {nome} was {usd_s(int(netto))} a year in {A_NETTO}, for {chi_netto}. "
+                    + (f"By family income it went from {usd_s(con[0][1])} (income of {con[0][0]}) to {usd_s(con[-1][1])} (income of {con[-1][0]}). " if len(con) >= 2 else "")
+                    + (f"The average cost of attendance before aid was {soldi_sc(costo)}." if num(costo) else ""), "scorecard,scorecard_diz"))
+    ld = []
+    if faq:
+        faq_html, faq_ld = faq_blocco(faq, rim)
+        corpo += faq_html
+        ld.append(faq_ld)
+    corpo += rim.elenco(nota='<p class="small">College figures are copied from the College Scorecard data file; the year of each figure comes from the Department’s data dictionary. '
+                             'The gap figures are our own arithmetic. See <a href="/how-we-check/">how we check</a>.</p>') + "</div>"
+    testata = banda(f"{r['CITY']}, {sigla} · {tipo} · College Scorecard data", f"{nome}: tuition, net price and the gap after federal loans",
+                    (f"Tuition and fees <strong>{soldi_sc(tin)}</strong>" + ("" if stesse else f" in-state, <strong>{soldi_sc(tout)}</strong> out-of-state") + f" for {A_TASSE}. "
+                     f"Average net price <strong>{usd_s(int(netto))}</strong> a year ({A_NETTO}). From the federal file updated {agg}."), icona="cap")
+    pagina(u["percorso"], titolo_universita(u), descrizione_universita(u), corpo, testata,
+           briciole=[("Home", ""), ("College costs", P_UNI), (nome, u["percorso"])], jsonld=ld)
+
+
+def indice_universita(tutte):
+    rim = Rimandi()
+    ref = rim.ref("scorecard,scorecard_diz")
+    agg = data_lunga(SC_AGG)
+    dip, gen = LIM["dipendente"], LIM["genitori"]
+    quattro = sum(dip["anni"][min(i, 2)]["totale"] for i in range(4))
+    per_tipo = {k: sum(1 for u in tutte if u["r"]["CONTROL"] == k) for k in TIPO_UNI}
+    oltre = sum(1 for u in tutte if u["buco_medio"]["resto"] > 0)
+    stati = len({u["r"]["STABBR"] for u in tutte})
+    voci = [(str(len(tutte)), "colleges with a page: the ones people search for most"), (str(stati), "states and the District of Columbia" if any(u["r"]["STABBR"] == "DC" for u in tutte) else "states"),
+            (str(oltre), f"where four years at the average net price cost more than federal loans can cover"), (A_TASSE, f"year of the tuition figures; net price is for {A_NETTO}")]
+    sotto = f'{ico("info")} College Scorecard file updated <strong>{agg}</strong>, read on {giorno(FONTI["scorecard"]["letto_il"])}{ref}'
+    corpo = fatti(voci, sotto)
+    corpo += (f'<h2 id="list">Tuition, net price and loan gap at {len(tutte)} colleges</h2><div class="testo"><p>Each row is copied from the U.S. Department of Education’s College Scorecard file. '
+              f'Tuition and fees are for {A_TASSE}. Net price is the {A_NETTO} average after grants and scholarships'
+              f'{" (in-state students only at public colleges)" if per_tipo["1"] else ""}. The last column is our arithmetic: four years at that net price, minus the most a dependent student ({usd(quattro)}) '
+              f'and the parents ({usd(gen["totale"])}) can borrow in federal loans from July 1, 2026.{rim.ref("manuale,fr_regola")}</p></div>')
+    righe = []
+    for u in sorted(tutte, key=lambda x: x["nome"].lower()):
+        r = u["r"]
+        cerca = " ".join([u["nome"], r["CITY"], VOCI[r["STABBR"]]["nome"], r["STABBR"], u["s"]["frase_titolo"]]).lower()
+        righe.append(f'<tr data-nome="{h(cerca)}" data-tipo="{TIPO_UNI[r["CONTROL"]][0]}" data-sigla="{r["UNITID"]}"><th scope="row"><a href="/{u["percorso"]}">{h(u["nome"])}</a><br><span class="small">{h(r["CITY"])}, {r["STABBR"]} · {TIPO_UNI[r["CONTROL"]][1]}</span></th>'
+                     f'{cella("TUITIONFEE_IN", r["TUITIONFEE_IN"])}{cella("TUITIONFEE_OUT", r["TUITIONFEE_OUT"])}{cella(u["col_netto"], u["netto"], True)}<td class="n" data-g="resto">{usd(u["buco_medio"]["resto"])}</td></tr>')
+    corpo += (f'<div data-scadenze data-cosa="colleges"><div class="card filtri" data-filtri hidden><label>Find a college<input type="search" data-cerca placeholder="Name, city or state, for example Ohio" autocomplete="off"></label>'
+              f'<label>Show<select data-tipo><option value="">All {len(tutte)} colleges</option>'
+              + "".join(f'<option value="{TIPO_UNI[k][0]}">{TIPO_UNI[k][1]} ({per_tipo[k]})</option>' for k in TIPO_UNI if per_tipo[k])
+              + '</select></label><p class="stato-t" data-stato aria-live="polite"></p></div><p class="small scorri">Swipe the table sideways to see every column.</p>'
+              + tabella(f'Tuition and fees ({A_TASSE}), average net price ({A_NETTO}) and what four years leave uncovered after federal loans. Source: College Scorecard file updated {agg}; last column, our arithmetic.{ref}',
+                        [("College", 0), ("Tuition, in-state", 1), ("Tuition, out-of-state", 1), ("Average net price a year", 1), ("Left after federal loans, 4 years", 1)], righe, "ampia uni")
+              + '<p class="card" data-vuoto hidden>No college matches. Clear the search box to see them all.</p></div>')
+    corpo += ('<h2 id="read">How to read the table</h2><div class="testo"><ul>'
+              f'<li><strong>One federal file, one date.</strong> Every figure comes from the College Scorecard institution file updated on {agg}. The file runs about a year behind colleges’ own websites.</li>'
+              '<li><strong>Net price is an average.</strong> It is the cost of attendance minus average grants and scholarships, for first-time, full-time undergraduates who received federal aid. Each college page splits it into five family income bands.</li>'
+              '<li><strong>Public colleges:</strong> the net price counts only students paying in-state tuition. The file has no net price for out-of-state students.</li>'
+              f'<li><strong>“Left after federal loans”</strong> assumes the {A_NETTO} net price for four years, a dependent student borrowing the full federal limit each year and parents borrowing Parent PLUS loans up to their limit. It is arithmetic, not advice to borrow.</li>'
+              '<li><strong>Missing values</strong> are shown as missing. We do not estimate them.</li></ul></div>')
+    corpo += (f'<h2 id="which">Why these {len(tutte)} colleges</h2><div class="testo"><p>The Scorecard file has {SC["fonti"]["scorecard"]["istituti"]:,} institutions. This first set covers the {len(tutte)} four-year colleges whose tuition and cost people in the United States search for most, '
+              f'by measured monthly searches. A college without a page here is not better or worse; it is just not in the first set.</p></div>'
+              f'<p class="azioni"><a class="btn sec" href="/{P_SCAD}">FAFSA deadlines by state</a><a class="btn sec" href="/{P_LIM}">Federal loan limits</a><a class="btn sec" href="/{P_PLUS}">Parent PLUS loans</a></p>')
+    corpo += rim.elenco(nota='<p class="small">College figures are copied from the College Scorecard data file; the year of each figure comes from the Department’s data dictionary. '
+                             'The gap figures are our own arithmetic. See <a href="/how-we-check/">how we check</a>.</p>')
+    testata = banda(f"College Scorecard data · updated {agg}", f"College costs: tuition, net price and loan gap at {len(tutte)} colleges",
+                    f"Tuition and fees for {A_TASSE}, average net price by family income, and what federal loans leave uncovered under the limits in force since July 1, 2026. Copied from the Department of Education’s file.", icona="cap")
+    pagina(P_UNI, f"College Tuition and Net Price {A_TASSE}: {len(tutte)} Colleges Compared",
+           f"Tuition and fees ({A_TASSE}), average net price and the gap after federal loans at {len(tutte)} U.S. colleges, copied from the official College Scorecard file.",
+           corpo, testata, briciole=[("Home", ""), ("College costs", P_UNI)])
+
+
 # ---------------------------------------------------------------- home
 def home():
     rim = Rimandi()
@@ -1078,6 +1437,7 @@ def home():
         ("calc", "Payment calculator", f"{STD['fasce'][0]['anni']}–{STD['fasce'][-1]['anni']} years", "The standard plan for new loans lasts longer the more you owe. Monthly payment and total interest for your balance.", P_RATA, "Calculate a payment", "legge"),
         ("chart", "Repayment Assistance Plan", f"{RAP['scaglioni'][1]['pc']}%–{RAP['scaglioni'][-1]['pc']}% of income", f"The income-based plan that started on July 1, 2026, with the formula from the law and a calculator.", P_RAP, "RAP calculator", "legge"),
         ("users", "Parent PLUS loans", f"{usd(gen['anno'])} a year", f"And {usd(gen['totale'])} in total per student, at {T_PLUS}%. See how much the federal limits leave uncovered.", P_PLUS, "Parent PLUS", "fr_regola,fr_tassi"),
+        ("doc", f"College costs {A_TASSE}", f"{len(DOMU['scelte'])} colleges", "Tuition, net price by family income and what federal loans leave uncovered, college by college, copied from the federal College Scorecard file.", P_UNI, "College costs", "scorecard"),
     ]
     corpo = '<div class="pull"><ul class="schede">' + "".join(
         f'<li><h3>{ico(i)}{h(t)}</h3><p class="big">{h(big)}</p><p>{h(txt)}{rim.ref(f)}</p><p class="azioni"><a class="btn" href="/{u}">{h(b)}{ico("arrow")}</a></p></li>' for i, t, big, txt, u, b, f in schede) + "</ul></div>"
@@ -1130,7 +1490,9 @@ MODULO = """<form name="corrections" method="POST" data-netlify="true" netlify-h
 USO_FONTE = {"fafsa_2728": ("PDF form", "Federal and state FAFSA deadlines"), "fr_tassi": ("Federal Register notice (text)", "Interest rates for 2026–27 and every year since 2006"),
              "fr_regola": ("Federal Register final rule (text)", "Loan limits in the regulations from July 1, 2026"), "legge": ("Public law (text)", "Loan limits, standard plan periods, Repayment Assistance Plan formula"),
              "manuale": ("Web page of the official handbook", "Undergraduate annual and aggregate loan limits"),
-             "cfr_200": ("Code of Federal Regulations (PDF)", "Credit requirement for Parent PLUS loans"), "cfr_202": ("Code of Federal Regulations (PDF)", "Loan fee deducted from each disbursement")}
+             "cfr_200": ("Code of Federal Regulations (PDF)", "Credit requirement for Parent PLUS loans"), "cfr_202": ("Code of Federal Regulations (PDF)", "Loan fee deducted from each disbursement"),
+             "scorecard": ("Data file (CSV in a ZIP archive)", "College pages: tuition, cost of attendance, net price, admission and graduation rates, median debt"),
+             "scorecard_diz": ("Spreadsheet (data dictionary)", "The year each College Scorecard figure refers to, and what each column means")}
 
 
 def come_controlliamo():
@@ -1141,7 +1503,7 @@ def come_controlliamo():
     righe = []
     for fid, f in FONTI.items():
         forma, uso = USO_FONTE[fid]
-        righe.append(f'<tr><th scope="row"><a href="{h(f["url"])}" rel="noopener">{h(f["titolo"])}</a>{rim.ref(fid)}<br><span class="small">{h(f["chi"])}</span></th><td>{h(forma)}</td><td>{h(uso)}</td><td>{giorno(f["letto_il"])}</td></tr>')
+        righe.append(f'<tr><th scope="row"><a href="{h(f.get("pagina") or f["url"])}" rel="noopener">{h(f["titolo"])}</a>{rim.ref(fid)}<br><span class="small">{h(f["chi"])}</span></th><td>{h(forma)}</td><td>{h(uso)}</td><td>{giorno(f["letto_il"])}</td></tr>')
     corpo += (f'<h2 id="sources">The {len(FONTI)} official sources</h2><p class="small scorri">Swipe the table sideways to see every column.</p>'
               + tabella("Every figure on the site comes from one of these documents.", [("Document", 0), ("Form", 0), ("Used for", 0), ("Read on", 0)], righe, "ampia"))
     corpo += '<h2>How the figures get from the document to the page</h2><div class="testo"><ul>'
@@ -1150,6 +1512,9 @@ def come_controlliamo():
                    'The dates shown next to each entry are the dates written in that text, nothing else.[[fafsa_2728]]</li>'
                    '<li><strong>Interest rates.</strong> A program reads the tables of the notice. The build stops unless the Treasury yield plus the add-on equals the published rate on every line, and the 2026–27 line of the history table matches the first table.[[fr_tassi]]</li>'
                    '<li><strong>Loan limits.</strong> Each new limit is read from the final rule and from the law, and the two must give the same number. The undergraduate limits come from the official handbook and must match the totals the final rule repeats.[[fr_regola,legge,manuale]]</li>'
+                   f'<li><strong>College costs.</strong> The figures on the <a href="/college-costs/">college pages</a> are copied, cell by cell, from the College Scorecard file the Department of Education updated on {data_lunga(SC_AGG)} '
+                   f'({SC["fonti"]["scorecard"]["istituti"]:,} institutions). The file itself does not say which year a column refers to: we take the year from the Department’s data dictionary. '
+                   'A value the file marks as not available or privacy-suppressed is shown as missing, never estimated.[[scorecard,scorecard_diz]]</li>'
                    '<li><strong>Repayment formulas.</strong> The income bands, the $50 per dependent, the $10 minimum and the repayment periods are read from the text of the law; the bands must be consecutive.[[legge]]</li>'
                    f'<li>Every sentence in a quotation box is copied word for word and searched for in the downloaded file each time ({n_frasi} sentences). If one is no longer there, the build stops.</li>'
                    '<li>A second program, written separately with the key figures typed in by hand from the documents, compares every number on every page and re-runs the calculators with its own arithmetic.</li></ul></div>')
@@ -1157,11 +1522,11 @@ def come_controlliamo():
               '<li><strong>Official:</strong> dates, rates, dollar limits, income bands, repayment periods and every quoted sentence.</li>'
               '<li><strong>Ours:</strong> monthly payments, total interest, sums of yearly limits and the “gap” figures. They are arithmetic on the official numbers and are labelled “our calculation”. '
               'The payment formula counts interest by the month; loan servicers count it by the day, so their figures differ slightly.</li>'
-              '<li><strong>Yours:</strong> the college cost in the gap calculator. We publish no college prices.</li></ul></div>')
+              '<li><strong>Yours:</strong> the college cost you type into the gap calculator. On the college pages the cost is the net price from the federal file, held flat for four years: an assumption, stated on each page.</li></ul></div>')
     corpo += ('<h2>What we do not do</h2><div class="testo"><ul>'
               '<li>We do not give financial advice, recommend lenders or tell anyone how much to borrow.</li>'
               '<li>We do not use figures from other websites, lenders or news articles.</li>'
-              '<li>We do not cover private student loans, loan forgiveness programs, the exact loan fee of each year, or the deadlines of individual colleges.</li>'
+              '<li>We do not cover private student loans, loan forgiveness programs, the exact loan fee of each year, or the deadlines of individual colleges. College prices come only from the federal file, which runs about a year behind the colleges’ own websites.</li>'
               '<li>Some official web pages cannot be read by our checking program (they need a browser, or refuse automated visits). We do not try to get round that: we use the official PDF or legal text instead, and say which document we read.</li>'
               '<li>The 2026–27 volume of the official handbook on loan limits was not published when we read the sources, so the undergraduate table comes from the 2025–26 volume, together with the 2026 final rule stating that those limits did not change.</li></ul></div>')
     corpo += ('<h2>When we update</h2><div class="testo"><p>The FAFSA form is published once a year; states sometimes change a date afterwards, and the form is then reissued. Interest rates are announced once a year, after the May Treasury auction. '
@@ -1267,6 +1632,11 @@ def controlla():
         if f["http"] != 200 or mancano:
             raise SystemExit(f"fonte {fid}: HTTP {f['http']}, frasi mancanti {mancano} (rilanciare raccolta/fonti.py)")
         grezzo = RADICE / f["file"]
+        if fid == "scorecard":
+            # lo zip ufficiale (24 MB) sta in cache/ e può non esserci: fa fede l'estratto, con la sua impronta registrata insieme a quella dello zip
+            if hashlib.sha256((RADICE / f["estratto"]).read_bytes()).hexdigest() != f["estratto_sha256"] or (grezzo.exists() and hashlib.sha256(grezzo.read_bytes()).hexdigest() != f["sha256"]):
+                raise SystemExit("fonte scorecard: l'estratto o lo zip non hanno più l'impronta registrata (rilanciare raccolta/scorecard.py)")
+            continue
         if f.get("impronta") == "frasi":
             # Pagina HTML dinamica: i byte cambiano a ogni scarico, quindi fa fede l'impronta delle frasi citate, ritrovate nel file.
             if TESTO.impronta_frasi(TESTO.testo_norm(grezzo), f["frasi"]) != f["sha256_frasi"]:
@@ -1302,11 +1672,16 @@ def main():
     pagina_rata()
     pagina_rap()
     pagina_plus()
+    uni = prepara_universita()
+    indice_universita(uni)
+    for u in uni:
+        pagina_universita(u, uni)
     come_controlliamo()
     about()
     privacy()
     pagina_404()
     extra()
+    print(f"Schede delle università: {len(uni)} + indice (file Scorecard aggiornato il {SC_AGG.isoformat()}).")
     print(f"Sito generato in {SITO}: {len(URLS)} pagine indicizzabili + 404. Partner accesi: {', '.join(p['id'] for p in PARTNER) or 'nessuno (riquadro spento)'}.")
 
 

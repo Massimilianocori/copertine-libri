@@ -1,4 +1,4 @@
-// US College Aid: tema chiaro/scuro, conto dei giorni alle scadenze, filtro della tabella degli Stati, calcolatori, modulo delle correzioni.
+// US College Aid: tema chiaro/scuro, conto dei giorni alle scadenze, filtro delle tabelle (Stati, università), calcolatori, modulo delle correzioni.
 // Le pagine si leggono anche senza JavaScript (tabelle e date sono già nell'HTML). I calcolatori non hanno cifre scritte qui dentro:
 // tassi, tetti e scaglioni arrivano dall'attributo data-regole della pagina, che genera.py scrive da dati/aiuti.json (fonti ufficiali).
 // I conti sono in centesimi interi; i tassi in millesimi di punto percentuale (6,52 % = 6520).
@@ -138,7 +138,7 @@ if (typeof module !== 'undefined') module.exports = CA;
         tr.hidden = !ok; if (ok) n++;
       });
       vuoto.hidden = n > 0;
-      stato.textContent = 'Showing ' + n + ' of ' + righe.length + ' states and territories.';
+      stato.textContent = 'Showing ' + n + ' of ' + righe.length + ' ' + (box.getAttribute('data-cosa') || 'states and territories') + '.';
     }
     cerca.addEventListener('input', agg); tipo.addEventListener('change', agg);
     box.querySelector('[data-filtri]').hidden = false; agg();
