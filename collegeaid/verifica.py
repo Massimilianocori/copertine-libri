@@ -849,11 +849,12 @@ def controlla_universita():
         netto_di = lambda u_: int(righe[u_]["NPT4_PUB" if righe[u_]["CONTROL"] == "1" else "NPT4_PRIV"])  # noqa: E731
         ids = [x["unitid"] for x in scelte]
         stesso_stato = [x for x in ids if righe[x]["STABBR"] == r["STABBR"]]
-        carte = re.findall(r'<li><a href="/college-costs/([a-z0-9-]+)/"><b>([^<]*)</b><small>(\S+) tuition and fees', main)
-        for sl, nome_, tasse in carte:
+        carte = re.findall(r'<li><a href="/college-costs/([a-z0-9-]+)/"><b>([^<]*)</b><small>(\S+) (tuition and fees|average net price)', main)
+        for sl, nome_, tasse, cosa in carte:
             n += 1
             uid = next((k for k, v in slug_di.items() if v == sl), None)
-            if not uid or unescape(nome_) != righe[uid]["INSTNM"] or tasse != sc_usd(righe[uid]["TUITIONFEE_IN"]) or (len(stesso_stato) > 1 and righe[uid]["STABBR"] != r["STABBR"]):
+            if (not uid or unescape(nome_) != righe[uid]["INSTNM"] or (len(stesso_stato) > 1 and (righe[uid]["STABBR"] != r["STABBR"] or cosa != "tuition and fees" or tasse != sc_usd(righe[uid]["TUITIONFEE_IN"])))
+                    or (len(stesso_stato) == 1 and (cosa != "average net price" or tasse != sc_usd(str(netto_di(uid)))))):
                 err(f"{p}: riquadro «altre università» sbagliato per {sl}")
         if len(stesso_stato) > 1:
             attese_c = sorted((slug_di[x] for x in sorted((x for x in stesso_stato if x != s["unitid"]), key=lambda x: righe[x]["INSTNM"])[:8]))
@@ -874,7 +875,8 @@ def controlla_universita():
             err(f"{p}: posti del prezzo netto {mostrati}, dal file {attesi_p}")
         for k, (a, b) in attesi_p.items():
             suff_o = "th" if 10 <= a % 100 <= 20 else {1: "st", 2: "nd", 3: "rd"}.get(a % 10, "th")
-            if not re.search(rf'<span data-posto="{k}:{a}:{b}">the {"lowest" if a == 1 else f"{a}{suff_o} lowest"} of the {b} ', main):
+            quale = "lowest" if a == 1 else "highest" if a == b else f"{a}{suff_o} lowest"
+            if not re.search(rf'<span data-posto="{k}:{a}:{b}">the {quale}' + ("</span>" if k == "tutte" else rf" of the {b} "), main):
                 err(f"{p}: frase del posto «{k}» diversa dal conto")
         # università pubbliche: il costo totale del file vale solo per i residenti, e la pagina lo dice
         pub = r["CONTROL"] == "1"
@@ -890,6 +892,8 @@ def controlla_universita():
         piatto = lambda x: re.sub(r"\s+", " ", re.sub(r"[.\-:,]", " ", x.lower())).strip()  # noqa: E731  («St. John's» = «st john's»: la punteggiatura non conta in una ricerca)
         if not piatto(tit).startswith(piatto(s["frase_titolo"]) + " ") and piatto(tit) != piatto(s["frase_titolo"]):
             err(f"{p}: il titolo «{tit}» non comincia con la frase misurata «{s['frase_titolo']}»")
+        if pub and "$" in tit and "In-State" not in tit:
+            err(f"{p}: università pubblica con una cifra nel titolo senza «In-State»: {tit}")
         if pub and r["TUITIONFEE_IN"] != r["TUITIONFEE_OUT"] and "In-State" not in tit:
             corto = tit.split(":")[0].split(" 2025")[0] + (f": {sc_usd(r['COSTT4_A'])} a Year In-State" if s["frase_titolo"].endswith(" cost") and sc_num(r["COSTT4_A"]) else f": {sc_usd(r['TUITIONFEE_IN'])} In-State")
             if len(corto) <= 65:

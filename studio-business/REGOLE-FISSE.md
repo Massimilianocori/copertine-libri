@@ -217,3 +217,6 @@ Con 24 siti serve metodo. Queste regole valgono sempre, prima di qualsiasi lavor
 ## Affiliazioni: decisione del 19/11/2026
 Massimiliano: «se per ora le affiliazioni non prevedono un buon ritorno meglio non correre il rischio». I riquadri di affiliazione NUOVI restano spenti. Si riaprirà il tema solo quando: (a) l'interpello o un testo ufficiale chiarisce che le provvigioni stanno nel 58.19.00 senza Camera di Commercio, oppure (b) i numeri veri mostrano un ritorno che vale il rischio (stima con visite reali, non con ipotesi), da presentare a Massimiliano con le cifre. AdSense e i riquadri già accesi (Genki, Amazon, italki, Viator, Stay22 e gli altri già online) restano come sono.
 Lingua: tutti i messaggi a Massimiliano in italiano, anche le risposte brevi tecniche.
+
+## Decisioni senza chiedere (Massimiliano, 19/11/2026: «non devi chiedere quando una decisione migliora il fatturato probabile»)
+Si decide e si fa da soli tutto ciò che migliora il fatturato probabile e rispetta le altre regole (controlli, revisione ≥ 8,5, niente spese, niente rischi fiscali nuovi, niente siti nuovi prima del 1/12). Si chiede solo per: spese, rischi fiscali o legali, siti nuovi, azioni sui suoi account, dati personali.

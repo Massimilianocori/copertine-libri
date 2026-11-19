@@ -1206,9 +1206,10 @@ def ordinale(n):
 def frase_posto(u, stato):
     def posto(k, di_che):
         p, su = u["posto"][k]
-        return f'<span data-posto="{k}:{p}:{su}">{"the lowest" if p == 1 else f"the {ordinale(p)} lowest"} of the {su} {di_che}</span>'
+        quale = "the lowest" if p == 1 else "the highest" if p == su else f"the {ordinale(p)} lowest"
+        return f'<span data-posto="{k}:{p}:{su}">{quale}{f" of the {su} {di_che}" if di_che else ""}</span>'
     tipo = TIPO_UNI[u["r"]["CONTROL"]][1].lower()
-    testo = (f'<p>Among the {u["posto"]["tutte"][1]} colleges with a page on this site, the average net price at {h(u["nome"])} ({usd_s(int(u["netto"]))}) is {posto("tutte", "colleges")}, '
+    testo = (f'<p>Among the {u["posto"]["tutte"][1]} colleges with a page on this site, the average net price at {h(u["nome"])} ({usd_s(int(u["netto"]))}) is {posto("tutte", "")}, '
              f'and {posto("tipo", f"{tipo} colleges")}. ')
     if u["posto"]["stato"][1] > 1:
         testo += f'In {h(stato)} it is {posto("stato", f"colleges with a page here")}. '
@@ -1260,12 +1261,14 @@ def titolo_universita(u):
         prove = [f"{F} {A_TASSE}: {cifra}, Net Price by Income, Loan Gap", f"{F} {A_TASSE}: {cifra}, Net Price, Loan Gap", f"{F}: {cifra}, Net Price, Loan Gap"]
         if cifra.endswith("In-State"):   # università pubbliche: «In-State» resta nel titolo finché ci sta
             prove += [f"{F}: {cifra}, Net Price", f"{F}: {cifra}"]
-        prove += [f"{F} {A_TASSE}: {usd(int(tin))}, Net Price, Loan Gap",
-                 f"{F}: {usd(int(tin))}, Net Price, Loan Gap", f"{F}: {usd(int(tin))} and Net Price", f"{F}: Net Price, Loan Gap",
-                 f"{F}: {usd(int(tin))}, Loan Gap", f"{F}: {usd(int(tin))} a Year", f"{F} and Net Price", f"{F} {A_TASSE}", F]
+            prove += [f"{F}: Net Price, Loan Gap", f"{F} and Net Price", f"{F} {A_TASSE}", F]   # se «In-State» non ci sta, niente cifra: una cifra senza «In-State» farebbe credere che valga per tutti
+        else:
+            prove += [f"{F} {A_TASSE}: {usd(int(tin))}, Net Price, Loan Gap",
+                      f"{F}: {usd(int(tin))}, Net Price, Loan Gap", f"{F}: {usd(int(tin))} and Net Price", f"{F}: Net Price, Loan Gap",
+                      f"{F}: {usd(int(tin))}, Loan Gap", f"{F}: {usd(int(tin))} a Year", f"{F} and Net Price", f"{F} {A_TASSE}", F]
     else:
         dentro = [f"{F}: {usd(int(costo))} a Year In-State, Net Price, Loan Gap", f"{F}: {usd(int(costo))} a Year In-State, Net Price", f"{F}: {usd(int(costo))} a Year In-State"] if u["pubblica"] else []
-        prove = dentro + [f"{F}: {usd(int(costo))} a Year, Net Price by Income, Loan Gap", f"{F}: {usd(int(costo))} a Year, Net Price, Loan Gap", f"{F}: {usd(int(costo))} a Year and Net Price", f"{F}: Net Price, Loan Gap", F]
+        prove = dentro + ([] if u["pubblica"] else [f"{F}: {usd(int(costo))} a Year, Net Price by Income, Loan Gap", f"{F}: {usd(int(costo))} a Year, Net Price, Loan Gap", f"{F}: {usd(int(costo))} a Year and Net Price"]) + [f"{F}: Net Price, Loan Gap", f"{F} and Net Price", F]
     for t in prove:
         if len(t) <= 65 and t not in TITOLI.values():
             return t
@@ -1405,7 +1408,7 @@ def pagina_universita(u, tutte):
     # ---- altre università dello stesso Stato
     vicine = u["vicine"] or u["simili"]
     if vicine:
-        griglia = "".join(f'<li><a href="/{x["percorso"]}"><b>{h(x["nome"])}</b><small>{soldi_sc(x["r"]["TUITIONFEE_IN"])} tuition and fees{"" if x["r"]["TUITIONFEE_IN"] == x["r"]["TUITIONFEE_OUT"] else ", in-state"}</small></a></li>' for x in vicine)
+        griglia = "".join(f'<li><a href="/{x["percorso"]}"><b>{h(x["nome"])}</b><small>{(soldi_sc(x["r"]["TUITIONFEE_IN"]) + " tuition and fees" + ("" if x["r"]["TUITIONFEE_IN"] == x["r"]["TUITIONFEE_OUT"] else ", in-state")) if u["vicine"] else (usd_s(int(x["netto"])) + " average net price" + (", in-state" if x["pubblica"] else ""))}</small></a></li>' for x in vicine)
         corpo += (f'<h2 id="others">Other colleges in {h(stato)}</h2>' if u["vicine"] else
                   f'<h2 id="others">Colleges with a similar net price</h2><p class="small">No other college in {h(stato)} has a page here yet. These are the closest by average net price.</p>') + f'<ul class="griglia larga uni">{griglia}</ul>'
     corpo += f'<p class="azioni"><a class="btn sec" href="/{P_UNI}">All {len(tutte)} colleges{ico("arrow")}</a></p>'
