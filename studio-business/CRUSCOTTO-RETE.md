@@ -77,6 +77,7 @@ Una riga al giorno, scritta dal riassunto delle 08:12. Previsto = stima centrale
 | 17/11/2026 | 40.270 | invariato (16/11: Genki su Visa Income e pagine pronte, escono stasera; nessuna sezione nuova online) | 232 (16/11; 15/11: 179) | 0 |
 | 17/11/2026 (correzione) | 37.210 | −3.060: tolti i visti australiani (1.900) e i corsi TEFL (1.160), contati il 14/11 ma non ancora costruiti. Regola da oggi: il previsto conta solo sezioni online o pronte. Una parte (Gusto/ADP, ZenBusiness, ottonova, AceableAgent) dipende da riquadri spenti fino alla decisione sulle affiliazioni | 232 (16/11) | 0 |
 | 19/11/2026 | 41.755 | +1.900 visti australiani Visa Income (online 19/11, tolti il 17/11 perché non ancora costruiti); +2.645 sezioni PRONTE per il lotto di venerdì: officine auto NAICS 1.000, Regno Unito aprile 2027 475, tetto affitti 2027 470, salario minimo 2027 460, compagnie aeree per cani 240 (sito aiuti universitari USA e sezione TEFL costruiti, non contati finché la revisione non passa) | 194 (18/11; 17/11: 230) | 0 |
+| 19/11/2026 (giorno) | 44.065 | +1.160 corsi TEFL Visa Income (pronti, revisione 9/10, escono venerdì) +1.150 sito aiuti universitari USA (pronto, revisione 9,2/10, da collegare su Netlify) | 194 (18/11) | 0 |
 
 ## 2b. Stima dei ricavi a 18 mesi (14/10/2026, aggiornata il 17/10 con FloodCost, rifiuti visti, navi e FHA). Sono stime, non numeri: si rifanno con i dati veri.
 

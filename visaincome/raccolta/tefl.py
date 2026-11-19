@@ -62,7 +62,7 @@ FONTI = {
                  "url": "https://london.thaiembassy.org/en/page/non-b-visa-for-employment-as-teachers"},
     "tw_cram": {"paese": "taiwan", "titolo": "Qualification and Criteria Standards for the Employment of Foreign Professionals as Teachers by Short-term Supplementary Learning Centers",
                 "editore": "Laws & Regulations Database of the Republic of China (Taiwan), Ministry of Justice", "url": "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=N0090054"},
-    "tw_zh": {"paese": "taiwan", "titolo": "外國專業人才從事短期補習班教師工作資格及審查標準 (the same standards, Chinese text: the text that applies)",
+    "tw_zh": {"paese": "taiwan", "titolo": "短期補習班聘僱外國專業人才從事教師工作資格及審查標準 (the same standards, Chinese text: the text that applies)",
               "editore": "Laws & Regulations Database of the Republic of China (Taiwan), Ministry of Justice", "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=N0090054"},
     "cn_req": {"paese": "china", "titolo": "Requirements and Procedures for Chinese Visa Application (Updated September, 2025)",
                "editore": "Embassy of the People's Republic of China in the United States of America", "url": "https://us.china-embassy.gov.cn/eng/lsfw/zj/qz2021/202509/t20250920_11712385.htm"},

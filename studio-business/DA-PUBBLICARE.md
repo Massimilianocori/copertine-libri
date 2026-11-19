@@ -201,6 +201,6 @@ Le idee della riserva entrano nella coda di costruzione nell'ordine della colonn
 ## In costruzione 19/11 notte
 | Cosa | Stato |
 |---|---|
-| collegeaid/ (sito nuovo, aiuti universitari USA 2027-28) | in costruzione; poi revisione indipendente; poi collegarlo su Netlify (base collegeaid/sito) |
-| visaincome/ sezione TEFL | in costruzione; poi revisione e pubblicazione |
+| collegeaid/ (sito nuovo, aiuti universitari USA 2027-28) | **PRONTO 19/11** (revisione 8,2 → 9,2/10; commit 699748969). Aspetta Massimiliano: collegarlo su Netlify (ramo ccr-b7fd6b9e-n096cr, base collegeaid/sito, nome us-college-aid); poi spostare l'host fuori da NON_ONLINE in indexnow.py, IndexNow, Search Console |
+| visaincome/ sezione TEFL | **PRONTO 19/11** (revisione 7,5 → corretti 9 difetti → 9/10; titolo cinese di Taiwan corretto; verifica offline TUTTO OK, punto 41 online 0 errori, monetizzazione 0). Visa Income già pubblicato il 19/11 → esce nel lotto di venerdì 20/11 |
 | beforeyoufly/ bagaglio a mano: 19 compagnie mancanti (~250.000 ricerche/mese) | in costruzione, sopra le modifiche animali già pronte; poi revisione |
