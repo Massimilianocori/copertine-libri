@@ -88,6 +88,10 @@ def invia(host, urls):
 
 def main():
     argv = sys.argv[1:]
+    noti = {"--prova", "--solo"}
+    if any(a.startswith("-") and a not in noti for a in argv):
+        print("Uso: indexnow.py [--prova] [--solo <host>]  (senza opzioni invia TUTTI i siti online)")
+        sys.exit(2)
     prova = "--prova" in argv
     solo = argv[argv.index("--solo") + 1] if "--solo" in argv and argv.index("--solo") + 1 < len(argv) else None
     if "--solo" in argv and not solo:
