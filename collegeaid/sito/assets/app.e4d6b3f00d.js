@@ -39,13 +39,13 @@ var CA = (function () {
   // minimo (centesimi, facoltativo): pagamento minimo mensile della regola (34 CFR 685.208): se la rata calcolata è più bassa
   // si paga il minimo e il prestito finisce prima; se il dovuto è sotto il minimo, il pagamento è il dovuto.
   function piano(saldo, tasso, mesi, minimo) {
-    var calcolata = rata(saldo, tasso, mesi), p = Math.max(calcolata, minimo || 0), resto = saldo, pagato = 0, interessi = 0, n = 0, prima = 0;
+    var calcolata = rata(saldo, tasso, mesi), piccolo = !!minimo && saldo < minimo, p = piccolo ? saldo + interesseMese(saldo, tasso) : Math.max(calcolata, minimo || 0), resto = saldo, pagato = 0, interessi = 0, n = 0, prima = 0;
     while (resto > 0 && n < mesi + 12) {
       var i = interesseMese(resto, tasso), dovuto = resto + i, paga = (n === mesi - 1 || dovuto < p) ? dovuto : p;
       if (n === 0) prima = paga;
       resto = dovuto - paga; pagato += paga; interessi += i; n++;
     }
-    return { rata: Math.min(p, prima), mesi: n, pagato: pagato, interessi: interessi, minimo: p > calcolata };
+    return { rata: Math.min(p, prima), mesi: n, pagato: pagato, interessi: interessi, minimo: !piccolo && p > calcolata, piccolo: piccolo };
   }
   // Repayment Assistance Plan: pagamento base annuo per scaglione di reddito (AGI), diviso 12, meno 50 $ per persona a carico, minimo 10 $.
   // reddito in dollari interi. Restituisce centesimi.
@@ -167,10 +167,10 @@ if (typeof module !== 'undefined') module.exports = CA;
       var anni = pianoI.value === 'nuovo' ? CA.anniStandard(saldo, R.fasce) : 10, p = CA.piano(saldo, tasso, anni * 12, R.minimo_mese * 100);
       if (!p) return errore(box, 'These numbers do not produce a repayment schedule.');
       errore(box, '');
-      scrivi(box, 'rata', CA.usd(p.rata)); scrivi(box, 'anni', p.minimo ? p.mesi + (p.mesi === 1 ? ' payment' : ' payments') + ' ($' + R.minimo_mese + ' minimum)' : anni + ' years (' + p.mesi + ' payments)');
+      scrivi(box, 'rata', CA.usd(p.rata)); scrivi(box, 'anni', p.piccolo ? '1 payment: the balance you owe' : p.minimo ? p.mesi + (p.mesi === 1 ? ' payment' : ' payments') + ' ($' + R.minimo_mese + ' minimum)' : anni + ' years (' + p.mesi + ' payments)');
       scrivi(box, 'minimo', p.minimo ? 'The fixed payment for this balance over ' + anni + ' years would be below $' + R.minimo_mese + '. Standard plan payments are at least $' + R.minimo_mese + ' a month, so the loan is paid off sooner.' : '');
       scrivi(box, 'pagato', CA.usd(p.pagato)); scrivi(box, 'interessi', CA.usd(p.interessi));
-      scrivi(box, 'perche', pianoI.value === 'nuovo'
+      scrivi(box, 'perche', p.piccolo ? 'With less than $' + R.minimo_mese + ' left, the payment is simply what you owe, interest for the month included.' : pianoI.value === 'nuovo'
         ? 'A balance of ' + CA.usd(saldo, true) + ' falls in the ' + anni + '-year band of the standard plan for loans made on or after July 1, 2026.'
         : 'Fixed payment over 10 years, the standard plan for borrowers whose loans were all made before July 1, 2026.');
     });

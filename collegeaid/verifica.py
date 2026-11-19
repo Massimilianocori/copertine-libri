@@ -97,15 +97,16 @@ def rif_piano(saldo_cent, tasso_pc, mesi, minimo=M_STD_MIN * 100):
     interesse mensile arrotondato al centesimo; l'ultima rata chiude."""
     r = Decimal(tasso_pc) / 1200
     calcolata = cent(Decimal(saldo_cent) / mesi) if r == 0 else cent(Decimal(saldo_cent) * r / (1 - (1 + r) ** (-mesi)))
-    rata = max(calcolata, minimo)
     primo_dovuto = saldo_cent + cent(Decimal(saldo_cent) * Decimal(tasso_pc) / 1200)
+    piccolo = saldo_cent < minimo            # saldo sotto 50 $: un solo pagamento, pari al dovuto (685.208)
+    rata = primo_dovuto if piccolo else max(calcolata, minimo)
     resto, pagato, interessi, n = saldo_cent, 0, 0, 0
     while resto > 0:
         i = cent(Decimal(resto) * Decimal(tasso_pc) / 1200)   # prima il prodotto, poi la divisione: i casi a metà centesimo restano esatti
         dovuto = resto + i
         paga = dovuto if (n == mesi - 1 or dovuto < rata) else rata
         resto, pagato, interessi, n = dovuto - paga, pagato + paga, interessi + i, n + 1
-    return {"rata": min(rata, primo_dovuto), "mesi": n, "pagato": pagato, "interessi": interessi, "minimo": rata > calcolata}
+    return {"rata": min(rata, primo_dovuto), "mesi": n, "pagato": pagato, "interessi": interessi, "minimo": not piccolo and rata > calcolata, "piccolo": piccolo}
 
 
 def rif_rap(reddito, carico):
@@ -577,7 +578,7 @@ console.log(JSON.stringify(out));
     # conti a mano (scritti qui, non calcolati): 10.000 $ al 6,52 % in 10 anni = 113,65 $ (r = 0,0054333; (1+r)^120 = 1,91599; 10.000 × r ÷ (1 − 1/1,91599)); RAP 45.000 $ = 4 % = 1.800 $/anno = 150 $ al mese; con 2 persone a carico 50 $
     # minimo: 3.000 $ al 6,52 % in 10 anni darebbe 34,10 $ -> 50 $; 40 $ di saldo -> un solo pagamento di 40,22 $ (40 $ + 0,22 $ di interesse)
     m1, m2 = rif_piano(300000, "6.52", 120), rif_piano(4000, "6.52", 120)
-    if (m1["rata"], m1["minimo"], m1["mesi"] < 120) != (5000, True, True) or (m2["rata"], m2["mesi"], m2["pagato"]) != (4022, 1, 4022):
+    if (m1["rata"], m1["minimo"], m1["mesi"] < 120) != (5000, True, True) or (m2["rata"], m2["mesi"], m2["pagato"], m2["minimo"], m2["piccolo"]) != (4022, 1, 4022, False, True):
         err(f"conti a mano del pagamento minimo diversi dal riferimento: {m1} {m2}")
     if rif_piano(1000000, "6.52", 120)["rata"] != 11365:
         err(f"conto a mano: rata di 10.000 $ al 6,52 % = {rif_piano(1000000, '6.52', 120)['rata']}")
@@ -607,11 +608,11 @@ def attesi_browser():
     def piano_txt(s, t, p):
         anni = rif_anni(s) if p == "nuovo" else 10
         x = rif_piano(s, t, anni * 12)
-        periodo = (f"{x['mesi']} payment{'' if x['mesi'] == 1 else 's'} (${M_STD_MIN} minimum)") if x["minimo"] else f"{anni} years ({x['mesi']} payments)"
+        periodo = "1 payment: the balance you owe" if x["piccolo"] else (f"{x['mesi']} payment{'' if x['mesi'] == 1 else 's'} (${M_STD_MIN} minimum)") if x["minimo"] else f"{anni} years ({x['mesi']} payments)"
         return {"rata": usdc(x["rata"]), "anni": periodo, "pagato": usdc(x["pagato"]), "interessi": usdc(x["interessi"])}
-    rata = [{"saldo": str(s // 100), "tasso": t, "piano": p, "atteso": piano_txt(s, t, p)} for s, t, p in
+    rata = [{"saldo": f"{s // 100}.{s % 100:02d}", "tasso": t, "piano": p, "atteso": piano_txt(s, t, p)} for s, t, p in
             [(2700000, "6.52", "nuovo"), (2700000, "6.52", "vecchio"), (1000000, "6.52", "nuovo"), (2499900, "8.07", "nuovo"), (2500000, "8.07", "nuovo"), (5750000, "6.52", "nuovo"),
-             (6500000, "9.07", "nuovo"), (10000000, "8.07", "nuovo"), (20000000, "8.07", "vecchio"), (500000, "0", "vecchio"), (300000, "6.52", "nuovo"), (300000, "6.52", "vecchio"), (4000, "6.52", "nuovo"), (100000, "0", "vecchio")]]
+             (6500000, "9.07", "nuovo"), (10000000, "8.07", "nuovo"), (20000000, "8.07", "vecchio"), (500000, "0", "vecchio"), (300000, "6.52", "nuovo"), (300000, "6.52", "vecchio"), (4000, "6.52", "nuovo"), (4990, "9.07", "vecchio"), (100000, "0", "vecchio")]]
     rap = []
     for red, car, saldo, tasso in [(45000, 0, 3000000, "6.52"), (45000, 2, 3000000, "6.52"), (8000, 0, None, "6.52"), (30000, 0, 5000000, "8.07"), (30001, 0, 5000000, "8.07"),
                                    (100000, 1, 2000000, "6.52"), (150000, 3, 20000000, "8.07"), (12000, 3, 1000000, "6.52"), (65000, 1, None, "6.52"), (20000, 0, 100000, "6.52")]:
