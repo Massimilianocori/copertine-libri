@@ -206,7 +206,7 @@ Le idee della riserva entrano nella coda di costruzione nell'ordine della colonn
 |---|---|---|
 | visaincome | sezione TEFL (6 pagine + Corea noindex) | revisione 9/10 |
 | esameb1 | pagina esempi con titolo «Test lingua italiana B1 per cittadinanza online», chiarimento esame in presenza, FAQ «cittadinanza italiana» | rigenerare il giorno stesso (date) |
-| beforeyoufly | riquadro bagaglio da stiva su 11 compagnie (421.300 ricerche/mese) | revisione 9,1/10; prima `raccolta/cani_volo.py`, poi rigenerare il giorno stesso (biglietti con date) |
+| beforeyoufly | riquadro bagaglio da stiva su 11 compagnie (421.300 ricerche/mese) + regole power bank su 33 compagnie e pagina indice /cabin-bags/power-banks/ (revisione 8,8/10, nessuna affiliazione) | revisione 9,1/10; prima `raccolta/cani_volo.py`, poi rigenerare il giorno stesso (biglietti con date) |
 Procedura: genera → verifica 0 errori → monetizzazione → commit per sito (senza [skip netlify]) → push → controllo online → IndexNow → riga «Pubblicato il…» → `salute.py`.
 
 ## In costruzione 19/11 notte
