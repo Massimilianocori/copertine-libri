@@ -1,0 +1,877 @@
+{
+ "_nota": "Generato da raccolta/fonti.py dai file in dati/grezzi/. Importi in dollari interi, tassi come stringhe con i decimali della fonte, date ISO. fafsa.voci[].testo è il testo del modulo, voce per voce; fafsa.voci[].date sono le date scritte in quel testo.",
+ "fafsa": {
+  "anno": "2027–28",
+  "anno_dal": "2027-07-01",
+  "anno_al": "2028-06-30",
+  "apertura": "2026-10-01",
+  "chiusura_federale": "2028-06-30",
+  "voci": [
+   {
+    "nome": "Alabama",
+    "sigla": "AL",
+    "testo": "Check with your financial aid office.",
+    "date": [],
+    "territorio": false
+   },
+   {
+    "nome": "Alaska",
+    "sigla": "AK",
+    "testo": "Alaska Education Grant: As soon as possible after Oct. 1, 2026. Awards made while funds exist. Alaska Performance Scholarship: For priority consideration, submit by June 30, 2027. Awards made while funds exist.",
+    "date": [
+     "2026-10-01",
+     "2027-06-30"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "American Samoa",
+    "sigla": "AS",
+    "testo": "Check with your financial aid office. More forms may be required.",
+    "date": [],
+    "territorio": true
+   },
+   {
+    "nome": "Arizona",
+    "sigla": "AZ",
+    "testo": "Arizona Promise Program: For priority consideration, submit by April 1, 2027.",
+    "date": [
+     "2027-04-01"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "Arkansas",
+    "sigla": "AR",
+    "testo": "Academic Challenge: July 1, 2027. Governor’s Scholars Program: Distinguished, March 1, 2027; Non-Distinguished, July 1, 2027. ArFuture Grant: fall term, July 1, 2027; spring term, Jan. 10, 2028.",
+    "date": [
+     "2027-03-01",
+     "2027-07-01",
+     "2028-01-10"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "California",
+    "sigla": "CA",
+    "testo": "For many state financial aid programs: March 2, 2027 (date postmarked). Cal Grant also requires submission of a school-certified GPA by March 2, 2027. For additional community college Cal Grants: Sept. 2, 2027 (date postmarked). For noncitizens without a Social Security card or with one issued through the federal Deferred Action for Childhood Arrivals (DACA) program, fill out the California Dream Act Application. Contact the California Student Aid Commission or your financial aid office for more information.",
+    "date": [
+     "2027-03-02",
+     "2027-09-02"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "Colorado",
+    "sigla": "CO",
+    "testo": "Check with your financial aid office.",
+    "date": [],
+    "territorio": false
+   },
+   {
+    "nome": "Connecticut",
+    "sigla": "CT",
+    "testo": "For priority consideration, submit by Feb. 15, 2027. Check with your financial aid office or state agency. More forms may be required.",
+    "date": [
+     "2027-02-15"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "Delaware",
+    "sigla": "DE",
+    "testo": "May 15, 2027",
+    "date": [
+     "2027-05-15"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "District of Columbia",
+    "sigla": "DC",
+    "testo": "For priority consideration, submit by June 25, 2027. DC Tuition Assistance Grant: For priority consideration, submit the DC OneApp and supporting documents by July 1, 2027.",
+    "date": [
+     "2027-06-25",
+     "2027-07-01"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "Federated States of Micronesia",
+    "sigla": "FM",
+    "testo": "Check with your financial aid office. More forms may be required.",
+    "date": [],
+    "territorio": true
+   },
+   {
+    "nome": "Florida",
+    "sigla": "FL",
+    "testo": "May 15, 2027 (date processed). Check with your financial aid office.",
+    "date": [
+     "2027-05-15"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "Georgia",
+    "sigla": "GA",
+    "testo": "As soon as possible after Oct. 1, 2026. Check with your financial aid office. More forms may be required. Refer to Georgia Student Finance Commission’s website for more information.",
+    "date": [
+     "2026-10-01"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "Guam",
+    "sigla": "GU",
+    "testo": "Check with your financial aid office. More forms may be required.",
+    "date": [],
+    "territorio": true
+   },
+   {
+    "nome": "Hawaii",
+    "sigla": "HI",
+    "testo": "Check with your financial aid office. More forms may be required.",
+    "date": [],
+    "territorio": false
+   },
+   {
+    "nome": "Idaho",
+    "sigla": "ID",
+    "testo": "Opportunity Scholarship: Submit by March 1, 2027. Check with your financial aid office or state agency. More forms may be required.",
+    "date": [
+     "2027-03-01"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "Illinois",
+    "sigla": "IL",
+    "testo": "As soon as possible after Oct. 1, 2026. Monetary Award Program (MAP): Awards made while funds exist. Refer to the Illinois Student Assistance Commission’s website for program information.",
+    "date": [
+     "2026-10-01"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "Indiana",
+    "sigla": "IN",
+    "testo": "Frank O’Bannon Grant, 21st Century Scholarship, Workforce Ready Grant, and Adult Student Grant: April 15, 2027",
+    "date": [
+     "2027-04-15"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "Iowa",
+    "sigla": "IA",
+    "testo": "July 1, 2027; earlier priority deadlines may exist for certain programs. More forms may be required.",
+    "date": [
+     "2027-07-01"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "Kansas",
+    "sigla": "KS",
+    "testo": "For priority consideration, submit by April 1, 2027. Check with your financial aid office or state agency. More forms may be required.",
+    "date": [
+     "2027-04-01"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "Kentucky",
+    "sigla": "KY",
+    "testo": "As soon as possible after Oct. 1, 2026. Awards made while funds exist.",
+    "date": [
+     "2026-10-01"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "Louisiana",
+    "sigla": "LA",
+    "testo": "July 1, 2028 (Feb. 1, 2027, recommended)",
+    "date": [
+     "2027-02-01",
+     "2028-07-01"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "Maine",
+    "sigla": "ME",
+    "testo": "May 1, 2027",
+    "date": [
+     "2027-05-01"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "Marshall Islands",
+    "sigla": "MH",
+    "testo": "As soon as possible after Oct. 1, 2026.",
+    "date": [
+     "2026-10-01"
+    ],
+    "territorio": true
+   },
+   {
+    "nome": "Maryland",
+    "sigla": "MD",
+    "testo": "Howard P. Rawlings Educational Excellence Awards (EEA): March 1, 2027",
+    "date": [
+     "2027-03-01"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "Massachusetts",
+    "sigla": "MA",
+    "testo": "For priority consideration, submit by May 1, 2027.",
+    "date": [
+     "2027-05-01"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "Michigan",
+    "sigla": "MI",
+    "testo": "Michigan Competitive Scholarship and Michigan Tuition Grant: For priority consideration, submit by July 1, 2027.",
+    "date": [
+     "2027-07-01"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "Minnesota",
+    "sigla": "MN",
+    "testo": "State Grant: By 30th day of term. North Star Promise: For priority consideration, submit by June 1, 2027. All other aid: Check with your financial aid office. More forms may be required.",
+    "date": [
+     "2027-06-01"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "Mississippi",
+    "sigla": "MS",
+    "testo": "MTAG and MESG Grants: Oct. 15, 2027. HELP Grant: April 30, 2027",
+    "date": [
+     "2027-04-30",
+     "2027-10-15"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "Missouri",
+    "sigla": "MO",
+    "testo": "For priority consideration, submit by Feb. 1, 2027. Applications accepted through April 1, 2027.",
+    "date": [
+     "2027-02-01",
+     "2027-04-01"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "Montana",
+    "sigla": "MT",
+    "testo": "For priority consideration, submit as soon as possible after Oct. 1, 2026. Check with your financial aid office. More forms may be required.",
+    "date": [
+     "2026-10-01"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "N. Mariana Islands",
+    "sigla": "MP",
+    "testo": "For priority consideration, submit as soon as possible after Oct. 1, 2026. More forms may be required.",
+    "date": [
+     "2026-10-01"
+    ],
+    "territorio": true
+   },
+   {
+    "nome": "Nebraska",
+    "sigla": "NE",
+    "testo": "Check with your financial aid office.",
+    "date": [],
+    "territorio": false
+   },
+   {
+    "nome": "Nevada",
+    "sigla": "NV",
+    "testo": "Silver State Opportunity Grant: As soon as possible after Oct. 1, 2026. Awards made while funds exist. Nevada Promise Scholarship: April 1, 2027. More forms may be required. Awards made while funds exist. All other aid, check with your financial aid office. More forms may be required.",
+    "date": [
+     "2026-10-01",
+     "2027-04-01"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "New Hampshire",
+    "sigla": "NH",
+    "testo": "Check with your financial aid office. More forms may be required.",
+    "date": [],
+    "territorio": false
+   },
+   {
+    "nome": "New Jersey",
+    "sigla": "NJ",
+    "testo": "Renewal applicants (2026–27 Tuition Aid Grant recipients): April 15, 2027. All other applicants: fall and spring terms, Sept. 15, 2027; spring term only, Feb. 15, 2028.",
+    "date": [
+     "2027-04-15",
+     "2027-09-15",
+     "2028-02-15"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "New Mexico",
+    "sigla": "NM",
+    "testo": "Check with your financial aid office.",
+    "date": [],
+    "territorio": false
+   },
+   {
+    "nome": "New York",
+    "sigla": "NY",
+    "testo": "June 30, 2028. More forms may be required.",
+    "date": [
+     "2028-06-30"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "North Carolina",
+    "sigla": "NC",
+    "testo": "For priority consideration, submit by June 1, 2027, if attending a UNC System institution or community college. Submit as soon as possible after Oct. 1, 2026, if attending a private institution. Awards made while funds exist.",
+    "date": [
+     "2026-10-01",
+     "2027-06-01"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "North Dakota",
+    "sigla": "ND",
+    "testo": "As soon as possible after Oct. 1, 2026. Awards made while funds exist.",
+    "date": [
+     "2026-10-01"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "Ohio",
+    "sigla": "OH",
+    "testo": "Oct. 1, 2027",
+    "date": [
+     "2027-10-01"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "Oklahoma",
+    "sigla": "OK",
+    "testo": "Check with your financial aid office.",
+    "date": [],
+    "territorio": false
+   },
+   {
+    "nome": "Oregon",
+    "sigla": "OR",
+    "testo": "Oregon Opportunity Grant: As soon as possible after Oct. 1, 2026. Awards made while funds exist. OSAC Private Scholarships: March 1, 2027. More forms may be required. Oregon Promise Grant and other state grants: Contact state agency. More forms may be required.",
+    "date": [
+     "2026-10-01",
+     "2027-03-01"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "Palau",
+    "sigla": "PW",
+    "testo": "Check with your financial aid office. More forms may be required.",
+    "date": [],
+    "territorio": true
+   },
+   {
+    "nome": "Pennsylvania",
+    "sigla": "PA",
+    "testo": "First-time applicants enrolled in a community college, business/trade/technical school, hospital school of nursing, designated Pennsylvania open-admission institution, or nontransferable two-year program: Aug. 1, 2027. All other applicants: May 1, 2027. More forms may be required.",
+    "date": [
+     "2027-05-01",
+     "2027-08-01"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "Puerto Rico",
+    "sigla": "PR",
+    "testo": "Check with your financial aid office.",
+    "date": [],
+    "territorio": true
+   },
+   {
+    "nome": "Rhode Island",
+    "sigla": "RI",
+    "testo": "Check with your financial aid office. More forms may be required.",
+    "date": [],
+    "territorio": false
+   },
+   {
+    "nome": "South Carolina",
+    "sigla": "SC",
+    "testo": "SC Commission on Higher Education Need-based Grants: first come, first served; awards made while funds exist. SC Tuition Grants: Aug. 1, 2027, for SC independent institutions only.",
+    "date": [
+     "2027-08-01"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "South Dakota",
+    "sigla": "SD",
+    "testo": "Check with your financial aid office. More forms may be required.",
+    "date": [],
+    "territorio": false
+   },
+   {
+    "nome": "Tennessee",
+    "sigla": "TN",
+    "testo": "State Grant: Prior-year recipients receive award if eligible and apply by April 1, 2027; all other awards made to eligible applicants on a first-come, first-served basis. Awards made while funds exist. Tennessee Promise: April 1, 2027. State Lottery: fall term, Sept. 1, 2027; spring term, March 1, 2028; summer term, May 1, 2028.",
+    "date": [
+     "2027-04-01",
+     "2027-09-01",
+     "2028-03-01",
+     "2028-05-01"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "Texas",
+    "sigla": "TX",
+    "testo": "For priority consideration, submit by Jan. 15, 2027. More forms may be required. Private and two-year institutions may have different deadlines; check with your financial aid office.",
+    "date": [
+     "2027-01-15"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "U.S. Virgin Islands",
+    "sigla": "VI",
+    "testo": "Check with your financial aid office. More forms may be required.",
+    "date": [],
+    "territorio": true
+   },
+   {
+    "nome": "Utah",
+    "sigla": "UT",
+    "testo": "Check with your financial aid office. Awards made while funds exist. More forms may be required. Visit the Utah System of Higher Education website for details about aid options.",
+    "date": [],
+    "territorio": false
+   },
+   {
+    "nome": "Vermont",
+    "sigla": "VT",
+    "testo": "As soon as possible after Oct. 1, 2026. Awards made while funds exist. More forms may be required.",
+    "date": [
+     "2026-10-01"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "Virginia",
+    "sigla": "VA",
+    "testo": "As soon as possible after Oct. 1, 2026. Deadlines vary by institution; check with your financial aid office. Students who are ineligible for federal aid but meet state aid and residency requirements can instead complete the Virginia Alternative State Aid Application. Check with your financial aid office.",
+    "date": [
+     "2026-10-01"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "Washington",
+    "sigla": "WA",
+    "testo": "As soon as possible after Oct. 1, 2026. Funds available year round, and all eligible students will be awarded. Check with your financial aid office.",
+    "date": [
+     "2026-10-01"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "West Virginia",
+    "sigla": "WV",
+    "testo": "Promise Scholarship: March 1, 2027. New applicants must submit additional form. Contact your financial aid office or state agency. WV Higher Education Grant: April 15, 2027. WV Invests Grant: For priority consideration, submit by April 15, 2027.",
+    "date": [
+     "2027-03-01",
+     "2027-04-15"
+    ],
+    "territorio": false
+   },
+   {
+    "nome": "Wisconsin",
+    "sigla": "WI",
+    "testo": "Check with your financial aid office.",
+    "date": [],
+    "territorio": false
+   },
+   {
+    "nome": "Wyoming",
+    "sigla": "WY",
+    "testo": "Check with your financial aid office. More forms may be required.",
+    "date": [],
+    "territorio": false
+   }
+  ]
+ },
+ "tassi": {
+  "dal": "2026-07-01",
+  "al": "2027-07-01",
+  "asta_data": "2026-05-12",
+  "asta": "4.468",
+  "asta_arrotondata": "4.47",
+  "righe": [
+   {
+    "chiave": "ug",
+    "asta": "4.47",
+    "maggiorazione": "2.05",
+    "massimo": "8.25",
+    "tasso": "6.52"
+   },
+   {
+    "chiave": "grad",
+    "asta": "4.47",
+    "maggiorazione": "3.60",
+    "massimo": "9.50",
+    "tasso": "8.07"
+   },
+   {
+    "chiave": "plus",
+    "asta": "4.47",
+    "maggiorazione": "4.60",
+    "massimo": "10.50",
+    "tasso": "9.07"
+   }
+  ],
+  "storia": [
+   {
+    "dal": "2026-07-01",
+    "al": "2027-07-01",
+    "ug": "6.52",
+    "grad": "8.07",
+    "plus": "9.07",
+    "avviso": "N/A"
+   },
+   {
+    "dal": "2025-07-01",
+    "al": "2026-07-01",
+    "ug": "6.39",
+    "grad": "7.94",
+    "plus": "8.94",
+    "avviso": "91 FR 10084 (March 02, 2026)"
+   },
+   {
+    "dal": "2024-07-01",
+    "al": "2025-07-01",
+    "ug": "6.53",
+    "grad": "8.08",
+    "plus": "9.08",
+    "avviso": "89 FR 68878 (August 28, 2024)"
+   },
+   {
+    "dal": "2023-07-01",
+    "al": "2024-07-01",
+    "ug": "5.50",
+    "grad": "7.05",
+    "plus": "8.05",
+    "avviso": "88 FR 82863 (November 27, 2023)"
+   },
+   {
+    "dal": "2022-07-01",
+    "al": "2023-07-01",
+    "ug": "4.99",
+    "grad": "6.54",
+    "plus": "7.54",
+    "avviso": "87 FR 50326 (August 16, 2022)"
+   },
+   {
+    "dal": "2021-07-01",
+    "al": "2022-07-01",
+    "ug": "3.73",
+    "grad": "5.28",
+    "plus": "6.28",
+    "avviso": "86 FR 44003 (August 11, 2021)"
+   },
+   {
+    "dal": "2020-07-01",
+    "al": "2021-07-01",
+    "ug": "2.75",
+    "grad": "4.30",
+    "plus": "5.30",
+    "avviso": "85 FR 48229 (August 10, 2020)"
+   },
+   {
+    "dal": "2019-07-01",
+    "al": "2020-07-01",
+    "ug": "4.53",
+    "grad": "6.08",
+    "plus": "7.08",
+    "avviso": "85 FR 2417 (January 15, 2020)"
+   },
+   {
+    "dal": "2018-07-01",
+    "al": "2019-07-01",
+    "ug": "5.05",
+    "grad": "6.60",
+    "plus": "7.60",
+    "avviso": "83 FR 53864 (October 25, 2018)"
+   },
+   {
+    "dal": "2017-07-01",
+    "al": "2018-07-01",
+    "ug": "4.45",
+    "grad": "6.00",
+    "plus": "7.00",
+    "avviso": "82 FR 29062 (June 27, 2017)"
+   },
+   {
+    "dal": "2016-07-01",
+    "al": "2017-07-01",
+    "ug": "3.76",
+    "grad": "5.31",
+    "plus": "6.31",
+    "avviso": "81 FR 38159 (June 13, 2016)"
+   },
+   {
+    "dal": "2015-07-01",
+    "al": "2016-07-01",
+    "ug": "4.29",
+    "grad": "5.84",
+    "plus": "6.84",
+    "avviso": "80 FR 42488 (July 17, 2015)"
+   },
+   {
+    "dal": "2014-07-01",
+    "al": "2015-07-01",
+    "ug": "4.66",
+    "grad": "6.21",
+    "plus": "7.21",
+    "avviso": "79 FR 37301 (July 1, 2014)"
+   },
+   {
+    "dal": "2013-07-01",
+    "al": "2014-07-01",
+    "ug": "3.86",
+    "grad": "5.41",
+    "plus": "6.41",
+    "avviso": "78 FR 59011 (September 25, 2013)"
+   }
+  ],
+  "prima_del_2013": [
+   {
+    "tipo": "Subsidized",
+    "chi": "Undergraduate students",
+    "dal": "2011-07-01",
+    "al": "2013-07-01",
+    "tasso": "3.40"
+   },
+   {
+    "tipo": "Subsidized",
+    "chi": "Undergraduate students",
+    "dal": "2010-07-01",
+    "al": "2011-07-01",
+    "tasso": "4.50"
+   },
+   {
+    "tipo": "Subsidized",
+    "chi": "Undergraduate students",
+    "dal": "2009-07-01",
+    "al": "2010-07-01",
+    "tasso": "5.60"
+   },
+   {
+    "tipo": "Subsidized",
+    "chi": "Undergraduate students",
+    "dal": "2008-07-01",
+    "al": "2009-07-01",
+    "tasso": "6.00"
+   },
+   {
+    "tipo": "Subsidized",
+    "chi": "Undergraduate students",
+    "dal": "2006-07-01",
+    "al": "2008-07-01",
+    "tasso": "6.80"
+   },
+   {
+    "tipo": "Subsidized",
+    "chi": "Graduate or professional",
+    "dal": "2006-07-01",
+    "al": "2012-07-01",
+    "tasso": "6.80"
+   },
+   {
+    "tipo": "Unsubsidized",
+    "chi": "Undergraduate and graduate",
+    "dal": "2006-07-01",
+    "al": "2013-07-01",
+    "tasso": "6.80"
+   },
+   {
+    "tipo": "PLUS",
+    "chi": "Graduate or professional",
+    "dal": "2006-07-01",
+    "al": "2013-07-01",
+    "tasso": "7.90"
+   }
+  ]
+ },
+ "limiti": {
+  "dipendente": {
+   "anni": [
+    {
+     "anno": "First year",
+     "totale": 5500,
+     "sussidiato": 3500
+    },
+    {
+     "anno": "Second year",
+     "totale": 6500,
+     "sussidiato": 4500
+    },
+    {
+     "anno": "Third year and beyond",
+     "totale": 7500,
+     "sussidiato": 5500
+    }
+   ],
+   "totale": 31000,
+   "totale_sussidiato": 23000
+  },
+  "indipendente": {
+   "anni": [
+    {
+     "anno": "First year",
+     "totale": 9500,
+     "sussidiato": 3500
+    },
+    {
+     "anno": "Second year",
+     "totale": 10500,
+     "sussidiato": 4500
+    },
+    {
+     "anno": "Third year and beyond",
+     "totale": 12500,
+     "sussidiato": 5500
+    }
+   ],
+   "totale": 57500,
+   "totale_sussidiato": 23000
+  },
+  "laureato": {
+   "anno": 20500,
+   "totale": 100000
+  },
+  "professionale": {
+   "anno": 50000,
+   "totale": 200000
+  },
+  "genitori": {
+   "anno": 20000,
+   "totale": 65000
+  },
+  "vita": 257500,
+  "laureati_prima": {
+   "totale": 138500
+  },
+  "in_vigore": "2026-07-01",
+  "anni_eccezione": 3
+ },
+ "rimborso": {
+  "rap": {
+   "scaglioni": [
+    {
+     "fino_a": 10000,
+     "fisso_anno": 120,
+     "pc": null
+    },
+    {
+     "fino_a": 20000,
+     "fisso_anno": null,
+     "pc": 1
+    },
+    {
+     "fino_a": 30000,
+     "fisso_anno": null,
+     "pc": 2
+    },
+    {
+     "fino_a": 40000,
+     "fisso_anno": null,
+     "pc": 3
+    },
+    {
+     "fino_a": 50000,
+     "fisso_anno": null,
+     "pc": 4
+    },
+    {
+     "fino_a": 60000,
+     "fisso_anno": null,
+     "pc": 5
+    },
+    {
+     "fino_a": 70000,
+     "fisso_anno": null,
+     "pc": 6
+    },
+    {
+     "fino_a": 80000,
+     "fisso_anno": null,
+     "pc": 7
+    },
+    {
+     "fino_a": 90000,
+     "fisso_anno": null,
+     "pc": 8
+    },
+    {
+     "fino_a": 100000,
+     "fisso_anno": null,
+     "pc": 9
+    },
+    {
+     "fino_a": null,
+     "fisso_anno": null,
+     "pc": 10
+    }
+   ],
+   "per_dipendente_mese": 50,
+   "minimo_mese": 10,
+   "rate_cancellazione": 360,
+   "quota_capitale_mese": 50,
+   "dal": "2026-07-01"
+  },
+  "standard": {
+   "fasce": [
+    {
+     "sotto": 25000,
+     "anni": 10
+    },
+    {
+     "sotto": 50000,
+     "anni": 15
+    },
+    {
+     "sotto": 100000,
+     "anni": 20
+    },
+    {
+     "sotto": null,
+     "anni": 25
+    }
+   ],
+   "dal": "2026-07-01"
+  }
+ },
+ "letto_il": "2026-11-19"
+}

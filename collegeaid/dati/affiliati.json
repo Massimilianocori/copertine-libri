@@ -1,0 +1,29 @@
+{
+ "_nota": "Riquadro dei partner (rifinanziamento dei prestiti agli studenti). SPENTO per decisione di Massimiliano ancora da prendere (REGOLE-FISSE: riquadri nuovi spenti): nessun link di affiliazione esiste e nessuno va inventato. Compensi letti su pagine di rete (FlexOffers) il 18/11/2026, non sulle pagine dei prestatori; nessuna pagina dice se accettano un editore italiano. Per accendere un partner, dopo l'iscrizione di Massimiliano alla rete e l'approvazione del programma: 1) mettere in \"link\" il link tracciato vero (https://...); 2) aggiungere il dominio del link a studio-business/strumenti/monetizzazione.json (domini_affiliazione), altrimenti genera.py si ferma; 3) \"attivo\": true; 4) leggere nel pannello le avvertenze di legge che il prestatore chiede accanto al link e metterle in \"riga\"; 5) python3 collegeaid/genera.py && python3 collegeaid/verifica.py --browser && python3 studio-business/strumenti/monetizzazione.py verifica collegeaid. Il riquadro esce solo in /student-loan-payment-calculator/, sotto il calcolatore e gli esempi, mai sopra la risposta gratuita. Nessun giudizio sul prestatore, nessun tasso, nessuna promessa di risparmio.",
+ "riquadro": {
+  "etichetta": "Advertisement · affiliate links",
+  "titolo": "Thinking about refinancing with a private lender?",
+  "testo": "Refinancing replaces federal loans with a private loan. A private loan has its own rate and terms, and it gives up the federal repayment plans described on this site, including the Repayment Assistance Plan and its cancellation after 360 payments. We have not tested these lenders: compare their offers with your federal terms before you decide.",
+  "trasparenza": "Advertisement. If you take a loan through these links we may earn a commission, at no extra cost to you."
+ },
+ "partner": [
+  {
+   "id": "splash",
+   "nome": "Splash Financial",
+   "attivo": false,
+   "link": "",
+   "pulsante": "Visit Splash Financial",
+   "riga": "Student loan refinancing marketplace.",
+   "compenso_letto": "240 $ a prestito chiuso, cookie 150 giorni (pagina del programma su FlexOffers, datata 4/2/2025, letta il 18/11/2026)"
+  },
+  {
+   "id": "sofi",
+   "nome": "SoFi",
+   "attivo": false,
+   "link": "",
+   "pulsante": "Visit SoFi",
+   "riga": "Private lender offering student loan refinancing.",
+   "compenso_letto": "120 $ a rifinanziamento erogato (pagina su FlexOffers letta il 18/11/2026: lì il programma oggi non è offerto, è su Impact, non leggibile senza conto)"
+  }
+ ]
+}

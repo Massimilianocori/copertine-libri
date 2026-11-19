@@ -1,0 +1,179 @@
+{
+ "_nota": "Generato da raccolta/fonti.py. File grezzi in dati/grezzi/. PDF e pagine di govinfo.gov (impronta = file): fa fede sha256 del file intero. Pagina di fsapartners.ed.gov (impronta = frasi): i byte cambiano a ogni scarico, fa fede sha256_frasi (le frasi citate alla lettera, ritrovate nel file).",
+ "fonti": {
+  "fafsa_2728": {
+   "url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+   "file": "dati/grezzi/fafsa_2027_28_form.pdf",
+   "titolo": "Free Application for Federal Student Aid (FAFSA), July 1, 2027 – June 30, 2028 (paper form, deadlines on pages 1 and 2)",
+   "chi": "Federal Student Aid, U.S. Department of Education",
+   "sha256": "632058dfbb1fd96fbdd03f787030ef75da7368a482dd5b64358cb7e3294dd991",
+   "byte": 1103220,
+   "impronta": "file",
+   "sha256_frasi": "7da4d88e77759170bc9eb379955a94949c7780a15a11f3771c76254a97d97d57",
+   "http": 200,
+   "letto_il": "2026-11-18",
+   "frasi": {
+    "federale": "For federal aid, submit your application as early as possible, but no earlier than October 1, 2026. We must receive your application no later than June 30, 2028.",
+    "ultimo_giorno": "Your college must have your correct, complete information by your last day of enrollment in the 2027–28 school year.",
+    "statale": "For state or college aid, the deadline may be as early as October 1, 2026, or the aid may be awarded on a first-come, first-served basis.",
+    "altri_moduli": "You may also need to fill out separate forms.",
+    "ricevuto": "Unless otherwise noted, the dates below refer to when the form must be received.",
+    "online": "If you are filing close to a deadline, we recommend you file online at fafsa.gov.",
+    "ufficio": "The best place for information about student aid is the financial aid office at the college you plan to attend.",
+    "gratis": "Use this free form to apply for federal and state student grants, work-study, and loans."
+   },
+   "trovate": {
+    "federale": true,
+    "ultimo_giorno": true,
+    "statale": true,
+    "altri_moduli": true,
+    "ricevuto": true,
+    "online": true,
+    "ufficio": true,
+    "gratis": true
+   }
+  },
+  "fr_tassi": {
+   "url": "https://www.govinfo.gov/content/pkg/FR-2026-09-10/html/2026-18493.htm",
+   "file": "dati/grezzi/fr_2026_18493_rates.htm",
+   "titolo": "Annual Notice of Interest Rates for Fixed-Rate Federal Student Loans Made Under the William D. Ford Federal Direct Loan Program (91 FR 57581, September 10, 2026)",
+   "chi": "Federal Student Aid, U.S. Department of Education (Federal Register)",
+   "sha256": "585a8e233b6046c63ed6ccec0ba173999fde9a85e1ffb39bb48caa84080e4d9a",
+   "byte": 16714,
+   "impronta": "file",
+   "sha256_frasi": "bbe555d090b58a6febba44a8f197d69ac3a1759e14bdebe941819113db0fbf43",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "frasi": {
+    "periodo": "with first disbursement dates on or after July 1, 2026, and before July 1, 2027",
+    "fisso": "The interest rate for these loans is a fixed rate that is determined annually for all loans first disbursed during any 12-month period beginning on July 1 and ending on June 30.",
+    "formula": "The rate is equal to the high yield of the 10-year Treasury notes auctioned at the final auction held before June 1 of that 12-month period, plus a statutory add-on percentage that varies depending on the loan type and, for Direct Unsubsidized Loans, whether the loan was made to an undergraduate or graduate student.",
+    "massimo": "If the interest rate formula results in a rate that exceeds the statutory maximum rate, the rate is the statutory maximum rate.",
+    "vita": "the rate determined for any loan is a fixed interest rate for the life of the loan",
+    "asta": "On May 12, 2026, the United States Treasury Department held a 10-year Treasury note auction that resulted in a high yield of 4.468 percent, rounded to 4.47 percent.",
+    "consolidamento": "have a fixed interest rate that is equal to the weighted average of the interest rates on the loans consolidated, rounded to the nearest higher one-eighth of one percent",
+    "laureati": "Graduate and professional students are not eligible to receive Direct Subsidized Loans."
+   },
+   "trovate": {
+    "periodo": true,
+    "fisso": true,
+    "formula": true,
+    "massimo": true,
+    "vita": true,
+    "asta": true,
+    "consolidamento": true,
+    "laureati": true
+   }
+  },
+  "fr_regola": {
+   "url": "https://www.govinfo.gov/content/pkg/FR-2026-05-01/html/2026-08556.htm",
+   "file": "dati/grezzi/fr_2026_08556_rule.htm",
+   "titolo": "Reimagining and Improving Student Education—Federal Student Loan Program Final Regulations; Final Rule (91 FR 23768, May 1, 2026)",
+   "chi": "U.S. Department of Education (Federal Register)",
+   "sha256": "a29c901b1673c2c3a4afb08a45c0cdadfb2bf6eba5fcb492a281189873e249a8",
+   "byte": 959524,
+   "impronta": "file",
+   "sha256_frasi": "f1dfc2d7f812c11c7ab28c6aae9c889a012713098a7ba5757d40120935fd06bf",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "frasi": {
+    "vigore": "This final rule is effective on July 1, 2026.",
+    "sintesi": "These changes include establishing new loan limits for graduate students, professional students, and parents, and phasing out the Graduate PLUS (Grad PLUS) Program.",
+    "invariati": "The undergraduate loan limits in Sec. 685.203 remain unchanged; the aggregate Subsidized and Unsubsidized loan limits for dependent and independent undergraduates are $31,000 and $57,500, respectively.",
+    "laureato": "A graduate student, who is not a professional student, for a period of enrollment beginning on or after July 1, 2026, may borrow up to $20,500 for any academic year under the Direct Unsubsidized Loan Program.",
+    "professionale": "A professional student, for a period of enrollment beginning on or after July 1, 2026, may borrow up to $50,000 for any academic year under the Direct Unsubsidized Loan Program.",
+    "genitori_anno": "For periods of enrollment beginning on or after July 1, 2026, the total amount of all Direct PLUS Loans that all parents may borrow on behalf of each dependent student for any academic year of study may not exceed $20,000.",
+    "genitori_totale": "For periods of enrollment beginning on or after July 1, 2026, the total amount of all Direct PLUS Loans that all parents may borrow on behalf of each dependent student may not exceed $65,000, without regard to any amounts repaid, forgiven, canceled, or otherwise discharged on any such loan.",
+    "vita": "Effective July 1, 2026, the lifetime maximum aggregate amount of loans made, insured, or guaranteed under the Act that a student may borrow, shall be $257,500, excluding Federal Direct PLUS or Federal PLUS loans made to that student as a parent on behalf of another dependent undergraduate student.",
+    "prima": "For a graduate or professional student for periods of enrollment beginning before July 1, 2026, $138,500, including any loans for undergraduate study"
+   },
+   "trovate": {
+    "vigore": true,
+    "sintesi": true,
+    "invariati": true,
+    "laureato": true,
+    "professionale": true,
+    "genitori_anno": true,
+    "genitori_totale": true,
+    "vita": true,
+    "prima": true
+   }
+  },
+  "legge": {
+   "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/html/PLAW-119publ21.htm",
+   "file": "dati/grezzi/plaw_119_21.htm",
+   "titolo": "Public Law 119-21 (139 Stat. 72), sections 81001 and 82001, amending section 455 of the Higher Education Act of 1965",
+   "chi": "U.S. Congress (U.S. Government Publishing Office)",
+   "sha256": "84000b07c382db50ead04ce65b70983e2dcd699a931d80cd3d2edac584e9004d",
+   "byte": 1217741,
+   "impronta": "file",
+   "sha256_frasi": "011c5feb79b615aca433cecbd00f8eebadf035fde15332a497d8349da42a202b",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "frasi": {
+    "grad_plus": "for any period of instruction beginning on or after July 1, 2026, a graduate or professional student shall not be eligible to receive a Federal Direct PLUS Loan under this part.",
+    "genitori_anno": "the total maximum annual amount of Federal Direct PLUS loans that may be borrowed on behalf of that dependent student by all parents of that dependent student shall be $20,000.",
+    "eccezione": "is enrolled in a program of study at an institution of higher education; and",
+    "tre_anni": "three academic years; or",
+    "tempo_parziale": "the amount of a loan that student may borrow for an academic year or its equivalent shall be reduced in direct proportion to the degree to which that student is not so enrolled on a full-time basis",
+    "due_piani": "two plans for repayment of the borrower's loans under this part, including principal and interest on such loans.",
+    "standard": "with a fixed monthly repayment amount paid over a fixed period of time equal to the applicable period determined under subclause (II); and",
+    "anticipo": "The borrower shall be entitled to accelerate, without penalty, repayment on such loans.",
+    "genitori_standard": "the Secretary shall require a borrower who has received an excepted loan made on or after such date (including such a borrower who also has an excepted loan made before such date) to repay each excepted loan, including principal and interest on those excepted loans, under the standard repayment plan under subparagraph (A)(i).",
+    "eccettuato": "a Federal Direct PLUS Loan that is made on behalf of a dependent student; or",
+    "rap_mensile": "the applicable base payment of the borrower, divided by 12; minus",
+    "rap_dipendente": "$50 for each dependent of the borrower (which, in the case of a married borrower filing a separate Federal income tax return, shall include only each dependent that the borrower claims on that return).",
+    "rap_minimo": "In the case of a borrower with an applicable monthly payment amount calculated under clause (i) that is less than $10, the applicable monthly payment of the borrower shall be $10.",
+    "rap_interessi": "the amount of interest accrued and not paid for the month shall not be charged to the borrower.",
+    "rap_360": "the date on which the borrower has made 360 qualifying monthly payments.",
+    "rap_reddito": "in the case of a married borrower who files a separate Federal income tax return, the term does not include the adjusted gross income of the borrower's spouse.",
+    "rap_cambio": "A borrower may change the borrower's selection of--",
+    "rap_esclusi": "such Plan shall not be available for the repayment of excepted loans (as defined in paragraph (7)(E)); and",
+    "vecchi_piani": "Paragraphs (1) through (4) of this subsection shall only apply to loans made under this part before July 1, 2026."
+   },
+   "trovate": {
+    "grad_plus": true,
+    "genitori_anno": true,
+    "eccezione": true,
+    "tre_anni": true,
+    "tempo_parziale": true,
+    "due_piani": true,
+    "standard": true,
+    "anticipo": true,
+    "genitori_standard": true,
+    "eccettuato": true,
+    "rap_mensile": true,
+    "rap_dipendente": true,
+    "rap_minimo": true,
+    "rap_interessi": true,
+    "rap_360": true,
+    "rap_reddito": true,
+    "rap_cambio": true,
+    "rap_esclusi": true,
+    "vecchi_piani": true
+   }
+  },
+  "manuale": {
+   "url": "https://fsapartners.ed.gov/knowledge-center/fsa-handbook/2025-2026/vol8/ch4-annual-and-aggregate-loan-limits",
+   "file": "dati/grezzi/fsa_handbook_2025_26_vol8_ch4.html",
+   "titolo": "2025–2026 Federal Student Aid Handbook, Volume 8, Chapter 4: Annual and Aggregate Loan Limits",
+   "chi": "Federal Student Aid, U.S. Department of Education (FSA Partner Connect)",
+   "sha256": "e608f3389a15757c0a5ebfeeb427289539b0179f29791cd43b3437e4a76013a7",
+   "byte": 146665,
+   "impronta": "frasi",
+   "sha256_frasi": "de5e5c0711d2abfc0d0e152ad7a53e0cf4db8c9b541b55ee4acd82efbd17041f",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "frasi": {
+    "esempio": "For example, a dependent first-year undergraduate may receive up to $5,500 in Direct Subsidized Loans and/or Direct Unsubsidized Loans for a single academic year, but no more than $3,500 of this amount may be subsidized.",
+    "aggregato": "For example, a dependent undergraduate may have up to a maximum of $31,000 in combined subsidized and unsubsidized outstanding loan debt, but no more than $23,000 of this amount may consist of subsidized loans.",
+    "interessi": "Capitalized interest (unpaid accrued interest that has been added to the principal balance of a loan) is not counted toward a borrower’s aggregate loan limits"
+   },
+   "trovate": {
+    "esempio": true,
+    "aggregato": true,
+    "interessi": true
+   }
+  }
+ }
+}
