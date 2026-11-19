@@ -228,3 +228,6 @@ Il credito settimanale degli agenti si ricarica il mercoledì sera (~21:00). Il 
 - Il lavoro senza agenti (dati, pubblicazioni, controlli, piccole correzioni) continua normalmente.
 - **Bonus solo Fable (19/11):** Massimiliano ha ancora un bonus utilizzabile solo con il modello Fable. Finché c'è: tutti gli agenti (costruttori, revisori, ricercatori) girano con Fable, così consumano il bonus e non il credito normale; la sessione principale (e le routine, che girano lì) consuma il credito normale, quindi fa poco lavoro diretto: delega agli agenti Fable, legge solo i riassunti, evita comandi con uscite lunghe. Quando Massimiliano dice che il bonus è finito, i costruttori tornano al modello normale.
 - Budget settimanale (19/11): la settimana scorsa c'era un bonus di ricarica, questa no. Il credito va distribuito sui 7 giorni (circa 1/7 al giorno); una settimana con bonus si può spingere di più solo se Massimiliano lo dice.
+
+## Piano Max (Massimiliano, 19/11/2026: «se riuscissi ad avere entrate potrei fare il piano max di 200 euro»)
+Soglia: quando gli incassi veri superano ~400 €/mese (il doppio del costo), segnalarlo nel riassunto del mattino con il conto di quanto renderebbe il passaggio. Max ha limiti molto più alti (circa 4-5 volte), non infiniti.
