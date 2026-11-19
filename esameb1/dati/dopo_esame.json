@@ -112,6 +112,11 @@
   "certit_contatti": {
    "nome": "Roma Tre, CERT.IT, «Contatti»",
    "url": "https://certificazioneitaliano.uniroma3.it/chi-siamo/contatti/"
+  },
+  "plida_calendario": {
+   "nome": "PLIDA, «Calendario esami PLIDA 2027» (PDF)",
+   "url": "https://cms.plida.dante.global/wp-content/uploads/2026/11/Calendario-esami-PLIDA-2027-per-il-sito.pdf",
+   "letta_il": "2026-11-19"
   }
  },
  "citazioni": [
@@ -478,6 +483,14 @@
   {
    "fonte": "plida_prepara",
    "testo": "Scarica i materiali"
+  },
+  {
+   "fonte": "plida_calendario",
+   "testo": "Risultati urgenti"
+  },
+  {
+   "fonte": "plida_calendario",
+   "testo": "Risultati ordinari"
   }
  ],
  "esempi": {

@@ -1,5 +1,5 @@
 {
-  "_nota": "Pagine /risultati/<ente>/ (dal 30/10/2026). Solo fatti scritti dall'ente su pagine o documenti ufficiali, riletti con curl (HTTP 200) alla data verificato_il. Se l'ente non scrive un dato (tempi PLIDA e CERT.IT, pagina risultati CERT.IT), la voce ha testo che lo dice e nessun numero. CERT.IT: niente link ai PDF di Roma Tre (note legali), solo pagine HTML.",
+  "_nota": "Pagine /risultati/<ente>/ (dal 30/10/2026). Solo fatti scritti dall'ente su pagine o documenti ufficiali, riletti con curl (HTTP 200) alla data verificato_il. Se l'ente non scrive un dato (tempi CERT.IT, pagina risultati CERT.IT), la voce ha testo che lo dice e nessun numero. CERT.IT: niente link ai PDF di Roma Tre (note legali), solo pagine HTML. PLIDA (19/11/2026): le date dei risultati sono nel calendario 2027, sessione per sessione (campi risultati_urgenti e risultati_ordinari di sessioni.json); genera.py controlla che le date scritte qui siano le stesse.",
   "verificato_il": "2026-10-30",
   "enti": {
     "CILS": {
@@ -254,7 +254,7 @@
       "slug": "plida",
       "esame": "PLIDA B1",
       "titolo": "dove vederli online",
-      "risposta": "I risultati PLIDA si vedono online su certificazioneplida.dante.global, entrando con l'email e la password del tuo account dante.global; da lì scarichi anche il certificato. Nelle FAQ e nelle istruzioni ufficiali la Società Dante Alighieri non scrive dopo quanto tempo escono.",
+      "risposta": "I risultati PLIDA si vedono online su certificazioneplida.dante.global, entrando con l'email e la password del tuo account dante.global; da lì scarichi anche il certificato. Il calendario PLIDA 2027 scrive, per ogni sessione, la data dei risultati.",
       "fonte_risposta": "faq",
       "bottone": {
         "testo": "Vai al tuo account PLIDA",
@@ -264,7 +264,7 @@
         "dove": "Online, su certificazioneplida.dante.global",
         "serve": "account: la tua email e la password",
         "login": true,
-        "tempi": null,
+        "tempi": "nelle date scritte nel calendario PLIDA",
         "superare": "almeno 18/30 in ognuna delle 4 abilità",
         "ripeti": "Entro 18 mesi recuperi da 1 a 3 abilità, anche in un altro centro."
       },
@@ -288,6 +288,11 @@
         "quaderno": {
           "nome": "Quaderno delle specifiche PLIDA B1 (PDF)",
           "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf"
+        },
+        "calendario": {
+          "nome": "Calendario esami PLIDA 2027 (PDF)",
+          "url": "https://cms.plida.dante.global/wp-content/uploads/2026/11/Calendario-esami-PLIDA-2027-per-il-sito.pdf",
+          "letta_il": "2026-11-19"
         }
       },
       "voci": {
@@ -305,9 +310,9 @@
           ]
         },
         "tempi": {
-          "testo": null,
+          "testo": "La Società Dante Alighieri scrive le date dei risultati nel calendario degli esami, sessione per sessione. Nel calendario PLIDA 2027 ogni sessione B1 ha due date: una nella colonna «Risultati urgenti» e una nella colonna «Risultati ordinari». Il calendario non spiega la differenza tra le due colonne: chiedila al centro d'esame. Il calendario PLIDA 2026 non scrive le date dei risultati: per le sessioni del 2026 chiedi al centro.",
           "fonti": [
-            "faq"
+            "calendario"
           ]
         },
         "certificato": {
@@ -345,7 +350,7 @@
         ],
         [
           "Quando escono i risultati PLIDA?",
-          "La Società Dante Alighieri non lo scrive nelle FAQ né nelle istruzioni ufficiali che abbiamo letto. Chiedilo al centro d'esame."
+          "Il calendario PLIDA 2027, letto il 19 novembre 2026, scrive due date per ogni sessione, «Risultati urgenti» e «Risultati ordinari». PLIDA B1 del 10 febbraio 2027: 23 marzo 2027 e 25 maggio 2027. Del 9 giugno 2027: 6 agosto 2027 e 14 settembre 2027. Dell'8 settembre 2027: 19 ottobre 2027 e 14 dicembre 2027. Del 17 novembre 2027: 11 gennaio 2028 e 22 febbraio 2028. Per le sessioni del 2026 il calendario non scrive le date: chiedi al centro d'esame."
         ],
         [
           "Qual è il punteggio minimo del PLIDA B1?",

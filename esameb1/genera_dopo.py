@@ -40,7 +40,8 @@ def A(k, testo=None):
 
 
 def fonte(G, *chiavi):
-    v = G.data_breve(D["verificato_il"])
+    # una fonte letta dopo le altre (calendario PLIDA 2027, 19/11/2026) porta la sua data in "letta_il"
+    v = G.data_breve(max([D["verificato_il"]] + [D["fonti"][k]["letta_il"] for k in chiavi if D["fonti"][k].get("letta_il")]))
     una = len(chiavi) == 1
     browser = " (pagina letta con un browser: il testo compare dopo il caricamento)" if any(D["fonti"][k].get("browser") for k in chiavi) else ""
     return (f'<div class="fonte">{G.ic("doc")}<span>{"Fonte" if una else "Fonti"}: {" · ".join(A(k) for k in chiavi)} · '
@@ -88,6 +89,9 @@ def attesa(G, s):
     if s["ente"] == "CELI":
         quando = piu_lavorativi(x, 90)
         return f"intorno al {data_it(G, quando)} o più tardi", quando <= G.OGGI
+    if s.get("risultati_ordinari"):  # PLIDA dal 2027: date scritte nel calendario ufficiale, non un nostro calcolo
+        return (f'{G.data_breve(s["risultati_urgenti"])} (risultati urgenti) e {G.data_breve(s["risultati_ordinari"])} (risultati ordinari): '
+                f'date scritte nel calendario {s["ente"]}'), G.d(s["risultati_ordinari"]) <= G.OGGI
     return None, None
 
 
@@ -104,16 +108,16 @@ def tabella_sessioni(G, sigla=None):
         testo, passato = attesa(G, s)
         fatto = G.d(s["data"]) < G.OGGI
         if testo is None:
-            quando = '<span class="small">l\'ente non scrive i tempi: chiedi al centro d\'esame</span>'
+            quando = '<span class="small">data dei risultati non scritta dall\'ente per questa sessione: chiedi al centro d\'esame</span>'
         elif passato:
             quando = f"{testo}: il tempo scritto dall'ente è passato. Se non vedi il risultato, chiedi al centro d'esame"
         else:
             quando = testo
         ente = f"<td>{G.eb(s['ente'])}</td>" if sigla is None else ""
         righe.append(f'<tr>{ente}<td data-l="Sessione"><strong>{G.data_breve(s["data"])}</strong>{"" if fatto else " (non ancora svolta)"}</td>'
-                     f'<td data-l="Esami">{escape(", ".join(s.get("esami") or []))}</td><td data-l="Risultato (nostro calcolo)">{quando}</td></tr>')
+                     f'<td data-l="Esami">{escape(", ".join(s.get("esami") or []))}</td><td data-l="Quando aspettarsi il risultato">{quando}</td></tr>')
     testa = ('<th scope="col">Ente</th>' if sigla is None else "") + ('<th scope="col">Sessione</th><th scope="col">Esami</th>'
-                                                                       '<th scope="col">Quando aspettarsi il risultato (nostro calcolo)</th>')
+                                                                       '<th scope="col">Quando aspettarsi il risultato</th>')
     return f'<div class="tab-wrap ris-tab"><table class="conf"><thead><tr>{testa}</tr></thead><tbody>{"".join(righe)}</tbody></table></div>'
 
 
@@ -124,10 +128,15 @@ def nota_calcolo(G, sigla=None):
     if sigla in (None, "CELI"):
         parti.append("CELI: la data è il giorno dell'esame più 90 giorni lavorativi (senza sabati e domeniche, feste non tolte). Il Regolamento conta i giorni "
                      f"da quando le prove arrivano a Perugia, non dal giorno dell'esame, quindi il risultato può arrivare più tardi di questa data: {Q('celi_regolamento', 'Il CVCL provvede')}")
-    if sigla in (None, "PLIDA", "CERT.IT"):
-        chi = "PLIDA e CERT.IT" if sigla is None else sigla
-        parti.append(f"{chi}: nelle pagine ufficiali lette non c'è un tempo scritto, quindi non mettiamo date")
-    return ('<p class="ris-nota">Non sono date ufficiali: gli enti non pubblicano una data dei risultati per ogni sessione. ' + " ".join(x if x.endswith(".»") else x + "." for x in parti) + "</p>")
+    if sigla in (None, "PLIDA"):
+        fc = D["fonti"]["plida_calendario"]
+        parti.append(f"PLIDA: per le sessioni del 2027 le date sono quelle scritte nel {A('plida_calendario', 'calendario ufficiale PLIDA 2027')}, "
+                     f"letto {G.il_data(fc['letta_il'])}, nelle colonne {Q('plida_calendario', 'Risultati urgenti')} e {Q('plida_calendario', 'Risultati ordinari')}; "
+                     "il calendario non spiega la differenza tra le due colonne. Per le sessioni del 2026 il calendario non scrive le date dei risultati, quindi non ne mettiamo")
+    if sigla in (None, "CERT.IT"):
+        parti.append("CERT.IT: nelle pagine ufficiali lette non c'è un tempo scritto, quindi non mettiamo date")
+    inizio = {"PLIDA": "", "CERT.IT": ""}.get(sigla, "Per CILS e CELI le date sono un nostro calcolo, non date ufficiali: i due enti non pubblicano una data dei risultati per ogni sessione. ")
+    return ('<p class="ris-nota">' + inizio + " ".join(x if x.endswith(".»") else x + "." for x in parti) + "</p>")
 
 
 # ---------------------------------------------------------------- contenuti per ente
@@ -268,9 +277,10 @@ def contenuti(G):
             "titolo": "Certificato PLIDA B1: scaricarlo, validità, recupero",
             "h1": "Dopo l'esame PLIDA B1: il certificato, il recupero delle abilità e cosa non è scritto",
             "risposta": ("Il certificato PLIDA lo scarichi tu, online, da certificazioneplida.dante.global con la tua email e la tua password. "
-                         "La Società Dante Alighieri scrive che il PLIDA B1 è valido per chiedere la cittadinanza; i tempi dei risultati non sono scritti."),
+                         "La Società Dante Alighieri scrive che il PLIDA B1 è valido per chiedere la cittadinanza; per le sessioni del 2027 il calendario PLIDA, "
+                         f"letto {G.il_data(D['fonti']['plida_calendario']['letta_il'])}, scrive le date dei risultati."),
             "fonte_risposta": ("plida_faq", "plida_istruzioni"),
-            "desc": "Certificato PLIDA: si scarica online con email e password. Se non superi da 1 a 3 abilità le recuperi in 18 mesi. Tempi dei risultati: non scritti.",
+            "desc": "Certificato PLIDA: si scarica online con email e password. Se non superi da 1 a 3 abilità le recuperi in 18 mesi. Date dei risultati 2027 dal calendario.",
             "schede": [("doc", "Il certificato", "Lo scarichi online dal tuo account, nel menu dei tuoi certificati PLIDA."),
                        ("scudo", "Scadenza", "Non è scritta nelle pagine e nei documenti PLIDA che abbiamo letto."),
                        ("attenzione", "Se non superi", "Da 1 a 3 abilità non superate: le recuperi nei 18 mesi successivi.")],
@@ -293,7 +303,8 @@ def contenuti(G):
                      f"{Q('plida_quaderno', 'i candidati possono tentare')}.", "plida_quaderno"),
                 voce(G, "Anche in un altro centro", f"{Q('plida_quaderno', 'Le prove di recupero')}: {Q('plida_quaderno', 'sarà sufficiente')}.", "plida_quaderno"),
             ],
-            "non_scritto": ["dopo quanto tempo escono i risultati e il certificato",
+            "non_scritto": ["quando escono i risultati delle sessioni del 2026 (il calendario 2026 non scrive le date; quello del 2027 sì)",
+                            "che differenza c'è tra risultati urgenti e risultati ordinari (il calendario 2027 ha le due colonne ma non lo spiega)",
                             "se il certificato ha una scadenza",
                             "quanto costa il recupero di una o più abilità (il prezzo lo dà il centro d'esame)",
                             "cosa succede se non superi nessuna delle quattro abilità (il recupero è scritto per «una o più abilità, fino a tre»)"],
@@ -308,7 +319,8 @@ def contenuti(G):
                  "No, se le abilità non superate sono da una a tre: le recuperi nei 18 mesi successivi, in tutte le sessioni del calendario PLIDA, anche più volte "
                  "e anche in un altro centro, con il tuo Codice personale.", None),
                 ("Quando escono i risultati PLIDA?",
-                 "Nelle FAQ, nelle istruzioni e nel Quaderno delle specifiche PLIDA che abbiamo letto non c'è un tempo scritto. Chiedilo al centro dove hai fatto l'esame.", None),
+                 "Per le sessioni del 2027 la data è scritta nel calendario PLIDA, sessione per sessione: la trovi nella tabella di questa pagina. "
+                 "Per le sessioni del 2026 il calendario non scrive le date dei risultati: chiedi al centro dove hai fatto l'esame.", None),
             ],
         },
         "CERT.IT": {
@@ -392,6 +404,7 @@ def pagina_ente(G, s, c, prossime):
 <h2 id="sessioni">{G.ic("cal")}Sessione per sessione: quando aspettarsi il risultato {escape(s)}</h2>
 {tabella_sessioni(G, s)}
 {nota_calcolo(G, s)}
+{('<h3>Tutte le date dei risultati scritte nel calendario ' + escape(s) + '</h3>' + G.tabella_date_risultati(s)) if G.sessioni_con_risultati(s) else ""}
 <p><a href="../../risultati/{sl}/">Risultati {escape(s)}: dove vederli, passo per passo</a></p>
 </section>
 <section>
@@ -450,7 +463,7 @@ def pagina_indice(G, C, prossime):
     domande = [
         ("Dopo l'esame B1, quando arriva il certificato di italiano?",
          "Dipende dall'ente. CILS: il risultato esce circa 3 mesi dopo l'esame e il certificato si ritira nella sede. CELI: il risultato esce circa 90 giorni lavorativi dopo "
-         "l'arrivo delle prove a Perugia e il certificato digitale passa dal centro d'esame. PLIDA: il certificato si scarica online, i tempi non sono scritti. "
+         "l'arrivo delle prove a Perugia e il certificato digitale passa dal centro d'esame. PLIDA: il certificato si scarica online e per le sessioni del 2027 le date dei risultati sono scritte nel calendario PLIDA. "
          "CERT.IT: il sito non lo spiega.", "certificato b1 italiano"),
         ("Il certificato B1 di italiano scade?",
          "Il Centro CILS scrive che oggi il certificato non ha scadenza e il CVCL di Perugia che i certificati CELI non hanno scadenza. "

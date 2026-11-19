@@ -738,9 +738,10 @@ def risultati_en(G):
                    f"total at least {num(t['superare'], r'in tutto almeno (\d+/\d+)')}",
                    f"Within {num(t['ripeti'], r'Entro (\d+) anno')} year you retake only the part you failed (written or speaking), paying {num(t['ripeti'], r'(\d+)%')}% of the fee.")
     t = T["PLIDA"]
-    if t["tempi"] is not None:
-        raise SystemExit("genera_en: PLIDA ora scrive i tempi dei risultati: aggiornare risultati_en()")
-    out["PLIDA"] = ("Online, on certificazioneplida.dante.global", "an account (your email and password)", "not stated by PLIDA",
+    # 19/11/2026: dal calendario 2027 PLIDA scrive le date dei risultati sessione per sessione (campi di sessioni.json)
+    if t["tempi"] != "nelle date scritte nel calendario PLIDA":
+        raise SystemExit("genera_en: tempi dei risultati PLIDA cambiati in risultati.json: aggiornare risultati_en()")
+    out["PLIDA"] = ("Online, on certificazioneplida.dante.global", "an account (your email and password)", "on the dates written in the PLIDA calendar, session by session",
                     f"at least {num(t['superare'], r'almeno (\d+/\d+)')} in each of the 4 skills",
                     f"Within {num(t['ripeti'], r'Entro (\d+) mesi')} months you can retake from {num(t['ripeti'], r'da (\d+) a \d+ abilità')} to {num(t['ripeti'], r'da \d+ a (\d+) abilità')} skills, also at another centre.")
     t = T["CERT.IT"]
@@ -751,6 +752,24 @@ def risultati_en(G):
                       f"{pc}% of the points in the written part (listening, reading, writing) and {num(t['superare'], r'e (\d+)% nell')}% in the speaking test",
                       "The website does not say for the B1: ask the centre.")
     return out
+
+
+def tabella_date_risultati_en(G, sigla):
+    """Date dei risultati scritte nel calendario ufficiale (PLIDA 2027), sessione per sessione; "" se l'ente non le scrive."""
+    righe = G.sessioni_con_risultati(sigla)
+    if not righe:
+        return ""
+    corpo = "".join(
+        f'<tr><td data-l="Exam session"><strong>{data_en(s["data"])}</strong><br><span class="small">{escape(esame_en(s["esami"][0]))}</span></td>'
+        f'<td data-l="Urgent results"><time datetime="{s["risultati_urgenti"]}">{data_en(s["risultati_urgenti"])}</time></td>'
+        f'<td data-l="Ordinary results"><time datetime="{s["risultati_ordinari"]}">{data_en(s["risultati_ordinari"])}</time></td></tr>' for s in righe)
+    link = " · ".join(a(u, f"official {sigla} calendar (in Italian)") for u in sorted({s["fonte"] for s in righe}))
+    return (f'<h3 id="result-dates-{SLUG_EN[sigla]}">{sigla} result dates, session by session</h3>'
+            f'<p>The official {sigla} calendar gives two result dates for each session, in the columns «Risultati urgenti» (urgent results) and '
+            f'«Risultati ordinari» (ordinary results). The calendar does not explain the difference between the two columns: ask your exam centre.</p>'
+            '<div class="tab-wrap rc-tab"><table class="conf"><thead><tr><th scope="col">Exam session</th><th scope="col">Urgent results</th>'
+            f'<th scope="col">Ordinary results</th></tr></thead><tbody>{corpo}</tbody></table></div>'
+            f'{fonte(G, link, max(s["verificato_il"] for s in righe))}')
 
 
 def pagina_risultati(G):
@@ -770,13 +789,14 @@ def pagina_risultati(G):
 {briciole(G, ("EsameB1 in English", "../"), ("Results", None))}
 <h1>B1 citizenship exam results: when and where to see them</h1>
 <p class="lead">According to the official pages of the exam bodies (read on {data_en(v)}), CILS and CELI publish results online with your candidate number (matricola) and date of birth:
-CILS about {cils_m} months after the exam, CELI about {celi_g} working days after the papers reach Perugia. PLIDA results are in your online PLIDA account; for CERT.IT ask your centre.</p>
+CILS about {cils_m} months after the exam, CELI about {celi_g} working days after the papers reach Perugia. PLIDA results are in your online PLIDA account, on the dates written in the PLIDA calendar; for CERT.IT ask your centre.</p>
 <div class="azioni">{bottoni}</div>
 </section>
 {nota_esame(G)}
 <h2>{G.ic("ok")}Quick answer, body by body</h2>
 <div class="tab-wrap rc-tab"><table class="conf"><thead><tr><th scope="col">Body</th><th scope="col">Where you see the result</th><th scope="col">What you need</th><th scope="col">When</th></tr></thead>
 <tbody>{righe}</tbody></table></div>
+{tabella_date_risultati_en(G, "PLIDA")}
 <h2>{G.ic("lista")}Pass mark and what to do if you fail</h2>
 <div class="tab-wrap rc-tab"><table class="conf"><thead><tr><th scope="col">Body</th><th scope="col">To pass</th><th scope="col">If you fail</th></tr></thead>
 <tbody>{righe2}</tbody></table></div>
@@ -846,6 +866,7 @@ def pagina_ente(G, e, prossime):
 <section>
 <h2 id="in-brief">{G.ic("info")}{sigla} B1 in brief</h2>
 {schede}
+{tabella_date_risultati_en(G, sigla)}
 </section>
 <section>
 <h2 id="centres">{G.ic("edificio")}{len(sue)} {sigla} exam centres in Italy</h2>

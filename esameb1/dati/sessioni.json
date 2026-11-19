@@ -9,7 +9,7 @@
   "scadenza": null,
   "nota_scadenza": "La scadenza la decide ogni centro PLIDA: chiedila al centro scelto.",
   "fonte": "https://cms.plida.dante.global/wp-content/uploads/2025/11/Calendario-esami-PLIDA-2026-per-il-sito-1.pdf",
-  "verificato_il": "2026-10-09"
+  "verificato_il": "2026-11-19"
  },
  {
   "ente": "CELI",
@@ -33,7 +33,7 @@
   "scadenza": "2026-01-19",
   "nota_scadenza": "Scadenza indicata dall'Università per Stranieri di Siena: le sedi possono chiudere prima.",
   "fonte": "https://cils.unistrasi.it/public/articoli/415/Calendario%20esami%20CILS%202026.pdf",
-  "verificato_il": "2026-10-09"
+  "verificato_il": "2026-11-19"
  },
  {
   "ente": "CERT.IT",
@@ -69,7 +69,7 @@
   "scadenza": "2026-03-14",
   "nota_scadenza": "Scadenza indicata dall'Università per Stranieri di Siena: le sedi possono chiudere prima.",
   "fonte": "https://cils.unistrasi.it/public/articoli/415/Calendario%20esami%20CILS%202026.pdf",
-  "verificato_il": "2026-10-09"
+  "verificato_il": "2026-11-19"
  },
  {
   "ente": "CELI",
@@ -105,7 +105,7 @@
   "scadenza": null,
   "nota_scadenza": "La scadenza la decide ogni centro PLIDA: chiedila al centro scelto.",
   "fonte": "https://cms.plida.dante.global/wp-content/uploads/2025/11/Calendario-esami-PLIDA-2026-per-il-sito-1.pdf",
-  "verificato_il": "2026-10-09"
+  "verificato_il": "2026-11-19"
  },
  {
   "ente": "CILS",
@@ -118,7 +118,7 @@
   "scadenza": "2026-05-07",
   "nota_scadenza": "Scadenza indicata dall'Università per Stranieri di Siena: le sedi possono chiudere prima.",
   "fonte": "https://cils.unistrasi.it/public/articoli/415/Calendario%20esami%20CILS%202026.pdf",
-  "verificato_il": "2026-10-09"
+  "verificato_il": "2026-11-19"
  },
  {
   "ente": "CERT.IT",
@@ -142,7 +142,7 @@
   "scadenza": "2026-06-22",
   "nota_scadenza": "Scadenza indicata dall'Università per Stranieri di Siena: le sedi possono chiudere prima.",
   "fonte": "https://cils.unistrasi.it/public/articoli/415/Calendario%20esami%20CILS%202026.pdf",
-  "verificato_il": "2026-10-09"
+  "verificato_il": "2026-11-19"
  },
  {
   "ente": "PLIDA",
@@ -154,7 +154,7 @@
   "scadenza": null,
   "nota_scadenza": "La scadenza la decide ogni centro PLIDA: chiedila al centro scelto.",
   "fonte": "https://cms.plida.dante.global/wp-content/uploads/2025/11/Calendario-esami-PLIDA-2026-per-il-sito-1.pdf",
-  "verificato_il": "2026-10-09"
+  "verificato_il": "2026-11-19"
  },
  {
   "ente": "CELI",
@@ -190,7 +190,7 @@
   "scadenza": "2026-09-21",
   "nota_scadenza": "Scadenza indicata dall'Università per Stranieri di Siena: le sedi possono chiudere prima.",
   "fonte": "https://cils.unistrasi.it/public/articoli/415/Calendario%20esami%20CILS%202026.pdf",
-  "verificato_il": "2026-10-09"
+  "verificato_il": "2026-11-19"
  },
  {
   "ente": "CELI",
@@ -214,7 +214,7 @@
   "scadenza": null,
   "nota_scadenza": "La scadenza la decide ogni centro PLIDA: chiedila al centro scelto.",
   "fonte": "https://cms.plida.dante.global/wp-content/uploads/2025/11/Calendario-esami-PLIDA-2026-per-il-sito-1.pdf",
-  "verificato_il": "2026-10-09"
+  "verificato_il": "2026-11-19"
  },
  {
   "ente": "CILS",
@@ -227,7 +227,21 @@
   "scadenza": "2026-10-24",
   "nota_scadenza": "Scadenza indicata dall'Università per Stranieri di Siena: le sedi possono chiudere prima.",
   "fonte": "https://cils.unistrasi.it/public/articoli/415/Calendario%20esami%20CILS%202026.pdf",
-  "verificato_il": "2026-10-09"
+  "verificato_il": "2026-11-19"
+ },
+ {
+  "ente": "PLIDA",
+  "data": "2027-02-10",
+  "esami": [
+   "PLIDA B1"
+  ],
+  "tipo": "generale",
+  "scadenza": null,
+  "nota_scadenza": "La scadenza la decide ogni centro PLIDA: chiedila al centro scelto.",
+  "fonte": "https://cms.plida.dante.global/wp-content/uploads/2026/11/Calendario-esami-PLIDA-2027-per-il-sito.pdf",
+  "verificato_il": "2026-11-19",
+  "risultati_urgenti": "2027-03-23",
+  "risultati_ordinari": "2027-05-25"
  },
  {
   "ente": "CERT.IT",
@@ -239,7 +253,7 @@
   "scadenza": null,
   "nota_scadenza": "Iscrizioni aperte dal 4 gennaio 2027 presso i centri convenzionati, che fissano la scadenza; alla sede dell'Università Roma Tre fino al 21 gennaio 2027. Date pubblicate nel calendario 2027 sulla home del sito CERT.IT: conferma il giorno esatto con il centro.",
   "fonte": "https://certificazioneitaliano.uniroma3.it/",
-  "verificato_il": "2026-11-16"
+  "verificato_il": "2026-11-19"
  },
  {
   "ente": "CELI",
@@ -251,7 +265,7 @@
   "scadenza": "2027-01-22",
   "nota_scadenza": "Termine indicato dall'Università per Stranieri di Perugia: i centri d'esame possono anticipare la scadenza.",
   "fonte": "https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000",
-  "verificato_il": "2026-10-09"
+  "verificato_il": "2026-11-19"
  },
  {
   "ente": "CILS",
@@ -263,7 +277,7 @@
   "scadenza": "2027-01-18",
   "nota_scadenza": "Scadenza indicata dall'Università per Stranieri di Siena: le sedi possono chiudere prima.",
   "fonte": "https://cils.unistrasi.it/public/articoli/428/LETTERA%20date%20MAE_2027_pdf.pdf",
-  "verificato_il": "2026-10-09"
+  "verificato_il": "2026-11-19"
  },
  {
   "ente": "CELI",
@@ -275,7 +289,7 @@
   "scadenza": "2027-02-09",
   "nota_scadenza": "Termine indicato dall'Università per Stranieri di Perugia: i centri d'esame possono anticipare la scadenza.",
   "fonte": "https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000",
-  "verificato_il": "2026-10-09"
+  "verificato_il": "2026-11-19"
  },
  {
   "ente": "CILS",
@@ -287,7 +301,7 @@
   "scadenza": "2027-03-08",
   "nota_scadenza": "Scadenza indicata dall'Università per Stranieri di Siena: le sedi possono chiudere prima.",
   "fonte": "https://cils.unistrasi.it/public/articoli/428/LETTERA%20date%20MAE_2027_pdf.pdf",
-  "verificato_il": "2026-10-09"
+  "verificato_il": "2026-11-19"
  },
  {
   "ente": "CELI",
@@ -299,7 +313,7 @@
   "scadenza": "2027-04-20",
   "nota_scadenza": "Termine indicato dall'Università per Stranieri di Perugia: i centri d'esame possono anticipare la scadenza.",
   "fonte": "https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000",
-  "verificato_il": "2026-10-09"
+  "verificato_il": "2026-11-19"
  },
  {
   "ente": "CERT.IT",
@@ -311,7 +325,21 @@
   "scadenza": null,
   "nota_scadenza": "Iscrizioni aperte dal 23 marzo 2027 presso i centri convenzionati, che fissano la scadenza; alla sede dell'Università Roma Tre fino al 29 aprile 2027. Date pubblicate nel calendario 2027 sulla home del sito CERT.IT: conferma il giorno esatto con il centro.",
   "fonte": "https://certificazioneitaliano.uniroma3.it/",
-  "verificato_il": "2026-11-16"
+  "verificato_il": "2026-11-19"
+ },
+ {
+  "ente": "PLIDA",
+  "data": "2027-06-09",
+  "esami": [
+   "PLIDA B1"
+  ],
+  "tipo": "generale",
+  "scadenza": null,
+  "nota_scadenza": "La scadenza la decide ogni centro PLIDA: chiedila al centro scelto.",
+  "fonte": "https://cms.plida.dante.global/wp-content/uploads/2026/11/Calendario-esami-PLIDA-2027-per-il-sito.pdf",
+  "verificato_il": "2026-11-19",
+  "risultati_urgenti": "2027-08-06",
+  "risultati_ordinari": "2027-09-14"
  },
  {
   "ente": "CILS",
@@ -324,7 +352,7 @@
   "scadenza": "2027-05-01",
   "nota_scadenza": "Scadenza indicata dall'Università per Stranieri di Siena: le sedi possono chiudere prima.",
   "fonte": "https://cils.unistrasi.it/public/articoli/428/LETTERA%20date%20MAE_2027_pdf.pdf",
-  "verificato_il": "2026-10-09"
+  "verificato_il": "2026-11-19"
  },
  {
   "ente": "CELI",
@@ -336,7 +364,7 @@
   "scadenza": "2027-05-11",
   "nota_scadenza": "Termine indicato dall'Università per Stranieri di Perugia: i centri d'esame possono anticipare la scadenza.",
   "fonte": "https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000",
-  "verificato_il": "2026-10-09"
+  "verificato_il": "2026-11-19"
  },
  {
   "ente": "CILS",
@@ -348,7 +376,21 @@
   "scadenza": "2027-06-22",
   "nota_scadenza": "Scadenza indicata dall'Università per Stranieri di Siena: le sedi possono chiudere prima.",
   "fonte": "https://cils.unistrasi.it/public/articoli/428/LETTERA%20date%20MAE_2027_pdf.pdf",
-  "verificato_il": "2026-10-09"
+  "verificato_il": "2026-11-19"
+ },
+ {
+  "ente": "PLIDA",
+  "data": "2027-09-08",
+  "esami": [
+   "PLIDA B1"
+  ],
+  "tipo": "generale",
+  "scadenza": null,
+  "nota_scadenza": "La scadenza la decide ogni centro PLIDA: chiedila al centro scelto.",
+  "fonte": "https://cms.plida.dante.global/wp-content/uploads/2026/11/Calendario-esami-PLIDA-2027-per-il-sito.pdf",
+  "verificato_il": "2026-11-19",
+  "risultati_urgenti": "2027-10-19",
+  "risultati_ordinari": "2027-12-14"
  },
  {
   "ente": "CELI",
@@ -360,7 +402,7 @@
   "scadenza": "2027-08-17",
   "nota_scadenza": "Termine indicato dall'Università per Stranieri di Perugia: i centri d'esame possono anticipare la scadenza.",
   "fonte": "https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000",
-  "verificato_il": "2026-10-09"
+  "verificato_il": "2026-11-19"
  },
  {
   "ente": "CERT.IT",
@@ -372,7 +414,7 @@
   "scadenza": null,
   "nota_scadenza": "Iscrizioni aperte dal 26 agosto 2027 presso i centri convenzionati, che fissano la scadenza; alla sede dell'Università Roma Tre fino al 16 settembre 2027. Date pubblicate nel calendario 2027 sulla home del sito CERT.IT: conferma il giorno esatto con il centro.",
   "fonte": "https://certificazioneitaliano.uniroma3.it/",
-  "verificato_il": "2026-11-16"
+  "verificato_il": "2026-11-19"
  },
  {
   "ente": "CILS",
@@ -384,7 +426,7 @@
   "scadenza": "2027-09-21",
   "nota_scadenza": "Scadenza indicata dall'Università per Stranieri di Siena: le sedi possono chiudere prima.",
   "fonte": "https://cils.unistrasi.it/public/articoli/428/LETTERA%20date%20MAE_2027_pdf.pdf",
-  "verificato_il": "2026-10-09"
+  "verificato_il": "2026-11-19"
  },
  {
   "ente": "CELI",
@@ -396,7 +438,21 @@
   "scadenza": "2027-10-16",
   "nota_scadenza": "Termine indicato dall'Università per Stranieri di Perugia: i centri d'esame possono anticipare la scadenza.",
   "fonte": "https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000",
-  "verificato_il": "2026-10-09"
+  "verificato_il": "2026-11-19"
+ },
+ {
+  "ente": "PLIDA",
+  "data": "2027-11-17",
+  "esami": [
+   "PLIDA B1"
+  ],
+  "tipo": "generale",
+  "scadenza": null,
+  "nota_scadenza": "La scadenza la decide ogni centro PLIDA: chiedila al centro scelto.",
+  "fonte": "https://cms.plida.dante.global/wp-content/uploads/2026/11/Calendario-esami-PLIDA-2027-per-il-sito.pdf",
+  "verificato_il": "2026-11-19",
+  "risultati_urgenti": "2028-01-11",
+  "risultati_ordinari": "2028-02-22"
  },
  {
   "ente": "CILS",
@@ -409,6 +465,6 @@
   "scadenza": "2027-10-23",
   "nota_scadenza": "Scadenza indicata dall'Università per Stranieri di Siena: le sedi possono chiudere prima.",
   "fonte": "https://cils.unistrasi.it/public/articoli/428/LETTERA%20date%20MAE_2027_pdf.pdf",
-  "verificato_il": "2026-10-09"
+  "verificato_il": "2026-11-19"
  }
 ]

@@ -54,6 +54,8 @@ CALENDARI = {
     "CILS 2027": "https://cils.unistrasi.it/1/213/428/Le_date_degli_esami_2027.htm",
     "CELI 2026-2027": "https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000",
     "PLIDA esami": "https://plida.dante.global/it/esami-plida/",
+    # 19/11/2026: il calendario PLIDA 2027 (PDF) è uscito linkato dalla home, mentre la pagina «Esami PLIDA» non è cambiata.
+    "PLIDA home": "https://plida.dante.global/it/",
     "CERT.IT home": "https://certificazioneitaliano.uniroma3.it/",
 }
 

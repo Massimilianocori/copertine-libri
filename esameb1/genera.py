@@ -7,6 +7,7 @@ Dati: enti.json, sessioni.json (date curate a mano, con fonte), sedi.json (da ra
 citta.json (pagine città). Nessuna dipendenza esterna.
 """
 import json
+import os
 import re
 import shutil
 import sys
@@ -129,7 +130,8 @@ def riquadro_trasparenza(corpo, lingua="it"):
     return MON.riga_trasparenza(corpo, lingua)
 
 
-OGGI = date.today()
+# ESAMEB1_OGGI=AAAA-MM-GG simula un altro giorno (prova di «sessioni passate», 19/11/2026); senza, vale la data di oggi.
+OGGI = date.fromisoformat(os.environ["ESAMEB1_OGGI"]) if os.environ.get("ESAMEB1_OGGI") else date.today()
 
 MESI = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto",
         "settembre", "ottobre", "novembre", "dicembre"]
@@ -180,6 +182,19 @@ def data_breve(iso):
 
 def future(lista):
     return [s for s in lista if d(s["data"]) >= OGGI]
+
+
+def controllo_calendario(sigla):
+    """Giorno (ISO) dell'ultima lettura del calendario ufficiale di un ente: la verifica più recente tra le sue sessioni."""
+    return max((s["verificato_il"] for s in sessioni if s["ente"] == sigla), default=None)
+
+
+def senza_date(sigla):
+    """Testo per un ente senza sessioni future (19/11/2026): dice quando abbiamo letto il calendario ufficiale.
+    La stessa data è nella pagina inglese dell'ente («checked on …»): genera_en.controlli() le confronta."""
+    v = controllo_calendario(sigla)
+    letto = f" Abbiamo letto il calendario ufficiale {sigla} {il_data(v)}: non c'erano nuove date B1." if v else ""
+    return f"Al momento l'ente non ha pubblicato nuove date.{letto} Controlliamo il calendario ufficiale ogni settimana."
 
 
 def verificato_ultimo():
@@ -1795,7 +1810,7 @@ def pagina_ente(e, prossime):
 <div class="due">
 <section>
 <h2 id="date">{ic("cal")}Prossime date {escape(sigla)} (livello B1)</h2>
-{lista_sessioni(date_ente, con_filtri=False) if date_ente else "<p>Nessuna data futura pubblicata al momento. Controlliamo il calendario ufficiale ogni settimana.</p>"}
+{lista_sessioni(date_ente, con_filtri=False) if date_ente else f"<p>{escape(senza_date(sigla))}</p>"}
 </section>
 <aside>{modulo()}</aside>
 </div>
@@ -1998,7 +2013,7 @@ Le cifre sono quelle scritte dagli enti, con la fonte.</p>
 
 # ---------------------------------------------------------------- risultati (indice + una pagina per ente, dal 30/10/2026)
 # Dati in dati/risultati.json: solo fatti scritti dall'ente su pagine o documenti ufficiali, con la data di lettura.
-# Se l'ente non scrive un dato (tempi PLIDA e CERT.IT, pagina dei risultati CERT.IT) la pagina lo dice e non dà numeri.
+# Se l'ente non scrive un dato (tempi CERT.IT, pagina dei risultati CERT.IT; PLIDA scrive le date nel calendario dal 2027) la pagina lo dice e non dà numeri.
 ANNO_RIS = OGGI.year  # l'anno nel titolo: è quello che la gente cerca ("risultati cils b1 cittadinanza 2026")
 
 
@@ -2009,11 +2024,35 @@ def con_mail(testo_html):
 
 def fonte_ris(r, chiavi, parola="Fonte"):
     link = " · ".join(f'<a href="{escape(r["fonti"][k]["url"])}" rel="noopener">{escape(r["fonti"][k]["nome"])}</a>' for k in chiavi)
-    quando = data_breve(RISULTATI["verificato_il"])
+    # una fonte letta dopo le altre (es. calendario PLIDA 2027, 19/11/2026) porta la sua data in "letta_il"
+    quando = data_breve(max([RISULTATI["verificato_il"]] + [r["fonti"][k]["letta_il"] for k in chiavi if r["fonti"][k].get("letta_il")]))
     if parola == "Fonti lette":
         return f'<div class="fonte">{ic("doc")}<span>Fonti lette il {quando}: {link}</span></div>'
     una = len(chiavi) == 1
     return f'<div class="fonte">{ic("doc")}<span>{"Fonte" if una else "Fonti"}: {link} · {"letta" if una else "lette"} il {quando}</span></div>'
+
+
+def sessioni_con_risultati(sigla):
+    """Sessioni di un ente per cui il calendario ufficiale scrive le date dei risultati (PLIDA dal calendario 2027):
+    in sessioni.json hanno i campi risultati_urgenti e risultati_ordinari, copiati dal calendario."""
+    return sorted((s for s in sessioni if s["ente"] == sigla and s.get("risultati_ordinari")), key=lambda s: s["data"])
+
+
+def tabella_date_risultati(sigla):
+    """Tabella «sessione → date dei risultati» come le scrive il calendario ufficiale, con fonte e giorno di lettura. "" se non ci sono."""
+    righe = sessioni_con_risultati(sigla)
+    if not righe:
+        return ""
+    corpo = "".join(
+        f'<tr><td data-l="Sessione"><strong>{data_breve(s["data"])}</strong><br><span class="small">{escape(", ".join(s["esami"]))}</span></td>'
+        f'<td data-l="Risultati urgenti"><time datetime="{s["risultati_urgenti"]}">{data_breve(s["risultati_urgenti"])}</time></td>'
+        f'<td data-l="Risultati ordinari"><time datetime="{s["risultati_ordinari"]}">{data_breve(s["risultati_ordinari"])}</time></td></tr>' for s in righe)
+    fonti = {s["fonte"] for s in righe}
+    letto = max(s["verificato_il"] for s in righe)
+    link = " · ".join(f'<a href="{escape(u)}" rel="noopener">calendario ufficiale {escape(sigla)}</a>' for u in sorted(fonti))
+    return ('<div class="tab-wrap ris-tab"><table class="conf"><thead><tr><th scope="col">Sessione</th><th scope="col">Risultati urgenti</th>'
+            f'<th scope="col">Risultati ordinari</th></tr></thead><tbody>{corpo}</tbody></table></div>'
+            f'<div class="fonte">{ic("doc")}<span>Date copiate dal {link} · letto {il_data(letto)}</span></div>')
 
 
 def tabella_risultati(rel, colonne):
@@ -2055,11 +2094,12 @@ def pagina_risultati(prossime):
          "CELI: online nell'area riservata del CVCL di Perugia, con matricola e data di nascita, o al centro d'esame. PLIDA: online su "
          "certificazioneplida.dante.global, con l'email e la password del tuo account. CERT.IT: il sito di Roma Tre non lo spiega, chiedi alla sede."),
         ("Quando escono i risultati dell'esame B1?",
-         "CILS: circa 3 mesi dopo l'esame. CELI: circa 90 giorni lavorativi da quando le prove arrivano a Perugia. PLIDA e CERT.IT non scrivono i tempi "
-         "nelle pagine ufficiali che abbiamo letto: chiedi al centro d'esame."),
+         "CILS: circa 3 mesi dopo l'esame. CELI: circa 90 giorni lavorativi da quando le prove arrivano a Perugia. PLIDA: nelle date scritte nel calendario "
+         "degli esami 2027, sessione per sessione. CERT.IT non scrive i tempi nelle pagine ufficiali che abbiamo letto: chiedi al centro d'esame."),
         ("Il risultato arriva il giorno dell'esame?",
          "Per CILS e CELI no. Per il CILS tutte le prove, anche l'orale registrato, sono valutate dal Centro CILS di Siena. Per il CELI lo scritto è corretto "
-         "dal CVCL di Perugia e la commissione dell'orale non comunica il punteggio al candidato. PLIDA e CERT.IT non lo scrivono nelle pagine che abbiamo letto."),
+         "dal CVCL di Perugia e la commissione dell'orale non comunica il punteggio al candidato. PLIDA: no, il calendario 2027 scrive le date dei risultati alcune settimane dopo ogni sessione. "
+         "CERT.IT non lo scrive nelle pagine che abbiamo letto."),
         ("Quale punteggio serve per superare l'esame B1?",
          "CILS: la sufficienza in ogni abilità. CELI 2 i cittadinanza: almeno 72 punti su 120 nello scritto, almeno 11 nell'orale e almeno 92 su 160 in tutto. "
          "PLIDA B1: almeno 18 punti su 30 in ogni abilità. CERT.IT B1: il 60% dei punti nello scritto e il 60% nell'orale."),
@@ -2082,6 +2122,7 @@ PLIDA nel tuo account online, mentre il sito CERT.IT non spiega dove vederlo. Fo
 <h2 id="dove">{ic("ok")}Risposta rapida: dove vedi il risultato</h2>
 {tabella_risultati("", "dove")}
 <p class="small">«Non scritto dall'ente»: l'ente non indica i tempi nelle pagine ufficiali che abbiamo letto. Non scriviamo tempi che l'ente non ha scritto: chiedi al centro dove hai fatto l'esame.</p>
+{"".join(f'<h3 id="date-risultati-{SLUG_RISULTATI[x]}">{escape(x)}: le date dei risultati scritte nel calendario</h3>' + tabella_date_risultati(x) for x in ENTE if sessioni_con_risultati(x))}
 </section>
 <section>
 <h2 id="punteggio">{ic("lista")}Punteggio per superare e cosa fare se non superi</h2>
@@ -2149,7 +2190,8 @@ def pagina_risultati_ente(e, prossime):
         if not x:
             return ""
         testo = f'<p>{con_mail(escape(x["testo"]))}</p>' if x.get("testo") else f"<p>{vuoto}</p>"
-        return f'<section class="ris-sez"><h2 id="{id_}">{ic(icona)}{titolo}</h2>{testo}{fonte_ris(r, x["fonti"], "Fonti lette" if not x.get("testo") else "Fonte")}</section>'
+        extra = tabella_date_risultati(s) if chiave == "tempi" else ""  # date dei risultati scritte nel calendario (PLIDA 2027)
+        return f'<section class="ris-sez"><h2 id="{id_}">{ic(icona)}{titolo}</h2>{testo}{extra}{fonte_ris(r, x["fonti"], "Fonti lette" if not x.get("testo") else "Fonte")}</section>'
 
     tempi_vuoto = (f"Nelle pagine ufficiali che abbiamo letto, {escape(s)} ({nome_ente}) non scrive dopo quanto tempo escono i risultati. "
                    "Non diamo tempi che l'ente non ha scritto: chiedi al centro dove hai fatto l'esame.")
@@ -2167,12 +2209,15 @@ def pagina_risultati_ente(e, prossime):
     date_html = (lista_sessioni(date_ente[:6], con_filtri=False) if date_ente
                  else "<p>Nessuna data futura pubblicata dall'ente per ora. Controlliamo il calendario ufficiale ogni settimana.</p>")
     jsonld, faq_html = faq_ris(r["faq"])
+    fc = r["fonti"].get("calendario")  # calendario con le date dei risultati (PLIDA 2027): fonte e giorno di lettura suoi
+    fonte_calendario = (f' Date dei risultati: <a href="{escape(fc["url"])}" rel="noopener">{escape(fc["nome"])}</a>, letto {il_data(fc["letta_il"])} '
+                        f'(<a href="#quando">le date sessione per sessione</a>).' if fc else "")
     altri = "".join(f'<a href="../{RISULTATI["enti"][x]["slug"]}/">Risultati {escape(x)}</a>' for x in ENTE if x != s)
     corpo = f"""<section class="hero">
 {briciole(("EsameB1", "../../"), ("Risultati", "../"), (s, None))}
 <span class="occhiello">{ic("scudo")}{nome_ente} · fonti lette il {v}</span>
 <h1>Risultati {escape(r["esame"])}: {escape(r["titolo"])}</h1>
-<p class="lead">{con_mail(escape(r["risposta"]))} Fonte: <a href="{escape(f0["url"])}" rel="noopener">{escape(f0["nome"])}</a>, letta il {v}.</p>
+<p class="lead">{con_mail(escape(r["risposta"]))} Fonte: <a href="{escape(f0["url"])}" rel="noopener">{escape(f0["nome"])}</a>, letta il {v}.{fonte_calendario}</p>
 <div class="azioni"><a class="btn" href="{escape(bott["url"])}" rel="noopener">{ic("freccia")}{escape(bott["testo"])}</a><a class="btn btn-2" href="#date">{ic("cal")}Prossime date {escape(s)}</a></div>
 </section>
 <section class="ris-sez" aria-label="In breve">{breve}</section>
@@ -3235,7 +3280,7 @@ def faq_ente(e, date_ente, sue, regioni):
         else:
             r_data += " Il termine nazionale delle iscrizioni è passato: chiedi alla sede se accetta ancora iscrizioni, oppure guarda le date successive."
     else:
-        r_data = "Al momento l'ente non ha pubblicato nuove date. Controlliamo il calendario ufficiale ogni settimana."
+        r_data = senza_date(s)
     vt = RISULTATI["enti"][s]["voci"].get("tempi", {}).get("testo")
     faq = [
         (f"Quando è il prossimo esame {nome}?", r_data),
@@ -4812,7 +4857,30 @@ def controlli(prossime):
         if not sedi_di(c):
             errori.append(f"città senza sedi: {c['nome']}")
     if not prossime:
-        errori.append("nessuna sessione futura")
+        # Controllo voluto: senza nessuna data futura dei 4 enti i dati sono vecchi. Ci si ferma qui, prima di toccare sito/,
+        # così resta online l'ultima versione buona. Un solo ente (o una città) senza date future invece non ferma nulla.
+        errori.append("nessuna sessione futura in dati/sessioni.json: rileggere i calendari ufficiali (NOTE.md, «Routine settimanale») "
+                      "e aggiungere le nuove sessioni; il sito non è stato toccato")
+    # date dei risultati scritte nel calendario (PLIDA 2027): quelle nel testo di risultati.json devono essere quelle di sessioni.json
+    for sg, r in RISULTATI["enti"].items():
+        con_ris = sessioni_con_risultati(sg)
+        if con_ris and not (r["tabella"].get("tempi") and r["voci"]["tempi"].get("testo") and r["fonti"].get("calendario", {}).get("letta_il")):
+            errori.append(f"risultati.json: {sg} ha date dei risultati in sessioni.json ma tempi o fonte «calendario» mancanti")
+        testo_faq = " ".join(a for _, a in r["faq"])
+        for s in con_ris:
+            if d(s["risultati_urgenti"]) <= d(s["data"]) or d(s["risultati_ordinari"]) < d(s["risultati_urgenti"]):
+                errori.append(f"sessioni.json: date dei risultati incoerenti: {sg} {s['data']}")
+            for g in (s["data"], s["risultati_urgenti"], s["risultati_ordinari"]):
+                if data_breve(g) not in testo_faq:
+                    errori.append(f"risultati.json: nelle domande frequenti {sg} manca la data {data_breve(g)} (sessione {s['data']})")
+    for e in enti:  # avvisi, non errori (19/11/2026): il sito dice che i calendari si controllano ogni settimana
+        v = controllo_calendario(e["sigla"])
+        if not any(s["ente"] == e["sigla"] for s in prossime):
+            print(f"AVVISO: {e['sigla']} non ha sessioni future in dati/sessioni.json: le pagine dicono «nessuna data nuova pubblicata». "
+                  f"Rileggere il calendario ufficiale: {e['pagina_date']}")
+        if v and (OGGI - d(v)).days > 10:
+            print(f"AVVISO: calendario {e['sigla']} letto l'ultima volta il {data_breve(v)} ({(OGGI - d(v)).days} giorni fa): "
+                  f"rileggerlo e aggiornare verificato_il in dati/sessioni.json")
     # sezione /cittadinanza/ e redditi (31/10/2026): ogni punto e contatto locale con la frase della fonte; fonti con data
     for sl, p in PREF_LOC["prefetture"].items():
         if sl not in PREF:

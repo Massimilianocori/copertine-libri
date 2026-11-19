@@ -2,26 +2,31 @@
  "CILS 2026": {
   "url": "https://cils.unistrasi.it/1/211/415/Le_date_degli_esami_2026.htm",
   "impronta": "4ceb66bbad00c98f",
-  "controllato_il": "2026-11-16"
+  "controllato_il": "2026-11-19"
  },
  "CILS 2027": {
   "url": "https://cils.unistrasi.it/1/213/428/Le_date_degli_esami_2027.htm",
   "impronta": "4b0d9d6c1968ab8f",
-  "controllato_il": "2026-11-16"
+  "controllato_il": "2026-11-19"
  },
  "CELI 2026-2027": {
   "url": "https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000",
-  "impronta": "c0824de87fad939d",
-  "controllato_il": "2026-11-16"
+  "impronta": "b7f4c66924041e9c",
+  "controllato_il": "2026-11-19"
  },
  "PLIDA esami": {
   "url": "https://plida.dante.global/it/esami-plida/",
   "impronta": "66a237187613631b",
-  "controllato_il": "2026-11-16"
+  "controllato_il": "2026-11-19"
+ },
+ "PLIDA home": {
+  "url": "https://plida.dante.global/it/",
+  "impronta": "865917aaf68305b3",
+  "controllato_il": "2026-11-19"
  },
  "CERT.IT home": {
   "url": "https://certificazioneitaliano.uniroma3.it/",
-  "impronta": "f51efd923d78041f",
-  "controllato_il": "2026-11-16"
+  "impronta": "2d1ef8b5a5ce1d5f",
+  "controllato_il": "2026-11-19"
  }
 }
