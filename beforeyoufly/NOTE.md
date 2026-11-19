@@ -1303,7 +1303,7 @@ Resta: il prezzo nel titolo di BARK Air va riletto a ogni pubblicazione (rilanci
 - **Qantas:** l'avviso in alto data il divieto sopra 100 Wh dal 1° gennaio 2027, la tabella della stessa pagina lo dà già in vigore: citate entrambe le frasi, detto in nota. **Da rileggere a gennaio 2027.**
 - **Norwegian:** la pagina risponde HTTP 403 ma con il suo testo intero (nessuna pagina di blocco): letta così com'è. La tabella parla di «external batteries», non di power bank per nome: detto nel riassunto.
 - **Air France:** due fonti (pagina «What can I transport?» per il divieto d'uso e la stiva, scheda sulle batterie per Wh e approvazione). Nessun numero per i power bank fino a 100 Wh: scritto così.
-- **JetBlue:** nessun limite in Wh nell'elenco dei power bank: «Not stated» (il limite di 100 Wh della pagina riguarda gli ausili alla mobilità).
+- **JetBlue:** nessun limite in Wh nell'elenco dei power bank: «Not stated» nella voce. La pagina ha però un limite generale per i dispositivi elettronici portatili («Non-mobility devices (i.e., portable electronic devices) battery limit is 100 wh for lithium ion…»): è citato sotto «Other official wording» con l'etichetta che lo dice generale. (Una prima versione di questa nota diceva per errore che quel limite riguardava gli ausili alla mobilità.)
 - **Volotea:** tabella delle condizioni di trasporto; bagaglio a mano e stiva sono segnati con simboli che il lettore non rende in testo: «See the official table».
 - Dove la pagina non dice una cosa: `non_detto: true`, nessuna citazione, nessun numero, testo «Not stated…». Mai una deduzione.
 
@@ -1327,4 +1327,16 @@ Resta: il prezzo nel titolo di BARK Air va riletto a ogni pubblicazione (rilanci
 
 **Esito (19/11/2026).** `genera.py`: 1.553 pagine indicizzabili + 404. `verifica.py`: TUTTO OK (12 avvisi, gli stessi di prima, di altre sezioni); punto 39: 33 pagine (28 + 5), 234 righe, 96 numeri, 9 voci «non detto», 35 copie rilette, 0 errori. `monetizzazione.py verifica beforeyoufly`: 0 errori (2.687 link in 1.188 pagine, come prima). A 375 px (chiaro e scuro) e 1.280 px: indice, Ryanair, United, Air France senza scorrimento orizzontale e senza errori JavaScript.
 
-**Aperto.** Revisione indipendente dei fatti prima di pubblicare (regola dell'11/10): non fatta. Ricontrollo MENSILE obbligatorio con `raccolta/powerbank.py`: queste regole cambiano spesso. **Il giro completo di `raccolta/powerbank.py` (senza argomenti) è stato lanciato una volta il 19/11 e non è finito entro 25 minuti: nessun esito, copie non toccate.** Le copie in `raccolta/.cache/powerbank/` sono quelle delle letture del 19/11 fatte con lo stesso lettore, e `--domanda` ha funzionato; il ricontrollo va rilanciato e lasciato finire (35 pagine, fino a 150 s l'una) prima di fidarsi dello script. Le 7 escluse vanno lette con un browser vero; per Pegasus basterebbe leggere il PDF ufficiale a mano. `TEST.md` non aggiornato per questa sezione.
+**Aperto.** Revisione indipendente dei fatti prima di pubblicare (regola dell'11/10): non fatta. Ricontrollo MENSILE obbligatorio con `raccolta/powerbank.py`: queste regole cambiano spesso. Il primo giro completo del 19/11 non era finito; dopo la revisione lo script legge a lotti di 5 e finisce in circa 10 minuti (esiti in `TEST.md`: 34 pagine [OK], United non caricata all'ultimo giro, da rilanciare). Le 7 escluse vanno lette con un browser vero; per Pegasus basterebbe leggere il PDF ufficiale a mano.
+
+**Correzioni dopo la revisione indipendente (19/11/2026 sera, voto 8,8: pubblicabile, nessun difetto bloccante; nessun commit).** Tutto dalle stesse copie del 19/11 (237 righe citate, tutte ritrovate).
+1. United: il titolo «Checked bags» è la prima riga citata di «Where to keep it».
+2. Indice, introduzione: il conteggio è calcolato dai dati (campo nuovo `uso_ambito`): «21 say you may not use a power bank on board (some with an exception for approved medical devices); Air India lists the ban for Singapore departures».
+3. Qantas: la nota sulla data d'inizio sta subito sotto la tabella del riquadro (`nota_sotto_tabella`), la cella dell'indice è «100 Wh (see note on the start date)», e `poss()` scrive «Qantas's» in tutta la pagina (anche nei titoli del bagaglio a mano: cambia la grafia, non i fatti).
+4. Volotea: avviso proprio (`avviso_generale`): «Volotea names power banks only in the battery table of its conditions of carriage.»
+5. Celle dell'indice: Jetstar «160 Wh; 100-160 Wh with Qantas approval»; Condor «100-160 Wh needs permission; smaller: no permission stated».
+6. Turkish: citata «The carriage of powerbanks with a lithium-ion power exceeding 100 Wh or a lithium metal content exceeding 2 grams is prohibited.», riassunto «above 100 Wh prohibited».
+7. JetBlue: limite generale di 100 Wh citato con l'etichetta (campo `etichetta` delle citazioni `extra`); nota qui sopra corretta.
+8. `raccolta/powerbank.py`: le pagine si leggono a lotti di 5 (un processo del browser per lotto, avanzamento stampato); esito del giro completo scritto in `TEST.md`.
+9. Telefono: nelle schede del riquadro l'etichetta «Power bank» della prima colonna non si ripete più (prima cella senza `data-l`).
+`verifica.py`, punto 39, controlla anche: avviso proprio, nota, etichette, `uso_ambito` nella cella, conteggio dell'introduzione dell'indice = dati, nessuna etichetta ripetuta.

@@ -7129,6 +7129,8 @@ def controlla_powerbank():
             if v.get("leggenda") and escape(v["leggenda"]) not in box:
                 errori.append(f"powerbank {sl}/{k}: legenda non mostrata")
         for c in S.get("extra", []):
+            if c.get("etichetta") and escape(c["etichetta"]) not in box:
+                errori.append(f"powerbank {sl}: etichetta di una citazione (extra) non mostrata")
             for r in c["righe"]:
                 conti["righe"] += 1
                 if escape(r) not in box:
@@ -7148,7 +7150,15 @@ def controlla_powerbank():
         if S.get("uso_cod") not in ("no", "limitato", None) or (S.get("uso_cod") == "no") != bool(re.match(r"No\b", tab["uso"])) \
                 or (S.get("uso_cod") is None) != bool(V["uso"].get("non_detto")):
             errori.append(f"powerbank {sl}: uso_cod non coerente con la cella o con la voce «uso»")
-        gen = "has no rule of its own for power banks" in box
+        gen = "data-pb-generale" in box
+        if S.get("avviso_generale") and escape(S["avviso_generale"]) not in box:
+            errori.append(f"powerbank {sl}: avviso proprio della pagina generale non mostrato")
+        if S.get("nota") and escape(S["nota"]) not in box:
+            errori.append(f"powerbank {sl}: nota non mostrata")
+        if S.get("uso_ambito") and S["uso_ambito"] not in tab["uso"]:
+            errori.append(f"powerbank {sl}: uso limitato a «{S['uso_ambito']}» ma la cella dell'indice non lo dice")
+        if 'data-l="Power bank"' in box:
+            errori.append(f"powerbank {sl}: etichetta «Power bank» ripetuta nelle schede del telefono")
         if gen != (S["tipo"] == "generale"):
             errori.append(f"powerbank {sl}: avviso «pagina generale» presente o assente contro il tipo dei dati")
         # frasi di ricerca: H2 e descrizione solo con volume misurato > 0
@@ -7202,6 +7212,12 @@ def controlla_powerbank():
         errori.append(f"powerbank indice: descrizione senza la frase misurata «{G.PB_FRASE_INDICE_2}» o frase senza volume")
     if any(x in ti[ti.index("<main"):ti.index("</main>")].lower() for x in _AFFILIATI_PB if x != "affiliate") if "<main" in ti else True:
         errori.append("powerbank indice: traccia di un link di affiliazione (o <main> non trovato)")
+    n_no = sum(1 for S in P["compagnie"] if S["tipo"] == "regola" and S.get("uso_cod") == "no" and not S.get("uso_ambito"))
+    if f", {n_no} say you may not use a power bank on board" not in ti:
+        errori.append(f"powerbank indice: il conteggio del divieto d'uso non è quello dei dati ({n_no})")
+    for S in P["compagnie"]:
+        if S.get("uso_ambito") and f"lists the ban for {escape(S['uso_ambito'])}" not in ti:
+            errori.append(f"powerbank indice: {S['slug']}: divieto d'uso solo per «{S['uso_ambito']}» non detto nell'introduzione")
     righe_i = re.findall(r"<tr data-voce>(.*?)</tr>", ti, re.S)
     if len(righe_i) != len(P["compagnie"]):
         errori.append(f"powerbank indice: {len(righe_i)} righe per {len(P['compagnie'])} compagnie")

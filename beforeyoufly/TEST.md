@@ -145,3 +145,17 @@ Esito complessivo di `python3 beforeyoufly/verifica.py`: TUTTO OK (14 punti, 0 e
 | `python3 studio-business/strumenti/monetizzazione.py verifica beforeyoufly` | 0 errori |
 | Browser (Playwright, 375 px, chiaro e scuro) | Barcellona, Corfù, Inverness: nessuno scorrimento orizzontale, 0 errori JavaScript |
 | Correzioni della revisione del 5/11/2026 | 8 su 8 (NOTE.md); `genera.py`, `verifica.py --offline` TUTTO OK e `monetizzazione.py` 0 errori rifatti dopo le correzioni |
+
+## Controlli del 19 novembre 2026 (power bank per compagnia: riquadro «Power banks» e indice `cabin-bags/power-banks/`)
+
+| Controllo | Esito |
+|---|---|
+| Lettura delle pagine ufficiali (browser, stesso metodo di `bagagli.py` e `stiva.py`) | 35 pagine per 33 compagnie; 237 righe citate, tutte ritrovate parola per parola |
+| `python3 -I beforeyoufly/raccolta/powerbank.py` (a lotti di 5 pagine, 7 lotti) | primo giro completo: finito, 35 pagine lette su 35 e copie riscritte; 12 falsi «[CAMBIATA?]» perché lo script cercava le righe di una citazione unite in una frase sola: corretto (riga per riga, come `verifica.py`). Secondo giro completo, circa 10 minuti: 34 pagine [OK], United non caricata (HTTP 0, «[DA CONTROLLARE A MANO]», esce con 1; la copia buona di poco prima resta). Da rilanciare: non è un cambio della pagina |
+| `python3 -I beforeyoufly/raccolta/powerbank.py --domanda` | 210 richieste (40 compagnie × 5 frasi + 10 generali), `dati/powerbank_domanda.json` |
+| `python3 beforeyoufly/genera.py` | 1.553 pagine indicizzabili + 404 (una in più: l'indice dei power bank) |
+| `python3 beforeyoufly/verifica.py`, punto 39 | 33 pagine (28 con regola propria, 5 solo pagina generale), 237 righe mostrate e ritrovate nelle 35 copie rilette, 96 numeri dei riassunti nelle righe citate, 9 voci «non detto», frase misurata in 18 H2 e 13 descrizioni, indice 33 righe = dati, 7 escluse con il motivo, nessun link di affiliazione, interruttore Amazon vuoto: 0 errori |
+| `python3 beforeyoufly/verifica.py` (tutto) | TUTTO OK (12 avvisi di altre sezioni, già presenti) |
+| `python3 studio-business/strumenti/monetizzazione.py verifica beforeyoufly` | 0 errori |
+| Browser 375 px (chiaro e scuro) e 1.280 px | indice, Ryanair, United, Air France: nessuno scorrimento orizzontale, 0 errori JavaScript; nelle schede del telefono l'etichetta della prima colonna non si ripete |
+| Prove a mano del punto 39 (prima delle correzioni) | numero del riassunto non citato, cella dell'indice con un numero non citato, `uso_cod` incoerente: tutti errori |

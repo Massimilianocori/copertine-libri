@@ -1286,7 +1286,7 @@
    ],
    "tab": {
     "quante": "2",
-    "wh": "100-160 Wh with permission",
+    "wh": "100-160 Wh needs permission; smaller: no permission stated",
     "uso": "No",
     "dove": "Under the seat, seat pocket or on you; not overhead"
    },
@@ -1630,7 +1630,7 @@
    ],
    "tab": {
     "quante": "2",
-    "wh": "100 Wh",
+    "wh": "100 Wh (see note on the start date)",
     "uso": "No",
     "dove": "Seat pocket or under the seat"
    },
@@ -1649,7 +1649,8 @@
      ]
     }
    ],
-   "nota": "The notice at the top of Qantas's page dates the ban on power banks over 100 Wh from 1 January 2027, while its own table already says they are not permitted. Both sentences are quoted; if yours is over 100 Wh, ask Qantas before you fly."
+   "nota": "The notice at the top of Qantas's page dates the ban on power banks over 100 Wh from 1 January 2027, while its own table already says they are not permitted. Both sentences are quoted; if yours is over 100 Wh, ask Qantas before you fly.",
+   "nota_sotto_tabella": true
   },
   {
    "slug": "jetstar",
@@ -1721,7 +1722,7 @@
    ],
    "tab": {
     "quante": "2",
-    "wh": "100-160 Wh with approval",
+    "wh": "160 Wh; 100-160 Wh with Qantas approval",
     "uso": "No",
     "dove": "Carry-on; within easy reach"
    },
@@ -2101,7 +2102,7 @@
     },
     {
      "id": "wh",
-     "valore": "Not stated in the power bank list of the page we read.",
+     "valore": "Not stated in the power bank list of the page we read (the page's general limit for portable electronic devices is quoted further down).",
      "cit": [],
      "non_detto": true
     },
@@ -2137,7 +2138,16 @@
     "uso": "No",
     "dove": "Not in checked bags; not overhead"
    },
-   "uso_cod": "no"
+   "uso_cod": "no",
+   "extra": [
+    {
+     "f": "a",
+     "etichetta": "JetBlue's general limit for portable electronic devices (its power bank list does not repeat it):",
+     "righe": [
+      "Non-mobility devices (i.e., portable electronic devices) battery limit is 100 wh for lithium ion, or 2 grams lithium metal content."
+     ]
+    }
+   ]
   },
   {
    "slug": "air-india",
@@ -2238,7 +2248,8 @@
      ]
     }
    ],
-   "nota": "Air India's page puts its numbered power bank list under the heading “Additional Restrictions for Singapore Departures”. We quote it with that heading and do not extend it to other routes."
+   "nota": "Air India's page puts its numbered power bank list under the heading “Additional Restrictions for Singapore Departures”. We quote it with that heading and do not extend it to other routes.",
+   "uso_ambito": "Singapore departures"
   },
   {
    "slug": "indigo",
@@ -2337,12 +2348,18 @@
     },
     {
      "id": "wh",
-     "valore": "100 Wh or less. The power bank row names no approval route for a bigger one.",
+     "valore": "100 Wh or less; above 100 Wh prohibited.",
      "cit": [
       {
        "f": "a",
        "righe": [
         "Powerbanks with a lithium metal content equal to or less than 2 grams, and a lithium-ion power equal to or less than 100 Wh, can be carried only in the cabin, up to a maximum of 2 pieces per passenger."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "The carriage of powerbanks with a lithium-ion power exceeding 100 Wh or a lithium metal content exceeding 2 grams is prohibited."
        ]
       }
      ],
@@ -2438,6 +2455,7 @@
       {
        "f": "a",
        "righe": [
+        "Checked bags",
         "We do not allow:",
         "Power banks (including those installed in “smart bags”)"
        ]
@@ -2749,7 +2767,8 @@
     "uso": "Not stated",
     "dove": "See the official table"
    },
-   "uso_cod": null
+   "uso_cod": null,
+   "avviso_generale": "Volotea names power banks only in the battery table of its conditions of carriage."
   }
  ],
  "escluse": [

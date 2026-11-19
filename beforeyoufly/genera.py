@@ -2842,6 +2842,8 @@ def borsa_gratis(C, tipo=None):
 
 def poss(nome):
     """Genitivo inglese: "Delta Air Lines'", "Ryanair's"."""
+    if nome == "Qantas":  # nome singolare che finisce in s: «Qantas's» (revisione del 19/11/2026), in tutta la pagina
+        return "Qantas's"
     return nome + ("'" if nome.endswith("s") else "'s")
 
 
@@ -3247,6 +3249,16 @@ def h2_powerbank(C, S):
     return f"Power banks on {C['nome']} flights: {coda}"
 
 
+def poss_pb(nome):
+    """Genitivo nel riquadro dei power bank: «Qantas's» (nome singolare che finisce in s), per il resto come poss()."""
+    return poss(nome)
+
+
+def cit_pb(cc):
+    """Come cit_bag, con un'etichetta nostra facoltativa sopra la citazione (campo «etichetta»: es. limite generale, non dei power bank)."""
+    return "".join((f'<p class="small">{escape(c["etichetta"])}</p>' if c.get("etichetta") else "") + cit_bag([c]) for c in cc)
+
+
 def fonte_powerbank(S):
     return ('<p class="fonte">Official source: ' + " · ".join(f'<a href="{escape(f["url"])}" rel="noopener">{escape(f["titolo"])}</a>' for f in S["fonti"].values()) +
             f' · checked on {data_lunga(S["controllato_il"])} (read in a browser)</p>')
@@ -3259,20 +3271,27 @@ def box_powerbank(C):
         return ""
     V = {v["id"]: v for v in S["voci"]}
     piu = len(S["fonti"]) > 1
-    righe = "".join(f'<tr><td data-l="Power bank"><strong>{escape(et)}</strong></td><td data-l="Official rule, in short">{escape(V[k]["valore"])}</td></tr>' for k, et in PB_VOCI)
-    generale = (f'<p class="avviso"><strong>{escape(C["nome"])} has no rule of its own for power banks on the page we read.</strong> It covers them only in its general '
-                f'page on batteries and dangerous goods; this is what that page says.</p>') if S["tipo"] == "generale" else ""
+    # la prima cella è già il titolo della riga: senza data-l, così sul telefono l'etichetta «Power bank» non si ripete in ogni scheda
+    righe = "".join(f'<tr><td><strong>{escape(et)}</strong></td><td data-l="Official rule, in short">{escape(V[k]["valore"])}</td></tr>' for k, et in PB_VOCI)
+    if S["tipo"] != "generale":
+        generale = ""
+    elif S.get("avviso_generale"):
+        generale = f'<p class="avviso" data-pb-generale><strong>{escape(S["avviso_generale"])}</strong> This is what that table says.</p>'
+    else:
+        generale = (f'<p class="avviso" data-pb-generale><strong>{escape(C["nome"])} has no rule of its own for power banks on the page we read.</strong> It covers them '
+                    f'only in its general page on batteries and dangerous goods; this is what that page says.</p>')
     citaz = "".join(f'<h3>{escape(et)}</h3>{cit_bag(V[k]["cit"])}' + (f'<p class="small">{escape(V[k]["leggenda"])}</p>' if V[k].get("leggenda") else "")
                     for k, et in PB_VOCI if V[k]["cit"])
-    extra = f'<h3>Other official wording</h3>{cit_bag(S["extra"])}' if S.get("extra") else ""
+    extra = f'<h3>Other official wording</h3>{cit_pb(S["extra"])}' if S.get("extra") else ""
     nota = f'<p class="small">{escape(S["nota"])}</p>' if S.get("nota") else ""
+    nota_su, nota = (f'<p class="avviso">{escape(S["nota"])}</p>', "") if S.get("nota_sotto_tabella") and S.get("nota") else ("", nota)
     return (f'<section class="card" style="margin-top:22px" id="power-banks" aria-label="Power banks"><h2 style="margin-top:0">{escape(h2_powerbank(C, S))}</h2>'
-            f'<p>This part is about power banks (portable chargers). Every line comes from {escape(poss(C["nome"]))} own {"pages" if piu else "page"}, '
+            f'<p>This part is about power banks (portable chargers). Every line comes from {escape(poss_pb(C["nome"]))} own {"pages" if piu else "page"}, '
             f'read on {data_lunga(S["controllato_il"])}.</p>{generale}'
-            f'<div class="tab tab-b"><table><thead><tr><th>Power bank</th><th>Official rule, in short</th></tr></thead><tbody>{righe}</tbody></table></div>'
+            f'<div class="tab tab-b"><table><thead><tr><th>Power bank</th><th>Official rule, in short</th></tr></thead><tbody>{righe}</tbody></table></div>{nota_su}'
             f'<p class="small">Our short summary of the official wording quoted below. Where the page says nothing we write “not stated” and do not guess. '
             f'Airlines changed their power bank rules several times in 2025 and 2026: the official page and the crew decide.</p>'
-            f'<h2>What {escape(poss(C["nome"]))} official {"pages say" if piu else "page says"} about power banks</h2>{citaz}{extra}{nota}{fonte_powerbank(S)}'
+            f'<h2>What {escape(poss_pb(C["nome"]))} official {"pages say" if piu else "page says"} about power banks</h2>{citaz}{extra}{nota}{fonte_powerbank(S)}'
             f'<p class="small"><a href="../../{PB_PAGINA}">Power bank rules of {len(PB["compagnie"])} airlines in one table</a></p></section>')
 
 
@@ -3305,7 +3324,8 @@ def pagina_powerbank():
     rel = "../../"
     SS = sorted(PB["compagnie"], key=lambda S: COMPAGNIE_PER_SLUG[S["slug"]]["nome"].lower())
     regola = [S for S in SS if S["tipo"] == "regola"]
-    n_no = sum(1 for S in regola if S["uso_cod"] == "no")
+    n_no = sum(1 for S in regola if S["uso_cod"] == "no" and not S.get("uso_ambito"))
+    solo_rotte = "; ".join(f'{COMPAGNIE_PER_SLUG[S["slug"]]["nome"]} lists the ban for {S["uso_ambito"]}' for S in regola if S["uso_cod"] == "no" and S.get("uso_ambito"))
     n_uno = sum(1 for S in regola if S["tab"]["quante"] == "1")
 
     def riga(S):
@@ -3322,7 +3342,7 @@ def pagina_powerbank():
     corpo = f"""<section class="hero">{h1_diviso(h1)}
 <p class="lead">Can you take a power bank on a plane? It depends on the airline: the number, the size, where it must travel and what you may do with it on board differ. This table gives the rule of {len(SS)} airlines, each taken from the airline's own page on {data_lunga(PB["controllato_il"])}; the exact official sentences are on each airline's page.</p>
 </section>
-<p class="avviso"><strong>Airlines changed their power bank rules several times in 2025 and 2026.</strong> Of the {len(regola)} airlines here with a rule of their own, {n_no} say you may not use a power bank on board at all and {n_uno} allow only one. The official page (linked in each row) and the crew decide.</p>
+<p class="avviso"><strong>Airlines changed their power bank rules several times in 2025 and 2026.</strong> Of the {len(regola)} airlines here with a rule of their own, {n_no} say you may not use a power bank on board (some with an exception for approved medical devices){"; " + escape(solo_rotte) if solo_rotte else ""}. {n_uno} allow only one. The official page (linked in each row) and the crew decide.</p>
 <div class="cerca-box">{ico("search")}<input class="cerca" type="search" placeholder="Type an airline, e.g. Ryanair, Emirates, Delta" data-filtro-multi aria-label="Search airlines"></div>
 <div class="tab tab-b"><table>{testa}<tbody id="lista-powerbank">{"".join(riga(S) for S in SS)}</tbody></table></div>
 <p class="small">Our short summary; “not stated” means the page we read does not say it, and we do not guess. Wh = watt-hours: if your power bank shows only mAh, multiply by its voltage (usually 3.7 V) and divide by 1,000. “General battery page only”: the airline has no rule of its own for power banks on the page we read.</p>

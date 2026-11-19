@@ -6,8 +6,8 @@ Uso (dalla radice del repository):
 
 Ricontrollo. Per ogni compagnia di dati/powerbank.json apre le pagine ufficiali con Chromium headless (stesso metodo di raccolta/stiva.py e
 raccolta/bagagli.py: Playwright in /opt, proxy da HTTPS_PROXY, user agent di un browser desktop, HTTP/2 spento, una pagina alla volta con
-una pausa, al massimo due caricamenti per pagina) e controlla che ogni frase citata sia ancora sulla pagina, parola per parola (spazi
-normalizzati). Il testo letto è salvato in raccolta/.cache/powerbank/ (fuori dal repository): verifica.py, punto 39, ricontrolla le frasi
+una pausa, al massimo due caricamenti per pagina) e controlla che ogni riga citata sia ancora sulla pagina, parola per parola (spazi
+normalizzati; riga per riga, come verifica.py: le righe di una citazione non sono sempre una di seguito all'altra). Il testo letto è salvato in raccolta/.cache/powerbank/ (fuori dal repository): verifica.py, punto 39, ricontrolla le frasi
 su quelle copie. Non modifica i dati: se una frase sparisce scrive [CAMBIATA?] o [DA CONTROLLARE A MANO] ed esce con 1; allora si apre la
 pagina, la si rilegge e si aggiorna dati/powerbank.json a mano (frasi, riassunti, controllato_il). Nessun blocco anti-robot o geografico
 viene aggirato: una pagina che non si legge resta non letta e la compagnia resta senza riquadro (voce "escluse").
@@ -84,16 +84,30 @@ def citazioni(C):
     return out + C.get("extra", [])
 
 
-def leggi_pagine(urls):
+LOTTO = 5  # pagine per processo del browser: un giro unico da 35 pagine non finiva (19/11/2026); a lotti ogni processo dura pochi minuti
+
+
+def leggi_lotto(urls):
     with tempfile.TemporaryDirectory() as tmp:
         lista, uscita, script = Path(tmp) / "urls.json", Path(tmp) / "out.json", Path(tmp) / "leggi.js"
         lista.write_text(json.dumps(urls))
         script.write_text(JS)
         try:
-            subprocess.run(["node", str(script), str(lista), UA, str(uscita)], timeout=150 * len(urls) + 120, check=False)
+            subprocess.run(["node", str(script), str(lista), UA, str(uscita)], timeout=150 * len(urls) + 60, check=False)
             return json.loads(uscita.read_text()) if uscita.exists() else {}
         except subprocess.TimeoutExpired:
             return {}
+
+
+def leggi_pagine(urls):
+    """Legge le pagine a lotti di LOTTO indirizzi (un processo del browser per lotto): un lotto che non risponde non ferma gli altri."""
+    letti = {}
+    for i in range(0, len(urls), LOTTO):
+        lotto = urls[i:i + LOTTO]
+        r = leggi_lotto(lotto)
+        letti.update(r)
+        print(f"lotto {i // LOTTO + 1}/{(len(urls) + LOTTO - 1) // LOTTO}: {sum(1 for u in lotto if len(r.get(u, [0, ''])[1]) > 500)} pagine lette su {len(lotto)}", flush=True)
+    return letti
 
 
 def ricontrollo():
@@ -101,7 +115,7 @@ def ricontrollo():
     voci = []
     for C in d["compagnie"]:
         for k, f in C["fonti"].items():
-            voci.append((f"{C['slug']} ({k})", f["url"], sorted({norm(" ".join(c["righe"])) for c in citazioni(C) if c["f"] == k})))
+            voci.append((f"{C['slug']} ({k})", f["url"], sorted({norm(r) for c in citazioni(C) if c["f"] == k for r in c["righe"]})))
     urls = sorted({u for _, u, _ in voci})
     CACHE.mkdir(parents=True, exist_ok=True)
     letti = leggi_pagine(urls)
