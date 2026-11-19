@@ -44,7 +44,7 @@
 "frase_titolo": "aciclovir compresse 800 mg prezzo",
 "volume_frase_titolo": 260,
 "confezioni": 41,
-"sovrapposizione": 0.367,
+"sovrapposizione": 0.366,
 "piu_simile": "sertralina"
 },
 "acido-micofenolico": {
@@ -96,7 +96,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 17,
-"sovrapposizione": 0.491,
+"sovrapposizione": 0.49,
 "piu_simile": "acido-alendronico"
 },
 "acido-carglumico": {
@@ -122,7 +122,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 7,
-"sovrapposizione": 0.521,
+"sovrapposizione": 0.514,
 "piu_simile": "ketoprofene"
 },
 "acido-folico": {
@@ -135,8 +135,8 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 38,
-"sovrapposizione": 0.35,
-"piu_simile": "prednisone"
+"sovrapposizione": 0.355,
+"piu_simile": "rosuvastatina"
 },
 "acido-tranexamico": {
 "indicizzata": false,
@@ -148,7 +148,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 3,
-"sovrapposizione": 0.687,
+"sovrapposizione": 0.702,
 "piu_simile": "potassio-canrenoato"
 },
 "acido-ursodesossicolico": {
@@ -161,7 +161,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 33,
-"sovrapposizione": 0.353,
+"sovrapposizione": 0.354,
 "piu_simile": "ketoprofene"
 },
 "acido-valproico-sale-di-sodio": {
@@ -174,7 +174,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 2,
-"sovrapposizione": 0.608,
+"sovrapposizione": 0.607,
 "piu_simile": "celecoxib"
 },
 "acitretina": {
@@ -213,7 +213,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 4,
-"sovrapposizione": 0.619,
+"sovrapposizione": 0.618,
 "piu_simile": "glucosio"
 },
 "alfacalcidolo": {
@@ -226,7 +226,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 7,
-"sovrapposizione": 0.593,
+"sovrapposizione": 0.59,
 "piu_simile": "ketoprofene"
 },
 "alfuzosina": {
@@ -239,7 +239,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 14,
-"sovrapposizione": 0.55,
+"sovrapposizione": 0.533,
 "piu_simile": "metformina"
 },
 "allopurinolo": {
@@ -330,8 +330,8 @@
 "frase_titolo": "amiodarone nome commerciale",
 "volume_frase_titolo": 1300,
 "confezioni": 8,
-"sovrapposizione": 0.657,
-"piu_simile": "pramipexolo"
+"sovrapposizione": 0.661,
+"piu_simile": "carbamazepina"
 },
 "amisulpride": {
 "indicizzata": true,
@@ -342,8 +342,8 @@
 "titolo": "Solian ed equivalenti: prezzi, differenza e carenze",
 "frase_titolo": null,
 "volume_frase_titolo": null,
-"confezioni": 10,
-"sovrapposizione": 0.59,
+"confezioni": 11,
+"sovrapposizione": 0.572,
 "piu_simile": "sertralina"
 },
 "amitriptilina": {
@@ -356,8 +356,8 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 4,
-"sovrapposizione": 0.726,
-"piu_simile": "meloxicam"
+"sovrapposizione": 0.688,
+"piu_simile": "betametasone"
 },
 "amlodipina": {
 "indicizzata": true,
@@ -368,8 +368,8 @@
 "titolo": "Amlodipina: nomi commerciali, generici e prezzi AIFA",
 "frase_titolo": "amlodipina nome commerciale",
 "volume_frase_titolo": 2900,
-"confezioni": 104,
-"sovrapposizione": 0.292,
+"confezioni": 105,
+"sovrapposizione": 0.289,
 "piu_simile": "omeprazolo"
 },
 "amlodipina-valsartan": {
@@ -395,7 +395,7 @@
 "frase_titolo": "amlodipina valsartan idroclorotiazide nome commerciale",
 "volume_frase_titolo": 90,
 "confezioni": 2,
-"sovrapposizione": 0.706,
+"sovrapposizione": 0.705,
 "piu_simile": "furosemide"
 },
 "amoxicillina": {
@@ -408,7 +408,7 @@
 "frase_titolo": "amoxicillina generico",
 "volume_frase_titolo": 720,
 "confezioni": 26,
-"sovrapposizione": 0.448,
+"sovrapposizione": 0.447,
 "piu_simile": "amoxicillina-acido-clavulanico"
 },
 "amoxicillina-acido-clavulanico": {
@@ -420,8 +420,8 @@
 "titolo": "Augmentin generico: equivalenti, prezzi e carenze",
 "frase_titolo": "augmentin generico",
 "volume_frase_titolo": 1600,
-"confezioni": 119,
-"sovrapposizione": 0.228,
+"confezioni": 121,
+"sovrapposizione": 0.226,
 "piu_simile": "omeprazolo"
 },
 "anagrelide": {
@@ -434,7 +434,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 5,
-"sovrapposizione": 0.712,
+"sovrapposizione": 0.711,
 "piu_simile": "valganciclovir"
 },
 "anastrozolo": {
@@ -460,7 +460,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 20,
-"sovrapposizione": 0.451,
+"sovrapposizione": 0.45,
 "piu_simile": "capecitabina"
 },
 "aripiprazolo": {
@@ -473,7 +473,7 @@
 "frase_titolo": "aripiprazolo nome commerciale",
 "volume_frase_titolo": 1900,
 "confezioni": 47,
-"sovrapposizione": 0.388,
+"sovrapposizione": 0.384,
 "piu_simile": "olanzapina"
 },
 "atenololo": {
@@ -485,8 +485,8 @@
 "titolo": "Atenololo: nomi commerciali, generici e prezzi AIFA",
 "frase_titolo": "atenololo nome commerciale",
 "volume_frase_titolo": 1600,
-"confezioni": 30,
-"sovrapposizione": 0.424,
+"confezioni": 28,
+"sovrapposizione": 0.426,
 "piu_simile": "sertralina"
 },
 "atenololo-clortalidone": {
@@ -511,8 +511,8 @@
 "titolo": "Atorvastatina: nomi commerciali, generici e prezzi AIFA",
 "frase_titolo": "atorvastatina nome commerciale",
 "volume_frase_titolo": 880,
-"confezioni": 145,
-"sovrapposizione": 0.251,
+"confezioni": 156,
+"sovrapposizione": 0.24,
 "piu_simile": "rosuvastatina"
 },
 "atropina": {
@@ -538,7 +538,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 5,
-"sovrapposizione": 0.676,
+"sovrapposizione": 0.675,
 "piu_simile": "budesonide"
 },
 "azitromicina": {
@@ -564,7 +564,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 3,
-"sovrapposizione": 0.737,
+"sovrapposizione": 0.736,
 "piu_simile": "tetrabenazina"
 },
 "barnidipina": {
@@ -590,8 +590,8 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 8,
-"sovrapposizione": 0.446,
-"piu_simile": "tiotropio"
+"sovrapposizione": 0.445,
+"piu_simile": "mesalazina"
 },
 "beclometasone-formoterolo": {
 "indicizzata": true,
@@ -602,9 +602,9 @@
 "titolo": "Terair ed equivalenti: prezzi, differenza e carenze",
 "frase_titolo": null,
 "volume_frase_titolo": null,
-"confezioni": 22,
-"sovrapposizione": 0.442,
-"piu_simile": "fentanil"
+"confezioni": 26,
+"sovrapposizione": 0.421,
+"piu_simile": "colecalciferolo"
 },
 "benazepril": {
 "indicizzata": false,
@@ -616,7 +616,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 5,
-"sovrapposizione": 0.609,
+"sovrapposizione": 0.608,
 "piu_simile": "simvastatina"
 },
 "benazepril-idroclorotiazide": {
@@ -642,7 +642,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 2,
-"sovrapposizione": 0.742,
+"sovrapposizione": 0.741,
 "piu_simile": "imiquimod"
 },
 "betametasone": {
@@ -655,7 +655,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 20,
-"sovrapposizione": 0.455,
+"sovrapposizione": 0.451,
 "piu_simile": "metformina"
 },
 "bicalutamide": {
@@ -681,7 +681,7 @@
 "frase_titolo": "lumigan collirio principio attivo",
 "volume_frase_titolo": 140,
 "confezioni": 15,
-"sovrapposizione": 0.431,
+"sovrapposizione": 0.43,
 "piu_simile": "pramipexolo"
 },
 "bimatoprost-timololo": {
@@ -693,8 +693,8 @@
 "titolo": "Ganfort ed equivalenti: prezzi, differenza e carenze",
 "frase_titolo": null,
 "volume_frase_titolo": null,
-"confezioni": 14,
-"sovrapposizione": 0.54,
+"confezioni": 13,
+"sovrapposizione": 0.545,
 "piu_simile": "dorzolamide-timololo"
 },
 "bisoprololo": {
@@ -707,7 +707,7 @@
 "frase_titolo": "bisoprololo nome commerciale",
 "volume_frase_titolo": 2400,
 "confezioni": 102,
-"sovrapposizione": 0.271,
+"sovrapposizione": 0.273,
 "piu_simile": "rosuvastatina"
 },
 "bisoprololo-idroclorotiazide": {
@@ -719,7 +719,7 @@
 "titolo": "Bisoprololo + Idroclorotiazide: equivalenti, prezzi e carenze",
 "frase_titolo": null,
 "volume_frase_titolo": null,
-"confezioni": 11,
+"confezioni": 10,
 "sovrapposizione": 0.59,
 "piu_simile": "atorvastatina"
 },
@@ -733,7 +733,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 14,
-"sovrapposizione": 0.528,
+"sovrapposizione": 0.527,
 "piu_simile": "ivabradina"
 },
 "brimonidina": {
@@ -785,7 +785,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 6,
-"sovrapposizione": 0.674,
+"sovrapposizione": 0.673,
 "piu_simile": "latanoprost-timololo"
 },
 "brivaracetam": {
@@ -811,7 +811,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 4,
-"sovrapposizione": 0.703,
+"sovrapposizione": 0.702,
 "piu_simile": "baclofene"
 },
 "budesonide": {
@@ -863,7 +863,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 11,
-"sovrapposizione": 0.561,
+"sovrapposizione": 0.56,
 "piu_simile": "fentanil"
 },
 "cabergolina": {
@@ -902,7 +902,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 3,
-"sovrapposizione": 0.752,
+"sovrapposizione": 0.751,
 "piu_simile": "ciproterone-etinilestradiolo"
 },
 "calcio-carbonato-colecalciferolo": {
@@ -941,7 +941,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 10,
-"sovrapposizione": 0.481,
+"sovrapposizione": 0.48,
 "piu_simile": "acarbosio"
 },
 "calcitriolo": {
@@ -954,7 +954,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 10,
-"sovrapposizione": 0.55,
+"sovrapposizione": 0.549,
 "piu_simile": "ondansetrone"
 },
 "candesartan-cilexetil": {
@@ -967,8 +967,8 @@
 "frase_titolo": "blopress principio attivo",
 "volume_frase_titolo": 1900,
 "confezioni": 46,
-"sovrapposizione": 0.388,
-"piu_simile": "sitagliptin"
+"sovrapposizione": 0.387,
+"piu_simile": "etoricoxib"
 },
 "candesartan-cilexetil-amlodipina": {
 "indicizzata": true,
@@ -980,7 +980,7 @@
 "frase_titolo": "candesartan amlodipina nome commerciale",
 "volume_frase_titolo": 110,
 "confezioni": 15,
-"sovrapposizione": 0.542,
+"sovrapposizione": 0.538,
 "piu_simile": "rosuvastatina"
 },
 "candesartan-cilexetil-idroclorotiazide": {
@@ -993,7 +993,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 30,
-"sovrapposizione": 0.467,
+"sovrapposizione": 0.466,
 "piu_simile": "candesartan-cilexetil"
 },
 "capecitabina": {
@@ -1044,8 +1044,8 @@
 "titolo": "Tegretol: principio attivo carbamazepina, generici e prezzi AIFA",
 "frase_titolo": "tegretol principio attivo",
 "volume_frase_titolo": 2900,
-"confezioni": 9,
-"sovrapposizione": 0.531,
+"confezioni": 8,
+"sovrapposizione": 0.548,
 "piu_simile": "ropinirolo"
 },
 "carvedilolo": {
@@ -1058,8 +1058,8 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 34,
-"sovrapposizione": 0.416,
-"piu_simile": "atorvastatina"
+"sovrapposizione": 0.419,
+"piu_simile": "metformina"
 },
 "cefaclor": {
 "indicizzata": true,
@@ -1096,9 +1096,9 @@
 "titolo": "Unixime ed equivalenti: prezzi, differenza e carenze",
 "frase_titolo": null,
 "volume_frase_titolo": null,
-"confezioni": 16,
-"sovrapposizione": 0.502,
-"piu_simile": "levofloxacina"
+"confezioni": 15,
+"sovrapposizione": 0.514,
+"piu_simile": "atorvastatina"
 },
 "cefotaxima": {
 "indicizzata": false,
@@ -1122,9 +1122,9 @@
 "titolo": "Cefodox: principio attivo cefpodoxima, generici e prezzi AIFA",
 "frase_titolo": "cefodox principio attivo",
 "volume_frase_titolo": 880,
-"confezioni": 11,
-"sovrapposizione": 0.546,
-"piu_simile": "repaglinide"
+"confezioni": 12,
+"sovrapposizione": 0.532,
+"piu_simile": "metoprololo"
 },
 "ceftazidima": {
 "indicizzata": true,
@@ -1149,7 +1149,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 39,
-"sovrapposizione": 0.382,
+"sovrapposizione": 0.376,
 "piu_simile": "ceftazidima"
 },
 "cefuroxima": {
@@ -1188,7 +1188,7 @@
 "frase_titolo": "cetirizina nome commerciale",
 "volume_frase_titolo": 1300,
 "confezioni": 71,
-"sovrapposizione": 0.345,
+"sovrapposizione": 0.342,
 "piu_simile": "amlodipina"
 },
 "ciclosporina": {
@@ -1201,7 +1201,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 6,
-"sovrapposizione": 0.474,
+"sovrapposizione": 0.475,
 "piu_simile": "metformina"
 },
 "cinacalcet": {
@@ -1214,8 +1214,8 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 15,
-"sovrapposizione": 0.506,
-"piu_simile": "ticagrelor"
+"sovrapposizione": 0.505,
+"piu_simile": "memantina"
 },
 "ciprofloxacina": {
 "indicizzata": true,
@@ -1227,7 +1227,7 @@
 "frase_titolo": "ciprofloxacina nome commerciale",
 "volume_frase_titolo": 1300,
 "confezioni": 80,
-"sovrapposizione": 0.321,
+"sovrapposizione": 0.32,
 "piu_simile": "levofloxacina"
 },
 "ciproterone-etinilestradiolo": {
@@ -1253,7 +1253,7 @@
 "frase_titolo": "citalopram nome commerciale",
 "volume_frase_titolo": 2400,
 "confezioni": 43,
-"sovrapposizione": 0.374,
+"sovrapposizione": 0.373,
 "piu_simile": "olmesartan-medoxomil"
 },
 "claritromicina": {
@@ -1265,8 +1265,8 @@
 "titolo": "Veclam ed equivalenti: prezzi, differenza e carenze",
 "frase_titolo": null,
 "volume_frase_titolo": null,
-"confezioni": 40,
-"sovrapposizione": 0.326,
+"confezioni": 39,
+"sovrapposizione": 0.329,
 "piu_simile": "ciprofloxacina"
 },
 "clobetasolo": {
@@ -1292,7 +1292,7 @@
 "frase_titolo": "clopidogrel 75 mg prezzo",
 "volume_frase_titolo": 480,
 "confezioni": 29,
-"sovrapposizione": 0.424,
+"sovrapposizione": 0.423,
 "piu_simile": "olanzapina"
 },
 "clopidogrel-acido-acetilsalicilico": {
@@ -1318,7 +1318,7 @@
 "frase_titolo": "clozapina nome commerciale",
 "volume_frase_titolo": 1900,
 "confezioni": 15,
-"sovrapposizione": 0.492,
+"sovrapposizione": 0.491,
 "piu_simile": "olanzapina"
 },
 "colecalciferolo": {
@@ -1330,7 +1330,7 @@
 "titolo": "Colecalciferolo: nomi commerciali, generici e prezzi AIFA",
 "frase_titolo": "colecalciferolo nome commerciale",
 "volume_frase_titolo": 390,
-"confezioni": 160,
+"confezioni": 163,
 "sovrapposizione": 0.178,
 "piu_simile": "atorvastatina"
 },
@@ -1344,7 +1344,7 @@
 "frase_titolo": "pradaxa principio attivo",
 "volume_frase_titolo": 2900,
 "confezioni": 43,
-"sovrapposizione": 0.354,
+"sovrapposizione": 0.358,
 "piu_simile": "rivaroxaban"
 },
 "deferasirox": {
@@ -1370,7 +1370,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 4,
-"sovrapposizione": 0.639,
+"sovrapposizione": 0.638,
 "piu_simile": "acido-carglumico"
 },
 "deferoxamina": {
@@ -1383,7 +1383,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 2,
-"sovrapposizione": 0.75,
+"sovrapposizione": 0.749,
 "piu_simile": "octreotide"
 },
 "desametasone": {
@@ -1396,7 +1396,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 2,
-"sovrapposizione": 0.627,
+"sovrapposizione": 0.626,
 "piu_simile": "estradiolo"
 },
 "desloratadina": {
@@ -1409,7 +1409,7 @@
 "frase_titolo": "desloratadina generico",
 "volume_frase_titolo": 110,
 "confezioni": 16,
-"sovrapposizione": 0.513,
+"sovrapposizione": 0.512,
 "piu_simile": "nebivololo"
 },
 "desmopressina": {
@@ -1422,7 +1422,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 12,
-"sovrapposizione": 0.551,
+"sovrapposizione": 0.55,
 "piu_simile": "fentanil"
 },
 "diclofenac": {
@@ -1461,7 +1461,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 22,
-"sovrapposizione": 0.43,
+"sovrapposizione": 0.429,
 "piu_simile": "isosorbide-mononitrato"
 },
 "dimetilfumarato": {
@@ -1474,7 +1474,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 12,
-"sovrapposizione": 0.487,
+"sovrapposizione": 0.475,
 "piu_simile": "voriconazolo"
 },
 "donepezil": {
@@ -1513,7 +1513,7 @@
 "frase_titolo": "cosopt principio attivo",
 "volume_frase_titolo": 880,
 "confezioni": 13,
-"sovrapposizione": 0.486,
+"sovrapposizione": 0.483,
 "piu_simile": "bimatoprost-timololo"
 },
 "doxazosin": {
@@ -1526,7 +1526,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 58,
-"sovrapposizione": 0.351,
+"sovrapposizione": 0.35,
 "piu_simile": "perindopril-indapamide"
 },
 "doxiciclina": {
@@ -1565,7 +1565,7 @@
 "frase_titolo": "duloxetina nome commerciale",
 "volume_frase_titolo": 2900,
 "confezioni": 47,
-"sovrapposizione": 0.354,
+"sovrapposizione": 0.355,
 "piu_simile": "omeprazolo"
 },
 "dutasteride": {
@@ -1578,7 +1578,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 25,
-"sovrapposizione": 0.437,
+"sovrapposizione": 0.435,
 "piu_simile": "omeprazolo"
 },
 "ebastina": {
@@ -1591,7 +1591,7 @@
 "frase_titolo": "ebastina nome commerciale",
 "volume_frase_titolo": 390,
 "confezioni": 10,
-"sovrapposizione": 0.623,
+"sovrapposizione": 0.627,
 "piu_simile": "atorvastatina"
 },
 "eletriptan": {
@@ -1604,7 +1604,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 16,
-"sovrapposizione": 0.518,
+"sovrapposizione": 0.517,
 "piu_simile": "almotriptan"
 },
 "enalapril": {
@@ -1617,7 +1617,7 @@
 "frase_titolo": "enapren principio attivo",
 "volume_frase_titolo": 1600,
 "confezioni": 41,
-"sovrapposizione": 0.372,
+"sovrapposizione": 0.371,
 "piu_simile": "omeprazolo"
 },
 "enalapril-idroclorotiazide": {
@@ -1643,7 +1643,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 18,
-"sovrapposizione": 0.518,
+"sovrapposizione": 0.517,
 "piu_simile": "escitalopram"
 },
 "entecavir": {
@@ -1694,8 +1694,8 @@
 "titolo": "Escitalopram: nomi commerciali, generici e prezzi AIFA",
 "frase_titolo": "escitalopram nome commerciale",
 "volume_frase_titolo": 590,
-"confezioni": 70,
-"sovrapposizione": 0.337,
+"confezioni": 71,
+"sovrapposizione": 0.334,
 "piu_simile": "rosuvastatina"
 },
 "eslicarbazepina": {
@@ -1708,7 +1708,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 4,
-"sovrapposizione": 0.712,
+"sovrapposizione": 0.711,
 "piu_simile": "riluzolo"
 },
 "esomeprazolo": {
@@ -1734,7 +1734,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 2,
-"sovrapposizione": 0.681,
+"sovrapposizione": 0.68,
 "piu_simile": "fentanil"
 },
 "estradiolo-drospirenone": {
@@ -1747,7 +1747,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 2,
-"sovrapposizione": 0.693,
+"sovrapposizione": 0.692,
 "piu_simile": "voriconazolo"
 },
 "etoricoxib": {
@@ -1760,7 +1760,7 @@
 "frase_titolo": "arcoxia principio attivo",
 "volume_frase_titolo": 1900,
 "confezioni": 42,
-"sovrapposizione": 0.357,
+"sovrapposizione": 0.356,
 "piu_simile": "olmesartan-medoxomil-idroclorotiazide"
 },
 "exemestane": {
@@ -1786,8 +1786,8 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 35,
-"sovrapposizione": 0.423,
-"piu_simile": "amlodipina"
+"sovrapposizione": 0.426,
+"piu_simile": "atorvastatina"
 },
 "ezetimibe-atorvastatina": {
 "indicizzata": true,
@@ -1825,7 +1825,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 11,
-"sovrapposizione": 0.565,
+"sovrapposizione": 0.564,
 "piu_simile": "azitromicina"
 },
 "famotidina": {
@@ -1851,7 +1851,7 @@
 "frase_titolo": "febuxostat nome commerciale",
 "volume_frase_titolo": 880,
 "confezioni": 34,
-"sovrapposizione": 0.435,
+"sovrapposizione": 0.434,
 "piu_simile": "rosuvastatina"
 },
 "felodipina": {
@@ -1916,8 +1916,8 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 11,
-"sovrapposizione": 0.537,
-"piu_simile": "carvedilolo"
+"sovrapposizione": 0.539,
+"piu_simile": "amisulpride"
 },
 "finasteride": {
 "indicizzata": true,
@@ -1928,7 +1928,7 @@
 "titolo": "Finasteride: nomi commerciali ed equivalenti nella lista AIFA",
 "frase_titolo": "finasteride nome commerciale",
 "volume_frase_titolo": 1000,
-"confezioni": 43,
+"confezioni": 44,
 "sovrapposizione": 0.393,
 "piu_simile": "atorvastatina"
 },
@@ -1941,9 +1941,9 @@
 "titolo": "Gilenya ed equivalenti: prezzi, differenza e carenze",
 "frase_titolo": null,
 "volume_frase_titolo": null,
-"confezioni": 10,
-"sovrapposizione": 0.565,
-"piu_simile": "tadalafil"
+"confezioni": 9,
+"sovrapposizione": 0.571,
+"piu_simile": "memantina"
 },
 "flecainide": {
 "indicizzata": true,
@@ -1967,8 +1967,8 @@
 "titolo": "Diflucan: principio attivo fluconazolo, generici e prezzi AIFA",
 "frase_titolo": "diflucan principio attivo",
 "volume_frase_titolo": 1300,
-"confezioni": 109,
-"sovrapposizione": 0.253,
+"confezioni": 108,
+"sovrapposizione": 0.254,
 "piu_simile": "ciprofloxacina"
 },
 "flunisolide": {
@@ -2020,7 +2020,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 6,
-"sovrapposizione": 0.695,
+"sovrapposizione": 0.694,
 "piu_simile": "brinzolamide-timololo"
 },
 "formoterolo": {
@@ -2033,8 +2033,8 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 12,
-"sovrapposizione": 0.516,
-"piu_simile": "alfacalcidolo"
+"sovrapposizione": 0.508,
+"piu_simile": "ketoprofene"
 },
 "fosfomicina": {
 "indicizzata": true,
@@ -2150,7 +2150,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 4,
-"sovrapposizione": 0.624,
+"sovrapposizione": 0.623,
 "piu_simile": "tacrolimus"
 },
 "gliclazide": {
@@ -2162,8 +2162,8 @@
 "titolo": "Diamicron ed equivalenti: prezzi, differenza e carenze",
 "frase_titolo": null,
 "volume_frase_titolo": null,
-"confezioni": 37,
-"sovrapposizione": 0.425,
+"confezioni": 36,
+"sovrapposizione": 0.426,
 "piu_simile": "bisoprololo"
 },
 "glicopirronio": {
@@ -2189,7 +2189,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 16,
-"sovrapposizione": 0.547,
+"sovrapposizione": 0.548,
 "piu_simile": "metformina"
 },
 "glucosio": {
@@ -2202,7 +2202,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 30,
-"sovrapposizione": 0.377,
+"sovrapposizione": 0.376,
 "piu_simile": "adrenalina"
 },
 "granisetrone": {
@@ -2292,9 +2292,9 @@
 "titolo": "Imanivec ed equivalenti: prezzi, differenza e carenze",
 "frase_titolo": null,
 "volume_frase_titolo": null,
-"confezioni": 12,
-"sovrapposizione": 0.552,
-"piu_simile": "deferasirox"
+"confezioni": 11,
+"sovrapposizione": 0.56,
+"piu_simile": "capecitabina"
 },
 "imiquimod": {
 "indicizzata": false,
@@ -2306,7 +2306,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 2,
-"sovrapposizione": 0.693,
+"sovrapposizione": 0.692,
 "piu_simile": "betaina"
 },
 "indapamide": {
@@ -2332,7 +2332,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 37,
-"sovrapposizione": 0.453,
+"sovrapposizione": 0.452,
 "piu_simile": "irbesartan-idroclorotiazide"
 },
 "irbesartan-idroclorotiazide": {
@@ -2345,7 +2345,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 53,
-"sovrapposizione": 0.369,
+"sovrapposizione": 0.368,
 "piu_simile": "irbesartan"
 },
 "isosorbide-mononitrato": {
@@ -2371,7 +2371,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 16,
-"sovrapposizione": 0.5,
+"sovrapposizione": 0.499,
 "piu_simile": "acido-clodronico"
 },
 "itraconazolo": {
@@ -2384,7 +2384,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 8,
-"sovrapposizione": 0.573,
+"sovrapposizione": 0.572,
 "piu_simile": "fluconazolo"
 },
 "ivabradina": {
@@ -2397,8 +2397,8 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 22,
-"sovrapposizione": 0.456,
-"piu_simile": "olanzapina"
+"sovrapposizione": 0.466,
+"piu_simile": "tadalafil"
 },
 "ketoprofene": {
 "indicizzata": true,
@@ -2410,8 +2410,8 @@
 "frase_titolo": "ketoprofene generico",
 "volume_frase_titolo": 260,
 "confezioni": 26,
-"sovrapposizione": 0.353,
-"piu_simile": "amoxicillina-acido-clavulanico"
+"sovrapposizione": 0.364,
+"piu_simile": "atorvastatina"
 },
 "ketorolac": {
 "indicizzata": true,
@@ -2423,7 +2423,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 10,
-"sovrapposizione": 0.589,
+"sovrapposizione": 0.583,
 "piu_simile": "ketoprofene"
 },
 "ketotifene": {
@@ -2448,8 +2448,8 @@
 "titolo": "Lacirex ed equivalenti: prezzi, differenza e carenze",
 "frase_titolo": null,
 "volume_frase_titolo": null,
-"confezioni": 21,
-"sovrapposizione": 0.454,
+"confezioni": 22,
+"sovrapposizione": 0.453,
 "piu_simile": "bisoprololo"
 },
 "lacosamide": {
@@ -2488,7 +2488,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 35,
-"sovrapposizione": 0.466,
+"sovrapposizione": 0.465,
 "piu_simile": "lacosamide"
 },
 "lanreotide": {
@@ -2513,9 +2513,9 @@
 "titolo": "Lansoprazolo: nomi commerciali, generici e prezzi AIFA",
 "frase_titolo": "lansoprazolo nome commerciale",
 "volume_frase_titolo": 390,
-"confezioni": 137,
-"sovrapposizione": 0.266,
-"piu_simile": "omeprazolo"
+"confezioni": 135,
+"sovrapposizione": 0.269,
+"piu_simile": "pantoprazolo"
 },
 "latanoprost": {
 "indicizzata": true,
@@ -2540,7 +2540,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 11,
-"sovrapposizione": 0.575,
+"sovrapposizione": 0.574,
 "piu_simile": "brinzolamide-timololo"
 },
 "leflunomide": {
@@ -2553,7 +2553,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 6,
-"sovrapposizione": 0.658,
+"sovrapposizione": 0.657,
 "piu_simile": "sildenafil"
 },
 "lercanidipina": {
@@ -2566,8 +2566,8 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 34,
-"sovrapposizione": 0.448,
-"piu_simile": "rosuvastatina"
+"sovrapposizione": 0.445,
+"piu_simile": "omeprazolo"
 },
 "letrozolo": {
 "indicizzata": true,
@@ -2579,7 +2579,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 34,
-"sovrapposizione": 0.463,
+"sovrapposizione": 0.462,
 "piu_simile": "exemestane"
 },
 "levetiracetam": {
@@ -2592,7 +2592,7 @@
 "frase_titolo": "keppra principio attivo",
 "volume_frase_titolo": 4400,
 "confezioni": 67,
-"sovrapposizione": 0.258,
+"sovrapposizione": 0.259,
 "piu_simile": "pregabalin"
 },
 "levocarnitina": {
@@ -2605,7 +2605,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 2,
-"sovrapposizione": 0.715,
+"sovrapposizione": 0.714,
 "piu_simile": "tadalafil"
 },
 "levocetirizina": {
@@ -2631,7 +2631,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 4,
-"sovrapposizione": 0.683,
+"sovrapposizione": 0.682,
 "piu_simile": "sotalolo"
 },
 "levodopa-carbidopa-entacapone": {
@@ -2644,7 +2644,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 24,
-"sovrapposizione": 0.473,
+"sovrapposizione": 0.472,
 "piu_simile": "rivastigmina"
 },
 "levofloxacina": {
@@ -2656,8 +2656,8 @@
 "titolo": "Levofloxacina: nomi commerciali, generici e prezzi AIFA",
 "frase_titolo": "levofloxacina nome commerciale",
 "volume_frase_titolo": 2400,
-"confezioni": 42,
-"sovrapposizione": 0.437,
+"confezioni": 41,
+"sovrapposizione": 0.439,
 "piu_simile": "ciprofloxacina"
 },
 "levotiroxina": {
@@ -2671,7 +2671,7 @@
 "volume_frase_titolo": null,
 "confezioni": 20,
 "sovrapposizione": 0.389,
-"piu_simile": "fentanil"
+"piu_simile": "ketoprofene"
 },
 "linezolid": {
 "indicizzata": false,
@@ -2709,7 +2709,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 15,
-"sovrapposizione": 0.596,
+"sovrapposizione": 0.595,
 "piu_simile": "enalapril-idroclorotiazide"
 },
 "loratadina": {
@@ -2722,7 +2722,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 5,
-"sovrapposizione": 0.674,
+"sovrapposizione": 0.673,
 "piu_simile": "tibolone"
 },
 "losartan": {
@@ -2761,8 +2761,8 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 14,
-"sovrapposizione": 0.56,
-"piu_simile": "metoprololo"
+"sovrapposizione": 0.562,
+"piu_simile": "atorvastatina"
 },
 "lurasidone": {
 "indicizzata": true,
@@ -2787,7 +2787,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 12,
-"sovrapposizione": 0.544,
+"sovrapposizione": 0.547,
 "piu_simile": "atorvastatina"
 },
 "manidipina": {
@@ -2800,7 +2800,7 @@
 "frase_titolo": "iperten principio attivo",
 "volume_frase_titolo": 480,
 "confezioni": 10,
-"sovrapposizione": 0.606,
+"sovrapposizione": 0.605,
 "piu_simile": "enalapril"
 },
 "megestrolo": {
@@ -2825,9 +2825,9 @@
 "titolo": "Mobic ed equivalenti: prezzi, differenza e carenze",
 "frase_titolo": null,
 "volume_frase_titolo": null,
-"confezioni": 4,
-"sovrapposizione": 0.733,
-"piu_simile": "amitriptilina"
+"confezioni": 3,
+"sovrapposizione": 0.73,
+"piu_simile": "tetrabenazina"
 },
 "memantina": {
 "indicizzata": true,
@@ -2852,7 +2852,7 @@
 "frase_titolo": "mesalazina nome commerciale",
 "volume_frase_titolo": 880,
 "confezioni": 54,
-"sovrapposizione": 0.243,
+"sovrapposizione": 0.242,
 "piu_simile": "colecalciferolo"
 },
 "metformina": {
@@ -2865,7 +2865,7 @@
 "frase_titolo": "metformina generico",
 "volume_frase_titolo": 140,
 "confezioni": 90,
-"sovrapposizione": 0.257,
+"sovrapposizione": 0.253,
 "piu_simile": "atorvastatina"
 },
 "metformina-glibenclamide": {
@@ -2892,7 +2892,7 @@
 "volume_frase_titolo": null,
 "confezioni": 9,
 "sovrapposizione": 0.501,
-"piu_simile": "ceftriaxone"
+"piu_simile": "ibuprofene"
 },
 "metoclopramide": {
 "indicizzata": false,
@@ -2904,7 +2904,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 2,
-"sovrapposizione": 0.726,
+"sovrapposizione": 0.725,
 "piu_simile": "desametasone"
 },
 "metoprololo": {
@@ -2943,7 +2943,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 3,
-"sovrapposizione": 0.714,
+"sovrapposizione": 0.713,
 "piu_simile": "ossibutinina-cloridrato"
 },
 "micofenolato-mofetile": {
@@ -2969,8 +2969,8 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 8,
-"sovrapposizione": 0.519,
-"piu_simile": "ondansetrone"
+"sovrapposizione": 0.529,
+"piu_simile": "lamotrigina"
 },
 "miglustat": {
 "indicizzata": false,
@@ -2982,7 +2982,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 7,
-"sovrapposizione": 0.595,
+"sovrapposizione": 0.594,
 "piu_simile": "pioglitazone-metformina"
 },
 "mirtazapina": {
@@ -2995,7 +2995,7 @@
 "frase_titolo": "mirtazapina nome commerciale",
 "volume_frase_titolo": 1900,
 "confezioni": 17,
-"sovrapposizione": 0.508,
+"sovrapposizione": 0.507,
 "piu_simile": "etoricoxib"
 },
 "montelukast": {
@@ -3021,7 +3021,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 8,
-"sovrapposizione": 0.572,
+"sovrapposizione": 0.571,
 "piu_simile": "travoprost-timololo"
 },
 "moxifloxacina": {
@@ -3047,7 +3047,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 6,
-"sovrapposizione": 0.649,
+"sovrapposizione": 0.648,
 "piu_simile": "benazepril"
 },
 "naltrexone": {
@@ -3086,7 +3086,7 @@
 "frase_titolo": "nebivololo nome commerciale",
 "volume_frase_titolo": 1600,
 "confezioni": 21,
-"sovrapposizione": 0.505,
+"sovrapposizione": 0.504,
 "piu_simile": "bisoprololo"
 },
 "nebivololo-amlodipina": {
@@ -3112,7 +3112,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 16,
-"sovrapposizione": 0.544,
+"sovrapposizione": 0.543,
 "piu_simile": "perindopril-indapamide"
 },
 "nifedipina": {
@@ -3138,7 +3138,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 21,
-"sovrapposizione": 0.507,
+"sovrapposizione": 0.506,
 "piu_simile": "ketoprofene"
 },
 "nitisinone": {
@@ -3151,7 +3151,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 8,
-"sovrapposizione": 0.556,
+"sovrapposizione": 0.555,
 "piu_simile": "trientina"
 },
 "nitrofurantoina": {
@@ -3164,8 +3164,8 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 6,
-"sovrapposizione": 0.629,
-"piu_simile": "acitretina"
+"sovrapposizione": 0.639,
+"piu_simile": "diclofenac"
 },
 "nitroglicerina": {
 "indicizzata": true,
@@ -3177,7 +3177,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 45,
-"sovrapposizione": 0.36,
+"sovrapposizione": 0.359,
 "piu_simile": "sumatriptan"
 },
 "norfloxacina": {
@@ -3190,7 +3190,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 3,
-"sovrapposizione": 0.792,
+"sovrapposizione": 0.791,
 "piu_simile": "vardenafil"
 },
 "octreotide": {
@@ -3203,7 +3203,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 11,
-"sovrapposizione": 0.525,
+"sovrapposizione": 0.524,
 "piu_simile": "temozolomide"
 },
 "olanzapina": {
@@ -3216,7 +3216,7 @@
 "frase_titolo": "olanzapina nome commerciale",
 "volume_frase_titolo": 2900,
 "confezioni": 69,
-"sovrapposizione": 0.299,
+"sovrapposizione": 0.302,
 "piu_simile": "rivaroxaban"
 },
 "olmesartan-medoximil-amlodipina-idroclorotiazide": {
@@ -3255,7 +3255,7 @@
 "frase_titolo": "olmesartan amlodipina nome commerciale",
 "volume_frase_titolo": 390,
 "confezioni": 47,
-"sovrapposizione": 0.447,
+"sovrapposizione": 0.446,
 "piu_simile": "olmesartan-medoxomil"
 },
 "olmesartan-medoxomil-idroclorotiazide": {
@@ -3268,7 +3268,7 @@
 "frase_titolo": "plaunazide principio attivo",
 "volume_frase_titolo": 2400,
 "confezioni": 57,
-"sovrapposizione": 0.373,
+"sovrapposizione": 0.376,
 "piu_simile": "rosuvastatina"
 },
 "omega-polienoici-esteri-etilici-di-acidi-grassi-polinsaturi": {
@@ -3293,8 +3293,8 @@
 "titolo": "Omeprazolo: nomi commerciali, generici e prezzi AIFA",
 "frase_titolo": "omeprazolo nome commerciale",
 "volume_frase_titolo": 590,
-"confezioni": 103,
-"sovrapposizione": 0.284,
+"confezioni": 104,
+"sovrapposizione": 0.282,
 "piu_simile": "esomeprazolo"
 },
 "ondansetrone": {
@@ -3320,11 +3320,11 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 2,
-"sovrapposizione": 0.734,
+"sovrapposizione": 0.733,
 "piu_simile": "zofenopril-idroclorotiazide"
 },
 "ossicodone-oxicodone-cloridrato": {
-"indicizzata": false,
+"indicizzata": true,
 "domanda": true,
 "autocompletamento": true,
 "volume_misurato": 0,
@@ -3333,7 +3333,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 8,
-"sovrapposizione": 0.614,
+"sovrapposizione": 0.571,
 "piu_simile": "rosuvastatina"
 },
 "ossicodone-oxicodone-cloridrato-naloxone-cloridrato-diidrato": {
@@ -3346,7 +3346,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 30,
-"sovrapposizione": 0.411,
+"sovrapposizione": 0.41,
 "piu_simile": "ossicodone-oxicodone-cloridrato"
 },
 "ossicodone-oxicodone-cloridrato-paracetamolo": {
@@ -3359,7 +3359,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 6,
-"sovrapposizione": 0.689,
+"sovrapposizione": 0.688,
 "piu_simile": "nebivololo-amlodipina"
 },
 "oxcarbazepina": {
@@ -3385,7 +3385,7 @@
 "frase_titolo": "invega principio attivo",
 "volume_frase_titolo": 480,
 "confezioni": 12,
-"sovrapposizione": 0.465,
+"sovrapposizione": 0.464,
 "piu_simile": "olanzapina"
 },
 "pantoprazolo": {
@@ -3397,8 +3397,8 @@
 "titolo": "Pantoprazolo: nomi commerciali, generici e prezzi AIFA",
 "frase_titolo": "pantoprazolo nome commerciale",
 "volume_frase_titolo": 480,
-"confezioni": 233,
-"sovrapposizione": 0.239,
+"confezioni": 235,
+"sovrapposizione": 0.238,
 "piu_simile": "esomeprazolo"
 },
 "paracalcitolo": {
@@ -3411,7 +3411,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 7,
-"sovrapposizione": 0.544,
+"sovrapposizione": 0.543,
 "piu_simile": "capecitabina"
 },
 "paracetamolo-codeina-fosfato": {
@@ -3450,7 +3450,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 33,
-"sovrapposizione": 0.4,
+"sovrapposizione": 0.399,
 "piu_simile": "escitalopram"
 },
 "perampanel": {
@@ -3463,8 +3463,8 @@
 "frase_titolo": "fycompa principio attivo",
 "volume_frase_titolo": 320,
 "confezioni": 24,
-"sovrapposizione": 0.49,
-"piu_simile": "lurasidone"
+"sovrapposizione": 0.488,
+"piu_simile": "rivaroxaban"
 },
 "perindopril": {
 "indicizzata": true,
@@ -3489,7 +3489,7 @@
 "frase_titolo": "coverlam principio attivo",
 "volume_frase_titolo": 1900,
 "confezioni": 49,
-"sovrapposizione": 0.379,
+"sovrapposizione": 0.377,
 "piu_simile": "olmesartan-medoxomil-idroclorotiazide"
 },
 "perindopril-indapamide": {
@@ -3502,7 +3502,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 31,
-"sovrapposizione": 0.406,
+"sovrapposizione": 0.407,
 "piu_simile": "perindopril-amlodipina"
 },
 "perindopril-indapamide-amlodipina": {
@@ -3515,7 +3515,7 @@
 "frase_titolo": "tripliam principio attivo",
 "volume_frase_titolo": 2900,
 "confezioni": 20,
-"sovrapposizione": 0.488,
+"sovrapposizione": 0.487,
 "piu_simile": "olmesartan-medoxomil-idroclorotiazide"
 },
 "pioglitazone": {
@@ -3554,7 +3554,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 6,
-"sovrapposizione": 0.663,
+"sovrapposizione": 0.664,
 "piu_simile": "ceftriaxone"
 },
 "piperacillina-tazobactam": {
@@ -3580,7 +3580,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 10,
-"sovrapposizione": 0.589,
+"sovrapposizione": 0.588,
 "piu_simile": "ketoprofene"
 },
 "posaconazolo": {
@@ -3593,7 +3593,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 11,
-"sovrapposizione": 0.557,
+"sovrapposizione": 0.556,
 "piu_simile": "sevelamer"
 },
 "potassio-canrenoato": {
@@ -3605,8 +3605,8 @@
 "titolo": "Kanrenol ed equivalenti: prezzi, differenza e carenze",
 "frase_titolo": null,
 "volume_frase_titolo": null,
-"confezioni": 4,
-"sovrapposizione": 0.653,
+"confezioni": 3,
+"sovrapposizione": 0.667,
 "piu_simile": "ondansetrone"
 },
 "pramipexolo": {
@@ -3632,7 +3632,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 6,
-"sovrapposizione": 0.645,
+"sovrapposizione": 0.644,
 "piu_simile": "voriconazolo"
 },
 "pravastatina": {
@@ -3658,7 +3658,7 @@
 "frase_titolo": "prednisone nomi commerciali",
 "volume_frase_titolo": 590,
 "confezioni": 32,
-"sovrapposizione": 0.427,
+"sovrapposizione": 0.43,
 "piu_simile": "atorvastatina"
 },
 "pregabalin": {
@@ -3671,7 +3671,7 @@
 "frase_titolo": "lyrica principio attivo",
 "volume_frase_titolo": 3600,
 "confezioni": 120,
-"sovrapposizione": 0.254,
+"sovrapposizione": 0.253,
 "piu_simile": "lacosamide"
 },
 "progesterone": {
@@ -3684,7 +3684,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 4,
-"sovrapposizione": 0.669,
+"sovrapposizione": 0.668,
 "piu_simile": "isotretinoina"
 },
 "propafenone": {
@@ -3697,8 +3697,8 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 11,
-"sovrapposizione": 0.576,
-"piu_simile": "fentanil"
+"sovrapposizione": 0.579,
+"piu_simile": "amisulpride"
 },
 "quetiapina": {
 "indicizzata": true,
@@ -3710,7 +3710,7 @@
 "frase_titolo": "quetiapina nome commerciale",
 "volume_frase_titolo": 1000,
 "confezioni": 92,
-"sovrapposizione": 0.192,
+"sovrapposizione": 0.19,
 "piu_simile": "metformina"
 },
 "quinapril": {
@@ -3775,7 +3775,7 @@
 "frase_titolo": "ramipril nome commerciale",
 "volume_frase_titolo": 1300,
 "confezioni": 79,
-"sovrapposizione": 0.338,
+"sovrapposizione": 0.345,
 "piu_simile": "ramipril-idroclorotiazide"
 },
 "ramipril-amlodipina-idroclorotiazide": {
@@ -3801,7 +3801,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 18,
-"sovrapposizione": 0.544,
+"sovrapposizione": 0.543,
 "piu_simile": "ramipril-amlodipina-idroclorotiazide"
 },
 "ramipril-idroclorotiazide": {
@@ -3813,8 +3813,8 @@
 "titolo": "Uniprildiur ed equivalenti: prezzi, differenza e carenze",
 "frase_titolo": null,
 "volume_frase_titolo": null,
-"confezioni": 48,
-"sovrapposizione": 0.369,
+"confezioni": 49,
+"sovrapposizione": 0.374,
 "piu_simile": "ramipril"
 },
 "ramipril-amlodipina": {
@@ -3827,7 +3827,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 64,
-"sovrapposizione": 0.324,
+"sovrapposizione": 0.321,
 "piu_simile": "rosuvastatina-ezetimibe"
 },
 "ranolazina": {
@@ -3879,7 +3879,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 4,
-"sovrapposizione": 0.693,
+"sovrapposizione": 0.692,
 "piu_simile": "rivastigmina"
 },
 "risperidone": {
@@ -3892,7 +3892,7 @@
 "frase_titolo": "risperidone nome commerciale",
 "volume_frase_titolo": 1000,
 "confezioni": 24,
-"sovrapposizione": 0.427,
+"sovrapposizione": 0.43,
 "piu_simile": "rivaroxaban"
 },
 "rivaroxaban": {
@@ -3905,7 +3905,7 @@
 "frase_titolo": "xarelto principio attivo",
 "volume_frase_titolo": 3600,
 "confezioni": 76,
-"sovrapposizione": 0.287,
+"sovrapposizione": 0.288,
 "piu_simile": "olanzapina"
 },
 "rivastigmina": {
@@ -3931,7 +3931,7 @@
 "frase_titolo": "rizatriptan nome commerciale",
 "volume_frase_titolo": 170,
 "confezioni": 24,
-"sovrapposizione": 0.484,
+"sovrapposizione": 0.489,
 "piu_simile": "ramipril-idroclorotiazide"
 },
 "ropinirolo": {
@@ -3944,7 +3944,7 @@
 "frase_titolo": "ropinirolo nome commerciale",
 "volume_frase_titolo": 590,
 "confezioni": 27,
-"sovrapposizione": 0.426,
+"sovrapposizione": 0.425,
 "piu_simile": "pramipexolo"
 },
 "rosuvastatina": {
@@ -3956,8 +3956,8 @@
 "titolo": "Rosuvastatina: nomi commerciali, generici e prezzi AIFA",
 "frase_titolo": "rosuvastatina nome commerciale",
 "volume_frase_titolo": 1600,
-"confezioni": 129,
-"sovrapposizione": 0.27,
+"confezioni": 136,
+"sovrapposizione": 0.264,
 "piu_simile": "atorvastatina"
 },
 "rosuvastatina-sale-di-calcio-amlodipina": {
@@ -3970,7 +3970,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 8,
-"sovrapposizione": 0.582,
+"sovrapposizione": 0.581,
 "piu_simile": "fentanil"
 },
 "rosuvastatina-acido-acetilsalicilico": {
@@ -3983,7 +3983,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 15,
-"sovrapposizione": 0.586,
+"sovrapposizione": 0.596,
 "piu_simile": "rosuvastatina"
 },
 "rosuvastatina-ezetimibe": {
@@ -3995,8 +3995,8 @@
 "titolo": "Rosuvastatina + Ezetimibe generico: equivalenti, prezzi e carenze",
 "frase_titolo": "rosuvastatina/ezetimibe generico",
 "volume_frase_titolo": 170,
-"confezioni": 56,
-"sovrapposizione": 0.372,
+"confezioni": 57,
+"sovrapposizione": 0.371,
 "piu_simile": "atorvastatina"
 },
 "rotigotina": {
@@ -4022,7 +4022,7 @@
 "frase_titolo": "rupatadina nome commerciale",
 "volume_frase_titolo": 320,
 "confezioni": 9,
-"sovrapposizione": 0.542,
+"sovrapposizione": 0.541,
 "piu_simile": "allopurinolo"
 },
 "salbutamolo-ipratropio-bromuro": {
@@ -4035,7 +4035,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 6,
-"sovrapposizione": 0.608,
+"sovrapposizione": 0.607,
 "piu_simile": "teriparatide"
 },
 "salmeterolo": {
@@ -4048,7 +4048,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 2,
-"sovrapposizione": 0.702,
+"sovrapposizione": 0.701,
 "piu_simile": "tibolone"
 },
 "salmeterolo-fluticasone": {
@@ -4074,7 +4074,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 7,
-"sovrapposizione": 0.603,
+"sovrapposizione": 0.601,
 "piu_simile": "imatinib"
 },
 "selegilina": {
@@ -4113,7 +4113,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 11,
-"sovrapposizione": 0.544,
+"sovrapposizione": 0.543,
 "piu_simile": "valaciclovir"
 },
 "sildenafil": {
@@ -4139,7 +4139,7 @@
 "frase_titolo": "silodosina nome commerciale",
 "volume_frase_titolo": 1300,
 "confezioni": 26,
-"sovrapposizione": 0.487,
+"sovrapposizione": 0.486,
 "piu_simile": "tamsulosina"
 },
 "simvastatina": {
@@ -4153,7 +4153,7 @@
 "volume_frase_titolo": 880,
 "confezioni": 97,
 "sovrapposizione": 0.307,
-"piu_simile": "rosuvastatina"
+"piu_simile": "atorvastatina"
 },
 "sitagliptin": {
 "indicizzata": true,
@@ -4166,7 +4166,7 @@
 "volume_frase_titolo": 1600,
 "confezioni": 56,
 "sovrapposizione": 0.355,
-"piu_simile": "sertralina"
+"piu_simile": "rosuvastatina"
 },
 "sitagliptin-metformina": {
 "indicizzata": true,
@@ -4178,7 +4178,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 37,
-"sovrapposizione": 0.407,
+"sovrapposizione": 0.406,
 "piu_simile": "vildagliptin-metformina"
 },
 "sodio-risedronato": {
@@ -4203,8 +4203,8 @@
 "titolo": "Sodio cloruro: equivalenti, prezzi e carenze",
 "frase_titolo": null,
 "volume_frase_titolo": null,
-"confezioni": 21,
-"sovrapposizione": 0.442,
+"confezioni": 20,
+"sovrapposizione": 0.446,
 "piu_simile": "acqua-per-preparazioni-iniettabili"
 },
 "sodio-ibandronato": {
@@ -4230,7 +4230,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 21,
-"sovrapposizione": 0.545,
+"sovrapposizione": 0.544,
 "piu_simile": "simvastatina"
 },
 "sotalolo": {
@@ -4243,7 +4243,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 6,
-"sovrapposizione": 0.664,
+"sovrapposizione": 0.663,
 "piu_simile": "levodopa-carbidopa"
 },
 "spironolattone": {
@@ -4256,7 +4256,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 5,
-"sovrapposizione": 0.621,
+"sovrapposizione": 0.62,
 "piu_simile": "doxiciclina"
 },
 "sucralfato": {
@@ -4268,9 +4268,9 @@
 "titolo": "Antepsin ed equivalenti: prezzi, differenza e carenze",
 "frase_titolo": null,
 "volume_frase_titolo": null,
-"confezioni": 6,
-"sovrapposizione": 0.614,
-"piu_simile": "fentanil"
+"confezioni": 5,
+"sovrapposizione": 0.631,
+"piu_simile": "ketoprofene"
 },
 "sumatriptan": {
 "indicizzata": true,
@@ -4282,7 +4282,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 19,
-"sovrapposizione": 0.473,
+"sovrapposizione": 0.474,
 "piu_simile": "atorvastatina"
 },
 "tacrolimus": {
@@ -4295,7 +4295,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 25,
-"sovrapposizione": 0.317,
+"sovrapposizione": 0.316,
 "piu_simile": "entecavir"
 },
 "tadalafil": {
@@ -4308,7 +4308,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 22,
-"sovrapposizione": 0.372,
+"sovrapposizione": 0.376,
 "piu_simile": "memantina"
 },
 "tafluprost-timololo": {
@@ -4334,7 +4334,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 10,
-"sovrapposizione": 0.574,
+"sovrapposizione": 0.576,
 "piu_simile": "atorvastatina"
 },
 "tamsulosina": {
@@ -4346,8 +4346,8 @@
 "titolo": "Tamsulosina: nomi commerciali, generici e prezzi AIFA",
 "frase_titolo": "tamsulosina nome commerciale",
 "volume_frase_titolo": 1900,
-"confezioni": 41,
-"sovrapposizione": 0.372,
+"confezioni": 42,
+"sovrapposizione": 0.37,
 "piu_simile": "simvastatina"
 },
 "tapentadolo": {
@@ -4360,7 +4360,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 18,
-"sovrapposizione": 0.46,
+"sovrapposizione": 0.459,
 "piu_simile": "flecainide"
 },
 "teicoplanina": {
@@ -4373,7 +4373,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 9,
-"sovrapposizione": 0.572,
+"sovrapposizione": 0.571,
 "piu_simile": "estradiolo"
 },
 "telmisartan": {
@@ -4386,7 +4386,7 @@
 "frase_titolo": "telmisartan nome commerciale",
 "volume_frase_titolo": 1000,
 "confezioni": 30,
-"sovrapposizione": 0.441,
+"sovrapposizione": 0.442,
 "piu_simile": "rosuvastatina"
 },
 "telmisartan-idroclorotiazide": {
@@ -4399,7 +4399,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 27,
-"sovrapposizione": 0.494,
+"sovrapposizione": 0.493,
 "piu_simile": "telmisartan"
 },
 "temozolomide": {
@@ -4451,7 +4451,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 12,
-"sovrapposizione": 0.509,
+"sovrapposizione": 0.508,
 "piu_simile": "voriconazolo"
 },
 "teriparatide": {
@@ -4464,7 +4464,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 5,
-"sovrapposizione": 0.637,
+"sovrapposizione": 0.636,
 "piu_simile": "loratadina"
 },
 "tetrabenazina": {
@@ -4477,8 +4477,8 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 3,
-"sovrapposizione": 0.694,
-"piu_simile": "nimesulide"
+"sovrapposizione": 0.71,
+"piu_simile": "meloxicam"
 },
 "tibolone": {
 "indicizzata": false,
@@ -4516,7 +4516,7 @@
 "frase_titolo": "ticlopidina nome commerciale",
 "volume_frase_titolo": 590,
 "confezioni": 10,
-"sovrapposizione": 0.594,
+"sovrapposizione": 0.593,
 "piu_simile": "manidipina"
 },
 "timololo": {
@@ -4541,8 +4541,8 @@
 "titolo": "Spiriva ed equivalenti: prezzi, differenza e carenze",
 "frase_titolo": null,
 "volume_frase_titolo": null,
-"confezioni": 5,
-"sovrapposizione": 0.645,
+"confezioni": 4,
+"sovrapposizione": 0.657,
 "piu_simile": "calcipotriolo-betametasone"
 },
 "tobramicina": {
@@ -4555,7 +4555,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 3,
-"sovrapposizione": 0.653,
+"sovrapposizione": 0.652,
 "piu_simile": "iloprost"
 },
 "tolvaptan": {
@@ -4580,8 +4580,8 @@
 "titolo": "Topamax ed equivalenti: prezzi, differenza e carenze",
 "frase_titolo": null,
 "volume_frase_titolo": null,
-"confezioni": 29,
-"sovrapposizione": 0.403,
+"confezioni": 31,
+"sovrapposizione": 0.387,
 "piu_simile": "quetiapina"
 },
 "torasemide": {
@@ -4594,7 +4594,7 @@
 "frase_titolo": "diuresix principio attivo",
 "volume_frase_titolo": 880,
 "confezioni": 8,
-"sovrapposizione": 0.569,
+"sovrapposizione": 0.568,
 "piu_simile": "furosemide"
 },
 "tramadolo-cloridrato": {
@@ -4698,7 +4698,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 62,
-"sovrapposizione": 0.318,
+"sovrapposizione": 0.319,
 "piu_simile": "ramipril-idroclorotiazide"
 },
 "vardenafil": {
@@ -4711,7 +4711,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 3,
-"sovrapposizione": 0.742,
+"sovrapposizione": 0.741,
 "piu_simile": "tadalafil"
 },
 "vareniclina": {
@@ -4724,8 +4724,8 @@
 "frase_titolo": "vareniclina prezzo",
 "volume_frase_titolo": 170,
 "confezioni": 7,
-"sovrapposizione": 0.478,
-"piu_simile": "olanzapina"
+"sovrapposizione": 0.479,
+"piu_simile": "rivaroxaban"
 },
 "venlafaxina": {
 "indicizzata": true,
@@ -4737,7 +4737,7 @@
 "frase_titolo": "zarelis principio attivo",
 "volume_frase_titolo": 1900,
 "confezioni": 75,
-"sovrapposizione": 0.301,
+"sovrapposizione": 0.3,
 "piu_simile": "pramipexolo"
 },
 "verapamil": {
@@ -4750,8 +4750,8 @@
 "frase_titolo": "isoptin principio attivo",
 "volume_frase_titolo": 1600,
 "confezioni": 9,
-"sovrapposizione": 0.597,
-"piu_simile": "carbamazepina"
+"sovrapposizione": 0.59,
+"piu_simile": "metoprololo"
 },
 "vildagliptin": {
 "indicizzata": false,
@@ -4789,7 +4789,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 8,
-"sovrapposizione": 0.592,
+"sovrapposizione": 0.591,
 "piu_simile": "lamivudina"
 },
 "voriconazolo": {
@@ -4802,7 +4802,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 10,
-"sovrapposizione": 0.526,
+"sovrapposizione": 0.525,
 "piu_simile": "capecitabina"
 },
 "zofenopril": {
@@ -4815,7 +4815,7 @@
 "frase_titolo": null,
 "volume_frase_titolo": null,
 "confezioni": 6,
-"sovrapposizione": 0.726,
+"sovrapposizione": 0.725,
 "piu_simile": "zofenopril-idroclorotiazide"
 },
 "zofenopril-idroclorotiazide": {
