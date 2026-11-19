@@ -6945,13 +6945,13 @@ def controlla_stiva():
             conti["fisse"] += 1
             if not importo.search(V["primo"]["valore"]) or not importo.search(V["secondo"]["valore"]):
                 errori.append(f"stiva {sl}: tariffe_fisse = true ma manca l'importo del primo o del secondo bagaglio")
-            if "does not publish one fixed fee" in box:
+            if "does not publish one fixed" in box:
                 errori.append(f"stiva {sl}: avviso «nessuna tariffa fissa» in una pagina con tariffe pubblicate")
         else:
             conti["calcolatore"] += 1
             if not calc:
                 errori.append(f"stiva {sl}: senza tariffa fissa serve il link al calcolatore o alla pagina ufficiale dei prezzi")
-            if "does not publish one fixed fee" not in box:
+            if "does not publish one fixed" not in box:
                 errori.append(f"stiva {sl}: manca l'avviso «nessuna tariffa fissa»")
             # senza tariffa fissa nessun importo per un bagaglio comprato prima; ammesso solo il prezzo al banco se la compagnia lo pubblica (easyJet)
             for k in ("primo", "secondo"):
@@ -6967,8 +6967,16 @@ def controlla_stiva():
                 conti["frasi"] += 1
                 if G.volume_stiva(S, fr) <= 0:
                     errori.append(f"stiva {sl}: «{S['cerca']} {fr}» nella descrizione senza volume misurato")
-        if G.frasi_stiva(S) and not C.get("descrizione") and f"{S['nome_cerca']} {G.frasi_stiva(S)[0]}".lower() not in desc.lower():
-            errori.append(f"stiva {sl}: la descrizione non ha la frase misurata «{S['cerca']} {G.frasi_stiva(S)[0]}»")
+        attesa = "checked bag" if (not S["tariffe_fisse"] and "checked bag" in G.frasi_stiva(S)) else (G.frasi_stiva(S) or [None])[0]
+        if attesa and not C.get("descrizione") and f"{S['nome_cerca']} {attesa}".lower() not in desc.lower():
+            errori.append(f"stiva {sl}: la descrizione non ha la frase misurata «{S['cerca']} {attesa}»")
+        if not S["tariffe_fisse"] and "baggage fees" in desc.lower():
+            errori.append(f"stiva {sl}: la descrizione promette «baggage fees» ma la compagnia non pubblica una tariffa fissa")
+        if 'href="#checked-bags"' not in t:
+            errori.append(f"stiva {sl}: manca il rimando al riquadro sotto la risposta in alto")
+        for v in S["voci"]:
+            if v.get("leggenda") and escape(v["leggenda"]) not in box:
+                errori.append(f"stiva {sl}/{v['id']}: legenda delle colonne non mostrata")
     con = set(G.STIVA_PER_SLUG)
     for C in G.COMPAGNIE:
         if C["slug"] in con:

@@ -3150,14 +3150,16 @@ def box_stiva(C):
                     f'<td data-l="Official rule, in short">{escape(V[k]["valore"])}</td></tr>' for k, _ in STIVA_VOCI)
     calc = S.get("calcolatore")
     if not S["tariffe_fisse"]:
-        fisse = (f'<p class="avviso"><strong>{escape(C["nome"])} does not publish one fixed fee for a {"hold" if gb else "checked"} bag.</strong> The price depends on '
+        testa = S.get("avviso_tariffe") or f'{C["nome"]} does not publish one fixed fee for a {"hold" if gb else "checked"} bag.'
+        fisse = (f'<p class="avviso"><strong>{escape(testa)}</strong> The price depends on '
                  f'your route, fare, date or the moment you pay, so we show no number here. For your own trip: '
                  f'<a href="{escape(calc["url"])}" rel="noopener">{escape(calc["titolo"])}</a>.</p>')
     elif calc:
         fisse = f'<p>For the fee on your own trip: <a href="{escape(calc["url"])}" rel="noopener">{escape(calc["titolo"])}</a>.</p>'
     else:
         fisse = ""
-    citaz = "".join(f'<h3>{escape(etichetta_stiva(S, k))}</h3>{cit_bag(V[k]["cit"])}' for k, _ in STIVA_VOCI)
+    citaz = "".join(f'<h3>{escape(etichetta_stiva(S, k))}</h3>{cit_bag(V[k]["cit"])}' +
+                    (f'<p class="small">{escape(V[k]["leggenda"])}</p>' if V[k].get("leggenda") else "") for k, _ in STIVA_VOCI)
     nota = f'<p class="small">{escape(S["nota"])}</p>' if S.get("nota") else ""
     nota += cit_bag(S["cit_nota"]) if S.get("cit_nota") else ""
     return (f'<section class="card" style="margin-top:22px" id="checked-bags" aria-label="Checked bags and fees"><h2 style="margin-top:0">{escape(h2_stiva(C, S))}</h2>'
@@ -3166,7 +3168,15 @@ def box_stiva(C):
             f'<div class="tab tab-b"><table><thead><tr><th>{"Hold bag" if gb else "Checked bag"}</th><th>Official rule, in short</th></tr></thead><tbody>{righe}</tbody></table></div>'
             f'<p class="small">Our short summary of the official wording quoted below. “≈” marks our conversion; the other figures are {escape(poss(C["nome"]))} own. '
             f'Fees and limits can differ by route, fare and status, and airlines change them: the official page and your booking decide.</p>'
-            f'{fisse}<h2>What {escape(poss(C["nome"]))} official page says about {"hold luggage" if gb else "checked bags"}</h2>{citaz}{nota}{fonte_stiva(S)}</section>')
+            f'{fisse}<h2>What {escape(poss(C["nome"]))} official {"pages say" if len(S["fonti"]) > 1 else "page says"} about {"hold luggage" if gb else "checked bags"}</h2>{citaz}{nota}{fonte_stiva(S)}</section>')
+
+
+def link_stiva(C):
+    """Rimando al riquadro del bagaglio da stiva sotto la risposta in alto ('' se la compagnia non ha il riquadro)."""
+    S = STIVA_PER_SLUG.get(C["slug"])
+    if not S:
+        return ""
+    return f'\n<p class="small"><a href="#checked-bags">{"Hold luggage and fees" if S["paese_domanda"] == "gb" else "Checked bags and fees"} ↓</a></p>'
 
 
 def descrizioni_stiva(C, d):
@@ -3176,6 +3186,11 @@ def descrizioni_stiva(C, d):
     if not ff or C.get("descrizione"):
         return []
     n = S["nome_cerca"]
+    if not S["tariffe_fisse"] and "checked bag" in ff:
+        # nessuna tariffa fissa pubblicata (United, Frontier, Air Canada): la descrizione non promette le tariffe, dice dove trovarle
+        return [f"{d}. Plus {n} checked bag limits and where to find the baggage fee, from the official page.",
+                f"{d}. Plus {n} checked bag limits and where to find the baggage fee.", f"{d}. Plus {n} checked bag limits and where to find the fee.",
+                f"{d}. Plus {n} checked bag limits."]
     testa = f"{n} {ff[0]}" + (f" and {ff[1]} limits" if len(ff) > 1 else " and limits")
     return [f"{d}. Plus {testa}, quoted from the official page with the date checked.", f"{d}. Plus {testa}, from the official page.",
             f"{d}. Plus {n} {ff[0]}, from the official page."]
@@ -3213,7 +3228,7 @@ def pagina_compagnia(C):
 {"".join(f'<p class="lead">{escape(x)}.</p>' for x in seconda)}
 {f'<p class="lead">Personal item: allowed with every fare, but {escape(C.get("chi_personale") or C["nome"] + " publishes")} no size for it (see the official wording below).</p>' if C.get("personale_senza_misura") else ""}
 {ambito}
-{fonte_bag(C)}
+{fonte_bag(C)}{link_stiva(C)}
 </div></section>
 {misura}
 {AVVISO_BAG}

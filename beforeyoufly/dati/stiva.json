@@ -25,7 +25,7 @@
    "voci": [
     {
      "id": "franchigia",
-     "valore": "No free checked bag with the Basic, Choice or Choice Preferred fare. The first bag is free for A-List members and Rapid Rewards credit cardmembers; the first and second are free for A-List Preferred members.",
+     "valore": "No free checked bag with the Basic, Choice or Choice Preferred fare. Choice Extra: first and second checked bag free. The first bag is free for A-List members and Rapid Rewards credit cardmembers; the first and second are free for A-List Preferred members.",
      "cit": [
       {
        "f": "a",
@@ -36,51 +36,55 @@
       {
        "f": "b",
        "righe": [
-        "Rapid Rewards® A-List Members Free First checked bag free"
+        "Checked bag: Bag fees apply to Basic, Choice, and Choice Preferred fares. Choice Extra fares and Rapid Rewards® A-List Preferred Members receive two free checked bags. A-List Members and Rapid Rewards Credit Cardmembers only receive their first checked bag for free."
        ]
       },
       {
        "f": "b",
        "righe": [
-        "Rapid Rewards® Credit Cardmembers Free First checked bag free"
-       ]
-      },
-      {
-       "f": "b",
-       "righe": [
-        "Rapid Rewards® A-List Preferred Members Free First checked bag free",
-        "Second checked bag free"
+        "Choice Extra Fare Free Free Free"
        ]
       }
-     ]
+     ],
+     "leggenda": "Columns of the table row: carry-on + personal item, 1st checked bag, 2nd checked bag."
     },
     {
      "id": "primo",
-     "valore": "$45 (Basic, Choice and Choice Preferred fares)",
+     "valore": "$45 with the Basic, Choice and Choice Preferred fares (U.S. Mainland travel)",
      "cit": [
       {
        "f": "b",
        "righe": [
-        "1st Checked Bag",
-        "2nd Checked Bag",
+        "For U.S. Mainland travel",
+        "Basic Fare Free $45 $55",
+        "Choice Fare Free $45 $55",
+        "Choice Preferred Fare Free $45 $55"
+       ]
+      },
+      {
+       "f": "b",
+       "righe": [
+        "Checked bag: Bag fees apply to Basic, Choice, and Choice Preferred fares. Choice Extra fares and Rapid Rewards® A-List Preferred Members receive two free checked bags. A-List Members and Rapid Rewards Credit Cardmembers only receive their first checked bag for free."
+       ]
+      }
+     ],
+     "leggenda": "Columns of the table rows: carry-on + personal item, 1st checked bag, 2nd checked bag."
+    },
+    {
+     "id": "secondo",
+     "valore": "$55 with the Basic, Choice and Choice Preferred fares (U.S. Mainland travel)",
+     "cit": [
+      {
+       "f": "b",
+       "righe": [
+        "For U.S. Mainland travel",
         "Basic Fare Free $45 $55",
         "Choice Fare Free $45 $55",
         "Choice Preferred Fare Free $45 $55"
        ]
       }
-     ]
-    },
-    {
-     "id": "secondo",
-     "valore": "$55 (Basic, Choice and Choice Preferred fares)",
-     "cit": [
-      {
-       "f": "b",
-       "righe": [
-        "Basic Fare Free $45 $55"
-       ]
-      }
-     ]
+     ],
+     "leggenda": "Columns of the table rows: carry-on + personal item, 1st checked bag, 2nd checked bag."
     },
     {
      "id": "peso",
@@ -187,8 +191,15 @@
     },
     {
      "id": "primo",
-     "valore": "$45 online, $50 at the airport; $5 more with a Basic Economy ticket (U.S., Canada, Mexico, Caribbean and Central America, with the exceptions American lists)",
+     "valore": "$45 online, $50 at the airport; $5 more with a Basic Economy ticket (U.S., Canada, Mexico, Caribbean and Central America, with the exceptions American lists), for tickets issued on or after April 9, 2026 (Basic Economy surcharge: May 18, 2026)",
      "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Main Cabin 1st checked bag fee: A $50 1st checked bag fee ($45 if paid online) applies within / between the U.S. (including HI / AK), Puerto Rico, U.S. Virgin Islands, Canada, Mexico, Caribbean (except Cuba and Haiti), Central America (except Panama) and Guyana for tickets issued on / after April 9, 2026.",
+        "Basic Economy 1st checked bag fee: A $55 1st checked bag fee ($50 if paid online) applies within / between the U.S. (including HI / AK), Puerto Rico, U.S. Virgin Islands, Canada, Mexico, Caribbean (except Cuba and Haiti), Central America (except Panama) and Guyana for tickets issued on / after May 18, 2026"
+       ]
+      },
       {
        "f": "a",
        "righe": [
@@ -199,8 +210,15 @@
     },
     {
      "id": "secondo",
-     "valore": "$55 online, $60 at the airport; $5 more with a Basic Economy ticket (same routes)",
+     "valore": "$55 online, $60 at the airport; $5 more with a Basic Economy ticket (same routes), for tickets issued on or after April 9, 2026 (Basic Economy surcharge: May 18, 2026)",
      "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Main Cabin 2nd checked bag fee: A $60 2nd checked bag fee ($55 if paid online) applies within / between the U.S. (including HI / AK), Puerto Rico, U.S. Virgin Islands, Canada, Mexico, Caribbean (except Cuba and Haiti), Central America (except Panama) and Guyana for tickets issued on / after April 9, 2026",
+        "Basic Economy 2nd checked bag fee: A $65 2nd checked bag fee ($60 if paid online) applies within / between the U.S. (including HI / AK), Puerto Rico, U.S. Virgin Islands, Canada, Mexico, Caribbean (except Cuba and Haiti), Central America (except Panama) and Guyana for tickets issued on / after May 18, 2026"
+       ]
+      },
       {
        "f": "a",
        "righe": [
@@ -247,12 +265,22 @@
     },
     {
      "id": "sovrappeso",
-     "valore": "Over 50 lb / 23 kg",
+     "valore": "Over 50 lb / 23 kg. Between the U.S., Puerto Rico, U.S. Virgin Islands and Canada: $30 over 50 lb up to 53 lb, $100 over 53 lb up to 70 lb, $200 over 70 lb up to 100 lb, per person, each way; nothing over 100 lb.",
      "cit": [
       {
        "f": "b",
        "righe": [
-        "Over 50 lbs / 23 kgs"
+        "We don't accept checked bags over 100 lbs / 45 kgs on American Airlines operated flights."
+       ]
+      },
+      {
+       "f": "b",
+       "righe": [
+        "Fees (non-refundable, per person, each way)",
+        "Over 50 lbs / 23 kgs – 53 lbs / 24 kgs",
+        "Over 53 lbs / 24 kgs – 70 lbs / 32 kgs",
+        "Over 70 lbs / 32 kgs – 100 lbs / 45 kgs",
+        "Between U.S., Puerto Rico, U.S. Virgin Islands and Canada $30 $100 $200"
        ]
       },
       {
@@ -288,8 +316,15 @@
    "voci": [
     {
      "id": "franchigia",
-     "valore": "Depends on where and how you travel: United gives no fixed list on this page.",
+     "valore": "Depends on where and how you travel: United gives no fixed list by fare on this page. MileagePlus Premier members and up to nine others on the same itinerary can check bags for free on United and United Express flights.",
      "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Some customers don’t have to pay fees for checked bags. This only applies to United- and United Express®-operated flights.",
+        "If you’re a Premier member, you and up to nine others on the same itinerary can check bags for free."
+       ]
+      },
       {
        "f": "a",
        "righe": [
@@ -428,8 +463,14 @@
     },
     {
      "id": "primo",
-     "valore": "$45 each way (standard bag under 50 lb / 23 kg)",
+     "valore": "Domestic flights within the U.S., Delta Main and Delta Comfort: $45 each way (standard bag under 50 lb / 23 kg)",
      "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "The baggage fees shown below are for Delta Comfort and Delta Main customers traveling on domestic flights within the U.S., without a Delta SkyMiles® American Express Card, Medallion Status or Active Military exceptions:"
+       ]
+      },
       {
        "f": "a",
        "righe": [
@@ -441,8 +482,14 @@
     },
     {
      "id": "secondo",
-     "valore": "$55 each way (standard bag under 50 lb / 23 kg)",
+     "valore": "Domestic flights within the U.S., Delta Main and Delta Comfort: $55 each way (standard bag under 50 lb / 23 kg)",
      "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "The baggage fees shown below are for Delta Comfort and Delta Main customers traveling on domestic flights within the U.S., without a Delta SkyMiles® American Express Card, Medallion Status or Active Military exceptions:"
+       ]
+      },
       {
        "f": "a",
        "righe": [
@@ -454,12 +501,18 @@
     },
     {
      "id": "peso",
-     "valore": "50 lb / 23 kg for a standard bag",
+     "valore": "50 lb / 23 kg for a standard bag in Delta Main, Delta Comfort and Delta Premium Select; 70 lb in Delta One and Delta First",
      "cit": [
       {
        "f": "a",
        "righe": [
         "For your first standard checked bag under 50 lbs. (23 kg), each way"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Weight restrictions at no extra charge vary by product. Delta Main, Delta Comfort and Delta Premium Select passengers should follow the standard 50 lb. limit per piece. Delta One and Delta First passengers should follow the 70 lb. limit per piece."
        ]
       }
      ],
@@ -499,7 +552,7 @@
      ]
     }
    ],
-   "nota": "Delta shows these two fees as its standard amounts and says fees may vary by country and currency: check your own trip in the calculator.",
+   "nota": "These are Delta's fees for domestic U.S. flights; other routes are in its calculator. Delta says fees may vary by country and currency.",
    "nome_cerca": "Delta"
   },
   {
@@ -860,24 +913,19 @@
     },
     {
      "id": "sovrappeso",
-     "valore": "Above your 22 kg allowance; Jet2.com's baggage page gives no rate. No single item over 32 kg.",
+     "valore": "Above your 22 kg allowance; Jet2.com's baggage page gives no rate.",
      "cit": [
       {
        "f": "a",
        "righe": [
-        "22kg hold baggage"
-       ]
-      },
-      {
-       "f": "a",
-       "righe": [
-        "Each item must weigh no more than 32kg, and any extra items (or weight beyond your allowance) will be charged as standard excess baggage."
+        "22kg hold baggage",
+        "Yes, you can book up to three 22kg hold bags per person, per flight (excluding infants) by paying the applicable charges."
        ]
       }
      ]
     }
    ],
-   "nota": "The 32 kg sentence is from the part of Jet2.com's page about children's and infants' items; it is the only place where the page describes excess baggage.",
+   "nota": null,
    "nome_cerca": "Jet2"
   },
   {
@@ -903,11 +951,21 @@
     "url": "https://www.easyjet.com/en/terms-and-conditions/fees",
     "titolo": "easyJet Fees and Charges (the exact price is shown at purchase)"
    },
+   "avviso_tariffe": "easyJet does not publish one fixed online price for a hold bag; only the airport bag drop fee (£60) is fixed.",
    "voci": [
     {
      "id": "franchigia",
-     "valore": "No hold bag in the standard fare: you add a 15 kg or 23 kg bag, up to three hold bags per customer.",
+     "valore": "No hold bag in the standard fare: you add a 15 kg or 23 kg bag, up to three hold bags per customer. easyJet's flexible fare includes one piece of hold luggage.",
      "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Our flexible fare includes:",
+        "Unlimited free date changes",
+        "Upfront seats and Speedy Boarding",
+        "One piece of hold luggage"
+       ]
+      },
       {
        "f": "a",
        "righe": [
@@ -1064,6 +1122,8 @@
       {
        "f": "b",
        "righe": [
+        "Econo or Member Exclusive",
+        "Flights within Canada and the U.S.",
         "Prepay (best price)",
         "First bag: $45 - $53",
         "Online check-in",
@@ -1075,7 +1135,11 @@
       {
        "f": "b",
        "righe": [
+        "UltraBasic",
+        "Flights within Canada and the U.S.",
+        "Prepay (best price)",
         "First bag: $55 -$65",
+        "At the airport",
         "First bag: $80 - $94"
        ]
       }
@@ -1088,8 +1152,13 @@
       {
        "f": "b",
        "righe": [
+        "Econo or Member Exclusive",
+        "Flights within Canada and the U.S.",
+        "Prepay (best price)",
         "Second bag: $60 - $71",
+        "Online check-in",
         "Second bag: $75 - $89",
+        "At the airport",
         "Second bag: $85 - $100"
        ]
       }
@@ -1297,7 +1366,7 @@
     },
     {
      "id": "primo",
-     "valore": "Within the U.S., Latin America, Caribbean and Canada, Main and EvenMore fares, added more than 24 hours before departure: $50 off-peak, $55 peak (these prices include a saving of $10 and $15 on the price within 24 hours of departure).",
+     "valore": "Within the U.S., Latin America, Caribbean and Canada, Main and EvenMore fares, added more than 24 hours before departure, bookings made on or after 11/3: $50 off-peak, $55 peak (these prices include a saving of $10 and $15 on the price within 24 hours of departure).",
      "cit": [
       {
        "f": "a",
@@ -1308,6 +1377,12 @@
         "Peak*",
         "1st Bag: $50 (incl $10 savings)",
         "1st Bag: $55 (incl $15 savings)"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "For bookings made before 11/3, check Manage Trips for applicable bag fees."
        ]
       }
      ]
