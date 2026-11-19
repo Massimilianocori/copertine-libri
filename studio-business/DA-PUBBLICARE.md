@@ -200,6 +200,14 @@ Pubblicato il 1/11/2026 alle 00:15 circa: Visa Income (cerimonie australiane, es
 
 Le idee della riserva entrano nella coda di costruzione nell'ordine della colonna €/ora, appena il loro ostacolo è tolto; i turni di costruzione le prendono quando la coda principale è vuota o in attesa.
 
+## Da pubblicare venerdì 20/11 (tutto revisionato, sorgenti già salvati)
+| Sito | Cosa | Note |
+|---|---|---|
+| visaincome | sezione TEFL (6 pagine + Corea noindex) | revisione 9/10 |
+| esameb1 | pagina esempi con titolo «Test lingua italiana B1 per cittadinanza online», chiarimento esame in presenza, FAQ «cittadinanza italiana» | rigenerare il giorno stesso (date) |
+| beforeyoufly | riquadro bagaglio da stiva su 11 compagnie (421.300 ricerche/mese) | revisione 9,1/10; prima `raccolta/cani_volo.py`, poi rigenerare il giorno stesso (biglietti con date) |
+Procedura: genera → verifica 0 errori → monetizzazione → commit per sito (senza [skip netlify]) → push → controllo online → IndexNow → riga «Pubblicato il…» → `salute.py`.
+
 ## In costruzione 19/11 notte
 | Cosa | Stato |
 |---|---|
