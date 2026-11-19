@@ -197,5 +197,5 @@ Ogni push sul ramo mette in coda una build per OGNI progetto Netlify collegato (
 - Raggruppare: pochi push al giorno, non uno per ogni nota.
 - Se dopo il merge l'ultimo commit è un "Merge…", aggiungere un commit vuoto di note solo se serve davvero; altrimenti va bene così.
 
-## STOP PUBBLICAZIONI (19/11/2026) — finché Massimiliano non passa a Netlify Personal
-Il team Netlify è sul piano Free (300 crediti al mese, ~75 rimasti il 19/11, ciclo fino al 14/12). Sul Free NON si comprano crediti e a zero crediti Netlify mette in pausa TUTTI i siti. Quindi: nessun commit che cambi una cartella `sito/` (nessuna pubblicazione), nemmeno il lotto di venerdì, finché Massimiliano non scrive che ha fatto l'upgrade a Personal (9 $/mese, 1.000 crediti, pacchetti da 500 a 5 $). Eccezione: solo un aggiornamento davvero urgente di Italy Strikes, e solo se restano più di 45 crediti. I push senza `sito/` vanno con `[skip netlify]`. Togliere questa sezione quando l'upgrade è fatto.
+## Netlify Personal dal 19/11/2026
+Massimiliano ha fatto l'upgrade a Personal il 19/11 (9 $/mese, 1.000 crediti al mese, pacchetti da 500 crediti a 5 $). Lo stop alle pubblicazioni è finito. Avvisarlo quando restano meno di ~100 crediti.
