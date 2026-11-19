@@ -59,12 +59,33 @@ def scaduta(g, m):
         if 0 < (OGGI - d).days <= 120: return True
     return False
 
+def date_lettura(testo):
+    """Date di lettura dei dati; un elemento con "data" gia' passata (es. sessione d'esame svolta) non conta:
+    l'ente lo toglie dal calendario e non si puo' piu' rileggere."""
+    out = []
+    def giro(x):
+        if isinstance(x, dict):
+            d = x.get("data")
+            passato = isinstance(d, str) and re.fullmatch(r"\d{4}-\d{2}-\d{2}", d) and d < OGGI.isoformat()
+            for k in ("verificato_il", "controllato_il", "letto_il"):
+                v = x.get(k)
+                if not passato and isinstance(v, str) and re.match(r"\d{4}-\d{2}-\d{2}", v):
+                    out.append(v[:10])
+            for v in x.values(): giro(v)
+        elif isinstance(x, list):
+            for v in x: giro(v)
+    try:
+        giro(json.loads(testo))
+    except Exception:
+        out = re.findall(r'"(?:verificato_il|controllato_il|letto_il)"\s*:\s*"(\d{4}-\d{2}-\d{2})', testo)
+    return out
+
 def freschezza(cartella):
     avvisi = []
     for f in sorted((RADICE / cartella / "dati").glob("*.json")) if (RADICE / cartella / "dati").exists() else []:
         try: testo = f.read_text(encoding="utf-8")
         except Exception: continue
-        date = re.findall(r'"(?:verificato_il|controllato_il|letto_il)"\s*:\s*"(\d{4}-\d{2}-\d{2})', testo)
+        date = date_lettura(testo)
         if not date: continue
         piu_recente = max(date); piu_vecchia = min(date)
         soglia = SOGLIE.get((cartella, f.name), SOGLIA_STD)
