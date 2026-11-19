@@ -8,6 +8,8 @@ Dati:
     dati/aeroporti.json    regole sui liquidi lette a mano sulle pagine ufficiali degli aeroporti (ricontrollo: raccolta/liquidi.py)
     dati/ees_etias.json    frasi ufficiali su EES ed ETIAS (raccolta/eesetias.py)
     dati/bagagli.json      misure del bagaglio a mano lette sulle pagine ufficiali delle compagnie, regola UE (ricontrollo: raccolta/bagagli.py)
+    dati/stiva.json        bagaglio da stiva per compagnia: franchigia, tariffe, peso, misura, sovrappeso, con le frasi ufficiali (ricontrollo: raccolta/stiva.py)
+    dati/stiva_domanda.json volumi di ricerca misurati per il bagaglio da stiva (raccolta/stiva.py --domanda)
     dati/affiliati.json    riquadro affiliati (vuoto finché non ci sono URL)
 
 Il controllo del passaporto gira nel browser (JS in pagina, nessuno script esterno). La stessa logica è scritta qui in Python
@@ -2907,7 +2909,7 @@ def descrizioni_bag(C):
     d = f"{C['nome']} {ANNO}: " + ", ".join(pezzi)
     if C.get("descrizione"):  # scritta a mano (es. Jetstar: regola che cambia a una data)
         return [C["descrizione"].replace("{anno}", str(ANNO)), f"{d}."]
-    return [f"{d}. Quoted from {poss(C['nome'])} official page with the date checked, plus a bag size checker.",
+    return descrizioni_stiva(C, d) + [f"{d}. Quoted from {poss(C['nome'])} official page with the date checked, plus a bag size checker.",
             f"{d}. Quoted from the official page, with the date checked.", f"{d}.", f"{C['nome']} cabin bag size {ANNO}: the official sizes, quoted word for word."]
 
 
@@ -3094,6 +3096,91 @@ def box_liquidi_bag(C, rel):
             f'<p style="margin:0"><a href="{rel}liquids/">Liquid rules at {len(AER["aeroporti"])} airports, quoted from their official pages</a></p></section>')
 
 
+# ---- Bagaglio da stiva (19/11/2026, riga 3 di studio-business/intelaiatura/byf-crescita-2026-11-13.md): riquadro «Checked bags and fees»
+# nelle pagine compagnia che hanno i dati in dati/stiva.json (file separato: dati/bagagli.json e i fatti sul bagaglio a mano non cambiano).
+# Ogni voce = nostro riassunto breve + righe ufficiali copiate parola per parola; nessuna tariffa inventata: dove la compagnia non pubblica
+# una cifra fissa il riquadro lo dice e porta al suo calcolatore. Ricontrollo: raccolta/stiva.py; controlli: verifica.py, punto 38.
+_f_stiva = DATI / "stiva.json"
+STIVA = json.loads(_f_stiva.read_text(encoding="utf-8")) if _f_stiva.exists() else {"compagnie": [], "escluse": []}
+STIVA_PER_SLUG = {S["slug"]: S for S in STIVA["compagnie"]}
+_f_stiva_d = DATI / "stiva_domanda.json"
+STIVA_DOMANDA = json.loads(_f_stiva_d.read_text(encoding="utf-8")) if _f_stiva_d.exists() else {"compagnie": {}}
+STIVA_VOCI = [("franchigia", "Checked bags included by fare"), ("primo", "1st checked bag fee"), ("secondo", "2nd checked bag fee"),
+              ("peso", "Weight limit per bag"), ("misura", "Size limit per bag"), ("sovrappeso", "Overweight")]
+STIVA_VOCI_GB = {"franchigia": "Hold bags included by fare", "primo": "1st hold bag fee", "secondo": "2nd hold bag fee"}
+# Frasi misurate (dati/stiva_domanda.json) da mettere nella descrizione: negli USA e in Canada si cerca «<compagnia> baggage fees» e
+# «<compagnia> checked bag»; nel Regno Unito «<compagnia> baggage allowance» e «<compagnia> hold luggage».
+STIVA_FRASI = {"us": ["baggage fees", "checked bag"], "ca": ["baggage fees", "checked bag"], "gb": ["baggage allowance", "hold luggage"]}
+
+
+def volume_stiva(S, frase):
+    """Volume mensile misurato di «<nome cercato> <frase>» nel Paese della compagnia (0 se non misurato o in errore)."""
+    v = ((STIVA_DOMANDA.get("compagnie", {}).get(S["slug"]) or {}).get("frasi", {}).get(f"{S['cerca']} {frase}") or {}).get("volume")
+    return v if isinstance(v, (int, float)) else 0
+
+
+def frasi_stiva(S):
+    """Le frasi di STIVA_FRASI con volume misurato > 0 per questa compagnia, nell'ordine dato."""
+    return [x for x in STIVA_FRASI[S["paese_domanda"]] if volume_stiva(S, x) > 0]
+
+
+def etichetta_stiva(S, k):
+    return (STIVA_VOCI_GB.get(k) if S["paese_domanda"] == "gb" else None) or dict(STIVA_VOCI)[k]
+
+
+def h2_stiva(C, S):
+    if S["paese_domanda"] == "gb":
+        return f"{C['nome']} hold luggage: baggage allowance, weight and fees"
+    return f"{C['nome']} checked bags and baggage fees"
+
+
+def fonte_stiva(S):
+    return ('<p class="fonte">Official source: ' + " · ".join(f'<a href="{escape(f["url"])}" rel="noopener">{escape(f["titolo"])}</a>' for f in S["fonti"].values()) +
+            f' · checked on {data_lunga(S["controllato_il"])} (read in a browser)</p>')
+
+
+def box_stiva(C):
+    """Riquadro sul bagaglio da stiva della compagnia: '' se la compagnia non è in dati/stiva.json (pagina ufficiale non letta)."""
+    S = STIVA_PER_SLUG.get(C["slug"])
+    if not S:
+        return ""
+    V = {v["id"]: v for v in S["voci"]}
+    gb = S["paese_domanda"] == "gb"
+    righe = "".join(f'<tr><td data-l="{"Hold bag" if gb else "Checked bag"}"><strong>{escape(etichetta_stiva(S, k))}</strong></td>'
+                    f'<td data-l="Official rule, in short">{escape(V[k]["valore"])}</td></tr>' for k, _ in STIVA_VOCI)
+    calc = S.get("calcolatore")
+    if not S["tariffe_fisse"]:
+        fisse = (f'<p class="avviso"><strong>{escape(C["nome"])} does not publish one fixed fee for a {"hold" if gb else "checked"} bag.</strong> The price depends on '
+                 f'your route, fare, date or the moment you pay, so we show no number here. For your own trip: '
+                 f'<a href="{escape(calc["url"])}" rel="noopener">{escape(calc["titolo"])}</a>.</p>')
+    elif calc:
+        fisse = f'<p>For the fee on your own trip: <a href="{escape(calc["url"])}" rel="noopener">{escape(calc["titolo"])}</a>.</p>'
+    else:
+        fisse = ""
+    citaz = "".join(f'<h3>{escape(etichetta_stiva(S, k))}</h3>{cit_bag(V[k]["cit"])}' for k, _ in STIVA_VOCI)
+    nota = f'<p class="small">{escape(S["nota"])}</p>' if S.get("nota") else ""
+    nota += cit_bag(S["cit_nota"]) if S.get("cit_nota") else ""
+    return (f'<section class="card" style="margin-top:22px" id="checked-bags" aria-label="Checked bags and fees"><h2 style="margin-top:0">{escape(h2_stiva(C, S))}</h2>'
+            f'<p>This part is about bags that travel in the hold, not the cabin bags above. Every line comes from {escape(poss(C["nome"]))} own '
+            f'{"pages" if len(S["fonti"]) > 1 else "page"}, read on {data_lunga(S["controllato_il"])}.</p>'
+            f'<div class="tab tab-b"><table><thead><tr><th>{"Hold bag" if gb else "Checked bag"}</th><th>Official rule, in short</th></tr></thead><tbody>{righe}</tbody></table></div>'
+            f'<p class="small">Our short summary of the official wording quoted below. “≈” marks our conversion; the other figures are {escape(poss(C["nome"]))} own. '
+            f'Fees and limits can differ by route, fare and status, and airlines change them: the official page and your booking decide.</p>'
+            f'{fisse}<h2>What {escape(poss(C["nome"]))} official page says about {"hold luggage" if gb else "checked bags"}</h2>{citaz}{nota}{fonte_stiva(S)}</section>')
+
+
+def descrizioni_stiva(C, d):
+    """Descrizioni con le frasi misurate sul bagaglio da stiva, da provare prima di quelle di sempre (scegli prende la prima che entra)."""
+    S = STIVA_PER_SLUG.get(C["slug"])
+    ff = frasi_stiva(S) if S else []
+    if not ff or C.get("descrizione"):
+        return []
+    n = S["nome_cerca"]
+    testa = f"{n} {ff[0]}" + (f" and {ff[1]} limits" if len(ff) > 1 else " and limits")
+    return [f"{d}. Plus {testa}, quoted from the official page with the date checked.", f"{d}. Plus {testa}, from the official page.",
+            f"{d}. Plus {n} {ff[0]}, from the official page."]
+
+
 def pagina_compagnia(C):
     rel = "../../"
     s, o = borsa_gratis(C, "sotto"), borsa_gratis(C, "sopra")
@@ -3142,7 +3229,7 @@ def pagina_compagnia(C):
 <p class="small">Our short summary of the official wording below.</p>
 {cit_tar}
 {avvisi}
-{extra}
+{extra}{box_stiva(C)}
 {AD}
 {faq_html}
 {box_liquidi_bag(C, rel)}

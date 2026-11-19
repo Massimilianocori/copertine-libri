@@ -217,6 +217,14 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
     parola per parola al tag di publishers.grow.me scritto a mano qui, con l'ID del sito giusto, e nessun altro riferimento a Grow; la
     privacy nomina Grow e Mediavine (misura del pubblico, pagine salvate) e linka la «Advertising Management & Grow Privacy Notice»;
     spento = nessuna traccia; una Content-Security-Policy (netlify.toml o meta), se c'è, deve ammettere faves.grow.me e api.grow.me.
+38. Bagaglio da stiva nelle pagine compagnia (19/11/2026, dati/stiva.json, riga 3 di byf-crescita-2026-11-13.md): il riquadro «Checked bags
+    and fees» c'è solo nelle pagine delle compagnie con i dati e mai nelle altre (escluse: motivo, data e indirizzi provati); fonti https solo
+    sul dominio della compagnia, con titolo, link e data nella pagina; sei voci (franchigia, primo e secondo bagaglio, peso, misura,
+    sovrappeso), ognuna con il riassunto e le righe ufficiali mostrati; ogni numero del riassunto è nelle righe citate della stessa voce,
+    tranne le conversioni dichiarate (scritte con ≈ e ricalcolate qui: lb/kg, in/cm); senza tariffa fissa nessun importo nelle voci delle
+    tariffe e link al calcolatore ufficiale; con tariffa fissa l'importo è nelle righe citate; ogni riga citata è nella copia salvata
+    della pagina (raccolta/.cache/stiva/, avviso se manca); frasi di ricerca nelle descrizioni solo se misurate con volume > 0
+    (dati/stiva_domanda.json) e solo nelle pagine con il riquadro; titoli del bagaglio a mano invariati (punto 36).
 AVVISI (10/11/2026): le copie delle fonti in raccolta/.cache/ non sono nel repository. Il ricalcolo dalla copia (frasi, impronte, tabelle,
 seconda lettura dei PDF) dei punti 13, 17, 18, 20-29 si salta con un avviso (stampato, contato, elencato in fondo, non è un errore) se la
 copia manca, se è una pagina di blocco o anti-robot (titolo), o se è più recente dell'ultima lettura buona dei dati (la raccolta ha
@@ -6824,6 +6832,171 @@ def controlla_titoli():
     return errori, conti
 
 
+# ---------------------------------------------------------------- 38. bagaglio da stiva nelle pagine compagnia (19/11/2026)
+DOMINI_STIVA = {"southwest": ("southwest.com",), "american-airlines": ("aa.com",), "united": ("united.com",), "delta": ("delta.com",),
+                "frontier": ("flyfrontier.com",), "british-airways": ("britishairways.com",), "jet2": ("jet2.com",), "easyjet": ("easyjet.com",),
+                "westjet": ("westjet.com",), "air-canada": ("aircanada.com",), "alaska-airlines": ("alaskaair.com",), "jetblue": ("jetblue.com",),
+                "spirit": ("spirit.com",)}
+VOCI_STIVA = ["franchigia", "primo", "secondo", "peso", "misura", "sovrappeso"]
+FRASI_STIVA_TUTTE = ("baggage fees", "baggage allowance", "hold luggage", "checked bag")
+
+
+def _dominio_ok(url, domini):
+    from urllib.parse import urlparse
+    u = urlparse(url)
+    return u.scheme == "https" and any(u.netloc == d or u.netloc.endswith("." + d) for d in domini)
+
+
+def _norm_stiva(x):
+    return re.sub(r"\s+", " ", x.replace("\xa0", " ").replace("​", "")).strip()
+
+
+def controlla_stiva():
+    from datetime import date
+    errori, conti = [], {"compagnie": 0, "righe": 0, "numeri": 0, "conv": 0, "cache": 0, "fisse": 0, "calcolatore": 0, "frasi": 0, "escluse": 0}
+    S_ = G.STIVA
+    slug_bag = {C["slug"]: C for C in G.COMPAGNIE}
+    cache = SITO.parent / "raccolta" / ".cache" / "stiva"
+    if not S_["compagnie"]:
+        return ["dati/stiva.json mancante o vuoto"], conti
+    if not G.STIVA_DOMANDA.get("misurato_il"):
+        errori.append("dati/stiva_domanda.json mancante o senza data (python3 -I beforeyoufly/raccolta/stiva.py --domanda)")
+    fattori = (0.45359237, 1 / 0.45359237, 2.54, 1 / 2.54)
+    for S in S_["compagnie"]:
+        sl = S["slug"]
+        if sl not in slug_bag:
+            errori.append(f"stiva {sl}: nessuna pagina cabin-bags/{sl}/ (il riquadro va solo nelle pagine esistenti)")
+            continue
+        conti["compagnie"] += 1
+        C = slug_bag[sl]
+        t = leggi(f"{G.BAG_BASE}/{sl}/index.html")
+        if t.count('aria-label="Checked bags and fees"') != 1 or 'id="checked-bags"' not in t:
+            errori.append(f"stiva {sl}: riquadro mancante o doppio")
+            continue
+        box = t[t.index('aria-label="Checked bags and fees"'):]
+        box = box[:box.index("</section>")]
+        try:
+            d = date.fromisoformat(S["controllato_il"])
+            if d > G.OGGI:
+                raise ValueError
+        except (ValueError, TypeError):
+            errori.append(f"stiva {sl}: data del controllo non valida")
+            continue
+        if f"checked on {G.data_lunga(S['controllato_il'])}" not in box:
+            errori.append(f"stiva {sl}: data del controllo non mostrata")
+        for k, f in S["fonti"].items():
+            if not _dominio_ok(f["url"], DOMINI_STIVA.get(sl, ())) or not f.get("titolo"):
+                errori.append(f"stiva {sl}: fonte {k} non https, senza titolo o fuori dal dominio della compagnia")
+            elif f'href="{escape(f["url"])}"' not in box or escape(f["titolo"]) not in box:
+                errori.append(f"stiva {sl}: fonte {k} non linkata nel riquadro")
+        copie = {}
+        for k, f in S["fonti"].items():
+            f_c = cache / G_nome_file_stiva(f["url"])
+            if copia_usabile(38, f"{sl}/{k}", f_c, "stiva.py"):
+                copie[k] = _norm_stiva(f_c.read_text(encoding="utf-8"))
+                conti["cache"] += 1
+        V = {v["id"]: v for v in S["voci"]}
+        if sorted(V) != sorted(VOCI_STIVA) or len(S["voci"]) != len(VOCI_STIVA):
+            errori.append(f"stiva {sl}: le voci devono essere esattamente {VOCI_STIVA}")
+            continue
+        for k in VOCI_STIVA:
+            v = V[k]
+            if not v.get("valore") or not v.get("cit"):
+                errori.append(f"stiva {sl}/{k}: riassunto o citazione mancante")
+                continue
+            if escape(v["valore"]) not in box:
+                errori.append(f"stiva {sl}/{k}: riassunto non mostrato")
+            righe = []
+            for c in v["cit"]:
+                if c.get("f") not in S["fonti"] or not c.get("righe") or any(not r.strip() for r in c["righe"]):
+                    errori.append(f"stiva {sl}/{k}: citazione senza fonte o vuota")
+                    continue
+                for r in c["righe"]:
+                    conti["righe"] += 1
+                    righe.append(r)
+                    if escape(r) not in box:
+                        errori.append(f"stiva {sl}/{k}: riga ufficiale non mostrata: {r[:60]}")
+                    if c["f"] in copie and _norm_stiva(r) not in copie[c["f"]]:
+                        errori.append(f"stiva {sl}/{k}: riga non trovata parola per parola nella copia salvata della pagina: {r[:60]}")
+            citati = _numeri(" ".join(righe))
+            conv = {round(float(x), 2) for x in v.get("conv", [])}
+            for n in _numeri(v["valore"].replace(C["nome"], "").replace(S["nome_cerca"], "")):  # «Jet2» non è un numero
+                conti["numeri"] += 1
+                if n in conv:
+                    conti["conv"] += 1
+                    if not re.search(r"≈ ?[^)]*\b" + re.escape(("%g" % n)) + r"\b", v["valore"]):
+                        errori.append(f"stiva {sl}/{k}: la conversione {n} non è segnata con ≈")
+                    if not any(abs(q * fa - n) <= 0.6 for q in citati for fa in fattori):
+                        errori.append(f"stiva {sl}/{k}: {n} non è la conversione di un numero citato")
+                elif n not in citati:
+                    errori.append(f"stiva {sl}/{k}: il numero {n} del riassunto non è nelle righe ufficiali citate")
+        for k, campi in (("peso", ("lb", "kg")), ("misura", ("in", "cm"))):
+            for cmp_ in campi:
+                x = V[k].get(cmp_, "manca")
+                if x == "manca":
+                    errori.append(f"stiva {sl}/{k}: campo {cmp_} mancante (None se la compagnia non lo pubblica)")
+                elif x is not None and round(float(x), 2) not in _numeri(V[k]["valore"]):
+                    errori.append(f"stiva {sl}/{k}: {cmp_}={x} non è nel riassunto")
+        calc = S.get("calcolatore")
+        if calc and (not _dominio_ok(calc.get("url", ""), DOMINI_STIVA.get(sl, ())) or f'href="{escape(calc["url"])}"' not in box or escape(calc["titolo"]) not in box):
+            errori.append(f"stiva {sl}: calcolatore fuori dal dominio della compagnia o non linkato")
+        importo = re.compile(r"[$£€]\s?\d+(?:\.\d+)?|\b\d+(?:\.\d+)?\s?(?:USD|CAD|GBP|EUR)\b")
+        if S["tariffe_fisse"]:
+            conti["fisse"] += 1
+            if not importo.search(V["primo"]["valore"]) or not importo.search(V["secondo"]["valore"]):
+                errori.append(f"stiva {sl}: tariffe_fisse = true ma manca l'importo del primo o del secondo bagaglio")
+            if "does not publish one fixed fee" in box:
+                errori.append(f"stiva {sl}: avviso «nessuna tariffa fissa» in una pagina con tariffe pubblicate")
+        else:
+            conti["calcolatore"] += 1
+            if not calc:
+                errori.append(f"stiva {sl}: senza tariffa fissa serve il link al calcolatore o alla pagina ufficiale dei prezzi")
+            if "does not publish one fixed fee" not in box:
+                errori.append(f"stiva {sl}: manca l'avviso «nessuna tariffa fissa»")
+            # senza tariffa fissa nessun importo per un bagaglio comprato prima; ammesso solo il prezzo al banco se la compagnia lo pubblica (easyJet)
+            for k in ("primo", "secondo"):
+                for mm in importo.finditer(V[k]["valore"]):
+                    cifra = _numeri(mm.group(0))
+                    if not cifra <= _numeri(" ".join(r for c in V[k]["cit"] for r in c["righe"])) or "airport" not in V[k]["valore"].lower():
+                        errori.append(f"stiva {sl}/{k}: importo in una voce senza tariffa fissa")
+        # descrizione: frasi misurate, solo con volume > 0
+        m = re.search(r'<meta name="description" content="([^"]*)"', t)
+        desc = unescape_(m.group(1)) if m else ""
+        for fr in FRASI_STIVA_TUTTE:
+            if f"{S['nome_cerca']} {fr}".lower() in desc.lower():
+                conti["frasi"] += 1
+                if G.volume_stiva(S, fr) <= 0:
+                    errori.append(f"stiva {sl}: «{S['cerca']} {fr}» nella descrizione senza volume misurato")
+        if G.frasi_stiva(S) and not C.get("descrizione") and f"{S['nome_cerca']} {G.frasi_stiva(S)[0]}".lower() not in desc.lower():
+            errori.append(f"stiva {sl}: la descrizione non ha la frase misurata «{S['cerca']} {G.frasi_stiva(S)[0]}»")
+    con = set(G.STIVA_PER_SLUG)
+    for C in G.COMPAGNIE:
+        if C["slug"] in con:
+            continue
+        t = leggi(f"{G.BAG_BASE}/{C['slug']}/index.html")
+        if "Checked bags and fees" in t or 'id="checked-bags"' in t:
+            errori.append(f"stiva {C['slug']}: riquadro in una pagina senza dati")
+        m = re.search(r'<meta name="description" content="([^"]*)"', t)
+        if m and any(fr in unescape_(m.group(1)).lower() for fr in FRASI_STIVA_TUTTE):
+            errori.append(f"stiva {C['slug']}: frase sul bagaglio da stiva nella descrizione di una pagina senza riquadro")
+    for E in S_.get("escluse", []):
+        conti["escluse"] += 1
+        if not E.get("motivo") or not E.get("provato_il") or not E.get("url_provati"):
+            errori.append(f"stiva: compagnia esclusa {E.get('nome')} senza motivo, data o indirizzi provati")
+        if E.get("slug") in con:
+            errori.append(f"stiva: {E.get('nome')} è sia esclusa sia nel riquadro")
+    return errori, conti
+
+
+def unescape_(x):
+    from html import unescape
+    return unescape(x)
+
+
+def G_nome_file_stiva(u):
+    return re.sub(r"[^a-zA-Z0-9]+", "_", re.sub(r"^https?://", "", u))[:120] + ".txt"
+
+
 def main():
     e1 = controlla_casi()
     print(f"1. Casi del passaporto calcolati a mano: {len(CASI)}, {len(e1)} errori")
@@ -6990,9 +7163,14 @@ def main():
           f"dalla copia salvata: {c37['cache']}), {c37['citazioni']} paragrafi citati tutti nei dati, {c37['rotte_bark']} rotte BARK Air con prezzo = catalogo letto, "
           f"{c37['rotte_rv']} pagine rotta RetrievAir, {c37['celle']} celle delle tabelle = dati, numeri solo dalle fonti, {c37['faq']} risposte FAQ da frasi misurate "
           f"(JSON-LD = testo visibile), riquadro K9 Jets {'acceso' if G.K9_JETS else 'spento'}, nessun terzo né giudizio, 'information, not advice': {len(e37)} errori")
+    e38, c38 = controlla_stiva()
+    print(f"38. Bagaglio da stiva: riquadro in {c38['compagnie']} pagine compagnia ({c38['fisse']} con tariffa pubblicata, {c38['calcolatore']} senza tariffa fissa e con "
+          f"il link al calcolatore ufficiale), {c38['righe']} righe ufficiali mostrate, {c38['numeri']} numeri dei riassunti tutti nelle righe citate "
+          f"({c38['conv']} conversioni ricalcolate), {c38['cache']} copie salvate rilette, {c38['frasi']} frasi misurate nelle descrizioni, "
+          f"{c38['escluse']} compagnie escluse con il motivo: {len(e38)} errori")
     e19, i19 = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
     print("19. " + G.MON.riepilogo(G.SITO_ID, i19, e19))
-    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31 + e32 + e33 + e34 + e35 + e36 + e37
+    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31 + e32 + e33 + e34 + e35 + e36 + e37 + e38
     if AVVISI:  # ricalcoli dalle copie salvati saltati (copia mancante, pagina di blocco, raccolta che non ha aggiornato il JSON): non sono errori
         per_punto = {}
         for k, _ in AVVISI:

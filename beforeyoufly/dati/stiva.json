@@ -1,0 +1,1403 @@
+{
+ "_nota": "Bagaglio da stiva per compagnia (riquadro «Checked bags and fees» nelle pagine cabin-bags/<compagnia>/, dal 19/11/2026). Ogni voce (franchigia per tariffa, primo e secondo bagaglio, peso, misura, sovrappeso) ha 'valore' = il nostro riassunto breve e 'cit' = le righe della pagina ufficiale copiate parola per parola (ogni riga è un pezzo continuo del testo della pagina). Ogni numero di 'valore' deve essere nelle righe citate, tranne quelli in 'conv' (conversioni nostre, scritte con ≈: 1 lb = 0,45359 kg, 1 in = 2,54 cm). tariffe_fisse = false: la compagnia non pubblica una cifra fissa, 'valore' non ha importi e 'calcolatore' porta allo strumento ufficiale. peso e misura hanno anche i numeri (kg, lb, cm, in; None = non pubblicato). cerca e paese_domanda servono a raccolta/stiva.py --domanda. escluse: compagnie della riga 3 del piano senza riquadro, con il motivo. Dati separati da dati/bagagli.json (bagaglio a mano), che questo lavoro non tocca. Ricontrollo: raccolta/stiva.py; controlli: verifica.py punto 38.",
+ "controllato_il": "2026-11-19",
+ "compagnie": [
+  {
+   "slug": "southwest",
+   "cerca": "southwest",
+   "paese_domanda": "us",
+   "controllato_il": "2026-11-19",
+   "valuta": "USD",
+   "fonti": {
+    "a": {
+     "url": "https://support.southwest.com/helpcenter/article/checked-baggage-policy",
+     "titolo": "Southwest Airlines Help Center: I want to know about the checked baggage policy",
+     "lettura": "browser"
+    },
+    "b": {
+     "url": "https://www.southwest.com/html/customer-service/travel-fees.html",
+     "titolo": "Southwest Airlines: Optional Travel Charges",
+     "lettura": "browser"
+    }
+   },
+   "tariffe_fisse": true,
+   "calcolatore": null,
+   "voci": [
+    {
+     "id": "franchigia",
+     "valore": "No free checked bag with the Basic, Choice or Choice Preferred fare. The first bag is free for A-List members and Rapid Rewards credit cardmembers; the first and second are free for A-List Preferred members.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Checked baggage fees apply."
+       ]
+      },
+      {
+       "f": "b",
+       "righe": [
+        "Rapid Rewards® A-List Members Free First checked bag free"
+       ]
+      },
+      {
+       "f": "b",
+       "righe": [
+        "Rapid Rewards® Credit Cardmembers Free First checked bag free"
+       ]
+      },
+      {
+       "f": "b",
+       "righe": [
+        "Rapid Rewards® A-List Preferred Members Free First checked bag free",
+        "Second checked bag free"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "primo",
+     "valore": "$45 (Basic, Choice and Choice Preferred fares)",
+     "cit": [
+      {
+       "f": "b",
+       "righe": [
+        "1st Checked Bag",
+        "2nd Checked Bag",
+        "Basic Fare Free $45 $55",
+        "Choice Fare Free $45 $55",
+        "Choice Preferred Fare Free $45 $55"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "secondo",
+     "valore": "$55 (Basic, Choice and Choice Preferred fares)",
+     "cit": [
+      {
+       "f": "b",
+       "righe": [
+        "Basic Fare Free $45 $55"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "peso",
+     "valore": "50 lb (≈ 23 kg)",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Standard Weight Limit",
+        "Up to 50 pounds each"
+       ]
+      }
+     ],
+     "lb": 50,
+     "kg": 23,
+     "conv": [
+      23
+     ]
+    },
+    {
+     "id": "misura",
+     "valore": "62 in (≈ 157 cm), length + width + height",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Standard Size Limit",
+        "62 inches in size (length + width + height).",
+        "Wheels and handles should be included when measuring."
+       ]
+      }
+     ],
+     "in": 62,
+     "cm": 157,
+     "conv": [
+      157
+     ]
+    },
+    {
+     "id": "sovrappeso",
+     "valore": "From 51 lb: $100 plus the standard bag fee for 51-70 lb, $200 plus the standard bag fee for 71-100 lb",
+     "cit": [
+      {
+       "f": "b",
+       "righe": [
+        "Overweight (51-70 lbs.) $100 + Standard Fee",
+        "Overweight (71-100 lbs.) $200 + Standard Fee"
+       ]
+      }
+     ]
+    }
+   ],
+   "nota": "Southwest also lists lower fees for flights that begin and end within Hawaii; see its Optional Travel Charges page.",
+   "nome_cerca": "Southwest"
+  },
+  {
+   "slug": "american-airlines",
+   "cerca": "american airlines",
+   "paese_domanda": "us",
+   "controllato_il": "2026-11-19",
+   "valuta": "USD",
+   "fonti": {
+    "a": {
+     "url": "https://www.aa.com/i18n/travel-info/baggage/checked-baggage-policy.jsp",
+     "titolo": "American Airlines: Checked bag policy",
+     "lettura": "browser"
+    },
+    "b": {
+     "url": "https://www.aa.com/i18n/travel-info/baggage/oversize-and-overweight-baggage.jsp",
+     "titolo": "American Airlines: Oversize and overweight bags",
+     "lettura": "browser"
+    }
+   },
+   "tariffe_fisse": true,
+   "calcolatore": null,
+   "voci": [
+    {
+     "id": "franchigia",
+     "valore": "No free checked bag on most economy tickets within the U.S. and nearby. The first 2 checked bags are free in Domestic First, Business and Premium Economy; the first bag is free with AAdvantage Gold status and on a list of long-haul destinations.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Checked bag fees are charged per person and each direction of travel."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "First 2 checked bags are free for:",
+        "Confirmed Domestic First customers",
+        "Confirmed Business customers",
+        "Confirmed Premium Economy customers"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "First checked bag is free for:",
+        "AAdvantage Gold® status"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "primo",
+     "valore": "$45 online, $50 at the airport; $5 more with a Basic Economy ticket (U.S., Canada, Mexico, Caribbean and Central America, with the exceptions American lists)",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Travel within / between the U.S., Puerto Rico, U.S. Virgin Islands, Canada, Caribbean (except Cuba / Haiti), Mexico, Central America (except Panama) and Guyana – 1st checked bag fee is $50 ($45 if you pay online) and the 2nd checked bag fee is $60 ($55 if you pay online). Pay $5 more for 1st and 2nd checked bag fees for Basic Economy tickets."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "secondo",
+     "valore": "$55 online, $60 at the airport; $5 more with a Basic Economy ticket (same routes)",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Travel within / between the U.S., Puerto Rico, U.S. Virgin Islands, Canada, Caribbean (except Cuba / Haiti), Mexico, Central America (except Panama) and Guyana – 1st checked bag fee is $50 ($45 if you pay online) and the 2nd checked bag fee is $60 ($55 if you pay online). Pay $5 more for 1st and 2nd checked bag fees for Basic Economy tickets."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Checked bag fees are charged per person and each direction of travel."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "peso",
+     "valore": "50 lb / 23 kg (70 lb / 32 kg for free bags in First and Business)",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Weight: 50 lbs / 23 kg",
+        "For First / Business, weight is 70 lbs / 32 kg for free bags and 50 lbs / 23 kg for excess charged bags"
+       ]
+      }
+     ],
+     "lb": 50,
+     "kg": 23
+    },
+    {
+     "id": "misura",
+     "valore": "62 in / 158 cm, length + width + height",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "We calculate the size limits of your bag by adding the total outside dimensions of each bag, length + width + height.",
+        "Dimension: 62 in / 158 cm"
+       ]
+      }
+     ],
+     "in": 62,
+     "cm": 158
+    },
+    {
+     "id": "sovrappeso",
+     "valore": "Over 50 lb / 23 kg",
+     "cit": [
+      {
+       "f": "b",
+       "righe": [
+        "Over 50 lbs / 23 kgs"
+       ]
+      },
+      {
+       "f": "b",
+       "righe": [
+        "When a single item exceeds standard dimensions for both weight and size, the higher fee between oversize and overweight applies, in addition to the checked bag fee."
+       ]
+      }
+     ]
+    }
+   ],
+   "nota": "Fees for other regions are in the table on American's page.",
+   "nome_cerca": "American Airlines"
+  },
+  {
+   "slug": "united",
+   "cerca": "united",
+   "paese_domanda": "us",
+   "controllato_il": "2026-11-19",
+   "valuta": "USD",
+   "fonti": {
+    "a": {
+     "url": "https://www.united.com/en/us/fly/baggage/checked-bags.html",
+     "titolo": "United Airlines: Checked bags",
+     "lettura": "browser"
+    }
+   },
+   "tariffe_fisse": false,
+   "calcolatore": {
+    "url": "https://www.united.com/en/us/checked-bag-fee-calculator/any-flights",
+    "titolo": "United baggage fee calculator"
+   },
+   "voci": [
+    {
+     "id": "franchigia",
+     "valore": "Depends on where and how you travel: United gives no fixed list on this page.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Depending on where and how you travel, you may have to pay to check your bag. Use our baggage fee calculator to see how much it’ll cost."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "primo",
+     "valore": "Not published as a fixed number: it depends on when you bought the ticket and where you fly.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Checked bag fee changes depend on when you bought your ticket and where you’re flying. Use our baggage fee calculator to see what the price of your bags will be."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "secondo",
+     "valore": "Not published as a fixed number: use United's calculator.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Use our baggage fee calculator to see what the price of your bags will be."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "peso",
+     "valore": "50 lb / 23 kg in United Economy and Premium Economy; 70 lb / 32 kg in United Business, United First and United Polaris",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "The weight limit for a checked bag depends on your cabin and your MileagePlus status. If they have different limits, we’ll go by the one that has the larger limit."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "United Economy®",
+        "Premium Economy®",
+        "50 pounds",
+        "(23 kilograms)"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "United Business®",
+        "United First®",
+        "United Polaris® business class",
+        "70 pounds",
+        "(32 kilograms)"
+       ]
+      }
+     ],
+     "lb": 50,
+     "kg": 23
+    },
+    {
+     "id": "misura",
+     "valore": "62 in total (≈ 157 cm), or 30 x 20 x 12 in (76 x 52 x 30 cm), handles and wheels included",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "The maximum size of a checked bag can be 30 in x 20 in x 12 in (76 cm x 52 cm x 30 cm) or 62 total in., including handles and wheels."
+       ]
+      }
+     ],
+     "in": 62,
+     "cm": 157,
+     "conv": [
+      157
+     ]
+    },
+    {
+     "id": "sovrappeso",
+     "valore": "Above the weight limit of your cabin (50 lb / 23 kg in Economy); the fee is in the calculator",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Other fees apply for extra checked bags or any bags that go over size and weight limits."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "50 pounds",
+        "(23 kilograms)"
+       ]
+      }
+     ]
+    }
+   ],
+   "nota": null,
+   "nome_cerca": "United"
+  },
+  {
+   "slug": "delta",
+   "cerca": "delta",
+   "paese_domanda": "us",
+   "controllato_il": "2026-11-19",
+   "valuta": "USD",
+   "fonti": {
+    "a": {
+     "url": "https://www.delta.com/us/en/baggage/overview",
+     "titolo": "Delta Air Lines: Baggage Policy and Fees",
+     "lettura": "browser"
+    }
+   },
+   "tariffe_fisse": true,
+   "calcolatore": {
+    "url": "https://www.delta.com/us/en/baggage/overview#estimate",
+    "titolo": "Delta baggage estimate calculator"
+   },
+   "voci": [
+    {
+     "id": "franchigia",
+     "valore": "No fixed list by fare on this page. The first standard bag is free for SkyMiles Medallion members and eligible Delta SkyMiles American Express cardmembers; for other trips Delta sends you to its calculator.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Delta SkyMiles Medallion Members and eligible Delta SkyMiles American Express Card Members can check their first standard checked bag for free; eligible Basic Card Members can also check their second standard bag for free on domestic Delta flights. Terms apply."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "primo",
+     "valore": "$45 each way (standard bag under 50 lb / 23 kg)",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "$45 USD",
+        "For your first standard checked bag under 50 lbs. (23 kg), each way"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "secondo",
+     "valore": "$55 each way (standard bag under 50 lb / 23 kg)",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "$55 USD",
+        "For your second standard checked bag under 50 lbs. (23 kg), each way"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "peso",
+     "valore": "50 lb / 23 kg for a standard bag",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "For your first standard checked bag under 50 lbs. (23 kg), each way"
+       ]
+      }
+     ],
+     "lb": 50,
+     "kg": 23
+    },
+    {
+     "id": "misura",
+     "valore": "62 in / 157 cm, length + width + height",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Baggage size must not exceed 62 inches (157 cm) when you total LENGTH + WIDTH + HEIGHT"
+       ]
+      }
+     ],
+     "in": 62,
+     "cm": 157
+    },
+    {
+     "id": "sovrappeso",
+     "valore": "Above 50 lb / 23 kg; the fee is on Delta's excess and overweight baggage page and in the calculator",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "For your first standard checked bag under 50 lbs. (23 kg), each way"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Fees may vary by country and currency."
+       ]
+      }
+     ]
+    }
+   ],
+   "nota": "Delta shows these two fees as its standard amounts and says fees may vary by country and currency: check your own trip in the calculator.",
+   "nome_cerca": "Delta"
+  },
+  {
+   "slug": "frontier",
+   "cerca": "frontier",
+   "paese_domanda": "us",
+   "controllato_il": "2026-11-19",
+   "valuta": "USD",
+   "fonti": {
+    "a": {
+     "url": "https://www.flyfrontier.com/travel/travel-info/bag-options/",
+     "titolo": "Frontier Airlines: Bag Options",
+     "lettura": "browser"
+    }
+   },
+   "tariffe_fisse": false,
+   "calcolatore": {
+    "url": "https://www.flyfrontier.com/travel/travel-info/bag-options/",
+    "titolo": "Frontier Bag Price Checker"
+   },
+   "voci": [
+    {
+     "id": "franchigia",
+     "valore": "No checked bag with a standard ticket or with the Economy and Premium bundles. The Business bundle has 2 checked bags (up to 50 lb each); Elite Platinum has 1 and Elite Diamond 2.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Carry-on and checked bags can be purchased individually or as a part of the bundle."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Economy: Personal Item and Carry-On Bag",
+        "Premium: Personal Item, Carry-On Bag, and Board First",
+        "Business: Personal Item, Carry-On Bag, and 2 Checked Bags (up to 50 pounds each)"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Elite Platinum: Carry-On Bag and 1 Checked Bag (member + up to 8 on same reservation)",
+        "Elite Diamond: Carry-On Bag and 2 Checked Bags (member + up to 8 on same reservation)"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "primo",
+     "valore": "Not published as a fixed number: it varies with your travel dates and with when you buy. Prices at the airport are higher.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Bag prices vary depending on your travel dates and when you purchase them.",
+        "For the most accurate and up-to-date pricing, please visit our Bag Price Checker."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "You can save by purchasing your bags during booking or anytime before your flight. Keep in mind that prices at the airport are higher."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "secondo",
+     "valore": "Not published as a fixed number: use Frontier's Bag Price Checker.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "For the most accurate and up-to-date pricing, please visit our Bag Price Checker."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "peso",
+     "valore": "40 lb (≈ 18 kg)",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "May weigh up to 40 pounds. Certain bundles or elite statuses may allow higher limits."
+       ]
+      }
+     ],
+     "lb": 40,
+     "kg": 18,
+     "conv": [
+      18
+     ]
+    },
+    {
+     "id": "misura",
+     "valore": "62 linear in (≈ 157 cm), handles, wheels and straps included",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Must not exceed 62 linear inches (length plus width plus depth, including handles, wheels, and straps)."
+       ]
+      }
+     ],
+     "in": 62,
+     "cm": 157,
+     "conv": [
+      157
+     ]
+    },
+    {
+     "id": "sovrappeso",
+     "valore": "From 41 lb: $75 per bag, per direction for 41-50 lb; $129 for 51-99.99 lb (bookings made on or after April 4, 2026); over 100 lb not accepted",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Bags weighing 41-50 pounds will be charged $75 per bag, per direction. For bookings made prior to April 4, 2026, bags weighing 51-99.99 pounds will be charged $100 per bag, per direction; for bookings made on or after April 4, 2026, bags weighing 51-99.99 pounds will be charged $129 per bag.",
+        "Bags in excess of 100 pounds will not be accepted."
+       ]
+      }
+     ]
+    }
+   ],
+   "nota": null,
+   "nome_cerca": "Frontier"
+  },
+  {
+   "slug": "british-airways",
+   "cerca": "british airways",
+   "paese_domanda": "gb",
+   "controllato_il": "2026-11-19",
+   "valuta": "GBP",
+   "fonti": {
+    "a": {
+     "url": "https://www.britishairways.com/content/information/baggage-essentials",
+     "titolo": "British Airways: Your baggage essentials",
+     "lettura": "browser"
+    }
+   },
+   "tariffe_fisse": false,
+   "calcolatore": {
+    "url": "https://www.britishairways.com/content/information/baggage-essentials",
+    "titolo": "British Airways baggage calculator"
+   },
+   "voci": [
+    {
+     "id": "franchigia",
+     "valore": "Economy Basic (hand baggage only): none. Economy: 1 bag of 23 kg. Premium Economy: 2 bags of 23 kg on most routes. Business: 2 bags of 32 kg. First: 3 bags of 32 kg.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "If you are travelling on our hand baggage only (Economy Basic) fare, you are charged extra to put any bags into the hold as these fares do not include checked baggage."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "If you are a Blue or Bronze British Airways Club member travelling in Economy, your baggage allowance is:",
+        "1 bag checked into the hold",
+        "Weight up to 23kg (50lb) per bag"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "2 bags can be checked into the hold on most routes. On a limited number of routes, there's a 1‑checked‑bag limit. Please use Manage My Booking or the baggage calculator to check your baggage allowance."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "If you are a Blue or Bronze British Airways Club member travelling in Business, your baggage allowance is:",
+        "2 bags checked into the hold",
+        "Weight up to 32kg (70lb) per bag"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "If you are a Blue or Bronze British Airways Club member travelling in First, your baggage allowance is:",
+        "3 bags checked into the hold"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "primo",
+     "valore": "Not published as a fixed number: the price of a bag on a hand baggage only fare depends on the route. It is cheaper online than at the airport.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "See your baggage allowance and cost of extra bags in Manage My Booking or using the calculator."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "If you need to travel with extra bags, you’ll get the best price if you add them online via Manage My Booking before checking in for your flight."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "secondo",
+     "valore": "Not published as a fixed number: use the British Airways baggage calculator.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "When you’ve used your free checked baggage allowance, you’ll have to pay to put any extra bags into the hold. Check your baggage allowance using the calculator."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "peso",
+     "valore": "23 kg / 50 lb in Economy and Premium Economy; 32 kg / 70 lb in Business and First",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Weight up to 23kg (50lb) per bag"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Weight up to 32kg (70lb) per bag"
+       ]
+      }
+     ],
+     "lb": 50,
+     "kg": 23
+    },
+    {
+     "id": "misura",
+     "valore": "90 x 75 x 43 cm (35 x 30 x 17 in)",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Max dimensions up to 90 x 75 x 43cm (35 x 30 x 17in)"
+       ]
+      }
+     ],
+     "in": null,
+     "cm": null
+    },
+    {
+     "id": "sovrappeso",
+     "valore": "Over 23 kg and up to 32 kg, if over your allowance: 65 GBP / 75 EUR / 100 USD per bag and one-way journey. No bag over 32 kg.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "We charge 65 GBP / 75 EUR / 100 USD / 100 CAD per overweight bag and one-way journey.",
+        "No checked bag may weigh over 32kg and you will pay the heavy bag charge if your bag is between 23kg and 32kg, and it is over your allowance."
+       ]
+      }
+     ]
+    }
+   ],
+   "nota": "British Airways gives three sides for the size, not a linear total. The allowances are for British Airways, BA Cityflyer and BA Euroflyer flights.",
+   "nome_cerca": "British Airways"
+  },
+  {
+   "slug": "jet2",
+   "cerca": "jet2",
+   "paese_domanda": "gb",
+   "controllato_il": "2026-11-19",
+   "valuta": "GBP",
+   "fonti": {
+    "a": {
+     "url": "https://www.jet2.com/en/baggage",
+     "titolo": "Jet2.com: Baggage",
+     "lettura": "browser"
+    }
+   },
+   "tariffe_fisse": false,
+   "calcolatore": {
+    "url": "https://www.jet2.com/en/baggage",
+    "titolo": "Jet2.com baggage page (prices are shown when you book)"
+   },
+   "voci": [
+    {
+     "id": "franchigia",
+     "valore": "Hold bags are an extra on Jet2.com flights: you can book up to three 22 kg bags per person, per flight, and pay for each.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Yes, you can book up to three 22kg hold bags per person, per flight (excluding infants) by paying the applicable charges."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "primo",
+     "valore": "Not published on Jet2.com's baggage page: the price is shown when you book or add the bag.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Yes, you can book up to three 22kg hold bags per person, per flight (excluding infants) by paying the applicable charges."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "secondo",
+     "valore": "Not published on Jet2.com's baggage page.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Need some extra baggage allowance to pack more into your trip? You can add up to three 22kg bags per person per flight (excluding infants)."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "peso",
+     "valore": "22 kg (≈ 48.5 lb) per bag",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "22kg hold baggage",
+        "Need some extra baggage allowance to pack more into your trip? You can add up to three 22kg bags per person per flight (excluding infants)."
+       ]
+      }
+     ],
+     "lb": 48.5,
+     "kg": 22,
+     "conv": [
+      48.5
+     ]
+    },
+    {
+     "id": "misura",
+     "valore": "Not stated on Jet2.com's baggage page",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Need some extra baggage allowance to pack more into your trip? You can add up to three 22kg bags per person per flight (excluding infants)."
+       ]
+      }
+     ],
+     "in": null,
+     "cm": null
+    },
+    {
+     "id": "sovrappeso",
+     "valore": "Above your 22 kg allowance; Jet2.com's baggage page gives no rate. No single item over 32 kg.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "22kg hold baggage"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Each item must weigh no more than 32kg, and any extra items (or weight beyond your allowance) will be charged as standard excess baggage."
+       ]
+      }
+     ]
+    }
+   ],
+   "nota": "The 32 kg sentence is from the part of Jet2.com's page about children's and infants' items; it is the only place where the page describes excess baggage.",
+   "nome_cerca": "Jet2"
+  },
+  {
+   "slug": "easyjet",
+   "cerca": "easyjet",
+   "paese_domanda": "gb",
+   "controllato_il": "2026-11-19",
+   "valuta": "GBP",
+   "fonti": {
+    "a": {
+     "url": "https://www.easyjet.com/en/help/baggage/hold-luggage",
+     "titolo": "easyJet: Hold luggage",
+     "lettura": "browser"
+    },
+    "b": {
+     "url": "https://www.easyjet.com/en/terms-and-conditions/fees",
+     "titolo": "easyJet: Fees and Charges",
+     "lettura": "browser"
+    }
+   },
+   "tariffe_fisse": false,
+   "calcolatore": {
+    "url": "https://www.easyjet.com/en/terms-and-conditions/fees",
+    "titolo": "easyJet Fees and Charges (the exact price is shown at purchase)"
+   },
+   "voci": [
+    {
+     "id": "franchigia",
+     "valore": "No hold bag in the standard fare: you add a 15 kg or 23 kg bag, up to three hold bags per customer.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Each customer (including children and infants) can bring up to three hold bags. You can select a 15kg or 23kg hold bag, and add extra weight online in 3kg increments if you need more space. For safety, no single bag can weigh more than 32kg."
+       ]
+      },
+      {
+       "f": "b",
+       "righe": [
+        "Our low fares include one small cabin bag free of charge."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "primo",
+     "valore": "Online: not a fixed number (it varies with demand, route, flight date and time of booking). At the airport bag drop desk: £60.",
+     "cit": [
+      {
+       "f": "b",
+       "righe": [
+        "Fees vary with demand, route, flight date and time of booking. You’ll see exact price at time of purchase.",
+        "£60 - at bag drop desk"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Adding bags online before you travel is always cheaper than paying at the airport, where bag drop desk fees are £60."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "secondo",
+     "valore": "Same as the first bag: charged per item, per flight.",
+     "cit": [
+      {
+       "f": "b",
+       "righe": [
+        "Charged per item, per flight"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "peso",
+     "valore": "15 kg or 23 kg as booked (≈ 33 lb or 51 lb); never more than 32 kg per bag",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "You can select a 15kg or 23kg hold bag, and add extra weight online in 3kg increments if you need more space. For safety, no single bag can weigh more than 32kg."
+       ]
+      }
+     ],
+     "lb": 51,
+     "kg": 23,
+     "conv": [
+      33,
+      51
+     ]
+    },
+    {
+     "id": "misura",
+     "valore": "Under 275 cm (≈ 108 in), length + width + height",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Maximum total size (length + width + height) = under 275cm."
+       ]
+      }
+     ],
+     "in": 108,
+     "cm": 275,
+     "conv": [
+      108
+     ]
+    },
+    {
+     "id": "sovrappeso",
+     "valore": "Above the weight you booked: £12 per kilo at the airport",
+     "cit": [
+      {
+       "f": "b",
+       "righe": [
+        "Excess weight fee",
+        "per kilo, per item, per flight",
+        "£12",
+        "This fee is applied for hold items weighing more than the pre-booked weight. The maximum weight per hold item we can accept is 32kg."
+       ]
+      }
+     ]
+    }
+   ],
+   "nota": null,
+   "nome_cerca": "easyJet"
+  },
+  {
+   "slug": "westjet",
+   "cerca": "westjet",
+   "paese_domanda": "ca",
+   "controllato_il": "2026-11-19",
+   "valuta": "CAD",
+   "fonti": {
+    "a": {
+     "url": "https://www.westjet.com/en-ca/baggage/checked",
+     "titolo": "WestJet: Checked baggage",
+     "lettura": "browser"
+    },
+    "b": {
+     "url": "https://www.westjet.com/en-ca/flights/fees",
+     "titolo": "WestJet: Service fees",
+     "lettura": "browser"
+    }
+   },
+   "tariffe_fisse": true,
+   "calcolatore": null,
+   "voci": [
+    {
+     "id": "franchigia",
+     "valore": "UltraBasic and Econo: no free checked bag. EconoFlex: first bag free. Premium and Business: first and second bag free.",
+     "cit": [
+      {
+       "f": "b",
+       "righe": [
+        "Baggage fees by fare type",
+        "UltraBasic",
+        "Econo or Member Exclusive",
+        "EconoFlex",
+        "Premium and Business"
+       ]
+      },
+      {
+       "f": "b",
+       "righe": [
+        "First bag: No fee",
+        "Second bag: No fee"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "primo",
+     "valore": "Flights within Canada and the U.S., Econo fare: $45 - $53 prepaid, $60 - $71 at online check-in, $70 - $83 at the airport. UltraBasic: $55 - $65 prepaid, $80 - $94 at the airport.",
+     "cit": [
+      {
+       "f": "b",
+       "righe": [
+        "Prices are shown as a range because taxes vary by departure airport. Your exact total will be confirmed before you pay."
+       ]
+      },
+      {
+       "f": "b",
+       "righe": [
+        "Prepay (best price)",
+        "First bag: $45 - $53",
+        "Online check-in",
+        "First bag: $60 - $71",
+        "At the airport",
+        "First bag: $70 -$83"
+       ]
+      },
+      {
+       "f": "b",
+       "righe": [
+        "First bag: $55 -$65",
+        "First bag: $80 - $94"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "secondo",
+     "valore": "Flights within Canada and the U.S., Econo fare: $60 - $71 prepaid, $75 - $89 at online check-in, $85 - $100 at the airport.",
+     "cit": [
+      {
+       "f": "b",
+       "righe": [
+        "Second bag: $60 - $71",
+        "Second bag: $75 - $89",
+        "Second bag: $85 - $100"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "peso",
+     "valore": "50 lb / 23 kg per bag",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Up to 50 lb (23 kg) per bag"
+       ]
+      }
+     ],
+     "lb": 50,
+     "kg": 23
+    },
+    {
+     "id": "misura",
+     "valore": "62 in / 157 cm, length + width + height",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Maximum size: 62 in. (157 cm) total dimensions (length + width + height)"
+       ]
+      }
+     ],
+     "in": 62,
+     "cm": 157
+    },
+    {
+     "id": "sovrappeso",
+     "valore": "More than 23 kg / 50 lb and up to 45 kg / 100 lb: $150 - $177 (to and from Europe, no bag over 32 kg / 70 lb)",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Allowed on WestJet and WestJet Encore flights. Overweight fees apply to bags weighing more than 23 kg (50 lb) and up to 45 kg (100 lb).",
+        "For flights to and from Europe, bags must not exceed 32 kg (70 lb)."
+       ]
+      },
+      {
+       "f": "b",
+       "righe": [
+        "Overweight and oversized baggage fee: $150 - $177"
+       ]
+      }
+     ]
+    }
+   ],
+   "nota": "WestJet says its fees are charged in CAD or USD, depending on where your trip starts. Fees for Mexico, the Caribbean, Europe and Asia are in the tables on its Service fees page.",
+   "cit_nota": [
+    {
+     "f": "b",
+     "righe": [
+      "Fees are charged in CAD or USD, depending on where your trip starts"
+     ]
+    }
+   ],
+   "nome_cerca": "WestJet"
+  },
+  {
+   "slug": "air-canada",
+   "cerca": "air canada",
+   "paese_domanda": "ca",
+   "controllato_il": "2026-11-19",
+   "valuta": "CAD",
+   "fonti": {
+    "a": {
+     "url": "https://www.aircanada.com/ca/en/aco/home/plan/baggage/checked.html",
+     "titolo": "Air Canada: Checked Baggage",
+     "lettura": "browser"
+    }
+   },
+   "tariffe_fisse": false,
+   "calcolatore": {
+    "url": "https://www.aircanada.com/ca/en/aco/home/plan/baggage/checked.html",
+    "titolo": "Air Canada baggage calculator"
+   },
+   "voci": [
+    {
+     "id": "franchigia",
+     "valore": "Depends on the fare and the trip: Air Canada gives no fixed list on this page and sends you to its calculator.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "You can also use our baggage calculator to see what checked bags are included with your trip and whether any additional baggage fees apply."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "primo",
+     "valore": "Not published as a fixed number: it is in Air Canada's baggage calculator.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "To determine the baggage allowance for your trip, please use our baggage calculator. If you would like to bring any additional bags, the calculator will show you which additional baggage fees will apply."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "secondo",
+     "valore": "Not published as a fixed number: use the calculator.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "If you’re checking additional bags or your belongings exceed the size, or weight included with your fare, additional fees will apply. Please see our baggage calculator for more information on these charges."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "peso",
+     "valore": "23 kg / 50 lb per bag",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Maximum weight per bag:",
+        "23 kg/50 lb"
+       ]
+      }
+     ],
+     "lb": 50,
+     "kg": 23
+    },
+    {
+     "id": "misura",
+     "valore": "158 cm / 62 in, depth + width + height, wheels and handles included",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Maximum linear dimensions per bag (greatest outside height, width and length – wheels and handles included):",
+        "D + W + H: 158 cm/62 in"
+       ]
+      }
+     ],
+     "in": 62,
+     "cm": 158
+    },
+    {
+     "id": "sovrappeso",
+     "valore": "Above 23 kg / 50 lb; the fee is in the calculator",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Maximum weight per bag:",
+        "23 kg/50 lb",
+        "If you exceed maximum dimensions or weight, additional fees may apply."
+       ]
+      }
+     ]
+    }
+   ],
+   "nota": null,
+   "nome_cerca": "Air Canada"
+  },
+  {
+   "slug": "jetblue",
+   "cerca": "jetblue",
+   "paese_domanda": "us",
+   "controllato_il": "2026-11-19",
+   "valuta": "USD",
+   "fonti": {
+    "a": {
+     "url": "https://www.jetblue.com/help/checked-bags",
+     "titolo": "JetBlue: Checked Bags",
+     "lettura": "browser"
+    }
+   },
+   "tariffe_fisse": true,
+   "calcolatore": {
+    "url": "https://www.jetblue.com/bag-calculator",
+    "titolo": "JetBlue bag calculator"
+   },
+   "voci": [
+    {
+     "id": "franchigia",
+     "valore": "Main and EvenMore fares within the U.S., Latin America, Caribbean and Canada: no free checked bag. Mint and Mint Flex: first and second bag included (up to 70 lb / 32 kg).",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Within the U.S., Latin America, Caribbean and Canada:"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "1st Bag: Included (up to 70lbs./32Kgs.)",
+        "2nd Bag: Included (up to 70lbs/32kgs.)"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "primo",
+     "valore": "Within the U.S., Latin America, Caribbean and Canada, Main and EvenMore fares, added more than 24 hours before departure: $50 off-peak, $55 peak (these prices include a saving of $10 and $15 on the price within 24 hours of departure).",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "More than 24 hours before departure",
+        "Within 24 hours of departure",
+        "Off-Peak",
+        "Peak*",
+        "1st Bag: $50 (incl $10 savings)",
+        "1st Bag: $55 (incl $15 savings)"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "secondo",
+     "valore": "Same routes and fares, added more than 24 hours before departure: $70 off-peak, $75 peak (including a saving of $5 and $10).",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "More than 24 hours before departure",
+        "2nd Bag: $70 (incl $5 savings)",
+        "2nd Bag: $75 (incl $10 savings)"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "peso",
+     "valore": "50 lb / 22.68 kg",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Checked bags should not exceed 62” (157.48 cm) in overall dimensions (length + width + height) or 50 pounds (22.68 kg) in weight."
+       ]
+      }
+     ],
+     "lb": 50,
+     "kg": 22.68
+    },
+    {
+     "id": "misura",
+     "valore": "62 in / 157.48 cm, length + width + height",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Each checked bag cannot exceed 62 inches (157.48 cm) in overall dimensions. Bag dimensions are determined by adding the length, width, and height together."
+       ]
+      }
+     ],
+     "in": 62,
+     "cm": 157.48
+    },
+    {
+     "id": "sovrappeso",
+     "valore": "Over 50 lb / 22.68 kg: $150 per bag for 51-99 lb",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Overweight bag fees apply to bags weighing over 50 pounds (22.68 kg)."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "51-99 pounds (23.13-44.91 kg): $150/£120/€140 per bag"
+       ]
+      }
+     ]
+    }
+   ],
+   "nota": "JetBlue lists its peak travel dates and its transatlantic fees on the same page.",
+   "nome_cerca": "JetBlue"
+  }
+ ],
+ "escluse": [
+  {
+   "slug": "alaska-airlines",
+   "nome": "Alaska Airlines",
+   "pagina": true,
+   "motivo": "on 19 November 2026 Alaska's checked baggage page and its optional services and fees page loaded in our reader without their text (navigation only), so no allowance or fee could be read from an official page",
+   "provato_il": "2026-11-19",
+   "url_provati": [
+    "https://www.alaskaair.com/content/travel-info/baggage/checked-bags",
+    "https://www.alaskaair.com/content/travel-info/optional-services-fees"
+   ]
+  },
+  {
+   "slug": null,
+   "nome": "Spirit Airlines",
+   "pagina": false,
+   "motivo": "spirit.com could not be reached from our reader on 19 November 2026 (no connection); Spirit has no page on this site",
+   "provato_il": "2026-11-19",
+   "url_provati": [
+    "https://www.spirit.com/optional-services"
+   ]
+  }
+ ]
+}

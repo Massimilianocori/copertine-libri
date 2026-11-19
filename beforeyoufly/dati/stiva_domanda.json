@@ -1,0 +1,4439 @@
+{
+ "_nota": "Volumi di ricerca misurati per il bagaglio da stiva (riquadro «Checked bags and fees» nelle pagine cabin-bags/<compagnia>/). Volume = media mensile di Google Ads nel Paese indicato; uno 0 vuol dire sotto le ~10 ricerche al mese. Le frasi nei titoli e nelle descrizioni (genera.py, frase_stiva) devono essere qui con volume > 0. Riscritto da raccolta/stiva.py --domanda.",
+ "fonte": "api.seodata.dev /v1/keyword (volume medio mensile Google Ads)",
+ "misurato_il": "2026-11-19",
+ "richieste": 129,
+ "compagnie": {
+  "southwest": {
+   "cerca": "southwest",
+   "paese": "us",
+   "frasi": {
+    "southwest baggage fees": {
+     "volume": 49500,
+     "cpc": 2.96,
+     "simili": [
+      [
+       "southwest airlines baggage fees",
+       110000
+      ],
+      [
+       "southwest airlines baggage policy",
+       110000
+      ],
+      [
+       "southwest checked bag policy",
+       49500
+      ],
+      [
+       "southwest checked bags",
+       40500
+      ],
+      [
+       "southwest airlines baggage",
+       8100
+      ],
+      [
+       "southwest baggage prices",
+       8100
+      ],
+      [
+       "weight for southwest airlines baggage",
+       8100
+      ],
+      [
+       "does southwest charge for bags",
+       6600
+      ],
+      [
+       "southwest checked bag price",
+       1900
+      ],
+      [
+       "southwest carry on fee",
+       1600
+      ]
+     ]
+    },
+    "southwest checked bag": {
+     "volume": 40500,
+     "cpc": 5.17,
+     "simili": [
+      [
+       "southwest checked bag policy",
+       49500
+      ],
+      [
+       "southwest airlines check in baggage",
+       40500
+      ],
+      [
+       "southwest check in baggage",
+       40500
+      ],
+      [
+       "southwest checked bags",
+       40500
+      ],
+      [
+       "southwest checked baggage",
+       1600
+      ],
+      [
+       "southwest airlines baggage",
+       8100
+      ],
+      [
+       "southwest baggage policy",
+       110000
+      ],
+      [
+       "southwest rules for checked baggage",
+       49500
+      ],
+      [
+       "southwest airlines check-in baggage",
+       40500
+      ],
+      [
+       "southwest check in baggage size",
+       5400
+      ]
+     ]
+    },
+    "southwest checked bag fee": {
+     "volume": 40500,
+     "cpc": 15.54,
+     "simili": [
+      [
+       "southwest airlines baggage fees",
+       110000
+      ],
+      [
+       "southwest baggage fees",
+       49500
+      ],
+      [
+       "does southwest charge for bags",
+       6600
+      ],
+      [
+       "southwest checked bag price",
+       1900
+      ],
+      [
+       "southwest carry on fee",
+       1600
+      ],
+      [
+       "southwest carry-on fee",
+       1600
+      ],
+      [
+       "southwest check in baggage",
+       40500
+      ],
+      [
+       "southwest checked bags",
+       40500
+      ],
+      [
+       "how much is southwest checked bag",
+       320
+      ],
+      [
+       "checked bag southwest price",
+       70
+      ]
+     ]
+    },
+    "southwest checked baggage": {
+     "volume": 1600,
+     "cpc": 0,
+     "simili": [
+      [
+       "southwest airlines baggage policy",
+       110000
+      ],
+      [
+       "southwest baggage policy",
+       110000
+      ],
+      [
+       "southwest airlines check in baggage",
+       40500
+      ],
+      [
+       "southwest airlines check-in baggage",
+       40500
+      ],
+      [
+       "southwest check in baggage",
+       40500
+      ],
+      [
+       "check-in bags southwest",
+       14800
+      ],
+      [
+       "southwest check-in baggage",
+       14800
+      ],
+      [
+       "southwest carry-on",
+       12100
+      ],
+      [
+       "southwest baggage weight limit",
+       9900
+      ],
+      [
+       "weight for southwest airlines baggage",
+       8100
+      ]
+     ]
+    },
+    "southwest baggage allowance": {
+     "volume": 110000,
+     "cpc": 4.85,
+     "simili": [
+      [
+       "southwest airlines baggage policy",
+       110000
+      ],
+      [
+       "southwest baggage policy",
+       110000
+      ],
+      [
+       "southwest check in baggage",
+       40500
+      ],
+      [
+       "southwest airlines carry on policy",
+       22200
+      ],
+      [
+       "southwest carry-on policy",
+       22200
+      ],
+      [
+       "southwest carry-on",
+       12100
+      ],
+      [
+       "southwest baggage weight limit",
+       9900
+      ],
+      [
+       "southwest airlines baggage weight",
+       8100
+      ],
+      [
+       "weight for southwest airlines baggage",
+       8100
+      ],
+      [
+       "southwest baggage weight",
+       6600
+      ]
+     ]
+    },
+    "southwest bag fees": {
+     "errore": 404
+    },
+    "southwest checked bag size": {
+     "volume": 5400,
+     "cpc": 0,
+     "simili": [
+      [
+       "southwest airlines baggage policy",
+       110000
+      ],
+      [
+       "southwest rules for checked baggage",
+       49500
+      ],
+      [
+       "southwest baggage weight limit",
+       9900
+      ],
+      [
+       "southwest airlines baggage weight",
+       8100
+      ],
+      [
+       "weight for southwest airlines baggage",
+       8100
+      ],
+      [
+       "southwest airlines baggage size",
+       6600
+      ],
+      [
+       "southwest baggage dimensions",
+       6600
+      ],
+      [
+       "southwest baggage size",
+       6600
+      ],
+      [
+       "southwest baggage weight",
+       6600
+      ],
+      [
+       "southwest checked bag weight limit",
+       5400
+      ]
+     ]
+    },
+    "southwest checked bag weight limit": {
+     "volume": 5400,
+     "cpc": 0,
+     "simili": [
+      [
+       "southwest airlines baggage policy",
+       110000
+      ],
+      [
+       "southwest baggage policy",
+       110000
+      ],
+      [
+       "southwest rules for checked baggage",
+       49500
+      ],
+      [
+       "southwest airlines check in baggage",
+       40500
+      ],
+      [
+       "southwest check in baggage",
+       40500
+      ],
+      [
+       "southwest airlines carry on policy",
+       22200
+      ],
+      [
+       "southwest carry-on",
+       12100
+      ],
+      [
+       "southwest baggage weight limit",
+       9900
+      ],
+      [
+       "southwest airlines baggage weight",
+       8100
+      ],
+      [
+       "weight for southwest airlines baggage",
+       8100
+      ]
+     ]
+    },
+    "southwest baggage policy": {
+     "volume": 110000,
+     "cpc": 4.02,
+     "simili": [
+      [
+       "southwest airlines baggage fees",
+       110000
+      ],
+      [
+       "southwest airlines baggage policy",
+       110000
+      ],
+      [
+       "southwest checked bag policy",
+       49500
+      ],
+      [
+       "southwest rules for checked baggage",
+       49500
+      ],
+      [
+       "southwest airlines check in baggage",
+       40500
+      ],
+      [
+       "southwest check in baggage",
+       40500
+      ],
+      [
+       "southwest checked bags",
+       40500
+      ],
+      [
+       "southwest airlines carry on policy",
+       22200
+      ],
+      [
+       "southwest carry on policy",
+       22200
+      ],
+      [
+       "southwest carry-on policy",
+       22200
+      ]
+     ]
+    }
+   }
+  },
+  "american-airlines": {
+   "cerca": "american airlines",
+   "paese": "us",
+   "frasi": {
+    "american airlines baggage fees": {
+     "volume": 49500,
+     "cpc": 15.75,
+     "simili": [
+      [
+       "american airlines baggage policy",
+       60500
+      ],
+      [
+       "aa baggage fees",
+       49500
+      ],
+      [
+       "american airlines baggage fee",
+       49500
+      ],
+      [
+       "american airlines baggage price",
+       49500
+      ],
+      [
+       "american airlines baggage prices",
+       49500
+      ],
+      [
+       "baggage allowance american airlines",
+       49500
+      ],
+      [
+       "baggage fee american airlines",
+       49500
+      ],
+      [
+       "american airlines checked bag fees",
+       14800
+      ],
+      [
+       "american airlines checked baggage policy",
+       14800
+      ],
+      [
+       "checked bag american airlines",
+       14800
+      ]
+     ]
+    },
+    "american airlines checked bag": {
+     "volume": 22200,
+     "cpc": 6.32,
+     "simili": [
+      [
+       "baggage allowance american airlines",
+       49500
+      ],
+      [
+       "american airlines check-in baggage",
+       14800
+      ],
+      [
+       "american airlines checked baggage policy",
+       14800
+      ],
+      [
+       "checked bag american airlines",
+       14800
+      ],
+      [
+       "checked baggage american airlines",
+       14800
+      ],
+      [
+       "american airlines check in baggage",
+       12100
+      ],
+      [
+       "checked baggage rules american airlines",
+       4400
+      ],
+      [
+       "american airlines international flights baggage",
+       3600
+      ],
+      [
+       "american airlines first class baggage",
+       1600
+      ],
+      [
+       "american airlines baggage policy",
+       60500
+      ]
+     ]
+    },
+    "american airlines checked bag fee": {
+     "volume": 14800,
+     "cpc": 0,
+     "simili": [
+      [
+       "aa baggage fees",
+       49500
+      ],
+      [
+       "american airlines baggage fee",
+       49500
+      ],
+      [
+       "american airlines baggage fees",
+       49500
+      ],
+      [
+       "american airlines baggage price",
+       49500
+      ],
+      [
+       "american airlines baggage prices",
+       49500
+      ],
+      [
+       "baggage fee american airlines",
+       49500
+      ],
+      [
+       "american airlines checked bag fees",
+       14800
+      ],
+      [
+       "american airlines checked bag price",
+       2900
+      ],
+      [
+       "aa overweight bag fee",
+       1900
+      ],
+      [
+       "american airlines carry on price",
+       1900
+      ]
+     ]
+    },
+    "american airlines checked baggage": {
+     "volume": 1600,
+     "cpc": 0,
+     "simili": [
+      [
+       "baggage allowance american airlines",
+       49500
+      ],
+      [
+       "american airlines checked bag weight",
+       12100
+      ],
+      [
+       "american airlines international flights baggage",
+       3600
+      ],
+      [
+       "american first class baggage",
+       1600
+      ],
+      [
+       "american airlines checked baggage policy",
+       14800
+      ],
+      [
+       "american airline baggage weight limit",
+       4400
+      ],
+      [
+       "american airline baggage policy",
+       60500
+      ],
+      [
+       "american airlines baggage weight limit",
+       4400
+      ],
+      [
+       "american airlines checked bag size",
+       4400
+      ],
+      [
+       "american airlines international baggage",
+       3600
+      ]
+     ]
+    },
+    "american airlines baggage allowance": {
+     "volume": 5400,
+     "cpc": 0,
+     "simili": [
+      [
+       "american airline baggage policy",
+       60500
+      ],
+      [
+       "american airlines baggage policy",
+       60500
+      ],
+      [
+       "american airlines baggage requirements",
+       60500
+      ],
+      [
+       "aa baggage fees",
+       49500
+      ],
+      [
+       "american airlines baggage fee",
+       49500
+      ],
+      [
+       "american airlines baggage fees",
+       49500
+      ],
+      [
+       "american airlines baggage price",
+       49500
+      ],
+      [
+       "american airlines baggage prices",
+       49500
+      ],
+      [
+       "baggage allowance american airlines",
+       49500
+      ],
+      [
+       "baggage fee american airlines",
+       49500
+      ]
+     ]
+    },
+    "american airlines bag fees": {
+     "volume": 49500,
+     "cpc": 0.08,
+     "simili": []
+    },
+    "american airlines checked bag size": {
+     "volume": 5400,
+     "cpc": 3.17,
+     "simili": [
+      [
+       "aa carry on size",
+       110000
+      ],
+      [
+       "american airlines carry on luggage size",
+       110000
+      ],
+      [
+       "carry on bag size american airlines",
+       110000
+      ],
+      [
+       "carry-on bag size american airlines",
+       110000
+      ],
+      [
+       "american airline baggage policy",
+       60500
+      ],
+      [
+       "american airlines baggage policy",
+       60500
+      ],
+      [
+       "american airlines baggage requirements",
+       60500
+      ],
+      [
+       "american airlines baggage fee",
+       49500
+      ],
+      [
+       "american airlines baggage price",
+       49500
+      ],
+      [
+       "baggage fee american airlines",
+       49500
+      ]
+     ]
+    },
+    "american airlines checked bag weight limit": {
+     "volume": 3600,
+     "cpc": 0,
+     "simili": [
+      [
+       "american airline baggage policy",
+       60500
+      ],
+      [
+       "american airlines baggage policy",
+       60500
+      ],
+      [
+       "american airlines baggage fee",
+       49500
+      ],
+      [
+       "american airlines baggage price",
+       49500
+      ],
+      [
+       "baggage allowance american airlines",
+       49500
+      ],
+      [
+       "baggage fee american airlines",
+       49500
+      ],
+      [
+       "american airlines check-in baggage",
+       14800
+      ],
+      [
+       "american airlines checked baggage policy",
+       14800
+      ],
+      [
+       "checked baggage american airlines",
+       14800
+      ],
+      [
+       "bag weight american airlines",
+       12100
+      ]
+     ]
+    },
+    "american airlines baggage policy": {
+     "volume": 60500,
+     "cpc": 1.13,
+     "simili": [
+      [
+       "american airline baggage policy",
+       60500
+      ],
+      [
+       "american airlines baggage requirements",
+       60500
+      ],
+      [
+       "aa baggage fees",
+       49500
+      ],
+      [
+       "american airlines baggage fee",
+       49500
+      ],
+      [
+       "american airlines baggage fees",
+       49500
+      ],
+      [
+       "american airlines baggage price",
+       49500
+      ],
+      [
+       "american airlines baggage prices",
+       49500
+      ],
+      [
+       "baggage allowance american airlines",
+       49500
+      ],
+      [
+       "baggage fee american airlines",
+       49500
+      ],
+      [
+       "american airlines baggage carry on",
+       40500
+      ]
+     ]
+    }
+   }
+  },
+  "united": {
+   "cerca": "united",
+   "paese": "us",
+   "frasi": {
+    "united baggage fees": {
+     "volume": 14800,
+     "cpc": 6.96,
+     "simili": [
+      [
+       "united airlines baggage policies",
+       49500
+      ],
+      [
+       "united airlines baggage policy",
+       49500
+      ],
+      [
+       "united baggage allowance",
+       49500
+      ],
+      [
+       "united baggage policy",
+       49500
+      ],
+      [
+       "baggage policy united airlines",
+       33100
+      ],
+      [
+       "united airlines baggage cost",
+       18100
+      ],
+      [
+       "united airlines baggage fee",
+       18100
+      ],
+      [
+       "united airlines baggage fees",
+       18100
+      ],
+      [
+       "united airlines checked baggage policy",
+       18100
+      ],
+      [
+       "united baggage prices",
+       14800
+      ]
+     ]
+    },
+    "united checked bag": {
+     "volume": 8100,
+     "cpc": 4.43,
+     "simili": [
+      [
+       "united airlines baggage policies",
+       49500
+      ],
+      [
+       "united airlines baggage policy",
+       49500
+      ],
+      [
+       "united baggage allowance",
+       49500
+      ],
+      [
+       "united baggage policy",
+       49500
+      ],
+      [
+       "baggage policy united airlines",
+       33100
+      ],
+      [
+       "united airlines baggage cost",
+       18100
+      ],
+      [
+       "united airlines baggage fee",
+       18100
+      ],
+      [
+       "united airlines baggage fees",
+       18100
+      ],
+      [
+       "united airlines checked baggage policy",
+       18100
+      ],
+      [
+       "united baggage prices",
+       14800
+      ]
+     ]
+    },
+    "united checked bag fee": {
+     "volume": 14800,
+     "cpc": 3.03,
+     "simili": [
+      [
+       "united bag fee",
+       1900
+      ],
+      [
+       "united checked bag",
+       4400
+      ],
+      [
+       "is checked baggage free on united airlines",
+       30
+      ],
+      [
+       "checked baggage restrictions united",
+       20
+      ],
+      [
+       "how much can my bag weigh on united",
+       20
+      ],
+      [
+       "how much does united charge for extra baggage",
+       40
+      ],
+      [
+       "are carry-on bags free united",
+       30
+      ],
+      [
+       "how many bags are allowed on united airlines international flights",
+       30
+      ],
+      [
+       "united airlines baggage for international travel",
+       30
+      ],
+      [
+       "what is the baggage allowance on united airlines economy",
+       30
+      ]
+     ]
+    },
+    "united checked baggage": {
+     "volume": 8100,
+     "cpc": 4.43,
+     "simili": [
+      [
+       "united baggage allowance",
+       49500
+      ],
+      [
+       "united baggage policy",
+       49500
+      ],
+      [
+       "united airlines baggage cost",
+       18100
+      ],
+      [
+       "united airlines baggage fee",
+       18100
+      ],
+      [
+       "united airlines baggage fees",
+       18100
+      ],
+      [
+       "united airlines checked baggage policy",
+       18100
+      ],
+      [
+       "baggage allowance united",
+       12100
+      ],
+      [
+       "united baggage fees",
+       12100
+      ],
+      [
+       "united baggage price",
+       12100
+      ],
+      [
+       "checked bag united",
+       9900
+      ]
+     ]
+    },
+    "united baggage allowance": {
+     "volume": 49500,
+     "cpc": 6.26,
+     "simili": [
+      [
+       "carry on bag size united",
+       49500
+      ],
+      [
+       "carry on luggage size united airlines",
+       49500
+      ],
+      [
+       "united airlines baggage policies",
+       49500
+      ],
+      [
+       "united airlines baggage policy",
+       49500
+      ],
+      [
+       "united airlines carry on size",
+       49500
+      ],
+      [
+       "united baggage policy",
+       49500
+      ],
+      [
+       "baggage policy united airlines",
+       33100
+      ],
+      [
+       "united carry on size",
+       27100
+      ],
+      [
+       "united airlines baggage fee",
+       18100
+      ],
+      [
+       "united airlines baggage fees",
+       18100
+      ]
+     ]
+    },
+    "united bag fees": {
+     "errore": 404
+    },
+    "united checked bag size": {
+     "volume": 2900,
+     "cpc": 7,
+     "simili": [
+      [
+       "carry on luggage size united airlines",
+       49500
+      ],
+      [
+       "united baggage allowance",
+       49500
+      ],
+      [
+       "united baggage policy",
+       49500
+      ],
+      [
+       "united airlines baggage cost",
+       18100
+      ],
+      [
+       "united airlines baggage fee",
+       18100
+      ],
+      [
+       "united airlines baggage fees",
+       18100
+      ],
+      [
+       "united airlines checked baggage policy",
+       18100
+      ],
+      [
+       "baggage allowance united",
+       12100
+      ],
+      [
+       "united baggage fees",
+       12100
+      ],
+      [
+       "united baggage price",
+       12100
+      ]
+     ]
+    },
+    "united checked bag weight limit": {
+     "volume": 4400,
+     "cpc": 0,
+     "simili": [
+      [
+       "carry on luggage size united airlines",
+       49500
+      ],
+      [
+       "united airlines baggage policies",
+       49500
+      ],
+      [
+       "united airlines baggage policy",
+       49500
+      ],
+      [
+       "united baggage allowance",
+       49500
+      ],
+      [
+       "united baggage policy",
+       49500
+      ],
+      [
+       "baggage policy united airlines",
+       33100
+      ],
+      [
+       "united airlines baggage cost",
+       18100
+      ],
+      [
+       "united airlines baggage fee",
+       18100
+      ],
+      [
+       "united airlines baggage fees",
+       18100
+      ],
+      [
+       "united airlines checked baggage policy",
+       18100
+      ]
+     ]
+    },
+    "united baggage policy": {
+     "volume": 49500,
+     "cpc": 1.56,
+     "simili": [
+      [
+       "carry on bag size united",
+       49500
+      ],
+      [
+       "carry on luggage size united airlines",
+       49500
+      ],
+      [
+       "united airlines baggage policies",
+       49500
+      ],
+      [
+       "united airlines baggage policy",
+       49500
+      ],
+      [
+       "united airlines carry on size",
+       49500
+      ],
+      [
+       "united baggage allowance",
+       49500
+      ],
+      [
+       "united airlines carry on dimensions",
+       40500
+      ],
+      [
+       "baggage policy united airlines",
+       33100
+      ],
+      [
+       "united carry on size",
+       27100
+      ],
+      [
+       "united airlines personal item size",
+       22200
+      ]
+     ]
+    }
+   }
+  },
+  "delta": {
+   "cerca": "delta",
+   "paese": "us",
+   "frasi": {
+    "delta baggage fees": {
+     "volume": 27100,
+     "cpc": 0,
+     "simili": [
+      [
+       "delta baggage policy",
+       40500
+      ],
+      [
+       "baggage fees delta",
+       27100
+      ],
+      [
+       "checked bag weight limit delta",
+       14800
+      ],
+      [
+       "delta check in baggage fee",
+       14800
+      ],
+      [
+       "delta checked bag fee",
+       14800
+      ],
+      [
+       "checked bag delta",
+       9900
+      ],
+      [
+       "delta airlines baggage fees",
+       9900
+      ],
+      [
+       "delta baggage policy international",
+       8100
+      ],
+      [
+       "delta checked bag weight",
+       8100
+      ],
+      [
+       "delta international baggage fees",
+       8100
+      ]
+     ]
+    },
+    "delta checked bag": {
+     "volume": 9900,
+     "cpc": 0.45,
+     "simili": [
+      [
+       "checked bag weight limit delta",
+       14800
+      ],
+      [
+       "delta checked bag fee",
+       14800
+      ],
+      [
+       "checked bag delta",
+       9900
+      ],
+      [
+       "delta baggage fees",
+       27100
+      ],
+      [
+       "delta airlines baggage fees",
+       9900
+      ],
+      [
+       "delta check in baggage",
+       9900
+      ],
+      [
+       "delta checked bag weight",
+       8100
+      ],
+      [
+       "baggage delta",
+       4400
+      ],
+      [
+       "delta baggage policy",
+       40500
+      ],
+      [
+       "delta airlines baggage",
+       3600
+      ]
+     ]
+    },
+    "delta checked bag fee": {
+     "volume": 14800,
+     "cpc": 0,
+     "simili": [
+      [
+       "delta baggage policy",
+       40500
+      ],
+      [
+       "baggage allowance delta",
+       27100
+      ],
+      [
+       "baggage fees delta",
+       27100
+      ],
+      [
+       "delta baggage fees",
+       27100
+      ],
+      [
+       "checked bag weight limit delta",
+       14800
+      ],
+      [
+       "delta check in baggage fee",
+       14800
+      ],
+      [
+       "checked bag delta",
+       9900
+      ],
+      [
+       "delta airlines baggage fees",
+       9900
+      ],
+      [
+       "delta check in baggage",
+       9900
+      ],
+      [
+       "delta international baggage fees",
+       8100
+      ]
+     ]
+    },
+    "delta checked baggage": {
+     "volume": 480,
+     "cpc": 0,
+     "simili": [
+      [
+       "delta check in baggage",
+       9900
+      ],
+      [
+       "delta airlines baggage",
+       3600
+      ],
+      [
+       "delta airlines baggage requirements",
+       2900
+      ],
+      [
+       "delta check-in baggage",
+       9900
+      ],
+      [
+       "delta baggage restrictions",
+       2900
+      ],
+      [
+       "baggage weight limit delta",
+       6600
+      ],
+      [
+       "delta baggage weight limit international",
+       3600
+      ],
+      [
+       "delta baggage policy",
+       40500
+      ],
+      [
+       "checked bag weight limit delta",
+       14800
+      ],
+      [
+       "delta baggage allowance international",
+       8100
+      ]
+     ]
+    },
+    "delta baggage allowance": {
+     "volume": 3600,
+     "cpc": 0,
+     "simili": [
+      [
+       "delta airlines carry on size",
+       90500
+      ],
+      [
+       "delta baggage policy",
+       40500
+      ],
+      [
+       "baggage allowance delta",
+       27100
+      ],
+      [
+       "baggage fees delta",
+       27100
+      ],
+      [
+       "baggage policy delta",
+       27100
+      ],
+      [
+       "delta baggage fees",
+       27100
+      ],
+      [
+       "carry on baggage delta",
+       18100
+      ],
+      [
+       "delta carry on policy",
+       18100
+      ],
+      [
+       "delta carry-on policy",
+       18100
+      ],
+      [
+       "delta check in baggage fee",
+       14800
+      ]
+     ]
+    },
+    "delta bag fees": {
+     "errore": 404
+    },
+    "delta checked bag size": {
+     "volume": 1900,
+     "cpc": 0,
+     "simili": []
+    },
+    "delta checked bag weight limit": {
+     "volume": 14800,
+     "cpc": 0,
+     "simili": [
+      [
+       "baggage allowance delta",
+       27100
+      ],
+      [
+       "baggage fees delta",
+       27100
+      ],
+      [
+       "checked bag weight limit delta",
+       14800
+      ],
+      [
+       "delta baggage weight limit",
+       14800
+      ],
+      [
+       "delta checked bag fee",
+       14800
+      ],
+      [
+       "checked baggage size delta",
+       8100
+      ],
+      [
+       "delta airlines baggage fees international",
+       8100
+      ],
+      [
+       "delta baggage allowance international",
+       8100
+      ],
+      [
+       "delta checked bag weight",
+       8100
+      ],
+      [
+       "delta international baggage fees",
+       8100
+      ]
+     ]
+    },
+    "delta baggage policy": {
+     "volume": 40500,
+     "cpc": 0.65,
+     "simili": [
+      [
+       "carry on size delta",
+       90500
+      ],
+      [
+       "baggage allowance delta",
+       27100
+      ],
+      [
+       "baggage fees delta",
+       27100
+      ],
+      [
+       "baggage policy delta",
+       27100
+      ],
+      [
+       "delta baggage fees",
+       27100
+      ],
+      [
+       "carry on baggage delta",
+       18100
+      ],
+      [
+       "delta carry on policy",
+       18100
+      ],
+      [
+       "delta carry-on policy",
+       18100
+      ],
+      [
+       "checked bag weight limit delta",
+       14800
+      ],
+      [
+       "delta checked bag fee",
+       14800
+      ]
+     ]
+    }
+   }
+  },
+  "frontier": {
+   "cerca": "frontier",
+   "paese": "us",
+   "frasi": {
+    "frontier baggage fees": {
+     "volume": 40500,
+     "cpc": 1.28,
+     "simili": [
+      [
+       "baggage allowance frontier",
+       40500
+      ],
+      [
+       "baggage fees frontier",
+       40500
+      ],
+      [
+       "frontier airline baggage fees",
+       40500
+      ],
+      [
+       "frontier airlines baggage allowance",
+       40500
+      ],
+      [
+       "frontier airlines baggage fees",
+       40500
+      ],
+      [
+       "frontier baggage fee",
+       40500
+      ],
+      [
+       "frontier baggage weight",
+       40500
+      ],
+      [
+       "carry-on luggage size frontier",
+       18100
+      ],
+      [
+       "frontier baggage policy",
+       14800
+      ],
+      [
+       "frontier airlines baggage policy",
+       12100
+      ]
+     ]
+    },
+    "frontier checked bag": {
+     "volume": 5400,
+     "cpc": 2.59,
+     "simili": [
+      [
+       "baggage allowance frontier",
+       40500
+      ],
+      [
+       "baggage fees frontier",
+       40500
+      ],
+      [
+       "frontier airline baggage fees",
+       40500
+      ],
+      [
+       "frontier airlines baggage allowance",
+       40500
+      ],
+      [
+       "frontier airlines baggage fees",
+       40500
+      ],
+      [
+       "frontier baggage fee",
+       40500
+      ],
+      [
+       "frontier baggage fees",
+       40500
+      ],
+      [
+       "frontier baggage weight",
+       40500
+      ],
+      [
+       "carry-on luggage size frontier",
+       18100
+      ],
+      [
+       "frontier baggage policy",
+       14800
+      ]
+     ]
+    },
+    "frontier checked bag fee": {
+     "volume": 40500,
+     "cpc": 9.93,
+     "simili": [
+      [
+       "baggage allowance frontier",
+       40500
+      ],
+      [
+       "baggage fees frontier",
+       40500
+      ],
+      [
+       "frontier airline baggage fees",
+       40500
+      ],
+      [
+       "frontier airlines baggage allowance",
+       40500
+      ],
+      [
+       "frontier airlines baggage fees",
+       40500
+      ],
+      [
+       "frontier baggage fee",
+       40500
+      ],
+      [
+       "frontier baggage fees",
+       40500
+      ],
+      [
+       "frontier baggage weight",
+       40500
+      ],
+      [
+       "frontier baggage policy",
+       14800
+      ],
+      [
+       "frontier airlines baggage policy",
+       12100
+      ]
+     ]
+    },
+    "frontier checked baggage": {
+     "volume": 140,
+     "cpc": 0,
+     "simili": [
+      [
+       "baggage allowance frontier",
+       40500
+      ],
+      [
+       "baggage fees frontier",
+       40500
+      ],
+      [
+       "frontier airline baggage fees",
+       40500
+      ],
+      [
+       "frontier airlines baggage allowance",
+       40500
+      ],
+      [
+       "frontier airlines baggage fees",
+       40500
+      ],
+      [
+       "frontier baggage fee",
+       40500
+      ],
+      [
+       "frontier baggage fees",
+       40500
+      ],
+      [
+       "frontier baggage weight",
+       40500
+      ],
+      [
+       "carry-on luggage size frontier",
+       18100
+      ],
+      [
+       "frontier baggage policy",
+       14800
+      ]
+     ]
+    },
+    "frontier baggage allowance": {
+     "volume": 720,
+     "cpc": 0,
+     "simili": [
+      [
+       "baggage allowance frontier",
+       40500
+      ],
+      [
+       "baggage fees frontier",
+       40500
+      ],
+      [
+       "frontier airline baggage fees",
+       40500
+      ],
+      [
+       "frontier airlines baggage allowance",
+       40500
+      ],
+      [
+       "frontier baggage fees",
+       40500
+      ],
+      [
+       "frontier baggage weight",
+       40500
+      ],
+      [
+       "carry on luggage size frontier",
+       27100
+      ],
+      [
+       "frontier baggage policy",
+       14800
+      ],
+      [
+       "frontier airlines baggage policy",
+       12100
+      ],
+      [
+       "frontier carry-on price",
+       9900
+      ]
+     ]
+    },
+    "frontier bag fees": {
+     "volume": 3600,
+     "cpc": 0,
+     "simili": [
+      [
+       "baggage allowance frontier",
+       40500
+      ],
+      [
+       "baggage fees frontier",
+       40500
+      ],
+      [
+       "frontier airline baggage fees",
+       40500
+      ],
+      [
+       "frontier airlines baggage allowance",
+       40500
+      ],
+      [
+       "frontier airlines baggage fees",
+       40500
+      ],
+      [
+       "frontier baggage fee",
+       40500
+      ],
+      [
+       "frontier baggage fees",
+       40500
+      ],
+      [
+       "frontier baggage weight",
+       40500
+      ],
+      [
+       "frontier baggage policy",
+       14800
+      ],
+      [
+       "frontier airlines baggage policy",
+       12100
+      ]
+     ]
+    },
+    "frontier checked bag size": {
+     "volume": 3600,
+     "cpc": 0.05,
+     "simili": [
+      [
+       "baggage allowance frontier",
+       40500
+      ],
+      [
+       "baggage fees frontier",
+       40500
+      ],
+      [
+       "frontier airline baggage fees",
+       40500
+      ],
+      [
+       "frontier airlines baggage allowance",
+       40500
+      ],
+      [
+       "frontier airlines baggage fees",
+       40500
+      ],
+      [
+       "frontier baggage fee",
+       40500
+      ],
+      [
+       "frontier baggage fees",
+       40500
+      ],
+      [
+       "frontier baggage weight",
+       40500
+      ],
+      [
+       "carry on luggage size frontier",
+       27100
+      ],
+      [
+       "frontier carry on size",
+       27100
+      ]
+     ]
+    },
+    "frontier checked bag weight limit": {
+     "volume": 720,
+     "cpc": 0,
+     "simili": [
+      [
+       "baggage allowance frontier",
+       40500
+      ],
+      [
+       "baggage fees frontier",
+       40500
+      ],
+      [
+       "frontier airline baggage fees",
+       40500
+      ],
+      [
+       "frontier airlines baggage allowance",
+       40500
+      ],
+      [
+       "frontier airlines baggage fees",
+       40500
+      ],
+      [
+       "frontier baggage fee",
+       40500
+      ],
+      [
+       "frontier baggage fees",
+       40500
+      ],
+      [
+       "frontier baggage weight",
+       40500
+      ],
+      [
+       "carry on luggage size frontier",
+       27100
+      ],
+      [
+       "frontier carry on size",
+       27100
+      ]
+     ]
+    },
+    "frontier baggage policy": {
+     "volume": 14800,
+     "cpc": 2.46,
+     "simili": [
+      [
+       "baggage allowance frontier",
+       40500
+      ],
+      [
+       "baggage fees frontier",
+       40500
+      ],
+      [
+       "frontier airline baggage fees",
+       40500
+      ],
+      [
+       "frontier airlines baggage allowance",
+       40500
+      ],
+      [
+       "frontier airlines baggage fees",
+       40500
+      ],
+      [
+       "frontier baggage fee",
+       40500
+      ],
+      [
+       "frontier baggage fees",
+       40500
+      ],
+      [
+       "frontier baggage weight",
+       40500
+      ],
+      [
+       "carry on luggage size frontier",
+       27100
+      ],
+      [
+       "frontier carry on size",
+       27100
+      ]
+     ]
+    }
+   }
+  },
+  "british-airways": {
+   "cerca": "british airways",
+   "paese": "gb",
+   "frasi": {
+    "british airways baggage fees": {
+     "volume": 1000,
+     "cpc": 0,
+     "simili": [
+      [
+       "ba baggage allowance",
+       33100
+      ],
+      [
+       "baggage allowance on british airways",
+       33100
+      ],
+      [
+       "british airways baggage allowance",
+       33100
+      ],
+      [
+       "british airways baggage limit",
+       33100
+      ],
+      [
+       "british airways baggage limits",
+       33100
+      ],
+      [
+       "british airways baggage restrictions",
+       33100
+      ],
+      [
+       "british airways checked baggage allowance",
+       33100
+      ],
+      [
+       "british airways baggage size allowance",
+       2900
+      ],
+      [
+       "luggage size british airways",
+       2900
+      ],
+      [
+       "excess baggage charges british airways",
+       1900
+      ]
+     ]
+    },
+    "british airways checked bag": {
+     "errore": 404
+    },
+    "british airways checked bag fee": {
+     "volume": 320,
+     "cpc": 0,
+     "simili": [
+      [
+       "baggage allowance in british airways",
+       33100
+      ],
+      [
+       "baggage allowance on british airways",
+       33100
+      ],
+      [
+       "british airways baggage allowance",
+       33100
+      ],
+      [
+       "british airways baggage limit",
+       33100
+      ],
+      [
+       "british airways baggage limits",
+       33100
+      ],
+      [
+       "british airways baggage restrictions",
+       33100
+      ],
+      [
+       "british airways checked baggage allowance",
+       33100
+      ],
+      [
+       "british airways baggage size allowance",
+       2900
+      ],
+      [
+       "british airways carry on baggage weight",
+       2900
+      ],
+      [
+       "british airways hold luggage size",
+       1900
+      ]
+     ]
+    },
+    "british airways checked baggage": {
+     "volume": 1600,
+     "cpc": 0,
+     "simili": [
+      [
+       "ba airways baggage allowance",
+       33100
+      ],
+      [
+       "ba baggage allowance",
+       33100
+      ],
+      [
+       "baggage allowance ba",
+       33100
+      ],
+      [
+       "baggage allowance british airways",
+       33100
+      ],
+      [
+       "baggage allowance for british airways",
+       33100
+      ],
+      [
+       "baggage allowance on british airways",
+       33100
+      ],
+      [
+       "baggage allowance with british airways",
+       33100
+      ],
+      [
+       "baggage limit british airways",
+       33100
+      ],
+      [
+       "baggage restrictions british airways",
+       33100
+      ],
+      [
+       "british airways baggage allowance",
+       33100
+      ]
+     ]
+    },
+    "british airways baggage allowance": {
+     "volume": 33100,
+     "cpc": 3.78,
+     "simili": [
+      [
+       "ba baggage allowance",
+       33100
+      ],
+      [
+       "baggage allowance ba",
+       33100
+      ],
+      [
+       "baggage allowance on british airways",
+       33100
+      ],
+      [
+       "british airways baggage",
+       33100
+      ],
+      [
+       "british airways baggage limit",
+       33100
+      ],
+      [
+       "british airways baggage limits",
+       33100
+      ],
+      [
+       "british airways baggage restrictions",
+       33100
+      ],
+      [
+       "british airways checked baggage allowance",
+       33100
+      ],
+      [
+       "british airways baggage sizes",
+       3600
+      ],
+      [
+       "british airways cabin baggage allowance",
+       2900
+      ]
+     ]
+    },
+    "british airways bag fees": {
+     "errore": 404
+    },
+    "british airways checked bag size": {
+     "errore": 404
+    },
+    "british airways checked bag weight limit": {
+     "errore": 404
+    },
+    "british airways baggage policy": {
+     "volume": 590,
+     "cpc": 0,
+     "simili": [
+      [
+       "ba airways baggage allowance",
+       33100
+      ],
+      [
+       "ba baggage allowance",
+       33100
+      ],
+      [
+       "baggage allowance british airways",
+       33100
+      ],
+      [
+       "baggage allowance for british airways",
+       33100
+      ],
+      [
+       "baggage allowance in british airways",
+       33100
+      ],
+      [
+       "baggage allowance on british airways",
+       33100
+      ],
+      [
+       "british airways baggage allowance",
+       33100
+      ],
+      [
+       "british airways baggage limits",
+       33100
+      ],
+      [
+       "british airways baggage restrictions",
+       33100
+      ],
+      [
+       "british airways checked baggage allowance",
+       33100
+      ]
+     ]
+    },
+    "british airways hold luggage": {
+     "volume": 1600,
+     "cpc": 0,
+     "simili": [
+      [
+       "ba baggage allowance",
+       33100
+      ],
+      [
+       "baggage allowance on british airways",
+       33100
+      ],
+      [
+       "baggage restrictions british airways",
+       33100
+      ],
+      [
+       "british airways baggage",
+       33100
+      ],
+      [
+       "british airways baggage allowance",
+       33100
+      ],
+      [
+       "british airways baggage limit",
+       33100
+      ],
+      [
+       "british airways baggage limits",
+       33100
+      ],
+      [
+       "british airways baggage regulations",
+       33100
+      ],
+      [
+       "british airways baggage restrictions",
+       33100
+      ],
+      [
+       "british airways checked baggage allowance",
+       33100
+      ]
+     ]
+    },
+    "british airways hold luggage size": {
+     "volume": 1900,
+     "cpc": 1.34,
+     "simili": [
+      [
+       "ba baggage allowance",
+       33100
+      ],
+      [
+       "baggage allowance in british airways",
+       33100
+      ],
+      [
+       "baggage allowance on british airways",
+       33100
+      ],
+      [
+       "baggage limit british airways",
+       33100
+      ],
+      [
+       "baggage restrictions british airways",
+       33100
+      ],
+      [
+       "british airways baggage guidelines",
+       33100
+      ],
+      [
+       "british airways baggage limit",
+       33100
+      ],
+      [
+       "british airways baggage limits",
+       33100
+      ],
+      [
+       "british airways baggage regulations",
+       33100
+      ],
+      [
+       "british airways checked baggage allowance",
+       33100
+      ]
+     ]
+    },
+    "british airways luggage allowance": {
+     "errore": 404
+    },
+    "british airways 23kg bag": {
+     "errore": 404
+    }
+   }
+  },
+  "jet2": {
+   "cerca": "jet2",
+   "paese": "gb",
+   "frasi": {
+    "jet2 baggage fees": {
+     "volume": 22200,
+     "cpc": 0.4,
+     "simili": [
+      [
+       "baggage allowance jet2",
+       22200
+      ],
+      [
+       "baggage allowance on jet2",
+       22200
+      ],
+      [
+       "baggage allowance with jet2",
+       22200
+      ],
+      [
+       "jet2 airlines baggage allowance",
+       22200
+      ],
+      [
+       "jet2 airways baggage allowance",
+       22200
+      ],
+      [
+       "jet2 baggage allowance",
+       22200
+      ],
+      [
+       "jet2 baggage allowances",
+       22200
+      ],
+      [
+       "jet2 baggage policy",
+       22200
+      ],
+      [
+       "jet2 baggage weight",
+       22200
+      ],
+      [
+       "jet2 weight allowance",
+       22200
+      ]
+     ]
+    },
+    "jet2 checked bag": {
+     "errore": 404
+    },
+    "jet2 checked bag fee": {
+     "errore": 404
+    },
+    "jet2 checked baggage": {
+     "errore": 404
+    },
+    "jet2 baggage allowance": {
+     "volume": 22200,
+     "cpc": 0.4,
+     "simili": [
+      [
+       "baggage allowance for jet2",
+       22200
+      ],
+      [
+       "baggage allowance jet2",
+       22200
+      ],
+      [
+       "baggage allowance with jet2",
+       22200
+      ],
+      [
+       "jet2 airways baggage allowance",
+       22200
+      ],
+      [
+       "jet2 baggage allowances",
+       22200
+      ],
+      [
+       "jet2 baggage fees",
+       22200
+      ],
+      [
+       "jet2 baggage policy",
+       22200
+      ],
+      [
+       "jet2 baggage weight",
+       22200
+      ],
+      [
+       "jet2 suitcase allowance",
+       22200
+      ],
+      [
+       "jet2 weight allowance",
+       22200
+      ]
+     ]
+    },
+    "jet2 bag fees": {
+     "errore": 404
+    },
+    "jet2 checked bag size": {
+     "errore": 404
+    },
+    "jet2 checked bag weight limit": {
+     "errore": 404
+    },
+    "jet2 baggage policy": {
+     "volume": 22200,
+     "cpc": 0.06,
+     "simili": [
+      [
+       "baggage allowance jet2",
+       22200
+      ],
+      [
+       "baggage allowance with jet2",
+       22200
+      ],
+      [
+       "jet2 airlines baggage allowance",
+       22200
+      ],
+      [
+       "jet2 airways baggage allowance",
+       22200
+      ],
+      [
+       "jet2 baggage allowance",
+       22200
+      ],
+      [
+       "jet2 baggage allowances",
+       22200
+      ],
+      [
+       "jet2 baggage weight",
+       22200
+      ],
+      [
+       "jet2 hold baggage allowance",
+       22200
+      ],
+      [
+       "jet2 suitcase allowance",
+       22200
+      ],
+      [
+       "jet2 weight allowance",
+       22200
+      ]
+     ]
+    },
+    "jet2 hold luggage": {
+     "volume": 1600,
+     "cpc": 0.58,
+     "simili": [
+      [
+       "baggage allowance for jet2",
+       22200
+      ],
+      [
+       "baggage allowance jet2",
+       22200
+      ],
+      [
+       "baggage allowance with jet2",
+       22200
+      ],
+      [
+       "jet2 airways baggage allowance",
+       22200
+      ],
+      [
+       "jet2 baggage allowances",
+       22200
+      ],
+      [
+       "jet2 baggage fees",
+       22200
+      ],
+      [
+       "jet2 baggage policy",
+       22200
+      ],
+      [
+       "jet2 baggage weight",
+       22200
+      ],
+      [
+       "jet2 hold baggage allowance",
+       22200
+      ],
+      [
+       "jet2 suitcase allowance",
+       22200
+      ]
+     ]
+    },
+    "jet2 hold luggage size": {
+     "volume": 1900,
+     "cpc": 0.41,
+     "simili": [
+      [
+       "baggage allowance jet2",
+       22200
+      ],
+      [
+       "jet2 baggage weight",
+       22200
+      ],
+      [
+       "jet2 weight allowance",
+       22200
+      ],
+      [
+       "jet2 luggage size",
+       4400
+      ],
+      [
+       "luggage size jet2",
+       4400
+      ],
+      [
+       "jet2 airlines baggage",
+       3600
+      ],
+      [
+       "jet2 hold baggage cost",
+       880
+      ],
+      [
+       "jet2 22kg baggage size",
+       720
+      ],
+      [
+       "jet2 checked baggage size",
+       590
+      ],
+      [
+       "jet2 hold luggage dimensions",
+       590
+      ]
+     ]
+    },
+    "jet2 luggage allowance": {
+     "errore": 404
+    },
+    "jet2 23kg bag": {
+     "errore": 404
+    }
+   }
+  },
+  "easyjet": {
+   "cerca": "easyjet",
+   "paese": "gb",
+   "frasi": {
+    "easyjet baggage fees": {
+     "volume": 1300,
+     "cpc": 0.62,
+     "simili": [
+      [
+       "easyjet suitcase size",
+       22200
+      ],
+      [
+       "easyjet baggage allowance",
+       18100
+      ],
+      [
+       "bag allowance easyjet",
+       12100
+      ],
+      [
+       "baggage limit easyjet",
+       12100
+      ],
+      [
+       "suitcase allowance easyjet",
+       12100
+      ],
+      [
+       "easyjet airlines baggage allowance",
+       9900
+      ],
+      [
+       "easyjet luggage allowance",
+       9900
+      ],
+      [
+       "easyjet weight allowance",
+       9900
+      ],
+      [
+       "weight allowance easyjet",
+       9900
+      ],
+      [
+       "easyjet checked baggage size",
+       6600
+      ]
+     ]
+    },
+    "easyjet checked bag": {
+     "errore": 404
+    },
+    "easyjet checked bag fee": {
+     "volume": 110,
+     "cpc": 0,
+     "simili": [
+      [
+       "easyjet baggage allowance",
+       18100
+      ],
+      [
+       "baggage limit easyjet",
+       12100
+      ],
+      [
+       "suitcase allowance easyjet",
+       12100
+      ],
+      [
+       "easyjet airlines baggage allowance",
+       9900
+      ],
+      [
+       "easyjet weight allowance",
+       9900
+      ],
+      [
+       "weight allowance easyjet",
+       9900
+      ],
+      [
+       "baggage allowance for easyjet",
+       6600
+      ],
+      [
+       "baggage allowance with easyjet",
+       6600
+      ],
+      [
+       "easyjet baggage",
+       6600
+      ],
+      [
+       "easyjet hold luggage size",
+       6600
+      ]
+     ]
+    },
+    "easyjet checked baggage": {
+     "volume": 5400,
+     "cpc": 0.55,
+     "simili": [
+      [
+       "easyjet baggage allowance",
+       18100
+      ],
+      [
+       "baggage limit easyjet",
+       12100
+      ],
+      [
+       "suitcase allowance easyjet",
+       12100
+      ],
+      [
+       "easyjet airlines baggage allowance",
+       9900
+      ],
+      [
+       "easyjet weight allowance",
+       9900
+      ],
+      [
+       "weight allowance easyjet",
+       9900
+      ],
+      [
+       "baggage allowance on easyjet",
+       6600
+      ],
+      [
+       "easyjet baggage",
+       6600
+      ],
+      [
+       "easyjet checked baggage size",
+       6600
+      ],
+      [
+       "easyjet hold luggage size",
+       6600
+      ]
+     ]
+    },
+    "easyjet baggage allowance": {
+     "volume": 18100,
+     "cpc": 0.29,
+     "simili": [
+      [
+       "cabin size suitcase easyjet",
+       49500
+      ],
+      [
+       "carry on luggage size easyjet",
+       49500
+      ],
+      [
+       "easyjet cabin bags size",
+       49500
+      ],
+      [
+       "easyjet cabin luggage size",
+       49500
+      ],
+      [
+       "easyjet carry on luggage dimensions",
+       49500
+      ],
+      [
+       "easyjet carry on luggage size",
+       49500
+      ],
+      [
+       "hand luggage easyjet dimensions",
+       49500
+      ],
+      [
+       "baggage size easyjet",
+       22200
+      ],
+      [
+       "easyjet bag size",
+       22200
+      ],
+      [
+       "easyjet baggage size",
+       22200
+      ]
+     ]
+    },
+    "easyjet bag fees": {
+     "errore": 404
+    },
+    "easyjet checked bag size": {
+     "errore": 404
+    },
+    "easyjet checked bag weight limit": {
+     "errore": 404
+    },
+    "easyjet baggage policy": {
+     "volume": 720,
+     "cpc": 0,
+     "simili": [
+      [
+       "easyjet cabin luggage size",
+       49500
+      ],
+      [
+       "easyjet bag size",
+       22200
+      ],
+      [
+       "easyjet baggage size",
+       22200
+      ],
+      [
+       "cabin baggage on easyjet",
+       18100
+      ],
+      [
+       "easyjet baggage allowance",
+       18100
+      ],
+      [
+       "easyjet carry on luggage",
+       18100
+      ],
+      [
+       "easyjet hand baggage allowance",
+       18100
+      ],
+      [
+       "hand baggage allowance easyjet",
+       18100
+      ],
+      [
+       "hand luggage allowance easyjet",
+       18100
+      ],
+      [
+       "hand luggage with easyjet",
+       18100
+      ]
+     ]
+    },
+    "easyjet hold luggage": {
+     "volume": 5400,
+     "cpc": 0.55,
+     "simili": [
+      [
+       "easyjet suitcase size",
+       22200
+      ],
+      [
+       "baggage limit easyjet",
+       12100
+      ],
+      [
+       "baggage restrictions easyjet",
+       12100
+      ],
+      [
+       "suitcase allowance easyjet",
+       12100
+      ],
+      [
+       "easyjet weight allowance",
+       9900
+      ],
+      [
+       "weight allowance easyjet",
+       9900
+      ],
+      [
+       "baggage allowance with easyjet",
+       6600
+      ],
+      [
+       "easyjet baggage",
+       6600
+      ],
+      [
+       "easyjet checked baggage size",
+       6600
+      ],
+      [
+       "easyjet hold luggage size",
+       6600
+      ]
+     ]
+    },
+    "easyjet hold luggage size": {
+     "volume": 6600,
+     "cpc": 0.63,
+     "simili": [
+      [
+       "easyjet bag size",
+       22200
+      ],
+      [
+       "easyjet baggage size",
+       22200
+      ],
+      [
+       "easyjet luggage size",
+       22200
+      ],
+      [
+       "easyjet suitcase size",
+       22200
+      ],
+      [
+       "luggage easyjet size",
+       22200
+      ],
+      [
+       "easyjet baggage allowance",
+       18100
+      ],
+      [
+       "easyjet hand baggage allowance",
+       18100
+      ],
+      [
+       "hand baggage allowance easyjet",
+       18100
+      ],
+      [
+       "easyjet carry on dimensions",
+       12100
+      ],
+      [
+       "suitcase allowance easyjet",
+       12100
+      ]
+     ]
+    },
+    "easyjet luggage allowance": {
+     "volume": 9900,
+     "cpc": 0.47,
+     "simili": [
+      [
+       "cabin size suitcase easyjet",
+       49500
+      ],
+      [
+       "carry on luggage size easyjet",
+       49500
+      ],
+      [
+       "easyjet cabin bags size",
+       49500
+      ],
+      [
+       "easyjet cabin luggage size",
+       49500
+      ],
+      [
+       "easyjet carry on luggage size",
+       49500
+      ],
+      [
+       "hand luggage easyjet dimensions",
+       49500
+      ],
+      [
+       "baggage size easyjet",
+       22200
+      ],
+      [
+       "easyjet bag size",
+       22200
+      ],
+      [
+       "easyjet luggage size",
+       22200
+      ],
+      [
+       "easyjet suitcase size",
+       22200
+      ]
+     ]
+    },
+    "easyjet 23kg bag": {
+     "errore": 404
+    }
+   }
+  },
+  "westjet": {
+   "cerca": "westjet",
+   "paese": "ca",
+   "frasi": {
+    "westjet baggage fees": {
+     "volume": 18100,
+     "cpc": 2,
+     "simili": [
+      [
+       "westjet baggage fee",
+       18100
+      ],
+      [
+       "westjet checked baggage fee",
+       18100
+      ],
+      [
+       "baggage fees westjet",
+       14800
+      ],
+      [
+       "westjet baggage allowance",
+       14800
+      ],
+      [
+       "check-in baggage westjet",
+       3600
+      ],
+      [
+       "check in baggage westjet",
+       2900
+      ],
+      [
+       "westjet check in baggage",
+       2900
+      ],
+      [
+       "westjet checked baggage",
+       2900
+      ],
+      [
+       "westjet baggage policy",
+       1600
+      ],
+      [
+       "westjet carry on price",
+       1600
+      ]
+     ]
+    },
+    "westjet checked bag": {
+     "errore": 404
+    },
+    "westjet checked bag fee": {
+     "volume": 2400,
+     "cpc": 3.28,
+     "simili": [
+      [
+       "westjet baggage fee",
+       18100
+      ],
+      [
+       "westjet checked baggage fee",
+       18100
+      ],
+      [
+       "baggage fees westjet",
+       14800
+      ],
+      [
+       "westjet baggage fees",
+       14800
+      ],
+      [
+       "westjet extra baggage fees",
+       1300
+      ],
+      [
+       "westjet overweight baggage fees",
+       1300
+      ],
+      [
+       "military baggage westjet",
+       720
+      ],
+      [
+       "westjet check-in baggage fee",
+       320
+      ],
+      [
+       "westjet check in baggage fee",
+       260
+      ],
+      [
+       "westjet baggage fees canada",
+       170
+      ]
+     ]
+    },
+    "westjet checked baggage": {
+     "volume": 3600,
+     "cpc": 2.46,
+     "simili": [
+      [
+       "westjet baggage fee",
+       18100
+      ],
+      [
+       "westjet checked baggage fee",
+       18100
+      ],
+      [
+       "baggage fees westjet",
+       14800
+      ],
+      [
+       "westjet baggage allowance",
+       14800
+      ],
+      [
+       "westjet baggage fees",
+       14800
+      ],
+      [
+       "check-in baggage westjet",
+       3600
+      ],
+      [
+       "westjet baggage size",
+       3600
+      ],
+      [
+       "westjet check-in baggage",
+       3600
+      ],
+      [
+       "westjet carry on weight",
+       2900
+      ],
+      [
+       "westjet check in baggage",
+       2900
+      ]
+     ]
+    },
+    "westjet baggage allowance": {
+     "volume": 18100,
+     "cpc": 2,
+     "simili": [
+      [
+       "westjet personal item size",
+       6600
+      ],
+      [
+       "westjet carry on",
+       4400
+      ],
+      [
+       "check-in baggage westjet",
+       3600
+      ],
+      [
+       "westjet baggage size",
+       3600
+      ],
+      [
+       "westjet check-in baggage",
+       3600
+      ],
+      [
+       "check in baggage westjet",
+       2900
+      ],
+      [
+       "westjet carry on weight",
+       2900
+      ],
+      [
+       "westjet carry-on baggage size",
+       2900
+      ],
+      [
+       "westjet check in baggage",
+       2900
+      ],
+      [
+       "westjet checked baggage",
+       2900
+      ]
+     ]
+    },
+    "westjet bag fees": {
+     "errore": 404
+    },
+    "westjet checked bag size": {
+     "errore": 404
+    },
+    "westjet checked bag weight limit": {
+     "errore": 404
+    },
+    "westjet baggage policy": {
+     "volume": 1600,
+     "cpc": 0,
+     "simili": [
+      [
+       "baggage fees westjet",
+       14800
+      ],
+      [
+       "westjet baggage allowance",
+       14800
+      ],
+      [
+       "carry-on bag size westjet",
+       3600
+      ],
+      [
+       "check-in baggage westjet",
+       3600
+      ],
+      [
+       "westjet baggage size",
+       3600
+      ],
+      [
+       "westjet check-in baggage",
+       3600
+      ],
+      [
+       "carry-on weight westjet",
+       2900
+      ],
+      [
+       "westjet carry on weight",
+       2900
+      ],
+      [
+       "westjet carry-on weight",
+       2900
+      ],
+      [
+       "westjet check in baggage",
+       2900
+      ]
+     ]
+    }
+   }
+  },
+  "air-canada": {
+   "cerca": "air canada",
+   "paese": "ca",
+   "frasi": {
+    "air canada baggage fees": {
+     "volume": 14800,
+     "cpc": 3.93,
+     "simili": [
+      [
+       "air canada baggage allowance",
+       14800
+      ],
+      [
+       "air canada baggage fee",
+       14800
+      ],
+      [
+       "air canada checked baggage fee",
+       14800
+      ],
+      [
+       "air canada baggage size checked",
+       6600
+      ],
+      [
+       "air canada check in baggage size",
+       6600
+      ],
+      [
+       "check in baggage air canada",
+       5400
+      ],
+      [
+       "checked baggage air canada",
+       5400
+      ],
+      [
+       "air canada carry-on fee",
+       3600
+      ],
+      [
+       "air canada check in baggage",
+       3600
+      ],
+      [
+       "check-in baggage air canada",
+       3600
+      ]
+     ]
+    },
+    "air canada checked bag": {
+     "volume": 5400,
+     "cpc": 2.27,
+     "simili": []
+    },
+    "air canada checked bag fee": {
+     "volume": 1600,
+     "cpc": 13.38,
+     "simili": [
+      [
+       "air canada baggage fee",
+       14800
+      ],
+      [
+       "air canada baggage fees",
+       14800
+      ],
+      [
+       "air canada checked baggage fee",
+       14800
+      ],
+      [
+       "baggage fee air canada",
+       12100
+      ],
+      [
+       "air canada baggage size checked",
+       6600
+      ],
+      [
+       "air canada check in baggage size",
+       6600
+      ],
+      [
+       "check in baggage air canada",
+       5400
+      ],
+      [
+       "checked baggage air canada",
+       5400
+      ],
+      [
+       "air canada baggage weight",
+       3600
+      ],
+      [
+       "air canada check-in baggage",
+       3600
+      ]
+     ]
+    },
+    "air canada checked baggage": {
+     "volume": 3600,
+     "cpc": 6.37,
+     "simili": [
+      [
+       "air canada carry on size",
+       40500
+      ],
+      [
+       "air canada carry-on dimensions",
+       40500
+      ],
+      [
+       "carry on luggage size air canada",
+       40500
+      ],
+      [
+       "carry-on dimensions air canada",
+       40500
+      ],
+      [
+       "dimension carry on air canada",
+       40500
+      ],
+      [
+       "air canada baggage allowance",
+       14800
+      ],
+      [
+       "air canada baggage fee",
+       14800
+      ],
+      [
+       "air canada baggage restrictions",
+       14800
+      ],
+      [
+       "air canada baggage rules",
+       14800
+      ],
+      [
+       "air canada checked baggage fee",
+       14800
+      ]
+     ]
+    },
+    "air canada baggage allowance": {
+     "volume": 14800,
+     "cpc": 6.4,
+     "simili": [
+      [
+       "air canada baggage allowance to canada",
+       14800
+      ],
+      [
+       "air canada baggage restrictions",
+       14800
+      ],
+      [
+       "air canada baggage rules",
+       14800
+      ],
+      [
+       "air canada checked baggage fee",
+       14800
+      ],
+      [
+       "air canada baggage",
+       12100
+      ],
+      [
+       "air canada baggage dimensions",
+       6600
+      ],
+      [
+       "air canada baggage size",
+       6600
+      ],
+      [
+       "air canada baggage size checked",
+       6600
+      ],
+      [
+       "air canada carry on weight",
+       6600
+      ],
+      [
+       "air canada check in baggage size",
+       6600
+      ]
+     ]
+    },
+    "air canada bag fees": {
+     "errore": 404
+    },
+    "air canada checked bag size": {
+     "errore": 404
+    },
+    "air canada checked bag weight limit": {
+     "errore": 404
+    },
+    "air canada baggage policy": {
+     "volume": 1900,
+     "cpc": 12.4,
+     "simili": [
+      [
+       "air canada baggage allowance",
+       14800
+      ],
+      [
+       "air canada baggage allowance to canada",
+       14800
+      ],
+      [
+       "air canada baggage restrictions",
+       14800
+      ],
+      [
+       "air canada baggage rules",
+       14800
+      ],
+      [
+       "air canada baggage",
+       12100
+      ],
+      [
+       "air canada baggage dimensions",
+       6600
+      ],
+      [
+       "air canada baggage size",
+       6600
+      ],
+      [
+       "air canada baggage size checked",
+       6600
+      ],
+      [
+       "air canada check in baggage size",
+       6600
+      ],
+      [
+       "check in baggage size air canada",
+       3600
+      ]
+     ]
+    }
+   }
+  },
+  "alaska-airlines": {
+   "cerca": "alaska airlines",
+   "paese": "us",
+   "frasi": {
+    "alaska airlines baggage fees": {
+     "volume": 12100,
+     "cpc": 0.04,
+     "simili": [
+      [
+       "alaska airlines baggage policy",
+       18100
+      ],
+      [
+       "alaska check in baggage",
+       5400
+      ],
+      [
+       "alaska airlines baggage",
+       3600
+      ],
+      [
+       "alaska airlines baggage fee",
+       1900
+      ],
+      [
+       "alaska airlines baggage size",
+       1900
+      ],
+      [
+       "alaska airlines baggage weight",
+       1900
+      ],
+      [
+       "checked baggage size alaska airlines",
+       1900
+      ],
+      [
+       "alaska airlines check in baggage",
+       5400
+      ],
+      [
+       "alaska airlines baggage price",
+       12100
+      ],
+      [
+       "alaska check-in baggage",
+       5400
+      ]
+     ]
+    },
+    "alaska airlines checked bag": {
+     "volume": 5400,
+     "cpc": 0.04,
+     "simili": [
+      [
+       "alaska airlines baggage policy",
+       18100
+      ],
+      [
+       "alaska airlines baggage fees",
+       12100
+      ],
+      [
+       "alaska check in baggage",
+       5400
+      ],
+      [
+       "alaska airlines baggage",
+       3600
+      ],
+      [
+       "alaska airlines baggage fee",
+       1900
+      ],
+      [
+       "alaska airlines baggage size",
+       1900
+      ],
+      [
+       "alaska airlines baggage weight",
+       1900
+      ],
+      [
+       "checked baggage size alaska airlines",
+       1900
+      ],
+      [
+       "alaska check-in baggage",
+       5400
+      ],
+      [
+       "alaska airlines checked baggage size",
+       1900
+      ]
+     ]
+    },
+    "alaska airlines checked bag fee": {
+     "volume": 1900,
+     "cpc": 0.03,
+     "simili": [
+      [
+       "alaska airlines baggage policy",
+       18100
+      ],
+      [
+       "alaska airlines baggage fees",
+       12100
+      ],
+      [
+       "alaska check in baggage",
+       5400
+      ],
+      [
+       "alaska airlines baggage",
+       3600
+      ],
+      [
+       "alaska airlines baggage fee",
+       1900
+      ],
+      [
+       "alaska airlines baggage size",
+       1900
+      ],
+      [
+       "alaska airlines baggage weight",
+       1900
+      ],
+      [
+       "checked baggage size alaska airlines",
+       1900
+      ],
+      [
+       "alaska check-in baggage",
+       5400
+      ],
+      [
+       "alaska airlines carry on weight",
+       2900
+      ]
+     ]
+    },
+    "alaska airlines checked baggage": {
+     "volume": 5400,
+     "cpc": 0.04,
+     "simili": [
+      [
+       "alaska airlines baggage fees",
+       12100
+      ],
+      [
+       "alaska check in baggage",
+       5400
+      ],
+      [
+       "alaska airlines checked baggage size",
+       1900
+      ],
+      [
+       "checked baggage size alaska airlines",
+       1900
+      ],
+      [
+       "alaska check-in baggage",
+       5400
+      ],
+      [
+       "alaska airlines baggage size",
+       1900
+      ],
+      [
+       "alaska airlines baggage weight",
+       1900
+      ],
+      [
+       "alaska airlines baggage fee",
+       1900
+      ],
+      [
+       "alaska airlines baggage",
+       3600
+      ],
+      [
+       "alaska airlines baggage policy",
+       18100
+      ]
+     ]
+    },
+    "alaska airlines baggage allowance": {
+     "volume": 12100,
+     "cpc": 0.04,
+     "simili": [
+      [
+       "alaska airlines baggage policy",
+       18100
+      ],
+      [
+       "alaska airlines baggage fees",
+       12100
+      ],
+      [
+       "alaska check in baggage",
+       5400
+      ],
+      [
+       "alaska airlines baggage",
+       3600
+      ],
+      [
+       "alaska airlines carry on weight",
+       2900
+      ],
+      [
+       "alaska airlines baggage fee",
+       1900
+      ],
+      [
+       "alaska airlines baggage size",
+       1900
+      ],
+      [
+       "alaska airlines baggage weight",
+       1900
+      ],
+      [
+       "checked baggage size alaska airlines",
+       1900
+      ],
+      [
+       "alaska airlines carry-on restrictions",
+       3600
+      ]
+     ]
+    },
+    "alaska airlines bag fees": {
+     "errore": 404
+    },
+    "alaska airlines checked bag size": {
+     "volume": 590,
+     "cpc": 0.03,
+     "simili": [
+      [
+       "alaska airlines baggage policy",
+       18100
+      ],
+      [
+       "alaska airlines baggage fees",
+       12100
+      ],
+      [
+       "alaska check in baggage",
+       5400
+      ],
+      [
+       "alaska airlines baggage fee",
+       1900
+      ],
+      [
+       "alaska airlines baggage size",
+       1900
+      ],
+      [
+       "alaska airlines baggage weight",
+       1900
+      ],
+      [
+       "checked baggage size alaska airlines",
+       1900
+      ],
+      [
+       "alaska airlines carry on weight",
+       2900
+      ],
+      [
+       "alaska airlines baggage",
+       3600
+      ],
+      [
+       "alaska airlines carry on restrictions",
+       3600
+      ]
+     ]
+    },
+    "alaska airlines checked bag weight limit": {
+     "volume": 1000,
+     "cpc": 0.02,
+     "simili": [
+      [
+       "alaska airlines baggage policy",
+       18100
+      ],
+      [
+       "alaska airlines baggage fees",
+       12100
+      ],
+      [
+       "alaska check in baggage",
+       5400
+      ],
+      [
+       "alaska airlines baggage",
+       3600
+      ],
+      [
+       "alaska airlines baggage fee",
+       1900
+      ],
+      [
+       "alaska airlines baggage size",
+       1900
+      ],
+      [
+       "alaska airlines baggage weight",
+       1900
+      ],
+      [
+       "checked baggage size alaska airlines",
+       1900
+      ],
+      [
+       "alaska airlines checked baggage size",
+       1900
+      ],
+      [
+       "alaska check-in baggage",
+       5400
+      ]
+     ]
+    },
+    "alaska airlines baggage policy": {
+     "volume": 18100,
+     "cpc": 0.05,
+     "simili": [
+      [
+       "alaska airlines baggage fees",
+       12100
+      ],
+      [
+       "alaska check in baggage",
+       5400
+      ],
+      [
+       "baggage alaska airlines",
+       4400
+      ],
+      [
+       "alaska airlines baggage",
+       3600
+      ],
+      [
+       "alaska airlines carry on restrictions",
+       3600
+      ],
+      [
+       "carry on baggage alaska airlines",
+       2900
+      ],
+      [
+       "alaska airlines baggage fee",
+       1900
+      ],
+      [
+       "alaska airlines baggage size",
+       1900
+      ],
+      [
+       "alaska airlines baggage weight",
+       1900
+      ],
+      [
+       "checked baggage size alaska airlines",
+       1900
+      ]
+     ]
+    }
+   }
+  },
+  "jetblue": {
+   "cerca": "jetblue",
+   "paese": "us",
+   "frasi": {
+    "jetblue baggage fees": {
+     "volume": 9900,
+     "cpc": 1.68,
+     "simili": [
+      [
+       "jetblue airlines baggage allowance",
+       9900
+      ],
+      [
+       "jetblue airlines baggage fees",
+       9900
+      ],
+      [
+       "jetblue airways baggage rules",
+       9900
+      ],
+      [
+       "jetblue baggage fee",
+       9900
+      ],
+      [
+       "jetblue baggage policy",
+       9900
+      ],
+      [
+       "bag jetblue",
+       5400
+      ],
+      [
+       "baggage jetblue",
+       5400
+      ],
+      [
+       "jetblue airlines baggage",
+       5400
+      ],
+      [
+       "jetblue checked bag fee",
+       5400
+      ],
+      [
+       "jetblue check in bag",
+       3600
+      ]
+     ]
+    },
+    "jetblue checked bag": {
+     "volume": 3600,
+     "cpc": 0,
+     "simili": [
+      [
+       "jetblue airlines baggage allowance",
+       9900
+      ],
+      [
+       "jetblue airlines baggage fees",
+       9900
+      ],
+      [
+       "jetblue airways baggage rules",
+       9900
+      ],
+      [
+       "jetblue baggage fee",
+       9900
+      ],
+      [
+       "jetblue baggage fees",
+       9900
+      ],
+      [
+       "jetblue baggage policy",
+       9900
+      ],
+      [
+       "baggage jetblue",
+       5400
+      ],
+      [
+       "jetblue airlines baggage",
+       5400
+      ],
+      [
+       "jetblue airways baggage",
+       5400
+      ],
+      [
+       "jetblue baggage",
+       5400
+      ]
+     ]
+    },
+    "jetblue checked bag fee": {
+     "volume": 5400,
+     "cpc": 4.07,
+     "simili": [
+      [
+       "jetblue airlines baggage allowance",
+       9900
+      ],
+      [
+       "jetblue airlines baggage fees",
+       9900
+      ],
+      [
+       "jetblue baggage fee",
+       9900
+      ],
+      [
+       "jetblue baggage fees",
+       9900
+      ],
+      [
+       "bag jetblue",
+       5400
+      ],
+      [
+       "baggage jetblue",
+       5400
+      ],
+      [
+       "jetblue airlines baggage",
+       5400
+      ],
+      [
+       "jetblue check in bag",
+       3600
+      ],
+      [
+       "jetblue check-in bag",
+       3600
+      ],
+      [
+       "jetblue checked bag",
+       3600
+      ]
+     ]
+    },
+    "jetblue checked baggage": {
+     "volume": 260,
+     "cpc": 0,
+     "simili": [
+      [
+       "jetblue airlines baggage allowance",
+       9900
+      ],
+      [
+       "jetblue airlines baggage fees",
+       9900
+      ],
+      [
+       "jetblue airways baggage rules",
+       9900
+      ],
+      [
+       "jetblue baggage fees",
+       9900
+      ],
+      [
+       "jetblue baggage policy",
+       9900
+      ],
+      [
+       "bag jetblue",
+       5400
+      ],
+      [
+       "baggage jetblue",
+       5400
+      ],
+      [
+       "jetblue airlines baggage",
+       5400
+      ],
+      [
+       "jetblue airways baggage",
+       5400
+      ],
+      [
+       "jetblue baggage",
+       5400
+      ]
+     ]
+    },
+    "jetblue baggage allowance": {
+     "volume": 1300,
+     "cpc": 0,
+     "simili": [
+      [
+       "jetblue airlines baggage allowance",
+       9900
+      ],
+      [
+       "jetblue airlines baggage fees",
+       9900
+      ],
+      [
+       "jetblue airways baggage rules",
+       9900
+      ],
+      [
+       "jetblue baggage fee",
+       9900
+      ],
+      [
+       "jetblue baggage fees",
+       9900
+      ],
+      [
+       "jetblue baggage policy",
+       9900
+      ],
+      [
+       "bag jetblue",
+       5400
+      ],
+      [
+       "jetblue airlines baggage",
+       5400
+      ],
+      [
+       "jetblue airways baggage",
+       5400
+      ],
+      [
+       "jetblue baggage",
+       5400
+      ]
+     ]
+    },
+    "jetblue bag fees": {
+     "errore": 404
+    },
+    "jetblue checked bag size": {
+     "volume": 2900,
+     "cpc": 0,
+     "simili": [
+      [
+       "jetblue airlines baggage allowance",
+       9900
+      ],
+      [
+       "jetblue airlines baggage fees",
+       9900
+      ],
+      [
+       "jetblue airways baggage rules",
+       9900
+      ],
+      [
+       "jetblue baggage fee",
+       9900
+      ],
+      [
+       "jetblue baggage fees",
+       9900
+      ],
+      [
+       "jetblue baggage policy",
+       9900
+      ],
+      [
+       "bag jetblue",
+       5400
+      ],
+      [
+       "baggage jetblue",
+       5400
+      ],
+      [
+       "jetblue airlines baggage",
+       5400
+      ],
+      [
+       "jetblue airways baggage",
+       5400
+      ]
+     ]
+    },
+    "jetblue checked bag weight limit": {
+     "volume": 2400,
+     "cpc": 0,
+     "simili": [
+      [
+       "jetblue airlines baggage allowance",
+       9900
+      ],
+      [
+       "jetblue airlines baggage fees",
+       9900
+      ],
+      [
+       "jetblue airways baggage rules",
+       9900
+      ],
+      [
+       "jetblue baggage fee",
+       9900
+      ],
+      [
+       "jetblue baggage fees",
+       9900
+      ],
+      [
+       "jetblue baggage policy",
+       9900
+      ],
+      [
+       "baggage jetblue",
+       5400
+      ],
+      [
+       "jetblue airlines baggage",
+       5400
+      ],
+      [
+       "jetblue airways baggage",
+       5400
+      ],
+      [
+       "jetblue baggage",
+       5400
+      ]
+     ]
+    },
+    "jetblue baggage policy": {
+     "volume": 9900,
+     "cpc": 0,
+     "simili": [
+      [
+       "jetblue airlines carry on size",
+       22200
+      ],
+      [
+       "jetblue carry on size",
+       22200
+      ],
+      [
+       "baggage allowance for jetblue",
+       9900
+      ],
+      [
+       "jetblue airlines baggage allowance",
+       9900
+      ],
+      [
+       "jetblue airlines baggage fees",
+       9900
+      ],
+      [
+       "jetblue airways baggage rules",
+       9900
+      ],
+      [
+       "jetblue baggage allowances",
+       9900
+      ],
+      [
+       "jetblue baggage fee",
+       9900
+      ],
+      [
+       "jetblue baggage fees",
+       9900
+      ],
+      [
+       "jetblue carry-on",
+       9900
+      ]
+     ]
+    }
+   }
+  },
+  "spirit": {
+   "cerca": "spirit",
+   "paese": "us",
+   "frasi": {
+    "spirit baggage fees": {
+     "volume": 14800,
+     "cpc": 11.28,
+     "simili": [
+      [
+       "baggage allowance spirit airlines",
+       49500
+      ],
+      [
+       "spirit airline baggage fees",
+       49500
+      ],
+      [
+       "spirit airlines baggage fee",
+       49500
+      ],
+      [
+       "spirit airlines baggage fees",
+       49500
+      ],
+      [
+       "spirit airlines fees for baggage",
+       49500
+      ],
+      [
+       "baggage policy spirit",
+       33100
+      ],
+      [
+       "baggage fee spirit",
+       27100
+      ],
+      [
+       "spirit baggage fee",
+       27100
+      ],
+      [
+       "spirit airlines baggage policy",
+       22200
+      ],
+      [
+       "spirit baggage policy",
+       22200
+      ]
+     ]
+    },
+    "spirit checked bag": {
+     "volume": 1600,
+     "cpc": 0,
+     "simili": []
+    },
+    "spirit checked bag fee": {
+     "volume": 3600,
+     "cpc": 0,
+     "simili": []
+    },
+    "spirit checked baggage": {
+     "volume": 110,
+     "cpc": 0,
+     "simili": [
+      [
+       "baggage allowance spirit airlines",
+       49500
+      ],
+      [
+       "spirit airline baggage fees",
+       49500
+      ],
+      [
+       "spirit airlines baggage fees",
+       49500
+      ],
+      [
+       "baggage policy spirit",
+       33100
+      ],
+      [
+       "baggage fee spirit",
+       27100
+      ],
+      [
+       "spirit baggage fee",
+       27100
+      ],
+      [
+       "spirit airlines baggage policy",
+       22200
+      ],
+      [
+       "spirit airlines carry on size",
+       22200
+      ],
+      [
+       "spirit bag policy",
+       22200
+      ],
+      [
+       "spirit baggage policy",
+       22200
+      ]
+     ]
+    },
+    "spirit baggage allowance": {
+     "volume": 1300,
+     "cpc": 0,
+     "simili": [
+      [
+       "baggage allowance spirit airlines",
+       49500
+      ],
+      [
+       "spirit airline baggage fees",
+       49500
+      ],
+      [
+       "spirit airlines baggage fees",
+       49500
+      ],
+      [
+       "baggage policy spirit",
+       33100
+      ],
+      [
+       "baggage fee spirit",
+       27100
+      ],
+      [
+       "spirit baggage fee",
+       27100
+      ],
+      [
+       "spirit airlines baggage policy",
+       22200
+      ],
+      [
+       "spirit bag policy",
+       22200
+      ],
+      [
+       "spirit baggage policy",
+       22200
+      ],
+      [
+       "spirit carry on size",
+       22200
+      ]
+     ]
+    },
+    "spirit bag fees": {
+     "errore": 404
+    },
+    "spirit checked bag size": {
+     "volume": 12100,
+     "cpc": 0.93,
+     "simili": [
+      [
+       "baggage allowance spirit airlines",
+       49500
+      ],
+      [
+       "spirit airline baggage fees",
+       49500
+      ],
+      [
+       "spirit airlines baggage fees",
+       49500
+      ],
+      [
+       "baggage policy spirit",
+       33100
+      ],
+      [
+       "baggage fee spirit",
+       27100
+      ],
+      [
+       "spirit baggage fee",
+       27100
+      ],
+      [
+       "spirit airlines baggage policy",
+       22200
+      ],
+      [
+       "spirit airlines carry on size",
+       22200
+      ],
+      [
+       "spirit bag policy",
+       22200
+      ],
+      [
+       "spirit baggage policy",
+       22200
+      ]
+     ]
+    },
+    "spirit checked bag weight limit": {
+     "volume": 2900,
+     "cpc": 0,
+     "simili": [
+      [
+       "baggage allowance spirit airlines",
+       49500
+      ],
+      [
+       "spirit airline baggage fees",
+       49500
+      ],
+      [
+       "spirit airlines baggage fees",
+       49500
+      ],
+      [
+       "baggage policy spirit",
+       33100
+      ],
+      [
+       "baggage fee spirit",
+       27100
+      ],
+      [
+       "spirit baggage fee",
+       27100
+      ],
+      [
+       "spirit airlines baggage policy",
+       22200
+      ],
+      [
+       "spirit airlines carry on size",
+       22200
+      ],
+      [
+       "spirit baggage policy",
+       22200
+      ],
+      [
+       "spirit carry on size",
+       22200
+      ]
+     ]
+    },
+    "spirit baggage policy": {
+     "volume": 22200,
+     "cpc": 10.98,
+     "simili": [
+      [
+       "baggage allowance spirit airlines",
+       49500
+      ],
+      [
+       "spirit airline baggage fees",
+       49500
+      ],
+      [
+       "spirit airlines baggage fees",
+       49500
+      ],
+      [
+       "spirit airlines fees for baggage",
+       49500
+      ],
+      [
+       "baggage policy spirit",
+       33100
+      ],
+      [
+       "baggage fee spirit",
+       27100
+      ],
+      [
+       "spirit baggage fee",
+       27100
+      ],
+      [
+       "spirit airlines carry on size",
+       22200
+      ],
+      [
+       "spirit bag policy",
+       22200
+      ],
+      [
+       "spirit carry on size",
+       22200
+      ]
+     ]
+    }
+   }
+  }
+ }
+}
