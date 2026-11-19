@@ -1,0 +1,3222 @@
+{
+ "_nota": "Volumi di ricerca misurati per i power bank (riquadro «Power banks» nelle pagine cabin-bags/<compagnia>/ e indice cabin-bags/power-banks/). Volume = media mensile di Google Ads nel Paese indicato; 0 = sotto le ~10 ricerche al mese; errore 404 = frase non presente nello strumento (contata 0). Le frasi nell'H2 del riquadro, nelle descrizioni e nel titolo dell'indice (genera.py) devono essere qui con volume > 0. Riscritto da raccolta/powerbank.py --domanda.",
+ "fonte": "api.seodata.dev /v1/keyword (volume medio mensile Google Ads)",
+ "misurato_il": "2026-11-19",
+ "richieste": 210,
+ "generali": {
+  "power bank rules [us]": {
+   "frase": "power bank rules",
+   "paese": "us",
+   "errore": 404
+  },
+  "power bank rules [gb]": {
+   "frase": "power bank rules",
+   "paese": "gb",
+   "errore": 404
+  },
+  "power bank on plane [us]": {
+   "frase": "power bank on plane",
+   "paese": "us",
+   "volume": 2900,
+   "cpc": 0.47,
+   "simili": [
+    [
+     "power bank airplane",
+     2900
+    ],
+    [
+     "power bank plane",
+     1600
+    ],
+    [
+     "power bank in airplane",
+     1300
+    ],
+    [
+     "power banks on planes",
+     1300
+    ],
+    [
+     "power bank on airplane",
+     2900
+    ],
+    [
+     "powerbank plane",
+     1300
+    ],
+    [
+     "what power banks can you take on a plane",
+     70
+    ],
+    [
+     "power banks allowed on planes",
+     390
+    ],
+    [
+     "power bank on a plane",
+     40
+    ],
+    [
+     "power banks on a plane",
+     40
+    ]
+   ]
+  },
+  "power bank on plane [gb]": {
+   "frase": "power bank on plane",
+   "paese": "gb",
+   "volume": 1900,
+   "cpc": 0.61,
+   "simili": [
+    [
+     "can you take a power bank on a plane",
+     2900
+    ],
+    [
+     "can you take a power bank on an airplane",
+     2900
+    ],
+    [
+     "can you take power bank on plane",
+     2900
+    ],
+    [
+     "can you take power banks on planes",
+     2900
+    ],
+    [
+     "power bank aeroplane",
+     1900
+    ],
+    [
+     "power bank for flight",
+     1900
+    ],
+    [
+     "power banks on planes",
+     1900
+    ],
+    [
+     "powerbank airplane",
+     1900
+    ],
+    [
+     "powerbank on airplanes",
+     1900
+    ],
+    [
+     "powerbank plane",
+     1900
+    ]
+   ]
+  },
+  "can you bring a power bank on a plane [us]": {
+   "frase": "can you bring a power bank on a plane",
+   "paese": "us",
+   "volume": 880,
+   "cpc": 0.62,
+   "simili": [
+    [
+     "power bank airplane",
+     2900
+    ],
+    [
+     "power bank on plane",
+     2900
+    ],
+    [
+     "power bank plane",
+     2900
+    ],
+    [
+     "power bank in airplane",
+     2900
+    ],
+    [
+     "can you bring power bank on airplane",
+     170
+    ],
+    [
+     "can i bring a power bank on an airplane",
+     40
+    ],
+    [
+     "can you take a power bank on a plane",
+     1000
+    ],
+    [
+     "can i take a power bank on a plane",
+     880
+    ],
+    [
+     "can you take power banks on a plane",
+     480
+    ],
+    [
+     "can i take a portable power bank on a plane",
+     90
+    ]
+   ]
+  },
+  "can you take a power bank on a plane [gb]": {
+   "frase": "can you take a power bank on a plane",
+   "paese": "gb",
+   "volume": 2900,
+   "cpc": 0,
+   "simili": [
+    [
+     "can you take a power bank on an airplane",
+     2900
+    ],
+    [
+     "can you take power bank on plane",
+     2900
+    ],
+    [
+     "can you take power banks on planes",
+     2900
+    ],
+    [
+     "power bank aeroplane",
+     1900
+    ],
+    [
+     "power bank airplane",
+     1900
+    ],
+    [
+     "power bank for flight",
+     1900
+    ],
+    [
+     "power bank on plane",
+     1900
+    ],
+    [
+     "power banks on airplanes",
+     1900
+    ],
+    [
+     "powerbank plane",
+     1900
+    ],
+    [
+     "can i take power bank on plane",
+     1300
+    ]
+   ]
+  },
+  "power bank airline rules [us]": {
+   "frase": "power bank airline rules",
+   "paese": "us",
+   "volume": 30,
+   "cpc": 0,
+   "simili": [
+    [
+     "power bank airplane",
+     2900
+    ],
+    [
+     "power bank on plane",
+     2900
+    ],
+    [
+     "power bank plane",
+     1600
+    ],
+    [
+     "power bank in airplane",
+     1300
+    ],
+    [
+     "power banks on planes",
+     1300
+    ],
+    [
+     "power banks allowed on planes",
+     390
+    ],
+    [
+     "what power banks are allowed on flights",
+     30
+    ],
+    [
+     "are power banks allowed on flights",
+     1600
+    ],
+    [
+     "tsa approved power bank",
+     1600
+    ],
+    [
+     "are power banks allowed on planes",
+     1300
+    ]
+   ]
+  },
+  "power bank in hand luggage [gb]": {
+   "frase": "power bank in hand luggage",
+   "paese": "gb",
+   "volume": 480,
+   "cpc": 0.67,
+   "simili": [
+    [
+     "can i take power bank on plane",
+     1300
+    ],
+    [
+     "power banks in hand luggage",
+     480
+    ],
+    [
+     "powerbank in hand luggage",
+     480
+    ],
+    [
+     "can you take power banks in hand luggage",
+     390
+    ],
+    [
+     "cabin luggage power bank",
+     210
+    ],
+    [
+     "can power banks go in hand luggage",
+     210
+    ],
+    [
+     "can you take a power bank in hand luggage",
+     210
+    ],
+    [
+     "can you take battery packs on a plane",
+     210
+    ],
+    [
+     "hand luggage power bank",
+     210
+    ],
+    [
+     "powerbank hand luggage",
+     210
+    ]
+   ]
+  },
+  "airline power bank rules [us]": {
+   "frase": "airline power bank rules",
+   "paese": "us",
+   "errore": 404
+  },
+  "power bank flight rules [us]": {
+   "frase": "power bank flight rules",
+   "paese": "us",
+   "volume": 70,
+   "cpc": 0.18,
+   "simili": [
+    [
+     "power bank airplane",
+     2900
+    ],
+    [
+     "power bank on plane",
+     2900
+    ],
+    [
+     "power bank plane",
+     1600
+    ],
+    [
+     "power bank in airplane",
+     1300
+    ],
+    [
+     "power banks on planes",
+     1300
+    ],
+    [
+     "power bank airplane allowed",
+     30
+    ],
+    [
+     "powerbank plane",
+     1300
+    ],
+    [
+     "powerbank restrictions on flights",
+     90
+    ],
+    [
+     "powerbank in airplane",
+     1600
+    ],
+    [
+     "tsa approved power bank",
+     1600
+    ]
+   ]
+  }
+ },
+ "compagnie": {
+  "ryanair": {
+   "cerca": "ryanair",
+   "paese": "gb",
+   "frasi": {
+    "ryanair power bank": {
+     "volume": 320,
+     "cpc": 0.48,
+     "simili": [
+      [
+       "ryanair power banks",
+       320
+      ],
+      [
+       "power bank ryanair",
+       140
+      ],
+      [
+       "power banks ryanair",
+       140
+      ],
+      [
+       "powerbank ryanair",
+       140
+      ],
+      [
+       "ryanair power bank limit",
+       140
+      ],
+      [
+       "ryanair powerbank limit",
+       140
+      ],
+      [
+       "ryanair battery policy",
+       110
+      ],
+      [
+       "ryanair power bank rules",
+       90
+      ],
+      [
+       "portable charger ryanair",
+       70
+      ],
+      [
+       "ryanair portable charger",
+       70
+      ]
+     ]
+    },
+    "power bank ryanair": {
+     "volume": 140,
+     "cpc": 1.23,
+     "simili": [
+      [
+       "ryanair power bank",
+       320
+      ],
+      [
+       "ryanair power banks",
+       320
+      ],
+      [
+       "power banks ryanair",
+       140
+      ],
+      [
+       "powerbank ryanair",
+       140
+      ],
+      [
+       "ryanair power bank limit",
+       140
+      ],
+      [
+       "ryanair powerbank limit",
+       140
+      ],
+      [
+       "ryanair battery policy",
+       110
+      ],
+      [
+       "ryanair power bank rules",
+       90
+      ],
+      [
+       "portable charger ryanair",
+       70
+      ],
+      [
+       "ryanair portable charger",
+       70
+      ]
+     ]
+    },
+    "can i bring a power bank on ryanair": {
+     "errore": 404
+    },
+    "ryanair power bank rules": {
+     "volume": 90,
+     "cpc": 0,
+     "simili": [
+      [
+       "ryanair power bank",
+       320
+      ],
+      [
+       "ryanair power banks",
+       320
+      ],
+      [
+       "power bank ryanair",
+       140
+      ],
+      [
+       "power banks ryanair",
+       140
+      ],
+      [
+       "powerbank ryanair",
+       140
+      ],
+      [
+       "ryanair power bank limit",
+       140
+      ],
+      [
+       "ryanair powerbank limit",
+       140
+      ],
+      [
+       "ryanair battery policy",
+       110
+      ],
+      [
+       "can you take a power bank on a plane ryanair",
+       70
+      ],
+      [
+       "ryanair lithium batteries",
+       70
+      ]
+     ]
+    },
+    "ryanair portable charger": {
+     "volume": 70,
+     "cpc": 0,
+     "simili": [
+      [
+       "ryanair power bank",
+       320
+      ],
+      [
+       "ryanair power banks",
+       320
+      ],
+      [
+       "power bank ryanair",
+       140
+      ],
+      [
+       "power banks ryanair",
+       140
+      ],
+      [
+       "powerbank ryanair",
+       140
+      ],
+      [
+       "ryanair power bank limit",
+       140
+      ],
+      [
+       "ryanair powerbank limit",
+       140
+      ],
+      [
+       "ryanair battery policy",
+       110
+      ],
+      [
+       "ryanair power bank rules",
+       90
+      ],
+      [
+       "portable charger ryanair",
+       70
+      ]
+     ]
+    }
+   }
+  },
+  "easyjet": {
+   "cerca": "easyjet",
+   "paese": "gb",
+   "frasi": {
+    "easyjet power bank": {
+     "volume": 390,
+     "cpc": 0,
+     "simili": [
+      [
+       "power bank easyjet",
+       390
+      ],
+      [
+       "easyjet battery policy",
+       110
+      ],
+      [
+       "easyjet power bank limit",
+       90
+      ],
+      [
+       "easyjet portable charger",
+       70
+      ],
+      [
+       "portable charger easyjet",
+       70
+      ],
+      [
+       "easyjet lithium batteries",
+       90
+      ],
+      [
+       "power bank in hand luggage",
+       480
+      ],
+      [
+       "powerbank in hand luggage",
+       480
+      ],
+      [
+       "easyjet restricted items",
+       390
+      ],
+      [
+       "what can you take in hand luggage easyjet",
+       320
+      ]
+     ]
+    },
+    "power bank easyjet": {
+     "volume": 390,
+     "cpc": 0,
+     "simili": [
+      [
+       "easyjet power bank",
+       390
+      ],
+      [
+       "easyjet battery policy",
+       110
+      ],
+      [
+       "easyjet power bank limit",
+       90
+      ],
+      [
+       "easyjet portable charger",
+       70
+      ],
+      [
+       "portable charger easyjet",
+       70
+      ],
+      [
+       "easyjet lithium batteries",
+       90
+      ],
+      [
+       "power bank in hand luggage",
+       480
+      ],
+      [
+       "powerbank in hand luggage",
+       480
+      ],
+      [
+       "easyjet restricted items",
+       390
+      ],
+      [
+       "can you take a power bank in hand luggage",
+       210
+      ]
+     ]
+    },
+    "can i bring a power bank on easyjet": {
+     "errore": 404
+    },
+    "easyjet power bank rules": {
+     "errore": 404
+    },
+    "easyjet portable charger": {
+     "volume": 70,
+     "cpc": 0,
+     "simili": [
+      [
+       "easyjet power bank",
+       390
+      ],
+      [
+       "power bank easyjet",
+       390
+      ],
+      [
+       "easyjet battery policy",
+       110
+      ],
+      [
+       "easyjet power bank limit",
+       90
+      ],
+      [
+       "portable charger easyjet",
+       70
+      ],
+      [
+       "easyjet lithium batteries",
+       90
+      ],
+      [
+       "easyjet prohibited items hand luggage",
+       720
+      ],
+      [
+       "carry on liquids easyjet",
+       480
+      ],
+      [
+       "can you take power banks in hand luggage",
+       390
+      ],
+      [
+       "easyjet restricted items",
+       390
+      ]
+     ]
+    }
+   }
+  },
+  "wizz-air": {
+   "cerca": "wizz air",
+   "paese": "gb",
+   "frasi": {
+    "wizz air power bank": {
+     "volume": 70,
+     "cpc": 0,
+     "simili": [
+      [
+       "wizzair power bank",
+       70
+      ],
+      [
+       "hand baggage wizz air",
+       1600
+      ],
+      [
+       "checked in baggage wizz air",
+       320
+      ],
+      [
+       "baggage allowance on wizz air",
+       4400
+      ],
+      [
+       "cabin bag wizzair",
+       1600
+      ],
+      [
+       "cabin baggage wizz air",
+       1600
+      ],
+      [
+       "hand luggage for wizz air",
+       1600
+      ],
+      [
+       "hand bag wizz air",
+       880
+      ],
+      [
+       "cabin luggage size wizz air",
+       720
+      ],
+      [
+       "baggage wizz air",
+       480
+      ]
+     ]
+    },
+    "power bank wizz air": {
+     "errore": 404
+    },
+    "can i bring a power bank on wizz air": {
+     "errore": 404
+    },
+    "wizz air power bank rules": {
+     "errore": 404
+    },
+    "wizz air portable charger": {
+     "errore": 404
+    }
+   }
+  },
+  "vueling": {
+   "cerca": "vueling",
+   "paese": "gb",
+   "frasi": {
+    "vueling power bank": {
+     "errore": 404
+    },
+    "power bank vueling": {
+     "errore": 404
+    },
+    "can i bring a power bank on vueling": {
+     "errore": 404
+    },
+    "vueling power bank rules": {
+     "errore": 404
+    },
+    "vueling portable charger": {
+     "errore": 404
+    }
+   }
+  },
+  "jet2": {
+   "cerca": "jet2",
+   "paese": "gb",
+   "frasi": {
+    "jet2 power bank": {
+     "volume": 110,
+     "cpc": 0.77,
+     "simili": [
+      [
+       "can phone chargers go in hand luggage jet2",
+       170
+      ],
+      [
+       "jet2 phone chargers in hand luggage",
+       110
+      ],
+      [
+       "can you take electrical items in hand luggage jet2",
+       70
+      ],
+      [
+       "power bank british airways",
+       390
+      ],
+      [
+       "power bank on plane uk",
+       170
+      ],
+      [
+       "ryanair power bank limit",
+       140
+      ],
+      [
+       "ryanair battery policy",
+       110
+      ],
+      [
+       "ryanair power bank rules",
+       90
+      ],
+      [
+       "can you take a power bank on a plane ryanair",
+       70
+      ],
+      [
+       "ryanair lithium batteries",
+       70
+      ]
+     ]
+    },
+    "power bank jet2": {
+     "errore": 404
+    },
+    "can i bring a power bank on jet2": {
+     "errore": 404
+    },
+    "jet2 power bank rules": {
+     "errore": 404
+    },
+    "jet2 portable charger": {
+     "errore": 404
+    }
+   }
+  },
+  "british-airways": {
+   "cerca": "british airways",
+   "paese": "gb",
+   "frasi": {
+    "british airways power bank": {
+     "volume": 390,
+     "cpc": 0,
+     "simili": [
+      [
+       "power bank british airways",
+       390
+      ],
+      [
+       "power banks british airways",
+       390
+      ],
+      [
+       "british airways battery policy",
+       140
+      ],
+      [
+       "british airways batteries",
+       90
+      ],
+      [
+       "british airways lithium batteries",
+       110
+      ],
+      [
+       "lithium battery british airways",
+       110
+      ],
+      [
+       "can i take a power bank on a plane uk",
+       170
+      ],
+      [
+       "power bank airplane uk",
+       170
+      ],
+      [
+       "power bank on plane uk",
+       170
+      ],
+      [
+       "can you take a portable charger in hand luggage",
+       110
+      ]
+     ]
+    },
+    "power bank british airways": {
+     "volume": 390,
+     "cpc": 0,
+     "simili": [
+      [
+       "british airways power bank",
+       390
+      ],
+      [
+       "power banks british airways",
+       390
+      ],
+      [
+       "can i take a power bank on a plane uk",
+       170
+      ],
+      [
+       "power bank airplane uk",
+       170
+      ],
+      [
+       "power bank on plane uk",
+       170
+      ],
+      [
+       "lithium battery british airways",
+       110
+      ],
+      [
+       "british airways batteries",
+       90
+      ],
+      [
+       "power bank in hand luggage",
+       480
+      ],
+      [
+       "power banks in hand luggage",
+       480
+      ],
+      [
+       "can you take power banks in hand luggage",
+       390
+      ]
+     ]
+    },
+    "can i bring a power bank on british airways": {
+     "errore": 404
+    },
+    "british airways power bank rules": {
+     "errore": 404
+    },
+    "british airways portable charger": {
+     "errore": 404
+    }
+   }
+  },
+  "lufthansa": {
+   "cerca": "lufthansa",
+   "paese": "gb",
+   "frasi": {
+    "lufthansa power bank": {
+     "errore": 404
+    },
+    "power bank lufthansa": {
+     "errore": 404
+    },
+    "can i bring a power bank on lufthansa": {
+     "errore": 404
+    },
+    "lufthansa power bank rules": {
+     "errore": 404
+    },
+    "lufthansa portable charger": {
+     "errore": 404
+    }
+   }
+  },
+  "klm": {
+   "cerca": "klm",
+   "paese": "gb",
+   "frasi": {
+    "klm power bank": {
+     "errore": 404
+    },
+    "power bank klm": {
+     "errore": 404
+    },
+    "can i bring a power bank on klm": {
+     "errore": 404
+    },
+    "klm power bank rules": {
+     "errore": 404
+    },
+    "klm portable charger": {
+     "errore": 404
+    }
+   }
+  },
+  "air-france": {
+   "cerca": "air france",
+   "paese": "gb",
+   "frasi": {
+    "air france power bank": {
+     "errore": 404
+    },
+    "power bank air france": {
+     "errore": 404
+    },
+    "can i bring a power bank on air france": {
+     "errore": 404
+    },
+    "air france power bank rules": {
+     "errore": 404
+    },
+    "air france portable charger": {
+     "errore": 404
+    }
+   }
+  },
+  "ita-airways": {
+   "cerca": "ita airways",
+   "paese": "gb",
+   "frasi": {
+    "ita airways power bank": {
+     "errore": 404
+    },
+    "power bank ita airways": {
+     "errore": 404
+    },
+    "can i bring a power bank on ita airways": {
+     "errore": 404
+    },
+    "ita airways power bank rules": {
+     "errore": 404
+    },
+    "ita airways portable charger": {
+     "errore": 404
+    }
+   }
+  },
+  "iberia": {
+   "cerca": "iberia",
+   "paese": "gb",
+   "frasi": {
+    "iberia power bank": {
+     "errore": 404
+    },
+    "power bank iberia": {
+     "errore": 404
+    },
+    "can i bring a power bank on iberia": {
+     "errore": 404
+    },
+    "iberia power bank rules": {
+     "errore": 404
+    },
+    "iberia portable charger": {
+     "errore": 404
+    }
+   }
+  },
+  "tap": {
+   "cerca": "tap air portugal",
+   "paese": "gb",
+   "frasi": {
+    "tap air portugal power bank": {
+     "errore": 404
+    },
+    "power bank tap air portugal": {
+     "errore": 404
+    },
+    "can i bring a power bank on tap air portugal": {
+     "errore": 404
+    },
+    "tap air portugal power bank rules": {
+     "errore": 404
+    },
+    "tap air portugal portable charger": {
+     "errore": 404
+    }
+   }
+  },
+  "norwegian": {
+   "cerca": "norwegian",
+   "paese": "gb",
+   "frasi": {
+    "norwegian power bank": {
+     "errore": 404
+    },
+    "power bank norwegian": {
+     "errore": 404
+    },
+    "can i bring a power bank on norwegian": {
+     "errore": 404
+    },
+    "norwegian power bank rules": {
+     "errore": 404
+    },
+    "norwegian portable charger": {
+     "errore": 404
+    }
+   }
+  },
+  "eurowings": {
+   "cerca": "eurowings",
+   "paese": "gb",
+   "frasi": {
+    "eurowings power bank": {
+     "errore": 404
+    },
+    "power bank eurowings": {
+     "errore": 404
+    },
+    "can i bring a power bank on eurowings": {
+     "errore": 404
+    },
+    "eurowings power bank rules": {
+     "errore": 404
+    },
+    "eurowings portable charger": {
+     "errore": 404
+    }
+   }
+  },
+  "volotea": {
+   "cerca": "volotea",
+   "paese": "gb",
+   "frasi": {
+    "volotea power bank": {
+     "errore": 404
+    },
+    "power bank volotea": {
+     "errore": 404
+    },
+    "can i bring a power bank on volotea": {
+     "errore": 404
+    },
+    "volotea power bank rules": {
+     "errore": 404
+    },
+    "volotea portable charger": {
+     "errore": 404
+    }
+   }
+  },
+  "pegasus": {
+   "cerca": "pegasus",
+   "paese": "gb",
+   "frasi": {
+    "pegasus power bank": {
+     "errore": 404
+    },
+    "power bank pegasus": {
+     "errore": 404
+    },
+    "can i bring a power bank on pegasus": {
+     "errore": 404
+    },
+    "pegasus power bank rules": {
+     "errore": 404
+    },
+    "pegasus portable charger": {
+     "errore": 404
+    }
+   }
+  },
+  "virgin-atlantic": {
+   "cerca": "virgin atlantic",
+   "paese": "gb",
+   "frasi": {
+    "virgin atlantic power bank": {
+     "volume": 50,
+     "cpc": 0,
+     "simili": [
+      [
+       "power bank rules in flight",
+       70
+      ],
+      [
+       "power bank for flight",
+       1900
+      ],
+      [
+       "power banks on airplanes",
+       1900
+      ],
+      [
+       "virgin airline hand luggage",
+       1300
+      ],
+      [
+       "virgin atlantic hand baggage allowance",
+       1300
+      ],
+      [
+       "power bank flight restrictions uk",
+       880
+      ],
+      [
+       "virgin cabin bag size",
+       880
+      ],
+      [
+       "premium economy virgin atlantic baggage allowance",
+       720
+      ],
+      [
+       "premium economy virgin baggage allowance",
+       720
+      ],
+      [
+       "virgin atlantic baggage allowance premium economy",
+       720
+      ]
+     ]
+    },
+    "power bank virgin atlantic": {
+     "errore": 404
+    },
+    "can i bring a power bank on virgin atlantic": {
+     "errore": 404
+    },
+    "virgin atlantic power bank rules": {
+     "errore": 404
+    },
+    "virgin atlantic portable charger": {
+     "errore": 404
+    }
+   }
+  },
+  "emirates": {
+   "cerca": "emirates",
+   "paese": "gb",
+   "frasi": {
+    "emirates power bank": {
+     "volume": 880,
+     "cpc": 0.95,
+     "simili": [
+      [
+       "power banks emirates",
+       880
+      ],
+      [
+       "power bank emirates",
+       90
+      ],
+      [
+       "emirates power bank rules",
+       70
+      ],
+      [
+       "power bank flight restrictions uk",
+       880
+      ],
+      [
+       "movies in emirates flight",
+       320
+      ],
+      [
+       "movies on emirates flights",
+       320
+      ],
+      [
+       "powerbank emirates",
+       90
+      ],
+      [
+       "allowance baggage emirates",
+       8100
+      ],
+      [
+       "emirates airline baggage rules",
+       8100
+      ],
+      [
+       "emirates airlines baggage rules",
+       8100
+      ]
+     ]
+    },
+    "power bank emirates": {
+     "volume": 90,
+     "cpc": 0,
+     "simili": [
+      [
+       "emirates power bank",
+       880
+      ],
+      [
+       "power banks emirates",
+       880
+      ],
+      [
+       "emirates power bank rules",
+       70
+      ],
+      [
+       "emirates airline baggage rules",
+       8100
+      ],
+      [
+       "emirates airlines baggage rules",
+       8100
+      ],
+      [
+       "emirates golf clubs",
+       1900
+      ],
+      [
+       "carry on luggage for emirates",
+       1600
+      ],
+      [
+       "emirates cabin baggage",
+       1600
+      ],
+      [
+       "emirates carry on baggage",
+       1600
+      ],
+      [
+       "power bank flight restrictions uk",
+       880
+      ]
+     ]
+    },
+    "can i bring a power bank on emirates": {
+     "errore": 404
+    },
+    "emirates power bank rules": {
+     "volume": 70,
+     "cpc": 0,
+     "simili": [
+      [
+       "emirates power bank",
+       880
+      ],
+      [
+       "power banks emirates",
+       880
+      ],
+      [
+       "power bank emirates",
+       90
+      ],
+      [
+       "emirates airline baggage rules",
+       8100
+      ],
+      [
+       "emirates airlines baggage rules",
+       8100
+      ],
+      [
+       "emirates golf clubs",
+       1900
+      ],
+      [
+       "carry on luggage for emirates",
+       1600
+      ],
+      [
+       "emirates cabin baggage",
+       1600
+      ],
+      [
+       "emirates carry on baggage",
+       1600
+      ],
+      [
+       "power bank flight restrictions uk",
+       880
+      ]
+     ]
+    },
+    "emirates portable charger": {
+     "errore": 404
+    }
+   }
+  },
+  "qatar-airways": {
+   "cerca": "qatar airways",
+   "paese": "gb",
+   "frasi": {
+    "qatar airways power bank": {
+     "volume": 110,
+     "cpc": 0,
+     "simili": [
+      [
+       "power bank qatar airways",
+       140
+      ],
+      [
+       "qatar airways prohibited items",
+       50
+      ],
+      [
+       "qatar airways restricted items in checked baggage",
+       50
+      ],
+      [
+       "qatar airways restricted food items",
+       40
+      ],
+      [
+       "qatar airways liquid allowance",
+       50
+      ],
+      [
+       "qatar airways baggage restrictions",
+       8100
+      ],
+      [
+       "qatar airways uk contact number",
+       4400
+      ],
+      [
+       "american airlines cabin baggage",
+       880
+      ],
+      [
+       "laptop in check-in baggage",
+       720
+      ],
+      [
+       "qatar airways uk contact",
+       720
+      ]
+     ]
+    },
+    "power bank qatar airways": {
+     "volume": 140,
+     "cpc": 0,
+     "simili": [
+      [
+       "qatar airways power bank",
+       110
+      ],
+      [
+       "qatar airways prohibited items",
+       50
+      ],
+      [
+       "qatar airways restricted items in checked baggage",
+       50
+      ],
+      [
+       "qatar airways restricted food items",
+       40
+      ],
+      [
+       "qatar airways liquid allowance",
+       50
+      ],
+      [
+       "qatar airways baggage restrictions",
+       8100
+      ],
+      [
+       "qatar airways uk contact number",
+       4400
+      ],
+      [
+       "qatar airways uk contact",
+       720
+      ],
+      [
+       "hand luggage size qatar airways",
+       590
+      ],
+      [
+       "qatar hand luggage size",
+       590
+      ]
+     ]
+    },
+    "can i bring a power bank on qatar airways": {
+     "errore": 404
+    },
+    "qatar airways power bank rules": {
+     "errore": 404
+    },
+    "qatar airways portable charger": {
+     "errore": 404
+    }
+   }
+  },
+  "qantas": {
+   "cerca": "qantas",
+   "paese": "au",
+   "frasi": {
+    "qantas power bank": {
+     "volume": 320,
+     "cpc": 0.72,
+     "simili": [
+      [
+       "power bank qantas",
+       320
+      ],
+      [
+       "qantas power bank limit",
+       210
+      ],
+      [
+       "qantas power bank rules",
+       110
+      ],
+      [
+       "qantas power banks",
+       50
+      ],
+      [
+       "qantas portable charger",
+       50
+      ],
+      [
+       "qantas battery rules",
+       140
+      ],
+      [
+       "qantas battery limit",
+       70
+      ],
+      [
+       "qantas battery",
+       140
+      ],
+      [
+       "qantas battery policy",
+       90
+      ],
+      [
+       "qantas lithium battery rules",
+       40
+      ]
+     ]
+    },
+    "power bank qantas": {
+     "volume": 320,
+     "cpc": 0.72,
+     "simili": [
+      [
+       "qantas power bank",
+       320
+      ],
+      [
+       "qantas power bank limit",
+       210
+      ],
+      [
+       "qantas power bank rules",
+       110
+      ],
+      [
+       "qantas portable charger",
+       50
+      ],
+      [
+       "qantas power banks",
+       50
+      ],
+      [
+       "qantas battery rules",
+       140
+      ],
+      [
+       "qantas battery limit",
+       70
+      ],
+      [
+       "qantas battery",
+       140
+      ],
+      [
+       "qantas battery policy",
+       90
+      ],
+      [
+       "qantas lithium battery rules",
+       40
+      ]
+     ]
+    },
+    "can i bring a power bank on qantas": {
+     "errore": 404
+    },
+    "qantas power bank rules": {
+     "volume": 110,
+     "cpc": 0,
+     "simili": [
+      [
+       "power bank qantas",
+       320
+      ],
+      [
+       "qantas power bank limit",
+       210
+      ],
+      [
+       "qantas power banks",
+       50
+      ],
+      [
+       "qantas power bank",
+       320
+      ],
+      [
+       "qantas portable charger",
+       50
+      ],
+      [
+       "qantas battery rules",
+       140
+      ],
+      [
+       "lithium ion battery qantas",
+       110
+      ],
+      [
+       "qantas battery policy",
+       90
+      ],
+      [
+       "qantas battery",
+       140
+      ],
+      [
+       "qantas battery limit",
+       70
+      ]
+     ]
+    },
+    "qantas portable charger": {
+     "volume": 50,
+     "cpc": 0,
+     "simili": [
+      [
+       "power bank qantas",
+       320
+      ],
+      [
+       "qantas power bank rules",
+       110
+      ],
+      [
+       "qantas power bank",
+       320
+      ],
+      [
+       "qantas power bank limit",
+       210
+      ],
+      [
+       "qantas lithium battery rules",
+       40
+      ],
+      [
+       "qantas battery",
+       140
+      ],
+      [
+       "qantas battery limit",
+       70
+      ],
+      [
+       "qantas power banks",
+       50
+      ],
+      [
+       "qantas battery rules",
+       140
+      ],
+      [
+       "lithium ion battery qantas",
+       110
+      ]
+     ]
+    }
+   }
+  },
+  "united": {
+   "cerca": "united airlines",
+   "paese": "us",
+   "frasi": {
+    "united airlines power bank": {
+     "volume": 260,
+     "cpc": 0,
+     "simili": [
+      [
+       "power bank united airlines",
+       260
+      ],
+      [
+       "powerbank united airlines",
+       260
+      ],
+      [
+       "united airline power bank limit",
+       70
+      ],
+      [
+       "united airlines portable charger policy",
+       70
+      ],
+      [
+       "united airlines power bank limit",
+       110
+      ],
+      [
+       "united airlines portable charger",
+       50
+      ],
+      [
+       "are power banks allowed on united airlines",
+       40
+      ],
+      [
+       "united power bank",
+       40
+      ],
+      [
+       "tsa batteries",
+       1300
+      ],
+      [
+       "can you take batteries on a plane",
+       2900
+      ]
+     ]
+    },
+    "power bank united airlines": {
+     "volume": 260,
+     "cpc": 0,
+     "simili": [
+      [
+       "are power banks allowed on united airlines",
+       40
+      ],
+      [
+       "united power bank",
+       40
+      ],
+      [
+       "united airline power bank limit",
+       70
+      ],
+      [
+       "powerbank united airlines",
+       260
+      ],
+      [
+       "united airlines power bank",
+       260
+      ],
+      [
+       "united airlines power bank limit",
+       110
+      ],
+      [
+       "united airlines portable charger",
+       50
+      ],
+      [
+       "united airlines portable charger policy",
+       70
+      ],
+      [
+       "power bank airplane",
+       2900
+      ],
+      [
+       "power bank on plane",
+       2900
+      ]
+     ]
+    },
+    "can i bring a power bank on united airlines": {
+     "errore": 404
+    },
+    "united airlines power bank rules": {
+     "errore": 404
+    },
+    "united airlines portable charger": {
+     "volume": 50,
+     "cpc": 0,
+     "simili": [
+      [
+       "powerbank united airlines",
+       260
+      ],
+      [
+       "united airlines portable charger policy",
+       70
+      ],
+      [
+       "are power banks allowed on united airlines",
+       40
+      ],
+      [
+       "power bank united airlines",
+       260
+      ],
+      [
+       "united airlines power bank",
+       260
+      ],
+      [
+       "united airlines power bank limit",
+       110
+      ],
+      [
+       "united airline power bank limit",
+       70
+      ],
+      [
+       "lithium batteries united airlines",
+       210
+      ],
+      [
+       "united airlines lithium battery rules",
+       70
+      ],
+      [
+       "united power bank",
+       40
+      ]
+     ]
+    }
+   }
+  },
+  "american-airlines": {
+   "cerca": "american airlines",
+   "paese": "us",
+   "frasi": {
+    "american airlines power bank": {
+     "volume": 320,
+     "cpc": 0.53,
+     "simili": [
+      [
+       "power bank american airlines",
+       320
+      ],
+      [
+       "american airlines power bank rules",
+       170
+      ],
+      [
+       "american airlines portable charger",
+       170
+      ],
+      [
+       "american airlines portable charger policy",
+       50
+      ],
+      [
+       "are portable chargers allowed on american airlines",
+       90
+      ],
+      [
+       "power bank airplane",
+       2900
+      ],
+      [
+       "tsa power bank",
+       1900
+      ],
+      [
+       "american airlines lithium batteries policy",
+       170
+      ],
+      [
+       "lithium batteries tsa",
+       1900
+      ],
+      [
+       "lithium battery tsa",
+       1900
+      ]
+     ]
+    },
+    "power bank american airlines": {
+     "volume": 320,
+     "cpc": 0.53,
+     "simili": [
+      [
+       "american airlines power bank",
+       320
+      ],
+      [
+       "american airlines power bank rules",
+       170
+      ],
+      [
+       "american airlines portable charger policy",
+       50
+      ],
+      [
+       "american airlines portable charger",
+       170
+      ],
+      [
+       "are portable chargers allowed on american airlines",
+       90
+      ],
+      [
+       "power bank airplane",
+       2900
+      ],
+      [
+       "american airlines lithium batteries policy",
+       170
+      ],
+      [
+       "tsa power bank",
+       1900
+      ],
+      [
+       "american airlines liquid limit",
+       1600
+      ],
+      [
+       "american airlines liquids",
+       1300
+      ]
+     ]
+    },
+    "can i bring a power bank on american airlines": {
+     "errore": 404
+    },
+    "american airlines power bank rules": {
+     "volume": 170,
+     "cpc": 0,
+     "simili": [
+      [
+       "power bank american airlines",
+       320
+      ],
+      [
+       "american airlines power bank",
+       320
+      ],
+      [
+       "american airlines portable charger policy",
+       50
+      ],
+      [
+       "are portable chargers allowed on american airlines",
+       90
+      ],
+      [
+       "american airlines portable charger",
+       170
+      ],
+      [
+       "power bank airplane",
+       2900
+      ],
+      [
+       "american airlines liquid limit",
+       1600
+      ],
+      [
+       "american airlines liquids",
+       1000
+      ],
+      [
+       "american airlines liquids checked baggage",
+       390
+      ],
+      [
+       "united airlines power bank limit",
+       110
+      ]
+     ]
+    },
+    "american airlines portable charger": {
+     "volume": 170,
+     "cpc": 0.6,
+     "simili": [
+      [
+       "american airlines portable charger policy",
+       50
+      ],
+      [
+       "american airlines power bank",
+       320
+      ],
+      [
+       "power bank american airlines",
+       320
+      ],
+      [
+       "american airlines power bank rules",
+       170
+      ],
+      [
+       "are portable chargers allowed on american airlines",
+       90
+      ],
+      [
+       "american airlines liquid limit",
+       1600
+      ],
+      [
+       "american airlines lithium batteries policy",
+       170
+      ],
+      [
+       "american airlines batteries",
+       49500
+      ],
+      [
+       "american airlines liquids",
+       1000
+      ],
+      [
+       "lithium batteries on american airlines",
+       480
+      ]
+     ]
+    }
+   }
+  },
+  "delta": {
+   "cerca": "delta",
+   "paese": "us",
+   "frasi": {
+    "delta power bank": {
+     "volume": 110,
+     "cpc": 1.15,
+     "simili": [
+      [
+       "delta portable charger",
+       70
+      ],
+      [
+       "delta power bank rules",
+       210
+      ],
+      [
+       "delta airlines power bank rules",
+       140
+      ],
+      [
+       "delta airline power bank",
+       90
+      ],
+      [
+       "power bank delta airlines",
+       90
+      ],
+      [
+       "delta airlines portable charger",
+       70
+      ],
+      [
+       "delta portable charger policy",
+       70
+      ],
+      [
+       "delta battery pack",
+       40
+      ],
+      [
+       "delta lithium batteries",
+       590
+      ],
+      [
+       "delta battery policy",
+       260
+      ]
+     ]
+    },
+    "power bank delta": {
+     "errore": 404
+    },
+    "can i bring a power bank on delta": {
+     "errore": 404
+    },
+    "delta power bank rules": {
+     "volume": 210,
+     "cpc": 0,
+     "simili": [
+      [
+       "delta airlines power bank rules",
+       140
+      ],
+      [
+       "delta airline power bank",
+       90
+      ],
+      [
+       "delta portable charger policy",
+       70
+      ],
+      [
+       "delta airlines power bank",
+       90
+      ],
+      [
+       "delta airline battery policy",
+       210
+      ],
+      [
+       "power bank delta airlines",
+       90
+      ],
+      [
+       "delta airlines portable charger",
+       70
+      ],
+      [
+       "delta battery policy",
+       260
+      ],
+      [
+       "delta lithium ion battery policy",
+       70
+      ],
+      [
+       "delta airlines battery policy",
+       210
+      ]
+     ]
+    },
+    "delta portable charger": {
+     "volume": 70,
+     "cpc": 0,
+     "simili": [
+      [
+       "delta power bank",
+       110
+      ],
+      [
+       "delta portable charger policy",
+       70
+      ],
+      [
+       "delta airline power bank",
+       90
+      ],
+      [
+       "delta airlines portable charger",
+       70
+      ],
+      [
+       "delta lithium batteries",
+       590
+      ],
+      [
+       "delta power bank rules",
+       210
+      ],
+      [
+       "delta airlines power bank rules",
+       140
+      ],
+      [
+       "delta airlines power bank",
+       90
+      ],
+      [
+       "power bank delta airlines",
+       90
+      ],
+      [
+       "delta battery pack policy",
+       50
+      ]
+     ]
+    }
+   }
+  },
+  "southwest": {
+   "cerca": "southwest",
+   "paese": "us",
+   "frasi": {
+    "southwest power bank": {
+     "volume": 90,
+     "cpc": 0,
+     "simili": [
+      [
+       "southwest airlines power bank",
+       50
+      ],
+      [
+       "southwest airlines power bank policy",
+       170
+      ],
+      [
+       "southwest power bank rules",
+       140
+      ],
+      [
+       "power bank southwest airlines",
+       40
+      ],
+      [
+       "southwest airlines portable charger",
+       210
+      ],
+      [
+       "southwest portable charger",
+       210
+      ],
+      [
+       "sw power bank",
+       90
+      ],
+      [
+       "southwest portable charger policy",
+       140
+      ],
+      [
+       "southwest airlines battery pack policy",
+       50
+      ],
+      [
+       "southwest airlines battery policy checked baggage",
+       30
+      ]
+     ]
+    },
+    "power bank southwest": {
+     "errore": 404
+    },
+    "can i bring a power bank on southwest": {
+     "errore": 404
+    },
+    "southwest power bank rules": {
+     "volume": 140,
+     "cpc": 0,
+     "simili": [
+      [
+       "southwest airlines power bank",
+       50
+      ],
+      [
+       "southwest airlines portable charger",
+       210
+      ],
+      [
+       "southwest portable charger",
+       210
+      ],
+      [
+       "southwest airlines power bank policy",
+       170
+      ],
+      [
+       "southwest power bank",
+       90
+      ],
+      [
+       "power bank southwest airlines",
+       40
+      ],
+      [
+       "southwest portable charger policy",
+       140
+      ],
+      [
+       "sw power bank",
+       90
+      ],
+      [
+       "southwest airlines battery pack policy",
+       50
+      ],
+      [
+       "southwest airlines battery policy checked baggage",
+       30
+      ]
+     ]
+    },
+    "southwest portable charger": {
+     "volume": 210,
+     "cpc": 0.78,
+     "simili": [
+      [
+       "southwest airlines portable charger",
+       210
+      ],
+      [
+       "southwest portable charger policy",
+       140
+      ],
+      [
+       "southwest power bank rules",
+       140
+      ],
+      [
+       "southwest power bank",
+       90
+      ],
+      [
+       "southwest airlines power bank",
+       50
+      ],
+      [
+       "southwest battery policy",
+       320
+      ],
+      [
+       "southwest airlines power bank policy",
+       170
+      ],
+      [
+       "southwest airlines battery policy",
+       320
+      ],
+      [
+       "southwest airlines battery pack policy",
+       50
+      ],
+      [
+       "power bank southwest airlines",
+       40
+      ]
+     ]
+    }
+   }
+  },
+  "jetblue": {
+   "cerca": "jetblue",
+   "paese": "us",
+   "frasi": {
+    "jetblue power bank": {
+     "errore": 404
+    },
+    "power bank jetblue": {
+     "errore": 404
+    },
+    "can i bring a power bank on jetblue": {
+     "errore": 404
+    },
+    "jetblue power bank rules": {
+     "volume": 70,
+     "cpc": 0,
+     "simili": [
+      [
+       "jetblue lithium battery policy",
+       40
+      ],
+      [
+       "jetblue lithium batteries",
+       90
+      ],
+      [
+       "jetblue battery policy",
+       70
+      ],
+      [
+       "jetblue lithium battery",
+       90
+      ],
+      [
+       "jetblue airways baggage rules",
+       9900
+      ],
+      [
+       "jetblue baggage size",
+       2900
+      ],
+      [
+       "jetblue baggage policy",
+       9900
+      ],
+      [
+       "baggage jetblue",
+       5400
+      ],
+      [
+       "jetblue airlines carry on",
+       5400
+      ],
+      [
+       "jetblue airways baggage",
+       5400
+      ]
+     ]
+    },
+    "jetblue portable charger": {
+     "errore": 404
+    }
+   }
+  },
+  "frontier": {
+   "cerca": "frontier",
+   "paese": "us",
+   "frasi": {
+    "frontier power bank": {
+     "errore": 404
+    },
+    "power bank frontier": {
+     "errore": 404
+    },
+    "can i bring a power bank on frontier": {
+     "errore": 404
+    },
+    "frontier power bank rules": {
+     "errore": 404
+    },
+    "frontier portable charger": {
+     "errore": 404
+    }
+   }
+  },
+  "air-canada": {
+   "cerca": "air canada",
+   "paese": "ca",
+   "frasi": {
+    "air canada power bank": {
+     "volume": 390,
+     "cpc": 0,
+     "simili": [
+      [
+       "power bank air canada",
+       390
+      ],
+      [
+       "powerbank air canada",
+       390
+      ],
+      [
+       "air canada batteries",
+       110
+      ],
+      [
+       "air canada lithium battery",
+       210
+      ],
+      [
+       "what items are not allowed in checked baggage air canada",
+       260
+      ],
+      [
+       "air canada lithium batteries",
+       210
+      ],
+      [
+       "air canada battery restrictions",
+       110
+      ],
+      [
+       "air canada prohibited items",
+       170
+      ],
+      [
+       "liquids air canada",
+       880
+      ],
+      [
+       "what is not allowed on a plane carry-on canada",
+       880
+      ]
+     ]
+    },
+    "power bank air canada": {
+     "volume": 390,
+     "cpc": 0,
+     "simili": [
+      [
+       "air canada power bank",
+       390
+      ],
+      [
+       "powerbank air canada",
+       390
+      ],
+      [
+       "air canada batteries",
+       110
+      ],
+      [
+       "air canada lithium batteries",
+       210
+      ],
+      [
+       "air canada lithium battery",
+       210
+      ],
+      [
+       "what items are not allowed in checked baggage air canada",
+       260
+      ],
+      [
+       "air canada battery restrictions",
+       110
+      ],
+      [
+       "air canada power bank limit",
+       110
+      ],
+      [
+       "extra baggage cost air canada",
+       2900
+      ],
+      [
+       "extra baggage fee air canada",
+       2900
+      ]
+     ]
+    },
+    "can i bring a power bank on air canada": {
+     "errore": 404
+    },
+    "air canada power bank rules": {
+     "errore": 404
+    },
+    "air canada portable charger": {
+     "errore": 404
+    }
+   }
+  },
+  "westjet": {
+   "cerca": "westjet",
+   "paese": "ca",
+   "frasi": {
+    "westjet power bank": {
+     "volume": 40,
+     "cpc": 0,
+     "simili": [
+      [
+       "westjet carry on restrictions liquids",
+       140
+      ],
+      [
+       "westjet liquid allowance",
+       210
+      ],
+      [
+       "westjet liquids in checked baggage",
+       210
+      ],
+      [
+       "westjet liquids in carry-on",
+       2400
+      ],
+      [
+       "westjet carry on liquids",
+       1900
+      ],
+      [
+       "westjet liquids",
+       480
+      ],
+      [
+       "westjet carry-on items not allowed",
+       390
+      ],
+      [
+       "westjet carry-on liquids",
+       2400
+      ],
+      [
+       "carry-on liquid limit westjet",
+       210
+      ],
+      [
+       "is a backpack a personal item westjet",
+       210
+      ]
+     ]
+    },
+    "power bank westjet": {
+     "errore": 404
+    },
+    "can i bring a power bank on westjet": {
+     "errore": 404
+    },
+    "westjet power bank rules": {
+     "errore": 404
+    },
+    "westjet portable charger": {
+     "errore": 404
+    }
+   }
+  },
+  "alaska-airlines": {
+   "cerca": "alaska airlines",
+   "paese": "us",
+   "frasi": {
+    "alaska airlines power bank": {
+     "volume": 70,
+     "cpc": 0.08,
+     "simili": [
+      [
+       "alaska airlines battery policy",
+       140
+      ],
+      [
+       "alaska airlines lithium battery policy",
+       110
+      ],
+      [
+       "alaska airlines carry on",
+       2900
+      ],
+      [
+       "alaska airlines lithium batteries",
+       260
+      ],
+      [
+       "alaska airlines carry on restrictions",
+       3600
+      ],
+      [
+       "alaska airlines carry-on restrictions",
+       3600
+      ],
+      [
+       "carry on baggage alaska airlines",
+       2900
+      ],
+      [
+       "alaska airlines electric toothbrush",
+       40
+      ],
+      [
+       "alaska airlines baggage policy",
+       18100
+      ],
+      [
+       "baggage alaska airlines",
+       4400
+      ]
+     ]
+    },
+    "power bank alaska airlines": {
+     "errore": 404
+    },
+    "can i bring a power bank on alaska airlines": {
+     "errore": 404
+    },
+    "alaska airlines power bank rules": {
+     "errore": 404
+    },
+    "alaska airlines portable charger": {
+     "errore": 404
+    }
+   }
+  },
+  "avelo": {
+   "cerca": "avelo",
+   "paese": "us",
+   "frasi": {
+    "avelo power bank": {
+     "errore": 404
+    },
+    "power bank avelo": {
+     "errore": 404
+    },
+    "can i bring a power bank on avelo": {
+     "errore": 404
+    },
+    "avelo power bank rules": {
+     "errore": 404
+    },
+    "avelo portable charger": {
+     "errore": 404
+    }
+   }
+  },
+  "breeze": {
+   "cerca": "breeze airways",
+   "paese": "us",
+   "frasi": {
+    "breeze airways power bank": {
+     "errore": 404
+    },
+    "power bank breeze airways": {
+     "errore": 404
+    },
+    "can i bring a power bank on breeze airways": {
+     "errore": 404
+    },
+    "breeze airways power bank rules": {
+     "errore": 404
+    },
+    "breeze airways portable charger": {
+     "errore": 404
+    }
+   }
+  },
+  "condor": {
+   "cerca": "condor",
+   "paese": "gb",
+   "frasi": {
+    "condor power bank": {
+     "errore": 404
+    },
+    "power bank condor": {
+     "errore": 404
+    },
+    "can i bring a power bank on condor": {
+     "errore": 404
+    },
+    "condor power bank rules": {
+     "errore": 404
+    },
+    "condor portable charger": {
+     "errore": 404
+    }
+   }
+  },
+  "tui": {
+   "cerca": "tui",
+   "paese": "gb",
+   "frasi": {
+    "tui power bank": {
+     "volume": 90,
+     "cpc": 0,
+     "simili": [
+      [
+       "tui lithium batteries",
+       50
+      ],
+      [
+       "can hair straighteners go in hold luggage tui",
+       90
+      ],
+      [
+       "can you take hair straighteners in hand luggage tui",
+       320
+      ],
+      [
+       "do electrical items go in hand luggage or suitcase tui",
+       140
+      ],
+      [
+       "tui aerosols in hold luggage",
+       50
+      ],
+      [
+       "tui liquids in checked luggage",
+       40
+      ],
+      [
+       "tui hand luggage liquids",
+       260
+      ],
+      [
+       "power bank hand luggage",
+       210
+      ],
+      [
+       "what can go in hand luggage tui",
+       140
+      ],
+      [
+       "jet2 power bank",
+       110
+      ]
+     ]
+    },
+    "power bank tui": {
+     "errore": 404
+    },
+    "can i bring a power bank on tui": {
+     "errore": 404
+    },
+    "tui power bank rules": {
+     "errore": 404
+    },
+    "tui portable charger": {
+     "errore": 404
+    }
+   }
+  },
+  "air-india": {
+   "cerca": "air india",
+   "paese": "in",
+   "frasi": {
+    "air india power bank": {
+     "errore": 404
+    },
+    "power bank air india": {
+     "errore": 404
+    },
+    "can i bring a power bank on air india": {
+     "errore": 404
+    },
+    "air india power bank rules": {
+     "errore": 404
+    },
+    "air india portable charger": {
+     "errore": 404
+    }
+   }
+  },
+  "indigo": {
+   "cerca": "indigo",
+   "paese": "in",
+   "frasi": {
+    "indigo power bank": {
+     "volume": 260,
+     "cpc": 0,
+     "simili": [
+      [
+       "indigo power bank rules",
+       260
+      ],
+      [
+       "is power bank allowed in flight indigo",
+       260
+      ],
+      [
+       "power bank in flight indigo",
+       260
+      ],
+      [
+       "can we carry power bank in indigo flight",
+       210
+      ],
+      [
+       "is power bank allowed in indigo flight",
+       210
+      ],
+      [
+       "power bank allowed in flight indigo",
+       210
+      ],
+      [
+       "power bank indigo",
+       260
+      ],
+      [
+       "powerbank indigo",
+       260
+      ],
+      [
+       "powerbank allowed in indigo flight",
+       210
+      ],
+      [
+       "power bank allowed in indigo flight",
+       210
+      ]
+     ]
+    },
+    "power bank indigo": {
+     "volume": 260,
+     "cpc": 0,
+     "simili": [
+      [
+       "indigo power bank",
+       260
+      ],
+      [
+       "power bank allowed in flight indigo",
+       210
+      ],
+      [
+       "is power bank allowed in flight indigo",
+       260
+      ],
+      [
+       "can we carry power bank in indigo flight",
+       210
+      ],
+      [
+       "is power bank allowed in indigo flight",
+       210
+      ],
+      [
+       "powerbank indigo",
+       260
+      ],
+      [
+       "is powerbank allowed in flight indigo",
+       260
+      ],
+      [
+       "power bank allowed in indigo flight",
+       210
+      ],
+      [
+       "powerbank allowed in indigo flight",
+       210
+      ],
+      [
+       "power bank in flight indigo",
+       260
+      ]
+     ]
+    },
+    "can i bring a power bank on indigo": {
+     "errore": 404
+    },
+    "indigo power bank rules": {
+     "volume": 260,
+     "cpc": 0,
+     "simili": [
+      [
+       "power bank in flight indigo",
+       260
+      ],
+      [
+       "can we carry power bank in indigo flight",
+       210
+      ],
+      [
+       "indigo restricted items",
+       320
+      ],
+      [
+       "indigo power bank",
+       260
+      ],
+      [
+       "power bank in indigo flight",
+       260
+      ],
+      [
+       "can i carry electric iron in flight indigo",
+       390
+      ],
+      [
+       "is power bank allowed in flight indigo",
+       260
+      ],
+      [
+       "is power bank allowed in indigo flight",
+       210
+      ],
+      [
+       "cabin baggage rules indigo",
+       1900
+      ],
+      [
+       "indigo cabin baggage rules",
+       1900
+      ]
+     ]
+    },
+    "indigo portable charger": {
+     "errore": 404
+    }
+   }
+  },
+  "air-transat": {
+   "cerca": "air transat",
+   "paese": "ca",
+   "frasi": {
+    "air transat power bank": {
+     "errore": 404
+    },
+    "power bank air transat": {
+     "errore": 404
+    },
+    "can i bring a power bank on air transat": {
+     "errore": 404
+    },
+    "air transat power bank rules": {
+     "errore": 404
+    },
+    "air transat portable charger": {
+     "errore": 404
+    }
+   }
+  },
+  "porter": {
+   "cerca": "porter",
+   "paese": "ca",
+   "frasi": {
+    "porter power bank": {
+     "errore": 404
+    },
+    "power bank porter": {
+     "errore": 404
+    },
+    "can i bring a power bank on porter": {
+     "errore": 404
+    },
+    "porter power bank rules": {
+     "errore": 404
+    },
+    "porter portable charger": {
+     "errore": 404
+    }
+   }
+  },
+  "jetstar": {
+   "cerca": "jetstar",
+   "paese": "au",
+   "frasi": {
+    "jetstar power bank": {
+     "volume": 320,
+     "cpc": 0,
+     "simili": [
+      [
+       "jetstar power banks",
+       320
+      ],
+      [
+       "power bank jetstar",
+       320
+      ],
+      [
+       "jetstar power bank limit",
+       210
+      ],
+      [
+       "can you take a power bank on a plane jetstar",
+       90
+      ],
+      [
+       "jetstar portable charger",
+       70
+      ],
+      [
+       "jetstar domestic carry on liquids",
+       210
+      ],
+      [
+       "jetstar prohibited items",
+       140
+      ],
+      [
+       "jetstar batteries",
+       110
+      ],
+      [
+       "jetstar domestic carry-on liquids",
+       210
+      ],
+      [
+       "jetstar liquids domestic",
+       210
+      ]
+     ]
+    },
+    "power bank jetstar": {
+     "volume": 320,
+     "cpc": 0,
+     "simili": [
+      [
+       "jetstar power banks",
+       320
+      ],
+      [
+       "jetstar power bank",
+       320
+      ],
+      [
+       "jetstar portable charger",
+       70
+      ],
+      [
+       "jetstar power bank limit",
+       210
+      ],
+      [
+       "can you take a power bank on a plane jetstar",
+       90
+      ],
+      [
+       "jetstar batteries",
+       110
+      ],
+      [
+       "jetstar battery rules",
+       90
+      ],
+      [
+       "jetstar carry on liquid",
+       720
+      ],
+      [
+       "jetstar aerosol",
+       260
+      ],
+      [
+       "jetstar aerosols",
+       260
+      ]
+     ]
+    },
+    "can i bring a power bank on jetstar": {
+     "errore": 404
+    },
+    "jetstar power bank rules": {
+     "errore": 404
+    },
+    "jetstar portable charger": {
+     "volume": 70,
+     "cpc": 0,
+     "simili": [
+      [
+       "power bank jetstar",
+       320
+      ],
+      [
+       "jetstar power bank limit",
+       210
+      ],
+      [
+       "jetstar power banks",
+       320
+      ],
+      [
+       "can you take a power bank on a plane jetstar",
+       90
+      ],
+      [
+       "jetstar power bank",
+       320
+      ],
+      [
+       "jetstar batteries",
+       110
+      ],
+      [
+       "jetstar battery rules",
+       90
+      ],
+      [
+       "jetstar dangerous goods",
+       260
+      ],
+      [
+       "jetstar prohibited items",
+       140
+      ],
+      [
+       "batteries jetstar",
+       110
+      ]
+     ]
+    }
+   }
+  },
+  "virgin-australia": {
+   "cerca": "virgin australia",
+   "paese": "au",
+   "frasi": {
+    "virgin australia power bank": {
+     "volume": 70,
+     "cpc": 0,
+     "simili": [
+      [
+       "virgin australia battery policy",
+       70
+      ],
+      [
+       "virgin australia dangerous goods",
+       110
+      ],
+      [
+       "virgin australia prohibited items",
+       90
+      ],
+      [
+       "virgin australia fire",
+       50
+      ],
+      [
+       "power banks on planes",
+       1900
+      ],
+      [
+       "can i take power bank on plane",
+       480
+      ],
+      [
+       "fire on plane",
+       320
+      ],
+      [
+       "flying with power bank",
+       140
+      ],
+      [
+       "virgin dangerous goods",
+       110
+      ],
+      [
+       "power bank international flights",
+       50
+      ]
+     ]
+    },
+    "power bank virgin australia": {
+     "errore": 404
+    },
+    "can i bring a power bank on virgin australia": {
+     "errore": 404
+    },
+    "virgin australia power bank rules": {
+     "errore": 404
+    },
+    "virgin australia portable charger": {
+     "errore": 404
+    }
+   }
+  },
+  "turkish-airlines": {
+   "cerca": "turkish airlines",
+   "paese": "gb",
+   "frasi": {
+    "turkish airlines power bank": {
+     "errore": 404
+    },
+    "power bank turkish airlines": {
+     "errore": 404
+    },
+    "can i bring a power bank on turkish airlines": {
+     "errore": 404
+    },
+    "turkish airlines power bank rules": {
+     "errore": 404
+    },
+    "turkish airlines portable charger": {
+     "errore": 404
+    }
+   }
+  }
+ }
+}

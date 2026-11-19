@@ -225,6 +225,15 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
     tariffe e link al calcolatore ufficiale; con tariffa fissa l'importo è nelle righe citate; ogni riga citata è nella copia salvata
     della pagina (raccolta/.cache/stiva/, avviso se manca); frasi di ricerca nelle descrizioni solo se misurate con volume > 0
     (dati/stiva_domanda.json) e solo nelle pagine con il riquadro; titoli del bagaglio a mano invariati (punto 36).
+39. Power bank nelle pagine compagnia e indice cabin-bags/power-banks/ (19/11/2026, dati/powerbank.json, sezione 2 di
+    fronti-2026-11-12-crescita-byf.md): ogni compagnia del bagaglio a mano è o nei dati o tra le escluse (motivo, data, indirizzi provati);
+    il riquadro «Power banks» c'è solo nelle pagine con i dati; fonti https solo sul dominio della compagnia, con titolo, link e data;
+    quattro voci (quante, wh, dove, uso) con il riassunto mostrato e le righe ufficiali mostrate e ritrovate parola per parola nella copia
+    salvata (raccolta/.cache/powerbank/, avviso se manca); «non detto» = nessuna citazione e nessun numero; ogni numero del riassunto è
+    nelle righe citate della stessa voce e ogni numero delle celle dell'indice è nel riassunto; tipo «generale» = avviso nel riquadro e
+    nell'indice; NESSUN link di affiliazione nel riquadro né nell'indice (solo le fonti ufficiali e i link interni) e voce
+    «_powerbank_amazon» di affiliati.json presente e vuota; frasi di ricerca nell'H2, nella descrizione e nel titolo dell'indice solo se
+    misurate con volume > 0 (dati/powerbank_domanda.json); indice con una riga per compagnia (celle = dati, fonte, data), nella sitemap.
 AVVISI (10/11/2026): le copie delle fonti in raccolta/.cache/ non sono nel repository. Il ricalcolo dalla copia (frasi, impronte, tabelle,
 seconda lettura dei PDF) dei punti 13, 17, 18, 20-29 si salta con un avviso (stampato, contato, elencato in fondo, non è un errore) se la
 copia manca, se è una pagina di blocco o anti-robot (titolo), o se è più recente dell'ultima lettura buona dei dati (la raccolta ha
@@ -6996,6 +7005,232 @@ def controlla_stiva():
     return errori, conti
 
 
+# ---------------------------------------------------------------- 39. power bank nelle pagine compagnia e indice (19/11/2026)
+DOMINI_PB = {"ryanair": ("ryanair.com",), "easyjet": ("easyjet.com",), "wizz-air": ("wizzair.com",), "vueling": ("vueling.com",), "jet2": ("jet2.com",),
+             "british-airways": ("britishairways.com",), "lufthansa": ("lufthansa.com",), "klm": ("klm.com",), "air-france": ("airfrance.fr",),
+             "ita-airways": ("ita-airways.com",), "iberia": ("iberia.com",), "tap": ("flytap.com",), "norwegian": ("norwegian.com",),
+             "eurowings": ("eurowings.com",), "volotea": ("volotea.com",), "pegasus": ("flypgs.com",), "virgin-atlantic": ("virginatlantic.com",),
+             "emirates": ("emirates.com",), "qatar-airways": ("qatarairways.com",), "qantas": ("qantas.com",), "united": ("united.com",),
+             "american-airlines": ("aa.com",), "delta": ("delta.com",), "southwest": ("southwest.com",), "jetblue": ("jetblue.com",),
+             "frontier": ("flyfrontier.com",), "air-canada": ("aircanada.com",), "westjet": ("westjet.com",), "alaska-airlines": ("alaskaair.com",),
+             "avelo": ("aveloair.com",), "breeze": ("flybreeze.com",), "condor": ("condor.com",), "tui": ("tui.co.uk",), "air-india": ("airindia.com",),
+             "indigo": ("goindigo.in",), "air-transat": ("airtransat.com",), "porter": ("flyporter.com",), "jetstar": ("jetstar.com",),
+             "virgin-australia": ("virginaustralia.com",), "turkish-airlines": ("turkishairlines.com",)}
+VOCI_PB = ["quante", "wh", "dove", "uso"]
+_PAROLE_PB = {"two": 2, "three": 3, "four": 4, "five": 5, "fifteen": 15, "twenty": 20}
+_AFFILIATI_PB = ("sponsored", "amazon.", "amzn.", "tag=", "awin1.com", "prf.hn", "stay22", "discovercars", "viator.", "affiliate")
+
+
+def _numeri_pb(x, uno=False):
+    """Numeri di un testo, comprese le parole «two», «three»... («one» no: è anche un pronome) (le compagnie scrivono «two power banks»)."""
+    out = {round(float(n), 2) for n in re.findall(r"\d+(?:\.\d+)?", x.replace(",", ""))}
+    out |= {1.0} if uno and re.search(r"\bone\b", x, re.I) else set()  # «one power bank» nelle righe ufficiali (mai nei nostri riassunti)
+    return out | {float(v) for k, v in _PAROLE_PB.items() if re.search(r"\b" + k + r"\b", x, re.I)}
+
+
+
+def controlla_powerbank():
+    from datetime import date
+    errori, conti = [], {"compagnie": 0, "regola": 0, "generale": 0, "righe": 0, "numeri": 0, "non_detto": 0, "cache": 0, "h2": 0, "frasi": 0, "escluse": 0, "indice": 0}
+    P = G.PB
+    slug_bag = {C["slug"]: C for C in G.COMPAGNIE}
+    cache = SITO.parent / "raccolta" / ".cache" / "powerbank"
+    if not P["compagnie"]:
+        return ["dati/powerbank.json mancante o vuoto"], conti
+    if not G.PB_DOMANDA.get("misurato_il"):
+        errori.append("dati/powerbank_domanda.json mancante o senza data (python3 -I beforeyoufly/raccolta/powerbank.py --domanda)")
+    # interruttore del riquadro Amazon: presente, spento e vuoto
+    sw = G.AFFILIATI.get("_powerbank_amazon")
+    if not isinstance(sw, dict) or sw.get("url") != "" or G.PB_AMAZON:
+        errori.append("powerbank: la voce «_powerbank_amazon» di affiliati.json deve esistere con 'url' vuoto (riquadro affiliato spento)")
+    con = set(G.PB_PER_SLUG)
+    for S in P["compagnie"]:
+        sl = S["slug"]
+        if sl not in slug_bag:
+            errori.append(f"powerbank {sl}: nessuna pagina cabin-bags/{sl}/ (il riquadro va solo nelle pagine esistenti)")
+            continue
+        conti["compagnie"] += 1
+        C = slug_bag[sl]
+        t = leggi(f"{G.BAG_BASE}/{sl}/index.html")
+        if t.count('aria-label="Power banks"') != 1 or t.count('id="power-banks"') != 1:
+            errori.append(f"powerbank {sl}: riquadro mancante o doppio")
+            continue
+        box = t[t.index('aria-label="Power banks"'):]
+        box = box[:box.index("</section>")]
+        if S.get("tipo") not in ("regola", "generale"):
+            errori.append(f"powerbank {sl}: tipo non valido")
+            continue
+        conti[S["tipo"]] += 1
+        try:
+            if date.fromisoformat(S["controllato_il"]) > G.OGGI:
+                raise ValueError
+        except (ValueError, TypeError):
+            errori.append(f"powerbank {sl}: data del controllo non valida")
+            continue
+        if f"checked on {G.data_lunga(S['controllato_il'])}" not in box:
+            errori.append(f"powerbank {sl}: data del controllo non mostrata")
+        copie = {}
+        for k, f in S["fonti"].items():
+            if not _dominio_ok(f["url"], DOMINI_PB.get(sl, ())) or not f.get("titolo"):
+                errori.append(f"powerbank {sl}: fonte {k} non https, senza titolo o fuori dal dominio della compagnia")
+            elif f'href="{escape(f["url"])}"' not in box or escape(f["titolo"]) not in box:
+                errori.append(f"powerbank {sl}: fonte {k} non linkata nel riquadro")
+            f_c = cache / G_nome_file_stiva(f["url"])
+            if copia_usabile(39, f"{sl}/{k}", f_c, "powerbank.py"):
+                copie[k] = _norm_stiva(f_c.read_text(encoding="utf-8"))
+                conti["cache"] += 1
+        # nessun link di affiliazione: nel riquadro solo le fonti ufficiali e il link interno all'indice
+        ammessi = {f["url"] for f in S["fonti"].values()} | {f"../../{G.PB_PAGINA}"}
+        for h in re.findall(r'href="([^"]*)"', box):
+            if unescape_(h) not in ammessi:
+                errori.append(f"powerbank {sl}: link non ammesso nel riquadro: {h[:80]}")
+        if any(x in box.lower() for x in _AFFILIATI_PB):
+            errori.append(f"powerbank {sl}: traccia di un link di affiliazione nel riquadro")
+        V = {v["id"]: v for v in S["voci"]}
+        if sorted(V) != sorted(VOCI_PB) or len(S["voci"]) != len(VOCI_PB):
+            errori.append(f"powerbank {sl}: le voci devono essere esattamente {VOCI_PB}")
+            continue
+        nomi = (C["nome"], G.nome_cerca_pb(C))
+        for k in VOCI_PB:
+            v = V[k]
+            if not v.get("valore"):
+                errori.append(f"powerbank {sl}/{k}: riassunto mancante")
+                continue
+            if escape(v["valore"]) not in box:
+                errori.append(f"powerbank {sl}/{k}: riassunto non mostrato")
+            if v.get("non_detto"):
+                conti["non_detto"] += 1
+                if v["cit"] or _numeri_pb(v["valore"]) or not re.match(r"(No |Not stated|The table marks)", v["valore"]):
+                    errori.append(f"powerbank {sl}/{k}: «non detto» con citazioni, numeri o un riassunto che afferma una regola")
+                continue
+            if not v["cit"]:
+                errori.append(f"powerbank {sl}/{k}: citazione mancante (o segnare non_detto)")
+                continue
+            righe = []
+            for c in v["cit"]:
+                if c.get("f") not in S["fonti"] or not c.get("righe") or any(not r.strip() for r in c["righe"]):
+                    errori.append(f"powerbank {sl}/{k}: citazione senza fonte o vuota")
+                    continue
+                for r in c["righe"]:
+                    conti["righe"] += 1
+                    righe.append(r)
+                    if escape(r) not in box:
+                        errori.append(f"powerbank {sl}/{k}: riga ufficiale non mostrata: {r[:60]}")
+                    if c["f"] in copie and _norm_stiva(r) not in copie[c["f"]]:
+                        errori.append(f"powerbank {sl}/{k}: riga non trovata parola per parola nella copia salvata della pagina: {r[:60]}")
+            citati = _numeri_pb(" ".join(righe))
+            val = v["valore"]
+            for nm in nomi:
+                val = val.replace(nm, "")
+            for n in _numeri_pb(val):
+                conti["numeri"] += 1
+                if n not in citati:
+                    errori.append(f"powerbank {sl}/{k}: il numero {n} del riassunto non è nelle righe ufficiali citate")
+            if v.get("leggenda") and escape(v["leggenda"]) not in box:
+                errori.append(f"powerbank {sl}/{k}: legenda non mostrata")
+        for c in S.get("extra", []):
+            for r in c["righe"]:
+                conti["righe"] += 1
+                if escape(r) not in box:
+                    errori.append(f"powerbank {sl}: riga ufficiale (extra) non mostrata: {r[:60]}")
+                if c["f"] in copie and _norm_stiva(r) not in copie[c["f"]]:
+                    errori.append(f"powerbank {sl}: riga (extra) non trovata nella copia salvata: {r[:60]}")
+        # celle dell'indice: numeri solo dal riassunto della stessa voce; uso coerente con il codice
+        tab = S.get("tab") or {}
+        if sorted(tab) != sorted(VOCI_PB):
+            errori.append(f"powerbank {sl}: 'tab' deve avere le quattro celle {VOCI_PB}")
+            continue
+        for k in VOCI_PB:
+            if not _numeri_pb(tab[k]) <= (_numeri_pb(V[k]["valore"]) | _numeri_pb(" ".join(r for c in V[k]["cit"] for r in c["righe"]), uno=True)):
+                errori.append(f"powerbank {sl}/{k}: un numero della cella dell'indice «{tab[k]}» non è nel riassunto né nelle righe citate")
+            if V[k].get("non_detto") and not tab[k].startswith(("Not stated", "See the official")):
+                errori.append(f"powerbank {sl}/{k}: voce non detta ma cella dell'indice «{tab[k]}»")
+        if S.get("uso_cod") not in ("no", "limitato", None) or (S.get("uso_cod") == "no") != bool(re.match(r"No\b", tab["uso"])) \
+                or (S.get("uso_cod") is None) != bool(V["uso"].get("non_detto")):
+            errori.append(f"powerbank {sl}: uso_cod non coerente con la cella o con la voce «uso»")
+        gen = "has no rule of its own for power banks" in box
+        if gen != (S["tipo"] == "generale"):
+            errori.append(f"powerbank {sl}: avviso «pagina generale» presente o assente contro il tipo dei dati")
+        # frasi di ricerca: H2 e descrizione solo con volume misurato > 0
+        h2 = unescape_(re.search(r"<h2[^>]*>(.*?)</h2>", box).group(1))
+        if h2 != G.h2_powerbank(C, S):
+            errori.append(f"powerbank {sl}: H2 del riquadro diverso da quello atteso")
+        if f"{G.nome_cerca_pb(C)} power bank".lower() in h2.lower():
+            conti["h2"] += 1
+            if not G.misurata_pb(sl):
+                errori.append(f"powerbank {sl}: frase «{G.nome_cerca_pb(C)} power bank» nell'H2 senza volume misurato")
+        m = re.search(r'<meta name="description" content="([^"]*)"', t)
+        desc = unescape_(m.group(1)) if m else ""
+        if "power bank" in desc.lower():
+            conti["frasi"] += 1
+            if not G.misurata_pb(sl) or S["tipo"] != "regola" or f"{G.nome_cerca_pb(C)} power bank rules".lower() not in desc.lower():
+                errori.append(f"powerbank {sl}: «power bank» nella descrizione senza volume misurato, senza regola propria o senza la frase misurata")
+        if 'href="#power-banks"' not in t:
+            errori.append(f"powerbank {sl}: manca il rimando al riquadro sotto la risposta in alto")
+    for C in G.COMPAGNIE:
+        if C["slug"] in con:
+            continue
+        t = leggi(f"{G.BAG_BASE}/{C['slug']}/index.html")
+        if 'aria-label="Power banks"' in t or 'id="power-banks"' in t:
+            errori.append(f"powerbank {C['slug']}: riquadro in una pagina senza dati")
+        m = re.search(r'<meta name="description" content="([^"]*)"', t)
+        if m and "power bank" in unescape_(m.group(1)).lower():
+            errori.append(f"powerbank {C['slug']}: «power bank» nella descrizione di una pagina senza riquadro")
+    esc = set()
+    for E in P.get("escluse", []):
+        conti["escluse"] += 1
+        esc.add(E.get("slug"))
+        if not E.get("motivo") or not E.get("provato_il") or not E.get("url_provati") or E.get("slug") not in slug_bag:
+            errori.append(f"powerbank: compagnia esclusa {E.get('nome')} senza motivo, data, indirizzi provati o pagina cabin-bags")
+        elif any(not _dominio_ok(u, DOMINI_PB.get(E["slug"], ())) for u in E["url_provati"]):
+            errori.append(f"powerbank: {E.get('nome')}: indirizzo provato fuori dal dominio della compagnia")
+        if E.get("slug") in con:
+            errori.append(f"powerbank: {E.get('nome')} è sia esclusa sia nel riquadro")
+    for sl in slug_bag:
+        if sl not in con and sl not in esc:
+            errori.append(f"powerbank: {sl} non è né nei dati né tra le escluse")
+    # indice
+    rel = f"{G.PB_PAGINA}index.html"
+    if not (SITO / rel).exists():
+        return errori + ["powerbank: indice cabin-bags/power-banks/ mancante"], conti
+    ti = leggi(rel)
+    tit = unescape_(re.search(r"<title>(.*?)</title>", ti, re.S).group(1))
+    if G.PB_FRASE_INDICE not in tit.lower() or G.volume_pb_generale(G.PB_FRASE_INDICE) <= 0:
+        errori.append(f"powerbank indice: titolo senza la frase misurata «{G.PB_FRASE_INDICE}» o frase senza volume")
+    md = re.search(r'<meta name="description" content="([^"]*)"', ti)
+    if not md or G.PB_FRASE_INDICE_2 not in unescape_(md.group(1)).lower() or G.volume_pb_generale(G.PB_FRASE_INDICE_2) <= 0:
+        errori.append(f"powerbank indice: descrizione senza la frase misurata «{G.PB_FRASE_INDICE_2}» o frase senza volume")
+    if any(x in ti[ti.index("<main"):ti.index("</main>")].lower() for x in _AFFILIATI_PB if x != "affiliate") if "<main" in ti else True:
+        errori.append("powerbank indice: traccia di un link di affiliazione (o <main> non trovato)")
+    righe_i = re.findall(r"<tr data-voce>(.*?)</tr>", ti, re.S)
+    if len(righe_i) != len(P["compagnie"]):
+        errori.append(f"powerbank indice: {len(righe_i)} righe per {len(P['compagnie'])} compagnie")
+    for S in P["compagnie"]:
+        if S["slug"] not in slug_bag:
+            continue
+        r = next((x for x in righe_i if f'href="../../{G.BAG_BASE}/{S["slug"]}/#power-banks"' in x), None)
+        if r is None:
+            errori.append(f"powerbank indice: riga di {S['slug']} mancante")
+            continue
+        conti["indice"] += 1
+        f = next(iter(S["fonti"].values()))
+        for k in VOCI_PB:
+            if f">{escape(S['tab'][k])}</td>" not in r:
+                errori.append(f"powerbank indice {S['slug']}: cella «{k}» diversa dai dati")
+        if f'href="{escape(f["url"])}"' not in r or G.data_lunga(S["controllato_il"]) not in r:
+            errori.append(f"powerbank indice {S['slug']}: fonte ufficiale o data mancante")
+        if ("general battery page only" in r) != (S["tipo"] == "generale"):
+            errori.append(f"powerbank indice {S['slug']}: etichetta «general battery page only» contro il tipo dei dati")
+    for E in P.get("escluse", []):
+        if escape(E["nome"]) not in ti or escape(E["motivo"]) not in ti:
+            errori.append(f"powerbank indice: esclusa {E['nome']} senza il motivo")
+    if f"{G.PB_PAGINA}</loc>" not in leggi("sitemap.xml"):
+        errori.append("powerbank indice: non è nella sitemap")
+    if f'href="../{G.PB_PAGINA}"' not in leggi(f"{G.BAG_BASE}/index.html"):
+        errori.append("powerbank indice: non linkato dall'indice del bagaglio a mano")
+    return errori, conti
+
+
 def unescape_(x):
     from html import unescape
     return unescape(x)
@@ -7176,9 +7411,14 @@ def main():
           f"il link al calcolatore ufficiale), {c38['righe']} righe ufficiali mostrate, {c38['numeri']} numeri dei riassunti tutti nelle righe citate "
           f"({c38['conv']} conversioni ricalcolate), {c38['cache']} copie salvate rilette, {c38['frasi']} frasi misurate nelle descrizioni, "
           f"{c38['escluse']} compagnie escluse con il motivo: {len(e38)} errori")
+    e39, c39 = controlla_powerbank()
+    print(f"39. Power bank: riquadro in {c39['compagnie']} pagine compagnia ({c39['regola']} con una regola propria, {c39['generale']} solo pagina generale sulle "
+          f"batterie), {c39['righe']} righe ufficiali mostrate, {c39['numeri']} numeri dei riassunti tutti nelle righe citate, {c39['non_detto']} voci «non detto» "
+          f"senza citazioni né numeri, {c39['cache']} copie salvate rilette, frase misurata in {c39['h2']} H2 e {c39['frasi']} descrizioni, indice con "
+          f"{c39['indice']} righe = dati, {c39['escluse']} compagnie escluse con il motivo, nessun link di affiliazione (interruttore Amazon spento e vuoto): {len(e39)} errori")
     e19, i19 = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
     print("19. " + G.MON.riepilogo(G.SITO_ID, i19, e19))
-    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31 + e32 + e33 + e34 + e35 + e36 + e37 + e38
+    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31 + e32 + e33 + e34 + e35 + e36 + e37 + e38 + e39
     if AVVISI:  # ricalcoli dalle copie salvati saltati (copia mancante, pagina di blocco, raccolta che non ha aggiornato il JSON): non sono errori
         per_punto = {}
         for k, _ in AVVISI:

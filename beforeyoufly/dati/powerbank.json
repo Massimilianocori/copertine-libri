@@ -1,0 +1,2828 @@
+{
+ "_nota": "Power bank per compagnia (riquadro «Power banks» nelle pagine cabin-bags/<compagnia>/ e indice cabin-bags/power-banks/, dal 19/11/2026). Quattro voci per compagnia (quante, wh, dove, uso): 'valore' = il nostro riassunto breve, 'cit' = le righe della pagina ufficiale copiate parola per parola (ogni riga è un pezzo continuo del testo della pagina). Ogni numero di 'valore' deve essere nelle righe citate della stessa voce. non_detto = la pagina letta non lo dice (nessuna citazione, nessuna deduzione). tipo 'regola' = la compagnia pubblica una regola sui power bank; 'generale' = la pagina letta è solo quella generale sulle merci pericolose o sulle batterie (il riquadro lo dice). 'tab' = celle corte per la tabella dell'indice (numeri solo da 'valore'). uso_cod: no = né uso né ricarica; limitato = uso ammesso in parte; None = non detto. escluse: compagnie con la pagina cabin-bags ma senza riquadro, con il motivo. Dati separati da dati/bagagli.json e dati/stiva.json, che questo lavoro non tocca. Ricontrollo: raccolta/powerbank.py (mensile); controlli: verifica.py punto 39.",
+ "controllato_il": "2026-11-19",
+ "compagnie": [
+  {
+   "slug": "ryanair",
+   "tipo": "regola",
+   "controllato_il": "2026-11-19",
+   "fonti": {
+    "a": {
+     "url": "https://help.ryanair.com/hc/en-gb/articles/12890774807569-What-items-are-permitted-on-board",
+     "titolo": "Ryanair Help Centre: What items are permitted on board?",
+     "lettura": "browser"
+    }
+   },
+   "voci": [
+    {
+     "id": "quante",
+     "valore": "2 power banks per passenger, counted within the overall limit of 20 spare batteries.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Power banks are limited to a maximum of 2 per passenger and are included within the overall limit of 20 spare batteries"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wh",
+     "valore": "100 Wh at most. Ryanair accepts nothing above 100 Wh, in the cabin or in checked baggage, so there is no approval route for a bigger power bank.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "You may carry up to 20 spare lithium batteries in total, each not exceeding 100Wh.",
+        "Devices or batteries exceeding 100Wh are not permitted in either cabin or checked baggage."
+       ]
+      }
+     ],
+     "wh_max": 100
+    },
+    {
+     "id": "dove",
+     "valore": "Cabin only (the section is headed “Cabin Only”): on you or in the cabin bag under the seat in front, never in a bag in the overhead locker.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Electronic Devices and Spare Lithium Batteries (Cabin Only)"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Spare lithium batteries and power banks must be carried on the passenger’s person or in the underseat cabin bag stowed under the seat in front. Spare lithium batteries and power banks cannot be placed in cabin baggage stored in the overhead lockers."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "uso",
+     "valore": "You may use a power bank to charge your own devices, except during taxi, take-off and landing or when the crew says otherwise. You may not recharge the power bank itself on board.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Power banks may be used to charge personal electronic devices, except during taxi, take-off, and landing, or when instructed otherwise by the crew.",
+        "Power banks must not be recharged at any time while onboard or during the flight (e.g., one power bank charging another)."
+       ]
+      }
+     ]
+    }
+   ],
+   "tab": {
+    "quante": "2",
+    "wh": "100 Wh",
+    "uso": "Charging a device: yes, not during taxi, take-off, landing. Recharging the power bank: no",
+    "dove": "On you or under the seat; not overhead"
+   },
+   "uso_cod": "limitato"
+  },
+  {
+   "slug": "easyjet",
+   "tipo": "regola",
+   "controllato_il": "2026-11-19",
+   "fonti": {
+    "a": {
+     "url": "https://www.easyjet.com/en/help-centre/baggage/dangerous-goods",
+     "titolo": "easyJet: Dangerous Goods & Prohibited Articles",
+     "lettura": "browser"
+    },
+    "b": {
+     "url": "https://www.easyjet.com/en/help/baggage/restricted-and-unusual-items",
+     "titolo": "easyJet Help: Restricted and unusual items",
+     "lettura": "browser"
+    }
+   },
+   "voci": [
+    {
+     "id": "quante",
+     "valore": "Two power banks per customer.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Maximum of two power banks permitted per customer."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wh",
+     "valore": "160 Wh at most. easyJet's pages name no approval step below that limit.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Power banks are accepted on easyJet aircraft with a Wh rating not exceeding 160Wh for lithium batteries."
+       ]
+      }
+     ],
+     "wh_max": 160
+    },
+    {
+     "id": "dove",
+     "valore": "Cabin bags only, never in hold luggage. easyJet recommends keeping them where you can watch them, for example on you.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Power banks must be carried in carry-on baggage only and it is recommended that power banks are carried where they can be monitored i.e. on your person."
+       ]
+      },
+      {
+       "f": "b",
+       "righe": [
+        "Power banks, laptops, and e-cigarettes must be carried in cabin bags only and must not be placed in hold luggage."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "uso",
+     "valore": "Not allowed: a power bank may not be used on board or to charge other devices.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Power banks are prohibited from use on easyJet aircraft and must not be used to charge other devices."
+       ]
+      },
+      {
+       "f": "b",
+       "righe": [
+        "Usage: Power banks must not be used to charge other devices while on board."
+       ]
+      }
+     ]
+    }
+   ],
+   "tab": {
+    "quante": "2",
+    "wh": "160 Wh",
+    "uso": "No",
+    "dove": "Cabin bag only; where you can watch it"
+   },
+   "uso_cod": "no",
+   "extra": [
+    {
+     "f": "a",
+     "righe": [
+      "Power banks must be individually protected i.e. placing in original retail packaging or a plastic bag."
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "wizz-air",
+   "tipo": "regola",
+   "controllato_il": "2026-11-19",
+   "fonti": {
+    "a": {
+     "url": "https://www.wizzair.com/en-gb/help-centre/restricted-items",
+     "titolo": "Wizz Air Help Centre: Restricted Items on Board",
+     "lettura": "browser"
+    }
+   },
+   "voci": [
+    {
+     "id": "quante",
+     "valore": "1 power bank per person, within the limit of 20 spare batteries.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Each person is limited to a maximum of 20 spare batteries, including maximum 1 power bank. Power banks exceeding 100 Wh are forbidden."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wh",
+     "valore": "100 Wh at most: power banks above 100 Wh are forbidden. The same page lets other spare batteries above 100 Wh and up to 160 Wh travel after Wizz Air's approval.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Each person is limited to a maximum of 20 spare batteries, including maximum 1 power bank. Power banks exceeding 100 Wh are forbidden."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Lithium ion batteries exceeding a watt-hour rating of 100 Wh but not exceeding 160 Wh may be carried as spare batteries or in equipment in cabin baggage only, after the approval of Wizz Air."
+       ]
+      }
+     ],
+     "wh_max": 100
+    },
+    {
+     "id": "dove",
+     "valore": "Cabin only, not in checked-in baggage; under the seat in front or in the seat-back pocket, not in the overhead compartments, where you can watch it all the time.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Please do not allocate power banks in the checked in baggage. For the flight duration the power banks must be carried in a place where they can be continuously monitored by the passenger."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "They cannot be placed in the overhead compartments. Such items can only be placed in cabin baggage under the seat in front or in seat back pocket."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "uso",
+     "valore": "Not allowed: no use and no charging in any phase of the flight.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Power banks are not to be used during any phase of the flight duration!"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "They cannot be charged or used for charging another device during all phases of flight, including power banks."
+       ]
+      }
+     ]
+    }
+   ],
+   "tab": {
+    "quante": "1",
+    "wh": "100 Wh",
+    "uso": "No",
+    "dove": "Under the seat or seat pocket; not overhead"
+   },
+   "uso_cod": "no",
+   "extra": [
+    {
+     "f": "a",
+     "righe": [
+      "Lithium ion batteries, lithium metal batteries or power banks without any clear marks of the Watt-hour rating or lithium metal content or where the Watt-hour rating cannot be calculated are forbidden."
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "vueling",
+   "tipo": "regola",
+   "controllato_il": "2026-11-19",
+   "fonti": {
+    "a": {
+     "url": "https://help.vueling.com/hc/en-gb/articles/49897017809425",
+     "titolo": "Vueling Help Centre: Portable batteries (Power Banks)",
+     "lettura": "browser"
+    }
+   },
+   "voci": [
+    {
+     "id": "quante",
+     "valore": "2 power banks per passenger.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Maximum of 2 devices per passenger"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wh",
+     "valore": "100 Wh or less each. The page names no approval route for a bigger one.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Each battery must have a capacity of 100 Wh or less"
+       ]
+      }
+     ],
+     "wh_max": 100
+    },
+    {
+     "id": "dove",
+     "valore": "Cabin only, never in checked baggage; on board in a visible place, never in the overhead compartments.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "They must always travel with you in the cabin and never in checked baggage"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Once on board, they must be kept in a visible place and never in the overhead compartments"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "uso",
+     "valore": "Not allowed: they cannot be charged or used to charge other devices during the flight.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "They cannot be charged or used to charge other devices during the flight"
+       ]
+      }
+     ]
+    }
+   ],
+   "tab": {
+    "quante": "2",
+    "wh": "100 Wh",
+    "uso": "No",
+    "dove": "Visible place; not overhead"
+   },
+   "uso_cod": "no",
+   "extra": [
+    {
+     "f": "a",
+     "righe": [
+      "They must be protected against short circuits, either in their original packaging or in suitable protective cases",
+      "Damaged or modified batteries are not permitted"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "jet2",
+   "tipo": "regola",
+   "controllato_il": "2026-11-19",
+   "fonti": {
+    "a": {
+     "url": "https://www.jet2.com/en/restricted-items",
+     "titolo": "Jet2.com: Dangerous Goods and Restricted Items",
+     "lettura": "browser"
+    }
+   },
+   "voci": [
+    {
+     "id": "quante",
+     "valore": "2 power banks per person.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Customers may carry no more than 2 power banks per person, each not exceeding 160Wh, providing they are individually protected against short circuit. In all cases, power banks must:"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wh",
+     "valore": "160 Wh at most. Above 100 Wh and up to 160 Wh Jet2.com gives its operator approval automatically.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Customers may carry no more than 2 power banks per person, each not exceeding 160Wh, providing they are individually protected against short circuit. In all cases, power banks must:"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Jet2.com gives automatic operator approval for power banks with a battery capacity exceeding 100Wh, but not exceeding 160Wh."
+       ]
+      }
+     ],
+     "wh_max": 160
+    },
+    {
+     "id": "dove",
+     "valore": "In your hand luggage, and on board the hand luggage goes under your seat.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "be carried in your hand luggage and when onboard, your hand luggage be placed under your seat,"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "uso",
+     "valore": "Not allowed: no charging the power bank on board and no using it to charge or power any device.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "not be charged whilst onboard the aircraft, and",
+        "not be used to charge or power any device when onboard."
+       ]
+      }
+     ]
+    }
+   ],
+   "tab": {
+    "quante": "2",
+    "wh": "160 Wh (above 100 Wh approved automatically)",
+    "uso": "No",
+    "dove": "Hand luggage under your seat"
+   },
+   "uso_cod": "no",
+   "extra": [
+    {
+     "f": "a",
+     "righe": [
+      "Lithium-ion batteries, lithium metal batteries and power banks that don’t clearly state the watt-hour rating or lithium metal content, or where the watt-hour rating cannot easily be otherwise ascertained, are forbidden."
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "british-airways",
+   "tipo": "regola",
+   "controllato_il": "2026-11-19",
+   "fonti": {
+    "a": {
+     "url": "https://www.britishairways.com/content/information/baggage-essentials/liquids-and-restrictions",
+     "titolo": "British Airways: Restricted and prohibited items",
+     "lettura": "browser"
+    }
+   },
+   "voci": [
+    {
+     "id": "quante",
+     "valore": "2 power banks per person.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Up to 2 power banks per person"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wh",
+     "valore": "100 Wh at most. British Airways' approval form for lithium batteries of 100-160 Wh says it is not for power banks.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Power banks must not exceed 100Wh"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "On British Airways flights, you will need approval for each passenger carrying lithium rechargeable batteries of 100-160Wh or lithium metal batteries containing up to 8g of lithium metal.",
+        "Please note that this form is not for power banks (portable charging devices), battery-operated wheelchairs, mobility scooters or mobility aids."
+       ]
+      }
+     ],
+     "wh_max": 100
+    },
+    {
+     "id": "dove",
+     "valore": "Hand baggage only, forbidden in checked baggage; on board in the seat pocket or in a bag under the seat in front. If your cabin bag is put in the hold at the gate, take the power banks out first.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "To keep you safe on board, power banks (portable charging devices) and spare batteries are forbidden in checked baggage and must be carried in your hand baggage."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Power banks must be stored either in the seat pocket or in a bag placed under the seat in front."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "If your cabin bag is checked in or removed at the gate and placed in the hold, you must remove all spare batteries and power banks (portable charging devices) and carry them with you in the cabin."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "uso",
+     "valore": "The seat power supply may not be used to charge a power bank. The page we read does not say whether you may charge a device from your power bank.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Aircraft seat power supplies are to be used exclusively for charging personal electronic devices (PEDs), not power banks."
+       ]
+      }
+     ]
+    }
+   ],
+   "tab": {
+    "quante": "2",
+    "wh": "100 Wh",
+    "uso": "Recharging from seat power: no. Charging a device: not stated",
+    "dove": "Seat pocket or bag under the seat"
+   },
+   "uso_cod": "limitato",
+   "extra": [
+    {
+     "f": "a",
+     "righe": [
+      "Power banks must display capacity rating information."
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "lufthansa",
+   "tipo": "regola",
+   "controllato_il": "2026-11-19",
+   "fonti": {
+    "a": {
+     "url": "https://www.lufthansa.com/gb/en/prepare-for-your-trip/baggage/electronic-devices-and-batteries",
+     "titolo": "Lufthansa: Electronic devices and batteries",
+     "lettura": "browser"
+    }
+   },
+   "voci": [
+    {
+     "id": "quante",
+     "valore": "2 power banks per passenger.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Item restriction: max. 2 power banks per passenger"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wh",
+     "valore": "100 Wh per power bank. Above 100 Wh and up to 160 Wh only with Lufthansa's transport approval, to be registered when you book.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Power restriction: max. 100 Wh or 2 g LC per power bank"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "For power banks with a battery power greater than 100 Wh up to the maximum. 160 Wh, transport approval from the airline is required.",
+        "Please register power banks requiring approval when booking flights via the Lufthansa Help Center."
+       ]
+      }
+     ],
+     "wh_max": 160
+    },
+    {
+     "id": "dove",
+     "valore": "Carry-on only, not in checked baggage; under the seat in front, in its seat pocket, on you or in your hand luggage, never in the overhead locker.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Not permitted in or as checked baggage"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Power banks must not be stowed in the overhead locker above the seats. For safety reasons, please store your power banks under the seat in front of you or in its seat pocket, on your person or in your hand luggage."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "uso",
+     "valore": "Not allowed: charging and using power banks is prohibited, except with approved medical devices.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Charging and using power banks is prohibited. An exception is made for use with approved medical devices."
+       ]
+      }
+     ]
+    }
+   ],
+   "tab": {
+    "quante": "2",
+    "wh": "100 Wh; up to 160 Wh with approval",
+    "uso": "No",
+    "dove": "Under the seat, seat pocket or on you; not overhead"
+   },
+   "uso_cod": "no",
+   "extra": [
+    {
+     "f": "a",
+     "righe": [
+      "The transport of any MOBIKINS MK-PB-04 power bank is forbidden on all Lufthansa Group flights."
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "klm",
+   "tipo": "regola",
+   "controllato_il": "2026-11-19",
+   "fonti": {
+    "a": {
+     "url": "https://www.klm.com/information/baggage/restricted-items-hand-baggage",
+     "titolo": "KLM: Restricted and prohibited items in hand baggage",
+     "lettura": "browser"
+    }
+   },
+   "voci": [
+    {
+     "id": "quante",
+     "valore": "2 power banks; they count as spare batteries (up to 20).",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "You can also bring up to 20 spare batteries. Power banks count as spare batteries, and you can bring up to 2. If the capacity (in Wh) isn't listed on your power bank, you may not be able to bring it. Check before you travel."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wh",
+     "valore": "100 Wh or less. KLM's wording is about any lithium battery: between 100 Wh and 160 Wh you must ask for permission first, and over 160 Wh is never allowed.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Just make sure any lithium battery is 100 Wh or less."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Got a battery between 100 Wh and 160 Wh? You'll need to ask for permission first. Batteries over 160 Wh are never allowed."
+       ]
+      }
+     ],
+     "wh_max": 160
+    },
+    {
+     "id": "dove",
+     "valore": "Always with you, not in the overhead bin.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "One more thing about power banks: always keep yours with you. It’s not allowed to put it in the overhead bin, and using or charging it on board is also not allowed."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "uso",
+     "valore": "Not allowed: using or charging it on board is not allowed.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "One more thing about power banks: always keep yours with you. It’s not allowed to put it in the overhead bin, and using or charging it on board is also not allowed."
+       ]
+      }
+     ]
+    }
+   ],
+   "tab": {
+    "quante": "2",
+    "wh": "100 Wh; up to 160 Wh with permission",
+    "uso": "No",
+    "dove": "With you; not overhead"
+   },
+   "uso_cod": "no"
+  },
+  {
+   "slug": "air-france",
+   "tipo": "regola",
+   "controllato_il": "2026-11-19",
+   "fonti": {
+    "a": {
+     "url": "https://wwws.airfrance.fr/en/information/bagages/produits-interdits-et-reglementes",
+     "titolo": "Air France: What can I transport?",
+     "lettura": "browser"
+    },
+    "b": {
+     "url": "https://wwws.airfrance.fr/en/information/bagages/popin_produits-interdits-et-reglementes/produits-interdits-et-reglementes-3",
+     "titolo": "Air France: Electric and electronic devices, batteries and replacement batteries",
+     "lettura": "browser"
+    }
+   },
+   "voci": [
+    {
+     "id": "quante",
+     "valore": "No number for power banks of 100 Wh or less beyond the general limit of 20 spare or removed batteries. Between 100 and 160 Wh: 2 items per person in total, power banks and spare batteries together.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "In the cabin, external batteries (power banks) and spare or removed batteries between 100 and 160 Wh are limited to 2 items per person in total."
+       ]
+      },
+      {
+       "f": "b",
+       "righe": [
+        "Each passenger can travel with up to:",
+        "20 spare or removed batteries."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wh",
+     "valore": "160 Wh at most. Between 100 and 160 Wh you must ask Air France or your travel agency for transport approval before the trip.",
+     "cit": [
+      {
+       "f": "b",
+       "righe": [
+        "External batteries (power banks) ≤ 160 Wh (lithium ion)"
+       ]
+      },
+      {
+       "f": "b",
+       "righe": [
+        "If the capacity of your external batteries (power banks) is between 100 and 160 Wh, transport approval is mandatory and must be systematically requested from Air France or your travel agency before your trip."
+       ]
+      }
+     ],
+     "wh_max": 160
+    },
+    {
+     "id": "dove",
+     "valore": "Cabin only, prohibited in checked baggage; under your supervision and quickly accessible, not in the overhead storage bins.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "For security reasons, external batteries (power banks) are prohibited in your checked baggage."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "allowed only if they remain under your supervision and quickly accessible; using or charging them on board the aircraft is prohibited.",
+        "prohibited in the overhead storage bins."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "uso",
+     "valore": "Not allowed: using or charging them on board the aircraft is prohibited.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "allowed only if they remain under your supervision and quickly accessible; using or charging them on board the aircraft is prohibited."
+       ]
+      }
+     ]
+    }
+   ],
+   "tab": {
+    "quante": "2 if 100-160 Wh; otherwise not stated",
+    "wh": "160 Wh; 100-160 Wh with approval",
+    "uso": "No",
+    "dove": "Within reach; not overhead"
+   },
+   "uso_cod": "no"
+  },
+  {
+   "slug": "ita-airways",
+   "tipo": "regola",
+   "controllato_il": "2026-11-19",
+   "fonti": {
+    "a": {
+     "url": "https://www.ita-airways.com/us/en/book-and-prepare/travel-information/baggage/electronic-devices-and-batteries",
+     "titolo": "ITA Airways: Electronic devices and batteries",
+     "lettura": "browser"
+    }
+   },
+   "voci": [
+    {
+     "id": "quante",
+     "valore": "Two power banks per person.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Quantity limit: max. two power banks per person"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wh",
+     "valore": "100 Wh per power bank. Above 100 Wh and up to 160 Wh only with an authorization issued by ITA Airways, to be requested when you book.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Max. power limit: 100 Wh or 2 g LC per device"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "For power banks above 100 Wh and up to a maximum of 160 Wh, an airline-issued transportation authorization is required;",
+        "At the time of booking, notify the ITA Airways Customer Information Assistance Center of power banks requiring authorization."
+       ]
+      }
+     ],
+     "wh_max": 160
+    },
+    {
+     "id": "dove",
+     "valore": "Hand baggage only, not as checked baggage or inside it; under the seat in front, in the seat pocket, on you or in your hand baggage, never in the overhead locker.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Not allowed as checked baggage or inside it"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Power banks must not be stored in the overhead locker above the seats. For safety reasons, please store your power banks under the seat in front of you or in the seat pocket, on your person, or in your hand baggage."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "uso",
+     "valore": "Not allowed: charging and using power banks is prohibited, except for approved medical devices.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Charging and using power banks is prohibited. An exception is made for those used for approved medical devices."
+       ]
+      }
+     ]
+    }
+   ],
+   "tab": {
+    "quante": "2",
+    "wh": "100 Wh; up to 160 Wh with authorization",
+    "uso": "No",
+    "dove": "Under the seat, seat pocket or on you; not overhead"
+   },
+   "uso_cod": "no",
+   "extra": [
+    {
+     "f": "a",
+     "righe": [
+      "The transport of any MOBIKINS MK-PB-04 power bank is forbidden on all Lufthansa Group flights."
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "iberia",
+   "tipo": "regola",
+   "controllato_il": "2026-11-19",
+   "fonti": {
+    "a": {
+     "url": "https://www.iberia.com/gb/luggage/hand-luggage/",
+     "titolo": "Iberia: Hand luggage",
+     "lettura": "browser"
+    }
+   },
+   "voci": [
+    {
+     "id": "quante",
+     "valore": "2 units per passenger.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Portable chargers (Power Banks): Limited to 2 units per passenger (maximum 100 Wh each). It is forbidden to place them in the overhead lockers and to use them on board."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wh",
+     "valore": "100 Wh each at most. The page names no approval route for a bigger power bank.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Portable chargers (Power Banks): Limited to 2 units per passenger (maximum 100 Wh each). It is forbidden to place them in the overhead lockers and to use them on board."
+       ]
+      }
+     ],
+     "wh_max": 100
+    },
+    {
+     "id": "dove",
+     "valore": "Not in the overhead lockers: take the power bank out before you put your suitcase up there. This page does not mention checked baggage.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Store your suitcase weighing up to 10 kg in the overhead compartment above your seat. Remember to remove your portable charger or power bank beforehand and do not use it."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "uso",
+     "valore": "Not allowed: it is forbidden to use them on board.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Portable chargers (Power Banks): Limited to 2 units per passenger (maximum 100 Wh each). It is forbidden to place them in the overhead lockers and to use them on board."
+       ]
+      }
+     ]
+    }
+   ],
+   "tab": {
+    "quante": "2",
+    "wh": "100 Wh",
+    "uso": "No",
+    "dove": "Not overhead"
+   },
+   "uso_cod": "no"
+  },
+  {
+   "slug": "tap",
+   "tipo": "regola",
+   "controllato_il": "2026-11-19",
+   "fonti": {
+    "a": {
+     "url": "https://www.flytap.com/en-gb/baggage/dangerous-goods",
+     "titolo": "TAP Air Portugal: Forbidden and dangerous items",
+     "lettura": "browser"
+    }
+   },
+   "voci": [
+    {
+     "id": "quante",
+     "valore": "Two power banks per passenger.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "A maximum of two lithium battery power banks per passenger is permitted. Maximum limit of 100 Wh per power bank."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wh",
+     "valore": "100 Wh per power bank. The power bank section names no approval route for a bigger one.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "A maximum of two lithium battery power banks per passenger is permitted. Maximum limit of 100 Wh per power bank."
+       ]
+      }
+     ],
+     "wh_max": 100
+    },
+    {
+     "id": "dove",
+     "valore": "Hand luggage only, prohibited as checked baggage; under the seat in front or in the seat pocket.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Carried as hand luggage: allowed.",
+        "Carried as checked baggage: prohibited."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Be stored under the seat in front or in the seat pocket."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "uso",
+     "valore": "Not allowed: they may not be used or charged at any stage of the flight.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "They may not be used or charged at any stage of the flight."
+       ]
+      }
+     ]
+    }
+   ],
+   "tab": {
+    "quante": "2",
+    "wh": "100 Wh",
+    "uso": "No",
+    "dove": "Under the seat or seat pocket"
+   },
+   "uso_cod": "no",
+   "extra": [
+    {
+     "f": "a",
+     "righe": [
+      "Spare batteries (including power banks) must be individually protected to prevent short circuits."
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "norwegian",
+   "tipo": "regola",
+   "controllato_il": "2026-11-19",
+   "fonti": {
+    "a": {
+     "url": "https://www.norwegian.com/en/travel-info/baggage/batteries-on-board/",
+     "titolo": "Norwegian: Batteries on board",
+     "lettura": "browser"
+    }
+   },
+   "voci": [
+    {
+     "id": "quante",
+     "valore": "Two power banks per passenger.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Please note that for safety reasons, power banks cannot be used on board. Each passenger is permitted a maximum of two power banks. They must be stored either under the seat in front of you or in the seat pocket."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wh",
+     "valore": "The quick guide gives no figure for power banks by name. Its table of spare batteries lists “external batteries”: from 100 Wh to 160 Wh, maximum 2 pieces, hand baggage only; over 160 Wh not permitted.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "From 100 Wh to 160 Wh External batteries, Spare batteries not installed in devices Yes No Max 2 pcs."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Over 160 Wh External batteries, Spare batteries not installed in devices No No Not permitted"
+       ]
+      }
+     ],
+     "wh_max": 160,
+     "leggenda": "Columns of the table rows: battery, examples, allowed as hand baggage, allowed in checked baggage, restrictions and notes."
+    },
+    {
+     "id": "dove",
+     "valore": "Under the seat in front of you or in the seat pocket.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Please note that for safety reasons, power banks cannot be used on board. Each passenger is permitted a maximum of two power banks. They must be stored either under the seat in front of you or in the seat pocket."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "uso",
+     "valore": "Not allowed: power banks cannot be used on board.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Please note that for safety reasons, power banks cannot be used on board. Each passenger is permitted a maximum of two power banks. They must be stored either under the seat in front of you or in the seat pocket."
+       ]
+      }
+     ]
+    }
+   ],
+   "tab": {
+    "quante": "2",
+    "wh": "160 Wh (external batteries)",
+    "uso": "No",
+    "dove": "Under the seat or seat pocket"
+   },
+   "uso_cod": "no",
+   "extra": [
+    {
+     "f": "a",
+     "righe": [
+      "Final decision on whether an item can be carried is always made at the airport.",
+      "Damaged, recalled, or swollen batteries will not be accepted."
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "eurowings",
+   "tipo": "regola",
+   "controllato_il": "2026-11-19",
+   "fonti": {
+    "a": {
+     "url": "https://www.eurowings.com/en/information/baggage/dangerous-goods.html",
+     "titolo": "Eurowings: Prohibited items and dangerous goods in your baggage",
+     "lettura": "browser"
+    }
+   },
+   "voci": [
+    {
+     "id": "quante",
+     "valore": "2 power banks per guest, starting 15 January 2026.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Starting 15 January 2026, each guest may bring up to 2 power banks on board."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wh",
+     "valore": "Up to 100 Wh without approval. Larger than 100 Wh and up to 160 Wh only with Eurowings' transport approval, to be requested by email.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Transport approval required for batteries over 100 Wh / 2 g LC"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Lithium batteries larger than 100 Wh up to max. 160 Wh and heavier than 2 g to max. 8 g LC require transport approval from the airline."
+       ]
+      }
+     ],
+     "wh_max": 160
+    },
+    {
+     "id": "dove",
+     "valore": "Hand baggage only, not in checked baggage; in the seat pocket in front, on you or in the hand baggage under the front seat, not in the overhead bin.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Not permitted in or as checked baggage"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Powerbanks may only be stored in the seat pocket of the front seat (if available), on your person or in the hand baggage which is stored under the front seat. It is not allowed to store power banks inside your hand baggage in the overhead bin."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "uso",
+     "valore": "Not allowed: charging and using power banks is prohibited, except with approved medical devices.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Charging and using power banks is prohibited. An exception applies to use with approved medical devices."
+       ]
+      }
+     ]
+    }
+   ],
+   "tab": {
+    "quante": "2",
+    "wh": "100 Wh; up to 160 Wh with approval",
+    "uso": "No",
+    "dove": "Seat pocket, on you or bag under the seat; not overhead"
+   },
+   "uso_cod": "no",
+   "extra": [
+    {
+     "f": "a",
+     "righe": [
+      "The manufacturer Anker has issued a recall for several powerbank models due to a risk of overheating and potential fire hazard. Please note: These specific powerbanks are strictly prohibited from being carried on Eurowings flights."
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "condor",
+   "tipo": "regola",
+   "controllato_il": "2026-11-19",
+   "fonti": {
+    "a": {
+     "url": "https://www.condor.com/eu/flight-preparation/baggage-and-animals/hazardous-goods.jsp",
+     "titolo": "Condor: Hazardous Goods",
+     "lettura": "browser"
+    }
+   },
+   "voci": [
+    {
+     "id": "quante",
+     "valore": "2 power banks per passenger.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Each passenger is limited to max. 2 power banks."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wh",
+     "valore": "The power bank row of Condor's table asks for permission for a rated energy between 100 and 160 Wh.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Spare batteries must be protected against short circuits. Permission is required for rated energy between 100 and 160 Wh. Please note the restrictions on power banks and e-cigarettes on board the aircraft."
+       ]
+      }
+     ],
+     "wh_max": 160
+    },
+    {
+     "id": "dove",
+     "valore": "In your cabin baggage under the seat in front, in the seat pocket or on you; not in the overhead bin.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "For safety reasons, it is forbidden to use power banks for charging other electronic devices on board. Charging power banks via onboard power outlets is also forbidden. Power banks must not be placed in the overhead bin. They must be stowed either in your cabin baggage under the seat in front of you, in the seat pocket, or on your person."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "uso",
+     "valore": "Not allowed: no charging other devices from a power bank on board and no charging the power bank from the onboard power outlets.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "For safety reasons, it is forbidden to use power banks for charging other electronic devices on board. Charging power banks via onboard power outlets is also forbidden. Power banks must not be placed in the overhead bin. They must be stowed either in your cabin baggage under the seat in front of you, in the seat pocket, or on your person."
+       ]
+      }
+     ]
+    }
+   ],
+   "tab": {
+    "quante": "2",
+    "wh": "100-160 Wh with permission",
+    "uso": "No",
+    "dove": "Under the seat, seat pocket or on you; not overhead"
+   },
+   "uso_cod": "no"
+  },
+  {
+   "slug": "virgin-atlantic",
+   "tipo": "regola",
+   "controllato_il": "2026-11-19",
+   "fonti": {
+    "a": {
+     "url": "https://www.virginatlantic.com/en-US/policies/personal-electronic-devices",
+     "titolo": "Virgin Atlantic: Carriage of Personal Electronic Devices",
+     "lettura": "browser"
+    }
+   },
+   "voci": [
+    {
+     "id": "quante",
+     "valore": "2 power banks per passenger.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "A maximum of 2 power banks permitted per passenger."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wh",
+     "valore": "Up to 100 Wh without airline approval; between 100 and 160 Wh with airline approval through the Customer Centre; over 160 Wh prohibited.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Spare batteries/powerbanks up to 100Wh (27,000 mAh):",
+        "Airline approval is not required"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Spare batteries/powerbanks between 100-160Wh (27,000-43,000 mAh):",
+        "Airline approval required via Customer Centre"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Spare batteries/powerbanks over 160Wh (over 43,000 mAh):",
+        "Prohibited from Carriage"
+       ]
+      }
+     ],
+     "wh_max": 160
+    },
+    {
+     "id": "dove",
+     "valore": "Cabin baggage only, not in hold baggage; in an accessible place on board, not in the overhead lockers.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "▪ CANNOT be carried in Hold Baggage",
+        "▪ MUST be carried in Cabin Baggage only"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Spare batteries/power banks should be stowed in an accessible location onboard and NOT in overhead lockers"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "uso",
+     "valore": "Not allowed: a power bank cannot be plugged into the seat power supply and cannot be used on board to charge other devices.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Power banks cannot be plugged into the In Seat Power Supply at ANY time onboard",
+        "Power banks cannot be used onboard to charge other electronic devices"
+       ]
+      }
+     ]
+    }
+   ],
+   "tab": {
+    "quante": "2",
+    "wh": "100 Wh; 100-160 Wh with approval",
+    "uso": "No",
+    "dove": "Accessible place; not overhead"
+   },
+   "uso_cod": "no",
+   "extra": [
+    {
+     "f": "a",
+     "righe": [
+      "All spare batteries and power banks must be able to fit into the Fire Containment Bag (37x28x10cm)"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "emirates",
+   "tipo": "regola",
+   "controllato_il": "2026-11-19",
+   "fonti": {
+    "a": {
+     "url": "https://www.emirates.com/uk/english/before-you-fly/travel/dangerous-goods-policy/",
+     "titolo": "Emirates: Dangerous Goods Policy",
+     "lettura": "browser"
+    }
+   },
+   "voci": [
+    {
+     "id": "quante",
+     "valore": "One power bank per passenger.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Passengers are allowed to carry one power bank with a maximum capacity of 100 watt hour, with the power bank containing clearly visible capacity rating information."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wh",
+     "valore": "100 watt hours at most, with the capacity rating clearly visible on the power bank. The section names no approval route for a bigger one.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Passengers are allowed to carry one power bank with a maximum capacity of 100 watt hour, with the power bank containing clearly visible capacity rating information."
+       ]
+      }
+     ],
+     "wh_max": 100
+    },
+    {
+     "id": "dove",
+     "valore": "Cabin baggage only, not in checked-in baggage; in the seat pocket or under the seat in front, not in the overhead compartment.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Power banks are permitted in cabin baggage only and not in checked-in baggage. Onboard the aircraft, power banks cannot be placed in the overhead compartment and must be securely placed either in in the seat pocket or under the seat in front of you to ensure quick access and safety compliance."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "uso",
+     "valore": "Not allowed: no charging a device from a power bank on board and no charging the power bank from the aircraft's power.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Usage of power banks to charge any electronic devices onboard and charging the power bank itself using the onboard power source is prohibited."
+       ]
+      }
+     ]
+    }
+   ],
+   "tab": {
+    "quante": "1",
+    "wh": "100 Wh",
+    "uso": "No",
+    "dove": "Seat pocket or under the seat; not overhead"
+   },
+   "uso_cod": "no"
+  },
+  {
+   "slug": "qatar-airways",
+   "tipo": "regola",
+   "controllato_il": "2026-11-19",
+   "fonti": {
+    "a": {
+     "url": "https://www.qatarairways.com/en/baggage/restricted.html",
+     "titolo": "Qatar Airways: Restrictions on dangerous goods",
+     "lettura": "browser"
+    }
+   },
+   "voci": [
+    {
+     "id": "quante",
+     "valore": "Two (2) power banks per passenger.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Only two (2) power banks are allowed per passenger."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wh",
+     "valore": "100 Wh each at most; power banks above 100 watt-hours are no longer allowed in passenger baggage.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Watt-hour rating of each power bank must not exceed 100."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Power banks exceeding 100 Watt-hours are no longer allowed in passenger baggage."
+       ]
+      }
+     ],
+     "wh_max": 100
+    },
+    {
+     "id": "dove",
+     "valore": "Listed under “Hand baggage”. While it charges a device it must stay under your direct supervision, not inside carry-on baggage or the overhead bin.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Power Banks - Additional restrictions",
+        "Hand baggage"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "During non-critical phases, power banks may be used to recharge personal electronic devices, only if they remain in the passenger’s direct supervision and are not stowed in carry-on baggage or in the overhead bin while charging."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "uso",
+     "valore": "You may charge a personal device from a power bank during non-critical phases of the flight, under your direct supervision. Charging the power bank itself is prohibited in all phases of flight.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Charging of power banks is prohibited at all phases of flight."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "During non-critical phases, power banks may be used to recharge personal electronic devices, only if they remain in the passenger’s direct supervision and are not stowed in carry-on baggage or in the overhead bin while charging."
+       ]
+      }
+     ]
+    }
+   ],
+   "tab": {
+    "quante": "2",
+    "wh": "100 Wh",
+    "uso": "Charging a device: yes, in non-critical phases. Recharging the power bank: no",
+    "dove": "Hand baggage; under your supervision while charging"
+   },
+   "uso_cod": "limitato"
+  },
+  {
+   "slug": "qantas",
+   "tipo": "regola",
+   "controllato_il": "2026-11-19",
+   "fonti": {
+    "a": {
+     "url": "https://www.qantas.com/en-au/baggage/dangerous-goods/spare-batteries-and-powerbanks",
+     "titolo": "Qantas: Spare batteries and power banks",
+     "lettura": "browser"
+    }
+   },
+   "voci": [
+    {
+     "id": "quante",
+     "valore": "Two power banks per person.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "You can carry up to two power banks per person, each not exceeding 100Wh (approx 27,000 mAh)."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wh",
+     "valore": "100 Wh each at most; no airline approval needed below that, and power banks above 100 Wh are not permitted.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Power bank - not exceeding 100Wh",
+        "Airline approval required",
+        "No"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "No more than two power banks per passenger, each not exceeding 100Wh. Power banks exceeding 100Wh are not permitted."
+       ]
+      }
+     ],
+     "wh_max": 100
+    },
+    {
+     "id": "dove",
+     "valore": "Carry-on only, not in checked baggage (they are confiscated or disposed of if found there); in your seat pocket or under the seat in front.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Power banks and spare batteries must be packed in your carry-on, not your checked baggage. If found in your checked baggage, they will be confiscated or disposed of at the airport."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Keep them in your seat pocket or under the seat in front of you. Power banks cannot be used or charged during the flight, including via in-seat USB ports."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "uso",
+     "valore": "Not allowed: power banks cannot be used or charged during the flight, including via in-seat USB ports.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Keep them in your seat pocket or under the seat in front of you. Power banks cannot be used or charged during the flight, including via in-seat USB ports."
+       ]
+      }
+     ]
+    }
+   ],
+   "tab": {
+    "quante": "2",
+    "wh": "100 Wh",
+    "uso": "No",
+    "dove": "Seat pocket or under the seat"
+   },
+   "uso_cod": "no",
+   "extra": [
+    {
+     "f": "a",
+     "righe": [
+      "From 1 January 2027, power banks and portable charging devices over 100Wh are prohibited. Power banks are prohibited in your checked baggage, if found they will be confiscated or disposed of. Please pack them in your carry-on and ensure they remain within reach during your flight."
+     ]
+    },
+    {
+     "f": "a",
+     "righe": [
+      "Flights to/from and within India: customers are prohibited from carrying or using the MOBIKINS MK-PB-04 power bank on board or in checked baggage."
+     ]
+    }
+   ],
+   "nota": "The notice at the top of Qantas's page dates the ban on power banks over 100 Wh from 1 January 2027, while its own table already says they are not permitted. Both sentences are quoted; if yours is over 100 Wh, ask Qantas before you fly."
+  },
+  {
+   "slug": "jetstar",
+   "tipo": "regola",
+   "controllato_il": "2026-11-19",
+   "fonti": {
+    "a": {
+     "url": "https://www.jetstar.com/au/en/help/dangerous-goods",
+     "titolo": "Jetstar: Dangerous goods",
+     "lettura": "browser"
+    }
+   },
+   "voci": [
+    {
+     "id": "quante",
+     "valore": "Two power banks per passenger.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Power banks must be in carry-on baggage. A maximum of two power banks per passenger may be carried, and the onboard use and charging of these devices is not permitted. If you are travelling with a power bank, you should keep it within easy reach during the flight."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wh",
+     "valore": "Between 100 Wh and 160 Wh only with approval from Qantas, and only two such spare batteries or power banks.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Only two spare batteries/power banks of between 100 Wh and 160 Wh are permitted, and you must get approval from Qantas"
+       ]
+      }
+     ],
+     "wh_max": 160
+    },
+    {
+     "id": "dove",
+     "valore": "Carry-on baggage only, within easy reach during the flight.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "All spare batteries and power banks must be carried in carry-on baggage only. On JQ flights, a maximum of two power banks are permitted, per passenger."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Power banks must be in carry-on baggage. A maximum of two power banks per passenger may be carried, and the onboard use and charging of these devices is not permitted. If you are travelling with a power bank, you should keep it within easy reach during the flight."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "uso",
+     "valore": "Not allowed: onboard use and charging of power banks is not permitted.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Power banks must be in carry-on baggage. A maximum of two power banks per passenger may be carried, and the onboard use and charging of these devices is not permitted. If you are travelling with a power bank, you should keep it within easy reach during the flight."
+       ]
+      }
+     ]
+    }
+   ],
+   "tab": {
+    "quante": "2",
+    "wh": "100-160 Wh with approval",
+    "uso": "No",
+    "dove": "Carry-on; within easy reach"
+   },
+   "uso_cod": "no",
+   "extra": [
+    {
+     "f": "a",
+     "righe": [
+      "Damaged (e.g. swollen) or defective lithium batteries and power banks pose significant risks and must not be carried."
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "virgin-australia",
+   "tipo": "regola",
+   "controllato_il": "2026-11-19",
+   "fonti": {
+    "a": {
+     "url": "https://www.virginaustralia.com/au/en/travel-info/baggage/batteries/",
+     "titolo": "Virgin Australia: Batteries",
+     "lettura": "browser"
+    }
+   },
+   "voci": [
+    {
+     "id": "quante",
+     "valore": "Two (2) power banks per person.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Total of only two (2) power banks per person is permitted."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wh",
+     "valore": "160 Wh each at most. Over 100 Wh and up to 160 Wh needs Virgin Australia's approval and must be declared at check-in; over 160 Wh is not allowed.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Only two power banks, each not exceeding 160Wh, are permitted per person.",
+        "Batteries or power banks over 100Wh and up to 160Wh will need Virgin Australia’s approval and you must declare them at check-in (limit: two per person).",
+        "Batteries or power banks over 160Wh are not allowed, except for mobility aid batteries."
+       ]
+      }
+     ],
+     "wh_max": 160
+    },
+    {
+     "id": "dove",
+     "valore": "Carry-on only, never in checked baggage; in the seat pocket, under the seat in front or on you.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Batteries and power banks must never be packed in checked baggage."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "All batteries, power banks and small portable electronic devices carried in the cabin must be stowed in the seat pocket, under the seat in front, or be kept on you / in your hands"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "uso",
+     "valore": "Not allowed: no charging another device from a power bank and no charging the power bank on board.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Not use power banks on board the aircraft to charge another device;",
+        "Not charge power banks on board the aircraft;"
+       ]
+      }
+     ]
+    }
+   ],
+   "tab": {
+    "quante": "2",
+    "wh": "160 Wh; over 100 Wh with approval",
+    "uso": "No",
+    "dove": "Seat pocket, under the seat or on you"
+   },
+   "uso_cod": "no"
+  },
+  {
+   "slug": "american-airlines",
+   "tipo": "regola",
+   "controllato_il": "2026-11-19",
+   "fonti": {
+    "a": {
+     "url": "https://www.aa.com/i18n/travel-info/baggage/restricted-items.jsp",
+     "titolo": "American Airlines: Restricted items in bags",
+     "lettura": "browser"
+    }
+   },
+   "voci": [
+    {
+     "id": "quante",
+     "valore": "2 portable chargers per passenger while on board.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Limit 2 portable chargers per passenger while onboard"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wh",
+     "valore": "100 watt hours (Wh) each at most. The section names no approval route for a bigger one, and large portable power banks are not allowed at all.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Each charger must not exceed 100 watt hours (Wh)"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Large portable power banks and lithium-ion battery-powered generators are not allowed as carry-on or checked items."
+       ]
+      }
+     ],
+     "wh_max": 100
+    },
+    {
+     "id": "dove",
+     "valore": "Carry-on yes, checked bags no; in an easily accessible place such as a personal item under the seat or the seatback pocket, not in overhead bins.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Carry-on – Yes",
+        "Checked bags – No"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Store them in an easily accessible place, such as:",
+        "A personal item under the seat",
+        "The seatback pocket"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Do not:",
+        "Store portable chargers in overhead bins or other enclosed spaces"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "uso",
+     "valore": "You may use one if it stays within reach and visible. You may not recharge it from the seat power outlets.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Keep portable chargers within reach and visible while in use"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Do not:",
+        "Use in seat power outlets to recharge portable chargers while onboard"
+       ]
+      }
+     ]
+    }
+   ],
+   "tab": {
+    "quante": "2",
+    "wh": "100 Wh",
+    "uso": "Use: yes, within reach and visible. Recharging from seat power: no",
+    "dove": "Under the seat or seatback pocket; not overhead"
+   },
+   "uso_cod": "limitato"
+  },
+  {
+   "slug": "delta",
+   "tipo": "regola",
+   "controllato_il": "2026-11-19",
+   "fonti": {
+    "a": {
+     "url": "https://www.delta.com/us/en/baggage/prohibited-or-restricted-items/battery-or-fuel-powered",
+     "titolo": "Delta Air Lines: Battery or Fuel-Powered Items",
+     "lettura": "browser"
+    }
+   },
+   "voci": [
+    {
+     "id": "quante",
+     "valore": "Two power banks per person.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "No more than two power banks may be carried per person, and they may not exceed an aggregate total of 100 Wh each, with no exceptions."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wh",
+     "valore": "100 Wh each, “with no exceptions”.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "No more than two power banks may be carried per person, and they may not exceed an aggregate total of 100 Wh each, with no exceptions."
+       ]
+      }
+     ],
+     "wh_max": 100
+    },
+    {
+     "id": "dove",
+     "valore": "Carry-on only (spare lithium batteries); somewhere easy to reach such as under the seat in front or the seatback pocket, not in an overhead bin.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Spare lithium batteries are allowed in carry-on baggage only with batteries individually protected to prevent short circuit."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "In the interest of safety, passengers should store spare lithium batteries, including power banks, in a place that is easily accessible such as underneath the seat in front of you or in the seatback pocket.",
+        "Lithium batteries or power banks (i.e. portable chargers) may not be stored in an overhead bin."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "uso",
+     "valore": "No recharging the power bank on board, and no charging a device from it during taxi, take-off and landing.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Additionally, power banks must not be recharged on board the aircraft or be used to recharge a portable electronic device during taxi, take-off, landing."
+       ]
+      }
+     ]
+    }
+   ],
+   "tab": {
+    "quante": "2",
+    "wh": "100 Wh",
+    "uso": "Charging a device: not during taxi, take-off, landing. Recharging the power bank: no",
+    "dove": "Under the seat or seatback pocket; not overhead"
+   },
+   "uso_cod": "limitato",
+   "extra": [
+    {
+     "f": "a",
+     "righe": [
+      "In the interest of safety, please review the portable charger requirements of the countries you are visiting as some countries and airlines limit how many portable chargers or watt hours are allowed in each person’s carry-on."
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "southwest",
+   "tipo": "regola",
+   "controllato_il": "2026-11-19",
+   "fonti": {
+    "a": {
+     "url": "https://support.southwest.com/helpcenter/article/Traveling-with-lithium-batteries-e-cigarettes-and-lighters",
+     "titolo": "Southwest Airlines Help Center: Traveling with lithium batteries, portable chargers/power banks, e-cigarettes, and lighters",
+     "lettura": "browser"
+    }
+   },
+   "voci": [
+    {
+     "id": "quante",
+     "valore": "One power bank per customer, effective April 20, 2026.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "each Customer is limited to one power bank (effective April 20, 2026)"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wh",
+     "valore": "100 watt-hours at most. The page names no approval route for a bigger one.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "must not exceed 100 watt-hours"
+       ]
+      }
+     ],
+     "wh_max": 100
+    },
+    {
+     "id": "dove",
+     "valore": "In the cabin, never in checked luggage; in a personal item under the seat in front, not in the overhead bin.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "must be carried in the cabin; must not be placed in checked luggage"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "must not be placed in the overhead bin (if traveling with a smart bag, you must remove the battery before stowing the bag in the overhead bin) and should be stored in a personal item under the seat in front of you"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "uso",
+     "valore": "You may use it if it stays visible, not inside a bag. You may not charge it on board from in-seat power.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "may not be charged onboard using in-seat power",
+        "when in use it must be visible (not stored in a bag)"
+       ]
+      }
+     ]
+    }
+   ],
+   "tab": {
+    "quante": "1",
+    "wh": "100 Wh",
+    "uso": "Use: yes, kept visible. Recharging from in-seat power: no",
+    "dove": "Personal item under the seat; not overhead"
+   },
+   "uso_cod": "limitato"
+  },
+  {
+   "slug": "jetblue",
+   "tipo": "regola",
+   "controllato_il": "2026-11-19",
+   "fonti": {
+    "a": {
+     "url": "https://www.jetblue.com/help/batteries",
+     "titolo": "JetBlue: Batteries",
+     "lettura": "browser"
+    }
+   },
+   "voci": [
+    {
+     "id": "quante",
+     "valore": "Two power banks per customer.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "No more than two power banks allowed per customer"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wh",
+     "valore": "Not stated in the power bank list of the page we read.",
+     "cit": [],
+     "non_detto": true
+    },
+    {
+     "id": "dove",
+     "valore": "Not in checked baggage and not in overhead compartments.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Power banks are not permitted in checked baggage or overhead compartments"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "uso",
+     "valore": "Not to be charged from in-seat power during the flight, and not to be used to charge or power other devices during the flight.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Power banks must not be charged using in seat power during flight",
+        "Power banks should not be used to charge or power other devices during flight"
+       ]
+      }
+     ]
+    }
+   ],
+   "tab": {
+    "quante": "2",
+    "wh": "Not stated",
+    "uso": "No",
+    "dove": "Not in checked bags; not overhead"
+   },
+   "uso_cod": "no"
+  },
+  {
+   "slug": "air-india",
+   "tipo": "regola",
+   "controllato_il": "2026-11-19",
+   "fonti": {
+    "a": {
+     "url": "https://www.airindia.com/in/en/travel-information/baggage-guidelines/restricted-baggage.html",
+     "titolo": "Air India: Restricted baggage",
+     "lettura": "browser"
+    }
+   },
+   "voci": [
+    {
+     "id": "quante",
+     "valore": "Under its heading “Additional Restrictions for Singapore Departures” the page lists a maximum of 2 power banks per passenger. The other parts we read give no number for power banks.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Additional Restrictions for Singapore Departures",
+        "Power Bank",
+        "i. A maximum of 2 power banks per passenger is permitted"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wh",
+     "valore": "Spare batteries: not exceeding 100 Wh. Under the Singapore heading: only power banks up to 100 Wh.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "i. Batteries or fuel cells, including lithium batteries, non-spillable batteries, nickel-metal hydride batteries, and dry batteries, not exceeding a Watt-hour rating of 100 Wh."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "ii.Only power banks up to 100 Wh are allowed"
+       ]
+      }
+     ],
+     "wh_max": 100
+    },
+    {
+     "id": "dove",
+     "valore": "Spare batteries: carry-on yes, check-in no. Power banks and spare batteries cannot be placed in overhead bins.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Spare batteries",
+        "Carry On: Yes",
+        "Check In: No"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "iv. Power banks and spare batteries cannot be placed in overhead bins."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "v.Power banks are not allowed in checked baggage"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "uso",
+     "valore": "Under the Singapore heading: use or charging of power banks on board is not permitted. The other parts we read have no sentence on use.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "iv.Use or charging of power banks onboard is not permitted"
+       ]
+      }
+     ]
+    }
+   ],
+   "tab": {
+    "quante": "2 (listed for Singapore departures)",
+    "wh": "100 Wh",
+    "uso": "No (listed for Singapore departures)",
+    "dove": "Carry-on; not overhead"
+   },
+   "uso_cod": "no",
+   "extra": [
+    {
+     "f": "a",
+     "righe": [
+      "Due to potential fire safety risks, DGCA has prohibited the MOBIKINS MK-PB-04 power bank from being carried in cabin or checked baggage on any flight to, from, or within India."
+     ]
+    }
+   ],
+   "nota": "Air India's page puts its numbered power bank list under the heading “Additional Restrictions for Singapore Departures”. We quote it with that heading and do not extend it to other routes."
+  },
+  {
+   "slug": "indigo",
+   "tipo": "regola",
+   "controllato_il": "2026-11-19",
+   "fonti": {
+    "a": {
+     "url": "https://www.goindigo.in/baggage/cabin-baggage.html",
+     "titolo": "IndiGo: Cabin baggage",
+     "lettura": "browser"
+    }
+   },
+   "voci": [
+    {
+     "id": "quante",
+     "valore": "Two (2) devices per passenger (power banks and spare lithium batteries).",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Guidelines for Power Banks & Spare Lithium Batteries:",
+        "Maximum of two (2) devices per passenger."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wh",
+     "valore": "160 Wh each at most. The cabin baggage page names no approval step below that.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Each device must not exceed 160 Wh."
+       ]
+      }
+     ],
+     "wh_max": 160
+    },
+    {
+     "id": "dove",
+     "valore": "Hand baggage only, kept within reach.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Must be carried in hand baggage only and kept within reach."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "uso",
+     "valore": "Not allowed: must not be used, charged or recharged during the flight.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Must not be used, charged, or recharged during the flight."
+       ]
+      }
+     ]
+    }
+   ],
+   "tab": {
+    "quante": "2",
+    "wh": "160 Wh",
+    "uso": "No",
+    "dove": "Hand baggage; within reach"
+   },
+   "uso_cod": "no"
+  },
+  {
+   "slug": "turkish-airlines",
+   "tipo": "regola",
+   "controllato_il": "2026-11-19",
+   "fonti": {
+    "a": {
+     "url": "https://www.turkishairlines.com/en-int/any-questions/restrictions/",
+     "titolo": "Turkish Airlines: Restrictions",
+     "lettura": "browser"
+    }
+   },
+   "voci": [
+    {
+     "id": "quante",
+     "valore": "2 pieces per passenger.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Powerbanks with a lithium metal content equal to or less than 2 grams, and a lithium-ion power equal to or less than 100 Wh, can be carried only in the cabin, up to a maximum of 2 pieces per passenger."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wh",
+     "valore": "100 Wh or less. The power bank row names no approval route for a bigger one.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Powerbanks with a lithium metal content equal to or less than 2 grams, and a lithium-ion power equal to or less than 100 Wh, can be carried only in the cabin, up to a maximum of 2 pieces per passenger."
+       ]
+      }
+     ],
+     "wh_max": 100
+    },
+    {
+     "id": "dove",
+     "valore": "Only in the cabin; under the seat in front and/or in the seat pocket, not in overhead bins.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "They are not stored in overhead bins; they are stored under the seat in front of the passenger and/or in the seat pocket."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "uso",
+     "valore": "Not allowed: they cannot be charged at any stage of the flight and cannot be used to charge other devices.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "They cannot be charged at any stage of the flight and cannot be used to charge other devices."
+       ]
+      }
+     ]
+    }
+   ],
+   "tab": {
+    "quante": "2",
+    "wh": "100 Wh",
+    "uso": "No",
+    "dove": "Under the seat or seat pocket; not overhead"
+   },
+   "uso_cod": "no",
+   "extra": [
+    {
+     "f": "a",
+     "righe": [
+      "Powerbanks must be protected against short circuits."
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "united",
+   "tipo": "generale",
+   "controllato_il": "2026-11-19",
+   "fonti": {
+    "a": {
+     "url": "https://www.united.com/en/us/fly/baggage/dangerous-items.html",
+     "titolo": "United Airlines: Dangerous items",
+     "lettura": "browser"
+    }
+   },
+   "voci": [
+    {
+     "id": "quante",
+     "valore": "No number for power banks on the page we read. For lithium batteries in carry-on bags it says: up to two, with a maximum of 160 watt-hours each.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "We allow up to two lithium batteries with a max of 160 watt-hours each."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wh",
+     "valore": "No limit written for power banks as such. Personal devices with lithium batteries must be less than 100 watt-hours; loose lithium batteries in carry-on bags, 160 watt-hours each at most.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "We allow personal devices that have lithium batteries in checked and carry-on bags. They must be less than 100-watt hours."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "We allow up to two lithium batteries with a max of 160 watt-hours each."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "dove",
+     "valore": "Not in checked bags. If your carry-on bag is checked at the gate, take the power banks out first.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "We do not allow:",
+        "Power banks (including those installed in “smart bags”)"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "If you decide to check your carry-on bag at the gate, you must remove any lithium batteries and power banks."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "uso",
+     "valore": "Not stated on the page we read.",
+     "cit": [],
+     "non_detto": true
+    }
+   ],
+   "tab": {
+    "quante": "Not stated",
+    "wh": "Not stated for power banks",
+    "uso": "Not stated",
+    "dove": "Not in checked bags"
+   },
+   "uso_cod": null
+  },
+  {
+   "slug": "air-canada",
+   "tipo": "generale",
+   "controllato_il": "2026-11-19",
+   "fonti": {
+    "a": {
+     "url": "https://www.aircanada.com/ca/en/aco/home/plan/baggage/restricted-and-prohibited-items.html",
+     "titolo": "Air Canada: Restricted and prohibited items",
+     "lettura": "browser"
+    }
+   },
+   "voci": [
+    {
+     "id": "quante",
+     "valore": "No number for power banks as such. They are named among spare cells and battery packs: 20 at most per passenger, of which no more than 2 lithium-ion batteries rated 100 but not exceeding 160 Wh.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Spare cells or battery packs normally used for camera equipment, mobile phones, drones, power tools, power banks, etc."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Maximum 20 spare cells/battery packs, of which, no more than:",
+        "2 lithium-ion batteries with a rating of 100 but not exceeding 160 Wh"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wh",
+     "valore": "Lithium-ion battery packs: less than 100 Wh each without approval; rated 100 but not exceeding 160 Wh, 2 spare ones at most, pending approval by Air Canada airport agents.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Rating of less than 100 Wh each"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Rating of 100 but not exceeding 160 Wh each",
+        "Maximum of 2 individually protected spare lithium-ion batteries per passenger, pending approval by Air Canada airport agents."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "dove",
+     "valore": "Carry-on baggage only.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Each passenger may bring maximum quantities as follows in carry-on baggage only*:"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "uso",
+     "valore": "Not stated on the page we read.",
+     "cit": [],
+     "non_detto": true
+    }
+   ],
+   "tab": {
+    "quante": "Not stated",
+    "wh": "100 Wh; up to 160 Wh pending approval (battery packs)",
+    "uso": "Not stated",
+    "dove": "Carry-on only"
+   },
+   "uso_cod": null,
+   "extra": [
+    {
+     "f": "a",
+     "righe": [
+      "Anker Power Bank A1647",
+      "Anker Zolo Power Bank A1681",
+      "Anker Zolo Power Bank A1689"
+     ]
+    }
+   ],
+   "nota": "The three Anker models quoted above are listed by Air Canada as prohibited on board."
+  },
+  {
+   "slug": "avelo",
+   "tipo": "generale",
+   "controllato_il": "2026-11-19",
+   "fonti": {
+    "a": {
+     "url": "https://www.aveloair.com/help/restricted-and-prohibited-items",
+     "titolo": "Avelo Airlines: Restricted and prohibited items",
+     "lettura": "browser"
+    }
+   },
+   "voci": [
+    {
+     "id": "quante",
+     "valore": "No number for power banks on the page we read.",
+     "cit": [],
+     "non_detto": true
+    },
+    {
+     "id": "wh",
+     "valore": "No limit written for power banks as such. Larger lithium batteries (more than 100-watt hours, but not more than 160-watt hours): up to two in carry-on bags, in most cases.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "In most cases, you can pack up to two larger lithium batteries (more than 100-watt hours, but not more than 160-watt hours) in carry-on bags if the terminals are properly covered or insulated."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "dove",
+     "valore": "Loose lithium batteries may not go in checked bags. If your carry-on bag is checked at the gate, take lithium batteries and power banks out.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Loose lithium batteries are not allowed to be packed in checked bags."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "If you check your carry-on bag at the gate, you must remove any lithium batteries and power banks."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "uso",
+     "valore": "Not stated on the page we read.",
+     "cit": [],
+     "non_detto": true
+    }
+   ],
+   "tab": {
+    "quante": "Not stated",
+    "wh": "Not stated for power banks",
+    "uso": "Not stated",
+    "dove": "Not in checked bags"
+   },
+   "uso_cod": null
+  },
+  {
+   "slug": "air-transat",
+   "tipo": "generale",
+   "controllato_il": "2026-11-19",
+   "fonti": {
+    "a": {
+     "url": "https://www.airtransat.com/en-CA/travel-information/baggage/restricted-prohibited-items",
+     "titolo": "Air Transat: Restricted - Prohibited items",
+     "lettura": "browser"
+    }
+   },
+   "voci": [
+    {
+     "id": "quante",
+     "valore": "The page does not name power banks. Spare batteries: 20 per passenger at most.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Each passenger is limited to a maximum of 20 spare batteries."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wh",
+     "valore": "Not stated for power banks; the page gives its lithium battery limits in a table for devices and spare batteries.",
+     "cit": [],
+     "non_detto": true
+    },
+    {
+     "id": "dove",
+     "valore": "Lithium batteries carried for personal use: carry-on baggage only.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "When carried by passengers for personal use, lithium batteries must be carried in carry-on baggage only."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "uso",
+     "valore": "Not stated on the page we read.",
+     "cit": [],
+     "non_detto": true
+    }
+   ],
+   "tab": {
+    "quante": "Not stated",
+    "wh": "Not stated",
+    "uso": "Not stated",
+    "dove": "Carry-on only (lithium batteries)"
+   },
+   "uso_cod": null
+  },
+  {
+   "slug": "volotea",
+   "tipo": "generale",
+   "controllato_il": "2026-11-19",
+   "fonti": {
+    "a": {
+     "url": "https://www.volotea.com/en/legal-conditions/conditions-of-carriage/",
+     "titolo": "Volotea: Conditions of carriage",
+     "lettura": "browser"
+    }
+   },
+   "voci": [
+    {
+     "id": "quante",
+     "valore": "Maximum 2 per person, in the table row “Power banks and spare batteries”.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Power banks and spare batteries.",
+        "≤ 100 Wh"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Additional replacement batteries Maximum 2 per person."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wh",
+     "valore": "≤ 100 Wh in the row “Power banks and spare batteries”. The block of the table for more than 100 Wh and up to 160 Wh asks for airline approval.",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Power banks and spare batteries.",
+        "≤ 100 Wh"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "> 100 Wh and",
+        "≤ 160 Wh"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Additional replacement batteries* Maximum 2 per person (*) Airline approval required."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "dove",
+     "valore": "The table marks hand baggage and checked baggage with symbols that our reader does not turn into text: see the official page.",
+     "cit": [],
+     "non_detto": true
+    },
+    {
+     "id": "uso",
+     "valore": "Not stated on the page we read.",
+     "cit": [],
+     "non_detto": true
+    }
+   ],
+   "tab": {
+    "quante": "2",
+    "wh": "100 Wh; up to 160 Wh with approval",
+    "uso": "Not stated",
+    "dove": "See the official table"
+   },
+   "uso_cod": null
+  }
+ ],
+ "escluse": [
+  {
+   "slug": "pegasus",
+   "nome": "Pegasus Airlines",
+   "motivo": "its general rules page only links to a PDF leaflet about lithium batteries; our page reader does not read PDF files, so nothing is quoted",
+   "provato_il": "2026-11-19",
+   "url_provati": [
+    "https://www.flypgs.com/en/pegasus-baggage-allowance",
+    "https://www.flypgs.com/en/useful-info/info-about-flights/general-rules"
+   ]
+  },
+  {
+   "slug": "westjet",
+   "nome": "WestJet",
+   "motivo": "we did not find WestJet's page on batteries: two addresses we tried answered “not found” and its carry-on page has no sentence on power banks",
+   "provato_il": "2026-11-19",
+   "url_provati": [
+    "https://www.westjet.com/en-ca/baggage/restricted-items",
+    "https://www.westjet.com/en-ca/baggage/prohibited-restricted-items",
+    "https://www.westjet.com/en-ca/baggage/carry-on"
+   ]
+  },
+  {
+   "slug": "alaska-airlines",
+   "nome": "Alaska Airlines",
+   "motivo": "Alaska's prohibited items page loaded in our reader without its text (navigation only), and its Travel Tips page has no sentence on power banks",
+   "provato_il": "2026-11-19",
+   "url_provati": [
+    "https://www.alaskaair.com/content/travel-info/baggage/prohibited-items",
+    "https://www.alaskaair.com/content/travel-info/fly-alaska/travel-tips"
+   ]
+  },
+  {
+   "slug": "breeze",
+   "nome": "Breeze Airways",
+   "motivo": "Breeze's support pages loaded in our reader without their text",
+   "provato_il": "2026-11-19",
+   "url_provati": [
+    "https://www.flybreeze.com/support"
+   ]
+  },
+  {
+   "slug": "porter",
+   "nome": "Porter Airlines",
+   "motivo": "Porter's restricted items page refused our reader (HTTP 403), and its carry-on page has no sentence on power banks",
+   "provato_il": "2026-11-19",
+   "url_provati": [
+    "https://www.flyporter.com/en-ca/travel-information/baggage/restricted-items",
+    "https://www.flyporter.com/en-ca/travel-information/baggage/carry-on-allowance"
+   ]
+  },
+  {
+   "slug": "tui",
+   "nome": "TUI Airways",
+   "motivo": "the two TUI luggage pages we read have no sentence on power banks",
+   "provato_il": "2026-11-19",
+   "url_provati": [
+    "https://www.tui.co.uk/destinations/info/luggage-allowance",
+    "https://www.tui.co.uk/destinations/info/luggage-guidelines"
+   ]
+  },
+  {
+   "slug": "frontier",
+   "nome": "Frontier Airlines",
+   "motivo": "the Frontier help pages we read cover smart luggage and mobility-aid batteries only and have no sentence on power banks",
+   "provato_il": "2026-11-19",
+   "url_provati": [
+    "https://faq.flyfrontier.com/help/can-i-bring-smart-luggage-on-my-flight",
+    "https://faq.flyfrontier.com/help/can-i-bring-a-battery-powered-wheelchair-or-mobility-aid-on-the-plane",
+    "https://faq.flyfrontier.com/help/what-does-tsa-allow-and-not-allow-on-flights"
+   ]
+  }
+ ]
+}

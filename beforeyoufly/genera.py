@@ -10,6 +10,8 @@ Dati:
     dati/bagagli.json      misure del bagaglio a mano lette sulle pagine ufficiali delle compagnie, regola UE (ricontrollo: raccolta/bagagli.py)
     dati/stiva.json        bagaglio da stiva per compagnia: franchigia, tariffe, peso, misura, sovrappeso, con le frasi ufficiali (ricontrollo: raccolta/stiva.py)
     dati/stiva_domanda.json volumi di ricerca misurati per il bagaglio da stiva (raccolta/stiva.py --domanda)
+    dati/powerbank.json    power bank per compagnia: quanti, limite in Wh, dove tenerli, uso a bordo, con le frasi ufficiali (ricontrollo: raccolta/powerbank.py)
+    dati/powerbank_domanda.json volumi di ricerca misurati per i power bank (raccolta/powerbank.py --domanda)
     dati/affiliati.json    riquadro affiliati (vuoto finché non ci sono URL)
 
 Il controllo del passaporto gira nel browser (JS in pagina, nessuno script esterno). La stessa logica è scritta qui in Python
@@ -2909,7 +2911,7 @@ def descrizioni_bag(C):
     d = f"{C['nome']} {ANNO}: " + ", ".join(pezzi)
     if C.get("descrizione"):  # scritta a mano (es. Jetstar: regola che cambia a una data)
         return [C["descrizione"].replace("{anno}", str(ANNO)), f"{d}."]
-    return descrizioni_stiva(C, d) + [f"{d}. Quoted from {poss(C['nome'])} official page with the date checked, plus a bag size checker.",
+    return descrizioni_powerbank(C, d) + descrizioni_stiva(C, d) + [f"{d}. Quoted from {poss(C['nome'])} official page with the date checked, plus a bag size checker.",
             f"{d}. Quoted from the official page, with the date checked.", f"{d}.", f"{C['nome']} cabin bag size {ANNO}: the official sizes, quoted word for word."]
 
 
@@ -3195,6 +3197,145 @@ def descrizioni_stiva(C, d):
     return [f"{d}. Plus {testa}, quoted from the official page with the date checked.", f"{d}. Plus {testa}, from the official page.",
             f"{d}. Plus {n} {ff[0]}, from the official page."]
 
+# ---- Power bank (19/11/2026, sezione 2 di studio-business/intelaiatura/fronti-2026-11-12-crescita-byf.md): riquadro «Power banks» nelle
+# pagine compagnia che hanno i dati in dati/powerbank.json e indice cabin-bags/power-banks/. Stesso schema del bagaglio da stiva: file dei
+# dati separato (dati/bagagli.json e dati/stiva.json non cambiano), ogni voce = nostro riassunto breve + righe ufficiali parola per parola,
+# «not stated» dove la pagina non dice nulla (nessuna deduzione), tipo «generale» dove la compagnia ha solo la pagina generale sulle
+# batterie. NESSUN link di affiliazione nel riquadro né nell'indice: il riquadro Amazon del piano resta SPENTO (REGOLE-FISSE, 19/11/2026:
+# niente riquadri affiliati nuovi); l'interruttore è la voce «_powerbank_amazon» di dati/affiliati.json, vuota, e nessun codice la usa.
+# Ricontrollo: raccolta/powerbank.py (mensile); controlli: verifica.py, punto 39.
+_f_pb = DATI / "powerbank.json"
+PB = json.loads(_f_pb.read_text(encoding="utf-8")) if _f_pb.exists() else {"compagnie": [], "escluse": []}
+PB_PER_SLUG = {S["slug"]: S for S in PB["compagnie"]}
+_f_pb_d = DATI / "powerbank_domanda.json"
+PB_DOMANDA = json.loads(_f_pb_d.read_text(encoding="utf-8")) if _f_pb_d.exists() else {"compagnie": {}, "generali": {}}
+PB_PAGINA = f"{BAG_BASE}/power-banks/"
+COMPAGNIE_PER_SLUG = {C["slug"]: C for C in COMPAGNIE}
+PB_AMAZON = ((AFFILIATI.get("_powerbank_amazon") or {}).get("url") or "").strip()  # interruttore SPENTO e vuoto: nessun riquadro lo legge
+PB_VOCI = [("quante", "How many"), ("wh", "Capacity limit (Wh)"), ("dove", "Where to keep it"), ("uso", "Use and charging on board")]
+PB_FRASE_INDICE = "power bank on plane"                       # nel titolo e nell'H1 dell'indice
+PB_FRASE_INDICE_2 = "can you take a power bank on a plane"    # nella descrizione e nella prima frase dell'indice
+
+
+def volume_pb(slug, modello):
+    """Volume mensile misurato di una frase per la compagnia (modello con {n} = nome come lo si cerca); 0 se non misurato o in errore."""
+    D = PB_DOMANDA.get("compagnie", {}).get(slug) or {}
+    v = (D.get("frasi", {}).get(modello.format(n=D.get("cerca", ""))) or {}).get("volume")
+    return v if isinstance(v, (int, float)) else 0
+
+
+def volume_pb_generale(frase):
+    """Volume misurato più alto di una frase generale tra i Paesi misurati (0 se non misurata)."""
+    return max([v.get("volume") or 0 for v in PB_DOMANDA.get("generali", {}).values() if v.get("frase") == frase and isinstance(v.get("volume"), (int, float))] or [0])
+
+
+def misurata_pb(slug):
+    """True se «<compagnia> power bank» (o «... power bank rules», «power bank <compagnia>») ha un volume misurato > 0."""
+    return any(volume_pb(slug, m) > 0 for m in ("{n} power bank rules", "{n} power bank", "power bank {n}"))
+
+
+def nome_cerca_pb(C):
+    """Il nome come lo si cerca, con le maiuscole della compagnia («Delta», «Southwest», «Jet2»): è l'inizio del nome ufficiale."""
+    c = (PB_DOMANDA.get("compagnie", {}).get(C["slug"]) or {}).get("cerca", "")
+    return C["nome"][:len(c)] if c and C["nome"].lower().startswith(c) else C["nome"]
+
+
+def h2_powerbank(C, S):
+    coda = "how many, Wh limit and use on board" if S["tipo"] == "regola" else "what the official page says"
+    if misurata_pb(C["slug"]):
+        return f"{nome_cerca_pb(C)} power bank{' rules' if S['tipo'] == 'regola' else ''}: {coda}"
+    return f"Power banks on {C['nome']} flights: {coda}"
+
+
+def fonte_powerbank(S):
+    return ('<p class="fonte">Official source: ' + " · ".join(f'<a href="{escape(f["url"])}" rel="noopener">{escape(f["titolo"])}</a>' for f in S["fonti"].values()) +
+            f' · checked on {data_lunga(S["controllato_il"])} (read in a browser)</p>')
+
+
+def box_powerbank(C):
+    """Riquadro sui power bank della compagnia: '' se la compagnia non è in dati/powerbank.json. Nessun link di affiliazione."""
+    S = PB_PER_SLUG.get(C["slug"])
+    if not S:
+        return ""
+    V = {v["id"]: v for v in S["voci"]}
+    piu = len(S["fonti"]) > 1
+    righe = "".join(f'<tr><td data-l="Power bank"><strong>{escape(et)}</strong></td><td data-l="Official rule, in short">{escape(V[k]["valore"])}</td></tr>' for k, et in PB_VOCI)
+    generale = (f'<p class="avviso"><strong>{escape(C["nome"])} has no rule of its own for power banks on the page we read.</strong> It covers them only in its general '
+                f'page on batteries and dangerous goods; this is what that page says.</p>') if S["tipo"] == "generale" else ""
+    citaz = "".join(f'<h3>{escape(et)}</h3>{cit_bag(V[k]["cit"])}' + (f'<p class="small">{escape(V[k]["leggenda"])}</p>' if V[k].get("leggenda") else "")
+                    for k, et in PB_VOCI if V[k]["cit"])
+    extra = f'<h3>Other official wording</h3>{cit_bag(S["extra"])}' if S.get("extra") else ""
+    nota = f'<p class="small">{escape(S["nota"])}</p>' if S.get("nota") else ""
+    return (f'<section class="card" style="margin-top:22px" id="power-banks" aria-label="Power banks"><h2 style="margin-top:0">{escape(h2_powerbank(C, S))}</h2>'
+            f'<p>This part is about power banks (portable chargers). Every line comes from {escape(poss(C["nome"]))} own {"pages" if piu else "page"}, '
+            f'read on {data_lunga(S["controllato_il"])}.</p>{generale}'
+            f'<div class="tab tab-b"><table><thead><tr><th>Power bank</th><th>Official rule, in short</th></tr></thead><tbody>{righe}</tbody></table></div>'
+            f'<p class="small">Our short summary of the official wording quoted below. Where the page says nothing we write “not stated” and do not guess. '
+            f'Airlines changed their power bank rules several times in 2025 and 2026: the official page and the crew decide.</p>'
+            f'<h2>What {escape(poss(C["nome"]))} official {"pages say" if piu else "page says"} about power banks</h2>{citaz}{extra}{nota}{fonte_powerbank(S)}'
+            f'<p class="small"><a href="../../{PB_PAGINA}">Power bank rules of {len(PB["compagnie"])} airlines in one table</a></p></section>')
+
+
+def link_powerbank(C):
+    """Rimando al riquadro dei power bank sotto la risposta in alto ('' se la compagnia non ha il riquadro)."""
+    return '\n<p class="small"><a href="#power-banks">Power bank rules ↓</a></p>' if C["slug"] in PB_PER_SLUG else ""
+
+
+def descrizioni_powerbank(C, d):
+    """Descrizioni con la frase misurata «<compagnia> power bank rules», da provare per prime (scegli prende la prima che entra nei 160
+    caratteri). Solo dove la compagnia pubblica una regola e la frase ha un volume misurato; nelle pagine con il riquadro del bagaglio da
+    stiva la frase di quel riquadro resta (verifica.py, punto 38) e quella dei power bank si aggiunge solo se entra."""
+    S = PB_PER_SLUG.get(C["slug"])
+    if not S or S["tipo"] != "regola" or not misurata_pb(C["slug"]) or C.get("descrizione"):
+        return []
+    n = nome_cerca_pb(C)
+    T = STIVA_PER_SLUG.get(C["slug"])
+    ff = frasi_stiva(T) if T else []
+    if ff:
+        fr = "checked bag" if (not T["tariffe_fisse"] and "checked bag" in ff) else ff[0]
+        fr += " limits" if fr == "checked bag" else ""
+        return [f"{d}. Plus {T['nome_cerca']} {fr} and {n} power bank rules, from the official pages.",
+                f"{d}. Plus {T['nome_cerca']} {fr} and {n} power bank rules."]
+    return [f"{d}. Plus {n} power bank rules, quoted from the official page with the date checked.", f"{d}. Plus {n} power bank rules, from the official page.",
+            f"{d}. Plus {n} power bank rules."]
+
+
+def pagina_powerbank():
+    """Indice: la regola sui power bank di ogni compagnia in una tabella, con il link al riquadro (frasi ufficiali) e alla pagina ufficiale."""
+    rel = "../../"
+    SS = sorted(PB["compagnie"], key=lambda S: COMPAGNIE_PER_SLUG[S["slug"]]["nome"].lower())
+    regola = [S for S in SS if S["tipo"] == "regola"]
+    n_no = sum(1 for S in regola if S["uso_cod"] == "no")
+    n_uno = sum(1 for S in regola if S["tab"]["quante"] == "1")
+
+    def riga(S):
+        C = COMPAGNIE_PER_SLUG[S["slug"]]
+        f = next(iter(S["fonti"].values()))
+        return (f'<tr data-voce><td data-l="Airline"><a href="{rel}{BAG_BASE}/{C["slug"]}/#power-banks"><strong>{escape(C["nome"])}</strong></a>'
+                + ('<br><span class="small">general battery page only</span>' if S["tipo"] == "generale" else "") +
+                f'</td><td data-l="How many">{escape(S["tab"]["quante"])}</td><td data-l="Wh limit">{escape(S["tab"]["wh"])}</td>'
+                f'<td data-l="Use on board">{escape(S["tab"]["uso"])}</td><td data-l="Where to keep it">{escape(S["tab"]["dove"])}</td>'
+                f'<td data-l="Source"><a href="{escape(f["url"])}" rel="noopener">official</a>, <span style="white-space:nowrap">{data_lunga(S["controllato_il"])}</span></td></tr>')
+    testa = '<thead><tr><th>Airline</th><th>How many</th><th>Wh limit</th><th>Use on board</th><th>Where to keep it</th><th>Source</th></tr></thead>'
+    esclusi = "".join(f"<li><strong>{escape(E['nome'])}</strong>: {escape(E['motivo'])} (tried on {data_lunga(E['provato_il'])}).</li>" for E in PB["escluse"])
+    h1 = f"Power bank on plane rules by airline ({ANNO}): how many, Wh limit, use on board"
+    corpo = f"""<section class="hero">{h1_diviso(h1)}
+<p class="lead">Can you take a power bank on a plane? It depends on the airline: the number, the size, where it must travel and what you may do with it on board differ. This table gives the rule of {len(SS)} airlines, each taken from the airline's own page on {data_lunga(PB["controllato_il"])}; the exact official sentences are on each airline's page.</p>
+</section>
+<p class="avviso"><strong>Airlines changed their power bank rules several times in 2025 and 2026.</strong> Of the {len(regola)} airlines here with a rule of their own, {n_no} say you may not use a power bank on board at all and {n_uno} allow only one. The official page (linked in each row) and the crew decide.</p>
+<div class="cerca-box">{ico("search")}<input class="cerca" type="search" placeholder="Type an airline, e.g. Ryanair, Emirates, Delta" data-filtro-multi aria-label="Search airlines"></div>
+<div class="tab tab-b"><table>{testa}<tbody id="lista-powerbank">{"".join(riga(S) for S in SS)}</tbody></table></div>
+<p class="small">Our short summary; “not stated” means the page we read does not say it, and we do not guess. Wh = watt-hours: if your power bank shows only mAh, multiply by its voltage (usually 3.7 V) and divide by 1,000. “General battery page only”: the airline has no rule of its own for power banks on the page we read.</p>
+{AD}
+<h2>Airlines not included</h2>
+<p>These airlines have a cabin bag page on this site but no power bank box, because we could not read a rule on their own site. Nothing was taken from other sites.</p>
+<ul>{esclusi}</ul>
+<p><a href="{rel}{BAG_BASE}/">Cabin bag size by airline</a> · <a href="{rel}{BAG_STRUMENTO}">Does my bag fit?</a> · <a href="{rel}liquids/">Liquids rules by airport</a></p>"""
+    pagina(PB_PAGINA, scegli([f"Power Bank on Plane: Rules of {len(SS)} Airlines, Quoted ({ANNO})", f"Power Bank on Plane: Rules by Airline ({ANNO})"], LIMITE_TITOLO),
+           scegli([f"Can you take a power bank on a plane? How many, the Wh limit, where to keep it and use on board for {len(SS)} airlines, from their official pages.",
+                   f"Can you take a power bank on a plane? The rules of {len(SS)} airlines, from their official pages."], LIMITE_DESCRIZIONE),
+           corpo, briciole=[("Cabin bags", f"{BAG_BASE}/"), ("Power banks", PB_PAGINA)])
+
 
 def pagina_compagnia(C):
     rel = "../../"
@@ -3228,7 +3369,7 @@ def pagina_compagnia(C):
 {"".join(f'<p class="lead">{escape(x)}.</p>' for x in seconda)}
 {f'<p class="lead">Personal item: allowed with every fare, but {escape(C.get("chi_personale") or C["nome"] + " publishes")} no size for it (see the official wording below).</p>' if C.get("personale_senza_misura") else ""}
 {ambito}
-{fonte_bag(C)}{link_stiva(C)}
+{fonte_bag(C)}{link_stiva(C)}{link_powerbank(C)}
 </div></section>
 {misura}
 {AVVISO_BAG}
@@ -3244,7 +3385,7 @@ def pagina_compagnia(C):
 <p class="small">Our short summary of the official wording below.</p>
 {cit_tar}
 {avvisi}
-{extra}{box_stiva(C)}
+{extra}{box_stiva(C)}{box_powerbank(C)}
 {AD}
 {faq_html}
 {box_liquidi_bag(C, rel)}
@@ -3255,7 +3396,7 @@ def pagina_compagnia(C):
 <div class="griglia">{altre}</div>
 <p class="small">Spotted a change? <a href="{rel}contact/?ref=bag-{C['slug']}">Tell us</a>.</p>
 {box_bagagli(C)}
-<p><a href="{rel}{BAG_BASE}/">Cabin bag size by airline</a> · <a href="{rel}{BAG_UE}">EU free personal item rule</a> · <a href="{rel}liquids/">Liquids rules by airport</a></p>"""
+<p><a href="{rel}{BAG_BASE}/">Cabin bag size by airline</a> · <a href="{rel}{BAG_UE}">EU free personal item rule</a> · <a href="{rel}{PB_PAGINA}">Power bank rules by airline</a> · <a href="{rel}liquids/">Liquids rules by airport</a></p>"""
     pagina(f"{BAG_BASE}/{C['slug']}/", scegli(titoli_bag(C), LIMITE_TITOLO), scegli(descrizioni_bag(C), LIMITE_DESCRIZIONE), corpo,
            briciole=[("Cabin bags", f"{BAG_BASE}/"), (C["nome"], f"{BAG_BASE}/{C['slug']}/")], ld_extra=faq_ld)
 
@@ -3357,6 +3498,7 @@ def indice_bagagli():
     corpo = f"""<section class="hero">{h1_diviso(f"Cabin bag size by airline ({ANNO}): free under-seat bag and cabin bag")}
 <p class="lead">How big can your free bag be, and when do you have to pay for a cabin bag? The official hand luggage sizes of {len(COMPAGNIE)} airlines, quoted word for word from each airline's own page with the date we checked it. {n_gratis_sopra} of them include a cabin bag for the overhead locker in every fare; the others include only a smaller bag that must fit under the seat.</p>
 <p class="cifra" style="margin-top:10px"><a href="{rel}{BAG_STRUMENTO}">Does my bag fit? Check your bag against all {len(COMPAGNIE)} airlines</a></p>
+{f'<p class="small"><a href="{rel}{PB_PAGINA}">Power bank rules of {len(PB["compagnie"])} airlines in one table</a></p>' if PB["compagnie"] else ""}
 </section>
 {AVVISO_BAG}
 <div class="cerca-box">{ico("search")}<input class="cerca" type="search" placeholder="Type an airline, e.g. Ryanair, easyJet, United" data-filtro-multi aria-label="Search airlines"></div>
@@ -10373,6 +10515,8 @@ def main():
             pagina_misura(sl, m)
         pagina_strumento()
         pagina_ue()
+        if PB["compagnie"]:
+            pagina_powerbank()
     if VOCI_IT:
         indice_it()
         for v in VOCI_IT:
