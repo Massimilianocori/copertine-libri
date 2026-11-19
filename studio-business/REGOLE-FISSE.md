@@ -190,3 +190,9 @@ Massimiliano: «devi fare tutto quello che è migliorabile». Quando vedo un mig
 ## UPGRADE (17/11/2026)
 Massimiliano: «se il limite degli agenti ci costa più dell'upgrade allora faremo l'upgrade». Regola: proporre un upgrade (piano degli agenti o Netlify) solo con i conti scritti: quanto lavoro pronto resta fermo per il limite (sezioni in coda × €/anno), quanto costa l'upgrade al mese, e incassi veri del mese. Sempre con il suo sì prima di spendere. Primo controllo con i numeri: revisione del 30/11.
 Crediti Netlify (17/11): Massimiliano ogni tanto ne compra (pacchetti da circa 5 €) e «non è un problema». Quindi i crediti non bloccano il lavoro: si pubblica quando le sezioni sono pronte e revisionate, senza sprechi (una pubblicazione per sito al giorno). Quando restano meno di ~60 crediti, avvisarlo nel riassunto del mattino perché aggiunga un pacchetto, prima che i siti vengano sospesi.
+
+## Coda di Netlify (19/11/2026, dallo screenshot di Massimiliano)
+Ogni push sul ramo mette in coda una build per OGNI progetto Netlify collegato (~27). Il piano gratuito ne fa 1 alla volta: le build che non cambiano `sito/` vengono annullate dalla regola `ignore` ("Canceled"), ma prima aspettano in fila ("Awaiting Capacity") e rallentano le pubblicazioni vere.
+- Se un push NON cambia nessuna cartella `sito/` (note, dati, sorgenti, cruscotto), il messaggio dell'ULTIMO commit del push deve contenere `[skip netlify]`: Netlify non mette in coda niente. Il confronto della regola `ignore` parte dall'ultimo commit pubblicato, quindi saltare non perde nulla.
+- Raggruppare: pochi push al giorno, non uno per ogni nota.
+- Se dopo il merge l'ultimo commit è un "Merge…", aggiungere un commit vuoto di note solo se serve davvero; altrimenti va bene così.
