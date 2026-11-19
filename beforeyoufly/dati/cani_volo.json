@@ -19,7 +19,7 @@
    "pagina": "https://air.bark.co/collections/bookings",
    "c": "bark",
    "http": 200,
-   "byte": 947621,
+   "byte": 947617,
    "ente": "BARK Air",
    "titolo": "BARK Air: Our Routes (flights on sale)",
    "letto_il": "2026-11-19",
@@ -55,7 +55,7 @@
    "pagina": "https://retrievair.com/faqs/",
    "c": "retrievair",
    "http": 200,
-   "byte": 282526,
+   "byte": 282534,
    "ente": "RetrievAir",
    "titolo": "RetrievAir: FAQs",
    "letto_il": "2026-11-19",
@@ -215,7 +215,7 @@
    {
     "da": "San Francisco",
     "a": "New York",
-    "voli": 19,
+    "voli": 18,
     "prenotabili": 16,
     "min": 7450.0,
     "max": 7450.0
@@ -229,7 +229,7 @@
     "max": 14550.0
    }
   ],
-  "impronta": "85e5c31883c3f889"
+  "impronta": "da924bf4eaec3a17"
  },
  "rv": {
   "citta": [

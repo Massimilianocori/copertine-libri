@@ -1779,7 +1779,7 @@ srv.listen(0, async () => {
     const ctx = await b.newContext({ viewport: { width: 375, height: 800 }, colorScheme: tema });
     for (const u of ['/', '/passport-validity/spain/', '/liquids/', '/liquids/barcelona/', '/passport-validity/egypt/'].concat(JSON.parse(process.argv[4])).concat(JSON.parse(process.argv[6])).concat(JSON.parse(process.argv[7]))) {
       const p = await ctx.newPage(); const err = [];
-      p.on('console', m => { if (m.type() === 'error' && !m.text().startsWith('[Report Only]')) err.push(m.text()); /* CSP «Report Only» dei riquadri di Google (AdSense acceso): avvisi, non errori della pagina */ }); p.on('pageerror', e => err.push(String(e)));
+      p.on('console', m => { if (m.type() === 'error' && !m.text().startsWith('[Report Only]') && !m.text().includes('report-only Content Security Policy')) err.push(m.text()); /* CSP «Report Only» dei riquadri di Google (AdSense acceso): avvisi, non errori della pagina */ }); p.on('pageerror', e => err.push(String(e)));
       await p.goto(base + u, { waitUntil: 'load' });
       const w = await p.evaluate(() => [document.documentElement.scrollWidth, window.innerWidth]);
       out.pagine.push({ url: u, tema: tema, scroll: w[0], larghezza: w[1], errori: err });
@@ -4453,7 +4453,7 @@ srv.listen(0, async () => {
     const ctx = await b.newContext({ viewport: { width: larghezza, height: 900 }, colorScheme: tema });
     for (const u of PAGINE) {
       const p = await ctx.newPage(); const err = [];
-      p.on('console', m => { if (m.type() === 'error' && !m.text().startsWith('[Report Only]')) err.push(m.text()); }); p.on('pageerror', e => err.push(String(e)));
+      p.on('console', m => { if (m.type() === 'error' && !m.text().startsWith('[Report Only]') && !m.text().includes('report-only Content Security Policy')) err.push(m.text()); }); p.on('pageerror', e => err.push(String(e)));
       await p.goto(base + u, { waitUntil: 'load' });
       const w = await p.evaluate(() => [document.documentElement.scrollWidth, window.innerWidth]);
       const risp = await p.$eval('#answer', e => { const r = e.getBoundingClientRect(); return r.height > 0 && r.width <= window.innerWidth; }).catch(() => false);
@@ -5114,7 +5114,7 @@ srv.listen(0, async () => {
     const ctx = await b.newContext({ viewport: { width: w, height: 900 }, colorScheme: tema });
     for (const u of PAGINE) {
       const p = await ctx.newPage(); const err = [];
-      p.on('console', m => { if (m.type() === 'error' && !m.text().startsWith('[Report Only]')) err.push(m.text()); }); p.on('pageerror', e => err.push(String(e)));
+      p.on('console', m => { if (m.type() === 'error' && !m.text().startsWith('[Report Only]') && !m.text().includes('report-only Content Security Policy')) err.push(m.text()); }); p.on('pageerror', e => err.push(String(e)));
       await p.goto(base + u, { waitUntil: 'load' });
       const r = await p.evaluate(() => ({ scroll: document.documentElement.scrollWidth, vista: window.innerWidth,
         risposta: (() => { const a = document.querySelector('#answer'); return !!a && a.getBoundingClientRect().height > 0; })(),
