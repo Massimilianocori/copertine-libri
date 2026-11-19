@@ -51,6 +51,8 @@ if(q){var out=document.querySelector('[data-risultati]');var indice=null,attesa=
     .catch(function(){frasi=0;});}
   q.addEventListener('input',mostra);q.addEventListener('focus',carica);
   var f=q.closest('form');if(f)f.addEventListener('submit',function(ev){ev.preventDefault();var a=out.querySelector('a');if(a)location.href=a.href;});}
+// print button of the auto repair checklists: prints only the checklist block
+document.querySelectorAll('[data-stampa]').forEach(function(b){b.addEventListener('click',function(){var r=document.documentElement;r.classList.add('solo-check');var via=function(){r.classList.remove('solo-check');window.removeEventListener('afterprint',via);};window.addEventListener('afterprint',via);window.print();});});
 // corrections form: sent without leaving the page
 document.querySelectorAll('form[data-correzioni]').forEach(function(form){form.addEventListener('submit',function(ev){ev.preventDefault();
   var err=form.querySelector('[data-errore]');err.hidden=true;if(!form.checkValidity()){form.reportValidity();return;}
