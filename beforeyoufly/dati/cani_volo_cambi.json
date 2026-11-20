@@ -1,6 +1,13 @@
 {
  "cambi": [
   {
+   "data": "2026-11-20",
+   "fonte": "bk_voli",
+   "cosa": "voli e prezzi",
+   "prima": "da924bf4eaec3a17",
+   "dopo": "6ffe4bff905ac053"
+  },
+  {
    "data": "2026-11-19",
    "fonte": "bk_voli",
    "cosa": "voli e prezzi",

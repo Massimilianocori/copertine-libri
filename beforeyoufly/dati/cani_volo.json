@@ -1,16 +1,16 @@
 {
  "_nota": "Compagnie aeree per cani: citazioni scritte a mano in dati/cani_volo_manuali.json, fonti rilette da raccolta/cani_volo.py (HTTP, data di lettura, impronta della zona citata); voli e prezzi di BARK Air dal catalogo ufficiale del suo sito; città e rotte di RetrievAir dal suo sito. Non modificare a mano: rilanciare lo script.",
- "controllato_il": "2026-11-19",
+ "controllato_il": "2026-11-20",
  "fonti": {
   "bk_faq": {
    "url": "https://air.bark.co/pages/faq",
    "pagina": "https://air.bark.co/pages/faq",
    "c": "bark",
    "http": 200,
-   "byte": 188699,
+   "byte": 188817,
    "ente": "BARK Air",
    "titolo": "BARK Air: Frequently Asked Questions",
-   "letto_il": "2026-11-19",
+   "letto_il": "2026-11-20",
    "impronta": "8712741bf3de83d9",
    "frasi": 26
   },
@@ -19,10 +19,10 @@
    "pagina": "https://air.bark.co/collections/bookings",
    "c": "bark",
    "http": 200,
-   "byte": 947617,
+   "byte": 947735,
    "ente": "BARK Air",
    "titolo": "BARK Air: Our Routes (flights on sale)",
-   "letto_il": "2026-11-19",
+   "letto_il": "2026-11-20",
    "impronta": "f7a7daf39162dbd3",
    "frasi": 2
   },
@@ -31,10 +31,10 @@
    "pagina": "https://air.bark.co/pages/experience",
    "c": "bark",
    "http": 200,
-   "byte": 179779,
+   "byte": 179897,
    "ente": "BARK Air",
    "titolo": "BARK Air: Fly with us",
-   "letto_il": "2026-11-19",
+   "letto_il": "2026-11-20",
    "impronta": "c224713501536dfa",
    "frasi": 1
   },
@@ -43,10 +43,10 @@
    "pagina": "https://air.bark.co/pages/charters",
    "c": "bark",
    "http": 200,
-   "byte": 162851,
+   "byte": 162969,
    "ente": "BARK Air",
    "titolo": "BARK Air: Private Charters",
-   "letto_il": "2026-11-19",
+   "letto_il": "2026-11-20",
    "impronta": "ca441fba3a74674c",
    "frasi": 1
   },
@@ -55,10 +55,10 @@
    "pagina": "https://retrievair.com/faqs/",
    "c": "retrievair",
    "http": 200,
-   "byte": 282534,
+   "byte": 282446,
    "ente": "RetrievAir",
    "titolo": "RetrievAir: FAQs",
-   "letto_il": "2026-11-19",
+   "letto_il": "2026-11-20",
    "impronta": "84e7f049b7799211",
    "frasi": 23
   },
@@ -67,10 +67,10 @@
    "pagina": "https://retrievair.com/how-it-works/",
    "c": "retrievair",
    "http": 200,
-   "byte": 262480,
+   "byte": 262392,
    "ente": "RetrievAir",
    "titolo": "RetrievAir: How It Works",
-   "letto_il": "2026-11-19",
+   "letto_il": "2026-11-20",
    "impronta": "c5e2602f932537b9",
    "frasi": 5
   },
@@ -79,10 +79,10 @@
    "pagina": "https://retrievair.com/destinations/",
    "c": "retrievair",
    "http": 200,
-   "byte": 221388,
+   "byte": 221300,
    "ente": "RetrievAir",
    "titolo": "RetrievAir: Routes & Destinations",
-   "letto_il": "2026-11-19",
+   "letto_il": "2026-11-20",
    "impronta": "2d51c2c8feedf506",
    "frasi": 1
   }
@@ -90,7 +90,7 @@
  "bark_voli": {
   "url": "https://air.bark.co/collections/bookings",
   "valuta": "USD",
-  "letto_il": "2026-11-19",
+  "letto_il": "2026-11-20",
   "rotte": [
    {
     "da": "Dublin",
@@ -160,7 +160,7 @@
     "da": "New York",
     "a": "London",
     "voli": 22,
-    "prenotabili": 17,
+    "prenotabili": 19,
     "min": 9900.0,
     "max": 9900.0
    },
@@ -168,7 +168,7 @@
     "da": "New York",
     "a": "Los Angeles",
     "voli": 24,
-    "prenotabili": 21,
+    "prenotabili": 22,
     "min": 7075.0,
     "max": 7075.0
    },
@@ -183,8 +183,8 @@
    {
     "da": "New York",
     "a": "Paris",
-    "voli": 20,
-    "prenotabili": 18,
+    "voli": 19,
+    "prenotabili": 17,
     "min": 10225.0,
     "max": 12725.0
    },
@@ -229,7 +229,7 @@
     "max": 14550.0
    }
   ],
-  "impronta": "da924bf4eaec3a17"
+  "impronta": "6ffe4bff905ac053"
  },
  "rv": {
   "citta": [
@@ -345,13 +345,13 @@
    }
   ],
   "sitemap": "https://retrievair.com/routes-sitemap.xml",
-  "letto_il": "2026-11-19"
+  "letto_il": "2026-11-20"
  },
  "non_lette": {
   "k9": {
    "url": "https://www.k9jets.com/",
    "http": 403,
-   "letto_il": "2026-11-19"
+   "letto_il": "2026-11-20"
   }
  },
  "righe": [
