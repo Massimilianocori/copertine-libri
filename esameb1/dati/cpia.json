@@ -1,0 +1,1738 @@
+{
+ "_nota": "Pagine CPIA (prova del 20/11/2026). 'anagrafe': file di dati aperti del Ministero da cui vengono nome, codice, sedi, indirizzi ed email (maiuscole come nel file; le sedi in carcere sono solo contate). 'cpia': un CPIA per voce; 'citazioni' sono frasi copiate parola per parola dalla pagina del sito del CPIA indicata in 'fonti' (letta con un browser dove 'browser' è true: il testo compare dopo il caricamento); 'sedi_esame' rimanda a voci di sedi.json (elenchi ufficiali degli enti). Un tema senza citazioni vuol dire: frase non trovata nelle pagine lette, e la pagina lo dice. 'non_letti': CPIA scelti per domanda misurata ma senza pagina, con il motivo.",
+ "letto_il": "2026-11-20",
+ "anagrafe": {
+  "nome": "anagrafe delle scuole statali del Ministero dell'Istruzione e del Merito (dati aperti)",
+  "pagina": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/?area=Scuole",
+  "file": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/leaf/SCUANAGRAFESTAT20262720260901.csv",
+  "anno_scolastico": "2026/27",
+  "letta_il": "2026-11-20",
+  "n_cpia": 129,
+  "righe": 50273
+ },
+ "cpia": [
+  {
+   "slug": "verona",
+   "codice": "VRMM136004",
+   "nome": "CPIA di Verona",
+   "nome_anagrafe": "CPIA DI VERONA",
+   "provincia": "Verona",
+   "citta": "Verona",
+   "citta_slug": "verona",
+   "ricerca": "cpia verona",
+   "sito": "https://www.cpiaverona.edu.it/",
+   "sito_anagrafe": "Non Disponibile",
+   "codice_sul_sito": true,
+   "sito_nota": "sul sito è scritto il codice della scuola VRMM136004",
+   "email": "vrmm136004@istruzione.it",
+   "letto_il": "2026-11-20",
+   "titolo": "CPIA Verona: sedi, corsi di italiano, test A2, iscrizioni",
+   "titolo_h1": "CPIA di Verona: sedi, corsi di italiano, test A2 e iscrizioni",
+   "descrizione": "CPIA di Verona: codice VRMM136004, 10 sedi con indirizzo, corsi di italiano, test A2, esami e iscrizioni. Dati del Ministero e del sito del CPIA.",
+   "sedi": [
+    {
+     "codice": "VRMM136004",
+     "nome": "CPIA DI VERONA",
+     "indirizzo": "VIA DI PORTA CATENA N. 4",
+     "cap": "37138",
+     "comune": "VERONA",
+     "tipo": "sede centrale"
+    },
+    {
+     "codice": "VRCT71300A",
+     "nome": "C.T.P. \"LAZISE\"",
+     "indirizzo": "LOC.LA PEZZA N.5",
+     "cap": "37017",
+     "comune": "BARDOLINO",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "VRCT70500B",
+     "nome": "C.T.P. \"LEGNAGO\"",
+     "indirizzo": "VIA SICILIA 11",
+     "cap": "37045",
+     "comune": "LEGNAGO",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "VRCT70800V",
+     "nome": "C.T.P. SAN BONIFACIO",
+     "indirizzo": "VIA FIUME 61/C",
+     "cap": "37047",
+     "comune": "SAN BONIFACIO",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "VRCT70400G",
+     "nome": "C.T.P. \"MARCONI \"S. GIOVANNI LUP.",
+     "indirizzo": "VIA U.FOSCOLO13",
+     "cap": "37057",
+     "comune": "SAN GIOVANNI LUPATOTO",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "VRCT707003",
+     "nome": "C.T.P. \"VR 1 BORGO ROMA\"",
+     "indirizzo": "VIA UDINE 2",
+     "cap": "37135",
+     "comune": "VERONA",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "VRCT71200E",
+     "nome": "C.T.P. \"VR 2 BORGO TRENTO\"",
+     "indirizzo": "VIA PORTA CATENA 4",
+     "cap": "37138",
+     "comune": "VERONA",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "VRCT70900P",
+     "nome": "C.T.P. \"VR 3 BORGO VENEZIA\"",
+     "indirizzo": "VIA GUGLIELMO SALICETO 1",
+     "cap": "37131",
+     "comune": "VERONA",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "VRCT71000V",
+     "nome": "C.T.P. \"VR 4 VERONETTA\"",
+     "indirizzo": "VIA G.TREZZA 13",
+     "cap": "37121",
+     "comune": "VERONA",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "VRCT70300Q",
+     "nome": "C.T.P. VILLAFRANCA",
+     "indirizzo": "VIA MARCONI 3",
+     "cap": "37069",
+     "comune": "VILLAFRANCA DI VERONA",
+     "tipo": "centro territoriale"
+    }
+   ],
+   "sedi_carcerarie": 1,
+   "sedi_esame": [
+    {
+     "ente": "CILS",
+     "nome": "Cpia Verona, San Bonifacio- Sede Associata CPIA Verona"
+    }
+   ],
+   "fonti": {
+    "p011": {
+     "url": "https://www.cpiaverona.edu.it/index.php?idpag=1926",
+     "nome": "I numeri della scuola",
+     "letta_il": "2026-11-20"
+    },
+    "p002": {
+     "url": "https://www.cpiaverona.edu.it/index.php?idpag=1930",
+     "nome": "Servizi",
+     "letta_il": "2026-11-20"
+    },
+    "p005": {
+     "url": "https://www.cpiaverona.edu.it/index.php",
+     "nome": "pagina iniziale",
+     "letta_il": "2026-11-20"
+    }
+   },
+   "citazioni": {
+    "corsi": [
+     {
+      "fonte": "p011",
+      "testo": "Nell’a.s. 2025/2026, gli studenti iscritti ai Corsi di Alfabetizzazione e Apprendimento della Lingua Italiana sono stati complessivamente 4.715 . I gruppi di livello attivati sono stati 264 , con una media di 17,9 studenti per gruppo ."
+     }
+    ],
+    "certificazioni": [
+     {
+      "fonte": "p002",
+      "testo": "Somministrazione di test per la certificazione linguistica della lingua italiana"
+     }
+    ],
+    "iscrizione": [
+     {
+      "fonte": "p005",
+      "testo": "❌ LE ISCRIZIONI PER I CORSI DI ITALIANO SONO MOMENTANEAMENTE SOSPESE TRANNE CHE PER LA SEDE ASSOCIATA DI VILLAFRANCA ❌"
+     },
+     {
+      "fonte": "p005",
+      "testo": "✅LE ISCRIZIONI AI CORSI DI PRIMO LIVELLO (SCUOLA MEDIA - PRIMO BIENNIO SERALE) PER L'A.S. 2026/2027 RIMANGONO APERTE."
+     }
+    ]
+   }
+  },
+  {
+   "slug": "brescia-1",
+   "codice": "BSMM20700V",
+   "nome": "CPIA 1 Brescia",
+   "nome_anagrafe": "CPIA 1 BRESCIA",
+   "provincia": "Brescia",
+   "citta": "Brescia",
+   "citta_slug": "brescia",
+   "ricerca": "cpia 1 brescia",
+   "sito": "https://cpia1brescia.edu.it/",
+   "sito_anagrafe": "https//www.cpia1brescia.edu.it/",
+   "codice_sul_sito": true,
+   "sito_nota": "sul sito è scritto il codice della scuola BSMM20700V",
+   "email": "bsmm20700v@istruzione.it",
+   "letto_il": "2026-11-20",
+   "titolo": "CPIA 1 Brescia: sedi, corsi di italiano, test A2, iscrizioni",
+   "titolo_h1": "CPIA 1 Brescia: sedi, corsi di italiano, test A2 e iscrizioni",
+   "descrizione": "CPIA 1 Brescia: codice BSMM20700V, 5 sedi con indirizzo, corsi di italiano, test A2, esami e iscrizioni. Dati del Ministero e del sito del CPIA.",
+   "sedi": [
+    {
+     "codice": "BSMM20700V",
+     "nome": "CPIA 1 BRESCIA",
+     "indirizzo": "VIA GALILEI 46",
+     "cap": "25128",
+     "comune": "BRESCIA",
+     "tipo": "sede centrale"
+    },
+    {
+     "codice": "BSCT70300N",
+     "nome": "I.C. BAGNOLO MELLA",
+     "indirizzo": "VIA 26 APRILE 40",
+     "cap": "Non Disponibile",
+     "comune": "BAGNOLO MELLA",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "BSCT701002",
+     "nome": "FOSCOLO",
+     "indirizzo": "GALILEI46",
+     "cap": "Non Disponibile",
+     "comune": "BRESCIA",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "BSCT706005",
+     "nome": "FRANCHI",
+     "indirizzo": "VILL. SERENO",
+     "cap": "25125",
+     "comune": "BRESCIA",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "BSCT700006",
+     "nome": "I.C. UNICO DI LUMEZZANE",
+     "indirizzo": "VIA MONTINI 100",
+     "cap": "Non Disponibile",
+     "comune": "LUMEZZANE",
+     "tipo": "centro territoriale"
+    }
+   ],
+   "sedi_carcerarie": 2,
+   "sedi_esame": [
+    {
+     "ente": "CILS",
+     "nome": "C.P.I.A. 1 BRESCIA"
+    }
+   ],
+   "fonti": {
+    "p013": {
+     "url": "https://cpia1brescia.edu.it/indirizzo-di-studio/alfabetizzazione-e-lingua-italiana-per-straniere-liv-a1-e-a2/",
+     "nome": "Alfabetizzazione e Lingua italiana per stranieri Liv. A1 e A2",
+     "letta_il": "2026-11-20",
+     "browser": true
+    },
+    "p014": {
+     "url": "https://cpia1brescia.edu.it/indirizzo-di-studio/lingua-italiana-liv-b1-b2-c1-c2/",
+     "nome": "Ampliamento della lingua italiana – Livelli B1, B2, C1 e C2",
+     "letta_il": "2026-11-20",
+     "browser": true
+    },
+    "p005": {
+     "url": "https://cpia1brescia.edu.it/documento/",
+     "nome": "Le carte della scuola",
+     "letta_il": "2026-11-20",
+     "browser": true
+    },
+    "p000": {
+     "url": "https://cpia1brescia.edu.it/",
+     "nome": "pagina iniziale",
+     "letta_il": "2026-11-20",
+     "browser": true
+    }
+   },
+   "citazioni": {
+    "corsi": [
+     {
+      "fonte": "p013",
+      "testo": "Percorsi di alfabetizzazione e percorsi di apprendimento della lingua italiana finalizzati al raggiungimento del livello A2 QCER."
+     },
+     {
+      "fonte": "p014",
+      "testo": "Corsi di livello B1, B2, C1, C2 da certificare in convenzione con l’Università di Siena (vedi sezione CILS)."
+     }
+    ],
+    "certificazioni": [
+     {
+      "fonte": "p005",
+      "testo": "C.P.I.A. Centro autorizzato Certificazione CILS"
+     }
+    ],
+    "iscrizione": [
+     {
+      "fonte": "p000",
+      "testo": "E’ possibile iscriversi al seguente link: https://suite.sogiscuola.com/registri/BSMM20700V/cpia/iscrizioneAlunni.php Gli interessati verranno contattati telefonicamente dai docenti per sostenere un test linguistico d’ingresso"
+     },
+     {
+      "fonte": "p013",
+      "testo": "Si accede al percorso iscrivendosi online, le lezione sono in presenza presso le sedi specificate all'atto dell'iscrizione."
+     }
+    ]
+   }
+  },
+  {
+   "slug": "milano-5",
+   "codice": "MIMM0CG003",
+   "nome": "CPIA 5 Milano",
+   "nome_anagrafe": "CPIA 5 MILANO",
+   "provincia": "Milano",
+   "citta": "Milano",
+   "citta_slug": "milano",
+   "ricerca": "cpia milano",
+   "sito": "https://www.cpia5milanocentrale.edu.it/",
+   "sito_anagrafe": "https//www.cpia5milanocentrale.edu.it/index.php?idpag=1",
+   "codice_sul_sito": true,
+   "sito_nota": "sul sito è scritto il codice della scuola MIMM0CG003",
+   "email": "mimm0cg003@istruzione.it",
+   "letto_il": "2026-11-20",
+   "titolo": "CPIA Milano: sedi, corsi di italiano, test A2, iscrizioni",
+   "titolo_h1": "CPIA 5 Milano: sedi, corsi di italiano, test A2 e iscrizioni",
+   "descrizione": "CPIA 5 Milano: codice MIMM0CG003, 9 sedi con indirizzo, corsi di italiano, test A2, esami e iscrizioni. Dati del Ministero e del sito del CPIA.",
+   "sedi": [
+    {
+     "codice": "MIMM0CG003",
+     "nome": "CPIA 5 MILANO",
+     "indirizzo": "VIA PONTANO 43",
+     "cap": "20127",
+     "comune": "MILANO",
+     "tipo": "sede centrale"
+    },
+    {
+     "codice": "MICT715002",
+     "nome": "C.T.P. C/O I.C. VIA CONSOLE MARCELLO MI",
+     "indirizzo": "VIA CONSOLE MARCELLO 9",
+     "cap": "20156",
+     "comune": "MILANO",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "MICT71800D",
+     "nome": "C.T.P. C/O I.C. VIA POLESINE MILANO",
+     "indirizzo": "VIA POLESINE12",
+     "cap": "20139",
+     "comune": "MILANO",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "MICT71300A",
+     "nome": "C.T.P. C/O I.C. VIA RUSSO 27 MI",
+     "indirizzo": "VIA RUSSO 27",
+     "cap": "20127",
+     "comune": "MILANO",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "MICT71700N",
+     "nome": "C.T.P. C/O I.C. VIALE MUGELLO 5 MI",
+     "indirizzo": "VIALE MUGELLO 5",
+     "cap": "20137",
+     "comune": "MILANO",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "MICT72000D",
+     "nome": "C.T.P. C/O IST. COMPR. \"HEINE\" MILANO",
+     "indirizzo": "VIA HEINE 2",
+     "cap": "20141",
+     "comune": "MILANO",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "MICT714006",
+     "nome": "C.T.P. C/O IST. COMPR. VIA ZUARA7/9 MI",
+     "indirizzo": "VIA ZUARA7/9",
+     "cap": "20146",
+     "comune": "MILANO",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "MICT719009",
+     "nome": "C.T.P. C/O IST. COMPR.\"CAVALIERI\" MILANO",
+     "indirizzo": "VIA ANCO MARZIO 9",
+     "cap": "20123",
+     "comune": "MILANO",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "MICT71200E",
+     "nome": "C.T.P. C/O S.M.S. PAVONI-GOVONE",
+     "indirizzo": "VIA CRESPI 40",
+     "cap": "20158",
+     "comune": "MILANO",
+     "tipo": "centro territoriale"
+    }
+   ],
+   "sedi_carcerarie": 4,
+   "sedi_esame": [
+    {
+     "ente": "CILS",
+     "nome": "CPIA5 MILANO"
+    },
+    {
+     "ente": "CILS",
+     "nome": "Sede associata CPIA 5 Milano"
+    }
+   ],
+   "fonti": {
+    "p010": {
+     "url": "https://www.cpia5milanocentrale.edu.it/index.php?idpag=1795",
+     "nome": "Presentazione",
+     "letta_il": "2026-11-20"
+    },
+    "p002": {
+     "url": "https://www.cpia5milanocentrale.edu.it/index.php?idpag=1802",
+     "nome": "Servizi",
+     "letta_il": "2026-11-20"
+    },
+    "p003": {
+     "url": "https://www.cpia5milanocentrale.edu.it/index.php?idpag=1803",
+     "nome": "Novità",
+     "letta_il": "2026-11-20"
+    }
+   },
+   "citazioni": {
+    "corsi": [
+     {
+      "fonte": "p010",
+      "testo": "Gli adulti stranieri in età lavorativa, anche in possesso di titoli di studio conseguiti nei paesi di origine, possono iscriversi ai percorsi di alfabetizzazione ed apprendimento della Lingua Italiana."
+     }
+    ],
+    "test_a2": [
+     {
+      "fonte": "p002",
+      "testo": "Esiti test di lingua italiana svolti per conto della Prefettura"
+     },
+     {
+      "fonte": "p003",
+      "testo": "Visualizzazione prove test A2 Prefettura solo tramite domanda di Accesso agli atti"
+     }
+    ],
+    "iscrizione": [
+     {
+      "fonte": "p010",
+      "testo": "Ai Centri CPIA possono iscriversi gli adulti, anche stranieri, che non hanno assolto l'obbligo di istruzione o che non sono in possesso del titolo di studio conclusivo del primo ciclo di istruzione. Sono accolte iscrizioni a tutti i corsi di chi ha compiuto almeno i 16 anni , sono accolte anche le iscrizioni di 15enni ai percorsi di primo livello primo periodo didattico (ex \"Licenza Media\") per coloro che presentano le motivate esigenze previste dall’Accordo Territoriale tra la Regione Lombardia e L’Ufficio Scolastico Regionale per la Lombardia del 30/01/2015."
+     }
+    ]
+   }
+  },
+  {
+   "slug": "padova",
+   "codice": "PDMM25500L",
+   "nome": "CPIA di Padova",
+   "nome_anagrafe": "CPIA DI PADOVA",
+   "provincia": "Padova",
+   "citta": "Padova",
+   "citta_slug": "padova",
+   "ricerca": "cpia padova",
+   "sito": "https://cpiapadova.edu.it/",
+   "sito_anagrafe": "https//www.cpiapadova.edu.it/index.cfm",
+   "codice_sul_sito": true,
+   "sito_nota": "sul sito è scritto il codice della scuola PDMM25500L",
+   "email": "pdmm25500l@istruzione.it",
+   "letto_il": "2026-11-20",
+   "titolo": "CPIA Padova: sedi, corsi di italiano, test A2, iscrizioni",
+   "titolo_h1": "CPIA di Padova: sedi, corsi di italiano, test A2 e iscrizioni",
+   "descrizione": "CPIA di Padova: codice PDMM25500L, 10 sedi con indirizzo, corsi di italiano, test A2, esami e iscrizioni. Dati del Ministero e del sito del CPIA.",
+   "sedi": [
+    {
+     "codice": "PDMM25500L",
+     "nome": "CPIA DI PADOVA",
+     "indirizzo": "VIA DORIGHELLO 16",
+     "cap": "35128",
+     "comune": "PADOVA",
+     "tipo": "sede centrale"
+    },
+    {
+     "codice": "PDCT70600D",
+     "nome": "CTP DI ABANO TERME",
+     "indirizzo": "VIA SAN GIOVANNI BOSCO 1",
+     "cap": "35031",
+     "comune": "ABANO TERME",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "PDCT703002",
+     "nome": "CTP DI ALBIGNASEGO",
+     "indirizzo": "VIA TITO LIVIO 1",
+     "cap": "35020",
+     "comune": "ALBIGNASEGO",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "PDCT70100A",
+     "nome": "CTP DI CAMPOSAMPIERO",
+     "indirizzo": "VIA FILIPPETTO 12",
+     "cap": "35012",
+     "comune": "CAMPOSAMPIERO",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "PDCT70000E",
+     "nome": "CTP DI CITTADELLA",
+     "indirizzo": "BORGO TREVISO 7",
+     "cap": "53013",
+     "comune": "CITTADELLA",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "PDCT70500N",
+     "nome": "CTP DI MONSELICE",
+     "indirizzo": "VIA S.GIACOMO 21",
+     "cap": "35043",
+     "comune": "MONSELICE",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "PDCT707009",
+     "nome": "CTP DI PADOVA (EX IC 1 PETRARCA)",
+     "indirizzo": "VIA CONCARIOLA 9",
+     "cap": "35139",
+     "comune": "PADOVA",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "PDCT708005",
+     "nome": "CTP DI PADOVA (EX IC 11 VIVALDI)",
+     "indirizzo": "VIA MONTE SANTO 24",
+     "cap": "35143",
+     "comune": "PADOVA",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "PDCT702006",
+     "nome": "CTP DI PADOVA (EX IC 3 BRIOSCO)",
+     "indirizzo": "VIALE DELL'ARCELLA 21-23",
+     "cap": "35134",
+     "comune": "PADOVA",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "PDCT70400T",
+     "nome": "CTP VALERIA SOLESIN DI PIOVE DI SACCO",
+     "indirizzo": "VIA IV NOVEMBRE 17",
+     "cap": "35028",
+     "comune": "PIOVE DI SACCO",
+     "tipo": "centro territoriale"
+    }
+   ],
+   "sedi_carcerarie": 0,
+   "sedi_esame": [
+    {
+     "ente": "CILS",
+     "nome": "CPIA Padova sede associata \"Valeri\""
+    },
+    {
+     "ente": "CILS",
+     "nome": "Sede associata CPIA Padova c/o Istituto Comprensivo 'Petrarca'"
+    },
+    {
+     "ente": "CILS",
+     "nome": "Sede Associata CPIA Padova c/o Scuola secondaria “V. da Feltre”"
+    },
+    {
+     "ente": "CILS",
+     "nome": "CPIA Padova s ede” associata di Camposampiero"
+    },
+    {
+     "ente": "CILS",
+     "nome": "Sede associata CPIA Cittadella"
+    }
+   ],
+   "fonti": {
+    "p013": {
+     "url": "https://cpiapadova.edu.it/apertura-pre-iscrizioni-3/",
+     "nome": "Apertura pre-iscrizioni",
+     "letta_il": "2026-11-20",
+     "browser": true
+    },
+    "p016": {
+     "url": "https://cpiapadova.edu.it/servizio/test-di-italiano-a2-prefettura/",
+     "nome": "TEST di ITALIANO A2 – PREFETTURA",
+     "letta_il": "2026-11-20",
+     "browser": true
+    },
+    "p015": {
+     "url": "https://cpiapadova.edu.it/servizio/certificazione-cils/",
+     "nome": "Certificazione CILS",
+     "letta_il": "2026-11-20",
+     "browser": true
+    },
+    "p014": {
+     "url": "https://cpiapadova.edu.it/servizio/iscrizioni-on-line/",
+     "nome": "Iscrizioni on-line",
+     "letta_il": "2026-11-20",
+     "browser": true
+    },
+    "p000": {
+     "url": "https://cpiapadova.edu.it/",
+     "nome": "pagina iniziale",
+     "letta_il": "2026-11-20",
+     "browser": true
+    }
+   },
+   "citazioni": {
+    "corsi": [
+     {
+      "fonte": "p013",
+      "testo": "Sono aperte le pre-iscrizioni ai corsi di Alfabetizzazione e apprendimento della lingua italiana e di Primo periodo (ex licenza media) per settembre 2025"
+     }
+    ],
+    "test_a2": [
+     {
+      "fonte": "p016",
+      "testo": "Presso il CPIA di Padova si svolgono, per conto della Prefettura, i test di Italiano di livello A2"
+     },
+     {
+      "fonte": "p016",
+      "testo": "Il test nella provincia di Padova può svolgersi presso queste sedi del CPIA (la Prefettura comunica di volta in volta le scuole sedi di esame)."
+     },
+     {
+      "fonte": "p016",
+      "testo": "Il calendario dei test è stabilito annualmente dall’Ufficio Scolastico Regionale in accordo con la Prefettura. Di volta in volta la Prefettura di Padova decide in quali delle sedi sopra elencate si svolgono i test."
+     },
+     {
+      "fonte": "p016",
+      "testo": "Non viene rilasciato alcun attestato del superamento della prova da parte del CPIA di Padova. L’esito viene comunicato dal CPIA alla Prefettura."
+     }
+    ],
+    "certificazioni": [
+     {
+      "fonte": "p015",
+      "testo": "Presso il CPIA di Padova è possibile sostenere i test per la Certificazione di Italiano come Lingua Straniera (CILS) dell’Università per Stranieri di Siena."
+     },
+     {
+      "fonte": "p015",
+      "testo": "La tassa di iscrizione all’esame CILS può essere pagata esclusivamente attraverso il servizio PagoPA. Il modulo per il pagamento va richiesto alla Segreteria."
+     }
+    ],
+    "iscrizione": [
+     {
+      "fonte": "p014",
+      "testo": "Il servizio consente ai corsisti di presentare la domanda di pre-iscrizione on line."
+     },
+     {
+      "fonte": "p000",
+      "testo": "Si comunica all’utenza che in relazione all’iscrizione dei corsisti MINORI è necessario inviare una mail a: petrarca@cpiapadova.it oppure chiamare al numero 049611277 dalle ore dalle 8.30 alle 12:00"
+     }
+    ]
+   }
+  },
+  {
+   "slug": "novara",
+   "codice": "NOMM188009",
+   "nome": "CPIA 1 Novara",
+   "nome_anagrafe": "CPIA 1 NOVARA",
+   "provincia": "Novara",
+   "citta": "Novara",
+   "citta_slug": "novara",
+   "ricerca": "cpia novara",
+   "sito": "https://www.cpianovara.edu.it/",
+   "sito_anagrafe": "www.cpianovara.it",
+   "codice_sul_sito": true,
+   "sito_nota": "sul sito è scritto il codice della scuola NOMM188009",
+   "email": "nomm188009@istruzione.it",
+   "letto_il": "2026-11-20",
+   "titolo": "CPIA Novara: sedi, corsi di italiano, test A2, iscrizioni",
+   "titolo_h1": "CPIA 1 Novara: sedi, corsi di italiano, test A2 e iscrizioni",
+   "descrizione": "CPIA 1 Novara: codice NOMM188009, 6 sedi con indirizzo, corsi di italiano, test A2, esami e iscrizioni. Dati del Ministero e del sito del CPIA.",
+   "sedi": [
+    {
+     "codice": "NOMM188009",
+     "nome": "CPIA 1 NOVARA",
+     "indirizzo": "VIA AQUILEIA 1",
+     "cap": "28100",
+     "comune": "NOVARA",
+     "tipo": "sede centrale"
+    },
+    {
+     "codice": "NOCT703008",
+     "nome": "C.T.P. DI BORGOMANERO",
+     "indirizzo": "VIALE DANTE 13",
+     "cap": "28021",
+     "comune": "BORGOMANERO",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "NOCT704004",
+     "nome": "C.T.P. DI NOVARA",
+     "indirizzo": "VIA AQUILEIA 1",
+     "cap": "28100",
+     "comune": "NOVARA",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "VBCT70100L",
+     "nome": "C.T.P. DI OMEGNA",
+     "indirizzo": "VIA DE AMICIS N. 72",
+     "cap": "28887",
+     "comune": "OMEGNA",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "NOCT70500X",
+     "nome": "CTP SEDE DI TRECATE",
+     "indirizzo": "VIA DORIA 3",
+     "cap": "28069",
+     "comune": "TRECATE",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "VBCT703008",
+     "nome": "C.T.P. DI VERBANIA",
+     "indirizzo": "VIA REPUBBLICA N. 6",
+     "cap": "28923",
+     "comune": "VERBANIA",
+     "tipo": "centro territoriale"
+    }
+   ],
+   "sedi_carcerarie": 3,
+   "sedi_esame": [
+    {
+     "ente": "CELI",
+     "nome": "C.P.I.A di NOVARA"
+    }
+   ],
+   "fonti": {
+    "p013": {
+     "url": "https://www.cpianovara.edu.it/indirizzo-di-studio/alfabetizzazione-e-apprendimento-della-lingua-italiana/",
+     "nome": "Alfabetizzazione e apprendimento della lingua italiana",
+     "letta_il": "2026-11-20"
+    },
+    "p007": {
+     "url": "https://www.cpianovara.edu.it/servizio/test-prefettura/",
+     "nome": "Test Prefettura",
+     "letta_il": "2026-11-20"
+    },
+    "p000": {
+     "url": "https://www.cpianovara.edu.it/",
+     "nome": "pagina iniziale",
+     "letta_il": "2026-11-20"
+    },
+    "p012": {
+     "url": "https://www.cpianovara.edu.it/servizio/certificati-di-lingua-italiana-per-immigrati-celi-2-cittadinanza-b1/",
+     "nome": "CERTIFICATI DI LINGUA ITALIANA PER IMMIGRATI - CELI 2 CITTADINANZA - B",
+     "letta_il": "2026-11-20"
+    },
+    "p008": {
+     "url": "https://www.cpianovara.edu.it/servizio/iscrizioni-online-studenti/",
+     "nome": "Iscrizioni online studenti",
+     "letta_il": "2026-11-20"
+    }
+   },
+   "citazioni": {
+    "corsi": [
+     {
+      "fonte": "p013",
+      "testo": "Il percorso di studi è finalizzato al conseguimento di un titolo attestante il raggiungimento di un livello di conoscenza della lingua italiana non inferiore al livello A2 del Quadro comune europeo di riferimento per la conoscenza delle lingue, elaborato dal Consiglio d’Europa. Il certificato di conoscenza della lingua italiana a livello A2 è utile per il rilascio del permesso CE per soggiornanti di lungo periodo (DM 4/6/2010 art. 2 c.1). Si precisa che soltanto il livello A2 consegue l’attestato di livello; il livello A1 consegue soltanto un certificato di frequenza, con dei crediti orari."
+     }
+    ],
+    "test_a2": [
+     {
+      "fonte": "p007",
+      "testo": "In questa sezione verranno visualizzati tutti i risultati dei test A2 della prefettura"
+     }
+    ],
+    "certificazioni": [
+     {
+      "fonte": "p000",
+      "testo": "PROSSIMA SESSIONE 17/02/2027_CELI 2 IMMIGRATI B1 - CITTADINANZA -"
+     },
+     {
+      "fonte": "p012",
+      "testo": "CERTIFICATI DI LINGUA ITALIANA PER IMMIGRATI - CELI 2 CITTADINANZA - B1 - CPIA NOVARA"
+     }
+    ],
+    "iscrizione": [
+     {
+      "fonte": "p008",
+      "testo": "L'iscrizione online permette di effettuare la prima fase dell'iscrizione degli studenti al CPIA per tutti i percorsi di studi messi a disposizione."
+     }
+    ]
+   }
+  },
+  {
+   "slug": "ferrara",
+   "codice": "FEMM07000R",
+   "nome": "CPIA di Ferrara",
+   "nome_anagrafe": "CPIA FERRARA",
+   "provincia": "Ferrara",
+   "citta": "Ferrara",
+   "citta_slug": "ferrara",
+   "ricerca": "cpia ferrara",
+   "sito": "https://cpiaferrara.edu.it/",
+   "sito_anagrafe": "www.cpiaferrara.edu.it",
+   "codice_sul_sito": true,
+   "sito_nota": "sul sito è scritto il codice della scuola FEMM07000R",
+   "email": "femm07000r@istruzione.it",
+   "letto_il": "2026-11-20",
+   "titolo": "CPIA Ferrara: sedi, corsi di italiano, test A2, iscrizioni",
+   "titolo_h1": "CPIA di Ferrara: sedi, corsi di italiano, test A2 e iscrizioni",
+   "descrizione": "CPIA di Ferrara: codice FEMM07000R, 5 sedi con indirizzo, corsi di italiano, test A2, esami e iscrizioni. Dati del Ministero e del sito del CPIA.",
+   "sedi": [
+    {
+     "codice": "FEMM07000R",
+     "nome": "CPIA FERRARA",
+     "indirizzo": "VIA G. FABBRI 412",
+     "cap": "44124",
+     "comune": "FERRARA",
+     "tipo": "sede centrale"
+    },
+    {
+     "codice": "FECT702002",
+     "nome": "CTP CENTO",
+     "indirizzo": "VIA GIROLAMO BARUFFALDI 10",
+     "cap": "44042",
+     "comune": "CENTO",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "FECT701006",
+     "nome": "CTP CODIGORO",
+     "indirizzo": "VIA MASSARENTI1",
+     "cap": "44021",
+     "comune": "CODIGORO",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "FECT70000A",
+     "nome": "CTP FERRARA",
+     "indirizzo": "VIA G. FABBRI 412",
+     "cap": "44124",
+     "comune": "FERRARA",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "FECT70400N",
+     "nome": "CTP PORTOMAGGIORE",
+     "indirizzo": "VIA PADOVA 15",
+     "cap": "44015",
+     "comune": "PORTOMAGGIORE",
+     "tipo": "centro territoriale"
+    }
+   ],
+   "sedi_carcerarie": 2,
+   "sedi_esame": [
+    {
+     "ente": "CELI",
+     "nome": "C.P.I.A.- Centro Provinciale Istruzione Adulti - Ferrara"
+    }
+   ],
+   "fonti": {
+    "p015": {
+     "url": "https://cpiaferrara.edu.it/indirizzo-di-studio/scuola-primaria/",
+     "nome": "A-PERCORSI DI ALFABETIZZAZIONE E APPRENDIMENTO DELLA LINGUA ITALIANA (",
+     "letta_il": "2026-11-20",
+     "browser": true
+    },
+    "p013": {
+     "url": "https://cpiaferrara.edu.it/prefettura/",
+     "nome": "TEST PREFETTURA",
+     "letta_il": "2026-11-20",
+     "browser": true
+    },
+    "p012": {
+     "url": "https://cpiaferrara.edu.it/celi/",
+     "nome": "CELI",
+     "letta_il": "2026-11-20",
+     "browser": true
+    },
+    "p014": {
+     "url": "https://cpiaferrara.edu.it/servizio/iscrizioni-on-line/",
+     "nome": "Iscrizioni on-line",
+     "letta_il": "2026-11-20",
+     "browser": true
+    }
+   },
+   "citazioni": {
+    "corsi": [
+     {
+      "fonte": "p015",
+      "testo": "Il CPIA di Ferrara offre percorsi di alfabetizzazione in lingua italiana finalizzati al conseguimento del livello di competenza A2 del Quadro Comune Europeo di riferimento (QCER) per le lingue, elaborato dal Consiglio d’Europa."
+     },
+     {
+      "fonte": "p015",
+      "testo": "Al termine del corso A2, previo superamento di un esame, si consegue l’attestazione di competenza della lingua di livello A2, secondo il Qcer, valido ai fini dell’ottenimento del permesso di lungo soggiorno."
+     },
+     {
+      "fonte": "p015",
+      "testo": "La scuola Cpia organizza anche corsi di apprendimento dell’italiano di livello B1, con 2 moduli da 100 ore ciascuno, eventualmente ripetibili."
+     }
+    ],
+    "test_a2": [
+     {
+      "fonte": "p013",
+      "testo": "La domanda per sostenere il test di lingua italiana deve essere presentata on line al Ministero dell’Interno o rivolgendosi al proprio patronato o sindacato."
+     },
+     {
+      "fonte": "p013",
+      "testo": "Coloro che hanno presentato richiesta di prenotazione sul sito del Ministero dell’Interno, saranno convocati con una lettera per una delle date indicate nel calendario."
+     }
+    ],
+    "certificazioni": [
+     {
+      "fonte": "p012",
+      "testo": "Il CPIA di Ferrara è sede di esame per le certificazioni linguistiche CELI rilasciate agli stranieri che intendono validare la propria conoscenza della lingua italiana attraverso un certificato riconosciuto a livello internazionale."
+     },
+     {
+      "fonte": "p012",
+      "testo": "Per l’ottenimento della cittadinanza italiana, nei casi in cui sia requisito necessario, si può sostenerlo con il CELI GENERALE B1 o con il CELI IMMIGRATI B1"
+     },
+     {
+      "fonte": "p012",
+      "testo": "Gli esami CELI si svolgono una volta all’anno."
+     }
+    ],
+    "iscrizione": [
+     {
+      "fonte": "p014",
+      "testo": "Il servizio consente ai corsisti di presentare la domanda di pre-iscrizione on line."
+     }
+    ]
+   }
+  },
+  {
+   "slug": "vicenza",
+   "codice": "VIMM141007",
+   "nome": "CPIA di Vicenza",
+   "nome_anagrafe": "CPIA DI VICENZA",
+   "provincia": "Vicenza",
+   "citta": "Vicenza",
+   "citta_slug": "vicenza",
+   "ricerca": "cpia vicenza",
+   "sito": "https://cpiavicenza.edu.it/",
+   "sito_anagrafe": "cpiavicenza.gov.it/",
+   "codice_sul_sito": true,
+   "sito_nota": "sul sito è scritto il codice della scuola VIMM141007",
+   "email": "vimm141007@istruzione.it",
+   "letto_il": "2026-11-20",
+   "titolo": "CPIA Vicenza: sedi, corsi di italiano, test A2, iscrizioni",
+   "titolo_h1": "CPIA di Vicenza: sedi, corsi di italiano, test A2 e iscrizioni",
+   "descrizione": "CPIA di Vicenza: codice VIMM141007, 7 sedi con indirizzo, corsi di italiano, test A2, esami e iscrizioni. Dati del Ministero e del sito del CPIA.",
+   "sedi": [
+    {
+     "codice": "VIMM141007",
+     "nome": "CPIA DI VICENZA",
+     "indirizzo": "VIA PALEMONE 20",
+     "cap": "36100",
+     "comune": "VICENZA",
+     "tipo": "sede centrale"
+    },
+    {
+     "codice": "VICT70200G",
+     "nome": "CTP DI ARZIGNANO (EX IC 2)",
+     "indirizzo": "VIA 4 MARTIRI71",
+     "cap": "36071",
+     "comune": "ARZIGNANO",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "VICT712006",
+     "nome": "CTP DI MAROSTICA",
+     "indirizzo": "VIA STROPPARI 21",
+     "cap": "36063",
+     "comune": "MAROSTICA",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "VICT71100A",
+     "nome": "CTP DI NOVENTA VICENTINA (IC FOGAZZARO)",
+     "indirizzo": "VIA MARCONI3",
+     "cap": "36025",
+     "comune": "NOVENTA VICENTINA",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "VICT70100Q",
+     "nome": "CTP DI SCHIO (EX IC 3)",
+     "indirizzo": "VIA BOLDU'",
+     "cap": "36015",
+     "comune": "SCHIO",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "VICT70600V",
+     "nome": "CTP DI VICENZA (EX IC 4 - BAROLINI)",
+     "indirizzo": "VIA PALEMONE20",
+     "cap": "36100",
+     "comune": "VICENZA",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "VICT705003",
+     "nome": "CTP DI VICENZA (EX IC 9 VIA BELLINI)",
+     "indirizzo": "VIA BELLINI",
+     "cap": "36100",
+     "comune": "VICENZA",
+     "tipo": "centro territoriale"
+    }
+   ],
+   "sedi_carcerarie": 1,
+   "sedi_esame": [
+    {
+     "ente": "CELI",
+     "nome": "C.P.I.A.- Centro Provinciale Istruzione per Adulti"
+    },
+    {
+     "ente": "CILS",
+     "nome": "CPIA Vicenza sede associata Vicenza Ovest"
+    },
+    {
+     "ente": "CILS",
+     "nome": "CPIA Vicenza sede associata di Bassano del Grappa"
+    },
+    {
+     "ente": "CILS",
+     "nome": "Sede Associata di Marostica - CPIA Vicenza"
+    },
+    {
+     "ente": "CILS",
+     "nome": "CPIA Vicenza sede associata di Noventa Vicentina"
+    },
+    {
+     "ente": "CILS",
+     "nome": "Arzignano Cpia VI"
+    }
+   ],
+   "fonti": {
+    "p002": {
+     "url": "https://cpiavicenza.edu.it/la-scuola/presentazione/",
+     "nome": "Presentazione",
+     "letta_il": "2026-11-20",
+     "browser": true
+    },
+    "p012": {
+     "url": "https://cpiavicenza.edu.it/riapertura-iscrizioni-corsi-plpp-e-corsi-di-lingua-italiana-per-stranieri-a-s-2026-2027/",
+     "nome": "RIAPERTURA ISCRIZIONI CORSI PLPP E CORSI DI LINGUA ITALIANA PER STRANI",
+     "letta_il": "2026-11-20",
+     "browser": true
+    },
+    "p000": {
+     "url": "https://cpiavicenza.edu.it/",
+     "nome": "pagina iniziale",
+     "letta_il": "2026-11-20",
+     "browser": true
+    },
+    "p011": {
+     "url": "https://sites.google.com/cpiavicenza.edu.it/certificazione-cils",
+     "nome": "Certificazione CILS",
+     "letta_il": "2026-11-20",
+     "browser": true
+    },
+    "p009": {
+     "url": "https://cpiavicenza.edu.it/iscrizioni-a-s-2026-2027/",
+     "nome": "Iscrizioni A.S. 2026/2027",
+     "letta_il": "2026-11-20",
+     "browser": true
+    },
+    "p016": {
+     "url": "https://cpiavicenza.edu.it/chiusura-iscrizioni-plpp-e-corsi-lingua-italiana-per-stranieri/",
+     "nome": "CHIUSURA ISCRIZIONI PLPP E CORSI LINGUA ITALIANA PER STRANIERI",
+     "letta_il": "2026-11-20",
+     "browser": true
+    }
+   },
+   "citazioni": {
+    "corsi": [
+     {
+      "fonte": "p002",
+      "testo": "Il CPIA Vicenza si articola, dal punto di vista amministrativo, in una sede centrale sita in Palemone 20 – Vicenza e Sedi Associate dove si realizzano percorsi di Primo Livello di Istruzione degli Adulti e percorsi di alfabetizzazione e apprendimento della lingua italiana"
+     },
+     {
+      "fonte": "p012",
+      "testo": "I corsi di lingua italiana per stranieri sono rivolti a persone straniere maggiorenni."
+     }
+    ],
+    "certificazioni": [
+     {
+      "fonte": "p000",
+      "testo": "Si avvisa l’utenza che le sessioni di esami CELI dell’ 11 novembre e CILS del 3 dicembre 2026 NON VENGONO ATTIVATE in tutte le sedi del CPIA di Vicenza per problemi amministrativi ."
+     },
+     {
+      "fonte": "p011",
+      "testo": "La Certificazione CILS è un titolo di studio ufficialmente riconosciuto che attesta il grado di competenza linguistico-comunicativa in italiano come L2."
+     }
+    ],
+    "iscrizione": [
+     {
+      "fonte": "p009",
+      "testo": "Ciao! Ecco il link per iscriverti al CPIA tramite il portale Nettuno:"
+     },
+     {
+      "fonte": "p016",
+      "testo": "Eventuali nuove disponibilità di posti e conseguenti riaperture delle iscrizioni saranno tempestivamente comunicate nel sito istituzionale."
+     }
+    ]
+   }
+  },
+  {
+   "slug": "modena",
+   "codice": "MOMM173008",
+   "nome": "CPIA 1 Modena",
+   "nome_anagrafe": "CPIA 1 MODENA",
+   "provincia": "Modena",
+   "citta": "Modena",
+   "citta_slug": "modena",
+   "ricerca": "cpia modena",
+   "sito": "https://www.cpia1modena.edu.it/",
+   "sito_anagrafe": "cpia1modena.gov.it",
+   "codice_sul_sito": true,
+   "sito_nota": "sul sito è scritto il codice della scuola MOMM173008",
+   "email": "momm173008@istruzione.it",
+   "letto_il": "2026-11-20",
+   "titolo": "CPIA Modena: sedi, corsi di italiano, test A2, iscrizioni",
+   "titolo_h1": "CPIA 1 Modena: sedi, corsi di italiano, test A2 e iscrizioni",
+   "descrizione": "CPIA 1 Modena: codice MOMM173008, 8 sedi con indirizzo, corsi di italiano, test A2, esami e iscrizioni. Dati del Ministero e del sito del CPIA.",
+   "sedi": [
+    {
+     "codice": "MOMM173008",
+     "nome": "CPIA 1 MODENA",
+     "indirizzo": "VIA MONTE KOSICA 76",
+     "cap": "41121",
+     "comune": "MODENA",
+     "tipo": "sede centrale"
+    },
+    {
+     "codice": "MOCT70000D",
+     "nome": "C.T.P. CARPI - S.M.FASSI",
+     "indirizzo": "VIA NUOVA PONENTE22/A",
+     "cap": "41012",
+     "comune": "CARPI",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "MOCT707008",
+     "nome": "C.T.P. MIRANDOLA S.M.MONTANARI",
+     "indirizzo": "VIA TAZIO NUVOLARI 4",
+     "cap": "41037",
+     "comune": "MIRANDOLA",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "MOCT702005",
+     "nome": "C.T.P. MODENA",
+     "indirizzo": "VIA MONTE KOSICA 76",
+     "cap": "41121",
+     "comune": "MODENA",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "MOCT701009",
+     "nome": "C.T.P. MODENA-S.M.FERRARIS C/O CARCERE",
+     "indirizzo": "STRADA S'ANNA 370 - CARCERE",
+     "cap": "41100",
+     "comune": "MODENA",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "MOCT708004",
+     "nome": "C.T.P. PAVULLO S.M.MONTECUCCOLI",
+     "indirizzo": "VIALE MARCONI 17",
+     "cap": "41026",
+     "comune": "PAVULLO NEL FRIGNANO",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "MOCT703001",
+     "nome": "C.T.P. SASSUOLO 1^ I.C.",
+     "indirizzo": "VIA MAZZINI 62",
+     "cap": "41049",
+     "comune": "SASSUOLO",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "MOCT70400R",
+     "nome": "C.T.P. VIGNOLA S.M.MURATORI",
+     "indirizzo": "VIA RESISTENZA 462",
+     "cap": "41058",
+     "comune": "VIGNOLA",
+     "tipo": "centro territoriale"
+    }
+   ],
+   "sedi_carcerarie": 2,
+   "sedi_esame": [
+    {
+     "ente": "CELI",
+     "nome": "C.P.I.A. - Centro Provinciale Istruzione Adulti - Modena"
+    }
+   ],
+   "fonti": {
+    "p012": {
+     "url": "https://www.cpia1modena.edu.it/pagine/corsi-di-italiano-l2",
+     "nome": "Corsi di Italiano L2",
+     "letta_il": "2026-11-20",
+     "browser": true
+    },
+    "p018": {
+     "url": "https://www.cpia1modena.edu.it/pagine/risultati-esame-prefettura-livello-a2-2",
+     "nome": "Risultati esame Prefettura livello A2",
+     "letta_il": "2026-11-20",
+     "browser": true
+    },
+    "p014": {
+     "url": "https://www.cpia1modena.edu.it/pagine/certificato-europeo-lingua-italiana",
+     "nome": "Esami CELI",
+     "letta_il": "2026-11-20",
+     "browser": true
+    },
+    "p003": {
+     "url": "https://www.cpia1modena.edu.it/cerca?tag=iscrizioni",
+     "nome": "Iscrizioni",
+     "letta_il": "2026-11-20",
+     "browser": true
+    }
+   },
+   "citazioni": {
+    "corsi": [
+     {
+      "fonte": "p012",
+      "testo": "I percorsi di alfabetizzazione e di apprendimento della lingua e cultura italiana sono finalizzati al conseguimento del titolo attestante il raggiungimento del livello di conoscenza della lingua italiana almeno di livello A2 del Quadro Comune Europeo di Riferimento per le lingue elaborato dal Consiglio d’Europa."
+     },
+     {
+      "fonte": "p012",
+      "testo": "Anche i corsi rivolti ai livelli B1, B2 e C1 vengono organizzati nell’ambito dell’arricchimento dell’offerta formativa."
+     }
+    ],
+    "test_a2": [
+     {
+      "fonte": "p018",
+      "testo": "Qui i risultati dei Test di Italiano L2 della Prefettura."
+     }
+    ],
+    "certificazioni": [
+     {
+      "fonte": "p014",
+      "testo": "Al Centro Provinciale di Modena è possibile sostenere gli esami CELI dell'Università per Stranieri di Perugia."
+     },
+     {
+      "fonte": "p014",
+      "testo": "Chi RIPETE l'esame ha diritto ad uno sconto del 30% sull'iscrizione a una delle due sessioni successive."
+     }
+    ],
+    "iscrizione": [
+     {
+      "fonte": "p003",
+      "testo": "Documento che descrive le fasi della procedura di iscrizione, il colloquio di orientamento e test di ingresso/di livello, le giornate di accoglienza e la gestione delle liste di attesa"
+     }
+    ]
+   }
+  },
+  {
+   "slug": "torino-2",
+   "codice": "TOMM32400G",
+   "nome": "CPIA 2 Torino",
+   "nome_anagrafe": "CPIA 2 TORINO - PIERO ANGELA",
+   "provincia": "Torino",
+   "citta": "Torino",
+   "citta_slug": "torino",
+   "ricerca": "cpia 2 torino",
+   "sito": "https://www.cpia2-torino.edu.it/",
+   "sito_anagrafe": "www.cpia2-torino.it",
+   "codice_sul_sito": true,
+   "sito_nota": "sul sito è scritto il codice della scuola TOMM32400G",
+   "email": "tomm32400g@istruzione.it",
+   "letto_il": "2026-11-20",
+   "titolo": "CPIA 2 Torino: sedi, corsi di italiano, test A2, iscrizioni",
+   "titolo_h1": "CPIA 2 Torino: sedi, corsi di italiano, test A2 e iscrizioni",
+   "descrizione": "CPIA 2 Torino: codice TOMM32400G, 4 sedi con indirizzo, corsi di italiano, test A2, esami e iscrizioni. Dati del Ministero e del sito del CPIA.",
+   "sedi": [
+    {
+     "codice": "TOMM32400G",
+     "nome": "CPIA 2 TORINO - PIERO ANGELA",
+     "indirizzo": "VIA BOLOGNA 153",
+     "cap": "10154",
+     "comune": "TORINO",
+     "tipo": "sede centrale"
+    },
+    {
+     "codice": "TOCT71600T",
+     "nome": "C.T.P. DISTRETTO 1",
+     "indirizzo": "VIA MADAMA CRISTINA 102",
+     "cap": "10125",
+     "comune": "TORINO",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "TOCT70400G",
+     "nome": "C.T.P. DISTRETTO 6",
+     "indirizzo": "VIA BOLOGNA 153",
+     "cap": "10154",
+     "comune": "TORINO",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "TOCT70500B",
+     "nome": "C.T.P. DISTRETTO 7",
+     "indirizzo": "CORSO GIULIO CESARE 26",
+     "cap": "10152",
+     "comune": "TORINO",
+     "tipo": "centro territoriale"
+    }
+   ],
+   "sedi_carcerarie": 0,
+   "sedi_esame": [],
+   "fonti": {
+    "p015": {
+     "url": "https://www.cpia2-torino.edu.it/indirizzo-di-studio/alfabetizzazione-e-apprendimento-della-lingua-italiana/",
+     "nome": "Alfabetizzazione e apprendimento della lingua italiana",
+     "letta_il": "2026-11-20",
+     "browser": true
+    }
+   },
+   "citazioni": {
+    "corsi": [
+     {
+      "fonte": "p015",
+      "testo": "Il CPIA offre percorsi di alfabetizzazione e di apprendimento della lingua italiana (AALI) finalizzati al conseguimento di un titolo attestante la conoscenza della lingua non inferiore al livello A2 del Quadro comune europeo di riferimento per la conoscenza delle lingue."
+     },
+     {
+      "fonte": "p015",
+      "testo": "Italiano come seconda lingua: dal livello pre A1 al livello B1"
+     }
+    ],
+    "iscrizione": [
+     {
+      "fonte": "p015",
+      "testo": "compilare il modulo di iscrizione e consegnarlo firmato in segreteria o presso le sedi CPIA. Occorre presentare un documento di identità e/o il permesso di soggiorno o la ricevuta della richiesta, per gli extracomunitari."
+     },
+     {
+      "fonte": "p015",
+      "testo": "Il termine di scadenza per le iscrizioni ai Percorsi per gli adulti è fissato di norma non oltre il 15 ottobre."
+     }
+    ]
+   }
+  },
+  {
+   "slug": "parma",
+   "codice": "PRMM07500A",
+   "nome": "CPIA di Parma",
+   "nome_anagrafe": "CPIA PARMA",
+   "provincia": "Parma",
+   "citta": "Parma",
+   "citta_slug": "parma",
+   "ricerca": "cpia parma",
+   "sito": "https://www.cpiaparma.edu.it/",
+   "sito_anagrafe": "https//www.cpiaparma.edu.it/",
+   "codice_sul_sito": true,
+   "sito_nota": "sul sito è scritto il codice della scuola PRMM07500A",
+   "email": "prmm07500a@istruzione.it",
+   "letto_il": "2026-11-20",
+   "titolo": "CPIA Parma: sedi, corsi di italiano, test A2, iscrizioni",
+   "titolo_h1": "CPIA di Parma: sedi, corsi di italiano, test A2 e iscrizioni",
+   "descrizione": "CPIA di Parma: codice PRMM07500A, 5 sedi con indirizzo, corsi di italiano, test A2, esami e iscrizioni. Dati del Ministero e del sito del CPIA.",
+   "sedi": [
+    {
+     "codice": "PRMM07500A",
+     "nome": "CPIA PARMA",
+     "indirizzo": "PIAZZALE DELLA PACE 1",
+     "cap": "43121",
+     "comune": "PARMA",
+     "tipo": "sede centrale"
+    },
+    {
+     "codice": "PRCT70200C",
+     "nome": "CENTRO TERRITORIALE PERMANENTE",
+     "indirizzo": "VIA MARCONI 13",
+     "cap": "43045",
+     "comune": "FORNOVO DI TARO",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "PRCT703008",
+     "nome": "CENTRO TERRITORIALE PERMANENTE",
+     "indirizzo": "VIA PARMA 70",
+     "cap": "43020",
+     "comune": "MONTECHIARUGOLO",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "PRCT70000R",
+     "nome": "CENTRO TERRITORIALE PERMANENTE",
+     "indirizzo": "PIAZZALE RONDANI1",
+     "cap": "43100",
+     "comune": "PARMA",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "PRCT70100L",
+     "nome": "CENTRO TERRITORIALE PERMANENTE",
+     "indirizzo": "PIAZZALE BERNINI 11",
+     "cap": "43017",
+     "comune": "SAN SECONDO PARMENSE",
+     "tipo": "centro territoriale"
+    }
+   ],
+   "sedi_carcerarie": 2,
+   "sedi_esame": [
+    {
+     "ente": "CILS",
+     "nome": "C.P.I.A Parma"
+    },
+    {
+     "ente": "PLIDA",
+     "nome": "CPIA Parma"
+    }
+   ],
+   "fonti": {
+    "p016": {
+     "url": "https://www.cpiaparma.edu.it/indirizzo-di-studio/alfabetizzazione/",
+     "nome": "Alfabetizzazione",
+     "letta_il": "2026-11-20",
+     "browser": true
+    },
+    "p017": {
+     "url": "https://www.cpiaparma.edu.it/indirizzo-di-studio/percorsi-di-primo-livello/",
+     "nome": "Percorsi di primo livello",
+     "letta_il": "2026-11-20",
+     "browser": true
+    }
+   },
+   "citazioni": {
+    "corsi": [
+     {
+      "fonte": "p016",
+      "testo": "Percorsi di alfabetizzazione e di apprendimento della lingua italiana, destinati agli adulti stranieri, finalizzati al conseguimento di un titolo attestante il raggiungimento di un livello di conoscenza della lingua italiana non inferiore al livello A2 del Quadro comune europeo di riferimento per le lingue, elaborato dal Consiglio d’Europa"
+     }
+    ],
+    "iscrizione": [
+     {
+      "fonte": "p016",
+      "testo": "Per iscriversi ai Corsi del CPIA è necessario collegarsi al sito e procedere con l'iscrizione on line."
+     },
+     {
+      "fonte": "p017",
+      "testo": "compilare il modulo di iscrizione e consegnarlo firmato in segreteria o presso le sedi CPIA. Occorre presentare un documento di identità e/o il permesso di soggiorno o la ricevuta della richiesta, per gli extracomunitari."
+     }
+    ]
+   }
+  },
+  {
+   "slug": "savona",
+   "codice": "SVMM062003",
+   "nome": "CPIA di Savona",
+   "nome_anagrafe": "CPIA SAVONA",
+   "provincia": "Savona",
+   "citta": "Savona",
+   "citta_slug": "savona",
+   "ricerca": "cpia savona",
+   "sito": "https://cpiasavona.edu.it/",
+   "sito_anagrafe": "https//www.cpiasavona.edu.it",
+   "codice_sul_sito": true,
+   "sito_nota": "sul sito è scritto il codice della scuola SVMM062003",
+   "email": "svmm062003@istruzione.it",
+   "letto_il": "2026-11-20",
+   "titolo": "CPIA Savona: sedi, corsi di italiano, test A2, iscrizioni",
+   "titolo_h1": "CPIA di Savona: sedi, corsi di italiano, test A2 e iscrizioni",
+   "descrizione": "CPIA di Savona: codice SVMM062003, 6 sedi con indirizzo, corsi di italiano, test A2, esami e iscrizioni. Dati del Ministero e del sito del CPIA.",
+   "sedi": [
+    {
+     "codice": "SVMM062003",
+     "nome": "CPIA SAVONA",
+     "indirizzo": "VIA PIETRO GIURIA 9A R",
+     "cap": "17100",
+     "comune": "SAVONA",
+     "tipo": "sede centrale"
+    },
+    {
+     "codice": "SVCT702007",
+     "nome": "CTP ALBENGA",
+     "indirizzo": "VIA DEGLI ORTI",
+     "cap": "17031",
+     "comune": "ALBENGA",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "SVCT70100B",
+     "nome": "CTP CAIRO MONTENOTTE",
+     "indirizzo": "LARGO CADUTI E DISP. IN RUSSIA",
+     "cap": "17014",
+     "comune": "CAIRO MONTENOTTE",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "SVCT70000G",
+     "nome": "CTP FINALE LIGURE",
+     "indirizzo": "VIA CELESIA 2",
+     "cap": "17024",
+     "comune": "FINALE LIGURE",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "SVCT70400V",
+     "nome": "CTP LOANO",
+     "indirizzo": "VIA AURELIA 297",
+     "cap": "17025",
+     "comune": "LOANO",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "SVCT703003",
+     "nome": "CTP SAVONA",
+     "indirizzo": "VERZELLINO",
+     "cap": "17100",
+     "comune": "SAVONA",
+     "tipo": "centro territoriale"
+    }
+   ],
+   "sedi_carcerarie": 0,
+   "sedi_esame": [
+    {
+     "ente": "CILS",
+     "nome": "Cpia Savona"
+    },
+    {
+     "ente": "CELI",
+     "nome": "C.P.I.A \" Mohamed Dansoko\" Albenga - Finale L. Savona - Valbormida"
+    }
+   ],
+   "fonti": {
+    "p002": {
+     "url": "https://cpiasavona.edu.it/la-scuola/presentazione/",
+     "nome": "Presentazione",
+     "letta_il": "2026-11-20",
+     "browser": true
+    },
+    "p011": {
+     "url": "https://cpiasavona.edu.it/iscrizioni-online/",
+     "nome": "Iscrizioni Online",
+     "letta_il": "2026-11-20",
+     "browser": true
+    }
+   },
+   "citazioni": {
+    "corsi": [
+     {
+      "fonte": "p002",
+      "testo": "Corsi AALI – alfabetizzazione e apprendimento della lingua italiana."
+     }
+    ],
+    "iscrizione": [
+     {
+      "fonte": "p011",
+      "testo": "Iscrizioni aperte dal 1° maggio 2026. L’iscrizione online è solo una pre-registrazione."
+     }
+    ]
+   }
+  },
+  {
+   "slug": "rovigo",
+   "codice": "ROMM052008",
+   "nome": "CPIA di Rovigo",
+   "nome_anagrafe": "DON LORENZO MILANI",
+   "provincia": "Rovigo",
+   "citta": "Rovigo",
+   "citta_slug": "rovigo",
+   "ricerca": "cpia rovigo",
+   "sito": "https://cpiarovigo.edu.it/",
+   "sito_anagrafe": "https//www.cpiarovigo.edu.it/",
+   "codice_sul_sito": true,
+   "sito_nota": "sul sito è scritto il codice della scuola ROMM052008",
+   "email": "romm052008@istruzione.it",
+   "letto_il": "2026-11-20",
+   "titolo": "CPIA Rovigo: sedi, corsi di italiano, test A2, iscrizioni",
+   "titolo_h1": "CPIA di Rovigo: sedi, corsi di italiano, test A2 e iscrizioni",
+   "descrizione": "CPIA di Rovigo: codice ROMM052008, 4 sedi con indirizzo, corsi di italiano, test A2, esami e iscrizioni. Dati del Ministero e del sito del CPIA.",
+   "sedi": [
+    {
+     "codice": "ROMM052008",
+     "nome": "DON LORENZO MILANI",
+     "indirizzo": "VIA BADALONI N. 2",
+     "cap": "45100",
+     "comune": "ROVIGO",
+     "tipo": "sede centrale"
+    },
+    {
+     "codice": "ROCT702003",
+     "nome": "C.T.P. ADRIA",
+     "indirizzo": "VIA UMBERTO I",
+     "cap": "45011",
+     "comune": "ADRIA",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "ROCT70000B",
+     "nome": "C.T.P. CASTELMASSA",
+     "indirizzo": "VIA GIACOMO MATTEOTTI 34",
+     "cap": "45035",
+     "comune": "CASTELMASSA",
+     "tipo": "centro territoriale"
+    },
+    {
+     "codice": "ROCT701007",
+     "nome": "C.T.P. ROVIGO",
+     "indirizzo": "BADALONI 2",
+     "cap": "45100",
+     "comune": "ROVIGO",
+     "tipo": "centro territoriale"
+    }
+   ],
+   "sedi_carcerarie": 1,
+   "sedi_esame": [
+    {
+     "ente": "CILS",
+     "nome": "Cpia Rovigo"
+    }
+   ],
+   "fonti": {
+    "p015": {
+     "url": "https://cpiarovigo.edu.it/didattica/i-nostri-corsi/",
+     "nome": "I nostri corsi",
+     "letta_il": "2026-11-20",
+     "browser": true
+    },
+    "p018": {
+     "url": "https://cpiarovigo.edu.it/didattica/test-a2/",
+     "nome": "Test A2",
+     "letta_il": "2026-11-20",
+     "browser": true
+    },
+    "p017": {
+     "url": "https://cpiarovigo.edu.it/didattica/esami-cils/",
+     "nome": "Esami CILS",
+     "letta_il": "2026-11-20",
+     "browser": true
+    }
+   },
+   "citazioni": {
+    "corsi": [
+     {
+      "fonte": "p015",
+      "testo": "Livelli: ALFA PRE A1 – A1 – A2 – B1 (livello stabilito dopo un test iniziale)."
+     }
+    ],
+    "test_a2": [
+     {
+      "fonte": "p018",
+      "testo": "Il test si svolge presso la sede centrale del CPIA di Rovigo in Via Nicola Badaloni, 2 a Rovigo."
+     },
+     {
+      "fonte": "p018",
+      "testo": "Il test ha la durata di 1 ora. I candidati sono convocati alle ore 16.00 per le procedure di riconoscimento."
+     },
+     {
+      "fonte": "p018",
+      "testo": "Al seguente link si possono ottenere ulteriori informazioni sul test A2: https://www.idaveneto.it/cosa-fare-per-studenti/"
+     }
+    ],
+    "certificazioni": [
+     {
+      "fonte": "p017",
+      "testo": "Presso la sede del CPIA di Rovigo è possibile sostenere gli esami per la Certificazione di Italiano come Lingua Straniera (CILS) dell’Università per Stranieri di Siena."
+     },
+     {
+      "fonte": "p017",
+      "testo": "03 DICEMBRE 2026 (scadenza iscrizioni entro il 24 ottobre) A2 Integrazione, B1 Cittadinanza, B1 Standard"
+     },
+     {
+      "fonte": "p017",
+      "testo": "18 FEBBRAIO 2027 (scadenza iscrizioni entro il 18 gennaio) A2 Integrazione, B1 Cittadinanza"
+     }
+    ],
+    "iscrizione": [
+     {
+      "fonte": "p015",
+      "testo": "➜ È possibile effettuare la pre-iscrizione online ai nostri corsi attraverso il seguente link"
+     },
+     {
+      "fonte": "p015",
+      "testo": "una volta effettuata l’iscrizione verrete ricontattati dalla segreteria per effettuare il test a settembre"
+     }
+    ]
+   }
+  }
+ ],
+ "non_letti": [
+  {
+   "slug": "bologna",
+   "codice": "BOMM36300D",
+   "nome": "CPIA 2 metropolitano di Bologna",
+   "ricerca": "cpia bologna",
+   "volume": 1600,
+   "sito": "https://www.cpiabologna.edu.it/",
+   "motivo": "sito raggiunto solo in parte il 20/11/2026 (11 pagine, connessione chiusa nelle altre): trovati solo titoli, nessuna frase su corsi, test ed esami; pagina non fatta"
+  },
+  {
+   "slug": "potenza",
+   "codice": "PZMM200002",
+   "nome": "CPIA di Potenza",
+   "ricerca": "cpia potenza",
+   "volume": 1300,
+   "sito": "https://www.cpiapotenza.edu.it/",
+   "motivo": "il sito del CPIA non ha risposto dal nostro server il 20/11/2026 (connessione chiusa o errore 502 a ogni prova): non letto, nessun blocco aggirato"
+  },
+  {
+   "slug": "mantova",
+   "codice": "MNMM11600B",
+   "nome": "CPIA di Mantova",
+   "ricerca": "cpia mantova",
+   "volume": 1300,
+   "sito": "https://www.cpiamantova.edu.it/",
+   "motivo": "il sito del CPIA non ha risposto dal nostro server il 20/11/2026 (connessione chiusa o errore 502 a ogni prova): non letto, nessun blocco aggirato"
+  },
+  {
+   "slug": "lodi",
+   "codice": "LOMM022001",
+   "nome": "CPIA 1 Lodi",
+   "ricerca": "cpia lodi",
+   "volume": 1300,
+   "sito": "https://www.cpialodi.edu.it/",
+   "motivo": "il sito del CPIA non ha risposto dal nostro server il 20/11/2026 (connessione chiusa o errore 502 a ogni prova): non letto, nessun blocco aggirato"
+  },
+  {
+   "slug": "lecce",
+   "codice": "LEMM31000R",
+   "nome": "CPIA 1 Lecce",
+   "ricerca": "cpia lecce",
+   "volume": 1300,
+   "sito": "https://www.cpialecce.edu.it/",
+   "motivo": "il sito del CPIA non ha risposto dal nostro server il 20/11/2026 (connessione chiusa o errore 502 a ogni prova): non letto, nessun blocco aggirato"
+  },
+  {
+   "slug": "ravenna",
+   "codice": "RAMM059004",
+   "nome": "CPIA 1 Ravenna",
+   "ricerca": "cpia ravenna",
+   "volume": 1000,
+   "sito": "https://www.cpiaravenna.edu.it/",
+   "motivo": "il sito del CPIA non ha risposto dal nostro server il 20/11/2026 (connessione chiusa o errore 502 a ogni prova): non letto, nessun blocco aggirato"
+  },
+  {
+   "slug": "lecco",
+   "codice": "LCMM03900L",
+   "nome": "CPIA di Lecco",
+   "ricerca": "cpia lecco",
+   "volume": 1000,
+   "sito": "https://cpialecco.edu.it/",
+   "motivo": "il sito del CPIA non ha risposto dal nostro server il 20/11/2026 (connessione chiusa o errore 502 a ogni prova): non letto, nessun blocco aggirato"
+  },
+  {
+   "slug": "la-spezia",
+   "codice": "SPMM06100R",
+   "nome": "CPIA La Spezia",
+   "ricerca": "cpia la spezia",
+   "volume": 880,
+   "sito": "https://www.cpiasp.edu.it/",
+   "motivo": "il sito del CPIA non ha risposto dal nostro server il 20/11/2026 (connessione chiusa o errore 502 a ogni prova): non letto, nessun blocco aggirato"
+  },
+  {
+   "slug": "roma-3",
+   "codice": "RMMM672004",
+   "nome": "CPIA 3 Roma",
+   "ricerca": "cpia 3 roma",
+   "volume": 1600,
+   "sito": "",
+   "motivo": "l'anagrafe indica un indirizzo web che non esiste più (www.cpia4roma.gov.it) e non abbiamo un indirizzo ufficiale verificato"
+  }
+ ]
+}

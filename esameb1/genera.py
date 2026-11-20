@@ -49,6 +49,7 @@ sys.path.append(str(RADICE.parent / "studio-business" / "strumenti"))
 import monetizzazione as MON  # noqa: E402
 import genera_en as EN  # noqa: E402  sezione inglese /en/ (dal 31/10/2026)
 import genera_lingue as LG  # noqa: E402  sezioni /uk/ e /ro/ (dal 31/10/2026); hreflang e menu delle lingue per tutto il sito
+import genera_cpia as CP  # noqa: E402  pagine CPIA: una per CPIA più l'indice /cpia/ (20/11/2026)
 import genera_dopo as DP  # noqa: E402  pagine «dopo l'esame» (certificato, tempi per sessione, esame non superato) ed esempi A2 e B2 (15/11/2026)
 import genera_guide as GU  # noqa: E402  test A2, carta di soggiorno, cittadinanza per matrimonio, stato della pratica (13/11/2026); ricongiungimento familiare, documenti, permesso per motivi familiari, idoneità alloggiativa (14/11/2026)
 SITO_ID = "esameb1"  # nome del sito in monetizzazione.json ("adsense_siti")
@@ -793,7 +794,8 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None, indiciz
         f'<li><a href="{rel}ricongiungimento-familiare/">Ricongiungimento familiare</a></li>'
         f'<li><a href="{rel}permesso-soggiorno-motivi-familiari/">Permesso per motivi familiari</a></li>'
         f'<li><a href="{rel}idoneita-alloggiativa/">Idoneità alloggiativa</a></li>'
-        f'<li><a href="{rel}dopo-esame/">Dopo l\'esame: certificato</a></li>')  # 15/11/2026
+        f'<li><a href="{rel}dopo-esame/">Dopo l\'esame: certificato</a></li>'  # 15/11/2026
+        f'<li><a href="{rel}cpia/">CPIA: sedi e corsi</a></li>')  # 20/11/2026
     altri_siti = "".join(f'<li><a href="{u}" rel="noopener">{n}</a>: {escape(d)} Un altro sito gratuito e indipendente dello stesso gestore.</li>'
                          for u, n, d in ALTRI_SITI)
     testo = f"""<!DOCTYPE html>
@@ -999,16 +1001,17 @@ Le tracce audio delle prove d'ascolto sono gratis sulla pagina <a href="{rel}aud
 COPERTINA_LIBRO = "libro-b1.jpg"  # copertina in esameb1/assets/ (se manca: segnaposto «B1»); main() la copia in sito/
 
 
-def libro_mini(rel=""):
-    """Striscia evidenziata del libro (copertina piccola + pulsante) per le pagine interne (15/11/2026)."""
+def libro_mini(rel="", clic="libro-pagine"):
+    """Striscia evidenziata del libro (copertina piccola + pulsante) per le pagine interne (15/11/2026).
+    clic: etichetta del conteggio dei clic (le pagine CPIA del 20/11/2026 usano «libro-cpia»)."""
     if (RADICE / "assets" / COPERTINA_LIBRO).exists():
-        cop = (f'<a href="{LIBRO_URL}" rel="noopener" target="_blank" data-libro-proprio="si" data-goatcounter-click="esameb1.eu/clic/libro-pagine" class="cop">'
+        cop = (f'<a href="{LIBRO_URL}" rel="noopener" target="_blank" data-libro-proprio="si" data-goatcounter-click="esameb1.eu/clic/{clic}" class="cop">'
                f'<img src="{rel}{COPERTINA_LIBRO}" alt="Copertina del libro {LIBRO_TITOLO}" width="64" height="83" loading="lazy"></a>')
     else:
         cop = ""
     return (f'<div class="libro-mini">{cop}<div><strong>Libro: {LIBRO_TITOLO}</strong>'
             f'<small>Tutti e 4 gli esami, 4 simulazioni con soluzioni, modelli di email e orale.</small>'
-            f'<a class="btn" href="{LIBRO_URL}" rel="noopener" target="_blank" data-libro-proprio="si" data-goatcounter-click="esameb1.eu/clic/libro-pagine">{ic("libro")}Compra su Amazon</a></div></div>')
+            f'<a class="btn" href="{LIBRO_URL}" rel="noopener" target="_blank" data-libro-proprio="si" data-goatcounter-click="esameb1.eu/clic/{clic}">{ic("libro")}Compra su Amazon</a></div></div>')
 
 
 def libro_top(rel=""):
@@ -4970,6 +4973,7 @@ def main():
             pagina_prefettura(sl, prossime)
             urls.append(f"cittadinanza/{pref_url(sl)}/")
     urls += DP.genera(sys.modules[__name__], prossime)  # 15/11/2026: /dopo-esame/ (indice, 4 enti, non superato) ed /esempi/a2/, /esempi/b2/ (genera_dopo.py)
+    urls += CP.genera(sys.modules[__name__], prossime)  # 20/11/2026: /cpia/ e una pagina per CPIA (genera_cpia.py)
     urls += GU.genera(sys.modules[__name__])  # 4 guide del 13/11/2026, 3 sul ricongiungimento familiare e 1 sull'idoneità alloggiativa del 14/11/2026 (genera_guide.py)
     chi_siamo()
     urls.append("chi-siamo/")
@@ -4984,6 +4988,7 @@ def main():
     n_en = EN.controlli(sys.modules[__name__])  # cifre /en/ = cifre italiane, link tra le lingue
     n_l = LG.controlli(sys.modules[__name__])
     DP.controlli(sys.modules[__name__])  # frasi tra «» = frasi citate, ricerche misurate, FAQ visibili
+    CP.controlli(sys.modules[__name__])  # pagine CPIA: frasi tra «» = frasi citate, sedi dell'anagrafe, titolo = ricerca misurata, riquadro del libro
     GU.controlli(sys.modules[__name__])  # cifre delle 4 guide nelle frasi citate, FAQ visibili  # cifre /uk/ e /ro/, hreflang reciproci su tutto il sito, calcolatore identico in 4 lingue
     print(f"Pagine città fuori indice (noindex, fuori sitemap, senza AdSense): {len(fuori_indice)}: {', '.join(fuori_indice)}")
     print(f"Sito generato in {SITO}: {len(urls)} pagine in sitemap ({n_en} in inglese, {n_l['uk']} in ucraino, {n_l['ro']} in rumeno, controllate), "

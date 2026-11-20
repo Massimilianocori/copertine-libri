@@ -11,6 +11,9 @@ Controlla, su tutte le pagine HTML:
 - link interni e ancore (#id) esistenti;
 - titoli ≤ 65 e description ≤ 155 caratteri, nessun titolo o description doppi tra le pagine in indice;
 - nessuna parola di servizio rimasta nel testo (TODO, None, undefined, NaN, nomi di modelli).
+- pagine CPIA (/cpia/<slug>/, dal 20/11/2026) contro dati/cpia.json e dati/parole_cpia.json: una pagina per ogni CPIA dei dati e nessuna in più,
+  titolo che comincia con la ricerca misurata (volume > 0), codice della scuola e tutte le sedi dell'anagrafe in pagina, fonte del Ministero
+  con data di lettura, ogni testo tra «» uguale a una frase citata nei dati, riquadro del libro con l'etichetta libro-cpia e nessun link sponsorizzato.
 Nato dallo script di controllo usato nelle revisioni del 31/10-12/11/2026 (scratchpad), scritto qui il 13/11/2026.
 """
 import collections
@@ -30,6 +33,55 @@ VIETATE = ("TODO", "Lorem", "None", "undefined", "NaN", " null ", "Claude", "GPT
 def testo(h):
     h = re.sub(r"(?is)<(script|style)\b.*?</\1>", " ", h)
     return re.sub(r"\s+", " ", unescape(re.sub(r"<[^>]+>", " ", h)))
+
+
+def controlli_cpia(err):
+    """Pagine /cpia/<slug>/ contro i dati: vedi l'elenco in cima al file. Restituisce il numero di pagine CPIA controllate."""
+    dati = SITO.parent / "dati"
+    if not (dati / "cpia.json").exists():
+        return 0
+    D = json.loads((dati / "cpia.json").read_text(encoding="utf-8"))
+    volumi = json.loads((dati / "parole_cpia.json").read_text(encoding="utf-8"))["parole"]
+    attese = {c["slug"] for c in D["cpia"]}
+    trovate = {p.parent.name for p in (SITO / "cpia").glob("*/index.html")}
+    for sl in sorted(attese ^ trovate):
+        err.append(f"cpia/{sl}/: pagina senza dati o dati senza pagina")
+    if not (SITO / "cpia" / "index.html").exists():
+        err.append("cpia/index.html: manca l'indice dei CPIA")
+    giorno, mese, anno = int(D["anagrafe"]["letta_il"][8:]), int(D["anagrafe"]["letta_il"][5:7]), D["anagrafe"]["letta_il"][:4]
+    mesi = "gennaio febbraio marzo aprile maggio giugno luglio agosto settembre ottobre novembre dicembre".split()
+    letta = f"{giorno} {mesi[mese - 1]} {anno}"
+    for c in D["cpia"]:
+        f = SITO / "cpia" / c["slug"] / "index.html"
+        if not f.exists():
+            continue
+        h = f.read_text(encoding="utf-8")
+        rel = f"cpia/{c['slug']}/index.html"
+        corpo = h[h.find("<main"):h.find("</main>")]
+        t = testo(corpo)
+        titolo = unescape(re.search(r"<title>(.*?)</title>", h, re.S).group(1))
+        if not volumi.get(c["ricerca"], 0) > 0 or not titolo.lower().startswith(c["ricerca"].lower()):
+            err.append(f"{rel}: il titolo non comincia con una ricerca misurata («{c['ricerca']}»)")
+        if not re.fullmatch(r"[A-Z]{2}MM[0-9A-Z]{6}", c["codice"]) or c["codice"] not in t:
+            err.append(f"{rel}: codice della scuola assente o non valido")
+        for s in c["sedi"]:
+            if s["codice"] not in t or s["cap"] not in t:
+                err.append(f"{rel}: sede {s['codice']} dell'anagrafe non in pagina")
+        if "dati.istruzione.it" not in corpo or f"letta il {letta}" not in t:
+            err.append(f"{rel}: manca la fonte del Ministero con la data di lettura")
+        citate = {re.sub(r"\s+", " ", x["testo"]) for voci in c["citazioni"].values() for x in voci} | {c["nome_anagrafe"], "Centro territoriale"}
+        for frase in re.findall(r"«([^»]+)»", t):
+            if frase.strip() not in citate:
+                err.append(f"{rel}: testo tra virgolette non citato nei dati: {frase[:60]}")
+        for x in citate - {"Centro territoriale"}:
+            if x not in t:
+                err.append(f"{rel}: frase dei dati non in pagina: {x[:60]}")
+        libro = re.findall(r'<a [^>]*data-libro-proprio="si"[^>]*>', corpo)
+        if not libro or any('data-goatcounter-click="esameb1.eu/clic/libro-cpia"' not in x for x in libro):
+            err.append(f"{rel}: riquadro del libro assente o con un'altra etichetta")
+        if "sponsored" in corpo:
+            err.append(f"{rel}: link sponsorizzato in una pagina CPIA")
+    return len(attese & trovate)
 
 
 def main():
@@ -105,6 +157,8 @@ def main():
         err.append(f"titolo doppio «{k}»: {v}")
     for k, v in doppi_d.items():
         err.append(f"description doppia «{k[:60]}»: {v}")
+    n_cpia = controlli_cpia(err)
+    print(f"pagine CPIA controllate contro i dati: {n_cpia}")
     print(f"pagine {len(pagine)}, in sitemap {len(sitemap)}, link interni {n_link}, domande FAQ {n_faq}, errori {len(err)}")
     for e in err[:60]:
         print("ERRORE:", e)
