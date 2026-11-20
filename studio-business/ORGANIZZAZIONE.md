@@ -55,7 +55,7 @@ Il riassunto delle 08:12 parte ogni giorno (lunedì e giovedì dopo la routine d
 | quando esce l'atto | CCNL: tabelle dei rinnovi e lavoro domestico 2027 (promemoria 8/1/2027) · Military Pay: tabelle 2027 e chilometrico IRS (22/12) · Tourist Tax: tariffe 2027 (28/12, 1/1 e 1/4) · EsameB1: calendari PLIDA/CERT.IT 2027 · Statute Limits: una volta l'anno | promemoria con data |
 
 **EsameB1, controllo obbligatorio (19/11/2026)**: il 19/11 le date di CILS, CELI e PLIDA risultavano lette l'ultima volta il 9/10 e il titolo in Google mostrava una data già passata ("prossima data 18 novembre"). Ogni lunedì: rileggere i calendari, poi controllare che in `esameb1/dati/sessioni.json` nessun `verificato_il` abbia più di 7 giorni (altrimenti scriverlo nel riassunto); e il giorno dopo ogni data d'esame rigenerare e pubblicare EsameB1, perché titolo e home dicono "prossima data".
-**Riassunto del mattino**: aggiungere i clic sul libro B1 del giorno prima (GoatCounter, percorsi `esameb1.eu/clic/libro-home`, `libro-pagine`, `libro-esempi`).
+**Riassunto del mattino**: aggiungere i clic sul libro B1 del giorno prima (GoatCounter, percorsi `esameb1.eu/clic/libro-home`, `libro-pagine`, `libro-esempi`). Esclusi i 2 eventi di prova del 20/11 (`esameb1.eu/clic/test-controllo`, `esameb1.eu/clic/test-titolo-html`). Il contatore funziona (provato il 20/11) ma non vede chi usa un blocco pubblicità (come il browser di Massimiliano, AdBlock Plus): è una sottostima; le vendite vere sono nel report KDP.
 
 Regola comune: un aggiornamento pubblica **solo se i dati sono cambiati**; se lo stesso sito ha sezioni pronte in coda, escono insieme.
 
