@@ -231,3 +231,9 @@ Il credito settimanale degli agenti si ricarica il mercoledì sera (~21:00). Il 
 
 ## Piano Max (Massimiliano, 19/11/2026: «se riuscissi ad avere entrate potrei fare il piano max di 200 euro»)
 Soglia: quando gli incassi veri superano ~400 €/mese (il doppio del costo), segnalarlo nel riassunto del mattino con il conto di quanto renderebbe il passaggio. Max ha limiti molto più alti (circa 4-5 volte), non infiniti.
+
+## PAUSA ATTIVA (Massimiliano, 20/11/2026 sera: «da adesso sei in pausa e se devi fare qualcosa di importante fallo a risparmio crediti»)
+Finché questa sezione non viene tolta (lo dice Massimiliano):
+- **Nessun agente**, nessuna costruzione nuova, nessuna ricerca. Il turno di costruzione (B) e la ricerca del mercoledì (G) non partono: chiudono subito scrivendo una riga.
+- **Solo l'indispensabile, senza agenti e con poche righe:** riassunto del mattino con `salute.py` (correggere solo errori veri sui siti online), dati delle aste la sera, aggiornamenti di dati con scadenza o date passate (es. EsameB1 dopo una data d'esame), lettura della posta.
+- Messaggi a Massimiliano brevi.
