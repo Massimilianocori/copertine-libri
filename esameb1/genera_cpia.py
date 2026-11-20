@@ -126,7 +126,7 @@ def extra_tema(G, c, chiave):
                 f'<li>{G.eb(s["ente"])} {escape(s["nome"])}, {escape((s.get("indirizzo") or "indirizzo non scritto").rstrip(","))}, {escape(s["citta"])} · '
                 f'<a href="{escape(s["fonte"])}" rel="noopener">elenco ufficiale {escape(s["ente"])}</a>, letto il {GD(s["verificato_il"])}</li>' for s in mie)
             return (f'<p>Negli elenchi ufficiali degli enti certificatori che usiamo per le pagine città, questo CPIA compare come sede d\'esame:</p><ul>{voci}</ul>'
-                    f'<p class="small">Nomi e indirizzi sono scritti come nell\'elenco dell\'ente (indirizzo come scritto nell\'elenco dell\'ente: può essere diverso da quello dell\'anagrafe). '
+                    f'<p class="small">Indirizzo come scritto nell\'elenco dell\'ente: può essere diverso da quello dell\'anagrafe. '
                     f'L\'elenco dice che è una sede dell\'ente, non in quali sessioni fa l\'esame B1 per la cittadinanza: chiedilo al CPIA. '
                     f'Tutte le sedi e le prossime date: {citta}.</p>')
         return (f'<p>Negli elenchi ufficiali degli enti certificatori che usiamo per le pagine città non abbiamo trovato una sede con il nome di questo CPIA. '

@@ -136,16 +136,16 @@
      "letta_il": "2026-11-20",
      "revisione": "2026-03-25"
     },
+    "p005": {
+     "url": "https://www.cpiaverona.edu.it/index.php",
+     "nome": "pagina iniziale",
+     "letta_il": "2026-11-20"
+    },
     "p103": {
      "url": "https://www.cpiaverona.edu.it/index.php?idpag=1930&idCategoriaServizio=2&idServizio=3",
      "nome": "Costi di iscrizione",
      "letta_il": "2026-11-20",
      "revisione": "2026-09-03"
-    },
-    "p005": {
-     "url": "https://www.cpiaverona.edu.it/index.php",
-     "nome": "pagina iniziale",
-     "letta_il": "2026-11-20"
     }
    },
    "citazioni": {
@@ -179,6 +179,16 @@
     ],
     "iscrizione": [
      {
+      "fonte": "p005",
+      "testo": "❌ LE ISCRIZIONI PER I CORSI DI ITALIANO SONO MOMENTANEAMENTE SOSPESE TRANNE CHE PER LA SEDE ASSOCIATA DI VILLAFRANCA ❌",
+      "nota": "avviso temporaneo, può cambiare"
+     },
+     {
+      "fonte": "p005",
+      "testo": "✅LE ISCRIZIONI AI CORSI DI PRIMO LIVELLO (SCUOLA MEDIA - PRIMO BIENNIO SERALE) PER L'A.S. 2026/2027 RIMANGONO APERTE.",
+      "nota": "avviso temporaneo, può cambiare"
+     },
+     {
       "fonte": "p101",
       "testo": "Si accede al servizio mediante la compilazione del modulo di PREISCRIZIONE: https://suite.sogiscuola.com/registri/VRMM136004/cpia/iscrizioneAlunni.php"
      },
@@ -188,17 +198,7 @@
      },
      {
       "fonte": "p103",
-      "testo": "Corsi di LINGUA ITALIANA (PreA1, A1, A2, B1) € 20 ( quota di iscrizione comprensiva di libro di testo) € 15 (quota di assicurazione) COSTO TOTALE : 35 euro"
-     },
-     {
-      "fonte": "p005",
-      "testo": "❌ LE ISCRIZIONI PER I CORSI DI ITALIANO SONO MOMENTANEAMENTE SOSPESE TRANNE CHE PER LA SEDE ASSOCIATA DI VILLAFRANCA ❌",
-      "nota": "avviso temporaneo, può cambiare"
-     },
-     {
-      "fonte": "p005",
-      "testo": "✅LE ISCRIZIONI AI CORSI DI PRIMO LIVELLO (SCUOLA MEDIA - PRIMO BIENNIO SERALE) PER L'A.S. 2026/2027 RIMANGONO APERTE.",
-      "nota": "avviso temporaneo, può cambiare"
+      "testo": "Corsi di LINGUA ITALIANA (PreA1, A1, A2, B1) € 20 ( quota di iscrizione comprensiva di libro di testo) + € 15 (quota di assicurazione) COSTO TOTALE : 35 euro"
      }
     ]
    }
@@ -1149,7 +1149,7 @@
     "iscrizione": [
      {
       "fonte": "p012",
-      "testo": "RIAPERTURA ISCRIZIONI CORSI PLPP E CORSI DI LINGUA ITALIANA PER STRANIERI a.s. 2026/2027",
+      "testo": "Sono riaperte dal giorno 19 settembre 2026, per un tempo limitato, le Preiscrizioni ai Corsi di Lingua italiana per stranieri per la Sede di: VICENZA OVEST.",
       "pubblicata_il": "2026-09-19"
      }
     ]
