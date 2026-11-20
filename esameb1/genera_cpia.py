@@ -50,10 +50,30 @@ def volume(c):
 
 
 def cit(c, x):
+    """Frase citata. 'pubblicata_il' (sulla frase): è un avviso con una data; 'nota' (sulla frase): avvertenza nostra, per esempio
+    «avviso temporaneo, può cambiare»; 'revisione' (sulla fonte): data dell'ultima revisione scritta nella pagina del CPIA."""
     f = c["fonti"][x["fonte"]]
-    return (f'<blockquote style="margin:10px 0;padding:10px 14px;border-left:4px solid var(--brand);background:var(--surface);border-radius:8px">'
-            f'<p style="margin:0 0 6px">«{escape(x["testo"])}»</p>'
-            f'<footer class="small">Dal sito del CPIA, {"" if f["nome"] == "pagina iniziale" else "pagina "}<a href="{escape(f["url"])}" rel="noopener">{escape(f["nome"])}</a> · letta il {GD(f["letta_il"])}</footer></blockquote>')
+    prima = []
+    if x.get("pubblicata_il"):
+        prima.append(f"Avviso del {GD(x['pubblicata_il'])}")
+    if x.get("nota"):
+        prima.append(escape(x["nota"][0].upper() + x["nota"][1:]))
+    etichetta = f'<strong>{" · ".join(prima)}</strong> · ' if prima else ""
+    rivista = f' · la pagina dice: ultima revisione {GD(f["revisione"])}' if f.get("revisione") else ""
+    return (f'<blockquote style="margin:10px 0;padding:10px 14px;border-left:4px solid var(--brand);background:var(--surface);border-radius:8px;min-width:0">'
+            f'<p style="margin:0 0 6px;overflow-wrap:anywhere">«{escape(x["testo"])}»</p>'
+            f'<footer class="small" style="overflow-wrap:anywhere">{etichetta}Dal sito del CPIA, {"" if f["nome"] == "pagina iniziale" else "pagina "}'
+            f'<a href="{escape(f["url"])}" rel="noopener">{escape(f["nome"])}</a> · letta il {GD(f["letta_il"])}{rivista}</footer></blockquote>')
+
+
+def indirizzo(s):
+    """Indirizzo di una sede dell'anagrafe; il CAP si scrive solo se l'anagrafe lo ha (in alcune righe è «Non Disponibile»)."""
+    return f'{bello(s["indirizzo"])}, {s["cap"] + " " if s.get("cap") else ""}{bello(s["comune"])}'
+
+
+def a_capo(faq_html):
+    """Le risposte delle domande frequenti possono contenere indirizzi web lunghi: a 375 px devono andare a capo."""
+    return faq_html.replace("<p>", '<p style="overflow-wrap:anywhere">')
 
 
 def GD(iso):
@@ -79,7 +99,7 @@ def sedi_esame(G, c):
 
 def riga_sede(s):
     return (f'<tr><td>{escape(bello(s["nome"]))}<br><small>codice {escape(s["codice"])}</small></td>'
-            f'<td data-l="Indirizzo">{escape(bello(s["indirizzo"]))}, {escape(s["cap"])} {escape(bello(s["comune"]))}</td>'
+            f'<td data-l="Indirizzo">{escape(indirizzo(s))}</td>'
             f'<td data-l="Tipo">{escape(s["tipo"])}</td></tr>')
 
 
@@ -106,7 +126,8 @@ def extra_tema(G, c, chiave):
                 f'<li>{G.eb(s["ente"])} {escape(s["nome"])}, {escape((s.get("indirizzo") or "indirizzo non scritto").rstrip(","))}, {escape(s["citta"])} · '
                 f'<a href="{escape(s["fonte"])}" rel="noopener">elenco ufficiale {escape(s["ente"])}</a>, letto il {GD(s["verificato_il"])}</li>' for s in mie)
             return (f'<p>Negli elenchi ufficiali degli enti certificatori che usiamo per le pagine città, questo CPIA compare come sede d\'esame:</p><ul>{voci}</ul>'
-                    f'<p class="small">L\'elenco dice che è una sede dell\'ente, non in quali sessioni fa l\'esame B1 per la cittadinanza: chiedilo al CPIA. '
+                    f'<p class="small">Nomi e indirizzi sono scritti come nell\'elenco dell\'ente (indirizzo come scritto nell\'elenco dell\'ente: può essere diverso da quello dell\'anagrafe). '
+                    f'L\'elenco dice che è una sede dell\'ente, non in quali sessioni fa l\'esame B1 per la cittadinanza: chiedilo al CPIA. '
                     f'Tutte le sedi e le prossime date: {citta}.</p>')
         return (f'<p>Negli elenchi ufficiali degli enti certificatori che usiamo per le pagine città non abbiamo trovato una sede con il nome di questo CPIA. '
                 f'Le sedi e le prossime date in zona: {citta}.</p>')
@@ -121,12 +142,12 @@ def domande(G, c):
     n = len(c["sedi"])
     q = [(f"Dov'è la sede del {nome}?",
           f"Nell'anagrafe delle scuole del Ministero (anno scolastico {D['anagrafe']['anno_scolastico']}) la sede centrale del {nome} è in "
-          f"{bello(centrale['indirizzo'])}, {centrale['cap']} {bello(centrale['comune'])}. Il codice della scuola è {c['codice']}. "
+          f"{indirizzo(centrale)}. Il codice della scuola è {c['codice']}. "
           + (f"Le sedi aperte al pubblico sono {n} in tutto: l'elenco con gli indirizzi è in questa pagina." if n > 1 else "Nell'anagrafe non ci sono altre sedi aperte al pubblico."))]
     for chiave, domanda in (("test_a2", f"Il {nome} fa il test di italiano A2 per la carta di soggiorno?"),
                             ("certificazioni", f"Al {nome} si può fare un esame di certificazione di italiano?"),
                             ("iscrizione", f"Come ci si iscrive al {nome}?")):
-        voci = c["citazioni"].get(chiave, [])
+        voci = [x for x in c["citazioni"].get(chiave, []) if not x.get("nota")] or c["citazioni"].get(chiave, [])
         if voci:
             q.append((domanda, f"Il sito del CPIA scrive: «{voci[0]['testo']}» (pagina letta il {GD(c['fonti'][voci[0]['fonte']]['letta_il'])})."))
         else:
@@ -140,9 +161,10 @@ def pagina_cpia(G, c, prossime):
     centrale = c["sedi"][0]
     n = len(c["sedi"])
     carc = c["sedi_carcerarie"]
-    dove = f'{bello(centrale["indirizzo"])}, {centrale["cap"]} {bello(centrale["comune"])}'
+    dove = indirizzo(centrale)
     faq = domande(G, c)
     jsonld, faq_html = G.faq_html_e_jsonld(faq)
+    faq_html = a_capo(faq_html)
     mancano = [cosa for chiave, _, _, cosa in TEMI if not c["citazioni"].get(chiave)]
     non_scritto = "".join(f"<li>{escape(x[0].upper() + x[1:])}.</li>" for x in mancano + c.get("non_scritto", []))
     temi = "".join(blocco_tema(G, c, *t) for t in TEMI)
@@ -160,7 +182,7 @@ def pagina_cpia(G, c, prossime):
 <h1>{escape(c["titolo_h1"])}</h1>
 <p class="lead">Il {escape(c["nome"])} (nome ufficiale «{escape(c["nome_anagrafe"])}», codice {escape(c["codice"])}) ha la sede centrale in {escape(dove)}.
 Nell'anagrafe delle scuole del Ministero per l'anno scolastico {escape(a["anno_scolastico"])} ha {n} {"sede aperta" if n == 1 else "sedi aperte"} al pubblico{f" e {carc} {'sede' if carc == 1 else 'sedi'} in carcere" if carc else ""}.
-Qui sotto: gli indirizzi, quello che il CPIA scrive su corsi di italiano, test A2 ed esami, e come iscriversi.</p>
+Qui sotto: gli indirizzi e quello che il sito del CPIA scrive, o non scrive, su corsi di italiano, test A2, esami e iscrizioni.</p>
 </section>
 <section>
 <h2 id="scheda">{G.ic("info")}Nome, codice e contatti ufficiali</h2>
@@ -214,10 +236,14 @@ def pagina_indice(G, prossime):
     a = D["anagrafe"]
     ordinati = sorted(D["cpia"], key=lambda c: (-volume(c), c["nome"]))
     si = lambda c, k: "scritto sul sito" if c["citazioni"].get(k) else "non trovato sul sito"
+
+    def esami(c):
+        enti = sorted({v["ente"] for v in c.get("sedi_esame", [])})
+        return si(c, "certificazioni") + (f'<br><small>in elenco {"/".join(enti)}</small>' if enti else "")
     righe = "".join(
         f'<tr><td><a href="{c["slug"]}/"><strong>{escape(c["nome"])}</strong></a><br><small>codice {escape(c["codice"])}</small></td>'
         f'<td data-l="Sede centrale">{escape(bello(c["sedi"][0]["comune"]))}<br><small>{len(c["sedi"])} {"sede" if len(c["sedi"]) == 1 else "sedi"} in anagrafe</small></td>'
-        f'<td data-l="Test A2">{si(c, "test_a2")}</td><td data-l="Esami di certificazione">{si(c, "certificazioni")}</td></tr>' for c in ordinati)
+        f'<td data-l="Test A2">{si(c, "test_a2")}</td><td data-l="Esami di certificazione">{esami(c)}</td></tr>' for c in ordinati)
     faq = [("Che cos'è un CPIA?",
             "CPIA vuol dire Centro provinciale per l'istruzione degli adulti: è una scuola statale per adulti. "
             f"Nell'anagrafe delle scuole statali del Ministero per l'anno scolastico {a['anno_scolastico']} i CPIA sono {a['n_cpia']}, ognuno con il suo codice e con più sedi."),
@@ -231,6 +257,7 @@ def pagina_indice(G, prossime):
             "Solo se quel CPIA è sede d'esame di uno degli enti certificatori (CILS, CELI, PLIDA, CERT.IT). Nella pagina di ogni CPIA trovi quello che scrive la scuola "
             "e le sedi che compaiono negli elenchi ufficiali degli enti.")]
     jsonld, faq_html = G.faq_html_e_jsonld(faq)
+    faq_html = a_capo(faq_html)
     corpo = f"""<section class="hero">
 {G.briciole(("EsameB1", "../"), ("CPIA", None))}
 <span class="occhiello">{G.ic("scudo")}Anagrafe del Ministero e siti dei CPIA · letti il {GD(D["letto_il"])}</span>
@@ -245,7 +272,8 @@ I dati vengono dall'anagrafe delle scuole del Ministero (anno scolastico {escape
 <tbody>{righe}</tbody></table></div>
 {fonte_anagrafe(G)}
 <p class="small">«Scritto sul sito» vuol dire che abbiamo trovato una frase sul sito del CPIA e la riportiamo nella sua pagina. «Non trovato sul sito» non vuol dire che il servizio non c'è.
-È una prima prova con {len(ordinati)} CPIA su {a["n_cpia"]}: abbiamo scelto quelli più cercati.</p>
+«In elenco CILS/CELI/PLIDA» vuol dire che una sede con il nome di quel CPIA è nell'elenco ufficiale delle sedi d'esame di quell'ente.
+Per ora {len(ordinati)} CPIA su {a["n_cpia"]}: abbiamo cominciato da quelli più cercati.</p>
 </section>
 {G.libro_mini("../", CLIC_LIBRO)}
 <div class="due">
@@ -305,14 +333,19 @@ def controlli_dati(G):
         if c["sedi"][0]["codice"] != c["codice"] or c["sedi"][0]["tipo"] != "sede centrale":
             e.append(f"{p}: la prima sede non è la sede centrale")
         for s in c["sedi"]:
-            if not all(s.get(k) for k in ("codice", "nome", "indirizzo", "cap", "comune", "tipo")):
-                e.append(f"{p}: sede incompleta {s.get('codice')}")
+            if not all(s.get(k) for k in ("codice", "nome", "indirizzo", "comune", "tipo")) or not re.fullmatch(r"\d{5}|", s.get("cap", "?")):
+                e.append(f"{p}: sede incompleta o CAP non valido {s.get('codice')}")
+            if "CARCER" in (s["nome"] + " " + s["indirizzo"]).upper():
+                e.append(f"{p}: la sede {s['codice']} è in un carcere: non va tra le sedi aperte al pubblico")
         if c["citta_slug"] not in slug_citta:
             e.append(f"{p}: non esiste la pagina città «{c['citta_slug']}»")
         if not PAROLE["parole"].get(c["ricerca"]):
             e.append(f"{p}: la ricerca «{c['ricerca']}» non è misurata con volume maggiore di 0 (dati/parole_cpia.json)")
         if not c["titolo"].lower().startswith(c["ricerca"].lower()):
             e.append(f"{p}: il titolo non comincia con la ricerca misurata «{c['ricerca']}»")
+        for tema, parola in (("test_a2", "test A2"), ("certificazioni", "esami"), ("corsi", "corsi di italiano"), ("iscrizione", "iscrizioni")):
+            if not c["citazioni"].get(tema) and any(parola in c[k] for k in ("titolo", "titolo_h1", "descrizione")):
+                e.append(f"{p}: titolo o descrizione promettono «{parola}» ma sul sito del CPIA non abbiamo trovato una frase")
         if not c["sito"].startswith("https://") or not c.get("codice_sul_sito"):
             e.append(f"{p}: sito non https o codice della scuola non ritrovato sul sito")
         for k, f in c["fonti"].items():
@@ -326,6 +359,10 @@ def controlli_dati(G):
             if tema not in {t[0] for t in TEMI}:
                 e.append(f"{p}: tema sconosciuto «{tema}»")
             for x in voci:
+                if x.get("pubblicata_il") and not re.fullmatch(r"\d{4}-\d\d-\d\d", x["pubblicata_il"]):
+                    e.append(f"{p}: data dell'avviso non valida: {x['pubblicata_il']}")
+                if x["testo"].rstrip().endswith(":"):
+                    e.append(f"{p}: citazione che finisce con i due punti (frase a metà): {x['testo'][:50]}")
                 if x["fonte"] not in c["fonti"] or len(x["testo"]) < 25 or "«" in x["testo"] or "»" in x["testo"]:
                     e.append(f"{p}: citazione senza fonte, troppo corta o con virgolette: {x['testo'][:50]}")
     if e:
@@ -362,7 +399,7 @@ def controlli(G):
                 if re.sub(r"\s+", " ", x["testo"]) not in testo:
                     e.append(f"{percorso}: citazione non in pagina: {x['testo'][:60]}")
         for s in c["sedi"]:
-            if s["codice"] not in testo or s["cap"] not in testo:
+            if s["codice"] not in testo or s["cap"] not in testo or "Non Disponibile" in testo:
                 e.append(f"{percorso}: sede {s['codice']} non in pagina")
         t = unescape(re.search(r"<title>(.*?)</title>", h, re.S).group(1))
         if not t.lower().startswith(c["ricerca"].lower()):

@@ -7,7 +7,8 @@ Uso (dalla radice del repository):
 
 Cosa controlla, contro dati/cpia.json:
 - anagrafe del Ministero (dati aperti, file CSV in 'anagrafe.file'): per ogni CPIA il nome, la sede centrale e i centri territoriali
-  (codice, nome, indirizzo, CAP, comune) e il numero delle sedi in carcere sono uguali a quelli salvati;
+  (codice, nome, indirizzo, CAP, comune) e il numero delle sedi in carcere sono uguali a quelli salvati. È «in carcere» ogni riga
+  con CARCER nella caratteristica, nel nome o nell'indirizzo; un CAP «Non Disponibile» si salva vuoto;
 - sito di ogni CPIA: ogni pagina in 'fonti' si apre e ogni frase in 'citazioni' è ancora nel testo della pagina (gli spazi non contano).
   Le pagine si leggono con Playwright se è installato (molti siti scolastici scrivono il testo dopo il caricamento); senza Playwright
   si legge l'HTML e le fonti con "browser": true restano «non controllate» (il controllo lo dice, non è un errore).
@@ -61,8 +62,8 @@ def controlla_anagrafe(D, solo):
         if solo and c["slug"] != solo:
             continue
         mie = [x for x in righe if x["CODICEISTITUTORIFERIMENTO"] == c["codice"]]
-        ora = {x["CODICESCUOLA"]: (x["DENOMINAZIONESCUOLA"].strip(), x["INDIRIZZOSCUOLA"].strip(), x["CAPSCUOLA"], x["DESCRIZIONECOMUNE"].strip())
-               for x in mie if "CARCER" not in x["DESCRIZIONECARATTERISTICASCUOLA"]}
+        ora = {x["CODICESCUOLA"]: (x["DENOMINAZIONESCUOLA"].strip(), x["INDIRIZZOSCUOLA"].strip(), "" if x["CAPSCUOLA"] == "Non Disponibile" else x["CAPSCUOLA"], x["DESCRIZIONECOMUNE"].strip())
+               for x in mie if "CARCER" not in (x["DESCRIZIONECARATTERISTICASCUOLA"] + " " + x["DENOMINAZIONESCUOLA"] + " " + x["INDIRIZZOSCUOLA"]).upper()}
         salvate = {s["codice"]: (s["nome"], s["indirizzo"], s["cap"], s["comune"]) for s in c["sedi"]}
         if ora != salvate:
             err.append(f"{c['slug']}: le sedi dell'anagrafe sono cambiate: {sorted(set(ora.items()) ^ set(salvate.items()))[:4]}")

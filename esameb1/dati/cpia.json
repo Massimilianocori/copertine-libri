@@ -26,9 +26,9 @@
    "sito_nota": "sul sito è scritto il codice della scuola VRMM136004",
    "email": "vrmm136004@istruzione.it",
    "letto_il": "2026-11-20",
-   "titolo": "CPIA Verona: sedi, corsi di italiano, test A2, iscrizioni",
-   "titolo_h1": "CPIA di Verona: sedi, corsi di italiano, test A2 e iscrizioni",
-   "descrizione": "CPIA di Verona: codice VRMM136004, 10 sedi con indirizzo, corsi di italiano, test A2, esami e iscrizioni. Dati del Ministero e del sito del CPIA.",
+   "titolo": "CPIA Verona: sedi, corsi di italiano, esami, iscrizioni",
+   "titolo_h1": "CPIA di Verona: sedi, corsi di italiano, esami e iscrizioni",
+   "descrizione": "CPIA di Verona: 10 sedi con indirizzo, codice VRMM136004; corsi di italiano, esami, iscrizioni: dal sito del CPIA. Dati del Ministero, con fonte e data.",
    "sedi": [
     {
      "codice": "VRMM136004",
@@ -119,15 +119,28 @@
     }
    ],
    "fonti": {
+    "p101": {
+     "url": "https://www.cpiaverona.edu.it/index.php?idpag=1930&idCategoriaServizio=3&idServizio=20",
+     "nome": "CORSI AALI PER STUDENTI STRANIERI",
+     "letta_il": "2026-11-20",
+     "revisione": "2026-05-07"
+    },
     "p011": {
      "url": "https://www.cpiaverona.edu.it/index.php?idpag=1926",
      "nome": "I numeri della scuola",
      "letta_il": "2026-11-20"
     },
-    "p002": {
-     "url": "https://www.cpiaverona.edu.it/index.php?idpag=1930",
-     "nome": "Servizi",
-     "letta_il": "2026-11-20"
+    "p102": {
+     "url": "https://www.cpiaverona.edu.it/index.php?idpag=1930&idCategoriaServizio=3&idServizio=24",
+     "nome": "ESAMI DI CERTIFICAZIONE LINGUISTICA",
+     "letta_il": "2026-11-20",
+     "revisione": "2026-03-25"
+    },
+    "p103": {
+     "url": "https://www.cpiaverona.edu.it/index.php?idpag=1930&idCategoriaServizio=2&idServizio=3",
+     "nome": "Costi di iscrizione",
+     "letta_il": "2026-11-20",
+     "revisione": "2026-09-03"
     },
     "p005": {
      "url": "https://www.cpiaverona.edu.it/index.php",
@@ -138,24 +151,54 @@
    "citazioni": {
     "corsi": [
      {
+      "fonte": "p101",
+      "testo": "I corsi di Alfabetizzazione e Apprendimento della Lingua Italiana per stranieri (A.A.L.I.) sono finalizzati al conseguimento di titoli che attestano il livello di competenza della lingua italiana."
+     },
+     {
+      "fonte": "p101",
+      "testo": "Sono attivi moduli: Pre-A1, per stranieri con basso grado di scolarizzazione nel paese di origine; A1 A2 B1 B2 e superiori"
+     },
+     {
       "fonte": "p011",
       "testo": "Nell’a.s. 2025/2026, gli studenti iscritti ai Corsi di Alfabetizzazione e Apprendimento della Lingua Italiana sono stati complessivamente 4.715 . I gruppi di livello attivati sono stati 264 , con una media di 17,9 studenti per gruppo ."
      }
     ],
     "certificazioni": [
      {
-      "fonte": "p002",
-      "testo": "Somministrazione di test per la certificazione linguistica della lingua italiana"
+      "fonte": "p102",
+      "testo": "Il C.P.I.A di Verona ha stipulato una convenzione con uno dei cinque Enti Certificatori."
+     },
+     {
+      "fonte": "p102",
+      "testo": "Si accede al servizio contattando la Segreteria di San Bonifacio ( sanbonifacio@cpiaverona.edu.it ) per gli esami CILS."
+     },
+     {
+      "fonte": "p102",
+      "testo": "La sede di svolgimento degli esami CILS è Borgo Trento (Via Porta Catena, 4)."
      }
     ],
     "iscrizione": [
      {
-      "fonte": "p005",
-      "testo": "❌ LE ISCRIZIONI PER I CORSI DI ITALIANO SONO MOMENTANEAMENTE SOSPESE TRANNE CHE PER LA SEDE ASSOCIATA DI VILLAFRANCA ❌"
+      "fonte": "p101",
+      "testo": "Si accede al servizio mediante la compilazione del modulo di PREISCRIZIONE: https://suite.sogiscuola.com/registri/VRMM136004/cpia/iscrizioneAlunni.php"
+     },
+     {
+      "fonte": "p101",
+      "testo": "Dopo l'invio della domanda di PRE-ISCRIZIONE, la segreteria della Sede Associata di competenza si metterà in contatto con l'utente (settembre/ottobre - gennaio/febbraio) per fornire informazioni sulla data del TEST di ingresso e sulla data dell'inizio del corso."
+     },
+     {
+      "fonte": "p103",
+      "testo": "Corsi di LINGUA ITALIANA (PreA1, A1, A2, B1) € 20 ( quota di iscrizione comprensiva di libro di testo) € 15 (quota di assicurazione) COSTO TOTALE : 35 euro"
      },
      {
       "fonte": "p005",
-      "testo": "✅LE ISCRIZIONI AI CORSI DI PRIMO LIVELLO (SCUOLA MEDIA - PRIMO BIENNIO SERALE) PER L'A.S. 2026/2027 RIMANGONO APERTE."
+      "testo": "❌ LE ISCRIZIONI PER I CORSI DI ITALIANO SONO MOMENTANEAMENTE SOSPESE TRANNE CHE PER LA SEDE ASSOCIATA DI VILLAFRANCA ❌",
+      "nota": "avviso temporaneo, può cambiare"
+     },
+     {
+      "fonte": "p005",
+      "testo": "✅LE ISCRIZIONI AI CORSI DI PRIMO LIVELLO (SCUOLA MEDIA - PRIMO BIENNIO SERALE) PER L'A.S. 2026/2027 RIMANGONO APERTE.",
+      "nota": "avviso temporaneo, può cambiare"
      }
     ]
    }
@@ -175,9 +218,9 @@
    "sito_nota": "sul sito è scritto il codice della scuola BSMM20700V",
    "email": "bsmm20700v@istruzione.it",
    "letto_il": "2026-11-20",
-   "titolo": "CPIA 1 Brescia: sedi, corsi di italiano, test A2, iscrizioni",
-   "titolo_h1": "CPIA 1 Brescia: sedi, corsi di italiano, test A2 e iscrizioni",
-   "descrizione": "CPIA 1 Brescia: codice BSMM20700V, 5 sedi con indirizzo, corsi di italiano, test A2, esami e iscrizioni. Dati del Ministero e del sito del CPIA.",
+   "titolo": "CPIA 1 Brescia: sedi, corsi di italiano, esami, iscrizioni",
+   "titolo_h1": "CPIA 1 Brescia: sedi, corsi di italiano, esami e iscrizioni",
+   "descrizione": "CPIA 1 Brescia: 5 sedi con indirizzo, codice BSMM20700V; corsi di italiano, esami, iscrizioni: dal sito del CPIA. Dati del Ministero, con fonte e data.",
    "sedi": [
     {
      "codice": "BSMM20700V",
@@ -191,7 +234,7 @@
      "codice": "BSCT70300N",
      "nome": "I.C. BAGNOLO MELLA",
      "indirizzo": "VIA 26 APRILE 40",
-     "cap": "Non Disponibile",
+     "cap": "",
      "comune": "BAGNOLO MELLA",
      "tipo": "centro territoriale"
     },
@@ -199,7 +242,7 @@
      "codice": "BSCT701002",
      "nome": "FOSCOLO",
      "indirizzo": "GALILEI46",
-     "cap": "Non Disponibile",
+     "cap": "",
      "comune": "BRESCIA",
      "tipo": "centro territoriale"
     },
@@ -215,7 +258,7 @@
      "codice": "BSCT700006",
      "nome": "I.C. UNICO DI LUMEZZANE",
      "indirizzo": "VIA MONTINI 100",
-     "cap": "Non Disponibile",
+     "cap": "",
      "comune": "LUMEZZANE",
      "tipo": "centro territoriale"
     }
@@ -297,9 +340,9 @@
    "sito_nota": "sul sito è scritto il codice della scuola MIMM0CG003",
    "email": "mimm0cg003@istruzione.it",
    "letto_il": "2026-11-20",
-   "titolo": "CPIA Milano: sedi, corsi di italiano, test A2, iscrizioni",
-   "titolo_h1": "CPIA 5 Milano: sedi, corsi di italiano, test A2 e iscrizioni",
-   "descrizione": "CPIA 5 Milano: codice MIMM0CG003, 9 sedi con indirizzo, corsi di italiano, test A2, esami e iscrizioni. Dati del Ministero e del sito del CPIA.",
+   "titolo": "CPIA Milano: sedi, corsi di italiano, test A2, esami, iscrizioni",
+   "titolo_h1": "CPIA 5 Milano: sedi, corsi di italiano, test A2, esami e iscrizioni",
+   "descrizione": "CPIA 5 Milano: 9 sedi con indirizzo, codice MIMM0CG003; corsi di italiano, test A2, esami, iscrizioni: dal sito del CPIA. Con fonte e data.",
    "sedi": [
     {
      "codice": "MIMM0CG003",
@@ -386,6 +429,12 @@
     }
    ],
    "fonti": {
+    "p103": {
+     "url": "https://www.cpia5milanocentrale.edu.it/index.php?idpag=1802&idCategoriaServizio=3&idServizio=48",
+     "nome": "Corsi di Lingua Italiana L2",
+     "letta_il": "2026-11-20",
+     "revisione": "2024-12-16"
+    },
     "p010": {
      "url": "https://www.cpia5milanocentrale.edu.it/index.php?idpag=1795",
      "nome": "Presentazione",
@@ -400,10 +449,30 @@
      "url": "https://www.cpia5milanocentrale.edu.it/index.php?idpag=1803",
      "nome": "Novità",
      "letta_il": "2026-11-20"
+    },
+    "p101": {
+     "url": "https://www.cpia5milanocentrale.edu.it/index.php?idpag=1802&idCategoriaServizio=2&idServizio=45",
+     "nome": "Iscrizione esami CILS",
+     "letta_il": "2026-11-20",
+     "revisione": "2023-12-15"
+    },
+    "p102": {
+     "url": "https://www.cpia5milanocentrale.edu.it/index.php?idpag=1802&idCategoriaServizio=2&idServizio=21",
+     "nome": "Iscrizioni online",
+     "letta_il": "2026-11-20",
+     "revisione": "2026-08-28"
     }
    },
    "citazioni": {
     "corsi": [
+     {
+      "fonte": "p103",
+      "testo": "Corsi di Lingua Italiana L2 di livelli: ALFA - durata annuale, da 160 a 200 ore comprensive di ed. civica PRE-A1 - durata quadrimestrale, 80 ore comprensive di ed. civica A1 - durata quadrimestrale, 100 ore comprensive di ed. civica A2 - durata quadrimestrale, 80 ore comprensive di ed. civica B1 - durata quadrimestrale, 80 ore comprensive di ed. civica B2 - durata annuale, 120 ore comprensive di ed. civica C1 - durata annuale, da 120 a 140 ore comprensive di ed. civica"
+     },
+     {
+      "fonte": "p103",
+      "testo": "I corsi di alfabetizzazione sono finalizzati al conseguimento di un titolo attestante il raggiungimento di un livello di conoscenza della Lingua Italiana non inferiore al livello A2 del Quadro Comune Europeo di Riferimento per le Lingue elaborato dal Consiglio d'Europa"
+     },
      {
       "fonte": "p010",
       "testo": "Gli adulti stranieri in età lavorativa, anche in possesso di titoli di studio conseguiti nei paesi di origine, possono iscriversi ai percorsi di alfabetizzazione ed apprendimento della Lingua Italiana."
@@ -419,7 +488,26 @@
       "testo": "Visualizzazione prove test A2 Prefettura solo tramite domanda di Accesso agli atti"
      }
     ],
+    "certificazioni": [
+     {
+      "fonte": "p101",
+      "testo": "Modulo di iscrizione alle sessione di esami CILS per i livelli \"A2 Integrazione\" e \"B1 Cittadinanza\""
+     },
+     {
+      "fonte": "p101",
+      "testo": "Una volta ricevuta, la scuola trasmette al candidato il numero di matricola e il bollettino di pagamento per perfezionare l'iscrizione entro i tempi previsti."
+     }
+    ],
     "iscrizione": [
+     {
+      "fonte": "p102",
+      "testo": "LE ISCRIZIONI AD ALFABETIZZAZIONE ( CORSI D ITALIANO ) PER IL PRIMO QUADRIMESTRE 2026 / 2027 SONO CHIUSE E RIAPRIRANNO A GENNAIO",
+      "pubblicata_il": "2026-08-28"
+     },
+     {
+      "fonte": "p103",
+      "testo": "Le iscrizioni si effettuano entro il mese di settembre e vengono ripetute alla fine del primo quadrimestre nel mese di gennaio."
+     },
      {
       "fonte": "p010",
       "testo": "Ai Centri CPIA possono iscriversi gli adulti, anche stranieri, che non hanno assolto l'obbligo di istruzione o che non sono in possesso del titolo di studio conclusivo del primo ciclo di istruzione. Sono accolte iscrizioni a tutti i corsi di chi ha compiuto almeno i 16 anni , sono accolte anche le iscrizioni di 15enni ai percorsi di primo livello primo periodo didattico (ex \"Licenza Media\") per coloro che presentano le motivate esigenze previste dall’Accordo Territoriale tra la Regione Lombardia e L’Ufficio Scolastico Regionale per la Lombardia del 30/01/2015."
@@ -442,9 +530,9 @@
    "sito_nota": "sul sito è scritto il codice della scuola PDMM25500L",
    "email": "pdmm25500l@istruzione.it",
    "letto_il": "2026-11-20",
-   "titolo": "CPIA Padova: sedi, corsi di italiano, test A2, iscrizioni",
-   "titolo_h1": "CPIA di Padova: sedi, corsi di italiano, test A2 e iscrizioni",
-   "descrizione": "CPIA di Padova: codice PDMM25500L, 10 sedi con indirizzo, corsi di italiano, test A2, esami e iscrizioni. Dati del Ministero e del sito del CPIA.",
+   "titolo": "CPIA Padova: sedi, corsi di italiano, test A2, esami, iscrizioni",
+   "titolo_h1": "CPIA di Padova: sedi, corsi di italiano, test A2, esami e iscrizioni",
+   "descrizione": "CPIA di Padova: 10 sedi con indirizzo, codice PDMM25500L; corsi di italiano, test A2, esami, iscrizioni: dal sito del CPIA. Con fonte e data.",
    "sedi": [
     {
      "codice": "PDMM25500L",
@@ -551,10 +639,11 @@
     }
    ],
    "fonti": {
-    "p013": {
-     "url": "https://cpiapadova.edu.it/apertura-pre-iscrizioni-3/",
-     "nome": "Apertura pre-iscrizioni",
+    "p100": {
+     "url": "https://cpiapadova.edu.it/indirizzo-di-studio/a-percorsi-di-alfabetizzazione-e-apprendimento-della-lingua-italiana-aali/",
+     "nome": "A-Percorsi di alfabetizzazione e apprendimento della lingua italiana (",
      "letta_il": "2026-11-20",
+     "revisione": "2023-12-15",
      "browser": true
     },
     "p016": {
@@ -585,8 +674,12 @@
    "citazioni": {
     "corsi": [
      {
-      "fonte": "p013",
-      "testo": "Sono aperte le pre-iscrizioni ai corsi di Alfabetizzazione e apprendimento della lingua italiana e di Primo periodo (ex licenza media) per settembre 2025"
+      "fonte": "p100",
+      "testo": "I corsi di lingua e cultura italiana per stranieri sono finalizzati al conseguimento del titolo attestante il raggiungimento del livello di conoscenza della lingua italiana di livello A2 del Quadro comune europeo di riferimento per le lingue elaborato dal Consiglio d’Europa."
+     },
+     {
+      "fonte": "p100",
+      "testo": "Il livello B1 è il livello base della competenza, indica che è stata raggiunta una certa autonomia. Sono organizzati nell’ambito dell’arricchimento dell’offerta formativa."
      }
     ],
     "test_a2": [
@@ -644,9 +737,9 @@
    "sito_nota": "sul sito è scritto il codice della scuola NOMM188009",
    "email": "nomm188009@istruzione.it",
    "letto_il": "2026-11-20",
-   "titolo": "CPIA Novara: sedi, corsi di italiano, test A2, iscrizioni",
-   "titolo_h1": "CPIA 1 Novara: sedi, corsi di italiano, test A2 e iscrizioni",
-   "descrizione": "CPIA 1 Novara: codice NOMM188009, 6 sedi con indirizzo, corsi di italiano, test A2, esami e iscrizioni. Dati del Ministero e del sito del CPIA.",
+   "titolo": "CPIA Novara: sedi, corsi di italiano, test A2, esami, iscrizioni",
+   "titolo_h1": "CPIA 1 Novara: sedi, corsi di italiano, test A2, esami e iscrizioni",
+   "descrizione": "CPIA 1 Novara: 6 sedi con indirizzo, codice NOMM188009; corsi di italiano, test A2, esami, iscrizioni: dal sito del CPIA. Con fonte e data.",
    "sedi": [
     {
      "codice": "NOMM188009",
@@ -777,9 +870,9 @@
    "sito_nota": "sul sito è scritto il codice della scuola FEMM07000R",
    "email": "femm07000r@istruzione.it",
    "letto_il": "2026-11-20",
-   "titolo": "CPIA Ferrara: sedi, corsi di italiano, test A2, iscrizioni",
-   "titolo_h1": "CPIA di Ferrara: sedi, corsi di italiano, test A2 e iscrizioni",
-   "descrizione": "CPIA di Ferrara: codice FEMM07000R, 5 sedi con indirizzo, corsi di italiano, test A2, esami e iscrizioni. Dati del Ministero e del sito del CPIA.",
+   "titolo": "CPIA Ferrara: sedi, corsi di italiano, test A2, esami, iscrizioni",
+   "titolo_h1": "CPIA di Ferrara: sedi, corsi di italiano, test A2, esami e iscrizioni",
+   "descrizione": "CPIA di Ferrara: 5 sedi con indirizzo, codice FEMM07000R; corsi di italiano, test A2, esami, iscrizioni: dal sito del CPIA. Con fonte e data.",
    "sedi": [
     {
      "codice": "FEMM07000R",
@@ -917,9 +1010,9 @@
    "sito_nota": "sul sito è scritto il codice della scuola VIMM141007",
    "email": "vimm141007@istruzione.it",
    "letto_il": "2026-11-20",
-   "titolo": "CPIA Vicenza: sedi, corsi di italiano, test A2, iscrizioni",
-   "titolo_h1": "CPIA di Vicenza: sedi, corsi di italiano, test A2 e iscrizioni",
-   "descrizione": "CPIA di Vicenza: codice VIMM141007, 7 sedi con indirizzo, corsi di italiano, test A2, esami e iscrizioni. Dati del Ministero e del sito del CPIA.",
+   "titolo": "CPIA Vicenza: sedi, corsi di italiano, esami, iscrizioni",
+   "titolo_h1": "CPIA di Vicenza: sedi, corsi di italiano, esami e iscrizioni",
+   "descrizione": "CPIA di Vicenza: 7 sedi con indirizzo, codice VIMM141007; corsi di italiano, esami, iscrizioni: dal sito del CPIA. Dati del Ministero, con fonte e data.",
    "sedi": [
     {
      "codice": "VIMM141007",
@@ -1029,18 +1122,6 @@
      "nome": "Certificazione CILS",
      "letta_il": "2026-11-20",
      "browser": true
-    },
-    "p009": {
-     "url": "https://cpiavicenza.edu.it/iscrizioni-a-s-2026-2027/",
-     "nome": "Iscrizioni A.S. 2026/2027",
-     "letta_il": "2026-11-20",
-     "browser": true
-    },
-    "p016": {
-     "url": "https://cpiavicenza.edu.it/chiusura-iscrizioni-plpp-e-corsi-lingua-italiana-per-stranieri/",
-     "nome": "CHIUSURA ISCRIZIONI PLPP E CORSI LINGUA ITALIANA PER STRANIERI",
-     "letta_il": "2026-11-20",
-     "browser": true
     }
    },
    "citazioni": {
@@ -1057,7 +1138,8 @@
     "certificazioni": [
      {
       "fonte": "p000",
-      "testo": "Si avvisa l’utenza che le sessioni di esami CELI dell’ 11 novembre e CILS del 3 dicembre 2026 NON VENGONO ATTIVATE in tutte le sedi del CPIA di Vicenza per problemi amministrativi ."
+      "testo": "Si avvisa l’utenza che le sessioni di esami CELI dell’ 11 novembre e CILS del 3 dicembre 2026 NON VENGONO ATTIVATE in tutte le sedi del CPIA di Vicenza per problemi amministrativi .",
+      "nota": "avviso temporaneo, può cambiare"
      },
      {
       "fonte": "p011",
@@ -1066,12 +1148,9 @@
     ],
     "iscrizione": [
      {
-      "fonte": "p009",
-      "testo": "Ciao! Ecco il link per iscriverti al CPIA tramite il portale Nettuno:"
-     },
-     {
-      "fonte": "p016",
-      "testo": "Eventuali nuove disponibilità di posti e conseguenti riaperture delle iscrizioni saranno tempestivamente comunicate nel sito istituzionale."
+      "fonte": "p012",
+      "testo": "RIAPERTURA ISCRIZIONI CORSI PLPP E CORSI DI LINGUA ITALIANA PER STRANIERI a.s. 2026/2027",
+      "pubblicata_il": "2026-09-19"
      }
     ]
    }
@@ -1091,9 +1170,9 @@
    "sito_nota": "sul sito è scritto il codice della scuola MOMM173008",
    "email": "momm173008@istruzione.it",
    "letto_il": "2026-11-20",
-   "titolo": "CPIA Modena: sedi, corsi di italiano, test A2, iscrizioni",
-   "titolo_h1": "CPIA 1 Modena: sedi, corsi di italiano, test A2 e iscrizioni",
-   "descrizione": "CPIA 1 Modena: codice MOMM173008, 8 sedi con indirizzo, corsi di italiano, test A2, esami e iscrizioni. Dati del Ministero e del sito del CPIA.",
+   "titolo": "CPIA Modena: sedi, corsi di italiano, test A2, esami, iscrizioni",
+   "titolo_h1": "CPIA 1 Modena: sedi, corsi di italiano, test A2, esami e iscrizioni",
+   "descrizione": "CPIA 1 Modena: 7 sedi con indirizzo, codice MOMM173008; corsi di italiano, test A2, esami, iscrizioni: dal sito del CPIA. Con fonte e data.",
    "sedi": [
     {
      "codice": "MOMM173008",
@@ -1128,14 +1207,6 @@
      "tipo": "centro territoriale"
     },
     {
-     "codice": "MOCT701009",
-     "nome": "C.T.P. MODENA-S.M.FERRARIS C/O CARCERE",
-     "indirizzo": "STRADA S'ANNA 370 - CARCERE",
-     "cap": "41100",
-     "comune": "MODENA",
-     "tipo": "centro territoriale"
-    },
-    {
      "codice": "MOCT708004",
      "nome": "C.T.P. PAVULLO S.M.MONTECUCCOLI",
      "indirizzo": "VIALE MARCONI 17",
@@ -1160,7 +1231,7 @@
      "tipo": "centro territoriale"
     }
    ],
-   "sedi_carcerarie": 2,
+   "sedi_carcerarie": 3,
    "sedi_esame": [
     {
      "ente": "CELI",
@@ -1243,9 +1314,9 @@
    "sito_nota": "sul sito è scritto il codice della scuola TOMM32400G",
    "email": "tomm32400g@istruzione.it",
    "letto_il": "2026-11-20",
-   "titolo": "CPIA 2 Torino: sedi, corsi di italiano, test A2, iscrizioni",
-   "titolo_h1": "CPIA 2 Torino: sedi, corsi di italiano, test A2 e iscrizioni",
-   "descrizione": "CPIA 2 Torino: codice TOMM32400G, 4 sedi con indirizzo, corsi di italiano, test A2, esami e iscrizioni. Dati del Ministero e del sito del CPIA.",
+   "titolo": "CPIA 2 Torino: sedi, indirizzi, corsi di italiano, iscrizioni",
+   "titolo_h1": "CPIA 2 Torino: sedi, indirizzi, corsi di italiano e iscrizioni",
+   "descrizione": "CPIA 2 Torino: 4 sedi con indirizzo, codice TOMM32400G; indirizzi, corsi di italiano, iscrizioni: dal sito del CPIA. Dati del Ministero, con fonte e data.",
    "sedi": [
     {
      "codice": "TOMM32400G",
@@ -1287,6 +1358,7 @@
      "url": "https://www.cpia2-torino.edu.it/indirizzo-di-studio/alfabetizzazione-e-apprendimento-della-lingua-italiana/",
      "nome": "Alfabetizzazione e apprendimento della lingua italiana",
      "letta_il": "2026-11-20",
+     "revisione": "2023-11-20",
      "browser": true
     }
    },
@@ -1328,9 +1400,9 @@
    "sito_nota": "sul sito è scritto il codice della scuola PRMM07500A",
    "email": "prmm07500a@istruzione.it",
    "letto_il": "2026-11-20",
-   "titolo": "CPIA Parma: sedi, corsi di italiano, test A2, iscrizioni",
-   "titolo_h1": "CPIA di Parma: sedi, corsi di italiano, test A2 e iscrizioni",
-   "descrizione": "CPIA di Parma: codice PRMM07500A, 5 sedi con indirizzo, corsi di italiano, test A2, esami e iscrizioni. Dati del Ministero e del sito del CPIA.",
+   "titolo": "CPIA Parma: sedi, indirizzi, corsi di italiano, iscrizioni",
+   "titolo_h1": "CPIA di Parma: sedi, indirizzi, corsi di italiano e iscrizioni",
+   "descrizione": "CPIA di Parma: 5 sedi con indirizzo, codice PRMM07500A; indirizzi, corsi di italiano, iscrizioni: dal sito del CPIA. Dati del Ministero, con fonte e data.",
    "sedi": [
     {
      "codice": "PRMM07500A",
@@ -1432,9 +1504,9 @@
    "sito_nota": "sul sito è scritto il codice della scuola SVMM062003",
    "email": "svmm062003@istruzione.it",
    "letto_il": "2026-11-20",
-   "titolo": "CPIA Savona: sedi, corsi di italiano, test A2, iscrizioni",
-   "titolo_h1": "CPIA di Savona: sedi, corsi di italiano, test A2 e iscrizioni",
-   "descrizione": "CPIA di Savona: codice SVMM062003, 6 sedi con indirizzo, corsi di italiano, test A2, esami e iscrizioni. Dati del Ministero e del sito del CPIA.",
+   "titolo": "CPIA Savona: sedi, indirizzi, corsi di italiano, iscrizioni",
+   "titolo_h1": "CPIA di Savona: sedi, indirizzi, corsi di italiano e iscrizioni",
+   "descrizione": "CPIA di Savona: 6 sedi con indirizzo, codice SVMM062003; indirizzi, corsi di italiano, iscrizioni: dal sito del CPIA. Dati del Ministero, con fonte e data.",
    "sedi": [
     {
      "codice": "SVMM062003",
@@ -1540,9 +1612,9 @@
    "sito_nota": "sul sito è scritto il codice della scuola ROMM052008",
    "email": "romm052008@istruzione.it",
    "letto_il": "2026-11-20",
-   "titolo": "CPIA Rovigo: sedi, corsi di italiano, test A2, iscrizioni",
-   "titolo_h1": "CPIA di Rovigo: sedi, corsi di italiano, test A2 e iscrizioni",
-   "descrizione": "CPIA di Rovigo: codice ROMM052008, 4 sedi con indirizzo, corsi di italiano, test A2, esami e iscrizioni. Dati del Ministero e del sito del CPIA.",
+   "titolo": "CPIA Rovigo: sedi, corsi di italiano, test A2, esami, iscrizioni",
+   "titolo_h1": "CPIA di Rovigo: sedi, corsi di italiano, test A2, esami e iscrizioni",
+   "descrizione": "CPIA di Rovigo: 4 sedi con indirizzo, codice ROMM052008; corsi di italiano, test A2, esami, iscrizioni: dal sito del CPIA. Con fonte e data.",
    "sedi": [
     {
      "codice": "ROMM052008",

@@ -65,7 +65,7 @@ def controlli_cpia(err):
         if not re.fullmatch(r"[A-Z]{2}MM[0-9A-Z]{6}", c["codice"]) or c["codice"] not in t:
             err.append(f"{rel}: codice della scuola assente o non valido")
         for s in c["sedi"]:
-            if s["codice"] not in t or s["cap"] not in t:
+            if s["codice"] not in t or s["cap"] not in t or "Non Disponibile" in t or "CARCER" in (s["nome"] + " " + s["indirizzo"]).upper():
                 err.append(f"{rel}: sede {s['codice']} dell'anagrafe non in pagina")
         if "dati.istruzione.it" not in corpo or f"letta il {letta}" not in t:
             err.append(f"{rel}: manca la fonte del Ministero con la data di lettura")
@@ -81,6 +81,9 @@ def controlli_cpia(err):
             err.append(f"{rel}: riquadro del libro assente o con un'altra etichetta")
         if "sponsored" in corpo:
             err.append(f"{rel}: link sponsorizzato in una pagina CPIA")
+        for tema, parola in (("test_a2", "test A2"), ("certificazioni", "esami")):
+            if not c["citazioni"].get(tema) and parola in titolo:
+                err.append(f"{rel}: il titolo promette «{parola}» ma nei dati non c'è una frase del CPIA")
     return len(attese & trovate)
 
 
