@@ -1,7 +1,4 @@
-{"letto_il":"2026-11-21T23:18+01:00","veicoli":[
-{"id":4637197,"tipo":"Veicolo","marca":"Fiat","anno":null,"comune":"Nola","prov":"Napoli","base":1000,"minima":null,"data":"2026-11-21T12:00","disp":null,"tribunale":"Nola"},
-{"id":4656616,"tipo":"Automobile","marca":"Fiat","anno":2008,"comune":"Sellia Marina","prov":"Catanzaro","base":1800,"minima":null,"data":"2026-11-21T15:00","disp":null,"tribunale":"Catanzaro"},
-{"id":4659074,"tipo":"Veicolo commerciale","marca":"Fiat","anno":2010,"comune":"Ravenna","prov":"Ravenna","base":2700,"minima":2700,"data":"2026-11-21T15:00","disp":null,"tribunale":"Ravenna"},
+{"letto_il":"2026-11-22T23:18+01:00","veicoli":[
 {"id":4647312,"tipo":"Automobile","marca":"Toyota","anno":null,"comune":"Barzanò","prov":"Lecco","base":16125,"minima":16125,"data":"2026-11-23T10:00","disp":null,"tribunale":"Lecco"},
 {"id":4647324,"tipo":"Moto o ciclomotore","marca":"Honda","anno":null,"comune":"Barzanò","prov":"Lecco","base":3525,"minima":3525,"data":"2026-11-23T10:00","disp":null,"tribunale":"Lecco"},
 {"id":4633219,"tipo":"Automobile","marca":"Fiat","anno":null,"comune":"Brindisi","prov":"Brindisi","base":3600,"minima":2700,"data":"2026-11-23T10:40","disp":null,"tribunale":"Brindisi"},
