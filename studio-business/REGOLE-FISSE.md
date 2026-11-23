@@ -232,8 +232,11 @@ Il credito settimanale degli agenti si ricarica il mercoledì sera (~21:00). Il 
 ## Piano Max (Massimiliano, 19/11/2026: «se riuscissi ad avere entrate potrei fare il piano max di 200 euro»)
 Soglia: quando gli incassi veri superano ~400 €/mese (il doppio del costo), segnalarlo nel riassunto del mattino con il conto di quanto renderebbe il passaggio. Max ha limiti molto più alti (circa 4-5 volte), non infiniti.
 
-## PAUSA ATTIVA (Massimiliano, 20/11/2026 sera: «da adesso sei in pausa e se devi fare qualcosa di importante fallo a risparmio crediti»)
+## PAUSA ATTIVA FINO A MERCOLEDÌ 25/11 ALLE 21:00 (poi «full power», Massimiliano 23/11) (Massimiliano, 20/11/2026 sera: «da adesso sei in pausa e se devi fare qualcosa di importante fallo a risparmio crediti»)
 Finché questa sezione non viene tolta (lo dice Massimiliano):
 - **Nessun agente**, nessuna costruzione nuova, nessuna ricerca. Il turno di costruzione (B) e la ricerca del mercoledì (G) non partono: chiudono subito scrivendo una riga.
 - **Solo l'indispensabile, senza agenti e con poche righe:** riassunto del mattino con `salute.py` (correggere solo errori veri sui siti online), dati delle aste la sera, aggiornamenti di dati con scadenza o date passate (es. EsameB1 dopo una data d'esame), lettura della posta.
 - Messaggi a Massimiliano brevi.
+
+## Ripresa del 25/11 sera (dopo la ricarica)
+Dalle 21:00 di mercoledì 25/11 la pausa è finita: si lavora a pieno ritmo, sempre con le regole su qualità, controlli e budget settimanale (credito diviso sui 7 giorni; agenti su Fable finché c'è il bonus). Primi lavori, in ordine: (1) EsameB1: riquadro del libro in alto nelle 10 pagine più visitate (GoatCounter) — più clic sul libro prima della sessione CILS del 3/12 e di gennaio-febbraio; (2) ricerca della settimana (routine del mercoledì 21:07); (3) coda per €/ora in DA-PUBBLICARE.md (CPIA mancanti, power bank/bagagli per le compagnie saltate, college con più università dopo i dati veri).
