@@ -27,6 +27,15 @@ class _NoRed(urllib.request.HTTPRedirectHandler):
 _op = urllib.request.build_opener(_NoRed)
 
 def get(u, segui=True):
+    # 23/11/2026: un errore di rete passeggero (HTTP 0) non è un errore del sito: si riprova fino a 2 volte
+    for _ in range(2):
+        r = _get(u, segui)
+        if r[0] != 0:
+            return r
+        __import__("time").sleep(3)
+    return _get(u, segui)
+
+def _get(u, segui=True):
     req = urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0 (compatible; controllo-rete)"})
     try:
         r = (urllib.request.urlopen if segui else _op.open)(req, timeout=25)
