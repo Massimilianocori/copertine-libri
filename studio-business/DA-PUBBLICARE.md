@@ -212,6 +212,8 @@ Le idee della riserva entrano nella coda di costruzione nell'ordine della colonn
 | beforeyoufly | riquadro bagaglio da stiva su 11 compagnie (421.300 ricerche/mese) + regole power bank su 33 compagnie e pagina indice /cabin-bags/power-banks/ (revisione 8,8/10, nessuna affiliazione) | revisione 9,1/10; prima `raccolta/cani_volo.py`, poi rigenerare il giorno stesso (biglietti con date) |
 Procedura: genera → verifica 0 errori → monetizzazione → commit per sito (senza [skip netlify]) → push → controllo online → IndexNow → riga «Pubblicato il…» → `salute.py`.
 
+Turno di costruzione del 23/11: non avviato (PAUSA ATTIVA dal 20/11 sera).
+
 ## In costruzione 19/11 notte
 | Cosa | Stato |
 |---|---|
