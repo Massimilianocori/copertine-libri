@@ -82,6 +82,7 @@ Una riga al giorno, scritta dal riassunto delle 08:12. Previsto = stima centrale
 | 20/11/2026 | 37.035 | invariato: pronti per il lotto di stasera bagaglio da stiva (11 compagnie) e power bank (33 compagnie), stima AdSense ancora da fare (le cifre del piano contavano Amazon, spento); online ieri le 200 schede università (non conteggiate fino ai dati veri della prova) | 205 (19/11; 18/11: 194) · clic libro B1: 0 | 0 (KDP: pagamento royalty dello store DE annunciato per il 29/11, importo nel report KDP) |
 | 21/11/2026 | 37.035 | invariato (pausa dal 20/11 sera). Online il 20/11: bagaglio da stiva, power bank, 12 pagine CPIA, test online B1, TEFL (stime AdSense da fare con i dati veri) | 143 (20/11, venerdì; 19/11: 205) · clic libro B1: 2 | 0 (KDP: pagamento DE il 29/11; nuovo libro pubblicato su KDP il 20/11) |
 | 22/11/2026 | 37.035 | invariato (pausa) | 113 (21/11, sabato; 20/11: 143) · clic libro B1: 0 | 0 |
+| 23/11/2026 | 37.035 | invariato (pausa). Settimana 16-22/11: 1.218 visite (−32 %, calo da Google sui 3 domini nuovi, ChatGPT in crescita; vedi nota della settimana) | vedi riassunto | 0 |
 
 ## 2b. Stima dei ricavi a 18 mesi (14/10/2026, aggiornata il 17/10 con FloodCost, rifiuti visti, navi e FHA). Sono stime, non numeri: si rifanno con i dati veri.
 
