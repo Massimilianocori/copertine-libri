@@ -9,7 +9,7 @@ REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
 UID:mit-8606@italy-strikes-today.netlify.app
-DTSTAMP:20261124T021909Z
+DTSTAMP:20261124T155555Z
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
 SUMMARY:Strike: National ferry and port strike
@@ -24,7 +24,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8590@italy-strikes-today.netlify.app
-DTSTAMP:20261124T021909Z
+DTSTAMP:20261124T155555Z
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
 SUMMARY:Strike: National general strike
@@ -44,7 +44,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8612@italy-strikes-today.netlify.app
-DTSTAMP:20261124T021909Z
+DTSTAMP:20261124T155555Z
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
 SUMMARY:Strike: National general strike
@@ -60,7 +60,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:cgsse-382437@italy-strikes-today.netlify.app
-DTSTAMP:20261124T021909Z
+DTSTAMP:20261124T155555Z
 DTSTART;VALUE=DATE:20261109
 DTEND;VALUE=DATE:20261110
 SUMMARY:Called off: National rail strike – Italo
@@ -76,7 +76,7 @@ STATUS:CANCELLED
 END:VEVENT
 BEGIN:VEVENT
 UID:cgsse-382665@italy-strikes-today.netlify.app
-DTSTAMP:20261124T021909Z
+DTSTAMP:20261124T155555Z
 DTSTART;VALUE=DATE:20261109
 DTEND;VALUE=DATE:20261110
 SUMMARY:Called off: National rail strike – Italo
@@ -92,7 +92,7 @@ STATUS:CANCELLED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8610@italy-strikes-today.netlify.app
-DTSTAMP:20261124T021909Z
+DTSTAMP:20261124T155555Z
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261121
 SUMMARY:Strike: National general strike
@@ -107,7 +107,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:cgsse-382981@italy-strikes-today.netlify.app
-DTSTAMP:20261124T021909Z
+DTSTAMP:20261124T155555Z
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261121
 SUMMARY:Strike: National general strike
@@ -128,7 +128,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8592@italy-strikes-today.netlify.app
-DTSTAMP:20261124T021909Z
+DTSTAMP:20261124T155555Z
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261122
 SUMMARY:Strike: National multi-sector strike
@@ -147,7 +147,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:cgsse-383057@italy-strikes-today.netlify.app
-DTSTAMP:20261124T021909Z
+DTSTAMP:20261124T155555Z
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261122
 SUMMARY:Strike: National multi-sector strike
@@ -164,7 +164,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:cgsse-383015@italy-strikes-today.netlify.app
-DTSTAMP:20261124T021909Z
+DTSTAMP:20261124T155555Z
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261122
 SUMMARY:Strike: National rail strike – Trenitalia Tper (Emilia-Romagna re
@@ -183,7 +183,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8571@italy-strikes-today.netlify.app
-DTSTAMP:20261124T021909Z
+DTSTAMP:20261124T155555Z
 DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261122
 SUMMARY:Called off: National air transport strike – ENAV (air traffic con
@@ -201,7 +201,7 @@ STATUS:CANCELLED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8575@italy-strikes-today.netlify.app
-DTSTAMP:20261124T021909Z
+DTSTAMP:20261124T155555Z
 DTSTART;VALUE=DATE:20261204
 DTEND;VALUE=DATE:20261205
 SUMMARY:Strike: National general strike
@@ -222,7 +222,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:cgsse-382773@italy-strikes-today.netlify.app
-DTSTAMP:20261124T021909Z
+DTSTAMP:20261124T155555Z
 DTSTART;VALUE=DATE:20261204
 DTEND;VALUE=DATE:20261205
 SUMMARY:Strike: National general strike
@@ -237,8 +237,25 @@ TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
+UID:cgsse-383505@italy-strikes-today.netlify.app
+DTSTAMP:20261124T155555Z
+DTSTART;VALUE=DATE:20261214
+DTEND;VALUE=DATE:20261215
+SUMMARY:Strike: Air transport strike – Aeroporti di Roma (Rome airports o
+ perator)
+DESCRIPTION:Hours: From 10:00 to 18:00\nOriginal: DALLE ORE 10.00 ALLE ORE 
+ 18.00\nWho: Aeroporti di Roma (Rome airports operator) (ADR SECURITY)\nWhe
+ re: Airport: Rome Fiumicino\nStrikes can be called off or changed: always 
+ check with your operator.\nhttps://italy-strikes-today.netlify.app/rome/\n
+ Source: Commissione di garanzia sciopero (via onData\, CC BY 4.0)\, https:
+ //www.cgsse.it/calendario-scioperi/dettaglio-sciopero/383505
+URL:https://italy-strikes-today.netlify.app/rome/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
 UID:mit-8594@italy-strikes-today.netlify.app
-DTSTAMP:20261124T021909Z
+DTSTAMP:20261124T155555Z
 DTSTART;VALUE=DATE:20261214
 DTEND;VALUE=DATE:20261215
 SUMMARY:Strike: Air transport strike – Aviation Services (airport ground 
@@ -254,8 +271,57 @@ TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
+UID:cgsse-383457@italy-strikes-today.netlify.app
+DTSTAMP:20261124T155555Z
+DTSTART;VALUE=DATE:20261216
+DTEND;VALUE=DATE:20261218
+SUMMARY:Strike: National rail strike – Italo
+DESCRIPTION:Hours: From 03:00 on 16 Dec to 02:00 on 17 Dec\nOriginal: DALLE
+  ORE 3.00 DEL 16/12 ALLE ORE 2.00 DEL 17/12\nWho: Italo (ITALO NTV)\nWhere
+ : Whole of Italy\nStrikes can be called off or changed: always check with 
+ your operator.\nhttps://italy-strikes-today.netlify.app/rome/\nSource: Com
+ missione di garanzia sciopero (via onData\, CC BY 4.0)\, https://www.cgsse
+ .it/calendario-scioperi/dettaglio-sciopero/383457
+URL:https://italy-strikes-today.netlify.app/rome/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:cgsse-383477@italy-strikes-today.netlify.app
+DTSTAMP:20261124T155555Z
+DTSTART;VALUE=DATE:20261216
+DTEND;VALUE=DATE:20261217
+SUMMARY:Strike: National rail strike – Italo
+DESCRIPTION:Hours: From 09:01 to 16:59\nOriginal: DALLE ORE 9.01 ALLE ORE 1
+ 6.59\nWho: Italo (ITALO NTV)\nWhere: Whole of Italy\nStrikes can be called
+  off or changed: always check with your operator.\nhttps://italy-strikes-t
+ oday.netlify.app/rome/\nSource: Commissione di garanzia sciopero (via onDa
+ ta\, CC BY 4.0)\, https://www.cgsse.it/calendario-scioperi/dettaglio-sciop
+ ero/383477
+URL:https://italy-strikes-today.netlify.app/rome/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:cgsse-383453@italy-strikes-today.netlify.app
+DTSTAMP:20261124T155555Z
+DTSTART;VALUE=DATE:20261217
+DTEND;VALUE=DATE:20261218
+SUMMARY:Strike: National rail strike
+DESCRIPTION:Hours: ASTENSIONE DI MEZZO TURNO PER OGNI TURNO DI LAVORO\nOrig
+ inal: ASTENSIONE DI MEZZO TURNO PER OGNI TURNO DI LAVORO\nWho: CONSORZIO S
+ TABILE IMPERO\, GAM\, PS SERVIZI\nWhere: Whole of Italy\nStrikes can be ca
+ lled off or changed: always check with your operator.\nhttps://italy-strik
+ es-today.netlify.app/rome/\nSource: Commissione di garanzia sciopero (via 
+ onData\, CC BY 4.0)\, https://www.cgsse.it/calendario-scioperi/dettaglio-s
+ ciopero/383453
+URL:https://italy-strikes-today.netlify.app/rome/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
 UID:mit-8613@italy-strikes-today.netlify.app
-DTSTAMP:20261124T021909Z
+DTSTAMP:20261124T155555Z
 DTSTART;VALUE=DATE:20270115
 DTEND;VALUE=DATE:20270116
 SUMMARY:Strike: National air transport strike – ENAV (air traffic control
@@ -270,7 +336,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8614@italy-strikes-today.netlify.app
-DTSTAMP:20261124T021909Z
+DTSTAMP:20261124T155555Z
 DTSTART;VALUE=DATE:20270115
 DTEND;VALUE=DATE:20270116
 SUMMARY:Strike: National air transport strike – Techno Sky (air traffic c
