@@ -240,3 +240,8 @@ Finché questa sezione non viene tolta (lo dice Massimiliano):
 
 ## Ripresa del 25/11 sera (dopo la ricarica)
 Dalle 21:00 di mercoledì 25/11 la pausa è finita: si lavora a pieno ritmo, sempre con le regole su qualità, controlli e budget settimanale (credito diviso sui 7 giorni; agenti su Fable finché c'è il bonus). Primi lavori, in ordine: (1) EsameB1: riquadro del libro in alto nelle 10 pagine più visitate (GoatCounter) — più clic sul libro prima della sessione CILS del 3/12 e di gennaio-febbraio; (2) ricerca della settimana (routine del mercoledì 21:07); (3) coda per €/ora in DA-PUBBLICARE.md (CPIA mancanti, power bank/bagagli per le compagnie saltate, college con più università dopo i dati veri).
+
+## DECISIONI SOLO CON I DATI (Massimiliano, 24/11/2026: «ogni decisione va presa con dati alla mano e mai a intuizioni. il tuo compito è far performare tutto il progetto in modo efficiente e ottimizzato. usa anche Fable quando serve»)
+- Ogni decisione (cosa costruire, togliere, sfoltire, spingere, quando richiedere AdSense) si scrive con i numeri che la giustificano e la fonte: GoatCounter, Search Console (foto di Massimiliano), volumi misurati, pannelli. Un'ipotesi senza dati si dichiara come ipotesi e si verifica prima di agire.
+- Esempio: lo sfoltimento di Before You Fly per AdSense si decide famiglia per famiglia con le visite da Google degli ultimi 60 giorni e le impressioni di Search Console, non a occhio.
+- Obiettivo: il massimo rendimento dell'intero progetto per unità di lavoro e di credito. Fable si usa quando serve (revisioni, ricerca, analisi dei dati), anche oltre il bonus se il guadagno atteso lo giustifica.
