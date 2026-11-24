@@ -9,7 +9,7 @@ REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
 UID:mit-8606@italy-strikes-today.netlify.app
-DTSTAMP:20261118T140231Z
+DTSTAMP:20261124T155555Z
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
 SUMMARY:Strike: National ferry and port strike
@@ -24,7 +24,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8590@italy-strikes-today.netlify.app
-DTSTAMP:20261118T140231Z
+DTSTAMP:20261124T155555Z
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
 SUMMARY:Strike: National general strike
@@ -44,7 +44,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8612@italy-strikes-today.netlify.app
-DTSTAMP:20261118T140231Z
+DTSTAMP:20261124T155555Z
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
 SUMMARY:Strike: National general strike
@@ -60,7 +60,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:cgsse-382437@italy-strikes-today.netlify.app
-DTSTAMP:20261118T140231Z
+DTSTAMP:20261124T155555Z
 DTSTART;VALUE=DATE:20261109
 DTEND;VALUE=DATE:20261110
 SUMMARY:Called off: National rail strike – Italo
@@ -76,7 +76,7 @@ STATUS:CANCELLED
 END:VEVENT
 BEGIN:VEVENT
 UID:cgsse-382665@italy-strikes-today.netlify.app
-DTSTAMP:20261118T140231Z
+DTSTAMP:20261124T155555Z
 DTSTART;VALUE=DATE:20261109
 DTEND;VALUE=DATE:20261110
 SUMMARY:Called off: National rail strike – Italo
@@ -92,7 +92,7 @@ STATUS:CANCELLED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8610@italy-strikes-today.netlify.app
-DTSTAMP:20261118T140231Z
+DTSTAMP:20261124T155555Z
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261121
 SUMMARY:Strike: National general strike
@@ -107,7 +107,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:cgsse-382981@italy-strikes-today.netlify.app
-DTSTAMP:20261118T140231Z
+DTSTAMP:20261124T155555Z
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261121
 SUMMARY:Strike: National general strike
@@ -128,7 +128,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8592@italy-strikes-today.netlify.app
-DTSTAMP:20261118T140231Z
+DTSTAMP:20261124T155555Z
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261122
 SUMMARY:Strike: National multi-sector strike
@@ -147,7 +147,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:cgsse-383057@italy-strikes-today.netlify.app
-DTSTAMP:20261118T140231Z
+DTSTAMP:20261124T155555Z
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261122
 SUMMARY:Strike: National multi-sector strike
@@ -164,7 +164,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:cgsse-383015@italy-strikes-today.netlify.app
-DTSTAMP:20261118T140231Z
+DTSTAMP:20261124T155555Z
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261122
 SUMMARY:Strike: National rail strike – Trenitalia Tper (Emilia-Romagna re
@@ -183,7 +183,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8575@italy-strikes-today.netlify.app
-DTSTAMP:20261118T140231Z
+DTSTAMP:20261124T155555Z
 DTSTART;VALUE=DATE:20261204
 DTEND;VALUE=DATE:20261205
 SUMMARY:Strike: National general strike
@@ -204,7 +204,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:cgsse-382773@italy-strikes-today.netlify.app
-DTSTAMP:20261118T140231Z
+DTSTAMP:20261124T155555Z
 DTSTART;VALUE=DATE:20261204
 DTEND;VALUE=DATE:20261205
 SUMMARY:Strike: National general strike
@@ -214,6 +214,55 @@ DESCRIPTION:Hours: Whole day\nOriginal: INTERA GIORNATA\nWho: TUTTE LE CATE
  y.netlify.app/padua/\nSource: Commissione di garanzia sciopero (via onData
  \, CC BY 4.0)\, https://www.cgsse.it/calendario-scioperi/dettaglio-scioper
  o/382773
+URL:https://italy-strikes-today.netlify.app/padua/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:cgsse-383457@italy-strikes-today.netlify.app
+DTSTAMP:20261124T155555Z
+DTSTART;VALUE=DATE:20261216
+DTEND;VALUE=DATE:20261218
+SUMMARY:Strike: National rail strike – Italo
+DESCRIPTION:Hours: From 03:00 on 16 Dec to 02:00 on 17 Dec\nOriginal: DALLE
+  ORE 3.00 DEL 16/12 ALLE ORE 2.00 DEL 17/12\nWho: Italo (ITALO NTV)\nWhere
+ : Whole of Italy\nStrikes can be called off or changed: always check with 
+ your operator.\nhttps://italy-strikes-today.netlify.app/padua/\nSource: Co
+ mmissione di garanzia sciopero (via onData\, CC BY 4.0)\, https://www.cgss
+ e.it/calendario-scioperi/dettaglio-sciopero/383457
+URL:https://italy-strikes-today.netlify.app/padua/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:cgsse-383477@italy-strikes-today.netlify.app
+DTSTAMP:20261124T155555Z
+DTSTART;VALUE=DATE:20261216
+DTEND;VALUE=DATE:20261217
+SUMMARY:Strike: National rail strike – Italo
+DESCRIPTION:Hours: From 09:01 to 16:59\nOriginal: DALLE ORE 9.01 ALLE ORE 1
+ 6.59\nWho: Italo (ITALO NTV)\nWhere: Whole of Italy\nStrikes can be called
+  off or changed: always check with your operator.\nhttps://italy-strikes-t
+ oday.netlify.app/padua/\nSource: Commissione di garanzia sciopero (via onD
+ ata\, CC BY 4.0)\, https://www.cgsse.it/calendario-scioperi/dettaglio-scio
+ pero/383477
+URL:https://italy-strikes-today.netlify.app/padua/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:cgsse-383453@italy-strikes-today.netlify.app
+DTSTAMP:20261124T155555Z
+DTSTART;VALUE=DATE:20261217
+DTEND;VALUE=DATE:20261218
+SUMMARY:Strike: National rail strike
+DESCRIPTION:Hours: ASTENSIONE DI MEZZO TURNO PER OGNI TURNO DI LAVORO\nOrig
+ inal: ASTENSIONE DI MEZZO TURNO PER OGNI TURNO DI LAVORO\nWho: CONSORZIO S
+ TABILE IMPERO\, GAM\, PS SERVIZI\nWhere: Whole of Italy\nStrikes can be ca
+ lled off or changed: always check with your operator.\nhttps://italy-strik
+ es-today.netlify.app/padua/\nSource: Commissione di garanzia sciopero (via
+  onData\, CC BY 4.0)\, https://www.cgsse.it/calendario-scioperi/dettaglio-
+ sciopero/383453
 URL:https://italy-strikes-today.netlify.app/padua/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
