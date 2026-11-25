@@ -382,3 +382,20 @@ Visite da Google al giorno (GoatCounter):
 | 24/11 | 3 | 26 | 1 | 1 |
 
 Conclusione con i dati: nessun guasto tecnico nostro. Le pagine interne dei domini nuovi sono «Rilevata, non indicizzata»: Google le conosce ma non le scansiona. Questo succede quando giudica il sito poco prioritario. È coerente con l'aggiornamento di Google del 10-24/11 più il cambio di dominio. Il nostro errore resta questo: 3 domini spostati e centinaia di pagine toccate nella stessa settimana, senza un piano dei rischi. Le azioni restano quelle di questo file.
+
+### Tutti i siti della rete, visite da Google a settimana (GoatCounter, 25/11)
+
+| host | 27/10 | 3/11 | 10/11 | 17/11 |
+|---|---|---|---|---|
+| visaincomechecker.com + vecchio netlify | 13 | 95 | 240 | 53 |
+| before-you-fly.com + vecchio netlify | 62 | 144 | 186 | 53 |
+| esameb1.eu + vecchio netlify | 155 | 241 | 217 | 92 |
+| pagaccnl.com (nuovo 13/11) | 0 | 0 | 24 | 68 (quasi 0 dal 21/11) |
+| payrolltaxbystate.com (nuovo 13/11) | 0 | 0 | 2 | 4 |
+| tourist-tax-calculator.netlify.app | 11 | 8 | 26 | 22 |
+| italy-strikes-today.netlify.app | 0 | 2 | 12 | 31 |
+| cruise-health-scores.netlify.app | 9 | 16 | 6 | 17 |
+| flood-insurance-cost.netlify.app | 0 | 1 | 1 | 7 |
+| altri siti .netlify.app | 0-1 | 0-1 | 0-1 | 0-1 |
+
+Lettura: **calano solo i siti sui domini nuovi** (spostati l'8/11 e il 13/11). I siti rimasti su .netlify.app nello stesso periodo tengono o crescono (Italy Strikes 2 → 31, Tourist Tax 8 → 22). Dopo lo spostamento Visa e BYF erano saliti (settimana 10/11 la migliore di sempre), poi sono crollati dal 17/11. Il problema riguarda i domini nuovi, non un guasto comune a tutti i siti. Per i siti .netlify.app non serve nessun intervento strutturale: si continua con la manutenzione normale.
