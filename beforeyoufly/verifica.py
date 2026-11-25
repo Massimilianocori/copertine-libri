@@ -840,8 +840,9 @@ def controlla_liquidi_2110():
     per_slug = {a["slug"]: a for a in G.AER["aeroporti"]}
     for s in NUOVI_LIQ_2110:
         a = per_slug.get(s)
-        if not a or a["controllato_il"] != "2026-10-21" or not a["citazioni"] or not a["url"].startswith("https://"):
-            errori.append(f"liquidi nuovo {s}: manca nei dati, data diversa dal 21/10/2026, senza citazioni o URL non https")
+        # 25/11/2026: la data può solo avanzare (riletture successive), prima era fissa al 21/10 e una rilettura dava errore
+        if not a or a["controllato_il"] < "2026-10-21" or not a["citazioni"] or not a["url"].startswith("https://"):
+            errori.append(f"liquidi nuovo {s}: manca nei dati, data prima del 21/10/2026, senza citazioni o URL non https")
             continue
         conti["nuovi"] += 1
         if not (SITO / "liquids" / s / "index.html").exists():

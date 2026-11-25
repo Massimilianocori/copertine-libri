@@ -284,10 +284,10 @@
    "eccezioni": [
     "However, since it is not possible to predict which security checkpoint you will pass through, we still recommend following the general rule (maximum 100 ml per container in a 1-liter bag) to ensure a smooth screening process."
    ],
-   "url": "https://ber.berlin-airport.de/en/flying/controls/security-control.html",
+   "url": "https://ber.berlin-airport.de/en/flying/reise-vorbereiten/controls/security-control.html",
    "titolo_fonte": "BER Airport – Security control",
-   "lettura": "browser",
-   "controllato_il": "2026-10-10",
+   "lettura": "diretta",
+   "controllato_il": "2026-11-25",
    "intestazioni": [
     "Currently, security areas 1 and 5 in Terminal 1 and the security area in Terminal 2 are equipped with new security technology, known as CT scanner."
    ]
@@ -1212,7 +1212,7 @@
    "url": "https://www.liverpoolairport.com/prepare/security",
    "titolo_fonte": "Liverpool John Lennon Airport – Security",
    "lettura": "browser",
-   "controllato_il": "2026-10-21"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "newcastle",
@@ -1255,7 +1255,7 @@
    "url": "https://www.leedsbradfordairport.co.uk/help/security",
    "titolo_fonte": "Leeds Bradford Airport – Security",
    "lettura": "diretta",
-   "controllato_il": "2026-10-21",
+   "controllato_il": "2026-11-25",
    "nota": "The page's question 'What are my liquid limits?' opens on click and adds that there is no need for a plastic bag and that breast milk, formula milk and sterilised water for a baby are allowed in containers up to 2,000 ml. We quote only the text visible without clicking."
   },
   {
@@ -1276,7 +1276,7 @@
    "url": "https://www.belfastairport.com/airport-guide/security/hand-luggage",
    "titolo_fonte": "Belfast International Airport – Hand Luggage",
    "lettura": "diretta",
-   "controllato_il": "2026-10-21",
+   "controllato_il": "2026-11-25",
    "nota": "The page says 'up to 2 litres' without saying whether the limit is per container. The answers in the page's 'Hand Luggage FAQ's' open on click and are not quoted."
   },
   {
@@ -1320,7 +1320,7 @@
    "url": "https://www.southamptonairport.com/at-the-airport/security-screening/",
    "titolo_fonte": "Southampton Airport – Security Screening",
    "lettura": "diretta",
-   "controllato_il": "2026-10-21"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "exeter",
@@ -1345,7 +1345,7 @@
    "url": "https://exeter-airport.co.uk/passenger-information/",
    "titolo_fonte": "Exeter Airport – Passenger Information",
    "lettura": "diretta",
-   "controllato_il": "2026-10-21"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "bournemouth",
@@ -1370,7 +1370,7 @@
    "url": "https://www.bournemouthairport.com/passenger-information/",
    "titolo_fonte": "Bournemouth Airport – Passenger Information",
    "lettura": "diretta",
-   "controllato_il": "2026-10-21"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "cork",
@@ -1394,7 +1394,7 @@
    "url": "https://www.corkairport.com/at-the-airport/airport-security/how-to-prepare-for-security",
    "titolo_fonte": "Cork Airport – How to prepare for security",
    "lettura": "diretta",
-   "controllato_il": "2026-10-21"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "jersey",
@@ -1416,7 +1416,7 @@
    "url": "https://www.jerseyairport.com/airport/security/",
    "titolo_fonte": "Jersey Airport – Security",
    "lettura": "diretta",
-   "controllato_il": "2026-10-21",
+   "controllato_il": "2026-11-25",
    "nota": "Jersey is a Crown Dependency, not part of the United Kingdom; its airport is listed with the UK and Ireland airports."
   },
   {
