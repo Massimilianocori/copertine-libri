@@ -1,0 +1,27 @@
+{
+ "_nota": "Giro previsto di ogni routine dei dati, letto da salute.py (controllo «routine saltata»). Fonte: ORGANIZZAZIONE.md sez. 2.1 e AUDIT-25-11.md. Prova che la routine è passata = la più recente fra: date di lettura dentro i file indicati (letto_il, verificato_il, scaricato_il...) e data dell'ultimo commit di quei percorsi. AVVISO se la prova è più vecchia dell'ultimo giro previsto, lasciati passare i giorni di «tolleranza». Elenco prudente: solo routine che lasciano sempre una traccia. Mancano apposta: Italy Strikes (robot che scrive solo se cambia; lo copre il controllo della fonte non raggiungibile), lista di trasparenza AIFA (esce «dopo il 15», non in un giorno fisso), le routine «quando esce l'atto» (hanno un promemoria con data).",
+ "_campi": "cartella = cartella del sito; percorsi = file o cartelle dentro la cartella; giorni = lun mar mer gio ven sab dom (assente = ogni giorno); settimane_del_mese = [1,3] vuol dire 1° e 3° di quel giorno nel mese; ultima_del_mese = true vuol dire l'ultimo di quel giorno nel mese; mesi = solo in questi mesi; tolleranza = giorni di attesa prima dell'avviso.",
+ "routine": [
+  {"nome": "aste: dati di ogni sera (aggiorna.py)", "cartella": "aste", "percorsi": ["dati/live.json"], "tolleranza": 2},
+  {"nome": "aste: pagine rigenerate il 1° e 3° lunedì", "cartella": "aste", "percorsi": ["sito"], "giorni": ["lun"], "settimane_del_mese": [1, 3], "tolleranza": 3},
+  {"nome": "esameb1: calendari del lunedì", "cartella": "esameb1", "percorsi": ["dati/sessioni.json"], "giorni": ["lun"], "tolleranza": 2},
+  {"nome": "beforeyoufly: servizi.py del lunedì", "cartella": "beforeyoufly", "percorsi": ["dati/servizi.json"], "giorni": ["lun"], "tolleranza": 2},
+  {"nome": "beforeyoufly: patenti.py del lunedì", "cartella": "beforeyoufly", "percorsi": ["dati/patenti.json"], "giorni": ["lun"], "tolleranza": 2},
+  {"nome": "farmaci: carenti AIFA di lunedì e giovedì", "cartella": "farmaci", "percorsi": ["dati/carenti.json", "dati/fonti.json"], "giorni": ["lun", "gio"], "tolleranza": 5},
+  {"nome": "inflation: gasolio e propano EIA del giovedì (ottobre-marzo)", "cartella": "inflation", "percorsi": ["dati/eia_prezzi.json"], "giorni": ["gio"], "mesi": [10, 11, 12, 1, 2, 3], "tolleranza": 2},
+  {"nome": "cruisescores: CDC il 1° e 3° lunedì", "cartella": "cruisescores", "percorsi": ["dati/fonti.json"], "giorni": ["lun"], "settimane_del_mese": [1, 3], "tolleranza": 3},
+  {"nome": "fhacondos: elenco HUD il 1° lunedì", "cartella": "fhacondos", "percorsi": ["dati/conteggi.json", "dati/condomini.json"], "giorni": ["lun"], "settimane_del_mese": [1], "tolleranza": 3},
+  {"nome": "floodcost: avvisi IRS e FEMA il 1° lunedì", "cartella": "floodcost", "percorsi": ["dati/disastri.json"], "giorni": ["lun"], "settimane_del_mese": [1], "tolleranza": 3},
+  {"nome": "ccnl: CNEL e Ministero il 2° giovedì", "cartella": "ccnl", "percorsi": ["dati/cnel_monitor.json", "dati/fonti.json"], "giorni": ["gio"], "settimane_del_mese": [2], "tolleranza": 5},
+  {"nome": "ateco: fonti il 2° giovedì", "cartella": "ateco", "percorsi": ["dati/fonti.json"], "giorni": ["gio"], "settimane_del_mese": [2], "tolleranza": 5},
+  {"nome": "naics: fonti il 2° giovedì", "cartella": "naics", "percorsi": ["dati/fonti.json"], "giorni": ["gio"], "settimane_del_mese": [2], "tolleranza": 5},
+  {"nome": "quiz: fonti il 2° giovedì", "cartella": "quiz", "percorsi": ["dati/fonti.json"], "giorni": ["gio"], "settimane_del_mese": [2], "tolleranza": 5},
+  {"nome": "paytax: verifica.py --rete il 2° giovedì", "cartella": "paytax", "percorsi": ["dati/fonti.json", "dati/giurisdizioni.json"], "giorni": ["gio"], "settimane_del_mese": [2], "tolleranza": 5},
+  {"nome": "inflation: indici BLS e ONS il 2° giovedì", "cartella": "inflation", "percorsi": ["dati/fonti.json"], "giorni": ["gio"], "settimane_del_mese": [2], "tolleranza": 5},
+  {"nome": "heatpumps: uscita DESNZ l'ultimo giovedì", "cartella": "heatpumps", "percorsi": ["dati/fonti.json"], "giorni": ["gio"], "ultima_del_mese": true, "tolleranza": 4}
+ ],
+ "dati_dal_vivo": {
+  "_nota": "File dei dati che cambiano senza che il sito vada rigenerato (la pagina li legge dal vivo o hanno una routine a parte): esclusi dai controlli «dati riletti ma sito non rigenerato» e «date dei dati scattate dopo l'ultima generazione». Aggiungere qui anche un file le cui scadenze sono gestite nel browser.",
+  "aste": ["live.json", "lotti.json", "auto.json", "omi.json"]
+ }
+}

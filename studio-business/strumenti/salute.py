@@ -135,10 +135,12 @@ _DATA_RE = re.compile(_DATA, re.I)
 _FUTURO = r"\b(?P<parola>next|prossim[aoie]|entro|until|fino\s+al(?:l['’])?)\b"
 _FUTURO_RE = re.compile(_FUTURO + r"(?:(?!\b(?:was|were|closed|ended|expired|era|erano|chius[oaie]|scadut[oaie])\b)[^.;!?|<>]){0,40}?" + _DATA, re.I)
 _FRASI_RE = re.compile(r"(?:not yet (?:been )?published|non (?:era|erano|è|sono) ancora (?:stat[oaie] )?(?:pubblicat|uscit)\w+|comments until)[^<>]{0,90}?" + _DATA, re.I)
-_PROMESSE = [  # (giorni massimi, espressione): fra piu' promesse nella stessa home vale la piu' larga
-    (3, r"\bupdated (?:daily|every day)\b|\baggiornat[oaie] ogni giorno\b|\bwe check[^.]{0,40}\bevery day\b"),
+# (giorni massimi, espressione): fra piu' promesse nella stessa home vale la piu' larga. Manca apposta "ogni giorno / updated daily":
+# chi lo promette aggiorna i dati nel browser (aste, Italy Strikes) e la data scritta nell'HTML e' solo quella dell'ultima generazione.
+_PROMESSE = [
     (10, r"\bupdated (?:weekly|every week)\b|\baggiornat[oaie] ogni settimana\b|\ble pagine ogni settimana\b|\bevery week we\b"
          r"|\bcontrolliamo[^.]{0,40}\bogni settimana\b|\bwe (?:check|re-download)[^.]{0,40}\bevery week\b"),
+    (24, r"\b(?:updated )?twice a month\b|\bdue volte al mese\b"),
     (40, r"\bupdated (?:monthly|every month)\b|\baggiornat[oaie] ogni mese\b"),
 ]
 _LETTO_RE = re.compile(r"(?:\b(?:last )?checked(?: on)?|\blast download(?:ed)?|\bdownloaded(?: on)?|\bretrieved(?: on)?|\bas of|\bcontrollat[oaie] il"
@@ -238,8 +240,11 @@ def pagine_locali(cartella):
             except (TypeError, ValueError): continue
             if 14 < (OGGI - quando).days:
                 frasi.append(f"{rel} «{_testo(m.group(0))}»"); break
-        if cambio_anno and re.search(rf"\b{OGGI.year - 1}\b", t) and not re.search(rf"\b{OGGI.year}\b|\b{OGGI.year - 1}[-–/]{OGGI.year % 100}\b", t):
-            anno_vecchio.append(f"{rel} «{t}»")
+        if cambio_anno:
+            # una data intera ("Nov 16, 2026", "December 2026", "24/11/2026") e' un fatto, non l'anno della pagina
+            senza_date = re.sub(rf"(?i){_MESE}\s+(?:\d{{1,2}},?\s+)?20\d\d|\b\d{{1,2}}/\d{{1,2}}/20\d\d", " ", t)
+            if re.search(rf"\b{OGGI.year - 1}\b", senza_date) and not re.search(rf"\b{OGGI.year}\b|\b{OGGI.year - 1}[-–/]{OGGI.year % 100}\b", t):
+                anno_vecchio.append(f"{rel} «{t}»")
     def riga(elenco, cosa):
         return f"{cartella}/sito: {len(elenco)} pagine {cosa}, es. {elenco[0]}"
     if tit_futuro: errori.append(riga(tit_futuro, "con una data passata nel titolo presentata come prossima"))
