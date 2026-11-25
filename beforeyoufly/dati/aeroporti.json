@@ -24,7 +24,7 @@
    "url": "https://www.heathrow.com/at-the-airport/security-and-baggage/hand-baggage-and-liquids",
    "titolo_fonte": "Heathrow – Hand baggage and liquids",
    "lettura": "diretta",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "gatwick",
@@ -87,7 +87,7 @@
    "url": "https://www.bristolairport.co.uk/at-the-airport/security",
    "titolo_fonte": "Bristol Airport – Security",
    "lettura": "browser",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "manchester",
@@ -106,7 +106,7 @@
    "url": "https://www.manchesterairport.co.uk/help/security/",
    "titolo_fonte": "Manchester Airport – Security",
    "lettura": "diretta",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "stansted",
@@ -125,7 +125,7 @@
    "url": "https://www.stanstedairport.com/help/security/",
    "titolo_fonte": "London Stansted – Security",
    "lettura": "diretta",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "luton",
@@ -144,7 +144,7 @@
    "url": "https://www.london-luton.co.uk/inside-lla/security",
    "titolo_fonte": "London Luton Airport – Security",
    "lettura": "diretta",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "east-midlands",
@@ -163,7 +163,7 @@
    "url": "https://www.eastmidlandsairport.com/help/security/",
    "titolo_fonte": "East Midlands Airport – Security",
    "lettura": "diretta",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "aberdeen",
@@ -202,7 +202,7 @@
    "url": "https://www.dublinairport.com/at-the-airport/security/carry-on-baggage",
    "titolo_fonte": "Dublin Airport – Carry-on baggage",
    "lettura": "diretta",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "frankfurt",
@@ -235,7 +235,7 @@
    "url": "https://www.frankfurt-airport.com/en/travel-planning/check-in-luggage-controls/security-check.html",
    "titolo_fonte": "Frankfurt Airport – Security check",
    "lettura": "diretta",
-   "controllato_il": "2026-10-10",
+   "controllato_il": "2026-11-25",
    "intestazioni": [
     "At most security checkpoints in Terminal 1 and at all checkpoints in Terminal 3 , modern CT scanners are in use."
    ]
@@ -265,7 +265,7 @@
    "url": "https://www.munich-airport.com/security-screening-and-passport-control-3949908",
    "titolo_fonte": "Munich Airport – Security screening and passport control",
    "lettura": "browser",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "berlin",
@@ -311,7 +311,7 @@
    "url": "https://viennaairport.com/en/passengers/airport/security_control",
    "titolo_fonte": "Vienna Airport – Security control",
    "lettura": "browser",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "rome-fiumicino",
@@ -391,7 +391,7 @@
    "url": "https://www.finavia.fi/en/airport/security-control",
    "titolo_fonte": "Finavia – Security control (Helsinki Airport)",
    "lettura": "diretta",
-   "controllato_il": "2026-10-10",
+   "controllato_il": "2026-11-25",
    "fonte2": {
     "url": "https://customerservice.finavia.fi/en/support/solutions/articles/79000119601-how-much-liquids-can-i-take-in-hand-luggage-",
     "titolo": "Finavia customer service – How much liquids can I take in hand luggage?",
@@ -420,7 +420,7 @@
    "url": "https://www.swedavia.com/arlanda/security-control/",
    "titolo_fonte": "Swedavia – Stockholm Arlanda security control",
    "lettura": "browser",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "gothenburg-landvetter",
@@ -438,7 +438,7 @@
    "url": "https://www.swedavia.com/landvetter/security-control/",
    "titolo_fonte": "Swedavia – Göteborg Landvetter security control",
    "lettura": "browser",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "malmo",
@@ -456,7 +456,7 @@
    "url": "https://www.swedavia.com/malmo/security-control/",
    "titolo_fonte": "Swedavia – Malmö Airport security control",
    "lettura": "browser",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "copenhagen",
@@ -476,7 +476,7 @@
    "url": "https://public.cph.dk/en/practical/baggage/liquids-in-carry-on-baggage",
    "titolo_fonte": "Copenhagen Airport – Liquids in carry-on baggage",
    "lettura": "browser",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "eindhoven",
@@ -494,7 +494,7 @@
    "url": "https://www.eindhovenairport.nl/en/security",
    "titolo_fonte": "Eindhoven Airport – Security",
    "lettura": "diretta",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "prague",
@@ -521,7 +521,7 @@
    "url": "https://www.prg.aero/en/security-check",
    "titolo_fonte": "Prague Airport – Security check",
    "lettura": "diretta",
-   "controllato_il": "2026-10-17"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "krakow",
@@ -539,7 +539,7 @@
    "url": "https://krakowairport.pl/en/passenger/departure/security-control",
    "titolo_fonte": "Kraków Airport – Security control",
    "lettura": "diretta",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "lisbon",
@@ -768,7 +768,7 @@
    "url": "https://www.istairport.com/en/flights/airport-guides/departing-passenger-guide/services/complimentary-services/security-and-baggage-restrictions",
    "titolo_fonte": "Istanbul Airport – Security and baggage restrictions",
    "lettura": "browser",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "doha",
@@ -808,7 +808,7 @@
    "url": "https://www.cad.gov.hk/english/packing_tips.html",
    "titolo_fonte": "Civil Aviation Department, Hong Kong – Packing tips for air passengers",
    "lettura": "browser",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "brisbane",
@@ -829,7 +829,7 @@
    "url": "https://www.bne.com.au/passenger/passenger-information/security-screening/powders-liquids-aerosols-and-gels",
    "titolo_fonte": "Brisbane Airport – Powders, liquids, aerosols and gels",
    "lettura": "browser",
-   "controllato_il": "2026-10-10",
+   "controllato_il": "2026-11-25",
    "risposta": "No, on international flights"
   },
   {
@@ -893,7 +893,7 @@
    "url": "https://maltairport.com/practical-information/security-passport-control/hand-luggage/",
    "titolo_fonte": "Malta International Airport – Hand luggage",
    "lettura": "diretta",
-   "controllato_il": "2026-10-17"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "zurich",
@@ -906,22 +906,22 @@
    "sintesi": "If your journey starts in Zurich: containers up to 2 litres (thermos flasks empty); transfer passengers: 100 ml in a 1-litre bag",
    "risposta": "It depends on where your journey starts",
    "citazioni": [
-    "Liquid regulation for passengers who begin their journey in Zurich",
-    "Liquid containers with a capacity of up to 2 litres are permitted in hand luggage.",
-    "Exception: Double-walled containers (thermos) must be empty"
+    "Baggage inspection for passengers departing from Zurich",
+    "You can carry liquids in containers of up to two litres in your hand baggage.",
+    "Exception: double-walled containers, such as thermos bottles, must be empty."
    ],
    "eccezioni": [
-    "Liquids regulation for transfer passengers",
-    "Liquids are only permitted in hand baggage in containers of max. 100 ml. Pack these into a resealable 1-litre plastic bag while at home."
+    "Note for transit passengers",
+    "The restrictions on liquids of a maximum of 100ml per container in a 1-litre bag continue to apply to transit passengers."
    ],
-   "nota": "On the official page the 2-litre line is under 'Liquid regulation for passengers who begin their journey in Zurich' and the 100 ml line under 'Liquids regulation for transfer passengers'.",
+   "nota": "On the official page the 2-litre line is under 'Baggage inspection for passengers departing from Zurich' and the 100 ml line under 'Note for transit passengers'.",
    "url": "https://www.flughafen-zuerich.ch/en/passengers/fly/all-about-the-flight/security-check",
    "titolo_fonte": "Zurich Airport – Security check",
    "lettura": "diretta",
-   "controllato_il": "2026-10-17",
+   "controllato_il": "2026-11-25",
    "intestazioni": [
-    "Liquid regulation for passengers who begin their journey in Zurich",
-    "Liquids regulation for transfer passengers"
+    "Baggage inspection for passengers departing from Zurich",
+    "Note for transit passengers"
    ],
    "etichetta": "Depends on journey",
    "faq_salta": [
@@ -947,7 +947,7 @@
    "url": "https://www.dus.com/en/inform/security-control",
    "titolo_fonte": "Düsseldorf Airport – Security control",
    "lettura": "diretta",
-   "controllato_il": "2026-10-17"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "brussels",
@@ -2438,7 +2438,7 @@
    "url": "https://www.tsa.gov/travel/security-screening/liquids-aerosols-gels-rule",
    "titolo_fonte": "TSA – Liquids, Aerosols, and Gels Rule",
    "lettura": "browser",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "canada-airports-catsa",
@@ -2456,7 +2456,7 @@
    "url": "https://www.catsa-acsta.gc.ca/en/what-can-bring/liquids-non-solid-food-personal-items",
    "titolo_fonte": "CATSA – Liquids, non-solid food and personal items",
    "lettura": "browser",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   }
  ],
  "contesto": [
@@ -2471,7 +2471,7 @@
    ],
    "url": "https://www.gov.uk/hand-luggage-restrictions/liquids",
    "lettura": "diretta (GOV.UK Content API)",
-   "controllato_il": "2026-10-10",
+   "controllato_il": "2026-11-25",
    "licenza": "Open Government Licence v3.0"
   },
   {
@@ -2484,7 +2484,7 @@
    "nota": "The Your Europe page shows 'Last checked: 16/06/2026' and states the general EU rule. It does not mention the airports that use approved CT scanners: Rome Fiumicino's official page says those airports may allow up to 2 litres 'in compliance with the new provisions of the European Commission' from 26 July 2025. Follow your departure airport's own page.",
    "url": "https://europa.eu/youreurope/citizens/travel/carry/luggage-restrictions/index_en.htm",
    "lettura": "diretta",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   }
  ],
  "esclusi": [
