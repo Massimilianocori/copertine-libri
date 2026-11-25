@@ -102,5 +102,46 @@ def main():
         print("scritto", G.REGISTRO_LASTMOD)
 
 
+
+
+def seme_dati(base="c16c0388b"):
+    """Secondo seme (26/11/2026), per le pagine con una data propria nei dati che il 25/11 sono state solo rilette: `--dati`.
+    Se il testo principale della pagina è uguale a quello pubblicato prima della rilettura (commit `base`), il lastmod non è la data
+    della rilettura ma l'ultimo cambio vero: per «Available in» il `cambiato_il` della lista del servizio, per i liquidi il
+    `controllato_il` di prima della rilettura; mai prima del commit che ha creato la pagina."""
+    reg = json.loads(G.REGISTRO_LASTMOD.read_text(encoding="utf-8"))
+    P = reg["pagine"]
+    nate = {}
+    data = None
+    for riga in git("log", "--diff-filter=A", "--format=@%cs", "--name-only", "--", "beforeyoufly/sito/available-in", "beforeyoufly/sito/liquids").decode().splitlines():
+        if riga.startswith("@"):
+            data = riga[1:]
+        elif riga.endswith("index.html"):
+            nate[riga[len("beforeyoufly/sito/"):-len("index.html")]] = min(data, nate.get(riga[len("beforeyoufly/sito/"):-len("index.html")], data))
+    srv = {S["slug"]: S["cambiato_il"] for S in G.SERVIZI_SRV}
+    aer_prima = json.loads(git("show", f"{base}~1:beforeyoufly/dati/aeroporti.json").decode())
+    liq = {A["slug"]: A["controllato_il"] for A in aer_prima["aeroporti"] + aer_prima["nazionali"]}
+    prima, dopo, n = Counter(), Counter(), 0
+    for u, v in P.items():
+        if not (u.startswith("available-in/") or u.startswith("liquids/")):
+            continue
+        prima[v[0]] += 1
+        r = subprocess.run(["git", "-C", str(REPO), "show", f"{base}:beforeyoufly/sito/{u}index.html"], capture_output=True)
+        if r.returncode == 0 and G.impronta_contenuto(r.stdout.decode("utf-8", "replace")) == v[1]:
+            pezzi = u.rstrip("/").split("/")
+            if pezzi[0] == "liquids":
+                d = liq.get(pezzi[1]) if len(pezzi) > 1 else max(liq.values())
+            else:
+                d = srv.get(pezzi[1]) if len(pezzi) > 1 else max(x for x in srv.values() if x < v[0])
+            if d and d < v[0]:
+                v[0] = max(d, nate.get(u, d))
+                n += 1
+        dopo[v[0]] += 1
+    print(f"{n} pagine con il testo uguale a prima della rilettura: data riportata all'ultimo cambio vero")
+    print("prima:", ", ".join(f"{d} × {k}" for d, k in sorted(prima.items())))
+    print("dopo: ", ", ".join(f"{d} × {k}" for d, k in sorted(dopo.items())))
+    G.REGISTRO_LASTMOD.write_text(json.dumps(reg, ensure_ascii=False, indent=0) + "\n", encoding="utf-8")
+
+
 if __name__ == "__main__":
-    main()
+    seme_dati() if "--dati" in sys.argv else main()

@@ -314,6 +314,9 @@ CSS = """
 .usate a:hover{border-color:var(--accent)}
 .usate-home ul{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px}
 .usate-home a{display:block;font-weight:600}
+.usate-altre{margin-top:8px}
+.usate-altre summary{cursor:pointer;color:var(--ink-2);font-weight:600;padding:8px 0}
+@media (min-width:600px){.usate-altre summary{display:none}}
 @font-face{font-family:"Outfit";font-style:normal;font-weight:700;font-display:swap;src:url(/assets/fonts/outfit-700.woff2) format("woff2")}
 @font-face{font-family:"DM Mono";font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fonts/dm-mono-400.woff2) format("woff2")}
 :root{--bg:#F2F3F5;--card:#FFFFFF;--ink:#101418;--ink-2:#39414B;--ink-3:#58616C;--line:#DADDE3;--line-2:#C4C9D1;
@@ -9928,7 +9931,11 @@ def home():
     griglia_pass = "".join(f'<a href="passport-validity/{s}/">{escape(mappa[s]["nome"])}<small>{escape(_breve_pop(mappa[s]))}</small></a>'
                            for s in popolari if s in mappa)
     stato_etias = "not in operation" if any("currently not in operation" in f["frase"] for f in frasi_ees("etias")) else "see the official page"
-    ultimo = data_lunga(max(PASS["controllato_il"], AER["controllato_il"], EES["controllato_il"], BAG.get("controllato_il", "")))
+    # 25/11/2026: la data più recente tra le letture delle fonti della home (anche i singoli aeroporti, le singole compagnie e le liste dei servizi)
+    ultimo = data_lunga(max([PASS["controllato_il"], AER["controllato_il"], EES["controllato_il"], BAG.get("controllato_il", "")]
+                            + [A["controllato_il"] for A in AER["aeroporti"] + AER["nazionali"] if A.get("controllato_il")]
+                            + [C["controllato_il"] for C in COMPAGNIE if C.get("controllato_il")]
+                            + [S["letto_il"] for S in SERVIZI_SRV]))
     # 12/11/2026 (notte): la sezione in italiano è fuori indice (dati/noindex.json); il suo riquadro esce dalla testata della home
     # (testo italiano in cima a un sito in inglese) e resta come una riga in fondo, per chi la cerca.
     it_home = (f'<p class="small" lang="it">Per chi ha la cittadinanza italiana: <a href="{IT_BASE}/" hreflang="it">documenti per viaggiare '
@@ -10129,7 +10136,7 @@ _f_vecchi = DATI / "vecchi_indirizzi.json"
 VECCHI = json.loads(_f_vecchi.read_text(encoding="utf-8")) if _f_vecchi.exists() else {"host": "", "percorsi": []}
 REGISTRO_LASTMOD = DATI / "lastmod.json"
 IMPRONTE = {}  # percorso -> impronta della pagina appena generata (prima dei blocchi)
-N_USATE_HOME, N_USATE_INDICE, MIN_USATE_INDICE, MAX_ENTRATA_CORRELATE = 30, 8, 5, 2
+N_USATE_HOME, N_USATE_INDICE, MIN_USATE_INDICE, MAX_ENTRATA_CORRELATE, N_USATE_MOBILE = 30, 8, 5, 2, 12
 _MESI_EN = "January|February|March|April|May|June|July|August|September|October|November|December"
 _DATE_RE = re.compile(rf"\b\d{{1,2}}(?:st|nd|rd|th)? (?:{_MESI_EN})(?: \d{{4}})?\b|\b(?:{_MESI_EN}) \d{{1,2}}(?:, \d{{4}})?\b|\b(?:{_MESI_EN}) \d{{4}}\b|\b\d{{4}}-\d{{2}}-\d{{2}}\b")
 RECUPERO = {}  # numeri dell'ultima generazione (rapporto in fondo a main)
@@ -10150,23 +10157,27 @@ def impronta_contenuto(html):
 
 
 def date_lastmod():
-    """percorso -> lastmod per ogni pagina indicizzabile. Data del dato (LASTMOD) dove esiste; altrimenti registro delle impronte."""
+    """percorso -> lastmod per ogni pagina indicizzabile, dal registro dati/lastmod.json: [data, impronta, data del dato o niente].
+    Impronta uguale a quella del registro -> la data resta (un ricontrollo che cambia solo «checked on» non è un cambio di contenuto:
+    l'impronta non vede le date). Impronta diversa o pagina nuova -> la data propria del dato (LASTMOD: lettura della fonte) se è più
+    recente della data nel registro, altrimenti oggi. La terza voce (data del dato) serve a verifica.py: lettura = dati."""
     reg = json.loads(REGISTRO_LASTMOD.read_text(encoding="utf-8"))["pagine"] if REGISTRO_LASTMOD.exists() else {}
     oggi = OGGI.isoformat()
-    nuovo, out = {}, {}
+    nuovo = {}
     for u in URLS:
-        if u in LASTMOD:
-            out[u] = min(LASTMOD[u], oggi)
-            continue
-        imp = IMPRONTE[u]
-        d = reg[u][0] if u in reg and reg[u][1] == imp else oggi
-        nuovo[u] = [d, imp]
-        out[u] = d
+        imp, dato = IMPRONTE[u], LASTMOD.get(u)
+        if u in reg and reg[u][1] == imp:
+            d = reg[u][0]
+        elif dato and dato <= oggi and (u not in reg or dato > reg[u][0]):
+            d = dato
+        else:
+            d = oggi
+        nuovo[u] = [d, imp] + ([dato] if dato else [])
     REGISTRO_LASTMOD.write_text(json.dumps({
-        "_nota": "Scritto da genera.py: percorso -> [data dell'ultimo cambio del testo principale, impronta], per le pagine senza una data "
-                 "propria nei dati. Seme del 25/11/2026 da git (raccolta/lastmod_seme.py). Non modificare a mano.",
+        "_nota": "Scritto da genera.py: percorso -> [data dell'ultimo cambio del testo principale, impronta, data del dato se la pagina ne ha una]. "
+                 "Seme del 25-26/11/2026 da git e dalle date dei dati (raccolta/lastmod_seme.py). Non modificare a mano.",
         "pagine": dict(sorted(nuovo.items()))}, ensure_ascii=False, indent=0) + "\n", encoding="utf-8")
-    return out
+    return {u: v[0] for u, v in nuovo.items()}
 
 
 def sezione_sitemap(u):
@@ -10236,11 +10247,18 @@ def etichetta_pagina(html):
     return t
 
 
-def blocco_recupero(titolo, voci, classe="", h2=False):
-    """voci = [(href, testo)]. In home un <h2> e una griglia a due colonne; altrove una riga compatta con l'etichetta in grassetto."""
-    li = "".join(f'<li><a href="{h}">{escape(t)}</a></li>' for h, t in voci)
+def blocco_recupero(titolo, voci, classe="", h2=False, primi=0):
+    """voci = [(href, testo)]. In home un <h2> e una griglia; altrove una riga compatta con l'etichetta in grassetto.
+    primi > 0 (home): le voci dopo le prime stanno in un <details>, chiuso sugli schermi stretti (sotto i 600 px il blocco intero era
+    alto 1.659 px) e aperto, senza la riga «Show all», su quelli larghi: lo apre una riga di script, e senza script resta apribile."""
+    li = [f'<li><a href="{h}">{escape(t)}</a></li>' for h, t in voci]
     testa = f"<h2>{escape(titolo)}</h2>" if h2 else f"<strong>{escape(titolo)}</strong>"
-    return f'{B_INIZIO}<nav class="usate{" " + classe if classe else ""}" aria-label="{escape(titolo)}">{testa}<ul>{li}</ul></nav>{B_FINE}'
+    if primi and len(li) > primi:
+        corpo = (f'<ul>{"".join(li[:primi])}</ul><details class="usate-altre"><summary>Show all {len(li)} pages</summary><ul>{"".join(li[primi:])}</ul></details>'
+                 "<script>if(window.matchMedia&&matchMedia('(min-width:600px)').matches){document.querySelector('.usate-altre').open=true}</script>")
+    else:
+        corpo = f'<ul>{"".join(li)}</ul>'
+    return f'{B_INIZIO}<nav class="usate{" " + classe if classe else ""}" aria-label="{escape(titolo)}">{testa}{corpo}</nav>{B_FINE}'
 
 
 def _dopo_apertura(html):
@@ -10286,7 +10304,7 @@ def recupero():
     if top:
         h = pagine[""]
         assert h.count(SEGNO_USATE) == 1
-        nuove[""] = h.replace(SEGNO_USATE, blocco_recupero("Most used pages", [(t, etichetta[t]) for t in top], "usate-home", h2=True))
+        nuove[""] = h.replace(SEGNO_USATE, blocco_recupero("Most used pages", [(t, etichetta[t]) for t in top], "usate-home", h2=True, primi=N_USATE_MOBILE))
         for t in top:
             aggiunti[t].add("")
     # 2) indici (di sezione e di servizio/patente): le pagine più visitate sotto quell'indice
@@ -10327,6 +10345,19 @@ def recupero():
             pos = h.rindex("</div>\n</main>")
             rel = _rel_da(u)
             metti(u, pos, blocco_recupero("Related pages", [(rel + t, etichetta[t]) for t in scelti]) + "\n", scelti)
+    # 3b) gruppi piccoli (26/11/2026): se dopo l'anello una pagina ha ancora pochi link in entrata (es. le due pagine in tedesco e in
+    #     francese della sezione India), la linkano anche le tre pagine più visitate della stessa cartella, con un blocco «Related pages»
+    for g, uu in gruppi.items():
+        restano = [u for u in uu if len(entrata[u] | aggiunti[u]) <= MAX_ENTRATA_CORRELATE]
+        if not restano or not g:
+            continue
+        vicine = [t for t in ordine if t.startswith(g) and t.count("/") == g.count("/") + 1 and t not in uu and B_INIZIO not in nuove.get(t, "")][:3]
+        for t in vicine:
+            scelti = (restano + [x for x in vicine if x != t])[:5]
+            if len(scelti) < 3:
+                continue
+            h = nuove.get(t, pagine[t])
+            metti(t, h.rindex("</div>\n</main>"), blocco_recupero("Related pages", [(_rel_da(t) + x, etichetta[x]) for x in scelti]) + "\n", scelti)
     for u, h in nuove.items():
         _file_di(u).write_text(h, encoding="utf-8")
     dopo = {u: len(entrata[u] | aggiunti[u]) for u in indic}
@@ -10337,9 +10368,14 @@ def recupero():
 def chi_gestisce(rel):
     """Paragrafo «Who runs it» in cima ad About (25/11/2026), sul modello di Visa Income Checker: chi pubblica il sito, come si paga,
     come segnalare un errore. Nessun dato personale qui: il titolare è nominato solo nell'informativa privacy."""
-    paga = (["advertising served by Google AdSense"] if MON.adsense_attivo(SITO_ID) else []) + (["affiliate links, always marked “Affiliate”"] if ci_sono_affiliati() else [])
-    pagato = (f"The site is free to use. It is paid for by {' and by '.join(paga)}: neither changes the rules we show, and partners never decide what we publish."
-              if paga else "The site is free to use and shows no advertising.")
+    # 26/11/2026: AdSense ha rifiutato il sito il 24/11, quindi oggi la pubblicità non paga nulla: «may show», non «is paid for by»
+    aff = ci_sono_affiliati()
+    pub = MON.adsense_attivo(SITO_ID)
+    pagato = ("The site is free to use. "
+              + ("Some pages have affiliate links, always marked “Affiliate”: if you buy through one we may earn a commission at no extra cost to you. " if aff else "")
+              + ("The site may show advertising (Google AdSense). " if pub else "")
+              + ("Neither changes the rules we show, and partners never decide what we publish." if aff and pub else
+                 "This does not change the rules we show, and partners never decide what we publish." if aff or pub else "It shows no advertising."))
     return f"""<h2>Who runs it</h2>
 <p>{NOME} is run from Italy by one person, as an independent project: the person responsible is named in the <a href="{rel}privacy.html">privacy notice</a>. There is no company, travel agency, airline or airport behind it, and we do not sell tickets, visas or travel services. {pagato} Details are in the privacy notice. If you spot a mistake or a rule that has changed, write to us through the <a href="{rel}contact/?ref=about">contact form</a>: we read the official source again and correct the page. <a href="{rel}{COME_BASE}/">How we check</a> explains where the data comes from, how the sources are read again and which parts of the site are built automatically.</p>"""
 

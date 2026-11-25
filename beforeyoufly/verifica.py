@@ -469,7 +469,13 @@ def leggi(rel):
     elenca, una dopo l'altra, così i controlli scritti per il file unico (<loc> + <lastmod> di ogni pagina) valgono come prima."""
     t = (SITO / rel).read_text(encoding="utf-8")
     if rel == "sitemap.xml" and "<sitemapindex" in t:
-        return "".join((SITO / n).read_text(encoding="utf-8") for n in re.findall(rf"<loc>{re.escape(G.URL_SITO)}/(sitemap-[a-z0-9-]+\.xml)</loc>", t))
+        t = "".join((SITO / n).read_text(encoding="utf-8") for n in re.findall(rf"<loc>{re.escape(G.URL_SITO)}/(sitemap-[a-z0-9-]+\.xml)</loc>", t))
+        # dal 26/11/2026 il lastmod è la data dell'ultimo cambio del testo (registro dati/lastmod.json), non più la data della lettura:
+        # i controlli delle sezioni («in sitemap con lastmod = data della lettura») leggono qui la data del dato che genera.py ha
+        # scritto nel registro per la stessa pagina; il lastmod vero lo controlla il punto 40 sui file
+        reg = json.loads(G.REGISTRO_LASTMOD.read_text(encoding="utf-8"))["pagine"]
+        return re.sub(rf"<loc>{re.escape(G.URL_SITO)}/([^<]*)</loc><lastmod>[^<]*</lastmod>",
+                      lambda m: f"<loc>{G.URL_SITO}/{m.group(1)}</loc><lastmod>{(reg.get(m.group(1)) or [0, 0, None] + [None])[2] if len(reg.get(m.group(1)) or []) > 2 else m.group(0).split('<lastmod>')[1][:10]}</lastmod>", t)
     return t
 
 
@@ -5239,6 +5245,16 @@ def controlla_recupero():
     oggi = G.OGGI.isoformat()
     if any(d > oggi for _, d in voci):
         errori.append("sitemap: lastmod nel futuro")
+    reg = json.loads(G.REGISTRO_LASTMOD.read_text(encoding="utf-8"))["pagine"]
+    for u, d in voci:
+        r = reg.get(u)
+        if not r or r[0] != d or (len(r) > 2 and d > max(r[2], oggi)):
+            errori.append(f"sitemap: {u} con lastmod {d} diverso dal registro dati/lastmod.json")
+            break
+    for u in in_indice:
+        if u in reg and G.impronta_contenuto((SITO / (u if u.endswith(".html") else u + "index.html")).read_text(encoding="utf-8")) != reg[u][1]:
+            errori.append(f"registro lastmod: impronta di {u} diversa dalla pagina generata")
+            break
     date = Counter(d for _, d in voci)
     if date and date.most_common(1)[0][1] > len(voci) * 0.4:
         errori.append(f"sitemap: {date.most_common(1)[0][1]} URL con lo stesso lastmod {date.most_common(1)[0][0]} (più del 40 %): la data non è quella del contenuto")
