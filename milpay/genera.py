@@ -528,12 +528,12 @@ def note_tabella(rim, quali=("2", "5", "e9", "e1", "oe")):
     return '<ul class="testo">' + "".join(t[q] for q in quali) + "</ul>"
 
 
-def griglia_gradi(escludi=None):
+def griglia_gradi(escludi=None, solo_indicizzate=False):
     out = []
     for cat in ("E", "W", "O", "OE"):
         voci = []
         for s, n, c, k in GRADI:
-            if c != cat or s == escludi:
+            if c != cat or s == escludi or (solo_indicizzate and s in NOINDEX):
                 continue
             r = [v for v in riga(k) if v is not None]
             voci.append(f'<li><a href="/{s}/"><b>{n}</b><small>from {soldi(r[0], False)}/mo</small></a></li>')
@@ -590,7 +590,10 @@ def home():
     corpo += '<p class="small">The W-5 row starts at “Over 20” years: the official table prints no W-5 rate for shorter service.</p>'
     corpo += '<h2 id="officers">Officer pay chart 2026 (O-1 to O-10)</h2>' + tabella_categoria("O", rim) + note_tabella(rim, ("2", "5"))
     corpo += '<h2 id="prior-enlisted">O-1E to O-3E: officers with prior enlisted service</h2>' + tabella_categoria("OE", rim) + note_tabella(rim, ("oe", "cad"))
-    corpo += f'<h2 id="grades">Pay by grade</h2><p>Every grade has its own page with the monthly and yearly figures, each step in years of service and the next increase.</p>{griglia_gradi()}'
+    corpo += f'<h2 id="grades">Pay by grade</h2><p>Every grade has its own page with the monthly and yearly figures, each step in years of service and the next increase.</p>{griglia_gradi(solo_indicizzate=True)}'
+    # la home linka solo pagine indicizzate (audit del 25/11/2026): la riga di un grado noindex (O-9, uguale a O-10) resta nella tabella, senza link
+    for s_no in NOINDEX:
+        corpo = re.sub(rf'<a href="/{re.escape(s_no)}/">([^<]*)</a>', r"\1", corpo)
     corpo += ('<h2>What the chart covers</h2><div class="testo">'
               + rim.t(f'<p>Schedule 8 sets the “rates of monthly basic pay (37 U.S.C. 203(a)) for members of the uniformed services”, so the same table applies in the Army, Navy, Air Force, Marine Corps, Space Force and Coast Guard.[[eo2026]] '
                       'By law the rates rise every January 1 by the percentage change in the Employment Cost Index for private-industry wages, unless Congress or the President sets a different figure.[[usc1009]] '
