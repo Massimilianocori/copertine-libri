@@ -351,7 +351,7 @@
    "url": "https://milanolinate-airport.com/en/assistance/check-in-security",
    "titolo_fonte": "Milano Linate – Check-in and security",
    "lettura": "browser",
-   "controllato_il": "2026-10-10",
+   "controllato_il": "2026-11-25",
    "faq_salta": [
     "terminal"
    ]
@@ -373,7 +373,7 @@
    "url": "https://milanomalpensa-airport.com/en/assistance/check-in-security",
    "titolo_fonte": "Milano Malpensa – Check-in and security",
    "lettura": "browser",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "helsinki",
@@ -557,7 +557,7 @@
    "url": "https://www.lisbonairport.pt/en/lis/passenger-guide/plan-your-trip/security-screening",
    "titolo_fonte": "Lisbon Airport (ANA) – Security screening",
    "lettura": "browser",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "porto",
@@ -577,7 +577,7 @@
    "url": "https://www.portoairport.pt/en/opo/passenger-guide/plan-your-trip/security-screening",
    "titolo_fonte": "Porto Airport (ANA) – Security screening",
    "lettura": "browser",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "faro",
@@ -595,7 +595,7 @@
    "url": "https://www.faroairport.pt/en/fao/passenger-guide/plan-your-trip/security-screening",
    "titolo_fonte": "Faro Airport (ANA) – Security screening",
    "lettura": "browser",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "madeira",
@@ -613,7 +613,7 @@
    "url": "https://www.madeiraairport.pt/en/fnc/passenger-guide/plan-your-trip/security-screening",
    "titolo_fonte": "Madeira Airport (ANA) – Security screening",
    "lettura": "browser",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "madrid",
@@ -1002,7 +1002,7 @@
    "url": "https://www.bud.hu/en/flight-and-travel-information/travel/security-screening",
    "titolo_fonte": "Budapest Airport – Security screening",
    "lettura": "browser",
-   "controllato_il": "2026-10-17"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "tenerife-south",

@@ -465,7 +465,12 @@ def controlla_link():
 
 
 def leggi(rel):
-    return (SITO / rel).read_text(encoding="utf-8")
+    """Dal 25/11/2026 sitemap.xml è un indice: leggi("sitemap.xml") restituisce il testo di tutte le sitemap di sezione che l'indice
+    elenca, una dopo l'altra, così i controlli scritti per il file unico (<loc> + <lastmod> di ogni pagina) valgono come prima."""
+    t = (SITO / rel).read_text(encoding="utf-8")
+    if rel == "sitemap.xml" and "<sitemapindex" in t:
+        return "".join((SITO / n).read_text(encoding="utf-8") for n in re.findall(rf"<loc>{re.escape(G.URL_SITO)}/(sitemap-[a-z0-9-]+\.xml)</loc>", t))
+    return t
 
 
 def _percorso(f):
@@ -1752,8 +1757,9 @@ def controlla_italiani():
     for v in G.SENZA_PAGINA_IT:
         if f"/{v['url_pag']}<" in sm:
             errori.append(f"sitemap: {v['url_pag']} senza pagina")
-    if "it/documenti/" not in leggi("index.html") or "documenti per italiani" not in leggi("passport-validity/index.html"):
-        errori.append("home o indice britannico senza link alla sezione italiana")
+    # 25/11/2026: la sezione italiana è fuori indice, quindi la home non la linka più (STRATEGIA-RECUPERO, azione 5.4); resta il link dall'indice britannico
+    if ("it/documenti/" in leggi("index.html")) != (not G.fuori_indice(f"{G.IT_BASE}/")) or "documenti per italiani" not in leggi("passport-validity/index.html"):
+        errori.append("home (link alla sezione italiana solo se è in indice) o indice britannico senza link alla sezione italiana")
     return errori, conti
 
 
@@ -5199,6 +5205,106 @@ def controlla_browser_in():
     return errori, f"{len(o['pagine'])} viste (8 pagine a 375 px chiaro/scuro e 1280 px), filtro per Paese e per tipo provato a 375 e 1280 px, schermate in {cartella}"
 
 
+def controlla_recupero():
+    """Punto 40 (25/11/2026, studio-business/STRATEGIA-RECUPERO.md azioni 3, 5, 6): sitemap divisa per sezione con le stesse pagine,
+    lastmod credibile, sitemap dei vecchi indirizzi separata, blocchi «Most used» e «Related» solo verso pagine in indice, pagine di fiducia."""
+    from collections import Counter
+    errori = []
+    indice = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    nomi = re.findall(rf"<sitemap><loc>{re.escape(G.URL_SITO)}/([^<]+)</loc><lastmod>(\d{{4}}-\d\d-\d\d)</lastmod></sitemap>", indice)
+    if "<sitemapindex" not in indice or len(nomi) != indice.count("<sitemap>") or not nomi:
+        errori.append("sitemap.xml non è un indice di sitemap ben formato")
+    voci = []
+    for n, d in nomi:
+        if not re.fullmatch(r"sitemap-[a-z0-9-]+\.xml", n) or not (SITO / n).is_file():
+            errori.append(f"indice sitemap: file {n} mancante o con un nome non previsto")
+            continue
+        t = (SITO / n).read_text(encoding="utf-8")
+        vv = re.findall(rf"<url><loc>{re.escape(G.URL_SITO)}/([^<]*)</loc><lastmod>(\d{{4}}-\d\d-\d\d)</lastmod></url>", t)
+        if len(vv) != t.count("<url>") or not vv:
+            errori.append(f"{n}: voci senza <loc> o <lastmod>")
+        elif d != max(x for _, x in vv):
+            errori.append(f"{n}: lastmod nell'indice diverso dalla data più recente del file")
+        voci += vv
+    try:
+        import xml.dom.minidom as _x
+        for n in ["sitemap.xml", "sitemap-vecchi-indirizzi.xml"] + [n for n, _ in nomi]:
+            _x.parseString((SITO / n).read_text(encoding="utf-8"))
+    except Exception as e:  # noqa: BLE001
+        errori.append(f"sitemap: XML non valido ({e})")
+    in_indice = {_percorso(f) for f in SITO.rglob("*.html") if f.name != "404.html" and not f.name.startswith("google")
+                 and 'content="noindex"' not in f.read_text(encoding="utf-8")[:6000]}
+    if len(voci) != len({u for u, _ in voci}) or {u for u, _ in voci} != in_indice:
+        errori.append(f"sitemap di sezione: {len(voci)} URL, pagine in indice {len(in_indice)}: gli insiemi devono essere uguali e senza doppioni")
+    oggi = G.OGGI.isoformat()
+    if any(d > oggi for _, d in voci):
+        errori.append("sitemap: lastmod nel futuro")
+    date = Counter(d for _, d in voci)
+    if date and date.most_common(1)[0][1] > len(voci) * 0.4:
+        errori.append(f"sitemap: {date.most_common(1)[0][1]} URL con lo stesso lastmod {date.most_common(1)[0][0]} (più del 40 %): la data non è quella del contenuto")
+    # vecchi indirizzi: file a parte, solo vecchio host, non citato altrove, ogni pagina esiste ancora
+    robots = (SITO / "robots.txt").read_text()
+    vecchi = re.findall(r"<loc>([^<]+)</loc>", (SITO / "sitemap-vecchi-indirizzi.xml").read_text(encoding="utf-8"))
+    pre = f"https://{G.VECCHI['host']}/"
+    if not vecchi or any(not v.startswith(pre) for v in vecchi) or len(vecchi) != len(set(vecchi)):
+        errori.append("sitemap-vecchi-indirizzi.xml: vuota, con doppioni o con URL di un altro host")
+    if any(not (SITO / (v[len(pre):] if v.endswith(".html") else v[len(pre):] + "index.html")).is_file() for v in vecchi):
+        errori.append("sitemap-vecchi-indirizzi.xml: un vecchio URL non ha più la pagina di arrivo")
+    if "vecchi-indirizzi" in robots or "vecchi-indirizzi" in indice or robots.count("Sitemap:") != 1:
+        errori.append("la sitemap dei vecchi indirizzi non va citata in robots.txt né nell'indice")
+    # blocchi
+    fuori = {_percorso(f) for f in SITO.rglob("*.html")} - in_indice
+    home = leggi("index.html")
+    blocchi_home = re.findall(re.escape(G.B_INIZIO) + "(.*?)" + re.escape(G.B_FINE), home, re.S)
+    link_home = re.findall(r'href="([^"]+)"', blocchi_home[0]) if len(blocchi_home) == 1 else []
+    if not (20 <= len(link_home) <= 30) or "Most used pages" not in (blocchi_home or [""])[0] or G.SEGNO_USATE in home:
+        errori.append(f"home: blocco «Most used pages» assente o con {len(link_home)} link (devono essere 20-30)")
+    if home.index(G.B_INIZIO) > home.index("Popular destinations") if blocchi_home else False:
+        errori.append("home: il blocco «Most used pages» deve stare in alto, prima di «Popular destinations»")
+    for h in re.findall(r'<a\b[^>]*?\bhref="([^"#?:]*)', home):
+        if h in fuori and h:
+            errori.append(f"home: link a una pagina fuori indice ({h})")
+    n_indici = n_corr = 0
+    for f in SITO.rglob("*.html"):
+        t = f.read_text(encoding="utf-8")
+        if G.B_INIZIO not in t:
+            continue
+        u = _percorso(f)
+        if t.count(G.B_INIZIO) != t.count(G.B_FINE) or u not in in_indice:
+            errori.append(f"{u}: blocco di recupero aperto e non chiuso, o in una pagina fuori indice")
+            continue
+        for b in re.findall(re.escape(G.B_INIZIO) + "(.*?)" + re.escape(G.B_FINE), t, re.S):
+            tipo = "indice" if "Most used in this section" in b else "correlate" if "Related pages" in b else "home" if u == "" else "?"
+            n_indici += tipo == "indice"
+            n_corr += tipo == "correlate"
+            ll = re.findall(r'<a href="([^"]+)">([^<]*)</a>', b)
+            lim = {"indice": (5, 10), "correlate": (3, 5), "home": (20, 30)}.get(tipo)
+            if not lim or not (lim[0] <= len(ll) <= lim[1]) or len(ll) != b.count("<a "):
+                errori.append(f"{u}: blocco «{tipo}» con {len(ll)} link")
+            for h, testo in ll:
+                dest = os.path.normpath(os.path.join(os.path.dirname(str(f)), h)) if not h.startswith("/") else str(SITO / h.lstrip("/"))
+                d = Path(dest) / "index.html" if h.endswith("/") or h in ("", ".") else Path(dest)
+                if not d.is_file() or _percorso(d) not in in_indice or _percorso(d) == u:
+                    errori.append(f"{u}: il blocco linka {h}, che non esiste, è fuori indice o è la pagina stessa")
+                elif len(testo.strip()) < 8:
+                    errori.append(f"{u}: testo del link troppo corto nel blocco ({testo!r})")
+    # pagine di fiducia: niente dati personali, link dal piè di pagina e da About
+    about, come = leggi("about/index.html"), leggi(f"{G.COME_BASE}/index.html")
+    if "<h2>Who runs it</h2>" not in about or f'href="../{G.COME_BASE}/"' not in about or about.index("Who runs it") > about.index("Rules we follow"):
+        errori.append("About: manca «Who runs it» in cima o il link a How we check")
+    if f'<li><a href="../{G.COME_BASE}/">How we check</a></li>' not in about or f"{G.COME_BASE}/" not in in_indice:
+        errori.append("How we check: manca il link nel piè di pagina o la pagina non è in indice")
+    for nome, t in (("About", about.split("<footer")[0]), ("How we check", come.split("<footer")[0])):
+        corpo_ = t.split('<main id="main">')[1]
+        if re.search(r"Massimiliano|Cori\b|[\w.+-]+@[\w-]+\.[a-z]{2,}|\+\d[\d ]{7,}", corpo_):
+            errori.append(f"{nome}: dati personali nel testo (nome, email o telefono)")
+    for parola in ("Where the data comes from", "How often we read the sources again", "What happens when a source changes", "Which parts are generated automatically"):
+        if parola not in come:
+            errori.append(f"How we check: manca la sezione «{parola}»")
+    return errori, {"sitemap": len(nomi), "url": len(voci), "date": len(date), "comune": date.most_common(1)[0][1] if date else 0, "vecchi": len(vecchi),
+                    "home": len(link_home), "indici": n_indici, "correlate": n_corr}
+
+
 def controlla_indexnow():
     """File chiave IndexNow in sito/: presente, con dentro solo la chiave, fuori dalla sitemap (scritto da genera.py accanto a robots.txt)."""
     errori = []
@@ -5207,7 +5313,7 @@ def controlla_indexnow():
         errori.append(f"file chiave IndexNow mancante: {f.name}")
     elif f.read_text(encoding="utf-8").strip() != G.CHIAVE_INDEXNOW:
         errori.append(f"file chiave IndexNow con contenuto sbagliato: {f.name}")
-    if f.name in (SITO / "sitemap.xml").read_text(encoding="utf-8"):
+    if f.name in leggi("sitemap.xml") + (SITO / "sitemap.xml").read_text(encoding="utf-8"):
         errori.append("file chiave IndexNow citato nella sitemap")
     return errori
 
@@ -7432,9 +7538,15 @@ def main():
           f"batterie), {c39['righe']} righe ufficiali mostrate, {c39['numeri']} numeri dei riassunti tutti nelle righe citate, {c39['non_detto']} voci «non detto» "
           f"senza citazioni né numeri, {c39['cache']} copie salvate rilette, frase misurata in {c39['h2']} H2 e {c39['frasi']} descrizioni, indice con "
           f"{c39['indice']} righe = dati, {c39['escluse']} compagnie escluse con il motivo, nessun link di affiliazione (interruttore Amazon spento e vuoto): {len(e39)} errori")
+    e40, c40 = controlla_recupero()
+    print(f"40. Recupero dopo il cambio di dominio: indice di {c40['sitemap']} sitemap di sezione con {c40['url']} URL = pagine in indice "
+          f"({c40['date']} date diverse, la più comune su {c40['comune']} URL, nessuna nel futuro), sitemap dei vecchi indirizzi a parte "
+          f"({c40['vecchi']} URL, non citata in robots.txt né nell'indice), «Most used» in home ({c40['home']} link) e in {c40['indici']} indici, "
+          f"«Related» in {c40['correlate']} pagine, nessun link della home né dei blocchi verso pagine fuori indice, pagina «How we check» "
+          f"e «Who runs it» in About senza dati personali: {len(e40)} errori")
     e19, i19 = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
     print("19. " + G.MON.riepilogo(G.SITO_ID, i19, e19))
-    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31 + e32 + e33 + e34 + e35 + e36 + e37 + e38 + e39
+    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e40 + e31 + e32 + e33 + e34 + e35 + e36 + e37 + e38 + e39
     if AVVISI:  # ricalcoli dalle copie salvati saltati (copia mancante, pagina di blocco, raccolta che non ha aggiornato il JSON): non sono errori
         per_punto = {}
         for k, _ in AVVISI:

@@ -1,0 +1,2605 @@
+{
+"_nota": "Scritto da genera.py: percorso -> [data dell'ultimo cambio del testo principale, impronta], per le pagine senza una data propria nei dati. Seme del 25/11/2026 da git (raccolta/lastmod_seme.py). Non modificare a mano.",
+"pagine": {
+"": [
+"2026-11-25",
+"a42e107922a4e3b6d75c"
+],
+"about/": [
+"2026-11-25",
+"b6aebac2686ca36764d4"
+],
+"australian-passport/": [
+"2026-11-10",
+"29fecbbb863d078cfe5f"
+],
+"australian-passport/albania/": [
+"2026-10-17",
+"634ee9ed8e3d8a533c12"
+],
+"australian-passport/algeria/": [
+"2026-10-17",
+"837abdbc7859c44f3132"
+],
+"australian-passport/angola/": [
+"2026-10-17",
+"a5a607ef9a3a6e0a9311"
+],
+"australian-passport/argentina/": [
+"2026-10-17",
+"d1cebda6873adaef6daa"
+],
+"australian-passport/armenia/": [
+"2026-10-17",
+"a0cee188bccd67a5b5c0"
+],
+"australian-passport/austria/": [
+"2026-10-28",
+"b1c0c68001ced8c171be"
+],
+"australian-passport/azerbaijan/": [
+"2026-10-17",
+"1f390b4b4ef1dc1f5813"
+],
+"australian-passport/bahamas/": [
+"2026-11-10",
+"44b58457388e7ec7f924"
+],
+"australian-passport/bahrain/": [
+"2026-11-04",
+"e23862f4d010708537b1"
+],
+"australian-passport/bangladesh/": [
+"2026-10-28",
+"1b6b012ddf635ab1f752"
+],
+"australian-passport/belarus/": [
+"2026-10-17",
+"150ea7a152d372119cee"
+],
+"australian-passport/belgium/": [
+"2026-10-17",
+"f6783eb765dbdee79d11"
+],
+"australian-passport/belize/": [
+"2026-10-17",
+"74e844b7032cc57e448b"
+],
+"australian-passport/benin/": [
+"2026-10-17",
+"6eaf86d3cabf14ae6909"
+],
+"australian-passport/bhutan/": [
+"2026-10-17",
+"3706655aeb869cda3ab1"
+],
+"australian-passport/bolivia/": [
+"2026-10-17",
+"e4d2185340c65dafaad4"
+],
+"australian-passport/bosnia-and-herzegovina/": [
+"2026-10-17",
+"1c99b044c881c9dff1ab"
+],
+"australian-passport/botswana/": [
+"2026-10-17",
+"a9d2ca11e0c3e13dba3e"
+],
+"australian-passport/brazil/": [
+"2026-10-28",
+"679916452aa295a4c7cb"
+],
+"australian-passport/brunei/": [
+"2026-10-17",
+"8205be5bfcb178bc64f1"
+],
+"australian-passport/bulgaria/": [
+"2026-10-17",
+"f49ec61f044daf8beb1c"
+],
+"australian-passport/burundi/": [
+"2026-10-17",
+"9cd92f6970093ec64b51"
+],
+"australian-passport/cambodia/": [
+"2026-10-17",
+"d38a015cfd49ea6ba55c"
+],
+"australian-passport/cameroon/": [
+"2026-11-10",
+"34de5816ed06c877dda9"
+],
+"australian-passport/canada/": [
+"2026-10-28",
+"cfa296add76d5657c00a"
+],
+"australian-passport/central-african-republic/": [
+"2026-11-10",
+"52faa6a77d65ce12d21e"
+],
+"australian-passport/chad/": [
+"2026-10-17",
+"6ca86a0907c22288688a"
+],
+"australian-passport/chile/": [
+"2026-10-28",
+"80e98012bd1f8c079bd3"
+],
+"australian-passport/china/": [
+"2026-10-28",
+"1dbaa358af6b49911839"
+],
+"australian-passport/colombia/": [
+"2026-10-17",
+"978790e3a3329fcd49bb"
+],
+"australian-passport/cook-islands/": [
+"2026-11-10",
+"5a53f41974a36d64fd07"
+],
+"australian-passport/costa-rica/": [
+"2026-10-17",
+"b1f9d16a5a38c7592881"
+],
+"australian-passport/croatia/": [
+"2026-10-17",
+"637ef8d07b898fd8ba3b"
+],
+"australian-passport/cuba/": [
+"2026-10-17",
+"f8fe21ec159390d64557"
+],
+"australian-passport/cyprus/": [
+"2026-10-17",
+"4321a9c849c7bc0dbe98"
+],
+"australian-passport/czechia/": [
+"2026-10-17",
+"5b587cd03280a7a4b9e4"
+],
+"australian-passport/democratic-republic-of-the-congo/": [
+"2026-11-10",
+"6a33e6a52119442c4db2"
+],
+"australian-passport/denmark/": [
+"2026-10-28",
+"f89457939d28d7cb3b0e"
+],
+"australian-passport/djibouti/": [
+"2026-10-17",
+"8f619a46efa2325529f8"
+],
+"australian-passport/dominican-republic/": [
+"2026-11-10",
+"735b4dd849284e8a8b03"
+],
+"australian-passport/ecuador/": [
+"2026-10-17",
+"b6f6e2accaa16ef83dd5"
+],
+"australian-passport/egypt/": [
+"2026-10-17",
+"bec816494d18d68b01f6"
+],
+"australian-passport/el-salvador/": [
+"2026-10-17",
+"493579a497bdfbeb5ddd"
+],
+"australian-passport/eritrea/": [
+"2026-10-17",
+"42698411e086efc2915c"
+],
+"australian-passport/estonia/": [
+"2026-11-04",
+"cda45c6c46ff932583b8"
+],
+"australian-passport/eswatini/": [
+"2026-11-10",
+"89a831ea9b81eb59eae4"
+],
+"australian-passport/ethiopia/": [
+"2026-10-17",
+"3e8fd9f95287ee9841cf"
+],
+"australian-passport/federated-states-of-micronesia/": [
+"2026-11-10",
+"0534ae2ce65b6765e201"
+],
+"australian-passport/fiji/": [
+"2026-11-04",
+"b8acccd3d958eedc7217"
+],
+"australian-passport/finland/": [
+"2026-10-17",
+"d4816a594c86d7e42fb3"
+],
+"australian-passport/france/": [
+"2026-10-28",
+"4dd5d852bb3fda11fb9f"
+],
+"australian-passport/french-polynesia/": [
+"2026-10-17",
+"9a3ba45b7e0e71e5a243"
+],
+"australian-passport/gabon/": [
+"2026-11-10",
+"1c26b5236730afdebe56"
+],
+"australian-passport/georgia/": [
+"2026-10-17",
+"daa9ac7997f8607013c9"
+],
+"australian-passport/germany/": [
+"2026-10-28",
+"be989d09cd5f501bf2e5"
+],
+"australian-passport/ghana/": [
+"2026-11-10",
+"153969e90460525f7d42"
+],
+"australian-passport/greece/": [
+"2026-10-28",
+"de89a96589cee06097ad"
+],
+"australian-passport/guam/": [
+"2026-10-17",
+"0fb2d488378774be6b30"
+],
+"australian-passport/guatemala/": [
+"2026-10-17",
+"d0ad984b1d96d8364f7e"
+],
+"australian-passport/guyana/": [
+"2026-10-17",
+"1e97a48b5661b939e1db"
+],
+"australian-passport/haiti/": [
+"2026-10-17",
+"4146d1221554ea66bfb6"
+],
+"australian-passport/honduras/": [
+"2026-10-17",
+"00dffa233bd60bda9ed2"
+],
+"australian-passport/hong-kong/": [
+"2026-10-28",
+"02184c8688c03c9ff6f8"
+],
+"australian-passport/hungary/": [
+"2026-10-17",
+"8a220b78c4b3f46bbe81"
+],
+"australian-passport/iceland/": [
+"2026-10-28",
+"54a454d2f074f460fa58"
+],
+"australian-passport/india/": [
+"2026-11-04",
+"6e994c3911a046468f34"
+],
+"australian-passport/indonesia/": [
+"2026-10-28",
+"58e26d69425390a79219"
+],
+"australian-passport/iran/": [
+"2026-10-17",
+"6b671acdab4264d251d8"
+],
+"australian-passport/iraq/": [
+"2026-10-17",
+"173814ab8799a185025d"
+],
+"australian-passport/ireland/": [
+"2026-10-28",
+"20bdebe5216ab467f4fd"
+],
+"australian-passport/israel/": [
+"2026-10-17",
+"10e41129851dd45e8158"
+],
+"australian-passport/italy/": [
+"2026-11-04",
+"608251478bbc3d225548"
+],
+"australian-passport/jamaica/": [
+"2026-10-28",
+"53a3c2b6c350ea238fb0"
+],
+"australian-passport/japan/": [
+"2026-10-28",
+"673d8074058596b92203"
+],
+"australian-passport/jordan/": [
+"2026-10-17",
+"2d28d189906e17549821"
+],
+"australian-passport/kazakhstan/": [
+"2026-10-17",
+"e5286ce430c9998cd240"
+],
+"australian-passport/kenya/": [
+"2026-11-04",
+"3a88b3e8be83adb441b8"
+],
+"australian-passport/kosovo/": [
+"2026-10-17",
+"33f4efadb6c7163ade02"
+],
+"australian-passport/kuwait/": [
+"2026-10-28",
+"bb813c79ddbc779c86f6"
+],
+"australian-passport/kyrgyzstan/": [
+"2026-10-17",
+"509f3aaeaf28a6a61df1"
+],
+"australian-passport/laos/": [
+"2026-10-17",
+"d3f32471c65343d0ace8"
+],
+"australian-passport/latvia/": [
+"2026-10-17",
+"6e22c6af992546da13f0"
+],
+"australian-passport/lebanon/": [
+"2026-10-28",
+"e014cb84ec96885895dc"
+],
+"australian-passport/lesotho/": [
+"2026-10-17",
+"aba9533cf411da4e2375"
+],
+"australian-passport/liberia/": [
+"2026-11-10",
+"07ca6899b369170e3987"
+],
+"australian-passport/libya/": [
+"2026-10-17",
+"0209956b55792c226a11"
+],
+"australian-passport/lithuania/": [
+"2026-10-17",
+"8b921f4ab1c40c39d834"
+],
+"australian-passport/macao/": [
+"2026-10-17",
+"02c7fc328b5cbc0d7320"
+],
+"australian-passport/madagascar/": [
+"2026-10-17",
+"f5e6d156192e5137a5c9"
+],
+"australian-passport/malawi/": [
+"2026-10-17",
+"03f25544d339c22fa07f"
+],
+"australian-passport/malaysia/": [
+"2026-10-28",
+"8ba6691b0707f18a199c"
+],
+"australian-passport/maldives/": [
+"2026-11-10",
+"bb0fb7bf589bfe20b1db"
+],
+"australian-passport/mali/": [
+"2026-10-17",
+"8cca526abd14663c471d"
+],
+"australian-passport/malta/": [
+"2026-10-17",
+"0bc9a63a2297f5e9cd0d"
+],
+"australian-passport/marshall-islands/": [
+"2026-10-17",
+"b917023e700e7a23152a"
+],
+"australian-passport/mauritania/": [
+"2026-10-17",
+"acd13d380cd76ef95065"
+],
+"australian-passport/mauritius/": [
+"2026-11-10",
+"7ecd9d334100b10ce2d6"
+],
+"australian-passport/mexico/": [
+"2026-10-28",
+"76409426af7936a5cc06"
+],
+"australian-passport/moldova/": [
+"2026-10-17",
+"ab4c41941522c60691da"
+],
+"australian-passport/mongolia/": [
+"2026-10-17",
+"586e7567d795d6dd5e6c"
+],
+"australian-passport/montenegro/": [
+"2026-10-17",
+"c1446980d1b6b24f457f"
+],
+"australian-passport/morocco/": [
+"2026-10-28",
+"08f26815a6798e2bcdbd"
+],
+"australian-passport/mozambique/": [
+"2026-10-17",
+"9b375417348c5c3b4eaa"
+],
+"australian-passport/myanmar/": [
+"2026-11-18",
+"d2f895ff5fbb66421bb8"
+],
+"australian-passport/namibia/": [
+"2026-10-17",
+"1ccacfba89f85df2afb5"
+],
+"australian-passport/nepal/": [
+"2026-10-28",
+"19aba0b14d328868f1dc"
+],
+"australian-passport/netherlands/": [
+"2026-11-10",
+"59ea48d00cddfb5f4cf6"
+],
+"australian-passport/new-caledonia/": [
+"2026-10-17",
+"5dc447f8bc77bef675ba"
+],
+"australian-passport/new-zealand/": [
+"2026-10-28",
+"74e239cf747b9a31ef88"
+],
+"australian-passport/nicaragua/": [
+"2026-10-17",
+"308b35417bfcbadf964b"
+],
+"australian-passport/niger/": [
+"2026-10-17",
+"5556b6a8b35b21409f69"
+],
+"australian-passport/nigeria/": [
+"2026-11-04",
+"55a2bcff59548b549d78"
+],
+"australian-passport/niue/": [
+"2026-10-17",
+"0cc142a20dc1848ac854"
+],
+"australian-passport/north-korea/": [
+"2026-10-17",
+"efb1a52a403e46eb4c2a"
+],
+"australian-passport/north-macedonia/": [
+"2026-10-17",
+"d1558d72de42deff4952"
+],
+"australian-passport/norway/": [
+"2026-10-28",
+"aec512d567227598a9f9"
+],
+"australian-passport/oman/": [
+"2026-11-04",
+"a84b406d26bcf9c9c97e"
+],
+"australian-passport/pakistan/": [
+"2026-10-28",
+"0994fee2d141855ed598"
+],
+"australian-passport/palau/": [
+"2026-10-17",
+"3e83bd7f699b12ff610f"
+],
+"australian-passport/palestine/": [
+"2026-10-17",
+"e7dfd770d5b58100b05c"
+],
+"australian-passport/panama/": [
+"2026-10-17",
+"11450c95c6f6b2bbdc44"
+],
+"australian-passport/papua-new-guinea/": [
+"2026-10-17",
+"ac33fbf9c81a654131cb"
+],
+"australian-passport/paraguay/": [
+"2026-11-04",
+"573c4dce0d33204d01af"
+],
+"australian-passport/peru/": [
+"2026-10-17",
+"684a355b282980ba3e59"
+],
+"australian-passport/philippines/": [
+"2026-11-10",
+"67a975d41f05842203ce"
+],
+"australian-passport/poland/": [
+"2026-10-28",
+"b21f1b678c1378e8cc7b"
+],
+"australian-passport/portugal/": [
+"2026-10-28",
+"a45d8aae2fc642f4ced0"
+],
+"australian-passport/qatar/": [
+"2026-10-28",
+"de3aef0ba294d8c129d5"
+],
+"australian-passport/romania/": [
+"2026-10-28",
+"8d22fe6dec973a628ed8"
+],
+"australian-passport/russia/": [
+"2026-11-04",
+"612914203515a5ba3447"
+],
+"australian-passport/rwanda/": [
+"2026-10-17",
+"cdafeb12aff9e68586c8"
+],
+"australian-passport/samoa/": [
+"2026-10-28",
+"e6635bb07aa23003693d"
+],
+"australian-passport/saudi-arabia/": [
+"2026-11-04",
+"4d123595bfc387d607af"
+],
+"australian-passport/serbia/": [
+"2026-10-28",
+"a895ea5d8c5ca2ce4d38"
+],
+"australian-passport/seychelles/": [
+"2026-11-10",
+"83d8be347d64c837bf5b"
+],
+"australian-passport/sierra-leone/": [
+"2026-10-17",
+"9c4d7d514d7530a1bb87"
+],
+"australian-passport/singapore/": [
+"2026-11-04",
+"732c6995c4293fa22324"
+],
+"australian-passport/slovakia/": [
+"2026-10-17",
+"51e0d3f1c72564605bbd"
+],
+"australian-passport/slovenia/": [
+"2026-10-17",
+"c9ff3a96d6b70274fae2"
+],
+"australian-passport/solomon-islands/": [
+"2026-11-10",
+"df9e4f82b952302ab142"
+],
+"australian-passport/somalia/": [
+"2026-10-17",
+"41be92929c46292311b8"
+],
+"australian-passport/south-africa/": [
+"2026-10-17",
+"d70f3f57a49db4857808"
+],
+"australian-passport/south-korea/": [
+"2026-10-28",
+"da15e9967a7cb782d0fe"
+],
+"australian-passport/south-sudan/": [
+"2026-10-17",
+"0501169f8c61a93ae2c2"
+],
+"australian-passport/spain/": [
+"2026-11-04",
+"5b85baf301f524b58952"
+],
+"australian-passport/sri-lanka/": [
+"2026-10-28",
+"f5bb91a63073c4b40fe4"
+],
+"australian-passport/sudan/": [
+"2026-10-17",
+"4d8726bf7e40d25ed3ec"
+],
+"australian-passport/sweden/": [
+"2026-10-17",
+"30ce028d9bf796c98aae"
+],
+"australian-passport/switzerland/": [
+"2026-10-28",
+"ba09c1fd4389f317cdd1"
+],
+"australian-passport/syria/": [
+"2026-10-17",
+"8f152fee46e2afab70ef"
+],
+"australian-passport/taiwan/": [
+"2026-10-28",
+"237ae5a6889e5c095c3b"
+],
+"australian-passport/tajikistan/": [
+"2026-10-17",
+"7e07a559eafca3dfbd38"
+],
+"australian-passport/tanzania/": [
+"2026-11-04",
+"11f4b4f1b08c9d5a5e48"
+],
+"australian-passport/thailand/": [
+"2026-11-04",
+"277115d50f67c8e29b19"
+],
+"australian-passport/the-gambia/": [
+"2026-11-10",
+"88fc1e4cea18e57dca49"
+],
+"australian-passport/timor-leste/": [
+"2026-10-17",
+"7521faf9b256cc960629"
+],
+"australian-passport/trinidad-and-tobago/": [
+"2026-10-17",
+"816c57b488797e378b77"
+],
+"australian-passport/tunisia/": [
+"2026-10-17",
+"c10ae86f164fb563f99a"
+],
+"australian-passport/turkey/": [
+"2026-11-04",
+"58e1e740bb041c36c9a2"
+],
+"australian-passport/turkmenistan/": [
+"2026-11-10",
+"78a473158832004898fd"
+],
+"australian-passport/uganda/": [
+"2026-11-04",
+"5084afc1e7370dfef826"
+],
+"australian-passport/ukraine/": [
+"2026-10-17",
+"9eea533a1b96768e59cd"
+],
+"australian-passport/united-arab-emirates/": [
+"2026-11-10",
+"ce454c5d2554af42720e"
+],
+"australian-passport/united-kingdom/": [
+"2026-11-10",
+"9794393aa0f1a536bda0"
+],
+"australian-passport/uruguay/": [
+"2026-10-17",
+"1d545f7d5e0eee03457c"
+],
+"australian-passport/usa/": [
+"2026-11-10",
+"a40ba46667e31bd76428"
+],
+"australian-passport/uzbekistan/": [
+"2026-10-17",
+"de7cafc6672b0da4d3e5"
+],
+"australian-passport/vanuatu/": [
+"2026-10-28",
+"4a2aa402d8ee4e5535c2"
+],
+"australian-passport/venezuela/": [
+"2026-10-17",
+"79662cad1ba472b36a68"
+],
+"australian-passport/vietnam/": [
+"2026-10-28",
+"dcd1ea5aba09e882eaf9"
+],
+"australian-passport/yemen/": [
+"2026-11-04",
+"c4577b577f22c2e515dc"
+],
+"australian-passport/zambia/": [
+"2026-10-28",
+"a7d9ac4e4d0185038d64"
+],
+"australian-passport/zimbabwe/": [
+"2026-10-28",
+"1830a312d3c2da5ae115"
+],
+"cabin-bags/": [
+"2026-11-20",
+"2698a107ddb4e19cd489"
+],
+"cabin-bags/does-my-bag-fit/": [
+"2026-11-19",
+"8a8022ec189207b6a7e8"
+],
+"cabin-bags/eu-personal-item-rule/": [
+"2026-11-19",
+"92305262bcd41194d14e"
+],
+"cabin-bags/power-banks/": [
+"2026-11-20",
+"930e7cc66c80ea209a16"
+],
+"cabin-bags/size/40x20x25/": [
+"2026-11-19",
+"6984be22ab3d4b6b1ceb"
+],
+"cabin-bags/size/40x30x15/": [
+"2026-11-19",
+"fa2a410b4db4c7e6885c"
+],
+"cabin-bags/size/40x30x20/": [
+"2026-11-19",
+"24e835e328ef5b0f4e3e"
+],
+"cabin-bags/size/40x30x25/": [
+"2026-11-19",
+"2cb034f0ca5249938604"
+],
+"cabin-bags/size/45x36x20/": [
+"2026-11-19",
+"2d4a76c2b888fc7e3f9e"
+],
+"cabin-bags/size/55x35x25/": [
+"2026-11-19",
+"782ee21fe9e0b864e5ee"
+],
+"cabin-bags/size/55x40x20/": [
+"2026-11-19",
+"5d31db6e0aa49388c215"
+],
+"cabin-bags/size/55x40x23/": [
+"2026-11-19",
+"238fc255c50a9a0ab688"
+],
+"cabin-bags/size/55x40x25/": [
+"2026-11-19",
+"ac00addc12382a774b40"
+],
+"cabin-bags/size/56x45x25/": [
+"2026-11-19",
+"1b9a0c37f2c737b2d19c"
+],
+"canadian-passport/": [
+"2026-11-18",
+"0ddff9c139ed138478ce"
+],
+"canadian-passport/afghanistan/": [
+"2026-10-17",
+"ea4dcd8181c64b3e8654"
+],
+"canadian-passport/albania/": [
+"2026-10-17",
+"041a64bbf7c24e46ac8c"
+],
+"canadian-passport/algeria/": [
+"2026-10-17",
+"3780e3e1bc36667ca069"
+],
+"canadian-passport/american-samoa/": [
+"2026-10-17",
+"944730e15a23b2aba913"
+],
+"canadian-passport/andorra/": [
+"2026-10-17",
+"08ce1d6b137f8a1f57be"
+],
+"canadian-passport/angola/": [
+"2026-10-17",
+"4861df5bf1f92f6824d2"
+],
+"canadian-passport/anguilla/": [
+"2026-10-17",
+"9ff003e46946a238fde5"
+],
+"canadian-passport/antigua-and-barbuda/": [
+"2026-10-17",
+"2c908a7b5d9bde400980"
+],
+"canadian-passport/argentina/": [
+"2026-10-17",
+"a6e2bf71e91aeceb456a"
+],
+"canadian-passport/armenia/": [
+"2026-10-17",
+"20d810bc3fe483be9041"
+],
+"canadian-passport/aruba/": [
+"2026-10-17",
+"83de4ce077fbb1456561"
+],
+"canadian-passport/australia/": [
+"2026-10-28",
+"bb328df8f10c6f858ae6"
+],
+"canadian-passport/austria/": [
+"2026-10-28",
+"ccf36ca48117a5ec88ff"
+],
+"canadian-passport/azerbaijan/": [
+"2026-10-17",
+"be37d7c004aced679f02"
+],
+"canadian-passport/azores/": [
+"2026-10-17",
+"655b2058fc1765168d63"
+],
+"canadian-passport/bahamas/": [
+"2026-11-10",
+"34b9734d892cf28cca7b"
+],
+"canadian-passport/bahrain/": [
+"2026-10-17",
+"68dcc0f6b44f3b13c6b0"
+],
+"canadian-passport/bangladesh/": [
+"2026-10-28",
+"9538a38eeb1c9b2ace77"
+],
+"canadian-passport/barbados/": [
+"2026-10-28",
+"a7fc2e787fd1298177f8"
+],
+"canadian-passport/belarus/": [
+"2026-10-17",
+"3115bbd51a7c8ac693c8"
+],
+"canadian-passport/belgium/": [
+"2026-10-17",
+"9c5e81e38f1427b3eb43"
+],
+"canadian-passport/belize/": [
+"2026-10-17",
+"c4e888dc9ffafe77dcf6"
+],
+"canadian-passport/benin/": [
+"2026-10-17",
+"066355ba4d7832eb75f6"
+],
+"canadian-passport/bermuda/": [
+"2026-10-17",
+"76260fa80acfedecdfa1"
+],
+"canadian-passport/bhutan/": [
+"2026-10-17",
+"978ce38d43a20edb484a"
+],
+"canadian-passport/bolivia/": [
+"2026-10-17",
+"167a286cc28ce379745c"
+],
+"canadian-passport/bonaire/": [
+"2026-10-17",
+"507be47f5da0bb90fe90"
+],
+"canadian-passport/bosnia-and-herzegovina/": [
+"2026-10-17",
+"2ec131eccd89dd2fb386"
+],
+"canadian-passport/botswana/": [
+"2026-10-17",
+"01e2e2ffc1b8a6e8519a"
+],
+"canadian-passport/brazil/": [
+"2026-10-28",
+"9382fd55993829e46b19"
+],
+"canadian-passport/british-virgin-islands/": [
+"2026-11-10",
+"e6a7f02c3790db1e617d"
+],
+"canadian-passport/brunei/": [
+"2026-10-17",
+"6471c46c05ba99cc149a"
+],
+"canadian-passport/bulgaria/": [
+"2026-10-17",
+"f67c46926c1f0741b1ce"
+],
+"canadian-passport/burkina-faso/": [
+"2026-10-17",
+"d1bf61df7ac00f7fc8ad"
+],
+"canadian-passport/burundi/": [
+"2026-10-17",
+"d2f9ece1c2bf9ca8e3b8"
+],
+"canadian-passport/cambodia/": [
+"2026-10-17",
+"b05e73b790543cec287b"
+],
+"canadian-passport/cameroon/": [
+"2026-10-17",
+"b637594e49308d4be4c6"
+],
+"canadian-passport/canary-islands/": [
+"2026-10-17",
+"3d3ffce125736bce3e78"
+],
+"canadian-passport/cape-verde/": [
+"2026-10-17",
+"4055bef5671f5ab535f2"
+],
+"canadian-passport/cayman-islands/": [
+"2026-11-10",
+"b4c915cf9e6f3be3059d"
+],
+"canadian-passport/central-african-republic/": [
+"2026-11-10",
+"0105bc397d2609ebe290"
+],
+"canadian-passport/chad/": [
+"2026-10-17",
+"2f6541f5b5419f1a35c5"
+],
+"canadian-passport/chile/": [
+"2026-10-28",
+"b94dab69442c3c644704"
+],
+"canadian-passport/china/": [
+"2026-10-28",
+"425d71106b1ce1871c3c"
+],
+"canadian-passport/colombia/": [
+"2026-10-17",
+"0e0ffb86f69591ee834d"
+],
+"canadian-passport/comoros/": [
+"2026-10-17",
+"fc63b887772273894da5"
+],
+"canadian-passport/congo/": [
+"2026-11-10",
+"6fa88c1a4154fa5575e1"
+],
+"canadian-passport/cook-islands/": [
+"2026-11-10",
+"f503cbd9106d2be4f07e"
+],
+"canadian-passport/costa-rica/": [
+"2026-10-17",
+"2a1c14f99eb19ade01df"
+],
+"canadian-passport/cote-d-ivoire/": [
+"2026-11-18",
+"c5900c26b534fa4c989e"
+],
+"canadian-passport/croatia/": [
+"2026-10-17",
+"b7b25fc47dcd3c2260d7"
+],
+"canadian-passport/cuba/": [
+"2026-10-17",
+"eebfb0a9e72227bfecc8"
+],
+"canadian-passport/curacao/": [
+"2026-11-04",
+"27af31b11dbae2cdcf55"
+],
+"canadian-passport/cyprus/": [
+"2026-10-17",
+"cd18d9bfa72abf1debed"
+],
+"canadian-passport/czechia/": [
+"2026-10-17",
+"6ca1cd88f2f0c770ca44"
+],
+"canadian-passport/democratic-republic-of-the-congo/": [
+"2026-11-10",
+"5a7985e98f967a1e14f0"
+],
+"canadian-passport/denmark/": [
+"2026-10-28",
+"5d5aed4b4f252a0b1f8e"
+],
+"canadian-passport/djibouti/": [
+"2026-10-17",
+"0503e3049bc82404307d"
+],
+"canadian-passport/dominica/": [
+"2026-10-17",
+"75192c2aa9bd9f43eb60"
+],
+"canadian-passport/dominican-republic/": [
+"2026-11-10",
+"8012fc05ec83ddf15bc5"
+],
+"canadian-passport/ecuador/": [
+"2026-10-17",
+"d7ac3b64ccabb60c6969"
+],
+"canadian-passport/egypt/": [
+"2026-10-17",
+"b7a6ecd9b6308aa61ad7"
+],
+"canadian-passport/el-salvador/": [
+"2026-10-17",
+"5005d880100431cb792c"
+],
+"canadian-passport/equatorial-guinea/": [
+"2026-10-17",
+"8eaed419d2324f447c69"
+],
+"canadian-passport/eritrea/": [
+"2026-10-17",
+"16858874670d985e9bf4"
+],
+"canadian-passport/estonia/": [
+"2026-10-17",
+"8cfca400b5824f44b9b7"
+],
+"canadian-passport/eswatini/": [
+"2026-10-17",
+"bb4a0be72f3cb07177e0"
+],
+"canadian-passport/ethiopia/": [
+"2026-10-17",
+"ab9a030c00419f30cf81"
+],
+"canadian-passport/falkland-islands/": [
+"2026-10-17",
+"bc0fe53b9e1752375f6c"
+],
+"canadian-passport/federated-states-of-micronesia/": [
+"2026-10-17",
+"6b6c59b16a9cd874b4cb"
+],
+"canadian-passport/fiji/": [
+"2026-10-28",
+"1ec9e9491781630a0ab1"
+],
+"canadian-passport/finland/": [
+"2026-10-17",
+"1557fbad89081215ac16"
+],
+"canadian-passport/france/": [
+"2026-10-28",
+"2d7c839ec52a7e351c55"
+],
+"canadian-passport/french-guiana/": [
+"2026-10-17",
+"201b2b4536c4d04eb760"
+],
+"canadian-passport/french-polynesia/": [
+"2026-10-17",
+"29fcae2db0aa5bcc844d"
+],
+"canadian-passport/gabon/": [
+"2026-10-17",
+"2e4f7dbc9c80315743bf"
+],
+"canadian-passport/georgia/": [
+"2026-10-17",
+"1a15e2d42f3a7166fb00"
+],
+"canadian-passport/germany/": [
+"2026-10-28",
+"93f148c1ef3615e5cfe3"
+],
+"canadian-passport/ghana/": [
+"2026-10-17",
+"f07249b2bdc981d58c4e"
+],
+"canadian-passport/gibraltar/": [
+"2026-10-17",
+"171dbbb683a753add30c"
+],
+"canadian-passport/greece/": [
+"2026-10-28",
+"e71dbd34fe6ce85cec72"
+],
+"canadian-passport/greenland/": [
+"2026-10-17",
+"d45cce34568b1f20b8aa"
+],
+"canadian-passport/grenada/": [
+"2026-10-17",
+"2915a001257c74b8f0d9"
+],
+"canadian-passport/guadeloupe/": [
+"2026-10-17",
+"4525e43126eeb2a16b79"
+],
+"canadian-passport/guam/": [
+"2026-10-17",
+"98337b6bf2c878b2a1a0"
+],
+"canadian-passport/guatemala/": [
+"2026-10-17",
+"caef841a00ca5d0a5174"
+],
+"canadian-passport/guinea-bissau/": [
+"2026-10-17",
+"d82aa34ed7941cff87ba"
+],
+"canadian-passport/guinea/": [
+"2026-10-17",
+"71b58a632e847b7eaf0b"
+],
+"canadian-passport/guyana/": [
+"2026-10-17",
+"e31e8348326395010d02"
+],
+"canadian-passport/haiti/": [
+"2026-10-17",
+"e2daf36b338e06bb4821"
+],
+"canadian-passport/honduras/": [
+"2026-10-17",
+"e54f02b0e2fbf5b6f730"
+],
+"canadian-passport/hong-kong/": [
+"2026-10-28",
+"77accec50167bd38a75a"
+],
+"canadian-passport/hungary/": [
+"2026-10-17",
+"ca6c0a352863621472de"
+],
+"canadian-passport/iceland/": [
+"2026-10-28",
+"cd2ebcdd92147aebebbe"
+],
+"canadian-passport/india/": [
+"2026-10-31",
+"41deaa40f7a27f017a77"
+],
+"canadian-passport/indonesia/": [
+"2026-10-28",
+"bf6e54dc09c5108d20a0"
+],
+"canadian-passport/iran/": [
+"2026-10-17",
+"bd982ef4511e72de7289"
+],
+"canadian-passport/iraq/": [
+"2026-10-17",
+"8d33c99fd600cfeb1b3c"
+],
+"canadian-passport/ireland/": [
+"2026-10-28",
+"63eaa8cdf74c8fa645b1"
+],
+"canadian-passport/israel-and-palestine/": [
+"2026-10-17",
+"cc664f67f1b068e94cc6"
+],
+"canadian-passport/italy/": [
+"2026-10-28",
+"27f19097258b67338f64"
+],
+"canadian-passport/jamaica/": [
+"2026-10-28",
+"3ce0718327df79011d2a"
+],
+"canadian-passport/japan/": [
+"2026-10-28",
+"4ee32d1c9bf3fdd3221a"
+],
+"canadian-passport/jordan/": [
+"2026-10-17",
+"b879a581f827bc998744"
+],
+"canadian-passport/kazakhstan/": [
+"2026-10-17",
+"e5e52dd736cacee8d11a"
+],
+"canadian-passport/kenya/": [
+"2026-10-17",
+"54971283308fe29d4d26"
+],
+"canadian-passport/kiribati/": [
+"2026-10-17",
+"f018d310ffb4571f810b"
+],
+"canadian-passport/kosovo/": [
+"2026-10-17",
+"399648ae2132c16fded5"
+],
+"canadian-passport/kuwait/": [
+"2026-10-28",
+"598fc7cf54d1fb4d1e28"
+],
+"canadian-passport/kyrgyzstan/": [
+"2026-10-17",
+"04c99a5c8c107bbab113"
+],
+"canadian-passport/laos/": [
+"2026-10-17",
+"9ca089dbeb633ac5d841"
+],
+"canadian-passport/latvia/": [
+"2026-10-17",
+"4d0acc2df38460f19ef3"
+],
+"canadian-passport/lebanon/": [
+"2026-10-28",
+"fc09b3392e124baac34b"
+],
+"canadian-passport/lesotho/": [
+"2026-10-17",
+"05a43dc3808a732254c6"
+],
+"canadian-passport/liberia/": [
+"2026-10-17",
+"6b2a00e98cc4f80816d2"
+],
+"canadian-passport/libya/": [
+"2026-10-17",
+"ca83fe434d81e81b3c9b"
+],
+"canadian-passport/liechtenstein/": [
+"2026-10-17",
+"6106aba794a3db226f9b"
+],
+"canadian-passport/lithuania/": [
+"2026-10-17",
+"ef010684083979189f06"
+],
+"canadian-passport/luxembourg/": [
+"2026-10-17",
+"71ad11c54ed3efa80bfd"
+],
+"canadian-passport/macao/": [
+"2026-10-17",
+"b5563a2ed437b165cbb3"
+],
+"canadian-passport/madagascar/": [
+"2026-10-17",
+"5074acfd8b4b9fb8c96c"
+],
+"canadian-passport/malawi/": [
+"2026-10-17",
+"d2dbc5bc8741dd77765f"
+],
+"canadian-passport/malaysia/": [
+"2026-10-28",
+"9ab640905b4361b49b72"
+],
+"canadian-passport/maldives/": [
+"2026-11-10",
+"de5f7ad2d32c5abb6b20"
+],
+"canadian-passport/mali/": [
+"2026-10-17",
+"563fe3ef69bfe013dd27"
+],
+"canadian-passport/malta/": [
+"2026-10-17",
+"1c64e6b814fdad1dda19"
+],
+"canadian-passport/marshall-islands/": [
+"2026-10-17",
+"976ee923b08b6059271a"
+],
+"canadian-passport/martinique/": [
+"2026-10-17",
+"d74ed63811c80adf3160"
+],
+"canadian-passport/mauritania/": [
+"2026-10-17",
+"067fa9e5cbf7a2b8588d"
+],
+"canadian-passport/mauritius/": [
+"2026-10-28",
+"c2eeb52595a0aebcc851"
+],
+"canadian-passport/mayotte/": [
+"2026-10-17",
+"b427718a9a06e6fe98c8"
+],
+"canadian-passport/mexico/": [
+"2026-10-28",
+"1c604fc54b0720688daa"
+],
+"canadian-passport/moldova/": [
+"2026-10-17",
+"0ff1a6284f80083ed343"
+],
+"canadian-passport/monaco/": [
+"2026-10-17",
+"8c6d122ca218451aa506"
+],
+"canadian-passport/mongolia/": [
+"2026-10-17",
+"8d933d35c0f685a4c01e"
+],
+"canadian-passport/montenegro/": [
+"2026-10-17",
+"1bc3c17ed8b7be012702"
+],
+"canadian-passport/montserrat/": [
+"2026-10-17",
+"75766a54de453c3e3aae"
+],
+"canadian-passport/morocco/": [
+"2026-10-28",
+"667bb827df6112cd2082"
+],
+"canadian-passport/mozambique/": [
+"2026-10-17",
+"250cc7202e11d2c71887"
+],
+"canadian-passport/myanmar/": [
+"2026-11-18",
+"f8166d178840c0fc1b1b"
+],
+"canadian-passport/namibia/": [
+"2026-10-17",
+"0b5f55a5bc245d2e6aff"
+],
+"canadian-passport/nauru/": [
+"2026-10-17",
+"aa4c2b02f5ae16676cdd"
+],
+"canadian-passport/nepal/": [
+"2026-10-28",
+"36ba0d3ad641e9000ff8"
+],
+"canadian-passport/netherlands/": [
+"2026-11-10",
+"b263a0b242d3222822db"
+],
+"canadian-passport/new-caledonia/": [
+"2026-10-17",
+"a9b309425d13b68e462a"
+],
+"canadian-passport/new-zealand/": [
+"2026-10-28",
+"e7a4f02241cd619f67d1"
+],
+"canadian-passport/nicaragua/": [
+"2026-10-17",
+"257df95939ded0b051ce"
+],
+"canadian-passport/niger/": [
+"2026-10-17",
+"061e28fc14f237c5bacf"
+],
+"canadian-passport/nigeria/": [
+"2026-10-28",
+"24f78566059ceb7fb1aa"
+],
+"canadian-passport/niue/": [
+"2026-10-17",
+"79e87991ec5419b744b7"
+],
+"canadian-passport/north-korea/": [
+"2026-10-17",
+"44635a745afccc99a712"
+],
+"canadian-passport/north-macedonia/": [
+"2026-10-17",
+"5bb36f3703b86bbfe534"
+],
+"canadian-passport/northern-marianas/": [
+"2026-11-18",
+"6622abc0413caf41b7f8"
+],
+"canadian-passport/norway/": [
+"2026-10-28",
+"4fa172be6340f391d782"
+],
+"canadian-passport/oman/": [
+"2026-10-28",
+"a60dd29d9ece6483990a"
+],
+"canadian-passport/pakistan/": [
+"2026-10-28",
+"b749394e1cea28e88de1"
+],
+"canadian-passport/palau/": [
+"2026-10-17",
+"94fb45a94e8c9e3f04e7"
+],
+"canadian-passport/panama/": [
+"2026-10-17",
+"f4e484f5a1f6a17bf6a7"
+],
+"canadian-passport/papua-new-guinea/": [
+"2026-10-17",
+"3c51431032af9f1df32f"
+],
+"canadian-passport/paraguay/": [
+"2026-11-04",
+"db097115bd56559338b4"
+],
+"canadian-passport/peru/": [
+"2026-10-17",
+"8db28ba38e414f56e364"
+],
+"canadian-passport/philippines/": [
+"2026-11-10",
+"dcf141f1e39e25d9a352"
+],
+"canadian-passport/poland/": [
+"2026-10-28",
+"84372b98e3f171b963ef"
+],
+"canadian-passport/portugal/": [
+"2026-10-28",
+"02e0ff398e8431985ca8"
+],
+"canadian-passport/puerto-rico/": [
+"2026-10-17",
+"2a4fcb32378c8719bb6c"
+],
+"canadian-passport/qatar/": [
+"2026-10-28",
+"ae7d655029cf72b7d759"
+],
+"canadian-passport/reunion/": [
+"2026-10-17",
+"06c035614c9acc0b5629"
+],
+"canadian-passport/romania/": [
+"2026-10-28",
+"d264f423083693cf604a"
+],
+"canadian-passport/russia/": [
+"2026-10-17",
+"2c63b6eeab0776cbae57"
+],
+"canadian-passport/rwanda/": [
+"2026-10-17",
+"9156a4b049a4ed8f107d"
+],
+"canadian-passport/saint-barthelemy/": [
+"2026-10-17",
+"88f245a7e7348019a962"
+],
+"canadian-passport/saint-martin/": [
+"2026-11-10",
+"3682e9ca7f55ae051540"
+],
+"canadian-passport/samoa/": [
+"2026-10-28",
+"ae5205aa6e6be815ca09"
+],
+"canadian-passport/san-marino/": [
+"2026-10-17",
+"74b993b032387b9ad0f5"
+],
+"canadian-passport/sao-tome-and-principe/": [
+"2026-10-17",
+"13de1b41ab33b8541159"
+],
+"canadian-passport/saudi-arabia/": [
+"2026-10-28",
+"7c86da9d36422a21410e"
+],
+"canadian-passport/senegal/": [
+"2026-10-17",
+"28a6170199b29eec4b6d"
+],
+"canadian-passport/serbia/": [
+"2026-10-28",
+"d3cf210ebd3b534e5d1b"
+],
+"canadian-passport/seychelles/": [
+"2026-11-10",
+"96336f7dc908114ab70f"
+],
+"canadian-passport/sierra-leone/": [
+"2026-10-17",
+"5096bef6443caa8f858f"
+],
+"canadian-passport/singapore/": [
+"2026-10-28",
+"157e9be0c2e935e9a4c9"
+],
+"canadian-passport/slovakia/": [
+"2026-10-17",
+"2ae5d4fce2d8e6718bf9"
+],
+"canadian-passport/slovenia/": [
+"2026-10-17",
+"7d3339c0362f7f8e629a"
+],
+"canadian-passport/solomon-islands/": [
+"2026-11-10",
+"a2db1375c2f1e0a32631"
+],
+"canadian-passport/somalia/": [
+"2026-10-17",
+"a12cfda0bf075609f2cb"
+],
+"canadian-passport/south-africa/": [
+"2026-10-17",
+"8b3b8f8fce75a5029259"
+],
+"canadian-passport/south-korea/": [
+"2026-10-28",
+"3ece64d98b69ae69362b"
+],
+"canadian-passport/south-sudan/": [
+"2026-10-17",
+"74c8b649fcd8ddf7397c"
+],
+"canadian-passport/spain/": [
+"2026-10-28",
+"9af4c665c050ca95b4fd"
+],
+"canadian-passport/sri-lanka/": [
+"2026-10-28",
+"410a841249318d9423af"
+],
+"canadian-passport/st-kitts-and-nevis/": [
+"2026-10-17",
+"181a135226e6fa15b619"
+],
+"canadian-passport/st-lucia/": [
+"2026-10-17",
+"864ad5539a7ea6021a3f"
+],
+"canadian-passport/st-maarten/": [
+"2026-10-17",
+"1a408ea6628d25a66908"
+],
+"canadian-passport/st-pierre-and-miquelon/": [
+"2026-11-18",
+"ade10f4e9853d61a1fc5"
+],
+"canadian-passport/st-vincent-and-the-grenadines/": [
+"2026-10-17",
+"548af1e28afddaab175d"
+],
+"canadian-passport/sudan/": [
+"2026-10-17",
+"97e75094562eca078b89"
+],
+"canadian-passport/suriname/": [
+"2026-10-17",
+"ab22f7acbecae9ef1c9f"
+],
+"canadian-passport/sweden/": [
+"2026-10-17",
+"b832dad0124501328a3e"
+],
+"canadian-passport/switzerland/": [
+"2026-10-28",
+"c220e505709821ed068a"
+],
+"canadian-passport/syria/": [
+"2026-10-17",
+"46ae9d0747e66b067442"
+],
+"canadian-passport/taiwan/": [
+"2026-10-28",
+"22643482898877f88af6"
+],
+"canadian-passport/tajikistan/": [
+"2026-10-17",
+"7154c40353ef1e0dc729"
+],
+"canadian-passport/tanzania/": [
+"2026-10-17",
+"395cfe3dce0785208349"
+],
+"canadian-passport/thailand/": [
+"2026-10-28",
+"915589d59232c3be360a"
+],
+"canadian-passport/the-gambia/": [
+"2026-11-10",
+"2d7e063d44a7c9915d85"
+],
+"canadian-passport/timor-leste/": [
+"2026-10-17",
+"94b7be566bf5bded5e1c"
+],
+"canadian-passport/togo/": [
+"2026-10-17",
+"e594337db199724834ae"
+],
+"canadian-passport/tokelau/": [
+"2026-10-17",
+"18d0fada858474cf0836"
+],
+"canadian-passport/tonga/": [
+"2026-10-17",
+"0db14ce8717d1e49d6f7"
+],
+"canadian-passport/trinidad-and-tobago/": [
+"2026-10-17",
+"8dd5b0e9891db7fb1cb2"
+],
+"canadian-passport/tunisia/": [
+"2026-10-17",
+"a78ab2871992adac3971"
+],
+"canadian-passport/turkey/": [
+"2026-10-28",
+"a8649c536002850b356a"
+],
+"canadian-passport/turkmenistan/": [
+"2026-10-17",
+"f9f4cec102bd2111776c"
+],
+"canadian-passport/turks-and-caicos-islands/": [
+"2026-11-10",
+"ac6b578ebddc29b57328"
+],
+"canadian-passport/tuvalu/": [
+"2026-10-17",
+"ead70b3e28fa99378fda"
+],
+"canadian-passport/uganda/": [
+"2026-10-17",
+"5b874d197292a628d890"
+],
+"canadian-passport/ukraine/": [
+"2026-10-17",
+"c964615a96e170429a2b"
+],
+"canadian-passport/united-arab-emirates/": [
+"2026-11-10",
+"431f597c01f455ceb833"
+],
+"canadian-passport/united-kingdom/": [
+"2026-11-10",
+"2262c7b6995eb4091c59"
+],
+"canadian-passport/uruguay/": [
+"2026-10-17",
+"ec7e9a1f23d9ddaf67f2"
+],
+"canadian-passport/usa/": [
+"2026-11-10",
+"2486f588a97b07712aa9"
+],
+"canadian-passport/uzbekistan/": [
+"2026-10-17",
+"ba2c09226e86f2ea3aaf"
+],
+"canadian-passport/vanuatu/": [
+"2026-10-28",
+"7c7febd1662e5df10054"
+],
+"canadian-passport/venezuela/": [
+"2026-10-17",
+"b02afe3f6e43049ae556"
+],
+"canadian-passport/vietnam/": [
+"2026-11-04",
+"1033006fd88693b033be"
+],
+"canadian-passport/virgin-islands-u-s/": [
+"2026-11-18",
+"bd97f49a7f73ce7d0e92"
+],
+"canadian-passport/yemen/": [
+"2026-10-17",
+"5354da0abad3237c0908"
+],
+"canadian-passport/zambia/": [
+"2026-10-28",
+"65f261a68e586a80464f"
+],
+"canadian-passport/zimbabwe/": [
+"2026-10-28",
+"a9629b720e1040d9864c"
+],
+"contact/": [
+"2026-10-11",
+"62947a1885ecd8de93a6"
+],
+"ees-etias/": [
+"2026-11-10",
+"77adbbd132a72bb7bf2c"
+],
+"how-we-check/": [
+"2026-11-25",
+"8998c1527941181ca04e"
+],
+"passport-validity/": [
+"2026-11-10",
+"60c251568d7bd1990afe"
+],
+"passport-validity/afghanistan/": [
+"2026-10-17",
+"6dca72b8502afb823797"
+],
+"passport-validity/albania/": [
+"2026-10-17",
+"ef0b56f209b6cf98d1e9"
+],
+"passport-validity/algeria/": [
+"2026-10-17",
+"620d68b5695394d9d3be"
+],
+"passport-validity/andorra/": [
+"2026-10-17",
+"1332fd2f07e57d8c9fc1"
+],
+"passport-validity/angola/": [
+"2026-10-17",
+"bd4181a56e222e8f42cb"
+],
+"passport-validity/anguilla/": [
+"2026-10-17",
+"08935c9bebcf50f03e63"
+],
+"passport-validity/antigua-and-barbuda/": [
+"2026-10-17",
+"7093681efe142e8a057b"
+],
+"passport-validity/argentina/": [
+"2026-10-17",
+"c3bea7b97754de9ad722"
+],
+"passport-validity/armenia/": [
+"2026-10-17",
+"61abda4f4bad7469c8d6"
+],
+"passport-validity/aruba/": [
+"2026-10-17",
+"da033ae1df30edad4946"
+],
+"passport-validity/australia/": [
+"2026-10-28",
+"aa967891a1ed9acfb67e"
+],
+"passport-validity/austria/": [
+"2026-10-28",
+"202421e9f7e342016cb6"
+],
+"passport-validity/azerbaijan/": [
+"2026-11-04",
+"5cfbdf0931199343a5fe"
+],
+"passport-validity/bahamas/": [
+"2026-11-18",
+"881951469b41240011ba"
+],
+"passport-validity/bahrain/": [
+"2026-10-17",
+"20ab51447149b0edbc69"
+],
+"passport-validity/bangladesh/": [
+"2026-10-28",
+"7fbe390e66b608aad626"
+],
+"passport-validity/barbados/": [
+"2026-10-28",
+"bba2174dc33b3854a5a4"
+],
+"passport-validity/belarus/": [
+"2026-10-17",
+"5442f454b21936d58d5f"
+],
+"passport-validity/belgium/": [
+"2026-10-17",
+"bd3812b058a2a37a7c60"
+],
+"passport-validity/belize/": [
+"2026-10-17",
+"05ae183754fe31dab4b6"
+],
+"passport-validity/benin/": [
+"2026-11-04",
+"53d37898c11ce7b89a9f"
+],
+"passport-validity/bermuda/": [
+"2026-10-17",
+"844c1a2b9a45e3968eed"
+],
+"passport-validity/bhutan/": [
+"2026-10-17",
+"dbb1325f0457242de2b5"
+],
+"passport-validity/bolivia/": [
+"2026-10-17",
+"bbcdfc6327af1b2de8f0"
+],
+"passport-validity/bonaire-st-eustatius-saba/": [
+"2026-10-18",
+"0c7c8e7c1b02a6aeba08"
+],
+"passport-validity/bosnia-and-herzegovina/": [
+"2026-10-17",
+"4beb5eaeb17b98a36a26"
+],
+"passport-validity/botswana/": [
+"2026-10-17",
+"327a6b1a34896e9aed40"
+],
+"passport-validity/brazil/": [
+"2026-10-28",
+"23eddcf8907b801d82ff"
+],
+"passport-validity/british-indian-ocean-territory/": [
+"2026-10-17",
+"858702a7f1eee8750859"
+],
+"passport-validity/british-virgin-islands/": [
+"2026-11-18",
+"f9abdc2079d69d8dced4"
+],
+"passport-validity/brunei/": [
+"2026-10-17",
+"e5632805b432c09212a8"
+],
+"passport-validity/bulgaria/": [
+"2026-10-17",
+"b0b1d3aad85f93e6655f"
+],
+"passport-validity/burkina-faso/": [
+"2026-10-17",
+"acd7e667a76c766c9306"
+],
+"passport-validity/burundi/": [
+"2026-10-17",
+"c86b94c19d3c47b16b0d"
+],
+"passport-validity/cambodia/": [
+"2026-10-17",
+"58b01a29cbc58541dd60"
+],
+"passport-validity/cameroon/": [
+"2026-10-17",
+"579b020c24d8e46366f5"
+],
+"passport-validity/canada/": [
+"2026-10-28",
+"9719c8ab1f74f9c40868"
+],
+"passport-validity/cape-verde/": [
+"2026-10-17",
+"3cf78e73a9a82798d39f"
+],
+"passport-validity/cayman-islands/": [
+"2026-11-18",
+"0f55f02ed6331c6e86f1"
+],
+"passport-validity/central-african-republic/": [
+"2026-11-18",
+"e623e4cf259201b97e43"
+],
+"passport-validity/chad/": [
+"2026-11-04",
+"9961dfef816a80157400"
+],
+"passport-validity/chile/": [
+"2026-10-28",
+"89bc9e0f1079da3712ef"
+],
+"passport-validity/china/": [
+"2026-10-28",
+"6168e3280e5bd6222146"
+],
+"passport-validity/colombia/": [
+"2026-10-17",
+"a31d364f4e2d09f53514"
+],
+"passport-validity/comoros/": [
+"2026-11-18",
+"3767181010b6d490e5f9"
+],
+"passport-validity/congo/": [
+"2026-11-10",
+"8e63b12d31f03c2e7705"
+],
+"passport-validity/cook-islands-tokelau-and-niue/": [
+"2026-11-10",
+"549d740d5cb2911bc5c9"
+],
+"passport-validity/costa-rica/": [
+"2026-10-17",
+"f856e9c29f453a3ea800"
+],
+"passport-validity/cote-d-ivoire/": [
+"2026-11-10",
+"6e2a53f9de82d99c8810"
+],
+"passport-validity/croatia/": [
+"2026-10-17",
+"8d7e56677acdc8516898"
+],
+"passport-validity/cuba/": [
+"2026-10-17",
+"3484fc0d097320be8aea"
+],
+"passport-validity/curacao/": [
+"2026-10-17",
+"a6dc4328087bc7fadf37"
+],
+"passport-validity/cyprus/": [
+"2026-10-17",
+"989479508e546f548eb2"
+],
+"passport-validity/czechia/": [
+"2026-10-17",
+"8c491263c51d02e7395e"
+],
+"passport-validity/democratic-republic-of-the-congo/": [
+"2026-11-18",
+"318bfe92a3eceaeeff0a"
+],
+"passport-validity/denmark/": [
+"2026-10-28",
+"dd68f399a7896070d44d"
+],
+"passport-validity/djibouti/": [
+"2026-10-17",
+"04045390ac2257c76413"
+],
+"passport-validity/dominica/": [
+"2026-10-17",
+"c45fb9fee7738cab96c3"
+],
+"passport-validity/dominican-republic/": [
+"2026-11-18",
+"e8162769511f9eee8845"
+],
+"passport-validity/ecuador/": [
+"2026-10-17",
+"8cdbb88f09e0b951a75b"
+],
+"passport-validity/egypt/": [
+"2026-10-17",
+"dab8b086850081502713"
+],
+"passport-validity/el-salvador/": [
+"2026-11-04",
+"9bb7a36044078ae6d82d"
+],
+"passport-validity/equatorial-guinea/": [
+"2026-10-17",
+"0357f1d5c36ae82941b1"
+],
+"passport-validity/eritrea/": [
+"2026-10-17",
+"6fac3ee5adee344a35c1"
+],
+"passport-validity/estonia/": [
+"2026-10-17",
+"bcc0a92357211d7f758d"
+],
+"passport-validity/eswatini/": [
+"2026-10-17",
+"9928d0041307a3ef3426"
+],
+"passport-validity/ethiopia/": [
+"2026-10-17",
+"f1b3f408d1d91dfca092"
+],
+"passport-validity/falkland-islands/": [
+"2026-11-18",
+"41a11b13cc51fe50ac11"
+],
+"passport-validity/federated-states-of-micronesia/": [
+"2026-11-18",
+"1ed45540c9628e4badde"
+],
+"passport-validity/fiji/": [
+"2026-10-28",
+"9ec9add7298d48bc7e2a"
+],
+"passport-validity/finland/": [
+"2026-10-17",
+"7694750d983cc221d9d7"
+],
+"passport-validity/france/": [
+"2026-10-28",
+"516e494023885d618494"
+],
+"passport-validity/french-guiana/": [
+"2026-10-17",
+"142f2787cacef7163be6"
+],
+"passport-validity/french-polynesia/": [
+"2026-10-17",
+"ae57184b846d387a4a32"
+],
+"passport-validity/gabon/": [
+"2026-10-17",
+"e9691b5b9e19159910f2"
+],
+"passport-validity/georgia/": [
+"2026-10-17",
+"decaea840e08ded8fe13"
+],
+"passport-validity/germany/": [
+"2026-10-28",
+"33d078c8235b8669854c"
+],
+"passport-validity/ghana/": [
+"2026-11-04",
+"026d450ca2324647614f"
+],
+"passport-validity/gibraltar/": [
+"2026-10-17",
+"520ff3fcde5759a8722a"
+],
+"passport-validity/greece/": [
+"2026-10-28",
+"8d19ce6b6a726fe73503"
+],
+"passport-validity/grenada/": [
+"2026-10-17",
+"a3e2df805cbdb6d52080"
+],
+"passport-validity/guadeloupe/": [
+"2026-10-17",
+"e6b1a3b72f3fc0b80f95"
+],
+"passport-validity/guatemala/": [
+"2026-10-17",
+"d43ffebc72d2b67ad68a"
+],
+"passport-validity/guinea-bissau/": [
+"2026-10-17",
+"dd6bca93ae83e90fff30"
+],
+"passport-validity/guinea/": [
+"2026-10-17",
+"c73877e4841afeb30b96"
+],
+"passport-validity/guyana/": [
+"2026-10-17",
+"e5c7be9e31320044c4b2"
+],
+"passport-validity/haiti/": [
+"2026-10-17",
+"c13c90d33b312eafa1db"
+],
+"passport-validity/honduras/": [
+"2026-10-17",
+"3fd274175469964c57ed"
+],
+"passport-validity/hong-kong/": [
+"2026-10-28",
+"0677ce28681fd393377d"
+],
+"passport-validity/hungary/": [
+"2026-10-17",
+"75af595ae1e85dfea0ed"
+],
+"passport-validity/iceland/": [
+"2026-10-28",
+"c57e2326664a907942c9"
+],
+"passport-validity/india/": [
+"2026-10-31",
+"4784a0c340b3e6b542f6"
+],
+"passport-validity/indonesia/": [
+"2026-10-28",
+"b4628a6d887982e5157f"
+],
+"passport-validity/iran/": [
+"2026-10-17",
+"fea07cabb994815c4c25"
+],
+"passport-validity/iraq/": [
+"2026-10-17",
+"fbd27006cb13082e2042"
+],
+"passport-validity/ireland/": [
+"2026-10-28",
+"ba532a414752b2de788b"
+],
+"passport-validity/israel/": [
+"2026-10-17",
+"6f74743b8bb7f733c476"
+],
+"passport-validity/italy/": [
+"2026-10-28",
+"dd32e306c1ad7b51f479"
+],
+"passport-validity/jamaica/": [
+"2026-10-28",
+"beac9a88fa801f85b449"
+],
+"passport-validity/japan/": [
+"2026-10-28",
+"83e22de20dd9f288b4ee"
+],
+"passport-validity/jordan/": [
+"2026-10-17",
+"b665bac1e0f8994ddc8d"
+],
+"passport-validity/kazakhstan/": [
+"2026-11-04",
+"4de628a4cc567ea7fd4e"
+],
+"passport-validity/kenya/": [
+"2026-11-04",
+"2bdb64a9dcd030e9c85d"
+],
+"passport-validity/kiribati/": [
+"2026-10-17",
+"abd2a8faff9eb11f0f2e"
+],
+"passport-validity/kosovo/": [
+"2026-10-17",
+"6da695e9b57d25230b6d"
+],
+"passport-validity/kuwait/": [
+"2026-10-28",
+"0cf13926200d279ed42d"
+],
+"passport-validity/kyrgyzstan/": [
+"2026-10-17",
+"caa3c30dc628033c51aa"
+],
+"passport-validity/laos/": [
+"2026-10-17",
+"0f3bed0ac703060f3a33"
+],
+"passport-validity/latvia/": [
+"2026-10-17",
+"80f3f49f3b26ca3a8944"
+],
+"passport-validity/lebanon/": [
+"2026-10-28",
+"43ba3d150ee4b908fc9e"
+],
+"passport-validity/lesotho/": [
+"2026-10-17",
+"9d581a2a051886d95264"
+],
+"passport-validity/liberia/": [
+"2026-10-17",
+"1ba1de6e8815bd548898"
+],
+"passport-validity/libya/": [
+"2026-10-17",
+"5cbc71a46869317e842e"
+],
+"passport-validity/liechtenstein/": [
+"2026-10-17",
+"93761359a4edbe5386a1"
+],
+"passport-validity/lithuania/": [
+"2026-10-17",
+"98972ffa4f11c792d35c"
+],
+"passport-validity/luxembourg/": [
+"2026-10-17",
+"b2aa885dc7d00bd54428"
+],
+"passport-validity/macao/": [
+"2026-10-17",
+"41dc9ef5fd7c595555d1"
+],
+"passport-validity/madagascar/": [
+"2026-11-04",
+"3578b2ace1ec508ad2d3"
+],
+"passport-validity/malawi/": [
+"2026-11-04",
+"f60e89f52dc11a3c0840"
+],
+"passport-validity/malaysia/": [
+"2026-10-28",
+"ab1b20f898a35e75127c"
+],
+"passport-validity/maldives/": [
+"2026-11-18",
+"4af505336907634eb8b9"
+],
+"passport-validity/mali/": [
+"2026-10-17",
+"00d32f7c7c3a6bf6ee3c"
+],
+"passport-validity/malta/": [
+"2026-10-17",
+"8f08bef1106273ca47e8"
+],
+"passport-validity/marshall-islands/": [
+"2026-11-18",
+"fffd7d02e2462dc255ce"
+],
+"passport-validity/martinique/": [
+"2026-10-17",
+"0a3791d4455c69b6e8f8"
+],
+"passport-validity/mauritania/": [
+"2026-10-17",
+"09c7d1cc91cd0fa3c635"
+],
+"passport-validity/mauritius/": [
+"2026-10-28",
+"abf466daf8f0f276248e"
+],
+"passport-validity/mayotte/": [
+"2026-10-17",
+"631ad8b15789a75be195"
+],
+"passport-validity/mexico/": [
+"2026-10-28",
+"2d91e7a396e650e4a777"
+],
+"passport-validity/moldova/": [
+"2026-11-04",
+"92f022d3842b726cc8f3"
+],
+"passport-validity/monaco/": [
+"2026-10-17",
+"0d9f92bb9513df0e6831"
+],
+"passport-validity/mongolia/": [
+"2026-10-17",
+"1d166b30353497a12951"
+],
+"passport-validity/montenegro/": [
+"2026-10-17",
+"f9d522ec9156a07cb0fa"
+],
+"passport-validity/montserrat/": [
+"2026-10-17",
+"ef01e275bc91b9f7fe55"
+],
+"passport-validity/morocco/": [
+"2026-10-28",
+"a46ae9afe9a2beff2c24"
+],
+"passport-validity/mozambique/": [
+"2026-10-17",
+"9182e047fc01048a1419"
+],
+"passport-validity/myanmar/": [
+"2026-10-18",
+"1bbf1d104cbd354b7335"
+],
+"passport-validity/namibia/": [
+"2026-10-17",
+"702a8a0480615a2b7395"
+],
+"passport-validity/nauru/": [
+"2026-10-17",
+"e814d9df61c3061e6617"
+],
+"passport-validity/nepal/": [
+"2026-10-28",
+"006789e6d4e590770ccb"
+],
+"passport-validity/netherlands/": [
+"2026-11-18",
+"881912019eda5795c65f"
+],
+"passport-validity/new-caledonia/": [
+"2026-10-17",
+"3f994a66b9a01e91c31c"
+],
+"passport-validity/new-zealand/": [
+"2026-10-28",
+"7bb63c387c9ffae7a584"
+],
+"passport-validity/nicaragua/": [
+"2026-10-17",
+"bd7e3fe8f620ac676673"
+],
+"passport-validity/niger/": [
+"2026-10-17",
+"a75ca0847f16c28678fa"
+],
+"passport-validity/nigeria/": [
+"2026-11-04",
+"cc2097418567b7e68540"
+],
+"passport-validity/north-korea/": [
+"2026-10-17",
+"71a443237ad80c09d736"
+],
+"passport-validity/north-macedonia/": [
+"2026-10-17",
+"685cb344f74e3c49de1a"
+],
+"passport-validity/norway/": [
+"2026-10-28",
+"244338da2c02e78abb56"
+],
+"passport-validity/oman/": [
+"2026-10-28",
+"0e768522c8066fff17ca"
+],
+"passport-validity/pakistan/": [
+"2026-10-28",
+"5d2ef0a819f06c8a81be"
+],
+"passport-validity/palau/": [
+"2026-10-17",
+"3a8787bd7fd90994e1ee"
+],
+"passport-validity/palestine/": [
+"2026-10-17",
+"54b94c8c7cf0e050b122"
+],
+"passport-validity/panama/": [
+"2026-10-17",
+"fdd2e0d894db9d6f344e"
+],
+"passport-validity/papua-new-guinea/": [
+"2026-10-17",
+"cce3a5c3d9e53b520b24"
+],
+"passport-validity/paraguay/": [
+"2026-10-17",
+"7827eb5cd4fb26347a54"
+],
+"passport-validity/peru/": [
+"2026-10-17",
+"ba811ed9d0b571d7c2e3"
+],
+"passport-validity/philippines/": [
+"2026-11-18",
+"1168e4ae8ffcc00eb7cb"
+],
+"passport-validity/pitcairn-island/": [
+"2026-10-17",
+"5cd9b53eadf967847bca"
+],
+"passport-validity/poland/": [
+"2026-10-28",
+"cf4a49172e95f169101c"
+],
+"passport-validity/portugal/": [
+"2026-10-28",
+"effd35c2e07673e8c51b"
+],
+"passport-validity/qatar/": [
+"2026-10-28",
+"40fde87dd6bb288bfb9b"
+],
+"passport-validity/reunion/": [
+"2026-10-17",
+"d44f33f5ee641e93ab01"
+],
+"passport-validity/romania/": [
+"2026-10-28",
+"24eb414a55d396a0f4e2"
+],
+"passport-validity/russia/": [
+"2026-10-17",
+"5bcb911348e7b1e8e2ca"
+],
+"passport-validity/rwanda/": [
+"2026-10-17",
+"3b9ea1fcfe50216b65fa"
+],
+"passport-validity/samoa/": [
+"2026-10-28",
+"f3ddac79dc4079b33b8a"
+],
+"passport-validity/san-marino/": [
+"2026-10-17",
+"e3ff7409329d7d3649b6"
+],
+"passport-validity/sao-tome-and-principe/": [
+"2026-10-17",
+"f1c1f0c5db604590b46f"
+],
+"passport-validity/saudi-arabia/": [
+"2026-10-28",
+"9f6510cc4011e2419940"
+],
+"passport-validity/senegal/": [
+"2026-10-17",
+"11361bdd94dc426149cb"
+],
+"passport-validity/serbia/": [
+"2026-10-28",
+"3002ca743f285c36e2ff"
+],
+"passport-validity/seychelles/": [
+"2026-11-18",
+"077b47be0d4edcaa93dc"
+],
+"passport-validity/sierra-leone/": [
+"2026-10-17",
+"04a37bd56529ad129244"
+],
+"passport-validity/singapore/": [
+"2026-10-28",
+"fdbb987fa002f502658b"
+],
+"passport-validity/slovakia/": [
+"2026-10-17",
+"7594cf5c9042a0e1057f"
+],
+"passport-validity/slovenia/": [
+"2026-10-17",
+"da101923503f6963b5f7"
+],
+"passport-validity/solomon-islands/": [
+"2026-11-18",
+"2056e7153ecb67915d93"
+],
+"passport-validity/somalia/": [
+"2026-10-17",
+"fa7aa4ce109ec69bd3a8"
+],
+"passport-validity/south-africa/": [
+"2026-10-17",
+"ea14dca848070a2b3a32"
+],
+"passport-validity/south-georgia-and-south-sandwich-islands/": [
+"2026-10-17",
+"baae70db378dd7545a3b"
+],
+"passport-validity/south-korea/": [
+"2026-10-28",
+"b939b506309b1e900e6f"
+],
+"passport-validity/south-sudan/": [
+"2026-10-17",
+"42dadaf19fc9c0ce4eb8"
+],
+"passport-validity/spain/": [
+"2026-10-28",
+"8db390076b3f6b3a756e"
+],
+"passport-validity/sri-lanka/": [
+"2026-10-28",
+"0174e8a1022384cba313"
+],
+"passport-validity/st-helena-ascension-and-tristan-da-cunha/": [
+"2026-10-17",
+"630f2bde73323a5ef95f"
+],
+"passport-validity/st-kitts-and-nevis/": [
+"2026-10-17",
+"046d56f42ffaa34485a1"
+],
+"passport-validity/st-lucia/": [
+"2026-10-17",
+"180f53b84fd460178707"
+],
+"passport-validity/st-maarten/": [
+"2026-10-17",
+"792c92a74e3fd8fb6384"
+],
+"passport-validity/st-martin-and-st-barthelemy/": [
+"2026-10-18",
+"8eec80e3c675891726d0"
+],
+"passport-validity/st-pierre-and-miquelon/": [
+"2026-10-17",
+"77cd27ba24860cec92ec"
+],
+"passport-validity/st-vincent-and-the-grenadines/": [
+"2026-10-17",
+"1899a8da24530754a4d1"
+],
+"passport-validity/sudan/": [
+"2026-10-17",
+"add9ae361e9f1ce36b31"
+],
+"passport-validity/suriname/": [
+"2026-10-17",
+"b4567138c614a2a1a4e6"
+],
+"passport-validity/sweden/": [
+"2026-10-17",
+"fc60274e3d9dc16eedea"
+],
+"passport-validity/switzerland/": [
+"2026-10-28",
+"46a97f8c76b3fb9e6fc4"
+],
+"passport-validity/syria/": [
+"2026-10-17",
+"c856326494b37c086d62"
+],
+"passport-validity/taiwan/": [
+"2026-10-28",
+"a2eeb005785df5cee62f"
+],
+"passport-validity/tajikistan/": [
+"2026-10-17",
+"43ec2589982a5441fe68"
+],
+"passport-validity/tanzania/": [
+"2026-11-04",
+"7b20293e7bb94b5e3e5a"
+],
+"passport-validity/thailand/": [
+"2026-10-28",
+"9f856cf70ea03a6ef5fd"
+],
+"passport-validity/the-gambia/": [
+"2026-11-18",
+"126afaf0398468c65cb2"
+],
+"passport-validity/timor-leste/": [
+"2026-10-17",
+"9384d8026a31376b46a1"
+],
+"passport-validity/togo/": [
+"2026-11-04",
+"4e83c9f01584194447a6"
+],
+"passport-validity/tonga/": [
+"2026-10-17",
+"a38d4fff51d56781118d"
+],
+"passport-validity/trinidad-and-tobago/": [
+"2026-10-17",
+"674b8c47ec05385a30d1"
+],
+"passport-validity/tunisia/": [
+"2026-10-17",
+"7279084588482d177740"
+],
+"passport-validity/turkey/": [
+"2026-10-28",
+"e7155ca5c4094f92628c"
+],
+"passport-validity/turkmenistan/": [
+"2026-11-04",
+"888d686cb1ec583d24b8"
+],
+"passport-validity/turks-and-caicos-islands/": [
+"2026-11-18",
+"7e7fc96e6638b1a34584"
+],
+"passport-validity/tuvalu/": [
+"2026-10-17",
+"888414480dc992d4f532"
+],
+"passport-validity/uganda/": [
+"2026-11-04",
+"42ba462ed10fc2ae8640"
+],
+"passport-validity/ukraine/": [
+"2026-10-17",
+"d336473040526049a879"
+],
+"passport-validity/united-arab-emirates/": [
+"2026-11-18",
+"4bb0a80b3b5a43d3bfa5"
+],
+"passport-validity/uruguay/": [
+"2026-10-17",
+"988e13057ea1a0e9ae1a"
+],
+"passport-validity/usa/": [
+"2026-11-18",
+"da6ea133e53bc55a6bc5"
+],
+"passport-validity/uzbekistan/": [
+"2026-10-17",
+"7cd9e61489759894bb42"
+],
+"passport-validity/vanuatu/": [
+"2026-10-28",
+"560c6dafa7642d8e92fa"
+],
+"passport-validity/venezuela/": [
+"2026-10-17",
+"8fb7c1e51525397df4d3"
+],
+"passport-validity/vietnam/": [
+"2026-10-28",
+"8e36ee1ba58ae5976ac8"
+],
+"passport-validity/wallis-and-futuna/": [
+"2026-10-17",
+"91d9e525a6da28f9632a"
+],
+"passport-validity/western-sahara/": [
+"2026-10-17",
+"2f59b8d880006292caea"
+],
+"passport-validity/yemen/": [
+"2026-10-17",
+"1e9efa4035b502d09c1e"
+],
+"passport-validity/zambia/": [
+"2026-10-28",
+"6fc4dac9179d78206ec9"
+],
+"passport-validity/zimbabwe/": [
+"2026-10-28",
+"6234acff7146576bedc4"
+],
+"privacy.html": [
+"2026-11-13",
+"98d7db4d7aa3f67a4dca"
+]
+}
+}

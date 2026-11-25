@@ -150,7 +150,7 @@ FRASI = {
     # dal 7/11/2026
     "google_wallet_lista": ("google_wallet", "To verify if Google Wallet is available, select your country from the dropdown."),
     "google_wallet_assente": ("google_wallet", "If your country isn’t listed, Google Wallet isn’t available in your country yet."),
-    "google_wallet_tocco": ("google_wallet", "You can use tap to pay to store forms of payments and make contactless transactions on the Google Wallet app."),
+    "google_wallet_tocco": ("google_wallet", "You can use tap to pay to store forms of payments and make contactless transactions on the Google Wallet app on Android devices only."),  # 25/11/2026: la pagina ora aggiunge «on Android devices only»
     "google_pay_varia": ("google_pay", "Some Google Pay and Google Wallet payments features are only available in certain countries or regions and on certain devices."),
     "google_pay_online": ("google_pay", "With participating websites and apps, you can use Google Pay in:"),
     "google_pay_invio": ("google_pay", "You can use Google Pay to send money in India and Singapore."),

@@ -23,7 +23,7 @@ import shutil
 import sys
 import unicodedata
 from datetime import date, datetime, timedelta
-from html import escape
+from html import escape, unescape
 from urllib.parse import quote_plus, urlparse
 from pathlib import Path
 
@@ -306,6 +306,14 @@ FORM_JS = r"""
 """
 
 CSS = """
+.usate{margin:18px 0 6px;font-size:.95rem}
+.usate strong{display:block;font-family:var(--head);margin-bottom:6px}
+.usate ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 8px}
+.usate li{margin:0}
+.usate a{display:inline-block;background:var(--card);border:1px solid var(--line);border-radius:var(--r-s);padding:6px 10px;text-decoration:none;color:var(--ink);line-height:1.35}
+.usate a:hover{border-color:var(--accent)}
+.usate-home ul{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px}
+.usate-home a{display:block;font-weight:600}
 @font-face{font-family:"Outfit";font-style:normal;font-weight:700;font-display:swap;src:url(/assets/fonts/outfit-700.woff2) format("woff2")}
 @font-face{font-family:"DM Mono";font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fonts/dm-mono-400.woff2) format("woff2")}
 :root{--bg:#F2F3F5;--card:#FFFFFF;--ink:#101418;--ink-2:#39414B;--ink-3:#58616C;--line:#DADDE3;--line-2:#C4C9D1;
@@ -665,7 +673,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 <p>Passport validity rules: contains public sector information from the FCDO foreign travel advice on GOV.UK, licensed under the <a href="{OGL}" rel="noopener">Open Government Licence v3.0</a>.{PIEDE_ESTERI}</p>
 </div><div>
 <h2>Explore</h2>
-<ul><li><a href="{rel}about/">About and sources</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li><li><a href="{rel}contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
+<ul><li><a href="{rel}about/">About and sources</a></li><li><a href="{rel}{COME_BASE}/">How we check</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li><li><a href="{rel}contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
 </div></div>
 {blocco_altri(ALTRI_SITI, "Other useful tools for your trip")}
 <p class="f-base">Official sources only, quoted word for word.</p>
@@ -722,6 +730,8 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
     dest = SITO / file
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(testo, encoding="utf-8")
+    if indicizza:
+        IMPRONTE[percorso] = impronta_contenuto(testo)
 
 
 # eSIM (10/11/2026): tre programmi Awin nel riquadro «Before you go». Ordine e frasi da dati/esim.json (raccolta/esim.py: elenco dei Paesi
@@ -2609,6 +2619,8 @@ def pagina_aeroporto(A, nazionale=False):
 <p><a href="{rel}liquids/">All airports</a> · <a href="{rel}passport-validity/">Passport validity and visa rules</a> · <a href="{rel}ees-etias/">EES and ETIAS status</a></p>"""
     pagina(f"liquids/{A['slug']}/", scegli(titoli_liquidi(A, nazionale), LIMITE_TITOLO), scegli(descrizioni_liquidi(A, nazionale), LIMITE_DESCRIZIONE), corpo,
            briciole=[("Liquids by airport", "liquids/"), (titolo_breve, f"liquids/{A['slug']}/")], ld_extra=faq_ld)
+    if A.get("controllato_il"):
+        LASTMOD[f"liquids/{A['slug']}/"] = A["controllato_il"]  # 25/11/2026: data della lettura della pagina ufficiale
 
 
 def indice_liquidi():
@@ -2649,6 +2661,7 @@ def indice_liquidi():
     pagina("liquids/", f"Airport Liquid Rules {ANNO}: 100 ml or 2 Litres? ({len(AER['aeroporti'])} Airports)",
            f"The liquid limit at {len(AER['aeroporti'])} airports: which allow 2 litres and which keep 100 ml (Heathrow, Barcelona, Berlin, Prague, Palma…), plus US TSA rules. Official, dated.",
            corpo, briciole=[("Liquids by airport", "liquids/")])
+    LASTMOD["liquids/"] = max(A["controllato_il"] for A in AER["aeroporti"] + AER["nazionali"] if A.get("controllato_il"))
 
 
 # ---------------------------------------------------------------- EES / ETIAS
@@ -3419,6 +3432,8 @@ def pagina_compagnia(C):
 <p><a href="{rel}{BAG_BASE}/">Cabin bag size by airline</a> · <a href="{rel}{BAG_UE}">EU free personal item rule</a> · <a href="{rel}{PB_PAGINA}">Power bank rules by airline</a> · <a href="{rel}liquids/">Liquids rules by airport</a></p>"""
     pagina(f"{BAG_BASE}/{C['slug']}/", scegli(titoli_bag(C), LIMITE_TITOLO), scegli(descrizioni_bag(C), LIMITE_DESCRIZIONE), corpo,
            briciole=[("Cabin bags", f"{BAG_BASE}/"), (C["nome"], f"{BAG_BASE}/{C['slug']}/")], ld_extra=faq_ld)
+    if C.get("controllato_il"):
+        LASTMOD[f"{BAG_BASE}/{C['slug']}/"] = C["controllato_il"]  # 25/11/2026: data della lettura della pagina della compagnia
 
 
 def esiti_misura(m):
@@ -4348,8 +4363,10 @@ def home_srv():
         return ""
     voci = []
     for S, c in (("starlink", "PK"), ("apple-pay", "IN"), ("google-wallet", "PH"), ("youtube-premium", "PK"), ("spotify", "CN"), ("wise", "PK"),
-                 ("apple-tv", "NG"), ("starlink", "PH"), ("apple-music", "CN"), ("apple-pay", "PH")):
-        if S in SRV_PER and c in pagine_srv(SRV_PER[S]):
+                 ("apple-tv", "NG"), ("starlink", "PH"), ("apple-music", "CN"), ("apple-pay", "PH"),
+                 # 25/11/2026: la home non linka pagine fuori indice (dati/noindex.json); al loro posto le pagine servizio × Paese più visitate
+                 ("starlink", "SA"), ("starlink", "TR"), ("youtube-premium", "TR"), ("starlink", "DE")):
+        if S in SRV_PER and c in pagine_srv(SRV_PER[S]) and not fuori_indice(url_srv(SRV_PER[S], c)) and len(voci) < 10:
             voci.append(f'<a href="{url_srv(SRV_PER[S], c)}">{escape(SRV_PER[S]["nome"])} in {escape(frase_srv(c))}<small>{escape(breve_srv(SRV_PER[S], c))}</small></a>')
     nomi = ", ".join(S["nome"] for S in SERVIZI_SRV[:-1]) + " and " + SERVIZI_SRV[-1]["nome"]
     return (f'<h2>Is it available where you are going?</h2><p>{escape(nomi)} publish their own lists '
@@ -6232,6 +6249,7 @@ def pagina_big(a):
 <p class="small">Spotted a change? <a href="{rel}contact/?ref=ticket-release-dates">Tell us</a>. <a href="{rel}{BIG_BASE}/">Ticket release dates: all attractions</a>.</p>"""
     pagina(url_big(a["slug"]), scegli([titolo_big(a)], LIMITE_TITOLO_BIG), descrizione_big(a), corpo,
            briciole=[("Ticket release dates", url_big()), (a["nome"], url_big(a["slug"]))], js=BIG_JS, ld_extra=faq_ld)
+    LASTMOD[url_big(a["slug"])] = data_big(a)  # 25/11/2026: le date calcolate cambiano ogni giorno, la regola solo quando si rilegge la fonte
 
 
 def regola_breve_big(a):
@@ -6322,6 +6340,7 @@ def pagina_indice_big():
                    f"When tickets go on sale, closing days and free days at {len(BIG_ATT)} major attractions, from the official websites."], LIMITE_DESCRIZIONE)
     pagina(url_big(), scegli([titolo_indice_big(), f"Ticket Release Dates {STAGIONE_BIG}: Major Attractions"], LIMITE_TITOLO_BIG), desc, corpo,
            briciole=[("Ticket release dates", url_big())], js=BIG_JS, ld_extra=faq_ld)
+    LASTMOD[url_big()] = BIG["controllato_il"]
 
 
 def home_big():
@@ -7976,7 +7995,7 @@ def home_pet():
     if not PET:
         return ""
     voci = "".join(f'<a href="{url_pet(p)}">{escape(p["nome"])}<small>{"Dogs: tapeworm treatment" if tenia_pet(p["iso2"]) else "AHC, no tapeworm to enter"}</small></a>'
-                   for p in PET_PAGINE[:12])
+                   for p in [p for p in PET_PAGINE if not fuori_indice(url_pet(p))][:12])  # 25/11/2026: solo pagine in indice
     return (f'<h2>Travelling with a dog or cat from the UK</h2><p>Microchip, rabies vaccination, animal health certificate and tapeworm rules from GOV.UK: '
             f'<a href="{PET_BASE}/">taking a pet from the UK to the EU</a>, the <a href="{PET_CALC}">pet travel date calculator</a>, the '
             f'<a href="{PET_PASS}">2027 pet passport</a> and the <a href="{PET_ROTTE}">approved routes into Great Britain</a>.</p><div class="griglia">{voci}</div>')
@@ -8137,9 +8156,10 @@ def box_k9_da():
             f'<p class="small">Partner link: if you book through it we may earn a commission, at no extra cost to you. It does not change what this page says.</p></section>')
 
 
-def altre_da(rel, salta=None):
+def altre_da(rel, salta=None, solo_indice=False):
+    """solo_indice (home, dal 25/11/2026): senza le pagine fuori indice (dati/noindex.json)."""
     return "".join(f'<a href="{rel}{url_da(C)}">{escape(C["nome"])}<small>{"Official pages quoted" if C["letta"] else "Official site not read"}</small></a>'
-                   for C in DA_COMP if C is not salta)
+                   for C in DA_COMP if C is not salta and not (solo_indice and fuori_indice(url_da(C))))
 
 
 def titoli_da(C):
@@ -8264,7 +8284,7 @@ def home_da():
     if not DA:
         return ""
     return (f'<h2>Airlines for dogs</h2><p>Routes, what a ticket covers, dog size and the prices stated on the official sites: '
-            f'<a href="{DA_BASE}/">airlines for dogs compared</a>.</p><div class="griglia">{altre_da("")}</div>')
+            f'<a href="{DA_BASE}/">airlines for dogs compared</a>.</p><div class="griglia">{altre_da("", solo_indice=True)}</div>')
 
 
 def about_da(rel):
@@ -9912,7 +9932,7 @@ def home():
     # 12/11/2026 (notte): la sezione in italiano è fuori indice (dati/noindex.json); il suo riquadro esce dalla testata della home
     # (testo italiano in cima a un sito in inglese) e resta come una riga in fondo, per chi la cerca.
     it_home = (f'<p class="small" lang="it">Per chi ha la cittadinanza italiana: <a href="{IT_BASE}/" hreflang="it">documenti per viaggiare '
-               f"all'estero</a> (passaporto, carta d'identità e visto per {len(VOCI_IT)} Paesi, dalle schede di Viaggiare Sicuri).</p>") if VOCI_IT else ""
+               f"all'estero</a> (passaporto, carta d'identità e visto per {len(VOCI_IT)} Paesi, dalle schede di Viaggiare Sicuri).</p>") if VOCI_IT and not fuori_indice(f"{IT_BASE}/") else ""  # 25/11/2026: la home non linka pagine fuori indice
     testata = f"""<div class="band"><div class="wrap band-in">
 <section class="hero">{h1_diviso(f"Before You Fly: passport validity, airport liquids rules, cabin bag sizes and EU entry checks ({ANNO})")}
 <p class="scope"><span class="pill">{ico("passport")}British passport checker</span><span>Passport rules from the UK government (FCDO), for British citizens.{"".join(f' {ESTERI[k]["agg"]} passport: <a href="{ESTERI[k]["base"]}/" style="color:var(--sign)">{len(VOCI[k])} destinations</a>.' for k in ESTERI if VOCI[k])}</span></p>
@@ -9930,6 +9950,7 @@ def home():
 {modulo_checker('tutti-dati', True, link='passport-validity/')}
 </div></div>"""
     corpo = f"""<p class="lead" style="margin-top:28px">Six things to check before you fly, answered from official sources only: is your passport valid long enough for your destination, can you take more than 100 ml of liquids through security, how big your cabin bag can be on your airline, what EES and ETIAS mean for your trip, which apps and services work in your destination, and whether you need an international driving permit to drive there. Every rule is quoted word for word with its source and the date we checked it.</p>
+{SEGNO_USATE}
 {AVVISO_PASS}
 {AD}
 <h2>Popular destinations</h2>
@@ -9997,6 +10018,7 @@ def about():
     senza = "".join(f"<li>{escape(P['nome'])}: {escape(P['motivo'])}</li>" for P in SENZA_PAGINA)
     corpo = f"""<section class="hero"><h1>About {NOME} and our sources</h1></section><div class="testo">
 <p>{NOME} is an independent project. It collects official travel rules and shows them word for word, with the link and the date we checked them. We are not affiliated with any government, airport or airline.</p>
+{chi_gestisce(rel)}
 <h2>Rules we follow</h2>
 <ul><li>Only official sources: the UK government (GOV.UK, FCDO), the Government of Canada (travel.gc.ca), the Australian Government (Smartraveller), the European Commission and EU portals, airport operators, airlines (for their own bag rules), and national aviation security authorities (TSA, CATSA, Hong Kong Civil Aviation Department).</li>
 <li>Every rule is quoted, not rewritten. Our short summaries are labelled as such and the official text is always on the same page.</li>
@@ -10034,7 +10056,7 @@ def about():
 <h2>EES and ETIAS</h2>
 <p>European Commission (DG Migration and Home Affairs) pages and GOV.UK travel advice, last checked on {data_lunga(EES['controllato_il'])}. See the <a href="{rel}ees-etias/">EES and ETIAS page</a>.</p>
 <h2>Corrections</h2>
-<p>Spotted a change or a mistake? <a href="{rel}contact/?ref=about">Tell us</a>.</p></div>"""
+<p>Spotted a change or a mistake? <a href="{rel}contact/?ref=about">Tell us</a>. What we do when a source changes is on the <a href="{rel}{COME_BASE}/">How we check</a> page.</p></div>"""
     pagina("about/", f"About and sources | {NOME}", "Where our travel rules come from: official sources, check dates, licences and the destinations we leave out.",
            corpo, briciole=[("About and sources", "about/")])
 
@@ -10087,15 +10109,280 @@ def privacy():
 <h2>Your rights</h2><p>You can ask for access, correction, deletion, restriction, portability and objection (Articles 15–22 GDPR) and you can complain to the Italian data protection authority (<a href="https://www.garanteprivacy.it" rel="noopener">garanteprivacy.it</a>) or the authority in your country.</p></div>"""
     pagina("privacy.html", f"Privacy | {NOME}", f"Privacy notice of {NOME}.", corpo)
 
+# ---------------------------------------------------------------- Recupero dopo il cambio di dominio (25/11/2026)
+# studio-business/STRATEGIA-RECUPERO.md, azioni 3, 5 e 6 con le correzioni della revisione. Tutto additivo e reversibile:
+#  - sitemap.xml è un indice di sitemap, una per sezione, con le STESSE pagine indicizzabili; lastmod = data propria del dato
+#    (LASTMOD: data della lettura della fonte) dove esiste, altrimenti il registro dati/lastmod.json (impronta del testo principale:
+#    uguale -> la data resta, diversa o pagina nuova -> oggi; seme del 25/11 dalle date vere di git, raccolta/lastmod_seme.py);
+#  - sitemap-vecchi-indirizzi.xml: i vecchi URL before-you-fly.netlify.app che esistevano prima dell'8/11 (dati/vecchi_indirizzi.json),
+#    file a parte, NON citato in robots.txt né nell'indice: lo invia a mano il titolare in Search Console;
+#  - blocco «Most used pages» in home e riga «Most used in this section» negli indici (visite vere: dati/piu_usate.json);
+#  - blocco «Related pages» SOLO sulle pagine indicizzabili con 2 link interni in entrata o meno (contati sul sito appena generato);
+#  - pagina «How we check» e paragrafo «Who runs it» in About.
+# I blocchi stanno tra B_INIZIO e B_FINE: l'impronta del lastmod li salta (non sono contenuto della pagina).
+COME_BASE = "how-we-check"
+SEGNO_USATE = "<!--piu-usate-->"
+B_INIZIO, B_FINE = "<!--blocco-recupero-->", "<!--/blocco-recupero-->"
+_f_usate = DATI / "piu_usate.json"
+USATE = json.loads(_f_usate.read_text(encoding="utf-8")) if _f_usate.exists() else {"visite": {}}
+_f_vecchi = DATI / "vecchi_indirizzi.json"
+VECCHI = json.loads(_f_vecchi.read_text(encoding="utf-8")) if _f_vecchi.exists() else {"host": "", "percorsi": []}
+REGISTRO_LASTMOD = DATI / "lastmod.json"
+IMPRONTE = {}  # percorso -> impronta della pagina appena generata (prima dei blocchi)
+N_USATE_HOME, N_USATE_INDICE, MIN_USATE_INDICE, MAX_ENTRATA_CORRELATE = 30, 8, 5, 2
+_MESI_EN = "January|February|March|April|May|June|July|August|September|October|November|December"
+_DATE_RE = re.compile(rf"\b\d{{1,2}}(?:st|nd|rd|th)? (?:{_MESI_EN})(?: \d{{4}})?\b|\b(?:{_MESI_EN}) \d{{1,2}}(?:, \d{{4}})?\b|\b(?:{_MESI_EN}) \d{{4}}\b|\b\d{{4}}-\d{{2}}-\d{{2}}\b")
+RECUPERO = {}  # numeri dell'ultima generazione (rapporto in fondo a main)
+
+
+def impronta_contenuto(html):
+    """Impronta del testo principale della pagina: il testo visibile di <main>, senza i blocchi di recupero («Most used», «Related»),
+    senza script e con le date sostituite da un segno (la data della generazione e la data del ricontrollo non sono un cambio di contenuto).
+    Menu, piè di pagina, CSS e <head> non entrano."""
+    import hashlib
+    m = re.search(r'<main id="main">(.*?)</main>', html, re.S)
+    t = m.group(1) if m else ""
+    t = re.sub(re.escape(B_INIZIO) + ".*?" + re.escape(B_FINE), " ", t, flags=re.S)
+    t = re.sub(r"(?s)<script.*?</script>|<style.*?</style>|<svg.*?</svg>", " ", t)
+    t = unescape(re.sub(r"<[^>]+>", " ", t))
+    t = re.sub(r"\s+", " ", _DATE_RE.sub("§", t)).strip()
+    return hashlib.sha256(t.encode("utf-8")).hexdigest()[:20]
+
+
+def date_lastmod():
+    """percorso -> lastmod per ogni pagina indicizzabile. Data del dato (LASTMOD) dove esiste; altrimenti registro delle impronte."""
+    reg = json.loads(REGISTRO_LASTMOD.read_text(encoding="utf-8"))["pagine"] if REGISTRO_LASTMOD.exists() else {}
+    oggi = OGGI.isoformat()
+    nuovo, out = {}, {}
+    for u in URLS:
+        if u in LASTMOD:
+            out[u] = min(LASTMOD[u], oggi)
+            continue
+        imp = IMPRONTE[u]
+        d = reg[u][0] if u in reg and reg[u][1] == imp else oggi
+        nuovo[u] = [d, imp]
+        out[u] = d
+    REGISTRO_LASTMOD.write_text(json.dumps({
+        "_nota": "Scritto da genera.py: percorso -> [data dell'ultimo cambio del testo principale, impronta], per le pagine senza una data "
+                 "propria nei dati. Seme del 25/11/2026 da git (raccolta/lastmod_seme.py). Non modificare a mano.",
+        "pagine": dict(sorted(nuovo.items()))}, ensure_ascii=False, indent=0) + "\n", encoding="utf-8")
+    return out
+
+
+def sezione_sitemap(u):
+    """Nome del file di sitemap di una pagina: la prima cartella del percorso se la sezione ha un indice e altre pagine, altrimenti «main»
+    (home, About, How we check, contatti, privacy e le sezioni di una pagina sola)."""
+    testa = u.split("/")[0] if "/" in u else ""
+    return testa if testa and sum(1 for x in URLS if x.startswith(testa + "/")) > 1 else "main"
+
+
+def scrivi_sitemap():
+    date_ = date_lastmod()
+    gruppi = {}
+    for u in URLS:
+        gruppi.setdefault(sezione_sitemap(u), []).append(u)
+    xmlns = 'xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"'
+    indice = []
+    for nome in ["main"] + sorted(k for k in gruppi if k != "main"):
+        uu = gruppi[nome]
+        voci = "".join(f"<url><loc>{URL_SITO}/{u}</loc><lastmod>{date_[u]}</lastmod></url>" for u in uu)
+        (SITO / f"sitemap-{nome}.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset {xmlns}>{voci}</urlset>\n')
+        indice.append(f"<sitemap><loc>{URL_SITO}/sitemap-{nome}.xml</loc><lastmod>{max(date_[u] for u in uu)}</lastmod></sitemap>")
+    (SITO / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex {xmlns}>{"".join(indice)}</sitemapindex>\n')
+    # vecchi indirizzi: solo quelli la cui pagina esiste ancora (il vecchio host risponde 301 verso la stessa pagina, che risponde 200)
+    vecchi = [p for p in VECCHI["percorsi"] if (SITO / (p if p.endswith(".html") else p + "index.html")).is_file()]
+    if vecchi:
+        voci = "".join(f"<url><loc>https://{VECCHI['host']}/{p}</loc></url>" for p in vecchi)
+        (SITO / "sitemap-vecchi-indirizzi.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset {xmlns}>{voci}</urlset>\n')
+    RECUPERO.update(sitemap=len(gruppi), vecchi=len(vecchi), date=date_)
+
+
+def _file_di(u):
+    return SITO / (u if u.endswith(".html") else u + "index.html")
+
+
+def _rel_da(u):
+    """Prefisso relativo dalla pagina u alla radice del sito."""
+    return "../" * (u if u.endswith("/") or not u else u.rsplit("/", 1)[0] + "/" if "/" in u else "").count("/")
+
+
+def _link_interni(u, html, pagine):
+    """Percorsi delle pagine del sito linkate dalla pagina u (senza se stessa)."""
+    import posixpath
+    base = "/" + (u if u.endswith("/") or not u else u.rsplit("/", 1)[0] + "/" if "/" in u else "")
+    out = set()
+    for href in re.findall(r'<a\b[^>]*?\bhref="([^"#?]*)', html):
+        if href.startswith(URL_SITO + "/"):
+            href = href[len(URL_SITO):]
+        elif not href or re.match(r"[a-z][a-z0-9+.-]*:", href) or href.startswith("//"):
+            continue
+        t = posixpath.normpath(posixpath.join(base, href))
+        t = "" if t in ("/", ".") else t.lstrip("/") + ("/" if not t.endswith(".html") else "")
+        if t in pagine and t != u:
+            out.add(t)
+    return out
+
+
+def etichetta_pagina(html):
+    """Testo del link verso una pagina: il suo H1; se è lungo, la parte prima dei due punti o fino al primo punto di domanda."""
+    m = re.search(r"<h1[^>]*>(.*?)</h1>", html, re.S)
+    t = re.sub(r"\s+", " ", unescape(re.sub(r"<[^>]+>", " ", m.group(1)))).strip().replace(" :", ":") if m else ""
+    if len(t) > 75:
+        for sep, tieni in ((": ", 0), ("? ", 1)):
+            i = t.find(sep)
+            if i >= 15:
+                t = t[:i + tieni]
+                break
+    return t
+
+
+def blocco_recupero(titolo, voci, classe="", h2=False):
+    """voci = [(href, testo)]. In home un <h2> e una griglia a due colonne; altrove una riga compatta con l'etichetta in grassetto."""
+    li = "".join(f'<li><a href="{h}">{escape(t)}</a></li>' for h, t in voci)
+    testa = f"<h2>{escape(titolo)}</h2>" if h2 else f"<strong>{escape(titolo)}</strong>"
+    return f'{B_INIZIO}<nav class="usate{" " + classe if classe else ""}" aria-label="{escape(titolo)}">{testa}<ul>{li}</ul></nav>{B_FINE}'
+
+
+def _dopo_apertura(html):
+    """Posizione, dentro <main>, dopo la testata (hero) e i paragrafi di apertura (class="lead"): sopra tabelle, griglie e avvisi."""
+    i = html.index('<main id="main">')
+    j = html.find("</section>", html.index('<section class="hero"', i))
+    assert j > 0
+    j += len("</section>")
+    while True:
+        m = re.match(r'\s*<p class="lead"[^>]*>.*?</p>', html[j:], re.S)
+        if not m:
+            return j
+        j += m.end()
+
+
+def recupero():
+    """Blocchi «Most used» (home e indici) e «Related» (pagine con pochi link in entrata), scritti nelle pagine già generate."""
+    from collections import defaultdict
+    pagine = {(f.relative_to(SITO).as_posix()[:-len("index.html")] if f.name == "index.html" else f.relative_to(SITO).as_posix()): f.read_text(encoding="utf-8")
+              for f in SITO.rglob("*.html") if f.name != "404.html" and not f.name.startswith("google")}
+    indic = set(URLS)
+    entrata = defaultdict(set)
+    uscita = {}
+    for u, h in pagine.items():
+        uscita[u] = _link_interni(u, h, pagine)
+        for t in uscita[u]:
+            entrata[t].add(u)
+    assert not (uscita[""] & set(FUORI_INDICE)), f"la home linka pagine fuori indice: {sorted(uscita[''] & set(FUORI_INDICE))}"
+    visite = {u: n for u, n in USATE["visite"].items() if u in indic and u}
+    ordine = sorted(visite, key=lambda u: (-visite[u], u))
+    etichetta = {u: etichetta_pagina(pagine[u]) for u in indic}
+    nuove = {}  # percorso -> html cambiato
+    aggiunti = defaultdict(set)
+
+    def metti(u, pos, blocco, bersagli):
+        h = nuove.get(u, pagine[u])
+        nuove[u] = h[:pos] + "\n" + blocco + h[pos:]
+        for t in bersagli:
+            aggiunti[t].add(u)
+
+    # 1) home: le pagine indicizzabili con più visite
+    top = ordine[:N_USATE_HOME]
+    if top:
+        h = pagine[""]
+        assert h.count(SEGNO_USATE) == 1
+        nuove[""] = h.replace(SEGNO_USATE, blocco_recupero("Most used pages", [(t, etichetta[t]) for t in top], "usate-home", h2=True))
+        for t in top:
+            aggiunti[t].add("")
+    # 2) indici (di sezione e di servizio/patente): le pagine più visitate sotto quell'indice
+    indici = 0
+    for u in sorted(indic):
+        if not u or not u.endswith("/") or u.count("/") > 2:
+            continue
+        figli = [t for t in ordine if t.startswith(u) and t != u][:N_USATE_INDICE]
+        if len(figli) < MIN_USATE_INDICE:
+            continue
+        rel = _rel_da(u)
+        metti(u, _dopo_apertura(pagine[u]), blocco_recupero("Most used in this section", [(rel + t, etichetta[t]) for t in figli]), figli)
+        indici += 1
+    # 3) «Related pages» solo sulle pagine indicizzabili con pochi link in entrata: un anello tra pagine dello stesso gruppo
+    #    (stessa cartella: stesso servizio, stessa patente, stessa sezione: le due pagine prima e le due dopo), più una delle più visitate
+    pochi = sorted(u for u in indic if u and len(entrata[u]) <= MAX_ENTRATA_CORRELATE)
+    gruppi = defaultdict(list)
+    for u in pochi:
+        gruppi[u.rstrip("/").rsplit("/", 1)[0] + "/" if "/" in u.rstrip("/") else ""].append(u)
+    for g, uu in gruppi.items():
+        del_gruppo = [t for t in ordine if t.startswith(g) and t != g and t.count("/") == g.count("/") + 1] if g else []
+        if len(del_gruppo) < 5:  # gruppo senza abbastanza pagine visitate: si completa con le altre pagine della stessa cartella
+            del_gruppo += sorted(t for t in indic if t.startswith(g) and t != g and t.count("/") == g.count("/") + 1 and t not in del_gruppo)
+        for i, u in enumerate(uu):
+            scelti = list(dict.fromkeys(x for x in (uu[(i + k) % len(uu)] for k in (1, 2, -1, -2)) if x != u))
+            # una pagina tra le più visitate del gruppo, a rotazione (non sempre la stessa), e le altre solo se l'anello è corto
+            giro = [t for t in del_gruppo[:10] if t != u and t not in scelti]
+            if giro:
+                scelti.append(giro[i % len(giro)])
+            for t in del_gruppo:
+                if len(scelti) >= 3:
+                    break
+                if t != u and t not in scelti:
+                    scelti.append(t)
+            if len(scelti) < 3:
+                continue
+            h = nuove.get(u, pagine[u])
+            pos = h.rindex("</div>\n</main>")
+            rel = _rel_da(u)
+            metti(u, pos, blocco_recupero("Related pages", [(rel + t, etichetta[t]) for t in scelti]) + "\n", scelti)
+    for u, h in nuove.items():
+        _file_di(u).write_text(h, encoding="utf-8")
+    dopo = {u: len(entrata[u] | aggiunti[u]) for u in indic}
+    RECUPERO.update(top=top, prima={u: len(entrata[u]) for u in indic}, dopo=dopo, pochi=pochi, indici=indici,
+                    ancora_pochi=[u for u in pochi if dopo[u] <= MAX_ENTRATA_CORRELATE])
+
+
+def chi_gestisce(rel):
+    """Paragrafo «Who runs it» in cima ad About (25/11/2026), sul modello di Visa Income Checker: chi pubblica il sito, come si paga,
+    come segnalare un errore. Nessun dato personale qui: il titolare è nominato solo nell'informativa privacy."""
+    paga = (["advertising served by Google AdSense"] if MON.adsense_attivo(SITO_ID) else []) + (["affiliate links, always marked “Affiliate”"] if ci_sono_affiliati() else [])
+    pagato = (f"The site is free to use. It is paid for by {' and by '.join(paga)}: neither changes the rules we show, and partners never decide what we publish."
+              if paga else "The site is free to use and shows no advertising.")
+    return f"""<h2>Who runs it</h2>
+<p>{NOME} is run from Italy by one person, as an independent project: the person responsible is named in the <a href="{rel}privacy.html">privacy notice</a>. There is no company, travel agency, airline or airport behind it, and we do not sell tickets, visas or travel services. {pagato} Details are in the privacy notice. If you spot a mistake or a rule that has changed, write to us through the <a href="{rel}contact/?ref=about">contact form</a>: we read the official source again and correct the page. <a href="{rel}{COME_BASE}/">How we check</a> explains where the data comes from, how the sources are read again and which parts of the site are built automatically.</p>"""
+
+
+def pagina_come_controlliamo():
+    """Pagina «How we check» (25/11/2026), sul modello di «How it works» di Visa Income Checker: da dove vengono i dati, ogni quanto si
+    rileggono, che cosa succede quando una fonte cambia, quali parti sono generate in automatico da dati ufficiali. Solo fatti già veri
+    nel progetto (NOTE.md, sezione «Ricontrolli»); nessuna promessa di scadenze: vale la data stampata su ogni pagina."""
+    rel = "../"
+    n_srv = len(SERVIZI_SRV)
+    corpo = f"""<section class="hero"><h1>How we check: sources, dates and what is automatic</h1>
+<p class="lead">Where the rules on {NOME} come from, how the official sources are read again, what happens when one of them changes, and which parts of the site a program builds from official data.</p></section>
+<div class="testo">
+<h2>1. Where the data comes from</h2>
+<p>Every rule on this site comes from an official source: a government, an EU institution, an airport operator, an airline, a transport operator, the attraction itself or the company that provides a service. We do not use blogs, forums, news sites or other travel sites as sources. Each page prints the name of the source, a link to the official page and the date we read it, and the rule itself is quoted word for word. If we cannot read an official page, or it is unclear, the page is not published or says so. The full list of sources, section by section, with the licences, is on the <a href="{rel}about/">About and sources</a> page.</p>
+<p>There are two kinds of source:</p>
+<ul><li><strong>Official data files and lists.</strong> The passport and visa pages for British passports are read from the GOV.UK Content API (FCDO foreign travel advice); the Canadian passport pages from the Government of Canada's open data files; the Australian passport pages from the Smartraveller destination pages; the <a href="{rel}{SRV_BASE}/">apps and services by country</a> pages from the lists of countries that the {n_srv} providers publish themselves; the <a href="{rel}{IN_BASE}/">India e-Visa fee</a> table from the fee table published by the Indian government.</li>
+<li><strong>Official pages read one by one.</strong> The <a href="{rel}liquids/">liquids rules</a> of {len(AER['aeroporti'])} airports, the <a href="{rel}cabin-bags/">cabin bag sizes</a> of {len(COMPAGNIE)} airlines, <a href="{rel}{BIG_BASE}/">ticket release dates</a>, <a href="{rel}{PET_BASE}/">pet travel</a>, tolls, winter tyres, public transport and train luggage rules: each official page was opened and read, and the sentences that state the rule were copied into our data files with the link and the date. Some sites load their text with JavaScript or refuse simple automated requests: we read those in a normal browser and say so.</li></ul>
+<h2>2. How often we read the sources again</h2>
+<p>We do not promise a fixed timetable. What counts is the date printed on each page (“checked on”, “last checked”): it is the day that page's source was last read, and it only changes when the source really was read again. At present, lists that change often (the Starlink availability map, the India e-Visa fee table, the driving permit advice) are read again about once a week; passport and visa pages, airports and airlines about once a month; public transport and train luggage rules about every three months and when timetables or fares change; winter tyre rules before and during each winter season.</p>
+<h2>3. What happens when a source changes</h2>
+<p>For every rule we keep the exact sentences we quote. When a source is read again, a program checks that each quoted sentence is still on the official page, word for word. If a sentence is missing or has changed, nothing is updated automatically: the page is read again, the rule and the quotes are corrected in the data, and the page is published again with the new date. Until then the page keeps showing the older date, so you can see how old the reading is. If a source can no longer be read, we say so on the page or take the page down. Where two official texts disagree, we show both and do not choose.</p>
+<p>You can help: if you see that a rule has changed, <a href="{rel}contact/?ref=how-we-check">tell us</a> and we will read the official page again.</p>
+<h2>4. Which parts are generated automatically</h2>
+<p>The pages of this site are built by a program from our data files, so that the same rule is never typed twice. This is what the program does on its own, and what it does not do:</p>
+<ul><li><strong>Built automatically from official data:</strong> the page for each destination, airport, airline, country or service; the tables on the index pages; the official text shown on the passport and visa pages (reproduced unchanged); the yes or no for a service in a country, taken from the provider's list.</li>
+<li><strong>Short summaries by fixed rules:</strong> on the passport and visa pages, the one-line summary (“In short”) is written only when the official sentence matches one of a few fixed wordings; otherwise the page shows the official text without a summary. The fixed wordings are described on the <a href="{rel}about/">About</a> page. On the pages read one by one, the short answer at the top is our summary of the quoted sentences, which are always on the same page.</li>
+<li><strong>Calculated in your browser:</strong> the passport date checker, the “does my bag fit?” checker and the pet travel date calculator apply the official rule to the dates or sizes you type. Nothing you type is sent to us.</li>
+<li><strong>Calculated dates:</strong> on the ticket release pages, the next release dates are calculated from the official rule (for example “every Wednesday at 12 noon”) and are labelled as calculated.</li>
+<li><strong>Never automatic:</strong> the program does not invent a rule, fill in a missing value or guess from other countries. If the official source says nothing, the page says so (for example “Not stated”).</li></ul>
+<h2>5. Limits</h2>
+<p>This is information, not legal advice. Rules change, and the airline, the airport and border officials have the final say. Always check the official page linked under each rule before you travel.</p>
+</div>"""
+    pagina(f"{COME_BASE}/", f"How We Check: Sources, Dates and Automation | {NOME}",
+           f"How {NOME} works: official sources only, the date each one was read, what happens when a source changes and which parts are built automatically.",
+           corpo, briciole=[("How we check", f"{COME_BASE}/")])
+
 
 def extra():
     (SITO / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {URL_SITO}/sitemap.xml\n")
     (SITO / f"{CHIAVE_INDEXNOW}.txt").write_text(CHIAVE_INDEXNOW)  # file chiave IndexNow: non in sitemap, non linkato
     MON.scrivi_ads_txt(SITO_ID, SITO)  # sito/ads.txt solo con AdSense acceso (monetizzazione.json)
-    # lastmod: data vera dell'ultima lettura della fonte per le pagine "Available in?" (LASTMOD), data di oggi per le altre
-    voci = "".join(f"<url><loc>{URL_SITO}/{u}</loc><lastmod>{LASTMOD.get(u, OGGI.isoformat())}</lastmod></url>" for u in URLS)
-    (SITO / "sitemap.xml").write_text(
-        f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{voci}</urlset>\n')
+    scrivi_sitemap()
     (SITO / "netlify.toml").write_text("""[build]
   publish = "."
   command = ""
@@ -10610,8 +10897,10 @@ def main():
         pagina_lingua_in("de")
         pagina_lingua_in("fr")
     about()
+    pagina_come_controlliamo()
     contatti()
     privacy()
+    recupero()
     extra()
     auto = sum(1 for P in PAESI if P["regola"])
     print(f"Fuori indice e senza AdSense (dati/noindex.json): {len(FUORI_INDICE)} pagine; senza AdSense ma in indice: "

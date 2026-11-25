@@ -1,6 +1,6 @@
 {
  "_nota": "Liste ufficiali dei Paesi dei servizi digitali, lette da raccolta/servizi.py. stato: si = nella lista con il servizio; no = la fonte nomina il Paese ma senza il servizio (motivo in 'nota'); in_arrivo = Starlink 'Coming soon'; per_regione = Starlink a livello di regione ('exclude'). Paesi assenti = non nominati dalla fonte (mai 'vietato'). Codici ISO 3166-1 alfa-2 (dati/paesi_iso.json).",
- "letto_il": "2026-11-16",
+ "letto_il": "2026-11-25",
  "letture": {
   "starlink": {
    "url": "https://api.starlink.com/public-files/availability.json",
@@ -13,98 +13,98 @@
    "url": "https://support.apple.com/en-us/118205",
    "url_finale": "https://support.apple.com/en-us/118205",
    "http": 200,
-   "byte": 439434,
+   "byte": 398972,
    "data_fonte": "2026-10-30"
   },
   "apple_pay": {
    "url": "https://support.apple.com/en-us/102775",
    "url_finale": "https://support.apple.com/en-us/102775",
    "http": 200,
-   "byte": 170813,
+   "byte": 129711,
    "data_fonte": "2026-10-27"
   },
   "youtube": {
    "url": "https://support.google.com/youtube/answer/6307365?hl=en",
    "url_finale": "https://support.google.com/youtube/answer/6307365?hl=en",
    "http": 200,
-   "byte": 1623306,
+   "byte": 1623761,
    "data_fonte": null
   },
   "spotify": {
    "url": "https://support.spotify.com/us/article/where-spotify-is-available/",
    "url_finale": "https://support.spotify.com/us/article/where-spotify-is-available/",
    "http": 200,
-   "byte": 783570,
+   "byte": 784411,
    "data_fonte": null
   },
   "spotify_estero": {
    "url": "https://support.spotify.com/us/article/cant-play-abroad/",
    "url_finale": "https://support.spotify.com/us/article/cant-play-abroad/",
    "http": 200,
-   "byte": 728345,
+   "byte": 729186,
    "data_fonte": null
   },
   "google_wallet": {
    "url": "https://support.google.com/wallet/answer/12060037?hl=en",
    "url_finale": "https://support.google.com/wallet/answer/12060037?hl=en",
    "http": 200,
-   "byte": 1660587,
+   "byte": 1660957,
    "data_fonte": null
   },
   "google_pay": {
    "url": "https://support.google.com/googlepay/answer/12429287?hl=en",
    "url_finale": "https://support.google.com/googlepay/answer/12429287?hl=en",
    "http": 200,
-   "byte": 1600645,
+   "byte": 1601107,
    "data_fonte": null
   },
   "wise": {
    "url": "https://wise.com/help/articles/2813542/where-do-i-need-to-live-to-hold-money-with-wise",
    "url_finale": "https://wise.com/help/articles/2813542/where-do-i-need-to-live-to-hold-money-with-wise",
    "http": 200,
-   "byte": 73306,
+   "byte": 76432,
    "data_fonte": null
   },
   "wise_dove": {
    "url": "https://wise.com/help/articles/2978049/where-can-i-use-wise",
    "url_finale": "https://wise.com/help/articles/2978049/where-can-i-use-wise",
    "http": 200,
-   "byte": 83168,
+   "byte": 86258,
    "data_fonte": null
   },
   "wise_invio": {
    "url": "https://wise.com/help/articles/2571942/what-countriesregions-can-i-send-to",
    "url_finale": "https://wise.com/help/articles/2571942/what-countriesregions-can-i-send-to",
    "http": 200,
-   "byte": 118175,
+   "byte": 123306,
    "data_fonte": null
   },
   "uber": {
    "url": "https://www.uber.com/global/en/cities/",
    "url_finale": "https://www.uber.com/us/en/r/cities/",
    "http": 200,
-   "byte": 468127,
+   "byte": 472893,
    "data_fonte": null
   },
   "stripe": {
    "url": "https://stripe.com/global",
    "url_finale": "https://stripe.com/global",
    "http": 200,
-   "byte": 507762,
+   "byte": 509780,
    "data_fonte": null
   },
   "bolt": {
    "url": "https://bolt.eu/en/cities/",
    "url_finale": "https://bolt.eu/en/cities/",
    "http": 200,
-   "byte": 3200890,
+   "byte": 3202165,
    "data_fonte": null
   },
   "google_fi": {
    "url": "https://fi.google.com/about/international-rates",
    "url_finale": "https://fi.google.com/about/international-rates",
    "http": 200,
-   "byte": 2294968,
+   "byte": 2295453,
    "data_fonte": null
   },
   "google_wallet_paesi": {
@@ -202,7 +202,7 @@
   "google_wallet_tocco": {
    "fonte": "google_wallet",
    "url": "https://support.google.com/wallet/answer/12060037?hl=en",
-   "frase": "You can use tap to pay to store forms of payments and make contactless transactions on the Google Wallet app."
+   "frase": "You can use tap to pay to store forms of payments and make contactless transactions on the Google Wallet app on Android devices only."
   },
   "google_pay_varia": {
    "fonte": "google_pay",
@@ -320,7 +320,7 @@
    "titolo_fonte": "Starlink availability map",
    "cosa": "Starlink internet service",
    "url_fonte": "https://api.starlink.com/public-files/availability.json",
-   "letto_il": "2026-11-16",
+   "letto_il": "2026-11-25",
    "cambiato_il": "2026-10-28",
    "data_fonte": null,
    "http": 200,
@@ -1437,7 +1437,7 @@
    "titolo_fonte": "Apple Support: Countries and regions that support Apple Pay",
    "cosa": "adding cards from local banks to Apple Pay",
    "url_fonte": "https://support.apple.com/en-us/102775",
-   "letto_il": "2026-11-16",
+   "letto_il": "2026-11-25",
    "cambiato_il": "2026-10-28",
    "data_fonte": "2026-10-27",
    "http": 200,
@@ -2072,7 +2072,7 @@
    "titolo_fonte": "Apple Support: Availability of Apple Media Services",
    "cosa": "Apple Music",
    "url_fonte": "https://support.apple.com/en-us/118205",
-   "letto_il": "2026-11-16",
+   "letto_il": "2026-11-25",
    "cambiato_il": "2026-10-28",
    "data_fonte": "2026-10-30",
    "http": 200,
@@ -3145,7 +3145,7 @@
    "titolo_fonte": "Apple Support: Availability of Apple Media Services",
    "cosa": "the Apple TV subscription",
    "url_fonte": "https://support.apple.com/en-us/118205",
-   "letto_il": "2026-11-16",
+   "letto_il": "2026-11-25",
    "cambiato_il": "2026-10-28",
    "data_fonte": "2026-10-30",
    "http": 200,
@@ -4231,7 +4231,7 @@
    "titolo_fonte": "YouTube Help: Premium memberships available locations & travel policies",
    "cosa": "YouTube Premium and YouTube Music Premium memberships",
    "url_fonte": "https://support.google.com/youtube/answer/6307365?hl=en",
-   "letto_il": "2026-11-16",
+   "letto_il": "2026-11-25",
    "cambiato_il": "2026-10-28",
    "data_fonte": null,
    "http": 200,
@@ -4976,7 +4976,7 @@
    "titolo_fonte": "Spotify Support: Where is Spotify available?",
    "cosa": "signing up for Spotify",
    "url_fonte": "https://support.spotify.com/us/article/where-spotify-is-available/",
-   "letto_il": "2026-11-16",
+   "letto_il": "2026-11-25",
    "cambiato_il": "2026-10-28",
    "data_fonte": null,
    "http": 200,
@@ -6375,7 +6375,7 @@
    "titolo_fonte": "Google Wallet Help: Supported countries for Google Wallet & tap to pay",
    "cosa": "the Google Wallet app",
    "url_fonte": "https://support.google.com/wallet/answer/12060037?hl=en",
-   "letto_il": "2026-11-16",
+   "letto_il": "2026-11-25",
    "cambiato_il": "2026-11-07",
    "data_fonte": null,
    "http": 200,
@@ -8661,7 +8661,7 @@
    "titolo_fonte": "Wise Help Centre: Where do I need to live to hold money with Wise?",
    "cosa": "holding money in a Wise account",
    "url_fonte": "https://wise.com/help/articles/2813542/where-do-i-need-to-live-to-hold-money-with-wise",
-   "letto_il": "2026-11-16",
+   "letto_il": "2026-11-25",
    "cambiato_il": "2026-11-07",
    "data_fonte": null,
    "http": 200,
@@ -9357,7 +9357,7 @@
    "titolo_fonte": "Uber Cities: Use Uber in cities around the world",
    "cosa": "Uber rides",
    "url_fonte": "https://www.uber.com/global/en/cities/",
-   "letto_il": "2026-11-16",
+   "letto_il": "2026-11-25",
    "cambiato_il": "2026-11-07",
    "data_fonte": null,
    "http": 200,
@@ -9824,7 +9824,7 @@
    "titolo_fonte": "Stripe global availability",
    "cosa": "opening a Stripe account for a business",
    "url_fonte": "https://stripe.com/global",
-   "letto_il": "2026-11-16",
+   "letto_il": "2026-11-25",
    "cambiato_il": "2026-11-07",
    "data_fonte": null,
    "http": 200,
@@ -10160,11 +10160,11 @@
    "titolo_fonte": "Bolt cities: Use Bolt in cities around the world",
    "cosa": "Bolt in the cities on its list",
    "url_fonte": "https://bolt.eu/en/cities/",
-   "letto_il": "2026-11-16",
-   "cambiato_il": "2026-11-12",
+   "letto_il": "2026-11-25",
+   "cambiato_il": "2026-11-25",
    "data_fonte": null,
    "http": 200,
-   "impronta": "6404caf9358fd72811b626d26e3986f944b3ca8d0c19a071947415a3a6074e91",
+   "impronta": "4941aac2876d47c163185c0ef0e6553adc9ea62b9429009b8c3ee4fbad615829",
    "conteggi": {
     "si": 50,
     "no": 0,
@@ -10212,6 +10212,7 @@
       "Aghsu",
       "Astara",
       "Baku",
+      "Balakan",
       "Barda",
       "Beylagan",
       "Fuzuli",
@@ -10744,7 +10745,8 @@
       "Italy"
      ],
      "citta": [
-      "Milan"
+      "Milan",
+      "Rome"
      ]
     },
     "KE": {
@@ -11278,7 +11280,6 @@
       "Piešťany",
       "Poprad",
       "Považská Bystrica",
-      "Považská Bystrica",
       "Prešov",
       "Prievidza",
       "Spišská Nová Ves",
@@ -11451,7 +11452,7 @@
    "titolo_fonte": "Google Fi Wireless: International Coverage & Rates",
    "cosa": "using a Google Fi plan while travelling abroad",
    "url_fonte": "https://fi.google.com/about/international-rates",
-   "letto_il": "2026-11-16",
+   "letto_il": "2026-11-25",
    "cambiato_il": "2026-11-12",
    "data_fonte": null,
    "http": 200,
