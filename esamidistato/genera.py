@@ -866,7 +866,7 @@ def home(prossime):
 in un solo posto le date d'esame, l'ultimo giorno per fare la domanda e le università dove si può sostenere, prese dalle ordinanze ufficiali.</p>
 </section>"""
     pagina("index.html", "Esami di Stato 2026: date, scadenze e sedi per professione | EsamiDiStato",
-           "Date degli esami di Stato 2026 (seconda sessione dal 16 novembre), scadenze delle domande e università sede d'esame "
+           "Date degli esami di Stato 2026, scadenze delle domande e università sede d'esame "
            "per ingegnere, architetto, psicologo, commercialista, farmacista, avvocato e altre professioni.", corpo, jsonld_sessioni(prossime))
 
 
