@@ -527,7 +527,7 @@ elenco. È un sito indipendente, non affiliato ad AIFA, al Ministero della Salut
 elenco dei carenti del {data_lunga(DATA_C)}.</p>
 </div><div>
 <h2>Elenchi</h2><ul><li><a href="/">Cerca un farmaco</a></li><li><a href="/carenze/">Farmaci carenti</a></li>
-<li><a href="/farmaco-mancante/">Farmaco che non si trova</a></li><li><a href="/#indice">Tutti i principi attivi</a></li></ul>
+<li><a href="/farmaco-mancante/">Farmaco che non si trova</a></li><li><a href="/#indice">Principi attivi</a></li></ul>
 </div><div>
 <h2>Il sito</h2><ul><li><a href="/come-lavoriamo/">Come lavoriamo</a></li><li><a href="/come-lavoriamo/#segnala">Segnala un errore</a></li>
 <li><a href="/chi-siamo/">Chi siamo</a></li><li><a href="/privacy/">Privacy</a></li></ul>
@@ -1311,11 +1311,16 @@ def home():
                        euro(r["rif"]), euro(r["diff"])] for r in alte], num=[1, 2, 3], resp="resp", etichette=["", "Prezzo", "Riferimento", "Differenza"],
                      caption=f"Prezzi al pubblico da lista AIFA del {data_lunga(DATA_T)}; in farmacia possono variare per i farmaci di fascia C.")
     # indice A-Z
+    # Solo le pagine indicizzate: le altre (noindex) si aprono dalla ricerca in alto, come dice «Come lavoriamo».
+    # Una home con più di cento link verso pagine noindex dà ai motori un segnale contraddittorio (audit del 25/11/2026).
     lettere = defaultdict(list)
-    for p in sorted(PA, key=lambda x: nomi.slug(x)):
+    in_indice = [p for p in sorted(PA, key=lambda x: nomi.slug(x)) if INDICIZZA[p]]
+    for p in in_indice:
         lettere[nomi.slug(p)[0].upper()].append(p)
-    corpo += (f'<h2 id="indice">Tutti i principi attivi ({NUM["n_pa"]})</h2><p class="small">Ogni pagina ha i gruppi di equivalenza, i prezzi e lo stato '
-              'di carenza di ogni confezione. Il numero indica le confezioni nella lista.</p>')
+    fuori = len(PA) - len(in_indice)
+    corpo += (f'<h2 id="indice">Principi attivi ({len(in_indice)} di {NUM["n_pa"]})</h2><p class="small">Ogni pagina ha i gruppi di equivalenza, i prezzi e lo stato '
+              f'di carenza di ogni confezione. Il numero indica le confezioni nella lista. Gli altri {fuori} principi attivi della lista di trasparenza '
+              'non sono in questo elenco: le loro pagine si aprono dalla ricerca in alto.</p>')
     for L, ps in lettere.items():
         corpo += (f'<h3>{L}</h3><ul class="indice">' + "".join(f'<li><a href="/{SLUG[p]}/">{h(p)}</a><span class="small">{len(PA[p])}</span></li>' for p in ps) + "</ul>")
     voci = faq_fisse("home", rim)

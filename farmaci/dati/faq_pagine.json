@@ -7230,21 +7230,21 @@
 "q": "Quali sono i nomi commerciali di terbinafina?",
 "ricerca": "terbinafina nome commerciale",
 "volume": 320,
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "terbinafina",
 "q": "Quanto costa Lamisil?",
 "ricerca": "lamisil crema prezzo",
 "volume": null,
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "terbinafina",
 "q": "Quanto costa terbinafina?",
 "ricerca": "terbinafina compresse prezzo",
 "volume": 140,
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "teriflunomide",
