@@ -83,9 +83,46 @@ def leggi_html(p):
     return p.read_text(encoding="utf-8")
 
 
+RE_DAL = re.compile(r'<!--dal:(\d{4}-\d{2}-\d{2})-->(.*?)<!--/dal-->', re.S)
+
+
 def visibile(html):
-    t = re.sub(r"<(script|style)\b.*?</\1>", " ", html, flags=re.S | re.I)
+    # i pezzi tra <!--dal:AAAA-MM-GG--> e <!--/dal--> sono nascosti (hidden) fino a quella data: non sono testo visibile oggi.
+    # Li controlla a parte controlla_scatto().
+    t = RE_DAL.sub(" ", html)
+    t = re.sub(r"<(script|style)\b.*?</\1>", " ", t, flags=re.S | re.I)
     return norm(unescape(re.sub(r"<[^>]+>", " ", t)))
+
+
+def controlla_scatto(pagina, html, att, div_o):
+    """Prossima tranche del livello: la pagina deve contenere già, nascosto fino a quel giorno, il pezzo che il browser mostra
+    da solo (stile.APP_JS). Tabella nuova pubblicabile: le cifre nuove in alto e la nota «Minimo aggiornato»; non pubblicabile:
+    la nota «Cifra da aggiornare». Ogni pezzo deve essere davvero nascosto oggi (attributo hidden) e avere la data giusta."""
+    fut = [x for x in att if x[0] > OGGI.isoformat()]
+    pezzi = RE_DAL.findall(html)
+    if not fut:
+        if pezzi:
+            errore(f"{pagina}: pezzi a data futura senza una tranche futura")
+        return
+    d2, ok, t2, _ = fut[0]
+    if not pezzi or any(d != d2 for d, _ in pezzi):
+        errore(f"{pagina}: manca il pezzo nascosto per la tabella del {d2} (o ha un'altra data)")
+        return
+    for d, pezzo in pezzi:
+        if not re.match(rf'<\w+ data-dal="{d}" hidden[ >]', pezzo):
+            errore(f"{pagina}: il pezzo del {d} non è nascosto con data-dal e hidden")
+    testo = norm(unescape(re.sub(r"<[^>]+>", " ", " ".join(p for _, p in pezzi))))
+    if ok:
+        for x in (euro(t2), euro(arr(t2 / div_o)), "Minimo aggiornato dal"):
+            if norm(x) not in testo:
+                errore(f"{pagina}: nel pezzo del {d2} manca «{x}»")
+        if f'data-fino="{d2}"' not in html:
+            errore(f"{pagina}: le cifre di oggi non hanno data-fino={d2}")
+    else:
+        if "Cifra da aggiornare" not in testo or "quello in vigore oggi è più alto" not in testo:
+            errore(f"{pagina}: nel pezzo del {d2} manca la nota «Cifra da aggiornare»")
+        if 'data-fino="' in html:
+            errore(f"{pagina}: cifre di oggi nascoste a una data in cui non c'è una cifra nuova pubblicabile")
 
 
 # ---------------------------------------------------------------- 1. fonti
@@ -323,6 +360,7 @@ def controlla_pagina_livello(cid, m, L, att, cur, pagina):
         if not m_ or (int(m_.group(1)), int(m_.group(2)), int(m_.group(3))) != (int(tot * 100), ore, mens):
             errore(f"{pagina}: attributi del calcolo diversi dai dati")
         CASI_JS.append(("prorata", int(tot * 100), ore, [(o, int(prorata(tot, o, ore) * 100)) for o in range(1, ore + 1)]))
+        controlla_scatto(pagina, html, att, div_o)
         # aumenti futuri pubblicabili
         for (d2, ok, t2, _) in att:
             if d2 > OGGI.isoformat() and ok and euro(t2) not in vis:

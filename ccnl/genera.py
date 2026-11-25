@@ -17,7 +17,7 @@ import os
 import re
 import shutil
 import sys
-from datetime import date
+from datetime import date, timedelta
 from decimal import ROUND_HALF_UP, Decimal
 from html import escape, unescape
 from pathlib import Path
@@ -197,6 +197,72 @@ def valori(cid, L):
     fut_ok = [t for t in future if t["pubblicabile"]]
     v["prossima"] = fut_ok[0] if fut_ok else None
     return v
+
+
+# ---------------------------------------------------------------- cifre che scattano a una data (senza rigenerare)
+# Le tabelle cambiano a date già scritte nei contratti (es. logistica 1/1/2027). Se quel giorno nessuno rigenera il sito, la
+# pagina mostrerebbe come «in vigore» il minimo vecchio. Per questo la pagina contiene già oggi anche il pezzo del giorno dello
+# scatto, nascosto: lo script del browser (stile.APP_JS) lo mostra da quella data (ora di Roma) e nasconde quello vecchio.
+# Vale per il prossimo scatto di ogni livello; i pezzi nascosti stanno tra <!--dal:AAAA-MM-GG--> e <!--/dal--> (verifica.py li controlla).
+def al_giorno(giorno, fn, *a):
+    """Esegue fn come se oggi fosse `giorno` (stesse regole di pubblicazione, nessuna cifra nuova)."""
+    global OGGI
+    prima = OGGI
+    OGGI = date.fromisoformat(giorno) if isinstance(giorno, str) else giorno
+    try:
+        return fn(*a)
+    finally:
+        OGGI = prima
+
+
+def prossimo_scatto(cid, L):
+    """Data ISO della prossima tranche del livello (pubblicabile o no), oppure None."""
+    fut = stato_livello(cid, L)[2]
+    return fut[0]["dal"] if fut else None
+
+
+def _marca(html_, attr):
+    return re.sub(r"^<(\w+)", lambda m: f"<{m.group(1)} {attr}", html_, count=1)
+
+
+def dal_giorno(giorno, html_):
+    """Pezzo nascosto che il browser mostra dal giorno indicato."""
+    return f'<!--dal:{giorno}-->{_marca(html_, f"data-dal=\"{giorno}\" hidden")}<!--/dal-->' if html_ else ""
+
+
+def fino_al(giorno, html_):
+    """Pezzo visibile che il browser nasconde dal giorno indicato."""
+    return _marca(html_, f'data-fino="{giorno}"')
+
+
+def poi(giorno, ora, dopo):
+    """Testo di una cella che dal giorno indicato diventa `dopo` (solo testo)."""
+    return ora if ora == dopo else f'<span data-poi="{giorno}" data-poi-v="{h(dopo)}">{ora}</span>'
+
+
+def scatto_tabella(cid, pub, vs):
+    """Per la tabella di un contratto: (data del prossimo scatto, valori di ogni livello a quella data, nota nascosta).
+    La nota c'è solo se da quel giorno qualche riga resta sull'ultimo minimo verificato (tabella nuova non pubblicabile)."""
+    date_s = sorted({d for d in (prossimo_scatto(cid, L) for L in pub) if d})
+    if not date_s or cid == "domestico":
+        return None, vs, ""
+    g = date_s[0]
+    vs2 = [al_giorno(g, valori, cid, L) for L in pub]
+    nuove = [L for L, v, v2 in zip(pub, vs, vs2) if v2["sospese"] and not v["sospese"]]
+    avv = ""
+    if nuove:
+        avv = dal_giorno(g, nota(f'<strong>Cifre da aggiornare dal {data_lunga(g)}.</strong> Per {len(nuove)} livelli la tabella del {data_lunga(g)} non passa i nostri '
+                                 'controlli: le righe con l\'asterisco mostrano l\'ultimo minimo verificato e il minimo in vigore oggi è più alto. '
+                                 'I dettagli sono nella pagina del livello.', "", "alert"))
+    return g, vs2, avv
+
+
+def celle_scatto(g, v, v2):
+    """Celle «minimo al mese», «paga oraria», «in vigore dal» che cambiano da sole il giorno g."""
+    quando = lambda x: data_lunga(x["dal"]) + (" *" if x["sospese"] else "")  # noqa: E731
+    if not g:
+        return euro(v["mensile"]), euro(v["oraria"]), quando(v)
+    return poi(g, euro(v["mensile"]), euro(v2["mensile"])), poi(g, euro(v["oraria"]), euro(v2["oraria"])), poi(g, quando(v), quando(v2))
 
 
 def pagina_url(cid, L=None):
@@ -510,7 +576,11 @@ def domestico_vecchio():
 
 def nota_domestico():
     if not domestico_vecchio():
-        return ""
+        # la tabella nuova esce a gennaio: dal 1° gennaio il browser mostra da solo la nota «Tabella dell'anno prima»
+        capodanno = date(OGGI.year + 1, 1, 1)
+        if not al_giorno(capodanno, domestico_vecchio):
+            return ""  # la tabella dell'anno nuovo è già nei dati: nessuna nota da preparare
+        return dal_giorno(capodanno.isoformat(), al_giorno(capodanno, nota_domestico))
     anno = date.fromisoformat(stato_livello("domestico", C["domestico"]["livelli"][0])[0]["dal"]).year
     return nota(f'<strong>Tabella {anno}.</strong> La tabella ufficiale del {OGGI.year} non è ancora in queste pagine: la carichiamo quando il Ministero del Lavoro '
                 f'la pubblica e la copia depositata al CNEL la conferma. Dal 1° gennaio {OGGI.year} i minimi sono più alti di quelli qui sotto '
@@ -636,14 +706,29 @@ def pagina_livello(cid, L):
     div_o, div_g = m["divisore_orario"], m.get("divisore_giornaliero")
     mens = m["mensilita"]["valore"]
     # cifre in alto
-    cifre = (f'<div class="card cifre pull">'
-             f'<div class="cifra main"><b>{euro(v["mensile"])}</b><span>minimo lordo al mese, dal {data_lunga(v["dal"])}</span></div>'
-             f'<div class="cifra"><b>{euro(v["oraria"])}</b><span>paga oraria lorda (÷ {div_o["valore"]})</span></div>'
-             + (f'<div class="cifra"><b>{euro(v["giornaliera"])}</b><span>paga giornaliera (÷ {div_g["valore"]})</span></div>' if v.get("giornaliera") else
-                f'<div class="cifra"><b>{m["ore"]["valore"]} ore</b><span>orario settimanale del contratto</span></div>')
-             + f'<div class="cifra"><b>{euro(v["annuo"])}</b><span>minimo lordo annuo ({mens} mensilità)</span></div>'
-             f'<p class="asof">{ico("check")} Stessa cifra in due fonti ufficiali{rim.ref([fa, fb])}. Controllato il {data_lunga(CONTROLLO)}.</p></div>')
+    def cifre_html(v):
+        return (f'<div class="card cifre pull">'
+                f'<div class="cifra main"><b>{euro(v["mensile"])}</b><span>minimo lordo al mese, dal {data_lunga(v["dal"])}</span></div>'
+                f'<div class="cifra"><b>{euro(v["oraria"])}</b><span>paga oraria lorda (÷ {div_o["valore"]})</span></div>'
+                + (f'<div class="cifra"><b>{euro(v["giornaliera"])}</b><span>paga giornaliera (÷ {div_g["valore"]})</span></div>' if v.get("giornaliera") else
+                   f'<div class="cifra"><b>{m["ore"]["valore"]} ore</b><span>orario settimanale del contratto</span></div>')
+                + f'<div class="cifra"><b>{euro(v["annuo"])}</b><span>minimo lordo annuo ({mens} mensilità)</span></div>'
+                f'<p class="asof">{ico("check")} Stessa cifra in due fonti ufficiali{rim.ref([fa, fb])}. Controllato il {data_lunga(CONTROLLO)}.</p></div>')
+    cifre = cifre_html(v)
     corpo = cifre + nota_sospesa(cid, v)
+    # prossimo scatto: il pezzo del giorno della nuova tabella è già nella pagina, nascosto fino a quella data
+    scatto = prossimo_scatto(cid, L)
+    if scatto:
+        v2 = al_giorno(scatto, valori, cid, L)
+        if v2["sospese"] and not v["sospese"]:
+            # la tabella nuova non passa i controlli: da quel giorno compare la nota «Cifra da aggiornare» (la cifra in alto resta l'ultima verificata)
+            corpo = cifre + dal_giorno(scatto, nota_sospesa(cid, v2))
+        elif not v2["sospese"] and not v["sospese"]:
+            fine = date.fromisoformat(scatto) - timedelta(days=1)
+            avviso_scatto = nota(f'<strong>Minimo aggiornato dal {data_lunga(scatto)}.</strong> Le cifre qui sopra sono quelle della tabella in vigore dal '
+                                 f'{data_lunga(scatto)}. Le voci, il part time, il calcolo e le risposte più sotto usano ancora la tabella precedente '
+                                 f'({euro(v["mensile"])} al mese, in vigore fino al {data_lunga(fine)}): li aggiorniamo alla prossima pubblicazione della pagina.', "", "alert")
+            corpo = fino_al(scatto, cifre) + dal_giorno(scatto, cifre_html(v2)) + dal_giorno(scatto, avviso_scatto)
     # voci
     righe = [(h(n), euro(x)) for n, x in cur["parti"]]
     corpo += f'<h2 id="voci">Le voci del minimo mensile</h2>'
@@ -951,10 +1036,12 @@ def pagina_contratto(cid):
                           f'{data_lunga(t0["dal"])} non passa i controlli: le voci sono uguali nel contratto e nelle tabelle del Ministero, ma il totale stampato '
                           'nel contratto non è la loro somma. Nella tabella resta l\'ultimo minimo verificato, segnato con un asterisco; il minimo in vigore oggi '
                           'è più alto. Le voci sono nella pagina di ogni livello.', "", "alert")
+        g_sc, vs2, avv_sc = scatto_tabella(cid, pub, vs)
+        corpo += avv_sc
         gruppi = list(dict.fromkeys(L.get("gruppo_nome", "") for L in pub))
         for g in gruppi:
-            righe = [(f'<a href="/{pagina_url(cid, L)}">{h(L["nome"])}</a>', euro(v["mensile"]), euro(v["oraria"]), data_lunga(v["dal"]) + (" *" if v["sospese"] else ""))
-                     for L, v in zip(pub, vs) if L.get("gruppo_nome", "") == g]
+            righe = [(f'<a href="/{pagina_url(cid, L)}">{h(L["nome"])}</a>', *celle_scatto(g_sc, v, v2))
+                     for L, v, v2 in zip(pub, vs, vs2) if L.get("gruppo_nome", "") == g]
             if g:
                 corpo += f"<h3>{h(g)}</h3>"
             corpo += tabella(["Livello", "Minimo al mese", "Paga oraria", "In vigore dal"], righe)
@@ -1155,20 +1242,24 @@ def home():
     blocchi = ""
     n = 0
     da_agg = False
+    avvisi_sc = ""
     for cid in ORDINE:
         m = C[cid]
         righe = ""
-        for L in livelli_pubblicati(cid):
-            v = valori(cid, L)
+        pub = livelli_pubblicati(cid)
+        vs = [valori(cid, L) for L in pub]
+        g_sc, vs2, avv_sc = scatto_tabella(cid, pub, vs)
+        avvisi_sc += avv_sc
+        for L, v, v2 in zip(pub, vs, vs2):
             n += 1
             if cid == "domestico":
-                cifra, ora = v["conv_txt"] + ' <span class="small">convivente</span>', euro(v["oraria"])
+                cifra, ora, quando = v["conv_txt"] + ' <span class="small">convivente</span>', euro(v["oraria"]), data_lunga(v["dal"])
             else:
-                cifra, ora = euro(v["mensile"]), euro(v["oraria"])
+                cifra, ora, quando = celle_scatto(g_sc, v, v2)
             if v.get("sospese"):
                 da_agg = True
             righe += (f'<tr data-riga="{h(SINONIMI[cid] + " " + chiavi_livello(L))}"><td><a href="/{pagina_url(cid, L)}">{h(L["nome"])}</a></td>'
-                      f'<td class="n">{cifra}</td><td class="n">{ora}</td><td class="n nascondi-m">{data_lunga(v["dal"])}{" *" if v.get("sospese") else ""}</td></tr>')
+                      f'<td class="n">{cifra}</td><td class="n">{ora}</td><td class="n nascondi-m">{quando}</td></tr>')
         div_ = f'divisore {m["divisore_orario"]["valore"]}' if m.get("divisore_orario") else "paga oraria da tabella"
         blocchi += (f'<section data-blocco><div class="contratto-h"><h2 id="{cid}"><a href="/{pagina_url(cid)}">{h(m["nome_breve"])}</a></h2>'
                     f'<span class="small">CNEL {m["codice_cnel"]} · {div_}</span></div>'
@@ -1184,6 +1275,7 @@ def home():
     if da_agg:
         corpo += nota('<strong>Cifre da aggiornare.</strong> Le righe con l\'asterisco mostrano l\'ultimo minimo verificato: la tabella più recente del contratto '
                       'non passa i nostri controlli e il minimo in vigore oggi è più alto. I dettagli sono nella pagina del livello.', "", "alert")
+    corpo += avvisi_sc
     corpo += nota_domestico()
     corpo += blocchi + '<p class="vuoto-ricerca" data-vuoto hidden>Nessun livello trovato. Prova con il nome del contratto (commercio, metalmeccanici, multiservizi, logistica, colf).</p>'
     corpo += AD

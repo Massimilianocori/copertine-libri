@@ -182,6 +182,12 @@ window.PagaCCNL={prorata:prorata,orario52:orario52,eur:eur};
 // tema
 var b=document.querySelector('[data-tema]');
 if(b){b.addEventListener('click',function(){var r=document.documentElement;var dark=r.getAttribute('data-theme')==='dark'||(!r.getAttribute('data-theme')&&window.matchMedia('(prefers-color-scheme: dark)').matches);var t=dark?'light':'dark';r.setAttribute('data-theme',t);try{localStorage.setItem('pc-tema',t);}catch(e){}});}
+// tabelle che scattano a una data: dal giorno indicato (data di Roma) si mostra il pezzo nuovo e si nasconde quello vecchio
+var oggi='';try{oggi=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Rome',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());}catch(e){}
+if(!/^\d{4}-\d{2}-\d{2}$/.test(oggi)){var d0=new Date();oggi=d0.getFullYear()+'-'+('0'+(d0.getMonth()+1)).slice(-2)+'-'+('0'+d0.getDate()).slice(-2);}
+document.querySelectorAll('[data-dal]').forEach(function(el){if(oggi>=el.getAttribute('data-dal'))el.hidden=false;});
+document.querySelectorAll('[data-fino]').forEach(function(el){if(oggi>=el.getAttribute('data-fino'))el.hidden=true;});
+document.querySelectorAll('[data-poi]').forEach(function(el){if(oggi>=el.getAttribute('data-poi'))el.textContent=el.getAttribute('data-poi-v');});
 // calcolo in pagina
 document.querySelectorAll('[data-calc]').forEach(function(box){
   var modo=box.getAttribute('data-modo');var cent=parseInt(box.getAttribute('data-cent'),10);var oreNorm=parseInt(box.getAttribute('data-ore-normali'),10);
