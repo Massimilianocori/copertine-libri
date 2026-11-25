@@ -413,3 +413,5 @@ Revisione completa in `studio-business/REVISIONE-STRATEGIA-RECUPERO.md`.
 7. **Aggiunte.** La home di BYF entra nelle richieste di indicizzazione (prima della riserva). Le pubblicazioni BYF del 19 e 20/11 vanno contate tra le modifiche (F3).
 
 **Decisioni per stanotte:** azione 3 VIA (con i punti 2 e 3); azione 5 VIA (blocco in home, indici di sezione, link a pagine noindex tolti dalla home; «Related» solo sulle 181 pagine); azione 6 VIA per le pagine nuove; azione 9 solo controlli.
+
+**Seconda lettura del revisore: 8,6 → si esegue.** Note che restano: (a) «pagaccnl senza Cambio di indirizzo» va confermato in Search Console; (b) le date da `git log` si controllano a campione (un commit che rigenera tutto dà la stessa data a tutte le pagine); dove il dato ha una data propria (`letto_il`, `controllato_il`) si usa quella; (c) stanotte escono tre azioni insieme (sitemap, link interni, pagine di fiducia): non si potrà dire quale ha funzionato, si misura l'effetto d'insieme; (d) correzioni minori delle citazioni nel file di revisione.
