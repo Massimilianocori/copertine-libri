@@ -959,7 +959,14 @@ def home():
     corpo += "".join(f'<li><a href="{u}"><b>{h(t)}</b><span>{h(s)}</span></a></li>' for u, t, s in utili) + "</ul>"
     corpo += f'<h2 id="sectors">The {len(SETTORI)} NAICS sectors</h2><ul class="albero">'
     for s in SETTORI:
-        corpo += (f'<li><a class="cod" href="{url_di(s)}" aria-label="Sector {s}">{s}</a><span>{h(C[s]["t"])}</span>'
+        # la home linka solo pagine indicizzate (audit del 25/11/2026): se la pagina del settore è noindex, il link va al primo
+        # sottosettore (3 cifre) indicizzato; l'etichetta dice a quale pagina porta
+        dest, etich = url_di(s), f"Sector {s}"
+        if not INDICIZZA.get(percorso_pagina(s), True):
+            figli = sorted(c for c in C if len(c) == 3 and c.startswith(s) and INDICIZZA.get(percorso_pagina(c), False))
+            dest, etich = (url_di(figli[0]), f"Sector {s}: opens subsector {figli[0]}") if figli else (None, "")
+        testa_s = f'<a class="cod" href="{dest}" aria-label="{etich}">{s}</a>' if dest else f'<span class="cod">{s}</span>'
+        corpo += (f'<li>{testa_s}<span>{h(C[s]["t"])}</span>'
                   f'<span class="mini">{num(len(sei_di(s)))} six-digit codes</span></li>')
     corpo += "</ul>"
     corpo += ('<h2 id="how-to-read">How to read a NAICS code</h2><div class="testo">'

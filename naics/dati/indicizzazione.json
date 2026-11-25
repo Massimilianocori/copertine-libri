@@ -150,7 +150,7 @@
 "111339/": {
 "proprie": 227,
 "sovrapposizione": 0.266,
-"piu_simile": "111334/",
+"piu_simile": "111336/",
 "indicizzata": true
 },
 "1114/": {
@@ -240,7 +240,7 @@
 "1121/": {
 "proprie": 67,
 "sovrapposizione": 0.216,
-"piu_simile": "112111/",
+"piu_simile": "112130/",
 "indicizzata": false
 },
 "112111/": {
@@ -272,7 +272,7 @@
 "1122/": {
 "proprie": 24,
 "sovrapposizione": 0.421,
-"piu_simile": "1121/",
+"piu_simile": "1129/",
 "indicizzata": false
 },
 "112210/": {
@@ -392,7 +392,7 @@
 "113/": {
 "proprie": 188,
 "sovrapposizione": 0.058,
-"piu_simile": "1133/",
+"piu_simile": "113210/",
 "indicizzata": true
 },
 "1131/": {
@@ -476,7 +476,7 @@
 "115/": {
 "proprie": 90,
 "sovrapposizione": 0.138,
-"piu_simile": "1153/",
+"piu_simile": "1151/",
 "indicizzata": false
 },
 "1151/": {
@@ -1065,7 +1065,7 @@
 "238320/": {
 "proprie": 206,
 "sovrapposizione": 0.166,
-"piu_simile": "238350/",
+"piu_simile": "238390/",
 "indicizzata": true
 },
 "238330/": {
@@ -1648,7 +1648,7 @@
 "3159/": {
 "proprie": 21,
 "sovrapposizione": 0.318,
-"piu_simile": "315/",
+"piu_simile": "3152/",
 "indicizzata": false
 },
 "315990/": {
@@ -1744,7 +1744,7 @@
 "321215/": {
 "proprie": 235,
 "sovrapposizione": 0.122,
-"piu_simile": "3212/",
+"piu_simile": "321219/",
 "indicizzata": true
 },
 "321219/": {
@@ -1948,7 +1948,7 @@
 "324191/": {
 "proprie": 136,
 "sovrapposizione": 0.265,
-"piu_simile": "324199/",
+"piu_simile": "324110/",
 "indicizzata": true
 },
 "324199/": {
@@ -2116,7 +2116,7 @@
 "325520/": {
 "proprie": 157,
 "sovrapposizione": 0.07,
-"piu_simile": "325611/",
+"piu_simile": "325510/",
 "indicizzata": true
 },
 "3256/": {
@@ -2866,7 +2866,7 @@
 "333/": {
 "proprie": 286,
 "sovrapposizione": 0.139,
-"piu_simile": "3331/",
+"piu_simile": "3339/",
 "indicizzata": true
 },
 "3331/": {
@@ -3166,7 +3166,7 @@
 "334220/": {
 "proprie": 330,
 "sovrapposizione": 0.101,
-"piu_simile": "334515/",
+"piu_simile": "334290/",
 "indicizzata": true
 },
 "334290/": {
@@ -3658,7 +3658,7 @@
 "337122/": {
 "proprie": 393,
 "sovrapposizione": 0.184,
-"piu_simile": "337126/",
+"piu_simile": "337127/",
 "indicizzata": true
 },
 "337126/": {
@@ -4379,7 +4379,7 @@
 "4251/": {
 "proprie": 18,
 "sovrapposizione": 0.194,
-"piu_simile": "425/",
+"piu_simile": "42/",
 "indicizzata": false
 },
 "425120/": {
@@ -4464,7 +4464,7 @@
 "444/": {
 "proprie": 96,
 "sovrapposizione": 0.152,
-"piu_simile": "4442/",
+"piu_simile": "4441/",
 "indicizzata": false
 },
 "4441/": {
@@ -4555,7 +4555,7 @@
 "445230/": {
 "proprie": 116,
 "sovrapposizione": 0.254,
-"piu_simile": "445292/",
+"piu_simile": "445291/",
 "indicizzata": false
 },
 "445240/": {
@@ -4639,7 +4639,7 @@
 "4492/": {
 "proprie": 20,
 "sovrapposizione": 0.289,
-"piu_simile": "4491/",
+"piu_simile": "449/",
 "indicizzata": false
 },
 "449210/": {
@@ -4939,7 +4939,7 @@
 "48-49/": {
 "proprie": 425,
 "sovrapposizione": 0.082,
-"piu_simile": "54/",
+"piu_simile": "56/",
 "indicizzata": true
 },
 "481/": {
@@ -5528,7 +5528,7 @@
 "51/": {
 "proprie": 515,
 "sovrapposizione": 0.072,
-"piu_simile": "22/",
+"piu_simile": "92/",
 "indicizzata": true
 },
 "512/": {
@@ -6634,7 +6634,7 @@
 "541840/": {
 "proprie": 128,
 "sovrapposizione": 0.337,
-"piu_simile": "541890/",
+"piu_simile": "541830/",
 "indicizzata": true
 },
 "541850/": {
@@ -6652,7 +6652,7 @@
 "541870/": {
 "proprie": 199,
 "sovrapposizione": 0.251,
-"piu_simile": "541890/",
+"piu_simile": "541860/",
 "indicizzata": true
 },
 "541890/": {
@@ -7213,7 +7213,7 @@
 "611630/": {
 "proprie": 117,
 "sovrapposizione": 0.25,
-"piu_simile": "611692/",
+"piu_simile": "611691/",
 "indicizzata": false
 },
 "611691/": {
@@ -8260,7 +8260,7 @@
 "8132/": {
 "proprie": 93,
 "sovrapposizione": 0.238,
-"piu_simile": "813212/",
+"piu_simile": "813219/",
 "indicizzata": false
 },
 "813211/": {
@@ -8616,7 +8616,7 @@
 "9271/": {
 "proprie": 21,
 "sovrapposizione": 0.167,
-"piu_simile": "92/",
+"piu_simile": "927/",
 "indicizzata": false
 },
 "927110/": {
@@ -8792,7 +8792,7 @@
 "pubblicata": true,
 "proprie": 203,
 "sovrapposizione": 0.214,
-"piu_simile": "551114/",
+"piu_simile": "naics-code-for-real-estate-investment/",
 "indicizzata": true
 },
 "naics-code-for-trucking": {
@@ -8806,7 +8806,7 @@
 "pubblicata": true,
 "proprie": 257,
 "sovrapposizione": 0.126,
-"piu_simile": "484122/",
+"piu_simile": "naics-code-for-transportation/",
 "indicizzata": true
 },
 "naics-code-for-logistics": {
@@ -9067,7 +9067,7 @@
 "pubblicata": true,
 "proprie": 204,
 "sovrapposizione": 0.142,
-"piu_simile": "541860/",
+"piu_simile": "541810/",
 "indicizzata": true
 },
 "naics-code-for-staffing-agency": {
