@@ -2,7 +2,7 @@
 "_nota": "Generato da raccolta/studio_italia.py: non modificare a mano (i valori letti a mano stanno in LETTURE ed ENTI dentro lo script). Fonti: MUR, Universitaly, Poste Italiane, Polizia di Stato, Normattiva, Banca d'Italia, bandi 2026/27 degli enti per il diritto allo studio.",
 "generato_il": "2026-10-31",
 "letto_il": "2026-10-31",
-"impronta": "6d1ab1f3bd7b5694d051",
+"impronta": "330cbc65116848d5a157",
 "domanda": {
 "data": "2026-10-31",
 "metodo": "https://suggestqueries.google.com/complete/search?client=firefox&gl={us,in,pk,ng,bd,ir}&hl=en&q=…",
@@ -1762,17 +1762,17 @@
 "letto_il": "2026-10-31"
 },
 "adisurc": {
-"url": "https://www.adisurcampania.it/sites/default/files/2026-07/Bando%20di%20Concorso%20a.a.%202026.27.pdf",
+"url": "https://www.adisurcampania.it/wp-content/uploads/2026/09/Bando-di-Concorso-a.a.-2026.27.pdf",
 "http": 200,
 "formato": "pdf",
 "data_file": "2026-07-24",
 "sha256": "4777e2fa566f9539b03b3bc62ebe04554f2e9f7fbf0fbb3c5146d8b9ee3f34d8",
 "editore": "ADISU Campania (ADiSURC)",
 "titolo": "Bando di concorso borse di studio, posti alloggio e mobilità internazionale a.a. 2026/2027",
-"pagina": "https://www.adisurcampania.it/notizie/approvazione-bando-di-concorso-20262027",
-"inglese": "https://www.adisurcampania.it/sites/default/files/2026-07/Bando%20di%20Concorso%20a.a.%202026.27_ENG.pdf",
+"pagina": "https://www.adisurcampania.it/approvazione-bando-di-concorso-2026-2027/",
+"inglese": "https://www.adisurcampania.it/wp-content/uploads/2026/09/Bando-di-Concorso-a.a.-2026.27_ENG.pdf",
 "data": "2026-07-24",
-"letto_il": "2026-10-31",
+"letto_il": "2026-11-25",
 "inglese_http": 200
 }
 },

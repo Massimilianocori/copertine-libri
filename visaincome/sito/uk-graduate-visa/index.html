@@ -399,7 +399,7 @@ finestra:function(f,k){var r=C.finestra(f.fine.value,f.dso.value,k);if(!r)return
  riga('Earliest filing date',dl(r.apre),r.apre_dso?'the day your DSO recommends OPT in SEVIS':k.prima+' days before the program end date')+
  riga('Last filing date',dl(r.chiude),r.limite==='dso'?k.dso+' days after the DSO recommendation (earlier than '+k.dopo+' days after the program end date)':k.dopo+' days after the program end date'+(r.dso_entro?'':'; with a DSO recommendation, also within '+k.dso+' days of it'))+
  riga('Latest OPT start date you can request',dl(r.inizio_max),k.inizio+' days after the program end date')+
- '</ul><p class="small">On hold: a final rule of 17 July 2026 would cut the '+k.dopo+' days after the program end date to '+k.nuova+', making the last day '+dl(r.chiude_30)+(r.chiude_30===r.chiude?' (the same date: the DSO limit comes first)':'')+'; a federal court postponed it and USCIS applies the previous rules.</p>';},
+ '</ul><p class="small">Vacated: a final rule of 17 July 2026 would have cut the '+k.dopo+' days after the program end date to '+k.nuova+', making the last day '+dl(r.chiude_30)+(r.chiude_30===r.chiude?' (the same date: the DSO limit comes first)':'')+'; a federal court vacated it on 16 November 2026 and DHS says it is contemplating next steps.</p>';},
 disoccupazione:function(f,k){var lim=f.tipo.value==='stem'?k.stem:k.opt;var t=oggi();var r=C.disoccupazione(f.inizio.value,lim,f.usati.value,t);if(!r)return '<p class="small">Enter the start date on your OPT EAD card.</p>';
  var h='<p class="r-lab">Unemployment limit</p><p class="tot">'+lim+' <span>days in total</span></p><ul class="r-righe">'+
  riga('If you have no job from the start date','Day '+lim+' is '+dl(r.ultimo),'from '+dl(r.oltre)+' you would be over the limit');

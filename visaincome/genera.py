@@ -1847,7 +1847,7 @@ def pagina_come_funziona():
 <h2>9. Thailand DTV visa and Ireland's PPS numbers</h2>
 <p>The <a href="{rel}{SEZ_DTV}">Thailand DTV visa</a> pages quote the official DTV pages of the Thai embassies and consulates. A script reads each page again and checks that every fee and rule we show is still written there; if a page changes, nothing is updated until we read it again. The pages on the <a href="{rel}{SEZ_DTV}fee/">fee</a>, <a href="{rel}{SEZ_DTV}requirements/">requirements</a>, <a href="{rel}{SEZ_DTV}duration-and-extension/">duration</a>, <a href="{rel}{SEZ_DTV}soft-power-activities/">soft power activities</a>, <a href="{rel}{SEZ_DTV}proof-of-funds/">proof of funds</a> and the <a href="{rel}{SEZ_DTV}dtv-vs-ltr-elite-retirement/">comparison with other visas</a> work the same way, with the pages of the Thailand Board of Investment (LTR) and of Thailand Privilege; their questions come from searches people actually type (Google suggestions in eight countries). The Ireland pages in <a href="{rel}{SEZ_TR}">Who moved where</a> use the monthly PPS number files of Ireland's Department of Social Protection (CC BY 4.0); a script checks that the months add up to the yearly totals.</p>
 <h2>10. US OPT and the UK Graduate visa</h2>
-<p>The <a href="{rel}{SEZ_OPT}">US OPT and STEM OPT</a> pages use the USCIS fee schedule (Form G-1055), the USCIS pages on Form I-765, OPT and STEM OPT, the SEVP help pages and the Federal Register; the <a href="{rel}{SEZ_GRAD}">UK Graduate visa</a> pages use GOV.UK, the Immigration Rules (Appendix Graduate), the Statement of Changes HC 1333 and the Home Office fees table. A script reads every page again and checks that each figure we show is still written there; if a page changes, nothing is updated until we read it again. Proposals and rules on hold are labelled as such. The date calculators run in your browser.</p>
+<p>The <a href="{rel}{SEZ_OPT}">US OPT and STEM OPT</a> pages use the USCIS fee schedule (Form G-1055), the USCIS pages on Form I-765, OPT and STEM OPT, the SEVP help pages and the Federal Register; the <a href="{rel}{SEZ_GRAD}">UK Graduate visa</a> pages use GOV.UK, the Immigration Rules (Appendix Graduate), the Statement of Changes HC 1333 and the Home Office fees table. A script reads every page again and checks that each figure we show is still written there; if a page changes, nothing is updated until we read it again. Proposals and rules stopped by a court are labelled as such. The date calculators run in your browser.</p>
 <h2>11. Mexico residency</h2>
 <p>The <a href="{rel}{SEZ_MX}">Mexico residency</a> pages use the Ley Federal de Derechos and Annex 4 of the {ANNO} Miscellaneous Tax Resolution (Diario Oficial) for the fees, the visa guidelines of 25 July 2025 for the days of UMA, INEGI for the UMA value, and the official pages of the Mexican consulates for the amounts in their currency. A consulate is listed only if its own page writes the amount and is from {ANNO}. A script reads every source again and checks that each figure is still written there; if a page changes, nothing is updated until we read it again. We re-read the fees and the UMA every January (new Miscellaneous Tax Resolution, new UMA from 1 February).</p>
 <h2>12. Study in Italy</h2>
@@ -7124,7 +7124,7 @@ finestra:function(f,k){var r=C.finestra(f.fine.value,f.dso.value,k);if(!r)return
  riga('Earliest filing date',dl(r.apre),r.apre_dso?'the day your DSO recommends OPT in SEVIS':k.prima+' days before the program end date')+
  riga('Last filing date',dl(r.chiude),r.limite==='dso'?k.dso+' days after the DSO recommendation (earlier than '+k.dopo+' days after the program end date)':k.dopo+' days after the program end date'+(r.dso_entro?'':'; with a DSO recommendation, also within '+k.dso+' days of it'))+
  riga('Latest OPT start date you can request',dl(r.inizio_max),k.inizio+' days after the program end date')+
- '</ul><p class="small">On hold: a final rule of 17 July 2026 would cut the '+k.dopo+' days after the program end date to '+k.nuova+', making the last day '+dl(r.chiude_30)+(r.chiude_30===r.chiude?' (the same date: the DSO limit comes first)':'')+'; a federal court postponed it and USCIS applies the previous rules.</p>';},
+ '</ul><p class="small">Vacated: a final rule of 17 July 2026 would have cut the '+k.dopo+' days after the program end date to '+k.nuova+', making the last day '+dl(r.chiude_30)+(r.chiude_30===r.chiude?' (the same date: the DSO limit comes first)':'')+'; a federal court vacated it on 16 November 2026 and DHS says it is contemplating next steps.</p>';},
 disoccupazione:function(f,k){var lim=f.tipo.value==='stem'?k.stem:k.opt;var t=oggi();var r=C.disoccupazione(f.inizio.value,lim,f.usati.value,t);if(!r)return '<p class="small">Enter the start date on your OPT EAD card.</p>';
  var h='<p class="r-lab">Unemployment limit</p><p class="tot">'+lim+' <span>days in total</span></p><ul class="r-righe">'+
  riga('If you have no job from the start date','Day '+lim+' is '+dl(r.ultimo),'from '+dl(r.oltre)+' you would be over the limit');
@@ -7246,7 +7246,7 @@ def tabella_costi_opt():
          '<span class="small">The fee schedule lists it for categories such as parolees, TPS and asylum applicants, not for the OPT categories (c)(3)</span>',
          link_fonte_opt("g1055_i765")),
         ("Proposed OPT fee, paid by the school", f'{usd(vo("proposta_importi")["iniziale"])} first OPT · {usd(vo("proposta_importi")["successiva"])} later OPT',
-         f'<span class="stato proposta">Proposal</span> <span class="small">not in force; comments until {data_lunga(p["comments_close_on"])}</span>',
+         f'<span class="stato proposta">Proposal</span> <span class="small">not in force; comments closed on {data_lunga(p["comments_close_on"])}</span>',
          link_fr("tasse_opt", breve=True)),
     ]
     corpo = "".join(f'<tr><th scope="row">{a}</th><td class="n">{b}</td><td>{c}</td><td class="small">{d}</td></tr>' for a, b, c, d in righe)
@@ -7272,9 +7272,9 @@ def tabella_stato_opt(rel):
     p, ds, pr, h = FR_OPT["tasse_opt"], FR_OPT["durata_fissa"], FR_OPT["premium"], FR_OPT["hr1_2027"]
     righe = [
         (f'OPT fees of {usd(vo("proposta_importi")["iniziale"])} and {usd(vo("proposta_importi")["successiva"])}', '<span class="stato proposta">Proposal</span>',
-         f'Proposed on {data_lunga(p["publication_date"])}; comments close on {data_lunga(p["comments_close_on"])}. Not in force. <a href="{rel}{SEZ_OPT}opt-fee-proposal/">Details</a>', link_fr("tasse_opt", True)),
-        (f'Filing deadline and grace period cut from 60 to {vo("regola_30")} days', '<span class="stato sospesa">Final rule on hold</span>',
-         f'Published on {data_lunga(ds["publication_date"])}, due to take effect on {data_lunga(ds["effective_on"])}; a federal court postponed it on {data_lunga(vo("rinvio_regola"))} and USCIS applies the previous rules. '
+         f'Proposed on {data_lunga(p["publication_date"])}; the comment period closed on {data_lunga(p["comments_close_on"])} and no final rule has been published. Not in force. <a href="{rel}{SEZ_OPT}opt-fee-proposal/">Details</a>', link_fr("tasse_opt", True)),
+        (f'Filing deadline and grace period cut from 60 to {vo("regola_30")} days', '<span class="stato sospesa">Final rule vacated</span>',
+         f'Published on {data_lunga(ds["publication_date"])}, due to take effect on {data_lunga(ds["effective_on"])}; a federal court vacated it on {data_lunga(vo("annullamento_regola"))}. USCIS writes that DHS disagrees and is contemplating next steps; its Form I-765 page keeps the 60 days. '
          f'<a href="{rel}{SEZ_OPT}opt-grace-period/">Details</a>', link_fr("durata_fissa", True)),
         (f'Premium processing fee {usd(vo("premium"))}', '<span class="stato vigore">In force</span>', f'Since {data_lunga(pr["effective_on"])} (inflation adjustment).', link_fr("premium", True)),
         ('H.R. 1 fees, fiscal year 2027', '<span class="stato vigore">In force</span>',
@@ -7303,7 +7303,7 @@ def esempi_finestra():
         righe += (f'<tr><td>{data_lunga(fine)}</td><td>{data_lunga(a.isoformat())}</td><td>{data_lunga(c.isoformat())}</td>'
                   f'<td class="small">{data_lunga(c30.isoformat())}</td></tr>')
     return pila(f'<div class="tab compatta"><table id="t-esempi-opt"><caption class="sr">Examples of OPT filing windows</caption><thead><tr><th scope="col">Program end date</th>'
-            f'<th scope="col">Earliest filing</th><th scope="col">Last filing (rule applied today)</th><th scope="col">Last filing if the 30-day rule takes effect</th></tr></thead>'
+            f'<th scope="col">Earliest filing</th><th scope="col">Last filing (rule applied today)</th><th scope="col">Last filing under the vacated 30-day rule</th></tr></thead>'
             f'<tbody>{righe}</tbody></table></div>')
 
 
@@ -7322,11 +7322,11 @@ def pagina_opt_indice():
         ("How many days can I be unemployed on OPT?",
          f"{K_DISOCC['opt']} days in total on post-completion OPT, and {K_DISOCC['stem']} days in total if you also get the STEM extension (the {K_DISOCC['stem']} include the days used before)."),
         ("Is the $70,000 OPT fee in force?",
-         f"No. It is a proposed rule published on {data_lunga(FR_OPT['tasse_opt']['publication_date'])}; comments close on {data_lunga(FR_OPT['tasse_opt']['comments_close_on'])}. "
+         f"No. It is a proposed rule published on {data_lunga(FR_OPT['tasse_opt']['publication_date'])}; the comment period closed on {data_lunga(FR_OPT['tasse_opt']['comments_close_on'])}. "
          "As proposed, the school would pay it, not the student. A final rule would have to be published before it applies."),
         ("Has the OPT deadline changed to 30 days?",
-         f"Not for now. A final rule of {data_lunga(FR_OPT['durata_fissa']['publication_date'])} would cut the 60 days to 30, but a federal court postponed it on {data_lunga(vo('rinvio_regola'))} "
-         "and USCIS says it is applying the previous rules. Check with your DSO before relying on the 60 days."),
+         f"No. A final rule of {data_lunga(FR_OPT['durata_fissa']['publication_date'])} would have cut the 60 days to 30, but a federal court vacated it on {data_lunga(vo('annullamento_regola'))} "
+         "and the USCIS Form I-765 page still says 60 days. USCIS writes that DHS disagrees with the order and is contemplating next steps: check with your DSO before relying on the 60 days."),
     ]
     corpo = f"""<section class="hero">{h1_diviso(f"STEM OPT extension and OPT ({ANNO}): fees, filing deadlines and unemployment days")}
 <p class="lead">Form I-765 for OPT or a STEM OPT extension costs <strong>{usd(vo("tassa_online"))} online or {usd(vo("tassa_carta"))} on paper</strong>, and for post-completion OPT you can file it from {f["prima"]} days before to {f["dopo"]} days after your program end date, according to the USCIS fee schedule and Form I-765 page read on {data_lunga(LETTO_OPT)}. OPT lasts up to {vo("mesi_opt")} months per education level, plus {vo("mesi_stem")} months with the STEM extension, with at most {K_DISOCC["opt"]} days of unemployment ({K_DISOCC["stem"]} with STEM).</p></section>
@@ -7351,7 +7351,7 @@ def pagina_opt_indice():
 <h2 id="unemployment">Unemployment days</h2>
 <p>On post-completion OPT you can be unemployed for <strong>{K_DISOCC["opt"]} days</strong> in total. With the STEM extension the total is <strong>{K_DISOCC["stem"]} days</strong>, which includes the days used during post-completion OPT. SEVIS counts from the actual OPT start date and adds each day without employer information in your record. <a href="opt-unemployment-days/">How the days are counted</a>.</p>
 {fonte_opt_p(("sevp_disoccupazione", "stem"))}
-<h2 id="changes">Proposed or on hold: what is not the rule today</h2>
+<h2 id="changes">Proposed or vacated: what is not the rule today</h2>
 <p>Several changes to OPT were published in {ANNO}. Only some are in force:</p>
 {tabella_stato_opt(rel)}
 <h2>Questions people ask</h2>
@@ -7379,7 +7379,7 @@ def pagina_opt_scadenza():
          f"Yes. Both limits apply: if your DSO recommended OPT on 1 June and your program ended on 15 May, the {f['dso']}-day limit ends on 1 July, before the {f['dopo']}-day limit."),
         ("What start date can I ask for?", f"A date on or after your program end date and no more than {vo('inizio_max')} days after it (SEVP)."),
         ("Is the deadline now 30 days after the program end date?",
-         f"A final rule of {data_lunga(FR_OPT['durata_fissa']['publication_date'])} would make it {vo('regola_30')} days, but its effective date was postponed by a federal court on {data_lunga(vo('rinvio_regola'))}; USCIS says it applies the previous rules ({f['dopo']} days). The calculator shows both dates."),
+         f"A final rule of {data_lunga(FR_OPT['durata_fissa']['publication_date'])} would have made it {vo('regola_30')} days, but a federal court vacated it on {data_lunga(vo('annullamento_regola'))}; the USCIS Form I-765 page still says {f['dopo']} days. The calculator shows both dates."),
     ]
     corpo = f"""<section class="hero"><h1>OPT application deadline calculator ({ANNO})</h1>
 <p class="lead">For post-completion OPT you can file Form I-765 from <strong>{f["prima"]} days before to {f["dopo"]} days after your program end date</strong>, and within {f["dso"]} days of your DSO's recommendation in SEVIS (USCIS, Form I-765 page, read on {data_lunga(LETTO_OPT)}). Enter your dates to see your window.</p></section>
@@ -7392,7 +7392,7 @@ def pagina_opt_scadenza():
 <li><strong>Requested start date</strong>: on or after the program end date and no more than {vo("inizio_max")} days after it.</li></ul>
 {fonte_opt_p(("i765", "opt", "sevp_opt"))}
 <h2>Examples</h2>
-<p>Without a DSO date. The last column shows the date under the postponed rule of {data_lunga(FR_OPT["durata_fissa"]["publication_date"])}, which is not applied today.</p>
+<p>Without a DSO date. The last column shows the date under the rule of {data_lunga(FR_OPT["durata_fissa"]["publication_date"])}, which a federal court vacated on {data_lunga(vo("annullamento_regola"))}: it is not applied today.</p>
 {esempi_finestra()}
 {fonte_opt_p(("i765",), ("durata_fissa",))}
 <h2>Fees</h2>
@@ -7404,7 +7404,7 @@ def pagina_opt_scadenza():
 {link_opt(rel, "opt-application-deadline-calculator/")}"""
     titolo = f"OPT application deadline calculator: {f['prima']} days before, {f['dopo']} after"
     descr = (f"Find your OPT filing window: Form I-765 from {f['prima']} days before to {f['dopo']} days after your program end date, within {f['dso']} days of the DSO "
-             f"recommendation (USCIS, read {data_lunga(LETTO_OPT)}). Shows the postponed 30-day rule too.")
+             f"recommendation (USCIS, read {data_lunga(LETTO_OPT)}). Shows the vacated 30-day rule too.")
     pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(domande)],
            briciole=[("US OPT and STEM OPT", SEZ_OPT), ("OPT application deadline calculator", percorso)], script=STUDIO_JS)
 
@@ -7437,7 +7437,7 @@ def pagina_opt_disoccupazione():
 </tbody></table></div>
 <p class="small">If you have a job for part of the time, only the days without employer information count: use the "days already used" field with the number from your SEVP Portal.</p>
 <h2>After OPT ends</h2>
-<p>When your OPT ends, the F-1 grace period to leave or change status is 60 days under the rules USCIS applies today; a final rule that would cut it to 30 days is on hold. <a href="../opt-grace-period/">OPT grace period: 60 or 30 days</a>.</p>
+<p>When your OPT ends, the F-1 grace period to leave or change status is 60 days under the rules USCIS applies today; a final rule that would have cut it to 30 days was vacated by a federal court. <a href="../opt-grace-period/">OPT grace period: 60 or 30 days</a>.</p>
 <h2>Questions people ask</h2>
 <div class="testo">{faq_html(domande)}</div>
 <h2>More on OPT</h2>
@@ -7506,15 +7506,15 @@ def pagina_opt_proposta():
         ("Who would pay the OPT fee?", f"As proposed, the SEVP-certified school, for each F-1 student, before the DSO recommends OPT in SEVIS. It is separate from the {usd(vo('tassa_online'))}/{usd(vo('tassa_carta'))} Form I-765 fee."),
         ("Would it apply to the STEM OPT extension?", f"Yes, as proposed: {usd(s)} for any OPT after the first, STEM extension included."),
         ("When would it start?", f"DHS proposes that the final rule take effect {vo('proposta_60_giorni')} days after it is published; the fee would apply to DSO recommendations dated on or after that day."),
-        ("Can I comment?", f"Yes, until {data_lunga(p['comments_close_on'])}, on regulations.gov, docket {vo('proposta_docket')}."),
+        ("Can I still comment?", f"No. The comment period closed on {data_lunga(p['comments_close_on'])} (regulations.gov, docket {vo('proposta_docket')}). DHS has not published a final rule."),
     ]
     corpo = f"""<section class="hero"><h1>OPT ${i:,} fee proposal: what DHS proposed and where it stands</h1>
-<p class="lead">On {data_lunga(p["publication_date"])} DHS proposed a fee of <strong>{usd(i)} for a student's first OPT and {usd(s)} for any later OPT</strong>, paid by the school; it is a proposal, not a rule, and comments close on {data_lunga(p["comments_close_on"])} (Federal Register, {escape(p["citation"])}, read on {data_lunga(LETTO_OPT)}). Today OPT still costs the Form I-765 fee of {usd(vo("tassa_online"))} online or {usd(vo("tassa_carta"))} on paper.</p></section>
+<p class="lead">On {data_lunga(p["publication_date"])} DHS proposed a fee of <strong>{usd(i)} for a student's first OPT and {usd(s)} for any later OPT</strong>, paid by the school; it is a proposal, not a rule: the comment period closed on {data_lunga(p["comments_close_on"])} and no final rule has been published (Federal Register, {escape(p["citation"])}, read on {data_lunga(LETTO_OPT)}). Today OPT still costs the Form I-765 fee of {usd(vo("tassa_online"))} online or {usd(vo("tassa_carta"))} on paper.</p></section>
 <section class="card summary" aria-label="Summary">
 <div class="s-top">{ico("alert")}<span>Proposed rule, not in force</span><span>read on {data_lunga(LETTO_OPT)}</span></div>
 <div class="s-body">
 <p class="cifra"><span class="c-lab">Proposed OPT fee per student, paid by the school</span><span class="sr">: </span><strong>{usd(i)} first OPT · {usd(s)} later OPT</strong></p>
-<div class="kpi"><div><b>Proposal</b><span>status on {data_lunga(LETTO_OPT)}</span></div><div><b>{data_lunga(p["comments_close_on"])}</b><span>comments close</span></div><div><b>{vo("proposta_60_giorni")} days</b><span>after a final rule: proposed start</span></div><div><b>{usd(vo("tassa_online"))}</b><span>what you pay today (I-765 online)</span></div></div>
+<div class="kpi"><div><b>Proposal</b><span>status on {data_lunga(LETTO_OPT)}</span></div><div><b>{data_lunga(p["comments_close_on"])}</b><span>comments closed</span></div><div><b>{vo("proposta_60_giorni")} days</b><span>after a final rule: proposed start</span></div><div><b>{usd(vo("tassa_online"))}</b><span>what you pay today (I-765 online)</span></div></div>
 <p class="fonte">Source: {link_fr("tasse_opt")}, summary and proposed 8 CFR 214.13(i); docket {escape(vo("proposta_docket"))}. Read on {data_lunga(LETTO_OPT)}.</p>
 </div></section>
 {AVVISO_OPT}
@@ -7533,7 +7533,7 @@ def pagina_opt_proposta():
 <h2>More on OPT</h2>
 {link_opt(rel, "opt-fee-proposal/")}"""
     titolo = f"OPT ${i:,} fee proposal: what DHS proposed and its status"
-    descr = (f"DHS proposed on {data_lunga(p['publication_date'])} a {usd(i)} fee for first OPT and {usd(s)} for later OPT, paid by schools. Not in force; comments until "
+    descr = (f"DHS proposed on {data_lunga(p['publication_date'])} a {usd(i)} fee for first OPT and {usd(s)} for later OPT, paid by schools. Not in force; comments closed "
              f"{data_lunga(p['comments_close_on'])} ({p['citation']}). What it would change and what you pay today.")
     pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(domande)],
            briciole=[("US OPT and STEM OPT", SEZ_OPT), ("OPT fee proposal", percorso)], script=STUDIO_JS)
@@ -7546,30 +7546,30 @@ def pagina_opt_grazia():
     ec = OPT["ecfr"]
     domande = [
         ("What is the OPT grace period in 2026?",
-         f"60 days under the rules USCIS applies today. A final rule of {data_lunga(ds['publication_date'])} would cut it to {vo('regola_grazia_30')} days, but a federal court postponed it on {data_lunga(vo('rinvio_regola'))}."),
+         f"60 days under the rules USCIS applies today. A final rule of {data_lunga(ds['publication_date'])} would have cut it to {vo('regola_grazia_30')} days, but a federal court vacated it on {data_lunga(vo('annullamento_regola'))}."),
         ("Is the OPT application deadline 60 or 30 days after graduation?",
-         f"USCIS's Form I-765 page still says no later than 60 days after your program end date and says USCIS will proceed under the previous regulatory provisions while the court order stands."),
+         f"60 days. USCIS's Form I-765 page still says no later than 60 days after your program end date, and after the order of {data_lunga(vo('annullamento_regola'))} it keeps accepting the {vo('edizione_moduli')} edition of Form I-765, not the 09/15/26 edition."),
         ("Why does the online Code of Federal Regulations say 30 days?",
-         f"The eCFR shows the text as amended by the rule from {data_lunga('2026-09-15')}. The court order postponed the rule's effective date; USCIS says it is applying the previous rules. Ask your DSO which dates SEVIS uses for you."),
-        ("Can the 30-day rule come back?", "Yes. USCIS writes that DHS disagrees with the order and will implement the rule if the order is lifted. Check this page and your DSO."),
+         f"The eCFR still shows the text as amended by the rule from {data_lunga('2026-09-15')}. A federal court vacated that rule on {data_lunga(vo('annullamento_regola'))}; the USCIS Form I-765 page says 60 days. Ask your DSO which dates SEVIS uses for you."),
+        ("Can the 30-day rule come back?", "It could. USCIS writes that DHS strongly disagrees with the order vacating the rule and is contemplating next steps. Check this page and your DSO."),
     ]
-    corpo = f"""<section class="hero"><h1>OPT grace period {ANNO}: 60 days, and the 30-day rule on hold</h1>
-<p class="lead">After you finish your program or your OPT, the F-1 grace period is still <strong>60 days</strong> under the rules USCIS applies today: a final rule published on {data_lunga(ds["publication_date"])} would cut it to {vo("regola_grazia_30")} days, but a federal court postponed it on {data_lunga(vo("rinvio_regola"))} and USCIS says it is applying the previous rules (USCIS, Form I-765 page, read on {data_lunga(LETTO_OPT)}).</p></section>
+    corpo = f"""<section class="hero"><h1>OPT grace period {ANNO}: 60 days, and the 30-day rule vacated</h1>
+<p class="lead">After you finish your program or your OPT, the F-1 grace period is still <strong>60 days</strong> under the rules USCIS applies today: a final rule published on {data_lunga(ds["publication_date"])} would have cut it to {vo("regola_grazia_30")} days, but a federal court vacated it on {data_lunga(vo("annullamento_regola"))} (USCIS, Form I-765 page, read on {data_lunga(LETTO_OPT)}).</p></section>
 <section class="card summary" aria-label="Summary">
 <div class="s-top">{ico("calendar")}<span>F-1 grace period and OPT deadline</span><span>read on {data_lunga(LETTO_OPT)}</span></div>
 <div class="s-body">
-<div class="kpi"><div><b>60 days</b><span>grace period, rules applied today</span></div><div><b>{vo("finestra")["dopo"]} days</b><span>after the program end date: OPT filing deadline today</span></div><div><b>{vo("regola_30")} days</b><span>under the rule on hold</span></div><div><b>{data_lunga(vo("rinvio_regola"))}</b><span>court order postponing the rule</span></div></div>
+<div class="kpi"><div><b>60 days</b><span>grace period, rules applied today</span></div><div><b>{vo("finestra")["dopo"]} days</b><span>after the program end date: OPT filing deadline today</span></div><div><b>{vo("regola_30")} days</b><span>under the vacated rule</span></div><div><b>{data_lunga(vo("annullamento_regola"))}</b><span>court order vacating the rule</span></div></div>
 {fonte_opt_p(("i765",), ("durata_fissa",))}
 </div></section>
 {AVVISO_OPT}
 {AD}
-<h2>What the July {ANNO} rule would change</h2>
+<h2>What the July {ANNO} rule would have changed</h2>
 <ul class="testo"><li>F-1 students would be admitted for a fixed period (up to 4 years) instead of "duration of status".</li>
 <li>The grace period after a program or OPT would be {vo("regola_grazia_30")} days instead of 60.</li>
 <li>The last day to file for post-completion OPT, and the latest start date you can request, would move from 60 to {vo("regola_30")} days after the program end date.</li></ul>
 {fonte_opt_p((), ("durata_fissa",))}
 <h2>Where it stands</h2>
-<p>The rule was due to take effect on {data_lunga(ds["effective_on"])}. On {data_lunga(vo("rinvio_regola"))} the U.S. District Court for the District of Massachusetts postponed its effective date; USCIS writes: "Until such time, USCIS will proceed under the previous regulatory provisions." The online Code of Federal Regulations (eCFR) already shows the amended text ({ec["giorni_dopo_fine_programma"]} days, version of {data_lunga(ec["ultima_versione"])}); the previous text, with 60 days, is the <a href="{escape(ec["precedente"]["url"])}" rel="noopener">version of {data_lunga(ec["precedente"]["data"])}</a>.</p>
+<p>The rule was due to take effect on {data_lunga(ds["effective_on"])}. On {data_lunga(vo("annullamento_regola"))} the U.S. District Court for the District of Massachusetts vacated the rule. USCIS writes: "{escape(OPT["letture"]["dhs_prossimi_passi"]["frammento"])}" It also writes that it "continues to accept" the {vo("edizione_moduli")} edition of Form I-765 and is not accepting the 09/15/26 edition "until further notice". The online Code of Federal Regulations (eCFR) still shows the amended text ({ec["giorni_dopo_fine_programma"]} days, version of {data_lunga(ec["ultima_versione"])}); the previous text, with 60 days, is the <a href="{escape(ec["precedente"]["url"])}" rel="noopener">version of {data_lunga(ec["precedente"]["data"])}</a>.</p>
 <p class="fonte">Sources: {link_fonte_opt("i765")}; <a href="{escape(ec["pagina"])}" rel="noopener">eCFR, 8 CFR 214.2</a> (versions of {data_lunga(ec["ultima_versione"])} and {data_lunga(ec["precedente"]["data"])}). Read on {data_lunga(LETTO_OPT)}.</p>
 <h2>Your OPT filing window under both rules</h2>
 {calc_finestra()}
@@ -7577,9 +7577,9 @@ def pagina_opt_grazia():
 <div class="testo">{faq_html(domande)}</div>
 <h2>More on OPT</h2>
 {link_opt(rel, "opt-grace-period/")}"""
-    titolo = f"OPT grace period {ANNO}: 60 days, and the 30-day rule on hold"
-    descr = (f"The F-1 grace period after OPT is still 60 days: the {data_lunga(ds['publication_date'])} rule cutting it to 30 days was postponed by a court on "
-             f"{data_lunga(vo('rinvio_regola'))} (USCIS, read {data_lunga(LETTO_OPT)}). What would change and your filing window.")
+    titolo = f"OPT grace period {ANNO}: 60 days, and the 30-day rule vacated"
+    descr = (f"The F-1 grace period after OPT is still 60 days: the {data_lunga(ds['publication_date'])} rule cutting it to 30 days was vacated by a court on "
+             f"{data_lunga(vo('annullamento_regola'))} (USCIS, read {data_lunga(LETTO_OPT)}). What would change and your filing window.")
     pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(domande)],
            briciole=[("US OPT and STEM OPT", SEZ_OPT), ("OPT grace period", percorso)], script=STUDIO_JS)
 
@@ -15824,7 +15824,7 @@ BREVE_GK = {
     "italy-digital-nomad-visa": ("it_dn", "Genki Traveler is a travel health insurance in the medical sense: €1,000,000 cover for inpatient and outpatient treatment, matching the 12 month visa exactly.", ""),
     "croatia-digital-nomad-visa": ("hr_dn", "Genki Traveler caps at 12 months, so for the full 18 month permit Genki Native is the fit", " […]"),
     "hungary-white-card": ("hu_wc", "Genki Traveler covers the initial 12-month card exactly", " […] Genki also writes of a €30,000 minimum: the official page we read names no amount."),
-    "spain-digital-nomad-visa": ("es_dn", "often accept only policies from insurers licensed in Spain, so many international health plans are rejected on that basis", " (said of Spanish consulates)."),
+    "spain-digital-nomad-visa": ("es_dn", "Spain's rules require an insurer authorised to operate in Spain, checked against the official DGSFP register, so many international health plans are rejected on that basis", "."),
 }
 
 
@@ -16726,7 +16726,7 @@ def controlli_de():
 
 # ---------------------------------------------------------------- Australia visas: points calculator, official fees, requirements (18/11/2026)
 # Dati: dati/australia_visti.json, scritto da raccolta/australia_visti.py. Fonti: Department of Home Affairs (tabelle dei punti e pagine
-# dei visti) e Federal Register of Legislation (Migration Regulations 1994, compilazione n. 291 del 3/11/2026: Schedule 1 = visa
+# dei visti) e Federal Register of Legislation (Migration Regulations 1994, compilazione n. 292 del 12/11/2026: Schedule 1 = visa
 # application charge, Schedule 6D = test a punti; regolamento F2026L00874 = importi dal 1° luglio 2026). La tabella dei prezzi di Home
 # Affairs non è nell'HTML: tutti gli importi vengono dalla Schedule 1 e si leggono dai frammenti (mai scritti a mano).
 # Pagine: indice /australia-visas/, calcolatore dei punti (189, 190, 491), tabella delle tariffe, una pagina per visto.

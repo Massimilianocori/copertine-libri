@@ -40,7 +40,7 @@ Uso (dalla radice del repository, dopo python3 visaincome/genera.py):
     online, 10 frammenti a caso ricontrollati sulle pagine ufficiali riscaricate.
 19. US OPT e STEM OPT (30/10/2026): ricalcolo da dati/opt.json (impronta), pagine attese (indice + 5) tutte in sitemap e nessuna in più,
     titoli ≤ 70, prima frase con fonte e data di lettura, cifre ufficiali presenti (tariffe I-765, premium processing, 90/60/30 giorni,
-    90/150 giorni di disoccupazione), la proposta da 70.000 $ sempre come proposta, la regola dei 30 giorni come rinviata, link alle fonti,
+    90/150 giorni di disoccupazione), la proposta da 70.000 $ sempre come proposta, la regola dei 30 giorni come annullata dal tribunale (16/11/2026; fino al 25/11/2026: rinviata), link alle fonti,
     calcolatori presenti con le costanti dei dati, motore JS dei calcolatori uguale a un calcolo Python indipendente (casi fissi + 400 a caso),
     nessun link sponsorizzato; online: documenti del Federal Register e pagina I-765 di USCIS riletti (tipo, date, frammenti).
 20. UK Graduate visa (30/10/2026): ricalcolo da dati/graduate.json (impronta), pagine attese (indice + 3), titoli ≤ 70, prima frase con fonte
@@ -2393,7 +2393,7 @@ def controlla_opt(online=True):
     if "" in P:
         t, main, testo, lead, _ = P[""]
         for x in (usd(L["tassa_online"]), usd(L["tassa_carta"]), usd(L["premium"]), f'{L["finestra"]["prima"]} days', f'{L["finestra"]["dopo"]} days',
-                  f'{k_dis["opt"]} days', f'{k_dis["stem"]} days', f'{L["mesi_stem"]} months', "Proposal", "Final rule on hold", "In force"):
+                  f'{k_dis["opt"]} days', f'{k_dis["stem"]} days', f'{L["mesi_stem"]} months', "Proposal", "Final rule vacated", "In force"):
             if x not in testo:
                 errori.append(f"OPT: indice senza {x!r}")
         for u in [v["url"] for v in D["fonti"].values()] + [v["html_url"] for v in fr.values()]:
@@ -2413,7 +2413,7 @@ def controlla_opt(online=True):
             errori.append("OPT: la proposta non è più una proposta da 70.000/30.000 $: rivedere i testi (anche le domande scritte a mano)")
     if "opt-grace-period" in P:
         testo = P["opt-grace-period"][2]
-        for x in ("postponed", "60 days", f'{L["regola_30"]} days', G.data_lunga(L["rinvio_regola"]), "previous regulatory provisions", D["ecfr"]["precedente"]["url"]):
+        for x in ("vacated", "60 days", f'{L["regola_30"]} days', G.data_lunga(L["annullamento_regola"]), "contemplating next steps", L["edizione_moduli"], D["ecfr"]["precedente"]["url"]):
             if x not in testo and html.escape(x) not in P["opt-grace-period"][1]:
                 errori.append(f"OPT: pagina del periodo di grazia senza {x!r}")
     if "opt-unemployment-days" in P:
@@ -2441,7 +2441,7 @@ def controlla_opt(online=True):
             tx = json.loads(r.stdout)[D["fonti"]["i765"]["url"]]["testo"]
         except (ValueError, KeyError):
             tx = ""
-        for k in ("finestra", "finestra_stem_i765", "rinvio_regola", "regole_precedenti"):
+        for k in ("finestra", "finestra_stem_i765", "annullamento_regola", "dhs_prossimi_passi", "edizione_moduli"):
             ok = D["letture"][k]["frammento"] in tx
             riletti.append(f"USCIS I-765 {k}: {'presente' if ok else 'ASSENTE'}")
             if not ok:
@@ -6627,7 +6627,7 @@ def main():
     for x in r18:
         print("    ·", x)
     e19, n19, j19, r19 = controlla_opt(online="--offline" not in sys.argv)
-    print(f"19. US OPT e STEM OPT: {n19} pagine, cifre, fonti, proposta e regola rinviata, calcolatori (JS = Python su {j19} casi); riletti online: {len(r19)}: {len(e19)} errori")
+    print(f"19. US OPT e STEM OPT: {n19} pagine, cifre, fonti, proposta e regola annullata, calcolatori (JS = Python su {j19} casi); riletti online: {len(r19)}: {len(e19)} errori")
     for x in r19:
         print("    ·", x)
     e20, n20, j20, r20 = controlla_graduate(online="--offline" not in sys.argv)

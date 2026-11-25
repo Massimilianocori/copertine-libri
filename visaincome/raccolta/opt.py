@@ -59,7 +59,7 @@ PAGINE = {
 # ---------------------------------------------------------------- Federal Register (API JSON + PDF su govinfo)
 DOCUMENTI_FR = {
     "tasse_opt": "2026-20660",       # proposta: Optional Practical Training Fees (8/10/2026)
-    "durata_fissa": "2026-14439",    # regola finale: Fixed Time Period of Admission (17/7/2026), efficacia rinviata dal tribunale
+    "durata_fissa": "2026-14439",    # regola finale: Fixed Time Period of Admission (17/7/2026), rinviata il 14/9 e annullata dal tribunale il 16/11/2026
     "premium": "2026-00321",         # regola finale: Adjustment to Premium Processing Fees (12/1/2026, in vigore dall'1/3/2026)
     "hr1_2027": "2026-20187",        # avviso: FY 2027 Inflation Adjustment to H.R. 1 Immigration Fees (1/10/2026)
 }
@@ -117,12 +117,17 @@ LETTURE = {
                              "frammento": "Initial post-completion OPT onlyUp to 90 days90 days24-month extensionAn additional 60 days150 days"},
     "conteggio_inizio": {"valore": True, "fonte": "sevp_disoccupazione", "frammento": "Look back to the Actual OPT Start Date for that period of OPT."},
     "conteggio_giorni": {"valore": True, "fonte": "sevp_disoccupazione", "frammento": "Count each day without employer information."},
-    "rinvio_regola": {"valore": "2026-09-14", "fonte": "i765",
-                      "frammento": "issued an order postponing the effective date of the final rule entitled “Establishing a Fixed Time Period of Admission and an "
-                                   "Extension of Stay Procedure for Nonimmigrant Academic Students, Exchange Visitors, and Representatives of Foreign Information Media,” "
-                                   "published at 91 Fed. Reg. 44976 (July 17, 2026)"},
-    "regole_precedenti": {"valore": True, "fonte": "i765", "frammento": "Until such time, USCIS will proceed under the previous regulatory provisions."},
-    "hr1_altre": {"valore": True, "fonte": "g1055", "frammento": "Certain forms have an additional fee required along with any filing fee."},
+    # Riletto il 25/11/2026: l'avviso sul rinvio del 14/9/2026 ("issued an order postponing the effective date…", "Until such time, USCIS will
+    # proceed under the previous regulatory provisions.") non è più nella pagina; al suo posto l'avviso sull'annullamento del 16/11/2026.
+    "annullamento_regola": {"valore": "2026-11-16", "fonte": "i765",
+                            "frammento": "On Nov. 16, 2026, the U.S. District Court for the District of Massachusetts issued an order vacating the final rule entitled "
+                                         "“Establishing a Fixed Time Period of Admission and an Extension of Stay Procedure for Nonimmigrant Academic Students, "
+                                         "Exchange Visitors, and Representatives of Foreign Information Media,” published at 91 Fed. Reg. 44976 (July 17, 2026)"},
+    "dhs_prossimi_passi": {"valore": True, "fonte": "i765", "frammento": "DHS strongly disagrees with the order vacating the final rule and is contemplating next steps."},
+    "edizione_moduli": {"valore": "08/21/25", "fonte": "i765",
+                        "frammento": "USCIS continues to accept the 08/28/24 edition of Form I-539 and 08/21/25 edition of Form I-765 and is not accepting the "
+                                     "09/15/26 edition of Forms I-539 and I-765 until further notice."},
+    "hr1_altre": {"valore": True, "fonte": "g1055", "frammento": "Certain forms have an additional fee required by Pub. L. 119-21 along with any USCIS filing fee."},
     "proposta_importi": {"valore": {"iniziale": 70000, "successiva": 30000}, "fonte": "fr:tasse_opt",
                          "frammento": "$70,000 for initial OPT; and $30,000 for any subsequent OPT."},
     "proposta_scuole": {"valore": True, "fonte": "pdf:tasse_opt",
@@ -285,8 +290,8 @@ def main():
     elif ecfr["precedente"]["giorni_dopo_fine_programma"] != 60 or not ecfr["precedente"]["grazia_60"]:
         errori.append(f"eCFR {ECFR_PRIMA}: testo precedente (60 giorni) non trovato")
     # la regola rinviata e il testo codificato devono restare coerenti con quello che dicono le pagine
-    if ecfr and ecfr["giorni_dopo_fine_programma"] == 60 and LETTURE["rinvio_regola"]["frammento"] in testi.get("i765", ""):
-        errori.append("eCFR torna a 60 giorni mentre USCIS parla ancora del rinvio: rileggere e aggiornare le pagine")
+    if ecfr and ecfr["giorni_dopo_fine_programma"] == 60:
+        errori.append("eCFR torna a 60 giorni (regola annullata il 16/11/2026): le pagine dicono che l'eCFR mostra ancora 30 giorni, rileggere e aggiornarle")
     vecchio = json.loads(USCITA.read_text(encoding="utf-8")) if USCITA.exists() else {}
     dom = nuova_domanda() if "--domanda" in sys.argv else vecchio.get("domanda")
     if not dom:

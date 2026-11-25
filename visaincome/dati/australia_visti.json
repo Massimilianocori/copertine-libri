@@ -1,10 +1,10 @@
 {
  "_nota": "Generato da raccolta/australia_visti.py: non modificare a mano. Letture, punti e tariffe sono frammenti dei testi ufficiali, ricontrollati a ogni lancio; gli importi si leggono dai frammenti.",
- "letto_il": "2026-11-19",
+ "letto_il": "2026-11-25",
  "compilazione": {
-  "id": "F2026C01194",
-  "numero": 291,
-  "data": "2026-11-03"
+  "id": "F2026C01219",
+  "numero": 292,
+  "data": "2026-11-12"
  },
  "modifica": {
   "id": "F2026L00874",
@@ -16,8 +16,8 @@
    "editore": "Australian Government Department of Home Affairs",
    "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/skilled-independent-189/points-table",
    "http": 200,
-   "letto_il": "2026-11-19",
-   "byte": 1328332,
+   "letto_il": "2026-11-25",
+   "byte": 1329721,
    "sha256_testo": "eb7d7013fa2ffeacf1873d9b952a28b1105426f52e6e2b8daddc67e4952f10ec",
    "aggiornata": "4/11/2026"
   },
@@ -26,8 +26,8 @@
    "editore": "Australian Government Department of Home Affairs",
    "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/skilled-nominated-190/points-table",
    "http": 200,
-   "letto_il": "2026-11-19",
-   "byte": 1329419,
+   "letto_il": "2026-11-25",
+   "byte": 1330808,
    "sha256_testo": "ddfa03b55d1f4b7c0c312853e3e0ac82e5ba18fbb8d3f7fd6ae6fea11250c35d",
    "aggiornata": "16/07/2026"
   },
@@ -36,8 +36,8 @@
    "editore": "Australian Government Department of Home Affairs",
    "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/skilled-work-regional-provisional-491/points-table",
    "http": 200,
-   "letto_il": "2026-11-19",
-   "byte": 1330327,
+   "letto_il": "2026-11-25",
+   "byte": 1331716,
    "sha256_testo": "acdef0afb44eda75a0dfeafbcbc76e758de6914bcf56748f5af92311d0c724c5",
    "aggiornata": "16/07/2026"
   },
@@ -46,8 +46,8 @@
    "editore": "Australian Government Department of Home Affairs",
    "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/skilled-independent-189/points-tested",
    "http": 200,
-   "letto_il": "2026-11-19",
-   "byte": 1385153,
+   "letto_il": "2026-11-25",
+   "byte": 1386535,
    "sha256_testo": "63b90e76b390ebd84e42458e3b9319697728f453498722ca72e5aae5a7318820",
    "aggiornata": "5/11/2026"
   },
@@ -56,8 +56,8 @@
    "editore": "Australian Government Department of Home Affairs",
    "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/skilled-nominated-190",
    "http": 200,
-   "letto_il": "2026-11-19",
-   "byte": 1385717,
+   "letto_il": "2026-11-25",
+   "byte": 1387099,
    "sha256_testo": "b153ecadf3b900c8c302c476a38761f415e23e3533ea16b9def1ad4fa8f85679",
    "aggiornata": "10/11/2026"
   },
@@ -66,8 +66,8 @@
    "editore": "Australian Government Department of Home Affairs",
    "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/skilled-work-regional-provisional-491/application",
    "http": 200,
-   "letto_il": "2026-11-19",
-   "byte": 1396855,
+   "letto_il": "2026-11-25",
+   "byte": 1398237,
    "sha256_testo": "d205351dd1ddc8b0e286b71ae1695df8f68f85da274f4f192ee399bae18ecb55",
    "aggiornata": "10/11/2026"
   },
@@ -76,8 +76,8 @@
    "editore": "Australian Government Department of Home Affairs",
    "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/skills-in-demand-visa-subclass-482",
    "http": 200,
-   "letto_il": "2026-11-19",
-   "byte": 1302496,
+   "letto_il": "2026-11-25",
+   "byte": 1303728,
    "sha256_testo": "dba3368f9a2300ae258d7292660ead2c41f243f30775290660e16c5ec55ed04d",
    "aggiornata": "2/11/2026"
   },
@@ -86,8 +86,8 @@
    "editore": "Australian Government Department of Home Affairs",
    "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/skills-in-demand-visa-subclass-482/core-skills-stream",
    "http": 200,
-   "letto_il": "2026-11-19",
-   "byte": 1425470,
+   "letto_il": "2026-11-25",
+   "byte": 1426852,
    "sha256_testo": "e2e2851d403af21750d97d28190ddce1fd626b82e30723f1d7c32b1ea59abf6b",
    "aggiornata": "12/10/2026"
   },
@@ -96,8 +96,8 @@
    "editore": "Australian Government Department of Home Affairs",
    "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/skills-in-demand-visa-subclass-482/specialist-skills-stream",
    "http": 200,
-   "letto_il": "2026-11-19",
-   "byte": 1429112,
+   "letto_il": "2026-11-25",
+   "byte": 1430494,
    "sha256_testo": "861f1d27651bb96ecdc1cb6e62da64987a8bedb2d2d868f3507308906c0afa75",
    "aggiornata": "12/10/2026"
   },
@@ -106,8 +106,8 @@
    "editore": "Australian Government Department of Home Affairs",
    "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500",
    "http": 200,
-   "letto_il": "2026-11-19",
-   "byte": 1460759,
+   "letto_il": "2026-11-25",
+   "byte": 1462141,
    "sha256_testo": "85c4f18bfc25806c2f17f331002c9391e8f6abeaf93d5c396d4e4ce45f38230c",
    "aggiornata": "9/11/2026"
   },
@@ -116,8 +116,8 @@
    "editore": "Australian Government Department of Home Affairs",
    "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/work-holiday-417",
    "http": 200,
-   "letto_il": "2026-11-19",
-   "byte": 1302042,
+   "letto_il": "2026-11-25",
+   "byte": 1303431,
    "sha256_testo": "23c56edf8b7bb341eea152a10e6ca3ca78f318587f35d811d052700e7ce3a5dc",
    "aggiornata": "9/12/2024"
   },
@@ -126,8 +126,8 @@
    "editore": "Australian Government Department of Home Affairs",
    "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/work-holiday-417/first-working-holiday-417",
    "http": 200,
-   "letto_il": "2026-11-19",
-   "byte": 1359089,
+   "letto_il": "2026-11-25",
+   "byte": 1360471,
    "sha256_testo": "d5d1d9329482d9049e8958593bca06559e81af09f54e06602845683f1f0e0e22",
    "aggiornata": "5/11/2026"
   },
@@ -136,8 +136,8 @@
    "editore": "Australian Government Department of Home Affairs",
    "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/work-holiday-462/first-work-holiday-462",
    "http": 200,
-   "letto_il": "2026-11-19",
-   "byte": 1385156,
+   "letto_il": "2026-11-25",
+   "byte": 1386538,
    "sha256_testo": "37cac5110ba58906d7dee0e488d6f87a068513881e871c52b62a8a27452827e0",
    "aggiornata": "5/11/2026"
   },
@@ -146,8 +146,8 @@
    "editore": "Australian Government Department of Home Affairs",
    "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/visitor-600",
    "http": 200,
-   "letto_il": "2026-11-19",
-   "byte": 1302074,
+   "letto_il": "2026-11-25",
+   "byte": 1303456,
    "sha256_testo": "cf2b2ad7331171695cc0c07e0456b8735f6385767c688f65736867672b6bbe56",
    "aggiornata": "23/09/2024"
   },
@@ -156,8 +156,8 @@
    "editore": "Australian Government Department of Home Affairs",
    "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/visitor-600/tourist-stream-overseas",
    "http": 200,
-   "letto_il": "2026-11-19",
-   "byte": 1348595,
+   "letto_il": "2026-11-25",
+   "byte": 1349977,
    "sha256_testo": "e9b7c030b1e87d610923956f1a0a6c17351adce3d29aba5533d5802bcdb0d808",
    "aggiornata": "5/11/2026"
   },
@@ -166,8 +166,8 @@
    "editore": "Australian Government Department of Home Affairs",
    "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/partner-onshore",
    "http": 200,
-   "letto_il": "2026-11-19",
-   "byte": 1302363,
+   "letto_il": "2026-11-25",
+   "byte": 1303745,
    "sha256_testo": "30d733fa9c4c410f2853755cf80faa5798f95b2fad3fee4ca34ecf815f2d4836",
    "aggiornata": "10/08/2026"
   },
@@ -176,8 +176,8 @@
    "editore": "Australian Government Department of Home Affairs",
    "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/partner-offshore",
    "http": 200,
-   "letto_il": "2026-11-19",
-   "byte": 1302369,
+   "letto_il": "2026-11-25",
+   "byte": 1303751,
    "sha256_testo": "39f388426d79471a72cd9a226c78f30dad1d65e614fdb99cae12b315bec67389",
    "aggiornata": "10/08/2026"
   },
@@ -186,8 +186,8 @@
    "editore": "Australian Government Department of Home Affairs",
    "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/fees-and-charges/current-visa-pricing",
    "http": 200,
-   "letto_il": "2026-11-19",
-   "byte": 1308602,
+   "letto_il": "2026-11-25",
+   "byte": 1309984,
    "sha256_testo": "b7cbbe08c838f78ef30eb7ce37147e70fdf7945c53a76147627cefeee94788d7",
    "aggiornata": "1/07/2026"
   },
@@ -196,8 +196,8 @@
    "editore": "Australian Government Department of Home Affairs",
    "url": "https://immi.homeaffairs.gov.au/help-support/who-can-help-with-your-application/overview",
    "http": 200,
-   "letto_il": "2026-11-19",
-   "byte": 1308290,
+   "letto_il": "2026-11-25",
+   "byte": 1309679,
    "sha256_testo": "a37532a27406eb8a64aaf31b50a620688c8a48e1ab82db8d60cd43b716114b2b",
    "aggiornata": "16/04/2026"
   },
@@ -206,8 +206,8 @@
    "editore": "Australian Government Department of Home Affairs",
    "url": "https://www.homeaffairs.gov.au/access-and-accountability/using-our-website/copyright-and-disclaimer",
    "http": 200,
-   "letto_il": "2026-11-19",
-   "byte": 1374284,
+   "letto_il": "2026-11-25",
+   "byte": 1382464,
    "sha256_testo": "ba62aa30246f34305f586f21e6b8f8d9fe28d5c5b9244eabe1d4ff6d307aa155",
    "aggiornata": "21/10/2026"
   },
@@ -216,8 +216,8 @@
    "editore": "Office of the Migration Agents Registration Authority",
    "url": "https://www.mara.gov.au/",
    "http": 200,
-   "letto_il": "2026-11-19",
-   "byte": 163368,
+   "letto_il": "2026-11-25",
+   "byte": 164887,
    "sha256_testo": "dda5770ffb7bfed17770199406ec1ff392c51da4e2afd02b905d0555f4603341",
    "aggiornata": "18/08/2026"
   },
@@ -226,10 +226,10 @@
    "editore": "Migration Expert",
    "url": "https://www.migrationexpert.com.au/",
    "http": 200,
-   "letto_il": "2026-11-19",
-   "byte": 285581,
+   "letto_il": "2026-11-25",
+   "byte": 285187,
    "partner": true,
-   "sha256_testo": "4c7f6a33c05c104265df2c13230b8110abb2866869d99eb26952cc8c353c4486",
+   "sha256_testo": "85ff4f3829e379500541329d64ca07810d1b7c45d48b2345ab1d4f8eb7074fb7",
    "aggiornata": null
   },
   "reg_ultima": {
@@ -237,36 +237,36 @@
    "editore": "Federal Register of Legislation (Australian Government)",
    "url": "https://www.legislation.gov.au/F1996B03551/latest/text",
    "http": 200,
-   "letto_il": "2026-11-19",
-   "byte": 645021,
-   "sha256_testo": "1270656bc5d72cd456349b31bf1715f3ecaae12a15f512fa0fe4441f22a66593"
+   "letto_il": "2026-11-25",
+   "byte": 646226,
+   "sha256_testo": "22a561b7aca34157f076115115100755926ebf860c6bd7fb0850a42b46106846"
   },
   "reg1": {
-   "titolo": "Migration Regulations 1994, compilation No. 291 (3 November 2026), volume 1: regulations and Schedule 1",
+   "titolo": "Migration Regulations 1994, compilation No. 292 (12 November 2026), volume 1: regulations and Schedule 1",
    "editore": "Federal Register of Legislation (Australian Government)",
-   "url": "https://www.legislation.gov.au/F1996B03551/2026-11-03/2026-11-03/text/original/epub/OEBPS/document_1/document_1.html",
+   "url": "https://www.legislation.gov.au/F1996B03551/2026-11-12/2026-11-12/text/original/epub/OEBPS/document_1/document_1.html",
    "http": 200,
-   "letto_il": "2026-11-19",
-   "byte": 4069070,
+   "letto_il": "2026-11-25",
+   "byte": 4096897,
    "pubblico": "https://www.legislation.gov.au/F1996B03551/latest/text",
-   "sha256_testo": "1cbfbca602610c9e16061ebee6eb0fd0cec9dc7ea5cd6417bb9ac74f32ba95c0"
+   "sha256_testo": "5eb59a5a336099dd17d8c785aa9443035e4b8fe4be85232862cf8ad25e6581d4"
   },
   "reg3": {
-   "titolo": "Migration Regulations 1994, compilation No. 291 (3 November 2026), volume 3: Schedule 6D (general points test)",
+   "titolo": "Migration Regulations 1994, compilation No. 292 (12 November 2026), volume 3: Schedule 6D (general points test)",
    "editore": "Federal Register of Legislation (Australian Government)",
-   "url": "https://www.legislation.gov.au/F1996B03551/2026-11-03/2026-11-03/text/original/epub/OEBPS/document_3/document_3.html",
+   "url": "https://www.legislation.gov.au/F1996B03551/2026-11-12/2026-11-12/text/original/epub/OEBPS/document_3/document_3.html",
    "http": 200,
-   "letto_il": "2026-11-19",
-   "byte": 2005417,
+   "letto_il": "2026-11-25",
+   "byte": 2007057,
    "pubblico": "https://www.legislation.gov.au/F1996B03551/latest/text",
-   "sha256_testo": "51906b3957cc1c3f35a45046f131a7f79583caedadb040d702526f866c18f2aa"
+   "sha256_testo": "7fb91f0aab461df7dc7ccf78208c063640c34aec376a166e66100429192bf55e"
   },
   "amd": {
    "titolo": "Home Affairs Legislation Amendment (2026 Measures No. 1) Regulations 2026 (F2026L00874), Schedule 3: fees for visa applications",
    "editore": "Federal Register of Legislation (Australian Government)",
    "url": "https://www.legislation.gov.au/F2026L00874/asmade/2026-06-30/text/original/epub/OEBPS/document_1/document_1.html",
    "http": 200,
-   "letto_il": "2026-11-19",
+   "letto_il": "2026-11-25",
    "byte": 673527,
    "pubblico": "https://www.legislation.gov.au/F2026L00874/asmade/text",
    "sha256_testo": "4a1ecb5805d8828f03030d9b5085ae8a0256f7ffaec2ff7f2ace7faa9624b45b"
@@ -716,11 +716,11 @@
   },
   "reg_compilazione": {
    "fonte": "reg1",
-   "frammento": "Compilation No. 291 Compilation date: 3 November 2026"
+   "frammento": "Compilation No. 292 Compilation date: 12 November 2026"
   },
   "reg_testo": {
    "fonte": "reg1",
-   "frammento": "This is a compilation of the Migration Regulations 1994 that shows the text of the law as amended and in force on 3 November 2026"
+   "frammento": "This is a compilation of the Migration Regulations 1994 that shows the text of the law as amended and in force on 12 November 2026"
   },
   "amd_data": {
    "fonte": "amd",
@@ -2669,5 +2669,5 @@
    }
   }
  },
- "impronta": "78e1786f29c1f254e2f3"
+ "impronta": "83f41e068017ac8c7264"
 }

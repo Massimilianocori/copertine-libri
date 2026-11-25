@@ -95,10 +95,10 @@ FONTI = {
                 "pagina": "https://www.ersupalermo.it/2026/06/05/bando-di-concorso-per-lattribuzione-di-borse-di-studio-altri-contributi-economici-e-servizi-per-il-diritto-allo-studio-universitario/"},
     "catania": {"url": "https://www.ersucatania.it/wp-content/uploads/2026/06/Bando-ERSU-CT-2026-27-Delibera-45.pdf", "editore": "ERSU Catania",
                 "titolo": "Bando di concorso a.a. 2026/2027", "pagina": "https://www.ersucatania.it/borsa-di-studio/"},
-    "adisurc": {"url": "https://www.adisurcampania.it/sites/default/files/2026-07/Bando%20di%20Concorso%20a.a.%202026.27.pdf", "editore": "ADISU Campania (ADiSURC)",
+    "adisurc": {"url": "https://www.adisurcampania.it/wp-content/uploads/2026/09/Bando-di-Concorso-a.a.-2026.27.pdf", "editore": "ADISU Campania (ADiSURC)",
                 "titolo": "Bando di concorso borse di studio, posti alloggio e mobilità internazionale a.a. 2026/2027",
-                "pagina": "https://www.adisurcampania.it/notizie/approvazione-bando-di-concorso-20262027",
-                "inglese": "https://www.adisurcampania.it/sites/default/files/2026-07/Bando%20di%20Concorso%20a.a.%202026.27_ENG.pdf"},
+                "pagina": "https://www.adisurcampania.it/approvazione-bando-di-concorso-2026-2027/",
+                "inglese": "https://www.adisurcampania.it/wp-content/uploads/2026/09/Bando-di-Concorso-a.a.-2026.27_ENG.pdf"},
 }
 URL_BDI = "https://tassidicambio.bancaditalia.it/terzevalute-wf-web/rest/v1.0/annualAverageRates?year={anno}&currencyIsoCode=EUR&lang=en"
 PAGINA_BDI = "https://tassidicambio.bancaditalia.it/terzevalute-wf-ui-web/averageRates"

@@ -1,8 +1,8 @@
 {
 "_nota": "Generato da raccolta/opt.py: non modificare a mano (i valori letti a mano stanno in LETTURE dentro lo script). Fonti: USCIS, ICE/SEVP, Federal Register, eCFR, lette il giorno indicato.",
-"generato_il": "2026-10-30",
-"letto_il": "2026-10-30",
-"impronta": "d52dfa811f6a738d1156",
+"generato_il": "2026-11-25",
+"letto_il": "2026-11-25",
+"impronta": "eb5ed90634b87004ea40",
 "domanda": {
 "data": "2026-10-30",
 "metodo": "https://suggestqueries.google.com/complete/search?client=firefox&gl=<us|in>&hl=en&q=…",
@@ -443,20 +443,25 @@
 "fonte": "sevp_disoccupazione",
 "frammento": "Count each day without employer information."
 },
-"rinvio_regola": {
-"valore": "2026-09-14",
+"annullamento_regola": {
+"valore": "2026-11-16",
 "fonte": "i765",
-"frammento": "issued an order postponing the effective date of the final rule entitled “Establishing a Fixed Time Period of Admission and an Extension of Stay Procedure for Nonimmigrant Academic Students, Exchange Visitors, and Representatives of Foreign Information Media,” published at 91 Fed. Reg. 44976 (July 17, 2026)"
+"frammento": "On Nov. 16, 2026, the U.S. District Court for the District of Massachusetts issued an order vacating the final rule entitled “Establishing a Fixed Time Period of Admission and an Extension of Stay Procedure for Nonimmigrant Academic Students, Exchange Visitors, and Representatives of Foreign Information Media,” published at 91 Fed. Reg. 44976 (July 17, 2026)"
 },
-"regole_precedenti": {
+"dhs_prossimi_passi": {
 "valore": true,
 "fonte": "i765",
-"frammento": "Until such time, USCIS will proceed under the previous regulatory provisions."
+"frammento": "DHS strongly disagrees with the order vacating the final rule and is contemplating next steps."
+},
+"edizione_moduli": {
+"valore": "08/21/25",
+"fonte": "i765",
+"frammento": "USCIS continues to accept the 08/28/24 edition of Form I-539 and 08/21/25 edition of Form I-765 and is not accepting the 09/15/26 edition of Forms I-539 and I-765 until further notice."
 },
 "hr1_altre": {
 "valore": true,
 "fonte": "g1055",
-"frammento": "Certain forms have an additional fee required along with any filing fee."
+"frammento": "Certain forms have an additional fee required by Pub. L. 119-21 along with any USCIS filing fee."
 },
 "proposta_importi": {
 "valore": {
@@ -508,43 +513,43 @@
 "titolo": "I-765, Application for Employment Authorization",
 "editore": "U.S. Citizenship and Immigration Services (USCIS)",
 "http": 200,
-"letto_il": "2026-10-30",
-"aggiornata": "10/07/2026",
-"sha256": "0d7790082b7389b5b5e32a2d0a30c017d212e3d69d211c8c13b90e5bd84162fb"
+"letto_il": "2026-11-25",
+"aggiornata": "11/24/2026",
+"sha256": "45dd9836e00a8911281aad657e9377047c6744eeb88aa9cfa2867e43cf713b52"
 },
 "g1055": {
 "url": "https://www.uscis.gov/g-1055",
 "titolo": "G-1055, Fee Schedule",
 "editore": "USCIS",
 "http": 200,
-"letto_il": "2026-10-30",
-"aggiornata": "10/28/2026",
-"sha256": "1d14f615273fec78a9075f8e9786b90b6507b00d7f4b3faec5fae486906f1a8f"
+"letto_il": "2026-11-25",
+"aggiornata": "11/19/2026",
+"sha256": "69306ac7f0fc994d43dfeec986d00a6a322a5ffa70fa24a26a209adbc21a2180"
 },
 "g1055_i765": {
 "url": "https://www.uscis.gov/g-1055",
 "titolo": "G-1055, Fee Schedule: Form I-765",
 "editore": "USCIS",
 "http": 200,
-"letto_il": "2026-10-30",
-"aggiornata": "10/28/2026",
-"sha256": "22d9f3e8c8147333e7f5c086e9ecc0a5b68f6a09c2c4d42d69a99fc406349444"
+"letto_il": "2026-11-25",
+"aggiornata": "11/19/2026",
+"sha256": "fee0120f1abee709ebf4f2229a0c5fdde7de021172461268a5b834df203b74db"
 },
 "g1055_i907": {
 "url": "https://www.uscis.gov/g-1055",
 "titolo": "G-1055, Fee Schedule: Form I-907, Request for Premium Processing Service",
 "editore": "USCIS",
 "http": 200,
-"letto_il": "2026-10-30",
-"aggiornata": "10/28/2026",
-"sha256": "fdb1dcbb7b5aea51e0cd507c20ca386dec925858972ccd41f8a8bdca6e7fa801"
+"letto_il": "2026-11-25",
+"aggiornata": "11/19/2026",
+"sha256": "29ccdb2a29dea3786cf073637f593c80d923dc246c5438876b1646be698aa870"
 },
 "opt": {
 "url": "https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students",
 "titolo": "Optional Practical Training (OPT) for F-1 Students",
 "editore": "USCIS",
 "http": 200,
-"letto_il": "2026-10-30",
+"letto_il": "2026-11-25",
 "aggiornata": "11/25/2024",
 "sha256": "bed18ff7a015acb527a805808b519713ba26ab1a404a0fef38533a23ba15c020"
 },
@@ -553,7 +558,7 @@
 "titolo": "Optional Practical Training Extension for STEM Students (STEM OPT)",
 "editore": "USCIS",
 "http": 200,
-"letto_il": "2026-10-30",
+"letto_il": "2026-11-25",
 "aggiornata": "01/30/2026",
 "sha256": "42432271f566676e8268168ae6494df0ab1c4ac17d5fdb0677ab8be66370f017"
 },
@@ -562,16 +567,16 @@
 "titolo": "How Do I Request Premium Processing?",
 "editore": "USCIS",
 "http": 200,
-"letto_il": "2026-10-30",
-"aggiornata": "03/23/2026",
-"sha256": "9a7daca29118003369f20c937bf9e2a487cd47f807039ea01c889e68345e8eaf"
+"letto_il": "2026-11-25",
+"aggiornata": "11/10/2026",
+"sha256": "57f179415da302c6f48ab7a380a0d8980c8e5d016b64ee422daaac628da7e836"
 },
 "online": {
 "url": "https://www.uscis.gov/file-online/forms-available-to-file-online",
 "titolo": "Forms Available to File Online",
 "editore": "USCIS",
 "http": 200,
-"letto_il": "2026-10-30",
+"letto_il": "2026-11-25",
 "aggiornata": "10/07/2026",
 "sha256": "fea7f4530517ba5f6876aafdec67fd0fc4ba040be915c0217bd4ee0d5a4a2b7c"
 },
@@ -580,16 +585,16 @@
 "titolo": "Practical Training",
 "editore": "U.S. Immigration and Customs Enforcement (ICE), SEVP",
 "http": 200,
-"letto_il": "2026-10-30",
+"letto_il": "2026-11-25",
 "aggiornata": "12/10/2024",
-"sha256": "aa3b9e2c6900b156c6a16c3a65a7d6b8efeffe1488c6e161b393e6455f658c78"
+"sha256": "97dd97f3c5edf77cb72112d61ca1ad13539719d659c7eae318951d5e91334143"
 },
 "sevp_disoccupazione": {
 "url": "https://studyinthestates.dhs.gov/sevis-help-hub/student-records/fm-student-employment/unemployment-counter",
 "titolo": "SEVIS Help Hub: Unemployment Counter",
 "editore": "Study in the States (DHS, SEVP)",
 "http": 200,
-"letto_il": "2026-10-30",
+"letto_il": "2026-11-25",
 "aggiornata": "July 27, 2026",
 "sha256": "fe84f03e04b024f44af5143336caaaec6b2d01787e44d09ea3efe9e9e7b596ea"
 },
@@ -598,7 +603,7 @@
 "titolo": "SEVIS Help Hub: F-1 Optional Practical Training (OPT)",
 "editore": "Study in the States (DHS, SEVP)",
 "http": 200,
-"letto_il": "2026-10-30",
+"letto_il": "2026-11-25",
 "aggiornata": "May 19, 2025",
 "sha256": "9cd7f97fddec11cc1211f693837ba467d03ca32ba991d24fb22a11ca815c4e99"
 }
@@ -616,7 +621,7 @@
 "abstract": "This rule proposes new fees for Optional Practical Training (OPT) to combat fraud, strengthen the integrity of the immigration system, and protect U.S. workers. The following fees would apply for each F-1 nonimmigrant student to engage in OPT through a Student and Exchange Visitor Program-certified institution: $70,000 for initial OPT; and $30,000 for any subsequent OPT.",
 "document_number": "2026-20660",
 "sha256_pdf": "9d2d908b51089dce29c15f54f0052439d8b47c322583c93496c88eeeac130b8a",
-"letto_il": "2026-10-30"
+"letto_il": "2026-11-25"
 },
 "durata_fissa": {
 "title": "Establishing a Fixed Time Period of Admission and an Extension of Stay Procedure for Nonimmigrant Academic Students, Exchange Visitors, and Representatives of Foreign Information Media",
@@ -630,7 +635,7 @@
 "abstract": "The Department of Homeland Security (DHS) is amending its regulations to change the admission period in the F, J, and I classifications from duration of status to an admission for a fixed time period, and additional changes to admission and extension requirements. This final rule will provide additional protections and oversight of these nonimmigrant categories and will allow DHS to better evaluate whether these nonimmigrants are maintaining status while temporarily in the United States. This final rule provides amendments to the proposed rule covering this topic that was published in the Federal Register on August 28, 2025.",
 "document_number": "2026-14439",
 "sha256_pdf": "bfe2b88c4aef74ce2dc0bd5e435e14c43bd72ed3472b51e260a5fa85c2c3fcb4",
-"letto_il": "2026-10-30"
+"letto_il": "2026-11-25"
 },
 "premium": {
 "title": "Adjustment to Premium Processing Fees",
@@ -644,7 +649,7 @@
 "abstract": "The Department of Homeland Security (DHS) is increasing premium processing fees charged by U.S. Citizenship and Immigration Services (USCIS) to reflect the amount of inflation from June 2023 through June 2025 according to the Consumer Price Index for All Urban Consumers.",
 "document_number": "2026-00321",
 "sha256_pdf": "c1b6eef68d58dc44f553e4018d8dc47bb240661eecf617d545acb541e502aac6",
-"letto_il": "2026-10-30"
+"letto_il": "2026-11-25"
 },
 "hr1_2027": {
 "title": "Fiscal Year 2027 Inflation Adjustment to H.R. 1 Immigration Fees",
@@ -658,11 +663,11 @@
 "abstract": "U.S. Citizenship and Immigration Services (USCIS), a component of the Department of Homeland Security (DHS), is announcing inflationary adjustments to immigration-related fees administered by USCIS under the One Big Beautiful Bill Act (H.R. 1) for Fiscal Year (FY) 2027. H.R. 1 mandates that USCIS adjust the H.R. 1 fees annually. This notice outlines the adjusted fees and their effective date.",
 "document_number": "2026-20187",
 "sha256_pdf": "2e8e59b2e08d2fa19f236acda5ca7b686a570d6badcbee8e9bbd912e8bfb5044",
-"letto_il": "2026-10-30"
+"letto_il": "2026-11-25"
 }
 },
 "ecfr": {
-"ultima_versione": "2026-09-30",
+"ultima_versione": "2026-11-17",
 "versioni_2026": [
 "2026-01-16",
 "2026-02-03",
@@ -670,7 +675,8 @@
 "2026-07-17",
 "2026-08-11",
 "2026-09-15",
-"2026-09-30"
+"2026-09-30",
+"2026-11-17"
 ],
 "giorni_dopo_fine_programma": 30,
 "pagina": "https://www.ecfr.gov/current/title-8/chapter-I/subchapter-B/part-214/section-214.2",
