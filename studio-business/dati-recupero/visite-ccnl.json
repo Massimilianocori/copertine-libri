@@ -1,0 +1,126 @@
+[
+ {
+  "percorso": "/",
+  "visite": 37
+ },
+ {
+  "percorso": "/multiservizi-pulizie/",
+  "visite": 18
+ },
+ {
+  "percorso": "/multiservizi-pulizie/2-livello/",
+  "visite": 11
+ },
+ {
+  "percorso": "/logistica-trasporto-merci/livello-g1/",
+  "visite": 11
+ },
+ {
+  "percorso": "/logistica-trasporto-merci/5-livello/",
+  "visite": 8
+ },
+ {
+  "percorso": "/multiservizi-pulizie/1-livello/",
+  "visite": 7
+ },
+ {
+  "percorso": "/logistica-trasporto-merci/livello-i/",
+  "visite": 6
+ },
+ {
+  "percorso": "/logistica-trasporto-merci/livello-a3/",
+  "visite": 5
+ },
+ {
+  "percorso": "/multiservizi-pulizie/4-livello/",
+  "visite": 5
+ },
+ {
+  "percorso": "/logistica-trasporto-merci/6-livello/",
+  "visite": 5
+ },
+ {
+  "percorso": "/multiservizi-pulizie/5-livello/",
+  "visite": 4
+ },
+ {
+  "percorso": "/logistica-trasporto-merci/livello-c3/",
+  "visite": 3
+ },
+ {
+  "percorso": "/logistica-trasporto-merci/3-livello/",
+  "visite": 3
+ },
+ {
+  "percorso": "/metalmeccanici-industria/livello-d1/",
+  "visite": 3
+ },
+ {
+  "percorso": "/logistica-trasporto-merci/4-livello/",
+  "visite": 2
+ },
+ {
+  "percorso": "/logistica-trasporto-merci/livello-h1/",
+  "visite": 2
+ },
+ {
+  "percorso": "/metalmeccanici-industria/livello-c2/",
+  "visite": 2
+ },
+ {
+  "percorso": "/terziario-commercio/5-livello/",
+  "visite": 2
+ },
+ {
+  "percorso": "/terziario-commercio/quadro/",
+  "visite": 2
+ },
+ {
+  "percorso": "/multiservizi-pulizie/6-livello/",
+  "visite": 2
+ },
+ {
+  "percorso": "/logistica-trasporto-merci/2-livello/",
+  "visite": 2
+ },
+ {
+  "percorso": "/multiservizi-pulizie/3-livello/",
+  "visite": 2
+ },
+ {
+  "percorso": "/metalmeccanici-industria/livello-b1/",
+  "visite": 1
+ },
+ {
+  "percorso": "/terziario-commercio/2-livello/",
+  "visite": 1
+ },
+ {
+  "percorso": "/metalmeccanici-industria/",
+  "visite": 1
+ },
+ {
+  "percorso": "/metalmeccanici-industria/livello-c3/",
+  "visite": 1
+ },
+ {
+  "percorso": "/terziario-commercio/3-livello/",
+  "visite": 1
+ },
+ {
+  "percorso": "/terziario-commercio/4-livello/",
+  "visite": 1
+ },
+ {
+  "percorso": "/logistica-trasporto-merci/4-livello-junior/",
+  "visite": 1
+ },
+ {
+  "percorso": "/terziario-commercio/6-livello/",
+  "visite": 1
+ },
+ {
+  "percorso": "/terziario-commercio/7-livello/",
+  "visite": 1
+ }
+]

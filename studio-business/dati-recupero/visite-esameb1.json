@@ -1,0 +1,538 @@
+[
+ {
+  "percorso": "/",
+  "visite": 304
+ },
+ {
+  "percorso": "/citta/milano/",
+  "visite": 155
+ },
+ {
+  "percorso": "/esempi/cils/",
+  "visite": 143
+ },
+ {
+  "percorso": "/esempi/",
+  "visite": 91
+ },
+ {
+  "percorso": "/ente/cils/",
+  "visite": 84
+ },
+ {
+  "percorso": "/costo/",
+  "visite": 62
+ },
+ {
+  "percorso": "/esempi/plida/",
+  "visite": 53
+ },
+ {
+  "percorso": "/citta/torino/",
+  "visite": 52
+ },
+ {
+  "percorso": "/come-funziona/",
+  "visite": 50
+ },
+ {
+  "percorso": "/citta/bologna/",
+  "visite": 48
+ },
+ {
+  "percorso": "/citta/parma/",
+  "visite": 47
+ },
+ {
+  "percorso": "/citta/verona/",
+  "visite": 46
+ },
+ {
+  "percorso": "/citta/roma/",
+  "visite": 41
+ },
+ {
+  "percorso": "/en/b1-exam-dates/",
+  "visite": 39
+ },
+ {
+  "percorso": "/esempi/celi/",
+  "visite": 39
+ },
+ {
+  "percorso": "/citta/bari/",
+  "visite": 39
+ },
+ {
+  "percorso": "/citta/brescia/",
+  "visite": 39
+ },
+ {
+  "percorso": "/ente/plida/",
+  "visite": 36
+ },
+ {
+  "percorso": "/citta/genova/",
+  "visite": 30
+ },
+ {
+  "percorso": "/en/",
+  "visite": 28
+ },
+ {
+  "percorso": "/citta/como/",
+  "visite": 28
+ },
+ {
+  "percorso": "/citta/napoli/",
+  "visite": 27
+ },
+ {
+  "percorso": "/risultati/",
+  "visite": 26
+ },
+ {
+  "percorso": "/citta/udine/",
+  "visite": 24
+ },
+ {
+  "percorso": "/ente/celi/",
+  "visite": 23
+ },
+ {
+  "percorso": "/risultati/cils/",
+  "visite": 19
+ },
+ {
+  "percorso": "/citta/modena/",
+  "visite": 19
+ },
+ {
+  "percorso": "/esempi/b2/",
+  "visite": 18
+ },
+ {
+  "percorso": "/citta/monza/",
+  "visite": 17
+ },
+ {
+  "percorso": "/citta/prato/",
+  "visite": 16
+ },
+ {
+  "percorso": "/citta/catania/",
+  "visite": 16
+ },
+ {
+  "percorso": "/citta/reggio-emilia/",
+  "visite": 15
+ },
+ {
+  "percorso": "/citta/macerata/",
+  "visite": 15
+ },
+ {
+  "percorso": "/citta/busto-arsizio/",
+  "visite": 14
+ },
+ {
+  "percorso": "/citta/perugia/",
+  "visite": 14
+ },
+ {
+  "percorso": "/citta/bergamo/",
+  "visite": 14
+ },
+ {
+  "percorso": "/esempi/confronto/",
+  "visite": 13
+ },
+ {
+  "percorso": "/citta/venezia/",
+  "visite": 13
+ },
+ {
+  "percorso": "/esenzioni-e-domande/",
+  "visite": 11
+ },
+ {
+  "percorso": "/citta/alessandria/",
+  "visite": 11
+ },
+ {
+  "percorso": "/citta/lecco/",
+  "visite": 10
+ },
+ {
+  "percorso": "/citta/crema/",
+  "visite": 10
+ },
+ {
+  "percorso": "/esempi/certit/",
+  "visite": 10
+ },
+ {
+  "percorso": "/citta/vicenza/",
+  "visite": 10
+ },
+ {
+  "percorso": "/citta/arzignano/",
+  "visite": 9
+ },
+ {
+  "percorso": "/citta/padova/",
+  "visite": 9
+ },
+ {
+  "percorso": "/ente/certit/",
+  "visite": 9
+ },
+ {
+  "percorso": "/esempi/a2/",
+  "visite": 8
+ },
+ {
+  "percorso": "/en/italian-b1-exam-for-citizenship/",
+  "visite": 8
+ },
+ {
+  "percorso": "/reddito-minimo-cittadinanza/",
+  "visite": 8
+ },
+ {
+  "percorso": "/cittadinanza/",
+  "visite": 8
+ },
+ {
+  "percorso": "/citta/cosenza/",
+  "visite": 8
+ },
+ {
+  "percorso": "/citta/rimini/",
+  "visite": 8
+ },
+ {
+  "percorso": "/citta/cuneo/",
+  "visite": 8
+ },
+ {
+  "percorso": "/citta/reggio-calabria/",
+  "visite": 8
+ },
+ {
+  "percorso": "/citta/mantova/",
+  "visite": 7
+ },
+ {
+  "percorso": "/esonero-test-italiano/",
+  "visite": 7
+ },
+ {
+  "percorso": "/citta/treviglio/",
+  "visite": 7
+ },
+ {
+  "percorso": "/citta/brindisi/",
+  "visite": 6
+ },
+ {
+  "percorso": "/citta/firenze/",
+  "visite": 6
+ },
+ {
+  "percorso": "/citta/palermo/",
+  "visite": 5
+ },
+ {
+  "percorso": "/citta/la-spezia/",
+  "visite": 5
+ },
+ {
+  "percorso": "/citta/pavia/",
+  "visite": 5
+ },
+ {
+  "percorso": "/en/b1-practice-test/",
+  "visite": 4
+ },
+ {
+  "percorso": "/en/sample-papers/",
+  "visite": 4
+ },
+ {
+  "percorso": "/cittadinanza/milano/",
+  "visite": 4
+ },
+ {
+  "percorso": "/citta/varese/",
+  "visite": 4
+ },
+ {
+  "percorso": "/citta/messina/",
+  "visite": 4
+ },
+ {
+  "percorso": "/citta/ragusa/",
+  "visite": 4
+ },
+ {
+  "percorso": "/risultati/plida/",
+  "visite": 4
+ },
+ {
+  "percorso": "/citta/chieti/",
+  "visite": 4
+ },
+ {
+  "percorso": "/citta/treviso/",
+  "visite": 4
+ },
+ {
+  "percorso": "/cittadinanza/varese/",
+  "visite": 3
+ },
+ {
+  "percorso": "/en/cils/",
+  "visite": 3
+ },
+ {
+  "percorso": "/cittadinanza/roma/",
+  "visite": 3
+ },
+ {
+  "percorso": "/citta/siracusa/",
+  "visite": 3
+ },
+ {
+  "percorso": "/cittadinanza/venezia/",
+  "visite": 3
+ },
+ {
+  "percorso": "/esempi/prova-scritta/",
+  "visite": 3
+ },
+ {
+  "percorso": "/citta/cagliari/",
+  "visite": 3
+ },
+ {
+  "percorso": "/en/apply-italian-citizenship-by-residence/",
+  "visite": 3
+ },
+ {
+  "percorso": "/en/language-test-exemptions/",
+  "visite": 3
+ },
+ {
+  "percorso": "/citta/pesaro/",
+  "visite": 3
+ },
+ {
+  "percorso": "/cittadinanza/treviso/",
+  "visite": 3
+ },
+ {
+  "percorso": "/ro/rezidenta-italia-cetateni-ue/",
+  "visite": 3
+ },
+ {
+  "percorso": "/citta/piacenza/",
+  "visite": 3
+ },
+ {
+  "percorso": "/en/b1-exam-results/",
+  "visite": 3
+ },
+ {
+  "percorso": "/esempi/simulazione/",
+  "visite": 2
+ },
+ {
+  "percorso": "/risultati/cert-it/",
+  "visite": 2
+ },
+ {
+  "percorso": "/cittadinanza/cuneo/",
+  "visite": 2
+ },
+ {
+  "percorso": "/cittadinanza/bologna/",
+  "visite": 2
+ },
+ {
+  "percorso": "/citta/trieste/",
+  "visite": 2
+ },
+ {
+  "percorso": "/uk/zrazky-ispytu-b1/",
+  "visite": 2
+ },
+ {
+  "percorso": "/ro/modele-examen-b1/",
+  "visite": 2
+ },
+ {
+  "percorso": "/en/celi/",
+  "visite": 2
+ },
+ {
+  "percorso": "/cittadinanza/bergamo/",
+  "visite": 2
+ },
+ {
+  "percorso": "/cittadinanza/firenze/",
+  "visite": 2
+ },
+ {
+  "percorso": "/en/family-reunification-income/",
+  "visite": 2
+ },
+ {
+  "percorso": "/citta/cremona/",
+  "visite": 2
+ },
+ {
+  "percorso": "/citta/lucca/",
+  "visite": 2
+ },
+ {
+  "percorso": "/en/carta-di-soggiorno-requirements/",
+  "visite": 2
+ },
+ {
+  "percorso": "/en/plida/",
+  "visite": 2
+ },
+ {
+  "percorso": "/citta/caserta/",
+  "visite": 2
+ },
+ {
+  "percorso": "/citta/siena/",
+  "visite": 2
+ },
+ {
+  "percorso": "/citta/potenza/",
+  "visite": 2
+ },
+ {
+  "percorso": "/citta/lecce/",
+  "visite": 2
+ },
+ {
+  "percorso": "/cpia/",
+  "visite": 1
+ },
+ {
+  "percorso": "/dopo-esame/",
+  "visite": 1
+ },
+ {
+  "percorso": "/citta/terni/",
+  "visite": 1
+ },
+ {
+  "percorso": "/citta/frosinone/",
+  "visite": 1
+ },
+ {
+  "percorso": "/cittadinanza/rimini/",
+  "visite": 1
+ },
+ {
+  "percorso": "/cittadinanza/catania/",
+  "visite": 1
+ },
+ {
+  "percorso": "/uk/ispyt-b1-dlia-hromadianstva/",
+  "visite": 1
+ },
+ {
+  "percorso": "/citta/ravenna/",
+  "visite": 1
+ },
+ {
+  "percorso": "/cittadinanza-per-matrimonio/",
+  "visite": 1
+ },
+ {
+  "percorso": "/citta/l-aquila/",
+  "visite": 1
+ },
+ {
+  "percorso": "/idoneita-alloggiativa/",
+  "visite": 1
+ },
+ {
+  "percorso": "/en/income-requirement-italian-citizenship/",
+  "visite": 1
+ },
+ {
+  "percorso": "/cittadinanza/ancona/",
+  "visite": 1
+ },
+ {
+  "percorso": "/ro/",
+  "visite": 1
+ },
+ {
+  "percorso": "/citta/taranto/",
+  "visite": 1
+ },
+ {
+  "percorso": "/citta/forli/",
+  "visite": 1
+ },
+ {
+  "percorso": "/en/b1-exam-cost/",
+  "visite": 1
+ },
+ {
+  "percorso": "/citta/massa/",
+  "visite": 1
+ },
+ {
+  "percorso": "/citta/pisa/",
+  "visite": 1
+ },
+ {
+  "percorso": "/citta/ascoli-piceno/",
+  "visite": 1
+ },
+ {
+  "percorso": "/citta/bolzano/",
+  "visite": 1
+ },
+ {
+  "percorso": "/cittadinanza/brescia/",
+  "visite": 1
+ },
+ {
+  "percorso": "/cittadinanza/udine/",
+  "visite": 1
+ },
+ {
+  "percorso": "/uk/karta-di-soggiorno/",
+  "visite": 1
+ },
+ {
+  "percorso": "/cittadinanza/napoli/",
+  "visite": 1
+ },
+ {
+  "percorso": "/risultati/celi/",
+  "visite": 1
+ },
+ {
+  "percorso": "/citta/pescara/",
+  "visite": 1
+ },
+ {
+  "percorso": "/citta/avellino/",
+  "visite": 1
+ },
+ {
+  "percorso": "/citta/trento/",
+  "visite": 1
+ }
+]
