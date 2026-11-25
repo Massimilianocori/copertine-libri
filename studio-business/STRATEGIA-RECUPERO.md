@@ -359,3 +359,26 @@ EsameB1 non ha righe nei cinque giorni perché ha già 6 pagine su 8 indicizzate
 - I criteri AdSense per la nuova revisione sono miei, non di Google.
 - I conteggi GoatCounter coprono 39 giorni, comprendono tutte le sorgenti, e penalizzano le pagine recenti o mai indicizzate.
 - Le dichiarazioni di Mueller del 2026 sono lette da resoconti di Search Engine Roundtable e Search Engine Journal, non dalla fonte originale.
+
+## Verifica del 25/11 sera: abbiamo rotto qualcosa noi?
+
+Domanda di Massimiliano: «anche i siti nostri dall'inizio sono andati a zero». Controllato con i dati:
+
+- **robots.txt, intestazioni, canonical**: tutto regolare sui 5 domini (Allow: /, nessun X-Robots-Tag, salute.py 0 errori).
+- **Noindex del 13/11** (BYF 307 pagine, Visa 495): su quelle pagine c'era lo 0-1% delle visite dell'1-12/11 (BYF 4 su 491, Visa 2 su 594, EsameB1 3 su 956). Non sono la causa.
+- **Titoli cambiati** (14-18/11): EsameB1 ha cambiato titolo al 68% del traffico delle sue 15 pagine migliori ed è il sito che tiene di più (26 visite Google il 24/11). Visa ne ha cambiato il 4% ed è a zero. I titoli non spiegano il crollo.
+- **Paga CCNL**: nessuna pubblicazione dopo il 14/11, eppure crolla il 21/11 (da 12-25 al giorno a 0-2). Il calo è avvenuto senza nostre modifiche.
+- **Payroll Tax**: stesse modifiche (dominio nuovo il 13/11, titoli il 14/11) e regge.
+
+Visite da Google al giorno (GoatCounter):
+
+| giorno | BYF | EsameB1 | Visa | CCNL |
+|---|---|---|---|---|
+| 10/11 | 33 | 52 | 52 | 0 |
+| 13/11 | 33 | 44 | 33 | 0 |
+| 16/11 | 16 | 15 | 18 | 16 |
+| 18/11 | 2 | 15 | 15 | 17 |
+| 21/11 | 5 | 11 | 1 | 2 |
+| 24/11 | 3 | 26 | 1 | 1 |
+
+Conclusione con i dati: nessun guasto tecnico nostro. Le pagine interne dei domini nuovi sono «Rilevata, non indicizzata»: Google le conosce ma non le scansiona. Questo succede quando giudica il sito poco prioritario. È coerente con l'aggiornamento di Google del 10-24/11 più il cambio di dominio. Il nostro errore resta questo: 3 domini spostati e centinaia di pagine toccate nella stessa settimana, senza un piano dei rischi. Le azioni restano quelle di questo file.
