@@ -21,7 +21,7 @@
       "url": "https://cla.unipd.it/en/wp-content/uploads/2025/09/Differenze-tra-B1-standard-e-B1-Cittadinanza_CILS.pdf"
      }
     ],
-    "verificato_il": "2026-10-12",
+    "verificato_il": "2026-11-25",
     "breve": "100 € (B1 Cittadinanza)"
    },
    "durata": {
@@ -105,7 +105,7 @@
       "url": "https://cils.unistrasi.it/1/94/28/Come_si_svolgono_gli_esami_CILS.htm"
      }
     ],
-    "verificato_il": "2026-10-12"
+    "verificato_il": "2026-11-25"
    },
    "esempi": {
     "testo": "Prova d'esempio ufficiale del CILS B1 Cittadinanza, gratis: quaderno, audio, chiavi e criteri di valutazione.",
@@ -126,7 +126,7 @@
       "url": "https://cils.unistrasi.it/1/89/382/Prove_Liv._B1_c.htm"
      }
     ],
-    "verificato_il": "2026-10-12"
+    "verificato_il": "2026-11-25"
    }
   },
   "prezzo_eur": 100,
@@ -208,7 +208,7 @@
       "url": "https://www.unimi.it/sites/default/files/2025-12/Bando%20CELI%20i_18%20febbraio%20in%20italiano_signed.pdf"
      }
     ],
-    "verificato_il": "2026-10-12",
+    "verificato_il": "2026-11-25",
     "breve": "lo decide il centro"
    },
    "durata": {
@@ -275,7 +275,7 @@
       "url": "https://cvcl.unistrapg.it/MC-API/Risorse/StreamRisorsa.ashx?guid=b682a9a2-1380-4d6c-9d54-496cbd0f4c18"
      }
     ],
-    "verificato_il": "2026-10-12"
+    "verificato_il": "2026-11-25"
    },
    "esempi": {
     "testo": "Due prove d'esempio ufficiali del CELI 2 i cittadinanza, gratis, con le domande dell'orale.",
@@ -318,7 +318,7 @@
       "url": "https://plida.dante.global/it/faq/"
      }
     ],
-    "verificato_il": "2026-10-12",
+    "verificato_il": "2026-11-25",
     "breve": "lo decide il centro"
    },
    "durata": {
@@ -398,7 +398,7 @@
       "url": "https://plida.dante.global/it/faq/"
      }
     ],
-    "verificato_il": "2026-10-12"
+    "verificato_il": "2026-11-25"
    },
    "esempi": {
     "testo": "Prove d'esempio e materiali gratuiti per il PLIDA B1.",
@@ -419,7 +419,7 @@
       "url": "https://plida.dante.global/it/faq/"
      }
     ],
-    "verificato_il": "2026-10-12"
+    "verificato_il": "2026-11-25"
    }
   },
   "iscrizione_passi": {
@@ -498,7 +498,7 @@
       "url": "https://certificazioneitaliano.uniroma3.it/gli-esami/iscrizione-agli-esami/"
      }
     ],
-    "verificato_il": "2026-10-12",
+    "verificato_il": "2026-11-25",
     "breve": "80 € a Roma Tre"
    },
    "durata": {
@@ -548,7 +548,7 @@
       "url": "https://certificazioneitaliano.uniroma3.it/gli-esami/iscrizione-agli-esami/"
      }
     ],
-    "verificato_il": "2026-10-12"
+    "verificato_il": "2026-11-25"
    },
    "esempi": {
     "testo": "Esempio ufficiale dell'esame B1 con gli audio, gratis.",
@@ -569,8 +569,9 @@
       "url": "https://certificazioneitaliano.uniroma3.it/gli-esami/indicazioni-sullo-svolgimento/"
      }
     ],
-    "verificato_il": "2026-10-12"
+    "verificato_il": "2026-11-25"
    }
-  }
+  },
+  "fatti_assenti_verificato_il": "2026-10-26"
  }
 ]

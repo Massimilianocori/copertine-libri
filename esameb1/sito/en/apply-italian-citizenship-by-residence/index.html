@@ -260,6 +260,16 @@ display:flex;align-items:center;justify-content:center;font-weight:800;font-size
 @media (max-width:640px){body{font-size:16.5px}.lead{font-size:1.02rem}.r-piede span{display:none}.sess{grid-template-columns:1fr;gap:8px;padding:14px}.tile{flex-direction:row;align-items:baseline;justify-self:start;gap:7px;padding:6px 12px;border-radius:8px;box-shadow:none;background:var(--brand-soft)}.sess[data-tipo="generale"] .tile{box-shadow:none;background:var(--surface-2)}.tile .td{font-size:1.3rem;margin:0}
 .sess .testa .tag{margin-left:0}.azioni .btn{flex:1 1 100%;justify-content:center}.sedi{grid-template-columns:minmax(0,1fr)}
 .card{padding:18px}.risposta .slot{padding:16px}.hero{padding-top:22px}}
+.piu-usate{margin:22px 0 4px;padding:18px 20px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:var(--r-l)}
+.piu-usate h2{margin:0 0 10px;font-size:1.15rem}
+.piu-lista{list-style:none;margin:0 0 12px;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(320px,100%),1fr));gap:6px 24px}
+.piu-lista a{font-weight:650}
+.piu-citta-t{margin:0 0 8px;font-size:.92rem;font-weight:750;color:var(--ink-2)}
+.piu-usate .small{margin:10px 0 0}
+details.piu-altre{background:none;border:0;border-radius:0;margin:0}
+details.piu-altre>:not(summary){margin:0 0 12px}
+details.piu-altre>summary{padding:8px 0;color:var(--brand-ink)}
+@media (min-width:861px){details.piu-altre>summary{display:none}}
 .altre{display:flex;flex-wrap:wrap;gap:6px}
 .altre a{font-size:.9rem;padding:5px 11px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--ink-2);background:var(--surface)}
 .altre a:hover{border-color:var(--brand);color:var(--brand-ink)}
@@ -552,6 +562,8 @@ This site gives no legal advice on citizenship or residence permits: see the <a 
 </div></footer>
 <script>
 (function(){
+  var pa=document.querySelector('details.piu-altre');
+  if(pa&&window.matchMedia&&window.matchMedia('(max-width:860px)').matches)pa.open=false;
   var oggi=new Date();oggi.setHours(0,0,0,0);
   function giorni(iso){var p=iso.split('-');var x=new Date(+p[0],+p[1]-1,+p[2]);return Math.round((x-oggi)/86400000);}
   function conta(el,g,modo){

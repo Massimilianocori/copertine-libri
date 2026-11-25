@@ -1,9 +1,10 @@
 {
   "verificato_il": "2026-10-31",
-  "nota": "Prove d'esempio ufficiali B1 dei 4 enti. Solo link e descrizione: i file restano sui siti degli enti. Ogni file controllato con curl il 26/10/2026 (stato, tipo, dimensione in byte). 'data' = ultima modifica del file sul server dell'ente (Last-Modified) o data scritta nel file, se indicato. Se 'link_diretti' è false (CERT.IT, per le note legali di Roma Tre sul deep linking) i file non hanno 'url': la pagina mostra solo la descrizione e il bottone alla pagina ufficiale; 'numero' = quanti file uguali (byte di ciascuno). Dal 31/10/2026 ogni ente ha anche 'prove' (struttura dell'esame per la pagina /esempi/<ente>/), 'come_usare', 'faq' e 'citazioni' (frasi lette nelle fonti, controllate da raccolta/esempi.py). Dall'11/11/2026 ogni ente ha anche 'scrittura' (pagina /esempi/prova-scritta/) e 'simulazione' (fasi e minuti del cronometro di /esempi/simulazione/); CILS 'esercitazioni' (corso online ufficiale a pagamento), PLIDA 'corso_online'. Le frasi nuove sono in 'citazioni'.",
+  "nota": "Prove d'esempio ufficiali B1 dei 4 enti. Solo link e descrizione: i file restano sui siti degli enti. Ogni file controllato con curl il 26/10/2026 (stato, tipo, dimensione in byte). 'data' = ultima modifica del file sul server dell'ente (Last-Modified) o data scritta nel file, se indicato. Se 'link_diretti' è false (CERT.IT, per le note legali di Roma Tre sul deep linking) i file non hanno 'url': la pagina mostra solo la descrizione e il bottone alla pagina ufficiale; 'numero' = quanti file uguali (byte di ciascuno). Dal 31/10/2026 ogni ente ha anche 'prove' (struttura dell'esame per la pagina /esempi/<ente>/), 'come_usare', 'faq' e 'citazioni' (frasi lette nelle fonti, controllate da raccolta/esempi.py). Dall'11/11/2026 ogni ente ha anche 'scrittura' (pagina /esempi/prova-scritta/) e 'simulazione' (fasi e minuti del cronometro di /esempi/simulazione/); CILS 'esercitazioni' (corso online ufficiale a pagamento), PLIDA 'corso_online'. Le frasi nuove sono in 'citazioni'. Controllo del 25/11/2026 (raccolta/esempi.py): link, file e frasi di CILS, PLIDA e CERT.IT tutti a posto, da qui il campo verificato_il di ogni ente (le voci «scrittura» e «simulazione» restano all'11/11 perché le pagine le mostrano con una data sola per i 4 enti); i 5 file CELI su www.unistrapg.it non si sono aperti dal nostro server (errore di certificato del sito), quindi CELI resta alla data generale del 31/10/2026.",
   "enti": [
     {
       "sigla": "CILS",
+      "verificato_il": "2026-11-25",
       "esame": "CILS B1 Cittadinanza",
       "pagina": {
         "nome": "Prove Liv. B1 c, Università per Stranieri di Siena",
@@ -467,8 +468,8 @@
         "costo_eur": 60,
         "cosa": "Sulla piattaforma e-learning dell'Università per Stranieri di Siena: 3 esempi d'esame del livello B1 C (il B1 Cittadinanza) da svolgere, i quaderni da scaricare, la correzione e i consigli di tutor di madrelingua italiana.",
         "nota": "Le esercitazioni non sono valutate e non valgono per ottenere il certificato CILS.",
-        "ultime": "Ultimo turno pubblicato: esercitazioni dal 9 al 27 novembre 2026 (iscrizioni dal 21 settembre al 23 ottobre 2026), prima della sessione del 3 dicembre 2026.",
-        "verificato_il": "2026-11-11"
+        "ultime": "Ultimo turno pubblicato: esercitazioni dal 9 al 27 novembre 2026, prima della sessione del 3 dicembre 2026. Le iscrizioni a questo turno si sono chiuse il 23 ottobre 2026.",
+        "verificato_il": "2026-11-25"
       }
     },
     {
@@ -775,6 +776,7 @@
     },
     {
       "sigla": "PLIDA",
+      "verificato_il": "2026-11-25",
       "esame": "PLIDA B1",
       "pagina": {
         "nome": "Preparati all'esame, PLIDA (Società Dante Alighieri): sezione «Scarica i materiali», livello B1",
@@ -1161,6 +1163,7 @@
     },
     {
       "sigla": "CERT.IT",
+      "verificato_il": "2026-11-25",
       "esame": "CERT.IT B1",
       "pagina": {
         "nome": "Livello B1: livello soglia, Università Roma Tre",

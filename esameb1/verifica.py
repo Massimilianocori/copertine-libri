@@ -6,6 +6,8 @@ Uso (dalla radice del repository):
 Controlla, su tutte le pagine HTML:
 - meta di verifica di Search Console (entrambe le proprietà), canonical giusto, un solo h1;
 - sitemap e noindex coerenti (una pagina noindex non è in sitemap, una pagina in indice sì; la 404 è esclusa);
+- sitemap.xml indice di sitemap di sezione, lastmod uguale al registro dati/lastmod.json, robots.txt con il solo indice,
+  sitemap-vecchi-indirizzi.xml fuori dall'indice e con soli vecchi indirizzi vivi; la home non linka pagine noindex (25/11/2026);
 - AdSense mai nelle pagine noindex;
 - JSON-LD valido; ogni domanda e risposta del FAQPage è visibile nel testo della pagina;
 - link interni e ancore (#id) esistenti;
@@ -91,7 +93,43 @@ def main():
     err = []
     pagine = sorted(SITO.rglob("*.html"))
     ids = {f: set(re.findall(r'\sid="([^"]+)"', f.read_text(encoding="utf-8"))) for f in pagine}
-    sitemap = set(re.findall(r"<loc>([^<]+)</loc>", (SITO / "sitemap.xml").read_text(encoding="utf-8")))
+    # sitemap.xml è un indice (25/11/2026): le pagine stanno nelle sitemap di sezione elencate; lastmod vero da dati/lastmod.json
+    indice = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    file_sm = [u.rsplit("/", 1)[1] for u in re.findall(r"<loc>([^<]+)</loc>", indice)]
+    if "<sitemapindex" not in indice or not file_sm:
+        err.append("sitemap.xml: non è un indice di sitemap")
+    voci = []
+    for nome in file_sm:
+        if nome == "sitemap-vecchi-indirizzi.xml" or not (SITO / nome).exists():
+            err.append(f"sitemap.xml: {nome} non deve stare nell'indice o non esiste")
+            continue
+        voci += re.findall(r"<url><loc>([^<]+)</loc><lastmod>([^<]+)</lastmod></url>", (SITO / nome).read_text(encoding="utf-8"))
+    sitemap = {u for u, _ in voci}
+    if len(voci) != len(sitemap):
+        err.append("sitemap: un indirizzo compare in più di una sitemap di sezione")
+    registro = json.loads((SITO.parent / "dati" / "lastmod.json").read_text(encoding="utf-8"))["pagine"]
+    for u, giorno in voci:
+        if registro.get(u[len(URL):], [None])[0] != giorno or not re.fullmatch(r"20\d\d-\d\d-\d\d", giorno):
+            err.append(f"sitemap: lastmod di {u} diverso dal registro dati/lastmod.json")
+    robots = (SITO / "robots.txt").read_text(encoding="utf-8")
+    if robots.count("Sitemap:") != 1 or f"Sitemap: {URL}sitemap.xml" not in robots:
+        err.append("robots.txt: deve indicare solo sitemap.xml")
+    vecchi = re.findall(r"<loc>([^<]+)</loc>", (SITO / "sitemap-vecchi-indirizzi.xml").read_text(encoding="utf-8"))
+    for u in vecchi:  # vecchio host, e la pagina di oggi esiste allo stesso percorso (301 dal vecchio indirizzo, poi 200)
+        perc = u[len("https://esameb1.netlify.app/"):]
+        if not u.startswith("https://esameb1.netlify.app/") or not (SITO / (perc if perc.endswith(".html") else perc + "index.html")).is_file():
+            err.append(f"sitemap-vecchi-indirizzi.xml: {u} non è un vecchio indirizzo con la pagina di oggi")
+    if not vecchi:
+        err.append("sitemap-vecchi-indirizzi.xml: vuota")
+    # la home non linka pagine in noindex (25/11/2026)
+    home = (SITO / "index.html").read_text(encoding="utf-8")
+    for href in set(re.findall(r'<a [^>]*href="([^"#:]+/)"', home)):
+        dest = SITO / href / "index.html"
+        if dest.exists() and '<meta name="robots" content="noindex' in dest.read_text(encoding="utf-8"):
+            err.append(f"index.html: link a una pagina in noindex: {href}")
+    for f in pagine:
+        if "<!--piu-usate:" in f.read_text(encoding="utf-8"):
+            err.append(f"{f.relative_to(SITO)}: segnaposto «più usate» non riempito")
     n_link = n_faq = 0
     tit, des = collections.defaultdict(list), collections.defaultdict(list)
     for f in pagine:

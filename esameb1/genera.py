@@ -489,6 +489,16 @@ display:flex;align-items:center;justify-content:center;font-weight:800;font-size
 @media (max-width:640px){body{font-size:16.5px}.lead{font-size:1.02rem}.r-piede span{display:none}.sess{grid-template-columns:1fr;gap:8px;padding:14px}.tile{flex-direction:row;align-items:baseline;justify-self:start;gap:7px;padding:6px 12px;border-radius:8px;box-shadow:none;background:var(--brand-soft)}.sess[data-tipo="generale"] .tile{box-shadow:none;background:var(--surface-2)}.tile .td{font-size:1.3rem;margin:0}
 .sess .testa .tag{margin-left:0}.azioni .btn{flex:1 1 100%;justify-content:center}.sedi{grid-template-columns:minmax(0,1fr)}
 .card{padding:18px}.risposta .slot{padding:16px}.hero{padding-top:22px}}
+.piu-usate{margin:22px 0 4px;padding:18px 20px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:var(--r-l)}
+.piu-usate h2{margin:0 0 10px;font-size:1.15rem}
+.piu-lista{list-style:none;margin:0 0 12px;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(320px,100%),1fr));gap:6px 24px}
+.piu-lista a{font-weight:650}
+.piu-citta-t{margin:0 0 8px;font-size:.92rem;font-weight:750;color:var(--ink-2)}
+.piu-usate .small{margin:10px 0 0}
+details.piu-altre{background:none;border:0;border-radius:0;margin:0}
+details.piu-altre>:not(summary){margin:0 0 12px}
+details.piu-altre>summary{padding:8px 0;color:var(--brand-ink)}
+@media (min-width:861px){details.piu-altre>summary{display:none}}
 .altre{display:flex;flex-wrap:wrap;gap:6px}
 .altre a{font-size:.9rem;padding:5px 11px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--ink-2);background:var(--surface)}
 .altre a:hover{border-color:var(--brand);color:var(--brand-ink)}
@@ -646,6 +656,8 @@ CSS += LG.CSS_FONT + LG.CSS_MENU  # font per cirillico e ă/ș/ț (solo se la pa
 
 JS = """
 (function(){
+  var pa=document.querySelector('details.piu-altre');
+  if(pa&&window.matchMedia&&window.matchMedia('(max-width:860px)').matches)pa.open=false;
   var oggi=new Date();oggi.setHours(0,0,0,0);
   function giorni(iso){var p=iso.split('-');var x=new Date(+p[0],+p[1]-1,+p[2]);return Math.round((x-oggi)/86400000);}
   function conta(el,g,modo){
@@ -780,6 +792,8 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None, indiciz
         raise SystemExit(f"{percorso}: titolo {len(titolo)}/{MAX_TITOLO} o description {len(descrizione)}/{MAX_DESC} troppo lunghi")
     profondita = percorso.count("/")
     rel = base if base is not None else ("../" * profondita or "./")
+    if (percorso[:-10] if percorso.endswith("index.html") else percorso) in LIBRO_IN_ALTO:
+        corpo = libro_in_alto(corpo, rel)  # 25/11/2026: riquadro del libro subito sotto il titolo nelle 10 pagine più viste
     avvisami = "#avvisami" if 'id="avvisami"' in corpo else f"{rel or '/'}#avvisami"
     canonico = URL_SITO + "/" + (percorso[:-10] if percorso.endswith("index.html") else percorso)
     ld = f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>' if jsonld else ""
@@ -839,7 +853,7 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None, indiciz
 <div>
 <a class="logo" href="{home_href}">{MARCHIO}<span class="logo-testo">Esame<b>B1</b></span></a>
 <ul class="piede-link">
-<li><a href="{rel}#date">Date d'esame</a></li><li><a href="{rel}#citta">Sedi per città</a></li><li><a href="{rel}come-funziona/">Come funziona</a></li><li><a href="{rel}costo/">Costo</a></li><li><a href="{rel}risultati/">Risultati</a></li><li><a href="{rel}esenzioni-e-domande/">Orale e domande</a></li><li><a href="{rel}esonero-test-italiano/">Chi è esonerato</a></li><li><a href="{rel}esempi/">Prove d'esempio</a></li><li><a href="{rel}esempi/confronto/">CILS, CELI, PLIDA, CERT.IT a confronto</a></li><li><a href="{rel}cittadinanza/">Domanda di cittadinanza</a></li><li><a href="{rel}reddito-minimo-cittadinanza/">Reddito minimo</a></li><li><a href="{rel}cittadinanza-per-matrimonio/">Cittadinanza per matrimonio</a></li><li><a href="{rel}pratica-cittadinanza/">Stato della pratica e giuramento</a></li><li><a href="{rel}carta-di-soggiorno/">Carta di soggiorno</a></li><li><a href="{rel}test-italiano-a2/">Test di italiano A2</a></li>{piede_famiglia}<li><a href="{rel}decreto-flussi-click-day/">Decreto flussi: click day</a></li>{enti_link}{LG.link_piede_lingue("it", percorso, radice)}<li><a href="{rel}chi-siamo/">Chi siamo</a></li><li><a href="{rel}come-lavoriamo/">Come lavoriamo</a></li><li><a href="{rel}come-lavoriamo/#segnala">Segnala un errore</a></li><li><a href="{rel}privacy.html">Privacy</a></li>
+<li><a href="{rel}#date">Date d'esame</a></li><li><a href="{rel}#citta">Sedi per città</a></li><li><a href="{rel}come-funziona/">Come funziona</a></li><li><a href="{rel}costo/">Costo</a></li><li><a href="{rel}risultati/">Risultati</a></li><li><a href="{rel}esenzioni-e-domande/">Orale e domande</a></li><li><a href="{rel}esonero-test-italiano/">Chi è esonerato</a></li><li><a href="{rel}esempi/">Prove d'esempio</a></li><li><a href="{rel}esempi/confronto/">CILS, CELI, PLIDA, CERT.IT a confronto</a></li><li><a href="{rel}cittadinanza/">Domanda di cittadinanza</a></li><li><a href="{rel}reddito-minimo-cittadinanza/">Reddito minimo</a></li><li><a href="{rel}cittadinanza-per-matrimonio/">Cittadinanza per matrimonio</a></li><li><a href="{rel}pratica-cittadinanza/">Stato della pratica e giuramento</a></li><li><a href="{rel}carta-di-soggiorno/">Carta di soggiorno</a></li><li><a href="{rel}test-italiano-a2/">Test di italiano A2</a></li>{piede_famiglia}<li><a href="{rel}decreto-flussi-click-day/">Decreto flussi: click day</a></li>{enti_link}{LG.link_piede_lingue("it", percorso, radice)}<li><a href="{rel}chi-siamo/">Chi siamo</a></li><li><a href="{rel}come-lavoriamo/">Come lavoriamo</a></li><li><a href="{rel}come-lavoriamo/#segnala">Segnala un errore</a></li><li><a href="{rel}contatti/">Contatti</a></li><li><a href="{rel}privacy.html">Privacy</a></li>
 </ul>
 </div>
 <div>
@@ -1026,7 +1040,7 @@ def libro_top(rel=""):
 <span class="etichetta">Novità · libro</span>
 <div class="riga">{cop}<div>
 <h2>{LIBRO_TITOLO}</h2>
-<p>Guida a tutti e 4 gli esami (CILS, CELI, PLIDA, CERT.IT), 4 simulazioni con soluzioni, modelli di email e orale. Audio gratis su <a href="{rel}audio-libro/">questo sito</a>.</p>
+<p>Guida a tutti e 4 gli esami (CILS, CELI, PLIDA, CERT.IT), 4 simulazioni con soluzioni, modelli di email e orale. Le tracce audio sono gratis su questo sito.</p>
 </div></div>
 <a class="btn" href="{LIBRO_URL}" rel="noopener" target="_blank" data-libro-proprio="si" data-goatcounter-click="esameb1.eu/clic/libro-home">{ic("libro")}Compralo su Amazon</a>
 </aside>"""
@@ -1208,10 +1222,13 @@ def citta_vicine(c, n=6):
     return (cap + stesse)[:n]
 
 
-def citta_per_regione(rel):
-    """Tutte le città con pagina, raggruppate per regione (link relativi a rel)."""
+def citta_per_regione(rel, solo_in_indice=False):
+    """Tutte le città con pagina, raggruppate per regione (link relativi a rel).
+    solo_in_indice (home, 25/11/2026): senza le pagine città in noindex, che restano linkate dalle pagine vicine e dagli enti."""
     gruppi = {}
     for c in sorted(citta, key=lambda c: c["nome"]):
+        if solo_in_indice and not citta_indicizzata(c):
+            continue
         gruppi.setdefault(regione_di(c), []).append(c)
     return '<div class="regioni">' + "".join(
         f'<div><h4>{escape(r)}</h4><div class="altre">'
@@ -1235,7 +1252,8 @@ def scheda_fatto(e, chiave, titolo=None, breve=False, bottone=None):
     icona, etichetta = VOCI_FATTI[chiave]
     testa = titolo if titolo is not None else f'{ic(icona)}<span>{etichetta}</span>'
     if not f:
-        v = max(x["verificato_il"] for x in e["fatti"].values())
+        # data in cui abbiamo cercato il dato senza trovarlo: se è scritta nei dati vale quella (25/11/2026), altrimenti l'ultimo controllo
+        v = e.get("fatti_assenti_verificato_il") or max(x["verificato_il"] for x in e["fatti"].values())
         return (f'<div class="fatto"><div class="f-et">{testa}</div><p>Il sito ufficiale {escape(e["sigla"])} non lo indica: chiedilo alla sede d\'esame.</p>'
                 f'<div class="fonte">{ic("doc")}<span>Fonte: <a href="{escape(e["sito"])}" rel="noopener">sito ufficiale {escape(e["sigla"])}</a> · controllato il {data_breve(v)}</span></div></div>')
     grande = f'<div class="f-breve">{escape(f["breve"])}</div>' if breve and f.get("breve") else ""
@@ -1311,6 +1329,209 @@ def passi_home(prossime):
 </section>"""
 
 
+# ---------------------------------------------------------------- recupero dopo il cambio di dominio (25/11/2026)
+# studio-business/STRATEGIA-RECUPERO.md, azioni 3, 5 e 6. Le visite stanno in dati/piu_usate.json (GoatCounter, periodo scritto
+# nel file, solo pagine in indice): non si rileggono a ogni generazione.
+PIU_USATE = json.loads((DATI / "piu_usate.json").read_text(encoding="utf-8"))
+VISITE = {v["percorso"].lstrip("/"): v["visite"] for v in PIU_USATE["visite"]}  # "citta/milano/" -> visite ("" è la home)
+LIBRO_IN_ALTO = set(sorted(VISITE, key=lambda u: -VISITE[u])[:10]) - {""}  # la home ha già il riquadro in alto (libro_top)
+
+
+def libro_in_alto(corpo, rel):
+    """Porta il riquadro del libro che la pagina ha già (stesso aspetto, stessa etichetta dei clic) subito sotto il titolo:
+    alla fine del primo blocco (hero) o, se il primo blocco contiene già un h2 (pagine città), prima di quell'h2.
+    Sposta, non aggiunge: /esempi/ ha il riquadro grande (libro-esempi), le altre la striscia del riquadro «Preparati» (libro-pagine)."""
+    riquadro = next((r for r in (riquadro_libro(rel), libro_mini(rel)) if corpo.count(r) == 1), None)
+    if not riquadro:
+        raise SystemExit("libro_in_alto: la pagina non ha un solo riquadro del libro da spostare")
+    corpo = corpo.replace(riquadro, "")
+    i_h2, i_fine = corpo.find("<h2"), corpo.find("</section>")
+    i = i_fine if 0 <= i_fine < i_h2 else i_h2
+    return corpo[:i] + riquadro + corpo[i:]
+
+
+# Blocchi «Le pagine più usate»: la pagina scrive solo il segnaposto; extra() lo riempie quando tutte le pagine esistono
+# (il testo del link è l'H1 della pagina, più corto per le città). Il blocco sta tra due commenti e non entra nell'impronta
+# del lastmod: la data di una pagina non cambia quando cambia la classifica.
+def segnaposto_piu_usate(sezione):
+    return f"<!--piu-usate:{sezione}-->"
+
+
+TESTI_PIU_USATE = {  # sezione -> (titolo, quante pagine, riga sotto)
+    "home": ("Le pagine più usate", 24, "Le pagine più aperte dai lettori tra il {dal} e il {al}."),
+    "esempi": ("Le prove più aperte", 5, ""),
+    "cittadinanza": ("Pagine utili", 8, ""),
+    "en": ("Most read", 8, ""),
+}
+_RE_PIU = re.compile(r"<!--piu-usate-->.*?<!--/piu-usate-->|<!--piu-usate:[a-z]+-->", re.S)  # blocco pieno o segnaposto
+
+
+def _h1(u):
+    f = SITO / (u if u.endswith(".html") else u + "index.html")
+    m = re.search(r"<h1[^>]*>(.*?)</h1>", f.read_text(encoding="utf-8"), re.S)
+    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", m.group(1))).strip()  # già con le entità HTML: si riusa così
+
+
+def blocco_piu_usate(sezione, urls, rel):
+    titolo, quante, riga = TESTI_PIU_USATE[sezione]
+    in_indice = set(urls)
+    if sezione == "home":
+        scelte = [u for u in sorted(VISITE, key=lambda u: -VISITE[u]) if u and u in in_indice][:quante]
+    else:
+        scelte = [u for u in sorted(VISITE, key=lambda u: -VISITE[u]) if u.startswith(sezione + "/") and u != sezione + "/" and u in in_indice][:quante]
+    if len(scelte) < 5:
+        raise SystemExit(f"più usate: la sezione {sezione} ha meno di 5 pagine con visite in dati/piu_usate.json")
+    nomi = {c["slug"]: c["nome"] for c in citta}
+    guide = [u for u in scelte if not u.startswith("citta/")]
+    citta_ = [u for u in scelte if u.startswith("citta/")]
+    lang = ' hreflang="en" lang="en"' if sezione == "home" else ""
+    html_ = f'<!--piu-usate--><section class="piu-usate" aria-labelledby="piu-usate-t"><h2 id="piu-usate-t">{ic("ok")}{titolo}</h2>'
+    voce = lambda u: f'<li><a href="{rel}{u}"{lang if u.startswith("en/") else ""}>{_h1(u)}</a></li>'
+    # home: su telefono si vedono i primi 8 link, gli altri stanno in <details> (aperto nell'HTML: il JS lo chiude sotto 861px;
+    # su schermo grande la riga «Altre pagine» non si vede e il blocco è tutto aperto)
+    subito = guide[:8] if sezione == "home" else guide
+    if subito:
+        html_ += '<ul class="piu-lista">' + "".join(voce(u) for u in subito) + "</ul>"
+    resto = ""
+    if guide[len(subito):]:
+        resto += '<ul class="piu-lista">' + "".join(voce(u) for u in guide[len(subito):]) + "</ul>"
+    if citta_:
+        resto += '<p class="piu-citta-t">Esame B1 città per città: date e sedi</p><div class="altre">' + "".join(
+            f'<a href="{rel}{u}">Esame B1 {a_nome(nomi[u.split("/")[1]])}</a>' for u in citta_) + "</div>"
+    if resto and sezione == "home":
+        n = len(scelte) - len(subito)
+        resto = f'<details class="piu-altre" open><summary>Altre {n} pagine: guide e città{ic("giu")}</summary>{resto}</details>'
+    html_ += resto
+    if riga:
+        dal, al = (data_breve(x) for x in PIU_USATE["periodo"].split(" / "))
+        html_ += f'<p class="small">{riga.format(dal=dal, al=al)}</p>'
+    return html_ + "</section><!--/piu-usate-->"
+
+
+def scrivi_piu_usate(urls):
+    """Riempie i segnaposto (home e indici di sezione). Si ferma se un segnaposto manca o resta in una pagina."""
+    for sezione, file in (("home", "index.html"), ("esempi", "esempi/index.html"), ("cittadinanza", "cittadinanza/index.html"), ("en", "en/index.html")):
+        f = SITO / file
+        t = f.read_text(encoding="utf-8")
+        s_ = segnaposto_piu_usate(sezione)
+        if t.count(s_) != 1:
+            raise SystemExit(f"più usate: segnaposto {s_} assente o doppio in {file}")
+        f.write_text(t.replace(s_, blocco_piu_usate(sezione, urls, "../" * file.count("/"))), encoding="utf-8")
+    for f in SITO.rglob("*.html"):
+        if "<!--piu-usate:" in f.read_text(encoding="utf-8"):
+            raise SystemExit(f"più usate: segnaposto non riempito in {f.relative_to(SITO)}")
+
+
+# lastmod vero per ogni URL della sitemap (stesso metodo di Visa Income, visaincome/genera.py «lastmod vero»).
+# dati/lastmod.json tiene per ogni pagina la data dell'ultima modifica del contenuto e la sua impronta: titolo, descrizione, JSON-LD
+# e <main>, senza il menu e il piè di pagina, senza i blocchi «più usate», senza i riquadri del libro (pubblicità nostra: spostarli
+# non cambia il contenuto) e senza il testo dei conti alla rovescia («tra 8 giorni»), che cambia ogni giorno da solo.
+# A ogni generazione: impronta uguale -> la data resta; diversa -> data di oggi. Pagina senza voce nel registro (prima volta, o
+# pagina nuova): la data si ricava da git, cioè il giorno del commit da cui il contenuto della pagina è uguale a oggi; se la pagina
+# è nuova o è cambiata adesso, oggi. Il vecchio indirizzo esameb1.netlify.app nel JSON-LD conta come quello nuovo.
+REGISTRO_LASTMOD = DATI / "lastmod.json"
+_RE_CONTA = re.compile(r'(<span class="conta)[^"]*("[^>]*>)[^<]*(</span>)')
+_RE_LIBRO = re.compile(r'<div class="libro-mini">.*?</a></div></div>|<section class="card libro libro-top" id="libro">.*?</section>'
+                       r'|<aside class="libro-top".*?</aside>', re.S)
+
+
+# Date di controllo («controllato il 23 novembre 2026», «letta il…», «checked on…», «verificat la…», «перевірено…»): rileggere una
+# fonte senza che il dato cambi non è una modifica del contenuto (revisione indipendente del 25/11/2026): fuori dall'impronta.
+# Restano nell'impronta le altre date: esami, scadenze, «aggiornata il» della fonte, «non erano ancora pubblicate il».
+_MESI_IMPRONTA = ("gennaio|febbraio|marzo|aprile|maggio|giugno|luglio|agosto|settembre|ottobre|novembre|dicembre|January|February|March|April|May|June|July|"
+                  "August|September|October|November|December|ianuarie|februarie|martie|aprilie|mai|iunie|iulie|august|septembrie|octombrie|noiembrie|"
+                  "decembrie|січня|лютого|березня|квітня|травня|червня|липня|серпня|вересня|жовтня|листопада|грудня")
+_RE_CONTROLLO = re.compile(r"\b(lett[oaie]|controllat[oaie]|ultimo controllo|verificat[aeăi]?|checked|read|перевірено|прочитано)\s+"
+                           r"(?:il\s+|l'|l&#x27;|la\s+|on\s+)?\d{1,2}°?\s+(?:" + _MESI_IMPRONTA + r")\s+\d{4}")
+
+
+def impronta_contenuto(testo):
+    import hashlib
+    testo = _RE_CONTROLLO.sub(r"\1", _RE_LIBRO.sub("", _RE_PIU.sub("", testo)))
+    testo = _RE_CONTA.sub(r"\1\2\3", testo).replace("https://esameb1.netlify.app", URL_SITO)
+    tit = re.search(r"<title>(.*?)</title>", testo, re.S)
+    des = re.search(r'<meta name="description" content="(.*?)">', testo, re.S)
+    ld = re.findall(r'<script type="application/ld\+json">(.*?)</script>', testo, re.S)
+    main = re.search(r"<main[^>]*>(.*?)</main>", testo, re.S)
+    pezzi = [tit.group(1) if tit else "", des.group(1) if des else ""] + ld + [main.group(1) if main else ""]
+    return hashlib.sha256(re.sub(r"\s+", "", "\n".join(pezzi)).encode("utf-8")).hexdigest()[:20]
+
+
+def file_di(u):
+    return SITO / (u if u.endswith(".html") else u + "index.html")
+
+
+def data_da_git(u, impronta):
+    """Data (AAAA-MM-GG) del commit da cui il contenuto della pagina è uguale a oggi, o None (pagina nuova o cambiata adesso)."""
+    import subprocess
+    file = file_di(u).relative_to(RADICE.parent).as_posix()
+    repo = str(RADICE.parent)
+    try:
+        log = subprocess.run(["git", "-C", repo, "log", "--format=%H %cs", "--", file], capture_output=True, text=True, timeout=120).stdout
+    except (OSError, subprocess.SubprocessError):
+        return None
+    data = None
+    for riga in log.split("\n"):
+        if not riga.strip():
+            continue
+        h, giorno = riga.split()
+        r = subprocess.run(["git", "-C", repo, "show", f"{h}:{file}"], capture_output=True, text=True, timeout=120)
+        if r.returncode != 0 or impronta_contenuto(r.stdout) != impronta:
+            break
+        data = giorno
+    return data
+
+
+def date_lastmod(urls):
+    reg = json.loads(REGISTRO_LASTMOD.read_text(encoding="utf-8"))["pagine"] if REGISTRO_LASTMOD.exists() else {}
+    oggi = OGGI.isoformat()
+    nuovo = {}
+    for u in urls:
+        imp = impronta_contenuto(file_di(u).read_text(encoding="utf-8"))
+        if u in reg and reg[u][1] == imp:
+            giorno = reg[u][0]
+        elif u not in reg:
+            giorno = data_da_git(u, imp) or oggi
+        else:
+            giorno = oggi
+        nuovo[u] = [giorno, imp]
+    REGISTRO_LASTMOD.write_text(json.dumps({"_nota": "Scritto da genera.py: percorso -> [data dell'ultima modifica del contenuto, impronta]. Non modificare a mano.",
+                                            "pagine": dict(sorted(nuovo.items()))}, ensure_ascii=False, indent=0) + "\n", encoding="utf-8")
+    return {u: v[0] for u, v in nuovo.items()}
+
+
+# Sitemap (25/11/2026): sitemap.xml è un indice; una sitemap per sezione con almeno MIN_SITEMAP_SEZ pagine, le altre in sitemap-altre.xml.
+# Stesse pagine di prima, tutte e sole quelle in indice. sitemap-vecchi-indirizzi.xml è a parte: non sta nell'indice né in robots.txt.
+MIN_SITEMAP_SEZ = 5
+SITEMAP_ALTRE = "sitemap-altre.xml"
+SITEMAP_VECCHI = "sitemap-vecchi-indirizzi.xml"
+VECCHI_INDIRIZZI = json.loads((DATI / "vecchi_indirizzi.json").read_text(encoding="utf-8"))
+_XMLNS = 'xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"'
+
+
+def scrivi_sitemap(urls, date_):
+    sezione = lambda u: u.split("/")[0] if "/" in u else ""  # "citta/milano/" e "esempi/" -> la loro sezione; "privacy.html" e la home -> ""
+    quante = {}
+    for u in urls:
+        quante[sezione(u)] = quante.get(sezione(u), 0) + 1
+    gruppi = {}
+    for u in urls:
+        s_ = sezione(u)
+        gruppi.setdefault(f"sitemap-{s_}.xml" if s_ and quante[s_] >= MIN_SITEMAP_SEZ else SITEMAP_ALTRE, []).append(u)
+    if sorted(u for g in gruppi.values() for u in g) != sorted(urls) or len(set(urls)) != len(urls) or SITEMAP_VECCHI in gruppi:
+        raise SystemExit("sitemap: le sitemap di sezione non contengono le stesse pagine dell'elenco")
+    indice = ""
+    for nome in sorted(gruppi, key=lambda n: (n == SITEMAP_ALTRE, n)):
+        voci = "".join(f"<url><loc>{URL_SITO}/{u}</loc><lastmod>{date_[u]}</lastmod></url>" for u in gruppi[nome])
+        (SITO / nome).write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset {_XMLNS}>{voci}</urlset>\n')
+        indice += f"<sitemap><loc>{URL_SITO}/{nome}</loc><lastmod>{max(date_[u] for u in gruppi[nome])}</lastmod></sitemap>"
+    (SITO / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex {_XMLNS}>{indice}</sitemapindex>\n')
+    # vecchi indirizzi: solo quelli la cui pagina esiste oggi allo stesso percorso (il 301 del vecchio host porta lì e risponde 200)
+    vivi = [p_ for p_ in VECCHI_INDIRIZZI["percorsi"] if file_di(p_).is_file()]
+    voci = "".join(f'<url><loc>{VECCHI_INDIRIZZI["host"]}/{p_}</loc></url>' for p_ in vivi)
+    (SITO / SITEMAP_VECCHI).write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset {_XMLNS}>{voci}</urlset>\n')
+
+
 def home(prossime):
     faq = [  # (domanda, risposta in HTML): visibili in pagina e, senza tag, nel JSON-LD FAQPage
         ("Quale esame devo fare per la cittadinanza italiana?", f'Serve un certificato di italiano almeno di livello B1, rilasciato da un ente riconosciuto. I 4 enti principali, con sedi in tutta Italia, sono CILS (Università per Stranieri di Siena), CELI (Università per Stranieri di Perugia), PLIDA (Società Dante Alighieri) e CERT.IT (Università Roma Tre). Fonte: <a href="{PREFETTURA}" rel="noopener">Prefettura – Ministero dell\'Interno</a>. Il Vademecum del Ministero (2025) elenca anche l\'Università per Stranieri «Dante Alighieri» di Reggio Calabria. Per i casi particolari (titoli di studio italiani, esenzioni) leggi <a href="esonero-test-italiano/">chi è esonerato secondo la legge e il Ministero</a> e chiedi alla Prefettura.'),
@@ -1347,6 +1568,7 @@ dei 4 enti principali: le date sono uguali in tutta Italia, ci si iscrive presso
 <li>{ic("doc")}<span>dati presi dalle fonti ufficiali</span></li></ul>
 </section>
 {avviso("Ogni sede può avere una scadenza diversa da quella nazionale. <strong>Prima di iscriverti, chiedi sempre conferma alla sede.</strong>")}
+{segnaposto_piu_usate("home")}
 <div class="due">
 <section id="date">
 <h2>{ic("cal")}Prossime date d'esame</h2>
@@ -1364,8 +1586,8 @@ dei 4 enti principali: le date sono uguali in tutta Italia, ci si iscrive presso
 <div class="griglia">{griglia_cercate}</div>
 <h3>Altre città con molte sedi</h3>
 <div class="griglia">{griglia}</div>
-<h3>Tutte le {len(citta)} città, per regione</h3>
-{citta_per_regione("")}
+<h3>{sum(1 for c in citta if citta_indicizzata(c))} città, per regione</h3>
+{citta_per_regione("", solo_in_indice=True)}
 <p class="small">La tua città non c'è? Guarda le sedi per regione nelle pagine
 {", ".join(f'<a href="ente/{SLUG_ENTE[e]}/">{e}</a>' for e in ENTE)}.</p>
 </section>
@@ -2445,9 +2667,24 @@ def riga_file(f):
             f'<div class="meta"><strong>{f["formato"]}</strong><span>{" · ".join(dettagli)}</span></div></li>')
 
 
+def v_esempi(e):
+    """Data dell'ultimo controllo riuscito degli esempi di un ente (raccolta/esempi.py): la sua, se c'è (dal 25/11/2026), o quella generale."""
+    return e.get("verificato_il") or esempi["verificato_il"]
+
+
+def controllo_esempi():
+    """«controllate il X» per l'indice /esempi/: una data sola se è uguale per tutti gli enti, altrimenti ente per ente."""
+    date_ = {}
+    for e in esempi["enti"]:
+        date_.setdefault(v_esempi(e), []).append(e["sigla"])
+    if len(date_) == 1:
+        return f"controllate il {data_breve(next(iter(date_)))}"
+    return "; ".join(f"{elenco_e(date_[g])} {'controllato' if len(date_[g]) == 1 else 'controllati'} il {data_breve(g)}" for g in sorted(date_, reverse=True))
+
+
 def blocco_file(e):
     """I file ufficiali di un ente (link diretti) o, per CERT.IT, cosa trovi sulla pagina ufficiale (senza link ai file)."""
-    v = data_breve(esempi["verificato_il"])
+    v = data_breve(v_esempi(e))
     n = len(e["file"])
     if e.get("link_diretti", True):
         host_file = " o ".join(escape(h) for h in dict.fromkeys(host(f["url"]) for f in e["file"]))
@@ -2491,7 +2728,7 @@ def faq_html_e_jsonld(faq):
 
 def pagina_esempi(prossime):
     """Indice /esempi/: cosa pubblica ogni ente, durata e punteggio in breve, come esercitarti, condizioni d'uso, domande."""
-    v = data_breve(esempi["verificato_il"])
+    v = data_breve(max(v_esempi(e) for e in esempi["enti"]))
     vai = "".join(
         f'<a class="es-{e["sigla"].replace(".", "")}" id="{SLUG_ENTE[e["sigla"]]}" href="{SLUG_ENTE[e["sigla"]]}/"><span class="ri">{eb(e["sigla"])}{ic("freccia")}</span>'
         f'<span>{escape(e["esame"])}</span><small>{f"{len(e['file'])} file" if e.get("link_diretti", True) else "dalla pagina ufficiale"} · '
@@ -2566,12 +2803,13 @@ def pagina_esempi(prossime):
     jsonld, faq_html = faq_html_e_jsonld(faq)
     corpo = f"""<section class="hero">
 {briciole(("EsameB1", "../"), ("Prove d'esempio", None))}
-<span class="occhiello">{ic("libro")}Fonti ufficiali · controllato il {v}</span>
+<span class="occhiello">{ic("libro")}Fonti ufficiali · ultimo controllo il {v}</span>
 <h1>Esempi d'esame B1 per la cittadinanza: le prove ufficiali gratis, PDF e audio</h1>
-<p class="lead">Secondo le pagine ufficiali dei 4 enti, controllate il {v}, CILS, CELI, PLIDA e CERT.IT pubblicano gratis una prova d'esempio del B1 con audio e soluzioni.
+<p class="lead">Secondo le pagine ufficiali dei 4 enti ({controllo_esempi()}), CILS, CELI, PLIDA e CERT.IT pubblicano gratis una prova d'esempio del B1 con audio e soluzioni.
 Le prove d'esempio si scaricano e si fanno online, a casa; l'esame vero invece si fa in presenza, in una sede d'esame (<a href="../come-funziona/#online">fonti</a>). Scegli l'ente: per ognuno trovi i link ai file ufficiali (per CERT.IT la pagina dell'ente), com'è fatta ogni prova, quanto dura e quanti punti servono.</p>
 <nav class="es-vai" aria-label="Esempi ente per ente">{vai}</nav>
 </section>
+{segnaposto_piu_usate("esempi")}
 {avviso("I file sono degli enti e restano sui loro siti: qui ci sono solo i link e una descrizione. Sono protetti dal diritto d'autore: scaricali per studiare, ma non ricaricarli su altri siti. <a href=\"#uso\">Le condizioni d'uso</a>.")}
 <section>
 <h2 id="confronto">{ic("lista")}Cosa trovi negli esempi, ente per ente</h2>
@@ -2642,7 +2880,7 @@ def pagina_esempi_ente(e, prossime):
     """/esempi/<ente>/: file ufficiali, struttura prova per prova, punteggio per superare, recupero, come usare l'esempio, date, domande."""
     s = e["sigla"]
     sl = SLUG_ENTE[s]
-    v = data_breve(esempi["verificato_il"])
+    v = data_breve(v_esempi(e))
     en = ENTE[s]
     t = RISULTATI["enti"][s]["tabella"]
     voci = RISULTATI["enti"][s]["voci"]
@@ -4545,6 +4783,7 @@ Qui sotto, per ognuna delle {len(PREF)} Prefetture, i contatti dell'ufficio citt
 {fonte_citt("legge", "residenza", "domanda", "consulta")}
 </section>
 {f'<section><h2 id="locali">{ic("edificio")}Prefetture con informazioni locali</h2><p>Per queste Prefetture abbiamo letto la pagina e riportato quello che scrivono di loro: contatti, orari, avvisi, regole sui documenti.</p><div class="griglia">{griglia}</div></section>' if griglia else ""}
+{segnaposto_piu_usate("cittadinanza")}
 <section>
 <h2 id="elenco">{ic("pin")}Le {len(PREF)} Prefetture: contatti dell'ufficio cittadinanza</h2>
 <p>Email e PEC sono quelle che ogni Prefettura scrive sulla sua pagina «Cittadinanza» ({lette} pagine lette il {data_breve(max(r["letto_il"] for r in PREF.values()))}); mostriamo solo le caselle d'ufficio della Prefettura stessa. «Non indicata»: la pagina non la scrive, usa il link alla pagina ufficiale.</p>
@@ -4575,24 +4814,27 @@ Qui sotto, per ognuna delle {len(PREF)} Prefetture, i contatti dell'ufficio citt
 
 # ---------------------------------------------------------------- chi siamo e come lavoriamo (9/11/2026)
 # Nessun dato personale del gestore (nome, indirizzo, telefono, partita IVA, IBAN) in queste pagine.
-def modulo_segnala():
-    return f"""<section class="card" id="segnala">
-<div class="modulo-testa"><span class="bolla">{ic("attenzione")}</span><div>
-<h2>Segnala un errore</h2>
-<p class="small" style="margin:4px 0 0">Una data sbagliata, una sede chiusa, un link che non funziona: scrivici cosa hai visto. Controlliamo sulla fonte ufficiale e correggiamo.</p></div></div>
+def modulo_segnala(contatti=False):
+    """Modulo Netlify «segnalazioni». contatti=True (pagina /contatti/, 25/11/2026): stesso modulo e stessi campi, con il titolo «Scrivici»."""
+    testa = ("Scrivici", "Un errore da correggere, una domanda sul sito, una richiesta sui tuoi dati: scrivi qui.") if contatti else (
+        "Segnala un errore", "Una data sbagliata, una sede chiusa, un link che non funziona: scrivici cosa hai visto. Controlliamo sulla fonte ufficiale e correggiamo.")
+    return f"""<section class="card" id="{'scrivici' if contatti else 'segnala'}">
+<div class="modulo-testa"><span class="bolla">{ic("mail" if contatti else "attenzione")}</span><div>
+<h2>{testa[0]}</h2>
+<p class="small" style="margin:4px 0 0">{testa[1]}</p></div></div>
 <form class="form segnala" name="segnalazioni" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
 <input type="hidden" name="form-name" value="segnalazioni">
 <input type="hidden" name="source" value="">
 <p class="hp"><label>Non compilare <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
 <label>Pagina o città (facoltativo)<input type="text" name="pagina" maxlength="200" placeholder="per esempio: pagina di Torino"></label>
-<label>Cosa è sbagliato<textarea name="messaggio" required maxlength="3000"></textarea></label>
+<label>{"Il tuo messaggio" if contatti else "Cosa è sbagliato"}<textarea name="messaggio" required maxlength="3000"></textarea></label>
 <label>Link alla fonte corretta (facoltativo)<input type="url" name="fonte" maxlength="500" placeholder="https://"></label>
 <label>La tua email, se vuoi una risposta (facoltativo)<input type="email" name="email" autocomplete="email"></label>
-<p class="small" style="margin:0">Usiamo questi dati solo per controllare la segnalazione e, se lasci l'email, per risponderti. <a href="/privacy.html">Privacy</a>.</p>
-<button class="btn" type="submit">{ic("mail")}Invia la segnalazione</button>
+<p class="small" style="margin:0">Usiamo questi dati solo per {"leggere il messaggio" if contatti else "controllare la segnalazione"} e, se lasci l'email, per risponderti. <a href="/privacy.html">Privacy</a>.</p>
+<button class="btn" type="submit">{ic("mail")}{"Invia il messaggio" if contatti else "Invia la segnalazione"}</button>
 <p class="errore" data-errore hidden>Non è stato possibile inviare. Riprova tra poco.</p>
 </form>
-<div class="ok" data-ok hidden>{ic("ok")}<span><strong>Grazie!</strong> Controlliamo la segnalazione sulla fonte ufficiale.</span></div>
+<div class="ok" data-ok hidden>{ic("ok")}<span><strong>Grazie!</strong> {"Abbiamo ricevuto il tuo messaggio." if contatti else "Controlliamo la segnalazione sulla fonte ufficiale."}</span></div>
 </section>"""
 
 
@@ -4708,7 +4950,7 @@ PLIDA (Società Dante Alighieri) o CERT.IT (Università Roma Tre). CILS, CELI, P
 <h2 id="pubblicita">{ic("euro")}Pubblicità e link di affiliazione</h2>
 {testo_pubblicita()}
 <h2 id="contatti">{ic("mail")}Contatti</h2>
-<p>Per segnalare un errore o chiedere una correzione usa il <a href="../come-lavoriamo/#segnala">modulo «Segnala un errore»</a>.
+<p>Per scriverci c'è la pagina <a href="../contatti/">Contatti</a>. Per segnalare un errore o chiedere una correzione usa il <a href="../come-lavoriamo/#segnala">modulo «Segnala un errore»</a>.
 Per ricevere un'email quando escono nuove date nella tua città c'è il modulo <a href="../#avvisami">«Avvisami»</a>. Non rispondiamo a domande sulla singola
 pratica di cittadinanza: per quelle scrivi alla tua Prefettura (trovi i contatti nella pagina <a href="../cittadinanza/">domanda di cittadinanza</a>).</p>
 <p>{NOME} fa parte di una piccola rete di siti informativi gratuiti dello stesso gestore, elencati in fondo a ogni pagina («Altri strumenti utili»).
@@ -4716,6 +4958,47 @@ pratica di cittadinanza: per quelle scrivi alla tua Prefettura (trovi i contatti
     pagina("chi-siamo/index.html", titolo_pagina("Chi siamo: un sito indipendente sull'esame B1 cittadinanza"),
            descrizione_pagina(f"{NOME} è un sito informativo indipendente e gratuito: date, sedi e regole dell'esame B1 per la cittadinanza, "
                               "dalle fonti ufficiali."), corpo)
+
+
+def contatti():
+    """Pagina «Contatti» (25/11/2026, STRATEGIA-RECUPERO azione 6): il canale è il modulo Netlify «segnalazioni», lo stesso di
+    «Segnala un errore». Nessun dato personale: chi pubblica il sito è descritto come in «Chi siamo»."""
+    corpo = f"""<section class="hero">
+{briciole(("EsameB1", "../"), ("Contatti", None))}
+<h1>Contatti</h1>
+<p class="lead"><strong>Per scrivere a {NOME} usa il modulo in questa pagina.</strong> Il messaggio arriva a chi gestisce il sito,
+non agli enti d'esame e non alla Prefettura.</p>
+</section>
+<div class="due">
+<section>
+<h2 id="per-cosa">{ic("mail")}Per cosa puoi scriverci</h2>
+<ul class="passi-lista">
+<li><span><strong>Un errore sul sito</strong>: una data sbagliata, una sede chiusa, un costo cambiato, un link che non funziona.
+Se puoi, aggiungi il link alla fonte ufficiale: controlliamo lì e correggiamo.</span></li>
+<li><span><strong>Una domanda sul sito</strong>: come leggiamo le fonti, perché una città o una sede non c'è.
+Il metodo è spiegato nella pagina <a href="../come-lavoriamo/">Come lavoriamo</a>.</span></li>
+<li><span><strong>I tuoi dati</strong>: se ti sei iscritto agli avvisi con il modulo <a href="../#avvisami">«Avvisami»</a> e vuoi cancellarti o sapere quali dati abbiamo.
+I tuoi diritti sono nella <a href="../privacy.html">informativa privacy</a>.</span></li>
+</ul>
+<h2 id="non-qui">{ic("attenzione")}Per cosa devi scrivere ad altri</h2>
+<ul class="passi-lista">
+<li><span><strong>Iscriversi all'esame</strong>: ci si iscrive presso la sede d'esame, non su questo sito. Trovi le sedi e i loro contatti nelle pagine delle <a href="../#citta">città</a>.</span></li>
+<li><span><strong>Il risultato dell'esame o il certificato</strong>: li dà l'ente. Vedi <a href="../risultati/">dove si vedono i risultati, ente per ente</a>.</span></li>
+<li><span><strong>La tua pratica di cittadinanza o il permesso di soggiorno</strong>: decide la Prefettura o la Questura. I contatti degli uffici cittadinanza sono nella pagina
+<a href="../cittadinanza/">domanda di cittadinanza</a>. Non diamo consulenza sul singolo caso.</span></li>
+</ul>
+<h2 id="chi">{ic("info")}Chi riceve il messaggio</h2>
+<p>{NOME} è un progetto informativo indipendente e gratuito, online da ottobre 2026. Non è un ente certificatore e non è un ufficio pubblico.
+Fa parte di una piccola rete di siti informativi gratuiti dello stesso gestore. <a href="../chi-siamo/">Chi siamo</a> ·
+<a href="../come-lavoriamo/">come raccogliamo e controlliamo i dati</a>.</p>
+</section>
+<aside>
+{modulo_segnala(contatti=True)}
+</aside>
+</div>"""
+    pagina("contatti/index.html", titolo_pagina("Contatti: come scrivere a EsameB1"),
+           descrizione_pagina(f"Come scrivere a {NOME}: il modulo per segnalare un errore, fare una domanda sul sito o chiedere dei tuoi dati. "
+                              "Per l'esame e la pratica: a chi rivolgersi."), corpo)
 
 
 def come_lavoriamo():
@@ -4785,7 +5068,7 @@ def privacy():
 <h2>Chi tratta i dati</h2><p>Titolare del trattamento è Massimiliano Cori (Italia), che gestisce {NOME} come progetto indipendente. Puoi scriverci rispondendo a qualsiasi email che ti mandiamo.</p>
 <h2>Quali dati raccogliamo</h2><p>Solo se compili il modulo "Avvisami": la tua email, la città e l'ente che scegli, e la pagina o il link da cui arrivi (per capire quali canali funzionano).</p>
 <p>Se lasci l'email nel riquadro «Libro in arrivo»: solo l'email e la pagina da cui arrivi, che usiamo con il tuo consenso per scriverti una sola email quando esce il libro; dopo quell'email la cancelliamo, se non sei iscritto anche agli avvisi sulle date.</p>
-<p>Se usi il modulo "Segnala un errore": il testo che scrivi, la pagina e il link che indichi e, solo se la lasci, la tua email. Li usiamo solo per controllare e correggere il dato segnalato e, se lasci l'email, per risponderti; la base giuridica è il nostro legittimo interesse a correggere gli errori del sito (art. 6.1.f GDPR). Non ti iscriviamo agli avvisi e cancelliamo la segnalazione quando l'abbiamo gestita.</p>
+<p>Se usi il modulo "Segnala un errore" o il modulo della pagina <a href="contatti/">Contatti</a> (è lo stesso modulo): il testo che scrivi, la pagina e il link che indichi e, solo se la lasci, la tua email. Li usiamo solo per controllare e correggere il dato segnalato e, se lasci l'email, per risponderti; la base giuridica è il nostro legittimo interesse a correggere gli errori del sito (art. 6.1.f GDPR). Non ti iscriviamo agli avvisi e cancelliamo la segnalazione quando l'abbiamo gestita.</p>
 <h2>Perché</h2><p>Per mandarti avvisi sulle date e sulle scadenze dell'esame B1. La base giuridica è il tuo consenso (art. 6.1.a GDPR), che puoi ritirare quando vuoi.</p>
 <h2>Chi li gestisce per noi</h2><p>Il sito e il modulo sono ospitati da Netlify, Inc., che conserva i dati del modulo per nostro conto. Netlify può trattare i dati fuori dall'UE con le garanzie previste dal GDPR (clausole contrattuali standard). Non vendiamo né cediamo i tuoi dati.</p>
 {cookie}{PRIVACY_AMAZON if url_affiliato("amazon") else ""}
@@ -4798,9 +5081,9 @@ def extra(urls):
     (SITO / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {URL_SITO}/sitemap.xml\n")
     (SITO / f"{CHIAVE_INDEXNOW}.txt").write_text(CHIAVE_INDEXNOW)  # file chiave IndexNow: non in sitemap, non linkato
     MON.scrivi_ads_txt(SITO_ID, SITO)  # sito/ads.txt solo con AdSense acceso (monetizzazione.json)
-    voci = "".join(f"<url><loc>{URL_SITO}/{u}</loc><lastmod>{OGGI.isoformat()}</lastmod></url>" for u in urls)
-    (SITO / "sitemap.xml").write_text(
-        f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{voci}</urlset>\n')
+    date_ = date_lastmod(urls)   # prima dei blocchi «più usate»: la data viene dal contenuto della pagina
+    scrivi_piu_usate(urls)
+    scrivi_sitemap(urls, date_)
     (SITO / "netlify.toml").write_text("""[build]
   publish = "."
   command = ""
@@ -4979,6 +5262,8 @@ def main():
     urls.append("chi-siamo/")
     come_lavoriamo()
     urls.append("come-lavoriamo/")
+    contatti()
+    urls.append("contatti/")
     privacy()
     urls.append("privacy.html")
     pagina_audio_libro()  # noindex: non va in sitemap

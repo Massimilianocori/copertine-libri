@@ -542,6 +542,7 @@ These English guides explain the exam, the income requirement and the citizenshi
 </section>
 <aside>{modulo(G, "")}</aside>
 </div>
+{G.segnaposto_piu_usate("en")}
 <section id="guides">
 <h2>{G.ic("lista")}Guides in English</h2>
 {griglia_guide(G, "")}
@@ -1071,7 +1072,7 @@ For a practice test you need your body's official sample paper and these times: 
 <section>
 <h2 id="official">{G.ic("scudo")}Official tutored practice (for a fee)</h2>
 <p>{G.eb("CILS")} <strong>Online CILS practice with a tutor, €{es_c["costo_eur"]}.</strong> On the e-learning platform of the University for Foreigners of Siena: 3 sample exams of level B1 C (the B1 Cittadinanza), the booklets to download, corrections and advice from native-speaker tutors.
-The practice is not marked and does not count towards the CILS certificate. Last published round: 9 to 27 November 2026 (registration 21 September to 23 October 2026), before the session of 3 December 2026; the next round was not yet published on {data_en(es_c["verificato_il"])}.</p>
+The practice is not marked and does not count towards the CILS certificate. Last published round: 9 to 27 November 2026, before the session of 3 December 2026 (registration for this round closed on 23 October 2026); the next round was not yet published on {data_en(es_c["verificato_il"])}.</p>
 {fonte(G, a(es_c["url"], "University for Foreigners of Siena, online CILS practice (in Italian)"), es_c["verificato_il"])}
 <p>{G.eb("PLIDA")} On its «Preparati all'esame» page the Società Dante Alighieri offers COPEC, a self-study online course for PLIDA B1; the price is not written on that page.</p>
 <p>For CELI and CERT.IT, ask the exam centre whether it runs practice tests or preparation courses.</p>

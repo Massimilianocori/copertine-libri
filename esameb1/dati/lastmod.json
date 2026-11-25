@@ -1,0 +1,837 @@
+{
+"_nota": "Scritto da genera.py: percorso -> [data dell'ultima modifica del contenuto, impronta]. Non modificare a mano.",
+"pagine": {
+"": [
+"2026-11-25",
+"c1766e8f1eea1ef004c8"
+],
+"carta-di-soggiorno/": [
+"2026-11-15",
+"f9d138aad8ef9dbb270e"
+],
+"chi-siamo/": [
+"2026-11-25",
+"a8daa0514563b0e514e2"
+],
+"citta/alessandria/": [
+"2026-11-19",
+"6685adbd061ae3ab4098"
+],
+"citta/ancona/": [
+"2026-11-19",
+"c9252f21c854a9dc2c13"
+],
+"citta/arzignano/": [
+"2026-11-19",
+"ec41226c49b00b2baeb0"
+],
+"citta/ascoli-piceno/": [
+"2026-11-19",
+"f63ddc2530d7498df6de"
+],
+"citta/avellino/": [
+"2026-11-19",
+"39843f99763a8b8a23c9"
+],
+"citta/bari/": [
+"2026-11-19",
+"407e9e2df0168f1b4747"
+],
+"citta/belluno/": [
+"2026-11-19",
+"94eeb1e8827731f8f61d"
+],
+"citta/bergamo/": [
+"2026-11-19",
+"e8379b2268632e908f61"
+],
+"citta/bologna/": [
+"2026-11-19",
+"0203a8d0d7e7282a8865"
+],
+"citta/bolzano/": [
+"2026-11-19",
+"70df4077a44bc65f1417"
+],
+"citta/brescia/": [
+"2026-11-19",
+"9911f132236de99483c9"
+],
+"citta/brindisi/": [
+"2026-11-19",
+"0c34d179f0fceed8a862"
+],
+"citta/busto-arsizio/": [
+"2026-11-19",
+"e28217ac1d90e02ba499"
+],
+"citta/cagliari/": [
+"2026-11-19",
+"2e78db71ca766bd27f57"
+],
+"citta/campobasso/": [
+"2026-11-19",
+"434eb460f3dfc99c866e"
+],
+"citta/caserta/": [
+"2026-11-19",
+"29661bb90de5f37c9fbb"
+],
+"citta/catania/": [
+"2026-11-19",
+"7320adb9234fa4a12745"
+],
+"citta/chieti/": [
+"2026-11-19",
+"1cb3ae90ad7d99eb645d"
+],
+"citta/como/": [
+"2026-11-19",
+"102e5d7f705755cb9377"
+],
+"citta/cosenza/": [
+"2026-11-19",
+"2b7ba0a1210ca11b0e43"
+],
+"citta/crema/": [
+"2026-11-19",
+"7e50363e07a4d93bfcab"
+],
+"citta/cremona/": [
+"2026-11-19",
+"62ca84de468f3ccf0d70"
+],
+"citta/cuneo/": [
+"2026-11-19",
+"8bf7d01495bc92714e3a"
+],
+"citta/firenze/": [
+"2026-11-19",
+"3005940ddb93c0fdb7e5"
+],
+"citta/foggia/": [
+"2026-11-19",
+"37a891857748582a26b7"
+],
+"citta/forli/": [
+"2026-11-19",
+"f75c75f84fefe11bc57a"
+],
+"citta/frosinone/": [
+"2026-11-19",
+"7e46672074547332e84c"
+],
+"citta/genova/": [
+"2026-11-19",
+"d068b396211dcb74b30a"
+],
+"citta/grosseto/": [
+"2026-11-19",
+"bdf672009d4a0d040759"
+],
+"citta/isernia/": [
+"2026-11-19",
+"f697f9e2e315cb374b92"
+],
+"citta/l-aquila/": [
+"2026-11-19",
+"5d920ac92128142e6b53"
+],
+"citta/la-spezia/": [
+"2026-11-19",
+"0bb5bf2641e68ae59b34"
+],
+"citta/lecce/": [
+"2026-11-19",
+"e67e1b15b375d777ae83"
+],
+"citta/lecco/": [
+"2026-11-19",
+"3cb0811f7dc10a67ff1d"
+],
+"citta/livorno/": [
+"2026-11-19",
+"00e7b84cb4480e72fcae"
+],
+"citta/lucca/": [
+"2026-11-19",
+"7feccbd7f696789999f0"
+],
+"citta/macerata/": [
+"2026-11-19",
+"c33dafe56eac27a6a084"
+],
+"citta/mantova/": [
+"2026-11-19",
+"503ccad183e970dc2d79"
+],
+"citta/massa/": [
+"2026-11-19",
+"c0cc84f26493be62c01f"
+],
+"citta/messina/": [
+"2026-11-19",
+"375eefd0e93bbc690b2b"
+],
+"citta/milano/": [
+"2026-11-19",
+"f6a2328380dfbecd0d1b"
+],
+"citta/modena/": [
+"2026-11-19",
+"c4e75c35bdb6c1cf249e"
+],
+"citta/monza/": [
+"2026-11-19",
+"da9b99e47ef244bd5004"
+],
+"citta/napoli/": [
+"2026-11-19",
+"528769cdc86fcdf5f776"
+],
+"citta/novara/": [
+"2026-11-19",
+"69d0af502cb1828721c9"
+],
+"citta/padova/": [
+"2026-11-19",
+"df90a0f721b51a5af97a"
+],
+"citta/palermo/": [
+"2026-11-19",
+"8bb7bfdb36f404dc99b7"
+],
+"citta/parma/": [
+"2026-11-19",
+"638aadbe039509a16181"
+],
+"citta/pavia/": [
+"2026-11-19",
+"6ffea15b764cf99487b8"
+],
+"citta/perugia/": [
+"2026-11-19",
+"8c78de9e7dd02fab6d5f"
+],
+"citta/pesaro/": [
+"2026-11-19",
+"c26ef2d927f3e1c920f7"
+],
+"citta/pescara/": [
+"2026-11-19",
+"c9a081fcfe5d6969dcb1"
+],
+"citta/piacenza/": [
+"2026-11-19",
+"50cde84c30b4f6707dc7"
+],
+"citta/pisa/": [
+"2026-11-19",
+"5b4aa9f6a35c0dad2bee"
+],
+"citta/potenza/": [
+"2026-11-19",
+"4b2500a7b789954f49e8"
+],
+"citta/prato/": [
+"2026-11-19",
+"86be21f0bfee222fc383"
+],
+"citta/ragusa/": [
+"2026-11-19",
+"ac009b63ccd820f2d5eb"
+],
+"citta/ravenna/": [
+"2026-11-19",
+"84c64c03950a3ede5511"
+],
+"citta/reggio-calabria/": [
+"2026-11-19",
+"00ffbcc7f6d6c5eab511"
+],
+"citta/reggio-emilia/": [
+"2026-11-19",
+"a7486c06b0399c84ec6e"
+],
+"citta/rimini/": [
+"2026-11-19",
+"005351d0a85bdeeb214e"
+],
+"citta/roma/": [
+"2026-11-19",
+"480fecc34f47a65c38e1"
+],
+"citta/salerno/": [
+"2026-11-19",
+"0ad31dc40eb16b26c023"
+],
+"citta/sassari/": [
+"2026-11-19",
+"f06f3710a14805e1bcea"
+],
+"citta/savona/": [
+"2026-11-19",
+"118c453ad37220bc2da6"
+],
+"citta/siena/": [
+"2026-11-23",
+"fceb68ab2f6e08001252"
+],
+"citta/siracusa/": [
+"2026-11-19",
+"276a4136098b5f88d781"
+],
+"citta/taranto/": [
+"2026-11-19",
+"3afbc65dee0be1b73ec4"
+],
+"citta/terni/": [
+"2026-11-19",
+"72c38fa991f160623098"
+],
+"citta/torino/": [
+"2026-11-19",
+"b020edb91fc1a9394671"
+],
+"citta/trapani/": [
+"2026-11-19",
+"25b9d92aa0027ffa24e5"
+],
+"citta/trento/": [
+"2026-11-19",
+"232daf77795add80a1cb"
+],
+"citta/treviglio/": [
+"2026-11-19",
+"057b966800fed6764b66"
+],
+"citta/treviso/": [
+"2026-11-19",
+"bded04a2321b45f761b3"
+],
+"citta/trieste/": [
+"2026-11-19",
+"a4f57135c4871d5dd08e"
+],
+"citta/udine/": [
+"2026-11-19",
+"e47e417f6a7cee421ba5"
+],
+"citta/varese/": [
+"2026-11-19",
+"a1c29556185b7492588c"
+],
+"citta/venezia/": [
+"2026-11-19",
+"11026132c35cdd8b40f4"
+],
+"citta/verona/": [
+"2026-11-19",
+"c335e95e98c66a48655d"
+],
+"citta/vicenza/": [
+"2026-11-19",
+"d65f6110740cbf9d3c8f"
+],
+"citta/viterbo/": [
+"2026-11-19",
+"b090c4101639c617bfcd"
+],
+"cittadinanza-per-matrimonio/": [
+"2026-11-15",
+"99f7bd6a0417f537fa4a"
+],
+"cittadinanza/": [
+"2026-11-15",
+"a1c5458c9dc845e31dd1"
+],
+"cittadinanza/ancona/": [
+"2026-11-19",
+"146a283d57254a0c74c8"
+],
+"cittadinanza/bari/": [
+"2026-11-19",
+"555a50ed37c3cb2892b9"
+],
+"cittadinanza/bergamo/": [
+"2026-11-19",
+"2e4cd33a920474c279e9"
+],
+"cittadinanza/bologna/": [
+"2026-11-19",
+"2bdef311fe7e5a4e4aa7"
+],
+"cittadinanza/brescia/": [
+"2026-11-19",
+"f9ff9206e595f4e66e8c"
+],
+"cittadinanza/catania/": [
+"2026-11-19",
+"46125d4947afa4d505e7"
+],
+"cittadinanza/cremona/": [
+"2026-11-19",
+"3bade11894c93cde7015"
+],
+"cittadinanza/cuneo/": [
+"2026-11-19",
+"1188e70aec542309ceed"
+],
+"cittadinanza/firenze/": [
+"2026-11-19",
+"a087de8b59a5efef774e"
+],
+"cittadinanza/genova/": [
+"2026-11-19",
+"474e534aff27b5074995"
+],
+"cittadinanza/lecco/": [
+"2026-11-19",
+"0c6a1051f8eae8333e84"
+],
+"cittadinanza/lucca/": [
+"2026-11-19",
+"5b8003156d350ab2f17b"
+],
+"cittadinanza/milano/": [
+"2026-11-19",
+"5764756d7105acab6f43"
+],
+"cittadinanza/modena/": [
+"2026-11-19",
+"842c9b4e8abe56bdb338"
+],
+"cittadinanza/napoli/": [
+"2026-11-19",
+"03b4b1eb13e4842df54b"
+],
+"cittadinanza/palermo/": [
+"2026-11-19",
+"ad117ac34005e5cfba80"
+],
+"cittadinanza/parma/": [
+"2026-11-19",
+"d8af0a6fa8c8fdebafb5"
+],
+"cittadinanza/pavia/": [
+"2026-11-19",
+"d51a8361a2561934bf1a"
+],
+"cittadinanza/perugia/": [
+"2026-11-19",
+"2ce043cbc1580046a91c"
+],
+"cittadinanza/prato/": [
+"2026-11-19",
+"8d5deaecfc0f8e8756f0"
+],
+"cittadinanza/ravenna/": [
+"2026-11-19",
+"9582fe4e66cd817c96a5"
+],
+"cittadinanza/reggio-emilia/": [
+"2026-11-19",
+"05c23f295b55fc2d2087"
+],
+"cittadinanza/rimini/": [
+"2026-11-19",
+"384a8390106f2e749105"
+],
+"cittadinanza/roma/": [
+"2026-11-19",
+"456f307e0c38b738d67b"
+],
+"cittadinanza/torino/": [
+"2026-11-19",
+"1304f61bd6bd18e8af5b"
+],
+"cittadinanza/treviso/": [
+"2026-11-19",
+"e3558e410f5aba70e1b3"
+],
+"cittadinanza/udine/": [
+"2026-11-19",
+"4b7a6d2626ed5a3167c9"
+],
+"cittadinanza/varese/": [
+"2026-11-19",
+"6e61074048453f5f8f8a"
+],
+"cittadinanza/venezia/": [
+"2026-11-19",
+"a15da028b35f6c415a77"
+],
+"cittadinanza/verona/": [
+"2026-11-19",
+"479a74ea80e566b00b75"
+],
+"come-funziona/": [
+"2026-11-18",
+"64c53864aae121ca1441"
+],
+"come-lavoriamo/": [
+"2026-11-23",
+"09cab18a1a5323110170"
+],
+"contatti/": [
+"2026-11-25",
+"695165925a350f9926c8"
+],
+"costo/": [
+"2026-11-15",
+"0927c07ffedc99c77c31"
+],
+"cpia/": [
+"2026-11-20",
+"2852853c4d156d335926"
+],
+"cpia/brescia-1/": [
+"2026-11-20",
+"286bdc10a08eb2831f6a"
+],
+"cpia/ferrara/": [
+"2026-11-20",
+"7b8ed37bdd77e22f4439"
+],
+"cpia/milano-5/": [
+"2026-11-20",
+"0155d8592d77a41201e2"
+],
+"cpia/modena/": [
+"2026-11-20",
+"cb081c1fea46cf86fbfc"
+],
+"cpia/novara/": [
+"2026-11-20",
+"4e460c4855d231dc90ca"
+],
+"cpia/padova/": [
+"2026-11-20",
+"0e9ea4b2a2601d694165"
+],
+"cpia/parma/": [
+"2026-11-20",
+"c4b3fac840dec3b64c1e"
+],
+"cpia/rovigo/": [
+"2026-11-20",
+"9a1ab13b0f6247e5b26d"
+],
+"cpia/savona/": [
+"2026-11-20",
+"ee43e785b6661a42afea"
+],
+"cpia/torino-2/": [
+"2026-11-20",
+"88604c60c0e9c41eab6b"
+],
+"cpia/verona/": [
+"2026-11-20",
+"9d89c869a7970511239a"
+],
+"cpia/vicenza/": [
+"2026-11-20",
+"e7e2fb96bdedb2f16ea4"
+],
+"decreto-flussi-click-day/": [
+"2026-11-05",
+"45ee5eb9efa486abed5a"
+],
+"dopo-esame/": [
+"2026-11-19",
+"41aa4fc32e522fd1cc8c"
+],
+"dopo-esame/celi/": [
+"2026-11-19",
+"698f37d4460aa28b69fe"
+],
+"dopo-esame/cert-it/": [
+"2026-11-19",
+"c86aceeddb71b0a79b00"
+],
+"dopo-esame/cils/": [
+"2026-11-19",
+"96dbde53ab49673f8af3"
+],
+"dopo-esame/non-superato/": [
+"2026-11-19",
+"9936e185952c4729feb1"
+],
+"dopo-esame/plida/": [
+"2026-11-19",
+"61c503b7f1839516477a"
+],
+"en/": [
+"2026-11-19",
+"156827e1684fec179659"
+],
+"en/apply-italian-citizenship-by-residence/": [
+"2026-11-12",
+"fbaf6c379e4d281cf8b0"
+],
+"en/b1-exam-cost/": [
+"2026-11-12",
+"09cf166d6d4741fa55c8"
+],
+"en/b1-exam-dates/": [
+"2026-11-19",
+"dcd725360e46cf103053"
+],
+"en/b1-exam-results/": [
+"2026-11-19",
+"775d09edf07330b09604"
+],
+"en/b1-practice-test/": [
+"2026-11-25",
+"1a343e01a160c09d1d03"
+],
+"en/carta-di-soggiorno-requirements/": [
+"2026-11-13",
+"6cafb7d9075c0148cb1b"
+],
+"en/celi/": [
+"2026-11-12",
+"7b759349bc7e3e0edd4b"
+],
+"en/cert-it/": [
+"2026-11-12",
+"5c52261a31e7cc9d0f63"
+],
+"en/cils/": [
+"2026-11-12",
+"4af8541e39be62011f34"
+],
+"en/family-reunification-income/": [
+"2026-11-12",
+"31aa21cb7786e44599f9"
+],
+"en/income-requirement-italian-citizenship/": [
+"2026-11-12",
+"f8217f8d66338f9614c7"
+],
+"en/italian-b1-exam-for-citizenship/": [
+"2026-11-19",
+"5e9043f3b64ebdb826f6"
+],
+"en/language-test-exemptions/": [
+"2026-11-12",
+"2f5fe967d0f33d33c050"
+],
+"en/plida/": [
+"2026-11-19",
+"4e72bc045e8775f7e7ac"
+],
+"en/privacy/": [
+"2026-10-31",
+"d90595134940f3554a7f"
+],
+"en/sample-papers/": [
+"2026-11-12",
+"dec9a21258421f79b87d"
+],
+"ente/celi/": [
+"2026-11-15",
+"92c8e62732201849eaa9"
+],
+"ente/certit/": [
+"2026-11-18",
+"170c7e47214a7abe2c95"
+],
+"ente/cils/": [
+"2026-11-23",
+"8598109cf3533e04341f"
+],
+"ente/plida/": [
+"2026-11-19",
+"b3dd95c4f7081c5e0bd1"
+],
+"esempi/": [
+"2026-11-25",
+"aad831694be41d5d3212"
+],
+"esempi/a2/": [
+"2026-11-19",
+"c04e00eda5c7c6c8c301"
+],
+"esempi/b2/": [
+"2026-11-19",
+"810c9f3dfa4c39b9692b"
+],
+"esempi/celi/": [
+"2026-11-15",
+"bbd05d8867049709f550"
+],
+"esempi/certit/": [
+"2026-11-18",
+"5e61b777d2a52e71bdb9"
+],
+"esempi/cils/": [
+"2026-11-25",
+"775bb93061958593da14"
+],
+"esempi/confronto/": [
+"2026-11-19",
+"8cf60c03afdc67572a23"
+],
+"esempi/plida/": [
+"2026-11-19",
+"fee3fe639023ee4315e7"
+],
+"esempi/prova-scritta/": [
+"2026-11-19",
+"52cebba59ddf5fc031ec"
+],
+"esempi/simulazione/": [
+"2026-11-25",
+"4119e62c7bdbd62a2450"
+],
+"esenzioni-e-domande/": [
+"2026-11-15",
+"8b9c04eaf5e099e90025"
+],
+"esonero-test-italiano/": [
+"2026-11-13",
+"9185de9ff045d7beaa26"
+],
+"idoneita-alloggiativa/": [
+"2026-11-15",
+"7e29926aaaed8ce83db3"
+],
+"permesso-soggiorno-motivi-familiari/": [
+"2026-11-15",
+"a0b0af228596d11d4815"
+],
+"pratica-cittadinanza/": [
+"2026-11-15",
+"32f8164ac7226686b70c"
+],
+"privacy.html": [
+"2026-11-25",
+"85e046191deb8c7b4863"
+],
+"reddito-minimo-cittadinanza/": [
+"2026-11-13",
+"a31e3c45c379e8086c2b"
+],
+"reddito-ricongiungimento-familiare/": [
+"2026-11-15",
+"7a0cf321240bb010cff6"
+],
+"ricongiungimento-familiare-documenti/": [
+"2026-11-15",
+"b642aade504c1616d44b"
+],
+"ricongiungimento-familiare/": [
+"2026-11-15",
+"eef287ec2a24bb5f3fb1"
+],
+"risultati/": [
+"2026-11-19",
+"371ba7e7bf50d37e230e"
+],
+"risultati/celi/": [
+"2026-11-15",
+"81768f845f8e47252893"
+],
+"risultati/cert-it/": [
+"2026-11-18",
+"1af2ab2700232a789e91"
+],
+"risultati/cils/": [
+"2026-11-15",
+"aa5171eae296fb069f4e"
+],
+"risultati/plida/": [
+"2026-11-19",
+"cb04a00102bcca814ab2"
+],
+"ro/": [
+"2026-11-19",
+"b04839b61527d12391a1"
+],
+"ro/carta-di-soggiorno/": [
+"2026-11-13",
+"d6491deb9eba902d10b4"
+],
+"ro/cetatenie-italiana/": [
+"2026-11-12",
+"20a9e076bde57f9c9e49"
+],
+"ro/cost-examen-b1/": [
+"2026-11-12",
+"f041d836a6e905b7b817"
+],
+"ro/date-examen-b1/": [
+"2026-11-19",
+"0b5c09e4ac761cfe4707"
+],
+"ro/examen-b1-cetatenie/": [
+"2026-11-19",
+"893fd93784120a46dd61"
+],
+"ro/modele-examen-b1/": [
+"2026-11-12",
+"5b23b7c431e96cf5a654"
+],
+"ro/rezidenta-italia-cetateni-ue/": [
+"2026-11-12",
+"d27dde8535a0ab132f7c"
+],
+"ro/scutire-test-italiana/": [
+"2026-11-12",
+"b7073fd8aec76ea41c77"
+],
+"ro/venit-minim-cetatenie/": [
+"2026-11-12",
+"e229e68841c6c85dd9b8"
+],
+"test-italiano-a2/": [
+"2026-11-15",
+"c22db47a112111d73786"
+],
+"uk/": [
+"2026-11-19",
+"120d4901d7fab908ccd5"
+],
+"uk/daty-ispytu-b1/": [
+"2026-11-19",
+"d2c108a86dea37aa4a45"
+],
+"uk/dokhid-dlia-hromadianstva/": [
+"2026-11-12",
+"d7886c3a7ee4f07e91dd"
+],
+"uk/hromadianstvo-italii/": [
+"2026-11-12",
+"cd0756a6c434d8d9da14"
+],
+"uk/ispyt-b1-dlia-hromadianstva/": [
+"2026-11-19",
+"2c384c9f9dcefbf5a0bb"
+],
+"uk/karta-di-soggiorno/": [
+"2026-11-13",
+"0bf2e5ea92e80355e5db"
+],
+"uk/tymchasovyi-zakhyst/": [
+"2026-11-12",
+"ba50aa6e64fbfa5f54e0"
+],
+"uk/vartist-ispytu-b1/": [
+"2026-11-12",
+"b09112615bb6f8b61325"
+],
+"uk/vozziednannia-simi/": [
+"2026-11-12",
+"e96e32c89d6a0114e496"
+],
+"uk/zrazky-ispytu-b1/": [
+"2026-11-12",
+"7eeb36c3caf2b7ab4974"
+],
+"uk/zvilnennia-vid-ispytu/": [
+"2026-11-12",
+"947c0ad0df5bb3b5a937"
+]
+}
+}

@@ -254,6 +254,16 @@ display:flex;align-items:center;justify-content:center;font-weight:800;font-size
 @media (max-width:640px){body{font-size:16.5px}.lead{font-size:1.02rem}.r-piede span{display:none}.sess{grid-template-columns:1fr;gap:8px;padding:14px}.tile{flex-direction:row;align-items:baseline;justify-self:start;gap:7px;padding:6px 12px;border-radius:8px;box-shadow:none;background:var(--brand-soft)}.sess[data-tipo="generale"] .tile{box-shadow:none;background:var(--surface-2)}.tile .td{font-size:1.3rem;margin:0}
 .sess .testa .tag{margin-left:0}.azioni .btn{flex:1 1 100%;justify-content:center}.sedi{grid-template-columns:minmax(0,1fr)}
 .card{padding:18px}.risposta .slot{padding:16px}.hero{padding-top:22px}}
+.piu-usate{margin:22px 0 4px;padding:18px 20px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:var(--r-l)}
+.piu-usate h2{margin:0 0 10px;font-size:1.15rem}
+.piu-lista{list-style:none;margin:0 0 12px;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(320px,100%),1fr));gap:6px 24px}
+.piu-lista a{font-weight:650}
+.piu-citta-t{margin:0 0 8px;font-size:.92rem;font-weight:750;color:var(--ink-2)}
+.piu-usate .small{margin:10px 0 0}
+details.piu-altre{background:none;border:0;border-radius:0;margin:0}
+details.piu-altre>:not(summary){margin:0 0 12px}
+details.piu-altre>summary{padding:8px 0;color:var(--brand-ink)}
+@media (min-width:861px){details.piu-altre>summary{display:none}}
 .altre{display:flex;flex-wrap:wrap;gap:6px}
 .altre a{font-size:.9rem;padding:5px 11px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--ink-2);background:var(--surface)}
 .altre a:hover{border-color:var(--brand);color:var(--brand-ink)}
@@ -565,7 +575,7 @@ controlla sul <a href="https://cpiaferrara.edu.it/" rel="noopener">sito ufficial
 <rect x="11" y="25.6" width="6" height="2.4" rx="1.1" fill="#3FB37F"/><rect x="17" y="25.6" width="6" height="2.4" rx="1.1" fill="#FFFFFF"/><rect x="23" y="25.6" width="6" height="2.4" rx="1.1" fill="#E4573D"/>
 </svg><span class="logo-testo">Esame<b>B1</b></span></a>
 <ul class="piede-link">
-<li><a href="../../#date">Date d'esame</a></li><li><a href="../../#citta">Sedi per città</a></li><li><a href="../../come-funziona/">Come funziona</a></li><li><a href="../../costo/">Costo</a></li><li><a href="../../risultati/">Risultati</a></li><li><a href="../../esenzioni-e-domande/">Orale e domande</a></li><li><a href="../../esonero-test-italiano/">Chi è esonerato</a></li><li><a href="../../esempi/">Prove d'esempio</a></li><li><a href="../../esempi/confronto/">CILS, CELI, PLIDA, CERT.IT a confronto</a></li><li><a href="../../cittadinanza/">Domanda di cittadinanza</a></li><li><a href="../../reddito-minimo-cittadinanza/">Reddito minimo</a></li><li><a href="../../cittadinanza-per-matrimonio/">Cittadinanza per matrimonio</a></li><li><a href="../../pratica-cittadinanza/">Stato della pratica e giuramento</a></li><li><a href="../../carta-di-soggiorno/">Carta di soggiorno</a></li><li><a href="../../test-italiano-a2/">Test di italiano A2</a></li><li><a href="../../ricongiungimento-familiare/">Ricongiungimento familiare</a></li><li><a href="../../permesso-soggiorno-motivi-familiari/">Permesso per motivi familiari</a></li><li><a href="../../idoneita-alloggiativa/">Idoneità alloggiativa</a></li><li><a href="../../dopo-esame/">Dopo l'esame: certificato</a></li><li><a href="../../cpia/">CPIA: sedi e corsi</a></li><li><a href="../../decreto-flussi-click-day/">Decreto flussi: click day</a></li><li><a href="../../ente/cils/">CILS</a></li><li><a href="../../ente/celi/">CELI</a></li><li><a href="../../ente/plida/">PLIDA</a></li><li><a href="../../ente/certit/">CERT.IT</a></li><li><a href="../../en/" hreflang="en" lang="en">English</a></li><li><a href="../../uk/" hreflang="uk" lang="uk">Українська</a></li><li><a href="../../ro/" hreflang="ro" lang="ro">Română</a></li><li><a href="../../chi-siamo/">Chi siamo</a></li><li><a href="../../come-lavoriamo/">Come lavoriamo</a></li><li><a href="../../come-lavoriamo/#segnala">Segnala un errore</a></li><li><a href="../../privacy.html">Privacy</a></li>
+<li><a href="../../#date">Date d'esame</a></li><li><a href="../../#citta">Sedi per città</a></li><li><a href="../../come-funziona/">Come funziona</a></li><li><a href="../../costo/">Costo</a></li><li><a href="../../risultati/">Risultati</a></li><li><a href="../../esenzioni-e-domande/">Orale e domande</a></li><li><a href="../../esonero-test-italiano/">Chi è esonerato</a></li><li><a href="../../esempi/">Prove d'esempio</a></li><li><a href="../../esempi/confronto/">CILS, CELI, PLIDA, CERT.IT a confronto</a></li><li><a href="../../cittadinanza/">Domanda di cittadinanza</a></li><li><a href="../../reddito-minimo-cittadinanza/">Reddito minimo</a></li><li><a href="../../cittadinanza-per-matrimonio/">Cittadinanza per matrimonio</a></li><li><a href="../../pratica-cittadinanza/">Stato della pratica e giuramento</a></li><li><a href="../../carta-di-soggiorno/">Carta di soggiorno</a></li><li><a href="../../test-italiano-a2/">Test di italiano A2</a></li><li><a href="../../ricongiungimento-familiare/">Ricongiungimento familiare</a></li><li><a href="../../permesso-soggiorno-motivi-familiari/">Permesso per motivi familiari</a></li><li><a href="../../idoneita-alloggiativa/">Idoneità alloggiativa</a></li><li><a href="../../dopo-esame/">Dopo l'esame: certificato</a></li><li><a href="../../cpia/">CPIA: sedi e corsi</a></li><li><a href="../../decreto-flussi-click-day/">Decreto flussi: click day</a></li><li><a href="../../ente/cils/">CILS</a></li><li><a href="../../ente/celi/">CELI</a></li><li><a href="../../ente/plida/">PLIDA</a></li><li><a href="../../ente/certit/">CERT.IT</a></li><li><a href="../../en/" hreflang="en" lang="en">English</a></li><li><a href="../../uk/" hreflang="uk" lang="uk">Українська</a></li><li><a href="../../ro/" hreflang="ro" lang="ro">Română</a></li><li><a href="../../chi-siamo/">Chi siamo</a></li><li><a href="../../come-lavoriamo/">Come lavoriamo</a></li><li><a href="../../come-lavoriamo/#segnala">Segnala un errore</a></li><li><a href="../../contatti/">Contatti</a></li><li><a href="../../privacy.html">Privacy</a></li>
 </ul>
 </div>
 <div>
@@ -580,6 +590,8 @@ Questo sito non dà consulenza sulla pratica di cittadinanza: per quella vedi la
 </div></footer>
 <script>
 (function(){
+  var pa=document.querySelector('details.piu-altre');
+  if(pa&&window.matchMedia&&window.matchMedia('(max-width:860px)').matches)pa.open=false;
   var oggi=new Date();oggi.setHours(0,0,0,0);
   function giorni(iso){var p=iso.split('-');var x=new Date(+p[0],+p[1]-1,+p[2]);return Math.round((x-oggi)/86400000);}
   function conta(el,g,modo){
