@@ -1069,6 +1069,16 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
     in_scala = indicizza and fuori_indice(percorso)
     if in_scala:
         indicizza = False
+    if percorso in indici_piu_usate():   # indice di sezione: le pagine più visitate della sezione, sopra tabelle ed elenchi (dopo il primo spazio pubblicitario)
+        if AD not in corpo:
+            raise SystemExit(f"più usate: {percorso} senza il punto dove mettere il blocco")
+        corpo = corpo.replace(AD, AD + "\n" + SEGNA_PIU, 1)
+    if SEGNA_PIU in corpo:
+        css_extra += CSS_PIU
+    m_h1 = re.search(r"<h1[^>]*>(.*?)</h1>", testata + corpo, re.S)
+    if m_h1:
+        H1_PAGINE[percorso] = (m_h1.group(1), lingua)
+    REL_PAGINE[percorso] = "" if rel == "./" else rel
     adsense = ADSENSE_HEAD if indicizza and parole_principali(testata + corpo) >= MIN_PAROLE_ADSENSE else MON.script_adsense(SITO_ID, False)
     if indicizza:
         URLS.append(percorso)
@@ -1158,6 +1168,86 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
         IMPRONTE[percorso] = impronta_contenuto(testo)
 
 
+# ---------------------------------------------------------------- blocchi «Most used» e «Popular pages in this section» (25/11/2026, recupero dopo il cambio di dominio)
+# studio-business/STRATEGIA-RECUPERO.md, azione 5: in home le pagine in indice con più visite, e in cima all'indice di ogni sezione
+# le più visitate della sezione. Le visite stanno in dati/piu_usate.json (GoatCounter, periodo scritto nel file): non si rileggono
+# a ogni generazione. Il testo del link è l'H1 della pagina (la prima parte, se l'H1 è diviso in due). Nessuna pagina fuori indice.
+# pagina() scrive solo il segnaposto; extra() lo riempie quando tutte le pagine esistono. Il blocco sta tra due commenti e non
+# entra nell'impronta del lastmod (impronta_contenuto): la data di una pagina non cambia quando cambia la classifica.
+PIU_USATE = json.loads((DATI / "piu_usate.json").read_text(encoding="utf-8"))["visite"]
+SEGNA_PIU = "<!--piu-usate--><!--/piu-usate-->"
+# CSS solo nelle pagine che hanno il blocco (css_extra in pagina()): le altre pagine restano byte per byte come prima
+CSS_PIU = (".piu{margin:26px 0 8px}.piu h2{margin:0 0 12px}"
+           ".piu ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px 22px}"
+           ".piu li{min-width:0;padding:7px 0 7px 14px;border-left:3px solid var(--gold);line-height:1.35}"
+           ".piu a{font-weight:600;overflow-wrap:anywhere}"
+           "@media(max-width:600px){.piu ul{gap:4px}.piu li{padding:5px 0 5px 12px;font-size:.95rem}}")
+_RE_PIU = re.compile(r"\n?<!--piu-usate-->.*?<!--/piu-usate-->", re.S)
+N_PIU_HOME = 24          # pagine nel blocco della home
+N_PIU_SEZ = 8            # al massimo, nel blocco di un indice di sezione
+MIN_PIU_SEZ = 5          # un indice di sezione ha il blocco solo se almeno 5 pagine della sezione hanno 2 o più visite
+MIN_VISITE_PIU_SEZ = 2
+H1_PAGINE = {}           # percorso -> (HTML dell'H1, lingua)
+REL_PAGINE = {}          # percorso -> prefisso relativo verso la radice del sito
+TITOLI_PIU = {"en": "Popular pages in this section", "es": "Las páginas más consultadas de esta sección", "pt": "As páginas mais consultadas desta secção"}
+_INDICI_PIU = None
+
+
+def visite_sezione(indice):
+    """Pagine della sezione (percorsi sotto l'indice) con le visite minime, dalla più visitata."""
+    voci = [(n, p) for p, n in PIU_USATE.items() if p.startswith(indice) and p != indice and n >= MIN_VISITE_PIU_SEZ]
+    return [p for n, p in sorted(voci, key=lambda x: (-x[0], x[1]))]
+
+
+def indici_piu_usate():
+    """Indici di sezione che ricevono il blocco: primo livello (es. "moved-to/") con abbastanza pagine visitate."""
+    global _INDICI_PIU
+    if _INDICI_PIU is None:
+        sez = {p.split("/")[0] + "/" for p in PIU_USATE if p.count("/") >= 2}
+        _INDICI_PIU = {s for s in sez if len(visite_sezione(s)) >= MIN_PIU_SEZ}
+    return _INDICI_PIU
+
+
+def testo_link_piu(percorso):
+    """Testo del link: l'H1 della pagina; se l'H1 è diviso (h1_diviso), la prima parte, che è il nome della pagina."""
+    h1 = H1_PAGINE[percorso][0]
+    a = re.search(r'<span class="h1-a">(.*?)</span>', h1, re.S)
+    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", a.group(1) if a else h1)).strip()
+
+
+def blocco_piu(percorso):
+    """HTML del blocco per la home ("") o per un indice di sezione. Solo pagine generate e in indice."""
+    in_indice = set(URLS)
+    if percorso == "":
+        scelte = [p for n, p in sorted(((n, p) for p, n in PIU_USATE.items() if p), key=lambda x: (-x[0], x[1])) if p in in_indice][:N_PIU_HOME]
+        titolo, lingua_pag = "Most used pages", "en"
+    else:
+        scelte = [p for p in visite_sezione(percorso) if p in in_indice][:N_PIU_SEZ]
+        lingua_pag = H1_PAGINE[percorso][1]
+        titolo = TITOLI_PIU[lingua_pag]
+    if len(scelte) < (N_PIU_HOME if percorso == "" else MIN_PIU_SEZ):
+        raise SystemExit(f"più usate: {percorso or 'home'} con solo {len(scelte)} pagine in indice")
+    rel = REL_PAGINE[percorso]
+    voci = []
+    for p in scelte:
+        l = H1_PAGINE[p][1]
+        attr = f' lang="{l}" hreflang="{l}"' if l != lingua_pag else ""
+        voci.append(f'<li><a href="{rel}{p}"{attr}>{testo_link_piu(p)}</a></li>')
+    return f'<section class="piu" aria-labelledby="piu-t"><h2 id="piu-t">{titolo}</h2><ul>{"".join(voci)}</ul></section>'
+
+
+def scrivi_piu_usate():
+    """Riempie i segnaposto (home e indici di sezione) e controlla che non ne resti nessuno. Ritorna il numero di blocchi scritti."""
+    attesi = {""} | indici_piu_usate()
+    for percorso in sorted(attesi):
+        f = SITO / percorso / "index.html"
+        t = f.read_text(encoding="utf-8") if f.exists() else ""
+        if t.count(SEGNA_PIU) != 1:
+            raise SystemExit(f"più usate: segnaposto mancante o doppio in {percorso or 'home'}")
+        f.write_text(t.replace(SEGNA_PIU, "<!--piu-usate-->" + blocco_piu(percorso) + "<!--/piu-usate-->"), encoding="utf-8")
+    return len(attesi)
+
+
 # ---------------------------------------------------------------- lastmod vero per ogni URL della sitemap (28/10/2026)
 # Il registro dati/lastmod.json tiene per ogni pagina la data dell'ultima modifica del contenuto e la sua impronta
 # (titolo, descrizione, JSON-LD e <main>: non il CSS, il menu o il piè di pagina, uguali in tutte le pagine).
@@ -1172,6 +1262,7 @@ VECCHIE = {}    # percorso -> impronta della pagina in sito/ prima della generaz
 def impronta_contenuto(testo):
     import hashlib
     testo = normalizza_data_agg(testo)  # esperimento citazioni: la data "Updated on" scritta dopo il registro non entra nell'impronta
+    testo = _RE_PIU.sub("", testo)      # blocchi «Most used» (25/11/2026): cambiano con le visite, non con il contenuto della pagina
     tit = re.search(r"<title>(.*?)</title>", testo, re.S)
     des = re.search(r'<meta name="description" content="(.*?)">', testo, re.S)
     ld = re.findall(r'<script type="application/ld\+json">(.*?)</script>', testo, re.S)
@@ -1558,6 +1649,7 @@ def home():
 </div></div>"""
     corpo = f"""{AVVISO}
 {AD}
+{SEGNA_PIU}
 <h2>What the checker covers</h2>
 <p class="lead">The official minimum income for {len(PROG)} visas and permits in {len(PAESI)} countries, calculated from the official base (minimum wage, IPREM, average salary, legal salary thresholds) for you and each family member, and converted into your currency with the latest European Central Bank reference rates.</p>
 <ul class="cat">{cat}</ul>
@@ -1602,7 +1694,7 @@ def home():
 <p><a href="{SEZ_AV_CALC}">Australia PR points calculator</a> · <a href="{SEZ_AV_TAR}">Australia visa fees {ANNO_FIN_AV}</a> · <a href="{SEZ_AV}">All Australian visas</a> · {" · ".join(f'<a href="{perc_av(v)}">{escape(v["nome"])}</a>' for v in PAG_AV)}</p>
 <h2>Teach English abroad: visa and salary rules by country</h2>
 <p class="lead">What official pages say about teaching English in {len(PAG_TF)} countries: visa, degree, criminal record check, whether a TEFL certificate is required in writing, and the pay where an official source states it. Japan's JET Program publishes {yen(JET_Y1)} before tax for the first year (as of {JET_AL}); Spain's language assistant programme {ES_MIN} to {ES_MAX} euros a month. Sources read on {data_lunga(LETTO_TF)}.</p>
-<p><a href="{SEZ_TF}">Teach English abroad: all countries</a> · {" · ".join(f'<a href="{perc_tf(v)}">{escape(v["nome"])}</a>' for v in PAG_TF)}</p>
+<p><a href="{SEZ_TF}">Teach English abroad: all countries</a> · {" · ".join(f'<a href="{perc_tf(v)}">{escape(v["nome"])}</a>' for v in PAG_TF if not fuori_indice(perc_tf(v)))}</p>
 <h2>Australian citizenship ceremony wait times</h2>
 <p class="lead">On {data_lunga(AL_CER)}, {intero(media_cer(RIGHE_CER)[0])} people approved for Australian citizenship were waiting for a ceremony in {len(RIGHE_CER)} council areas (Department of Home Affairs, published {data_lunga(PUB_CER)}). Search your council, and see the official processing times for the whole application.</p>
 <p><a href="{SEZ_CER}">Citizenship ceremony wait times by council</a> · <a href="{SEZ_TEMPI_CER}">Australian citizenship processing time</a> · {" · ".join(f'<a href="{SEZ_CER}{SLUG_CER[r[0]]}/">{escape(nome_cer(r, True))}</a>' for r in PAG_CER[:6])}</p>
@@ -1614,7 +1706,7 @@ def home():
 <p><a href="{PERC_ANC}">UK Ancestry visa: issued and refused by nationality since {ANC_ANNI[0]}</a></p>
 <h2>Top university visas: HPI, TTPS and J-Find lists</h2>
 <p class="lead">{len(UNI_TU)} universities are on at least one of three official lists for graduates: the UK's High Potential Individual list {ANNI_HPI[-1]} ({len(LISTE_TU[HPI1]["voci"])}), Hong Kong's Top Talent Pass Scheme list ({len(LISTE_TU["ttps"]["voci"])}) and Japan's J-Find list ({len(LISTE_TU["j-find"]["voci"])}) (read on {data_lunga(LETTO_TU)}). Check your university and the year of your degree.</p>
-<p><a href="{SEZ_TU}">HPI, TTPS and J-Find compared</a> · <a href="{perc_lista_tu(HPI1)}">HPI university list {ANNI_HPI[-1]}</a> · <a href="{perc_lista_tu("ttps")}">TTPS university list</a> · <a href="{perc_lista_tu("j-find")}">J-Find university list</a> · <a href="{perc_paese_tu("India")}">Indian universities</a> · <a href="{perc_paese_tu("United States")}">US universities</a></p>
+<p><a href="{SEZ_TU}">HPI, TTPS and J-Find compared</a> · <a href="{perc_lista_tu(HPI1)}">HPI university list {ANNI_HPI[-1]}</a> · <a href="{perc_lista_tu("ttps")}">TTPS university list</a> · <a href="{perc_lista_tu("j-find")}">J-Find university list</a> · {" · ".join(f'<a href="{perc_paese_tu(p)}">{n}</a>' for p, n in (("India", "Indian universities"), ("United States", "US universities")) if not fuori_indice(perc_paese_tu(p)))}</p>
 <h2>H-1B wage level and the weighted lottery</h2>
 <p class="lead">Since {data_lunga(FRH["regola"]["effective_on"])} the H-1B lottery enters each person 1 to 4 times by wage level (Level I once, Level IV four times). Check the level of a salary for {len(OCC_TUTTE_H1)} occupations in all {len(AREE_H1)} US areas with the Department of Labor wages for July 2026 to June 2027 (read on {data_lunga(LETTO_H1)}).</p>
 <p><a href="{SEZ_H1}">H-1B wage level calculator</a> · <a href="{PERC_ODDS_H1}">H-1B lottery odds by wage level</a> · <a href="{perc_occ_h1("15-1252")}">Software developers</a> · <a href="{perc_occ_h1("15-2051")}">Data scientists</a> · <a href="{perc_coppia_h1("15-1252", "41940")}">Software developers in San Jose</a> · <a href="{perc_coppia_h1("15-1252", "42660")}">in Seattle</a></p>
@@ -13886,15 +13978,55 @@ def controlli_anc():
     return errori
 
 
+# Sitemap (25/11/2026, STRATEGIA-RECUPERO.md azione 3): sitemap.xml è un indice; ogni sezione con almeno MIN_SITEMAP_SEZ pagine in
+# indice ha il suo file (sitemap-<sezione>.xml), le altre pagine stanno in sitemap-pages.xml. L'insieme degli URL è lo stesso di
+# prima: tutte e sole le pagine in indice (URLS). In Search Console l'indicizzazione si legge così sezione per sezione.
+# sitemap-vecchi-indirizzi.xml è a parte (non nell'indice, non in robots.txt): i vecchi indirizzi netlify.app che rispondono 301,
+# da inviare a mano in Search Console e da togliere quando la proprietà vecchia è a circa 0 pagine indicizzate.
+MIN_SITEMAP_SEZ = 10
+SITEMAP_ALTRE = "sitemap-pages.xml"
+SITEMAP_VECCHI = "sitemap-vecchi-indirizzi.xml"
+VECCHI_INDIRIZZI = json.loads((DATI / "vecchi_indirizzi.json").read_text(encoding="utf-8"))
+_XMLNS = 'xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"'
+
+
+def file_sitemap():
+    """{nome del file: [percorsi]} nell'ordine di generazione: una sitemap per sezione grande, una per tutte le altre pagine."""
+    quante = {}
+    for u in URLS:
+        s = u.split("/")[0] if "/" in u else ""
+        quante[s] = quante.get(s, 0) + 1
+    gruppi = {}
+    for u in URLS:
+        s = u.split("/")[0] if "/" in u else ""
+        nome = f"sitemap-{s}.xml" if s and quante[s] >= MIN_SITEMAP_SEZ else SITEMAP_ALTRE
+        gruppi.setdefault(nome, []).append(u)
+    return gruppi
+
+
+def scrivi_sitemap(date_):
+    gruppi = file_sitemap()
+    assert sorted(u for g in gruppi.values() for u in g) == sorted(URLS) and SITEMAP_VECCHI not in gruppi
+    indice = ""
+    for nome in sorted(gruppi, key=lambda n: (n == SITEMAP_ALTRE, n)):
+        voci = "".join(f"<url><loc>{URL_SITO}/{u}</loc><lastmod>{date_[u]}</lastmod></url>" for u in gruppi[nome])
+        (SITO / nome).write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset {_XMLNS}>{voci}</urlset>\n')
+        indice += f"<sitemap><loc>{URL_SITO}/{nome}</loc><lastmod>{max(date_[u] for u in gruppi[nome])}</lastmod></sitemap>"
+    (SITO / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex {_XMLNS}>{indice}</sitemapindex>\n')
+    # vecchi indirizzi: solo quelli la cui pagina esiste oggi (il 301 del vecchio host porta allo stesso percorso)
+    vivi = [p for p in VECCHI_INDIRIZZI["percorsi"] if (SITO / (p if p.endswith(".html") else p + "index.html")).is_file()]
+    voci = "".join(f'<url><loc>{VECCHI_INDIRIZZI["host"]}/{p}</loc></url>' for p in vivi)
+    (SITO / SITEMAP_VECCHI).write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset {_XMLNS}>{voci}</urlset>\n')
+
+
 def extra():
     (SITO / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {URL_SITO}/sitemap.xml\n")
     (SITO / f"{CHIAVE_INDEXNOW}.txt").write_text(CHIAVE_INDEXNOW)  # file chiave IndexNow: non in sitemap, non linkato
     MON.scrivi_ads_txt(SITO_ID, SITO)  # sito/ads.txt solo con AdSense acceso (monetizzazione.json)
     date_ = date_lastmod()
     scrivi_date_esperimento(date_)  # esperimento citazioni (31/10/2026): data "Updated on" e dateModified = lastmod della pagina
-    voci = "".join(f"<url><loc>{URL_SITO}/{u}</loc><lastmod>{date_[u]}</lastmod></url>" for u in URLS)
-    (SITO / "sitemap.xml").write_text(
-        f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{voci}</urlset>\n')
+    scrivi_piu_usate()               # blocchi «Most used» (home e indici di sezione): dopo le pagine, fuori dall'impronta del lastmod
+    scrivi_sitemap(date_)
     (SITO / "netlify.toml").write_text("""[build]
   publish = "."
   command = ""

@@ -63,7 +63,11 @@ def url_sitemap(cartella):
     if not f.exists():
         return None
     visti, urls = set(), []
-    for u in re.findall(r"<loc>\s*([^<\s]+)\s*</loc>", f.read_text(encoding="utf-8")):
+    testo = f.read_text(encoding="utf-8")
+    if "<sitemapindex" in testo:  # indice (dal 25/11/2026 su alcuni siti): si leggono le sitemap elencate, che stanno accanto
+        figli = [f.parent / u.rsplit("/", 1)[1] for u in re.findall(r"<loc>\s*([^<\s]+)\s*</loc>", testo)]
+        testo = "".join(p.read_text(encoding="utf-8") for p in figli if p.is_file())
+    for u in re.findall(r"<loc>\s*([^<\s]+)\s*</loc>", testo):
         u = u.replace("&amp;", "&")
         if u not in visti:
             visti.add(u)

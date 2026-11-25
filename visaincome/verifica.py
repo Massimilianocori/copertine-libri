@@ -164,6 +164,13 @@ Uso (dalla radice del repository, dopo python3 visaincome/genera.py):
     un altro riquadro assicurativo; fuori dai riquadri il nome compare solo nella colonna «What one insurer says» dell'indice (pezzi
     delle letture, nessun link a Genki) e nella privacy; con l'interruttore spento nessuna traccia; online: letture rilette sulla guida
     di Genki e link di prodotto che rispondono.
+42. Recupero dopo il cambio di dominio (25/11/2026, studio-business/STRATEGIA-RECUPERO.md azioni 3 e 5): sitemap.xml è un indice
+    (sitemapindex) di file sitemap-*.xml che esistono, XML valido, ogni URL in un solo file, lastmod di ogni file = data più recente
+    dei suoi URL; l'insieme degli URL = pagine in indice (controllo 34); sitemap-vecchi-indirizzi.xml esiste, non è nell'indice né in
+    robots.txt, contiene solo indirizzi del vecchio host presi da dati/vecchi_indirizzi.json la cui pagina esiste, senza doppioni;
+    blocco «Most used» in home (24 link) e negli indici di sezione attesi (5–8 link), una volta sola, mai altrove; ogni link porta a
+    una pagina in sitemap, il testo è l'H1 della pagina di arrivo (o la sua prima parte) e l'ordine è quello delle visite di
+    dati/piu_usate.json; la home non ha link a pagine noindex; l'impronta del lastmod non cambia togliendo il blocco.
 Il controllo 16 comprende dall'11/11/2026, sulle 4 pagine per livello: voto minimo = elenco ufficiale con i separatori uniformi e ripetuto
 sotto il nome del test (visibile solo sotto i 480 px, dove la colonna si nasconde), avviso con "aged 65 or over", tutti i fornitori dei test
 del livello in "How to book", frase del livello nel riquadro italki, Appendix FM E-ILRP.1.6 e Appendix KoLL 2.2(c)(ii) per il partner
@@ -245,7 +252,7 @@ def controlla_tf(online=True):
     trovate = {str(f.parent.relative_to(SITO)) + "/" for f in (SITO / G.SEZ_TF).rglob("index.html")}
     if trovate != attese or len(attese) != 7:
         errori.append(f"41: pagine diverse dalle 7 attese: in più {sorted(trovate - attese)}, mancanti {sorted(attese - trovate)}")
-    mappa = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    mappa = sitemap_completa()
     pezzi = set()
     for v in L.values():
         pezzi.add(v["frammento"])
@@ -396,8 +403,9 @@ def controlla_tf(online=True):
     if A["_tefl"].get("attivo") is False and A["_tefl"].get("url"):
         errori.append("41: interruttore spento ma con un link scritto: il link va messo solo quando esiste ed è deciso")
     casa = leggi("index.html")
-    if f'href="{G.SEZ_TF}"' not in casa or any(f'href="{G.SEZ_TF}{v["id"]}/"' not in casa for v in G.PAG_TF):
-        errori.append("41: la home non collega la sezione e tutte le pagine dei Paesi")
+    # dal 25/11/2026 la home collega solo le pagine in indice (controllo 42): la pagina fuori indice resta linkata dall'indice della sezione
+    if f'href="{G.SEZ_TF}"' not in casa or any((f'href="{G.SEZ_TF}{v["id"]}/"' in casa) == (f'{G.SEZ_TF}{v["id"]}/' in G.FUORI_INDICE_FISSE) for v in G.PAG_TF):
+        errori.append("41: la home non collega la sezione e tutte le pagine dei Paesi in indice (e solo quelle)")
     if acceso and con_box != {(G.SEZ_TF if x == "indice" else f"{G.SEZ_TF}{x}/") for x in G.PAGINE_TFA}:
         errori.append("41: riquadro acceso ma non in tutte le pagine previste")
     if G.FUORI_INDICE_FISSE != {f"{G.SEZ_TF}south-korea/"}:
@@ -587,6 +595,130 @@ def controlla_js(casi):
 
 def leggi(rel):
     return (SITO / rel).read_text(encoding="utf-8")
+
+
+def sitemap_completa():
+    """Testo di tutte le sitemap elencate nell'indice sitemap.xml, una dopo l'altra (dal 25/11/2026 sitemap.xml è un indice).
+    I controlli cercano <loc>URL</loc> qui dentro; la sitemap dei vecchi indirizzi non è nell'indice e non entra."""
+    indice = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    if "<sitemapindex" not in indice:
+        return indice
+    return "".join((SITO / u.rsplit("/", 1)[1]).read_text(encoding="utf-8") for u in re.findall(r"<sitemap><loc>([^<]+)</loc>", indice))
+
+
+def controlla_recupero():
+    """42. Sitemap a indice, sitemap dei vecchi indirizzi, blocchi «Most used», nessun link dalla home a pagine noindex."""
+    import xml.etree.ElementTree as ET
+    from datetime import date
+    errori = []
+    NS = "{http://www.sitemaps.org/schemas/sitemap/0.9}"
+    # --- indice e file per sezione
+    radice = ET.parse(SITO / "sitemap.xml").getroot()
+    if radice.tag != NS + "sitemapindex":
+        errori.append("42: sitemap.xml non è un indice")
+    visti, n_file = {}, 0
+    for s in radice.findall(NS + "sitemap"):
+        loc, lm = s.find(NS + "loc").text, s.find(NS + "lastmod").text
+        nome = loc.rsplit("/", 1)[1]
+        n_file += 1
+        if not loc.startswith(G.URL_SITO + "/sitemap-") or not (SITO / nome).is_file() or nome == G.SITEMAP_VECCHI:
+            errori.append(f"42: voce dell'indice non valida: {loc}")
+            continue
+        figlio = ET.parse(SITO / nome).getroot()
+        voci = [(u.find(NS + "loc").text, u.find(NS + "lastmod").text) for u in figlio.findall(NS + "url")]
+        if figlio.tag != NS + "urlset" or not voci or max(d for _, d in voci) != lm:
+            errori.append(f"42: {nome}: vuota, non urlset o lastmod dell'indice diverso dalla data più recente")
+        for u, _ in voci:
+            if u in visti:
+                errori.append(f"42: {u} in due sitemap ({visti[u]} e {nome})")
+            visti[u] = nome
+            sez = u[len(G.URL_SITO) + 1:].split("/")[0] if "/" in u[len(G.URL_SITO) + 1:] else ""
+            if nome != G.SITEMAP_ALTRE and nome != f"sitemap-{sez}.xml":
+                errori.append(f"42: {u} nel file sbagliato ({nome})")
+    in_indice = set()
+    for f in SITO.rglob("*.html"):
+        r = f.relative_to(SITO).as_posix()
+        if r != "404.html" and 'name="robots" content="noindex' not in f.read_text(encoding="utf-8"):
+            in_indice.add(G.URL_SITO + "/" + (r[:-len("index.html")] if r.endswith("index.html") else r))
+    in_indice -= {G.URL_SITO + "/" + p.name for p in SITO.glob("google*.html")}
+    if set(visti) != in_indice:
+        errori.append(f"42: URL delle sitemap diversi dalle pagine in indice ({len(set(visti) ^ in_indice)} differenze, es. {sorted(set(visti) ^ in_indice)[:3]})")
+    robots = (SITO / "robots.txt").read_text(encoding="utf-8")
+    if robots.count("Sitemap:") != 1 or f"Sitemap: {G.URL_SITO}/sitemap.xml" not in robots:
+        errori.append("42: robots.txt deve indicare solo sitemap.xml")
+    # --- vecchi indirizzi
+    V = json.loads((G.DATI / "vecchi_indirizzi.json").read_text(encoding="utf-8"))
+    vecchi = [u.find(NS + "loc").text for u in ET.parse(SITO / G.SITEMAP_VECCHI).getroot().findall(NS + "url")]
+    attesi = [f'{V["host"]}/{p}' for p in V["percorsi"] if (SITO / (p if p.endswith(".html") else p + "index.html")).is_file()]
+    if vecchi != attesi or len(vecchi) != len(set(vecchi)) or not vecchi:
+        errori.append(f"42: {G.SITEMAP_VECCHI}: {len(vecchi)} indirizzi, attesi {len(attesi)}")
+    if any(not u.startswith("https://visa-income-checker.netlify.app/") for u in vecchi):
+        errori.append(f"42: {G.SITEMAP_VECCHI} contiene indirizzi che non sono del vecchio host")
+    if date.today() > date(2027, 2, 28):   # file temporaneo: promemoria, non errore
+        avviso(42, f"{G.SITEMAP_VECCHI} è online da più di tre mesi: se la proprietà vecchia in Search Console è a circa 0 pagine indicizzate, toglierla (NOTE.md, 25/11/2026)")
+    if G.SITEMAP_VECCHI in robots or G.SITEMAP_VECCHI in (SITO / "sitemap.xml").read_text(encoding="utf-8"):
+        errori.append(f"42: {G.SITEMAP_VECCHI} non deve stare in robots.txt né nell'indice")
+    # --- blocchi «Most used»
+    P = json.loads((G.DATI / "piu_usate.json").read_text(encoding="utf-8"))["visite"]
+    sez = {}
+    for p, n in P.items():
+        if p.count("/") >= 2 and n >= 2:
+            sez.setdefault(p.split("/")[0] + "/", []).append(p)
+    attese = {""} | {s for s, l in sez.items() if len([p for p in l if p != s]) >= 5}
+    if attese != {""} | G.indici_piu_usate():
+        errori.append(f"42: indici con il blocco diversi da quelli ricalcolati: {sorted(attese ^ ({''} | G.indici_piu_usate()))}")
+
+    def h1_testi(p):
+        t = leggi(p + "index.html" if not p.endswith(".html") else p)
+        h = re.search(r"<h1[^>]*>(.*?)</h1>", t, re.S).group(1)
+        a = re.search(r'<span class="h1-a">(.*?)</span>', h, re.S)
+        pulisci = lambda x: " ".join(html.unescape(re.sub(r"<[^>]+>", "", x)).split())
+        return {pulisci(h), pulisci(a.group(1)) if a else pulisci(h)}
+
+    n_blocchi = n_link = 0
+    for f in SITO.rglob("*.html"):
+        r = f.relative_to(SITO).as_posix()
+        p = r[:-len("index.html")] if r.endswith("index.html") else r
+        t = f.read_text(encoding="utf-8")
+        blocchi = re.findall(r"<!--piu-usate-->(.*?)<!--/piu-usate-->", t, re.S)
+        if p not in attese:
+            if blocchi or 'class="piu"' in t:
+                errori.append(f"42: blocco «Most used» in una pagina non attesa: {p}")
+            continue
+        if len(blocchi) != 1 or t.count('class="piu"') != 1 or not blocchi[0]:
+            errori.append(f"42: {p or 'home'}: blocco «Most used» mancante, vuoto o doppio")
+            continue
+        n_blocchi += 1
+        link = re.findall(r'<li><a href="([^"]+)"[^>]*>(.*?)</a></li>', blocchi[0])
+        if not (len(link) == 24 if p == "" else 5 <= len(link) <= 8) or len(link) != blocchi[0].count("<li>"):
+            errori.append(f"42: {p or 'home'}: {len(link)} link nel blocco")
+        base = "../" * p.count("/")
+        arrivi = []
+        for h, testo in link:
+            n_link += 1
+            d = h[len(base):] if base and h.startswith(base) else h
+            arrivi.append(d)
+            if f"{G.URL_SITO}/{d}" not in visti or d == p:
+                errori.append(f"42: {p or 'home'}: link del blocco a una pagina fuori sitemap: {h}")
+            elif " ".join(html.unescape(testo).split()) not in h1_testi(d):
+                errori.append(f"42: {p or 'home'}: testo del link diverso dall'H1 di {d}: {testo}")
+            if p and not d.startswith(p):
+                errori.append(f"42: {p}: link a un'altra sezione: {d}")
+        ordine = sorted((x for x in P if x and x.startswith(p) and x != p and f"{G.URL_SITO}/{x}" in visti and (p == "" or P[x] >= 2)), key=lambda x: (-P[x], x))[:len(arrivi)]
+        if arrivi != ordine:
+            errori.append(f"42: {p or 'home'}: i link non sono le pagine più visitate, nell'ordine di dati/piu_usate.json")
+        # l'impronta del lastmod non deve dipendere dal blocco
+        if G.impronta_contenuto(t) != G.impronta_contenuto(t.replace(blocchi[0], "")):
+            errori.append(f"42: {p or 'home'}: il blocco entra nell'impronta del lastmod")
+    if n_blocchi != len(attese):
+        errori.append(f"42: {n_blocchi} blocchi «Most used», attesi {len(attese)}")
+    # --- la home non linka pagine noindex
+    home = leggi("index.html")
+    for h in sorted(set(re.findall(r'<a\b[^>]*\bhref="([^"#?:]*)"', home))):
+        d = SITO / h / "index.html" if (h.endswith("/") or h == "") else SITO / h
+        if d.is_file() and 'name="robots" content="noindex' in d.read_text(encoding="utf-8"):
+            errori.append(f"42: la home linka una pagina noindex: {h}")
+    return errori, n_file, len(visti), len(vecchi), n_blocchi, n_link
 
 
 def controlla_contenuti():
@@ -810,7 +942,7 @@ def controlla_facile():
     pagine = sorted((SITO / "visa-refusal-rates").glob("*/easiest-schengen-visa/index.html"))
     if len(pagine) < 30:
         errori.append(f"Facile: solo {len(pagine)} pagine 'easiest-schengen-visa'")
-    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    sitemap = sitemap_completa()
     for f in pagine:
         t = f.read_text(encoding="utf-8")
         slug = f.parent.parent.name
@@ -909,7 +1041,7 @@ def controlla_facile():
         c, r = somma_uk("Pakistan", "Family", q4)
         if not riga or f'data-v="{r / (c + r):.6f}"' not in riga.group(0) or f'data-v="{c + r}">{c + r:,}<' not in riga.group(0):
             errori.append("Rifiuti UK: riga Pakistan della pagina family-visas diversa dal ricalcolo")
-        if "/visa-refusal-rates/uk/family-visas/</loc>" not in (SITO / "sitemap.xml").read_text(encoding="utf-8"):
+        if "/visa-refusal-rates/uk/family-visas/</loc>" not in sitemap_completa():
             errori.append("Rifiuti UK: family-visas non in sitemap")
         if len(re.search(r"<title>(.*?)</title>", ft).group(1)) > 70 or "FAQPage" not in ft:
             errori.append("Rifiuti UK: titolo oltre 70 caratteri o FAQ mancante in family-visas")
@@ -958,7 +1090,7 @@ def controlla_indexnow():
         errori.append(f"file chiave IndexNow mancante: {f.name}")
     elif f.read_text(encoding="utf-8").strip() != G.CHIAVE_INDEXNOW:
         errori.append(f"file chiave IndexNow con contenuto sbagliato: {f.name}")
-    if f.name in (SITO / "sitemap.xml").read_text(encoding="utf-8"):
+    if f.name in sitemap_completa():
         errori.append("file chiave IndexNow citato nella sitemap")
     return errori
 
@@ -974,7 +1106,7 @@ def controlla_altri():
     (con un codice separato da genera.py)."""
     errori = []
     R = json.loads((SITO.parent / "dati" / "rifiuti_altri.json").read_text(encoding="utf-8"))
-    mappa = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    mappa = sitemap_completa()
     soglia = 500
     for slug, (lic, dominio) in PAGINE_ALTRI.items():
         f = SITO / "visa-refusal-rates" / slug / "index.html"
@@ -1094,7 +1226,7 @@ def controlla_trasferimenti():
     trovate = {f.parent.relative_to(base).as_posix() for f in base.glob("*/*/index.html")}
     if trovate != set(attese):
         errori.append(f"Trasferimenti: pagine in più {sorted(trovate - set(attese))[:5]}, mancanti {sorted(set(attese) - trovate)[:5]}")
-    mappa = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    mappa = sitemap_completa()
     pagine = sorted(base.rglob("index.html"))
     for f in pagine:
         rel = f.parent.relative_to(SITO).as_posix() + "/"
@@ -1209,7 +1341,7 @@ def controlla_lastmod():
     """13. Ogni URL della sitemap ha un lastmod vero: data valida, non nel futuro, uguale al registro di genera.py; nessun doppione."""
     from datetime import date
     errori = []
-    mappa = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    mappa = sitemap_completa()
     voci = re.findall(r"<url><loc>([^<]+)</loc>(?:<lastmod>([^<]*)</lastmod>)?</url>", mappa)
     reg = json.loads((SITO.parent / "dati" / "lastmod.json").read_text(encoding="utf-8"))["pagine"]
     if len(voci) != len({u for u, _ in voci}):
@@ -1266,7 +1398,7 @@ def controlla_mev():
     if not f.exists():
         return [f"MEV: manca {percorso}"], 0
     t = f.read_text(encoding="utf-8")
-    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    sitemap = sitemap_completa()
     if f"{G.URL_SITO}/{percorso}</loc>" not in sitemap:
         errori.append("MEV: pagina riassuntiva non in sitemap")
     titolo = html.unescape(re.search(r"<title>(.*?)</title>", t).group(1))
@@ -1377,7 +1509,7 @@ def controlla_selt():
     paesi = sorted({r[2] for r in est})
     citta_pag = [c for c in citta if len(D["domanda"]["citta"].get(c, [])) >= soglia]
     paesi_pag = [p for p in paesi if len(D["domanda"]["paesi"].get(p, [])) >= soglia]
-    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    sitemap = sitemap_completa()
     sez = SITO / "uk-english-test"
     attese = {"": None}
     attese.update({G.SLUG_SELT[c]: ("uk", c) for c in citta_pag})
@@ -1588,7 +1720,7 @@ def controlla_ppsn():
     def var(a, b):
         x = (a - b) / b * 100
         return f"{'+' if x > 0 else '−'}{abs(x):.{2 if abs(x) < 0.05 else 1}f}%"
-    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    sitemap = sitemap_completa()
     agg = G.data_lunga(D["fonti"]["pagina"]["aggiornata"])
     eu = TR["eurostat"]["dati"]
     y1 = TR["anni"][-1]
@@ -1706,7 +1838,7 @@ def controlla_dtv(online=True):
     attese = set([""] + con_pag + (TEMI_DTV_SLUG if D.get("temi") else []))
     if trovate != attese:
         errori.append(f"DTV: pagine diverse da quelle attese (in più {sorted(trovate - attese)}, mancanti {sorted(attese - trovate)})")
-    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    sitemap = sitemap_completa()
     letto = G.data_lunga(D["letto_il"])
     def costo(c):
         pre, post = {"GBP": ("£", ""), "USD": ("US$", ""), "EUR": ("€", ""), "THB": ("", " baht (THB)"), "MYR": ("RM", ""), "SGD": ("S$", ""),
@@ -2196,7 +2328,7 @@ def _pagine_sezione(sez, attese, errori, nome, affiliati=False):
     trovate = {f.parent.relative_to(cart).as_posix().replace(".", "") for f in cart.rglob("index.html")}
     if trovate != set(attese):
         errori.append(f"{nome}: pagine diverse da quelle attese (in più {sorted(trovate - set(attese))}, mancanti {sorted(set(attese) - trovate)})")
-    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    sitemap = sitemap_completa()
     out = {}
     for s in attese:
         f = cart / s / "index.html" if s else cart / "index.html"
@@ -2865,7 +2997,7 @@ def controlla_f7(online=True):
     trovate = {f.parent.relative_to(cart).as_posix().replace(".", "") for f in cart.rglob("index.html")}
     if trovate != {"", "regions"}:
         errori.append(f"7%: pagine diverse da quelle attese: {sorted(trovate)}")
-    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    sitemap = sitemap_completa()
     P = {}
     for s_ in ("", "regions"):
         f = cart / s_ / "index.html" if s_ else cart / "index.html"
@@ -3084,7 +3216,7 @@ def controlla_sr():
     def art(s):
         return ("the " + s) if s in ("Netherlands", "Czech Republic") else s
 
-    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    sitemap = sitemap_completa()
     n = 0
     paesi = {"UNITED KINGDOM": ("schengen-visa-from-uk/", "GBP", "gb", "from the UK"), "UNITED ARAB EMIRATES": ("schengen-visa-from-dubai/", "AED", "ae", "from Dubai")}
     forn = {(F["paese"], F["stato"]) for F in S["fornitori"]}
@@ -3656,7 +3788,7 @@ def controlla_ee(online=True):
         errori.append("ES/PT: impronta di dati/entrar_europa.json diversa dal contenuto")
     RIF = S["riferimento"]
     frammenti = {html.escape(L["frammento"], quote=False) for L in E["letture"].values()}
-    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    sitemap = sitemap_completa()
     pagine = {}
     for l, slugs in PAGINE_EE.items():
         cart = SITO / l
@@ -3961,7 +4093,7 @@ def controlla_vl(online=True):
         if abs(C["tassi"][v] - x) > 1e-9:
             errori.append(f"VL: cambio {v} diverso dal ricalcolo")
     domanda = {s_ for v in V["domanda"]["query"].values() for s_ in (v or [])}
-    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    sitemap = sitemap_completa()
     attese = {"es/visados/": "es", "pt/vistos/": "pt"}
     for v, n, l, p in G.pagine_vl():
         attese[p] = l
@@ -4238,7 +4370,7 @@ def controlla_infermieri():
     sel = sorted([(v["registro"][-1], k) for k, v in nmc["paesi"].items() if v["area"] == "Rest of the World" and v["registro"][-1] >= 1000 and k not in ("Unknown", "Australia")], reverse=True)
     if [k for _, k in sel] != G.PAG_INF or len(G.PAG_INF) != 12:
         errori.append(f"29: Paesi con pagina {G.PAG_INF} diversi dal ricalcolo (soglia 1.000, fuori da UK e UE/SEE) {[k for _, k in sel]}")
-    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    sitemap = sitemap_completa()
     pagine = {}
     for s in attese + ["@anc"]:
         percorso = G.PERC_ANC if s == "@anc" else f"{sez}{s + '/' if s else ''}"
@@ -4604,7 +4736,7 @@ def controlla_tu():
     trovate = {f.parent.relative_to(cart).as_posix().replace(".", "") for f in cart.rglob("index.html")}
     if trovate != attese:
         errori.append(f"30: pagine diverse da quelle attese (in più {sorted(trovate - attese)[:5]}, mancanti {sorted(attese - trovate)[:5]})")
-    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    sitemap = sitemap_completa()
     letto = G.data_lunga(T["letto_il"])
     pagine = {}
     for s in sorted(attese & trovate):
@@ -4889,7 +5021,7 @@ def controlla_h1b(online=True):
     trovate = {f.parent.relative_to(cart).as_posix().replace(".", "") for f in cart.rglob("index.html")}
     if trovate != attese:
         errori.append(f"31: pagine diverse da quelle attese (in più {sorted(trovate - attese)[:5]}, mancanti {sorted(attese - trovate)[:5]})")
-    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    sitemap = sitemap_completa()
     letto = G.data_lunga(D["letto_il"])
     frammenti = [v["frammento"] for v in D["letture"].values()]
     dom = D["domanda"]["query"]
@@ -5141,7 +5273,7 @@ def controlla_ass(online=True):
                 errori.append(f"32: {v['id']}: ricerca {q!r} senza suggerimenti salvati, ma con pagina" if v in G.PAG_ASS else f"32: {v['id']}: niente domanda")
             else:
                 attese.add(G.perc_ass(v))
-    mappa = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    mappa = sitemap_completa()
     trovate = {str(f.parent.relative_to(SITO)) + "/" for f in (SITO / G.SEZ_ASS).rglob("index.html")} | ({G.PERC_SCH_ASS} if (SITO / G.PERC_SCH_ASS / "index.html").exists() else set())
     if trovate != attese:
         errori.append(f"32: pagine diverse dalle attese: in più {sorted(trovate - attese)}, mancanti {sorted(attese - trovate)}")
@@ -5305,7 +5437,7 @@ def controlla_gk(online=True):
     guida = gk.get("fonti", {}).get("guida", {}).get("url", "")
     vietate = ("per month", "a month", "per year", "from €", "from only", "cheapest", "cheaper", "best ", "recommend", "will be accepted", "accepted by every",
                "approved by", "visa-approved", "official partner", "get your visa", "commission of", "discount", "%", "free ")
-    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    sitemap = sitemap_completa()
     con_box, n_link = set(), 0
     for f in SITO.rglob("*.html"):
         rel_p = str(f.parent.relative_to(SITO)) + "/" if f.name == "index.html" else str(f.relative_to(SITO))
@@ -5451,7 +5583,7 @@ def controlla_meta_nuove():
     210 pagine, tutte in sitemap; <title> ≤ 65 e meta description ≤ 160 caratteri (dopo l'unescape), nessuna parola tagliata (niente "…",
     descrizione chiusa da un punto, titolo senza spazio o segno finale), titoli e descrizioni diversi tra le pagine."""
     errori = []
-    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    sitemap = sitemap_completa()
     pagine = [f"uk-english-test/{k}/" for k in LIVELLI_SELT_33]
     pagine += [f"australian-citizenship-ceremony-wait-times/{k}/" for k in STATI_CER_33]
     pagine += [f"australian-citizenship-ceremony-wait-times/{G.SLUG_CER[c]}/" for c in sorted(G.CER_NUOVI_11_11)]
@@ -5532,7 +5664,7 @@ def controlla_al(online=True):
         errori.append(f"35: pagine del riquadro diverse da genera.pagine_al(): {sorted(attese ^ set(G.pagine_al()))}")
     if len(attese) != 19:
         errori.append(f"35: attese 19 pagine con il riquadro (1 programma, 1 Paese, 15 Study in Italy, 2 flat tax), trovate {len(attese)}")
-    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    sitemap = sitemap_completa()
     vietate = ("guarantee", "will be approved", "you will get", "100%", "official partner", "approved by", "best ", "cheapest", "fastest")
     con_box = set()
     for f in SITO.rglob("*.html"):
@@ -5654,7 +5786,7 @@ def controlla_wise(online=True):
         errori.append("36: wise.prf.hn non è tra i domini ammessi di monetizzazione.json (prf.hn)")
     if G.MON.dominio_ammesso("https://wise.com/"):
         errori.append("36: wise.com è tra i domini di affiliazione: le fonti ufficiali di Wise diventerebbero link affiliati")
-    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    sitemap = sitemap_completa()
 
     def in_sitemap(p):
         return f"<loc>{G.URL_SITO}/{p}</loc>" in sitemap
@@ -5853,7 +5985,7 @@ def controlla_fuori_indice():
     conteggio per sezione, n pagine in indice senza AdSense)."""
     errori = []
     N = json.loads((G.DATI / "noindex.json").read_text(encoding="utf-8"))
-    sitemap = set(re.findall(r"<loc>(.*?)</loc>", (SITO / "sitemap.xml").read_text(encoding="utf-8")))
+    sitemap = set(re.findall(r"<loc>(.*?)</loc>", sitemap_completa()))
     SEZ = {"moved-to": r"^moved-to/[^/]+/[^/]+/$", "h1b": r"^h1b-wage-level/[^/]+/[^/]+/$",
            "top-university": r"^top-university-visas/(universities|countries)/[^/]+/$", "schengen-residenti": r"^schengen-visa-from-(uk|dubai)/[^/]+/$"}
     # elenco delle pagine che restano in indice, ricalcolato dai dati
@@ -6002,7 +6134,7 @@ def controlla_de(online=True):
         errori.append(f"38: pagine diverse dalle attese: in più {sorted(trovate - attese)}, mancanti {sorted(attese - trovate)}")
     if len(attese) != 8:
         errori.append(f"38: attese 8 pagine (indice + 7), sono {len(attese)}")
-    mappa = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    mappa = sitemap_completa()
     frammenti = [v["frammento"] for v in L.values() if not v["fonte"] == "ottonova"] + [v["frammento"] for v in DA["letture"].values()]
     titoli, descr = {}, {}
     per_id = {f"{G.SEZ_ASS_DE}{v['id']}/": v for v in G.PAG_DE}
@@ -6238,7 +6370,7 @@ def controlla_av(online=True):
     trovate = {str(f.parent.relative_to(SITO)) + "/" for f in (SITO / G.SEZ_AV).rglob("index.html")}
     if trovate != attese or len(attese) != 11:
         errori.append(f"40: pagine diverse dalle 11 attese: in più {sorted(trovate - attese)}, mancanti {sorted(attese - trovate)}")
-    mappa = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    mappa = sitemap_completa()
     pezzi = set()
     for k, v in L.items():
         if not k.startswith("me_"):
@@ -6596,7 +6728,11 @@ def main():
           f"sitemap, collegamenti, riquadro: {len(e41)} errori")
     for x in r41:
         print("    ·", x)
-    tutti = errori +e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31 + e32 + e33 + e34 + e35 + e36 + e37 + e38 + e39 + e40 + e41
+    e42, f42, u42, v42, b42, l42 = controlla_recupero()
+    print(f"42. Recupero dopo il cambio di dominio (25/11/2026): indice di {f42} sitemap per sezione con {u42} URL (= pagine in indice), "
+          f"{G.SITEMAP_VECCHI} con {v42} vecchi indirizzi (fuori da indice e robots.txt), {b42} blocchi «Most used» con {l42} link "
+          f"(pagine in sitemap, testo = H1, ordine delle visite, fuori dall'impronta del lastmod), home senza link a pagine noindex: {len(e42)} errori")
+    tutti = errori +e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31 + e32 + e33 + e34 + e35 + e36 + e37 + e38 + e39 + e40 + e41 + e42
     if AVVISI:  # fonti che rispondono non-200 o con una pagina anti-robot (controllo 28): non sono errori
         per_punto = {}
         for k, _ in AVVISI:
