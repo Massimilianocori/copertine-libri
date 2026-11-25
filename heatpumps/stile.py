@@ -180,5 +180,8 @@ document.querySelectorAll('[data-cerca]').forEach(function(q){
     righe.forEach(function(r){var t=norm(r.getAttribute('data-riga'));var ok=parole.every(function(p){return t.indexOf(p)>=0;});r.hidden=!ok;if(ok)n++;});
     if(vuoto)vuoto.hidden=n>0;});
 });
+// prossima uscita DESNZ: dal giorno dopo la data annunciata la frase passa al passato (data di Londra, AAAA-MM-GG)
+var oggi='';try{oggi=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/London',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());}catch(e){oggi=new Date().toISOString().slice(0,10);}
+document.querySelectorAll('[data-prossima]').forEach(function(el){if(oggi>el.getAttribute('data-prossima'))el.textContent=el.getAttribute('data-dopo');});
 })();
 """

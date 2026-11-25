@@ -422,7 +422,7 @@ def pagina(percorso, titolo, descrizione, corpo, testata="", briciole=None, json
 <a class="logo" href="/">{LOGO}<span>Heat Pump <b>Grants UK</b></span></a>
 <p><strong>{NOME}</strong> shows how many heat pumps the Boiler Upgrade Scheme has paid for in every council area of England and Wales, what
 they cost after the grant, and how much solar is installed in each region and council, from official government statistics.</p>
-<p>Heat pump figures to the end of {PERIODO} (DESNZ, published {data_lunga(B["pubblicato"])}; next update {data_lunga(B["prossima"])}). Sources checked on {data_lunga(CONTROLLO)}.</p>
+<p>Heat pump figures to the end of {PERIODO} (DESNZ, published {data_lunga(B["pubblicato"])}; {prossima_uscita("next DESNZ release:")}). Sources checked on {data_lunga(CONTROLLO)}.</p>
 </div><div>
 <h2>Regions</h2><ul>{reg_piede}</ul>
 </div><div>
@@ -554,8 +554,18 @@ def cifre(voci, asof):
     return f'<div class="card cifre pull">{celle}<p class="asof">{ico("check")}{asof}</p></div>'
 
 
+def prossima_uscita(prima, maiuscola=False):
+    """Frase sulla prossima uscita DESNZ. La data è quella annunciata da DESNZ: dal giorno dopo, se il sito non è ancora stato
+    rigenerato, lo script del browser (stile.APP_JS, [data-prossima]) la sostituisce con una frase al passato che resta vera."""
+    d = data_lunga(B["prossima"])
+    dopo = f"a newer DESNZ release was scheduled for {d}: this page still shows the previous one"
+    if maiuscola:
+        dopo = dopo[0].upper() + dopo[1:]
+    return f'<span data-prossima="{B["prossima"]}" data-dopo="{h(dopo)}">{prima} {d}</span>'
+
+
 def asof_bus():
-    return (f"Official DESNZ figures to the end of {PERIODO}, published {data_lunga(B['pubblicato'])}. Next update {data_lunga(B['prossima'])}.")
+    return (f"Official DESNZ figures to the end of {PERIODO}, published {data_lunga(B['pubblicato'])}. {prossima_uscita('Next DESNZ release:', True)}.")
 
 
 def barre(righe, titolo="", nota=""):
@@ -1642,8 +1652,8 @@ def come_controlliamo():
               'Lookup (Office for National Statistics, Open Government Licence v3.0). GOV.UK content is also Crown copyright under the Open Government Licence; '
               'GOV.WALES and nidirect content is Crown copyright under the same licence. Short quotations from Ofgem and Home Energy Scotland pages are '
               'attributed to them where they appear.</p></div>')
-    corpo += ('<h2>When we update</h2><div class="testo"><p>DESNZ publishes the Boiler Upgrade Scheme statistics once a month (next: '
-              f'{data_lunga(B["prossima"])}); the council and cost tables change each quarter. Solar deployment is monthly, solar costs every May and the local '
+    corpo += ('<h2>When we update</h2><div class="testo"><p>DESNZ publishes the Boiler Upgrade Scheme statistics once a month ('
+              f'{prossima_uscita("next:")}); the council and cost tables change each quarter. Solar deployment is monthly, solar costs every May and the local '
               'authority solar file every September. The site is regenerated after each release, once every figure has passed the checks.</p></div>')
     corpo += ('<h2 id="corrections">Report an error</h2><div class="testo"><p>Seen a figure that does not match the official file, or a rule that has changed? Tell us which '
               'page and, if you can, link the source. Your email is optional.</p></div>' + MODULO_CORREZIONI)
