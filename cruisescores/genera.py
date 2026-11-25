@@ -644,7 +644,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 <h2>Explore</h2>
 <ul><li><a href="/ships/">All ships</a></li><li><a href="/cruise-lines/">Cruise lines</a></li><li><a href="/rankings/">Rankings</a></li><li><a href="/years/">Scores by year</a></li><li><a href="/outbreaks/">Outbreaks</a></li><li><a href="/methodology/">Methodology</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy.html">Privacy</a></li></ul>
 </div></div>
-<p class="f-base">Data: CDC Vessel Sanitation Program, Inspection Query Tool · data checked on {data_lunga(CONTROLLATO)} · updated weekly.{' Some links are affiliate links and are marked as such.' if ci_sono_affiliati() else ''}</p>
+<p class="f-base">Data: CDC Vessel Sanitation Program, Inspection Query Tool · data checked on {data_lunga(CONTROLLATO)} · updated twice a month.{' Some links are affiliate links and are marked as such.' if ci_sono_affiliati() else ''}</p>
 </div></footer>
 <script src="/assets/{JS_FILE}" defer></script>
 {SCRIPT_CONTATORE}
@@ -1803,11 +1803,11 @@ def metodologia():
 <ul>
 <li><strong>A score is not a safety rating.</strong> It shows how a ship met the CDC’s sanitation standards on the day of the inspection. It says nothing about fire safety, navigation or security, and it cannot tell you whether you will get sick.</li>
 <li><strong>Older years are incomplete.</strong> The CDC tool only keeps the history of ships still in its list; ships that left the U.S. market for good are not searchable, so yearly totals before {ANNO - 3} undercount.</li>
-<li><strong>Delays.</strong> Inspections appear here only after the CDC publishes them, and the CDC does not say how long that takes. On {data_lunga(CONTROLLATO)} the most recent inspection in the CDC records was from {data_lunga(ULTIMA_CDC)}, so recent inspections may be missing. We check the CDC every week; a newly published inspection appears here within about a week.</li>
+<li><strong>Delays.</strong> Inspections appear here only after the CDC publishes them, and the CDC does not say how long that takes. On {data_lunga(CONTROLLATO)} the most recent inspection in the CDC records was from {data_lunga(ULTIMA_CDC)}, so recent inspections may be missing. We check the CDC twice a month, on the first and third Monday; a newly published inspection can take up to three weeks to appear here.</li>
 <li><strong>Errors.</strong> We read the CDC pages automatically. If something looks wrong, the CDC record is the official one: <a href="/contact/?ref=methodology">tell us</a> and we will fix it.</li>
 </ul>
 <h2>Updates</h2>
-<p>Data checked on {data_lunga(CONTROLLATO)}; pages built on {data_lunga(OGGI.isoformat())}. We check the Green Sheet every week and download the new reports.</p>
+<p>Data checked on {data_lunga(CONTROLLATO)}; pages built on {data_lunga(OGGI.isoformat())}. We check the Green Sheet twice a month, on the first and third Monday, and download the new reports.</p>
 </div>"""
     testata = banda("Methodology", "How we read the CDC data", "Sources, which ships get a page, how we check the numbers and what we change in the CDC text.", piatta=True)
     pagina("methodology/", f"Methodology and Sources | {NOME}",
@@ -1818,7 +1818,7 @@ def metodologia():
 def about():
     corpo = f"""<div class="testo">
 <p class="lead">{NOME} answers one question with official data: <em>how did my cruise ship do in its CDC health inspection?</em></p>
-<p>The CDC publishes every cruise ship inspection, but in a search tool that is hard to use on a phone and that search engines cannot read. We copy the scores and reports into one simple page per ship, with the full history, a chart, and the findings written out in full, and we check the CDC every week.</p>
+<p>The CDC publishes every cruise ship inspection, but in a search tool that is hard to use on a phone and that search engines cannot read. We copy the scores and reports into one simple page per ship, with the full history, a chart, and the findings written out in full, and we check the CDC twice a month.</p>
 <h2>Rules we follow</h2>
 <ul><li>Every number comes from the CDC, with the inspection date and the date we checked the data on the page.</li>
 <li>We do not rate ships ourselves and we do not say whether a ship is “safe”: a CDC score is a sanitation snapshot.</li>
