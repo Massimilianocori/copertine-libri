@@ -216,6 +216,12 @@ Procedura: genera → verifica 0 errori → monetizzazione → commit per sito (
 
 Turno di costruzione del 23/11: non avviato (PAUSA ATTIVA dal 20/11 sera).
 
+## Revisione del mercoledì 25/11 (senza agenti, pausa fino alle 21)
+- Controlli tecnici: salute.py 0 errori (24 siti), 7 avvisi di dati a 46 giorni (in coda per stasera).
+- Verdetti a 45 giorni già scritti: EsameB1 CONTINUA (629+~105 clic, 62 iscritti); Italy Strikes 79 visite/28 gg e EsamiDiStato 6 → proposta al giro del 1/12 (dentro BYF / togliere).
+- **Azione della settimana: il recupero dell'indicizzazione** (STRATEGIA-RECUPERO.md) su Visa Income (0/9 pagine principali indicizzate) e Before You Fly (2/10): sono i due siti che portavano ~440 visite/settimana da Google prima del 16/11; nessun altro lavoro rende di più per ora finché non sono di nuovo su Google.
+- Temi per la ricerca (dopo il recupero, stanotte o giovedì), scelti sui dati: (1) ChatGPT è l'unica fonte in crescita (Visa 109→122, BYF 97→117/settimana): quali pagine cita e quali domande «una risposta + fonte» mancano su Visa Income e Before You Fly; (2) EsameB1: domanda di gennaio-febbraio (sessioni di tutti gli enti) e pagine che la intercettano prima, con il libro; (3) settore mai toccato con pagatori ≥ 50 $ e dati ufficiali in tabella (quota della sez. 6).
+
 ## In costruzione 19/11 notte
 | Cosa | Stato |
 |---|---|
