@@ -101,7 +101,7 @@
      "url": "https://atc.gencat.cat/ca/tributs/ieet/",
      "http": 200,
      "formato": "HTML (Catalan)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-11-25"
     }
    ],
    "note": [
@@ -654,7 +654,7 @@
      "url": "https://atc.gencat.cat/ca/tributs/ieet/",
      "http": 200,
      "formato": "HTML (Catalan)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-11-25"
     }
    ],
    "note": [
@@ -820,8 +820,8 @@
      "url": "https://sede.atib.es/cva/tributos/contenido/IET_Info_Norma",
      "http": 200,
      "formato": "HTML app (Catalan)",
-     "controllato_il": "2026-10-10",
-     "nota": "The ATIB server's security certificate had expired on the check date; the page was read in a browser ignoring the certificate. Same rates as the law."
+     "controllato_il": "2026-11-25",
+     "nota": "The page is a JavaScript application: it was read in a browser (the server's security certificate, expired on 10 October 2026, was valid on 25 November 2026). Same rates as the law."
     },
     {
      "titolo": "Law 2/2016 of 30 March on the tourist stay tax in the Balearic Islands - consolidated text, Boletín Oficial del Estado (BOE-A-2016-4175)",
@@ -837,7 +837,7 @@
     "From the 9th day of a stay in the same establishment: a further 50% reduction (on top of the low-season reduction, if any).",
     "Under-16s do not pay. Stays for force majeure, documented health-care stays (and companions) and stays subsidised by public social programmes are also exempt.",
     "The tax is charged per person and per day (or fraction) of stay. The establishment must charge it to the guest at any time before the end of the stay.",
-    "Last verified against Law 2/2016 as consolidated on 17/05/2025 (unchanged on the BOE on 26 October 2026) and the Balearic Tax Agency (ATIB) page (10 October 2026); no later amendment found in the official bulletin. Check with your accommodation.",
+    "Last verified against Law 2/2016 as consolidated on 17/05/2025 (unchanged on the BOE on 26 October 2026) and the Balearic Tax Agency (ATIB) page (25 November 2026); no later amendment found in the official bulletin. Check with your accommodation.",
     "The same Balearic rate applies in Palma, Alcúdia, Magaluf and the rest of Mallorca."
    ],
    "esenzioni": [
@@ -846,7 +846,7 @@
     "Health-care stays within the Balearic public health system's services, and companions (with documents)",
     "Stays subsidised by social programmes of EU public administrations"
    ],
-   "avviso_verifica": "Rates last verified against Law 2/2016 (consolidated text of 17/05/2025, unchanged on the BOE on 26 October 2026) and the ATIB page (10 October 2026). Check with your accommodation.",
+   "avviso_verifica": "Rates last verified against Law 2/2016 (consolidated text of 17/05/2025, unchanged on the BOE on 26 October 2026) and the ATIB page (25 November 2026). Check with your accommodation.",
    "gruppo": "balearics",
    "controllato_il": "2026-10-26"
   },
@@ -1001,8 +1001,8 @@
      "url": "https://sede.atib.es/cva/tributos/contenido/IET_Info_Norma",
      "http": 200,
      "formato": "HTML app (Catalan)",
-     "controllato_il": "2026-10-10",
-     "nota": "The ATIB server's security certificate had expired on the check date; the page was read in a browser ignoring the certificate. Same rates as the law."
+     "controllato_il": "2026-11-25",
+     "nota": "The page is a JavaScript application: it was read in a browser (the server's security certificate, expired on 10 October 2026, was valid on 25 November 2026). Same rates as the law."
     },
     {
      "titolo": "Law 2/2016 of 30 March on the tourist stay tax in the Balearic Islands - consolidated text, Boletín Oficial del Estado (BOE-A-2016-4175)",
@@ -1018,7 +1018,7 @@
     "From the 9th day of a stay in the same establishment: a further 50% reduction (on top of the low-season reduction, if any).",
     "Under-16s do not pay. Stays for force majeure, documented health-care stays (and companions) and stays subsidised by public social programmes are also exempt.",
     "The tax is charged per person and per day (or fraction) of stay. The establishment must charge it to the guest at any time before the end of the stay.",
-    "Last verified against Law 2/2016 as consolidated on 17/05/2025 (unchanged on the BOE on 26 October 2026) and the Balearic Tax Agency (ATIB) page (10 October 2026); no later amendment found in the official bulletin. Check with your accommodation.",
+    "Last verified against Law 2/2016 as consolidated on 17/05/2025 (unchanged on the BOE on 26 October 2026) and the Balearic Tax Agency (ATIB) page (25 November 2026); no later amendment found in the official bulletin. Check with your accommodation.",
     "The same Balearic rate applies in Ibiza town, Sant Antoni and the rest of the island."
    ],
    "esenzioni": [
@@ -1027,7 +1027,7 @@
     "Health-care stays within the Balearic public health system's services, and companions (with documents)",
     "Stays subsidised by social programmes of EU public administrations"
    ],
-   "avviso_verifica": "Rates last verified against Law 2/2016 (consolidated text of 17/05/2025, unchanged on the BOE on 26 October 2026) and the ATIB page (10 October 2026). Check with your accommodation.",
+   "avviso_verifica": "Rates last verified against Law 2/2016 (consolidated text of 17/05/2025, unchanged on the BOE on 26 October 2026) and the ATIB page (25 November 2026). Check with your accommodation.",
    "gruppo": "balearics",
    "controllato_il": "2026-10-26"
   },
@@ -1182,8 +1182,8 @@
      "url": "https://sede.atib.es/cva/tributos/contenido/IET_Info_Norma",
      "http": 200,
      "formato": "HTML app (Catalan)",
-     "controllato_il": "2026-10-10",
-     "nota": "The ATIB server's security certificate had expired on the check date; the page was read in a browser ignoring the certificate. Same rates as the law."
+     "controllato_il": "2026-11-25",
+     "nota": "The page is a JavaScript application: it was read in a browser (the server's security certificate, expired on 10 October 2026, was valid on 25 November 2026). Same rates as the law."
     },
     {
      "titolo": "Law 2/2016 of 30 March on the tourist stay tax in the Balearic Islands - consolidated text, Boletín Oficial del Estado (BOE-A-2016-4175)",
@@ -1199,7 +1199,7 @@
     "From the 9th day of a stay in the same establishment: a further 50% reduction (on top of the low-season reduction, if any).",
     "Under-16s do not pay. Stays for force majeure, documented health-care stays (and companions) and stays subsidised by public social programmes are also exempt.",
     "The tax is charged per person and per day (or fraction) of stay. The establishment must charge it to the guest at any time before the end of the stay.",
-    "Last verified against Law 2/2016 as consolidated on 17/05/2025 (unchanged on the BOE on 26 October 2026) and the Balearic Tax Agency (ATIB) page (10 October 2026); no later amendment found in the official bulletin. Check with your accommodation.",
+    "Last verified against Law 2/2016 as consolidated on 17/05/2025 (unchanged on the BOE on 26 October 2026) and the Balearic Tax Agency (ATIB) page (25 November 2026); no later amendment found in the official bulletin. Check with your accommodation.",
     "The same Balearic rate applies everywhere on Menorca."
    ],
    "esenzioni": [
@@ -1208,7 +1208,7 @@
     "Health-care stays within the Balearic public health system's services, and companions (with documents)",
     "Stays subsidised by social programmes of EU public administrations"
    ],
-   "avviso_verifica": "Rates last verified against Law 2/2016 (consolidated text of 17/05/2025, unchanged on the BOE on 26 October 2026) and the ATIB page (10 October 2026). Check with your accommodation.",
+   "avviso_verifica": "Rates last verified against Law 2/2016 (consolidated text of 17/05/2025, unchanged on the BOE on 26 October 2026) and the ATIB page (25 November 2026). Check with your accommodation.",
    "gruppo": "balearics",
    "controllato_il": "2026-10-26"
   },
@@ -1363,8 +1363,8 @@
      "url": "https://sede.atib.es/cva/tributos/contenido/IET_Info_Norma",
      "http": 200,
      "formato": "HTML app (Catalan)",
-     "controllato_il": "2026-10-10",
-     "nota": "The ATIB server's security certificate had expired on the check date; the page was read in a browser ignoring the certificate. Same rates as the law."
+     "controllato_il": "2026-11-25",
+     "nota": "The page is a JavaScript application: it was read in a browser (the server's security certificate, expired on 10 October 2026, was valid on 25 November 2026). Same rates as the law."
     },
     {
      "titolo": "Law 2/2016 of 30 March on the tourist stay tax in the Balearic Islands - consolidated text, Boletín Oficial del Estado (BOE-A-2016-4175)",
@@ -1380,7 +1380,7 @@
     "From the 9th day of a stay in the same establishment: a further 50% reduction (on top of the low-season reduction, if any).",
     "Under-16s do not pay. Stays for force majeure, documented health-care stays (and companions) and stays subsidised by public social programmes are also exempt.",
     "The tax is charged per person and per day (or fraction) of stay. The establishment must charge it to the guest at any time before the end of the stay.",
-    "Last verified against Law 2/2016 as consolidated on 17/05/2025 (unchanged on the BOE on 26 October 2026) and the Balearic Tax Agency (ATIB) page (10 October 2026); no later amendment found in the official bulletin. Check with your accommodation.",
+    "Last verified against Law 2/2016 as consolidated on 17/05/2025 (unchanged on the BOE on 26 October 2026) and the Balearic Tax Agency (ATIB) page (25 November 2026); no later amendment found in the official bulletin. Check with your accommodation.",
     "The same Balearic rate applies on Formentera."
    ],
    "esenzioni": [
@@ -1389,7 +1389,7 @@
     "Health-care stays within the Balearic public health system's services, and companions (with documents)",
     "Stays subsidised by social programmes of EU public administrations"
    ],
-   "avviso_verifica": "Rates last verified against Law 2/2016 (consolidated text of 17/05/2025, unchanged on the BOE on 26 October 2026) and the ATIB page (10 October 2026). Check with your accommodation.",
+   "avviso_verifica": "Rates last verified against Law 2/2016 (consolidated text of 17/05/2025, unchanged on the BOE on 26 October 2026) and the ATIB page (25 November 2026). Check with your accommodation.",
    "gruppo": "balearics",
    "controllato_il": "2026-10-26"
   },
@@ -4636,7 +4636,7 @@
      "url": "https://intvrg.gib.gov.tr/KONAKLAMA_VERGISI_BEYANNAMESI_DUZENLEME_KILAVUZU.pdf",
      "http": 200,
      "formato": "PDF (Turkish)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-11-25"
     }
    ],
    "note": [
@@ -4701,7 +4701,7 @@
      "url": "https://intvrg.gib.gov.tr/KONAKLAMA_VERGISI_BEYANNAMESI_DUZENLEME_KILAVUZU.pdf",
      "http": 200,
      "formato": "PDF (Turkish)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-11-25"
     }
    ],
    "note": [
@@ -4765,7 +4765,7 @@
      "url": "https://intvrg.gib.gov.tr/KONAKLAMA_VERGISI_BEYANNAMESI_DUZENLEME_KILAVUZU.pdf",
      "http": 200,
      "formato": "PDF (Turkish)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-11-25"
     }
    ],
    "note": [
@@ -4830,7 +4830,7 @@
      "url": "https://intvrg.gib.gov.tr/KONAKLAMA_VERGISI_BEYANNAMESI_DUZENLEME_KILAVUZU.pdf",
      "http": 200,
      "formato": "PDF (Turkish)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-11-25"
     }
    ],
    "note": [
@@ -4929,21 +4929,21 @@
      "url": "https://www.berlin.de/sen/finanzen/steuern/downloads/uebernachtungsteuer/uenst-2a-anmeldung-uebernachtungsteuer-01-25.pdf",
      "http": 200,
      "formato": "PDF (German)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-11-25"
     },
     {
      "titolo": "Senate Department for Finance - City Tax FAQ: main changes to the Overnight Stay Tax Act 2024-2026 (7.5% from 1 January 2025, 21-day rule abolished)",
      "url": "https://www.berlin.de/sen/finanzen/steuern/informationen-fuer-steuerzahler-/faq-steuern/artikel.57911.php",
      "http": 200,
      "formato": "HTML (German)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-11-25"
     },
     {
      "titolo": "Berlin Service Portal - Übernachtungsteuer: 7.5% of the net price of the overnight stay, without extras such as breakfast",
      "url": "https://service.berlin.de/dienstleistung/326105/",
      "http": 200,
      "formato": "HTML (German)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-11-25"
     }
    ],
    "note": [
@@ -4953,7 +4953,7 @@
    ],
    "esenzioni": [],
    "prezzo_esempio": 150,
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "vienna",
@@ -5050,21 +5050,21 @@
      "url": "https://sbirkapp.gov.cz/detail/SPPT2LCJU5OPC5JY/text",
      "http": 200,
      "formato": "PDF (Czech)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-11-25"
     },
     {
      "titolo": "Prague ordinance No. 18/2019 on the local fee for stay (original text: per person per day except the day of arrival)",
      "url": "https://sbirkapp.gov.cz/detail/SPP3LKRRXBRGXIGC/text",
      "http": 200,
      "formato": "PDF (Czech)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-11-25"
     },
     {
      "titolo": "Act No. 565/1990 on local fees, current version (§3b exemptions incl. persons under 18; §3c base = days of stay except arrival day), e-Sbírka",
      "url": "https://e-sbirka.gov.cz/sb/1990/565",
      "http": 200,
      "formato": "JSON/HTML (Czech)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-11-25"
     }
    ],
    "note": [
@@ -5080,7 +5080,7 @@
     "Seasonal workers",
     "Some social and emergency stays"
    ],
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "edinburgh",
@@ -5115,14 +5115,14 @@
      "url": "https://www.edinburgh.gov.uk/business/visitor-levy-edinburgh",
      "http": 200,
      "formato": "HTML (English)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-11-25"
     },
     {
      "titolo": "City of Edinburgh Council - Visitor Levy exemptions",
      "url": "https://www.edinburgh.gov.uk/business/information-visitors-exemptions/1",
      "http": 200,
      "formato": "HTML (English)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-11-25"
     }
    ],
    "note": [
@@ -5136,7 +5136,7 @@
     "Refund for recipients of listed disability benefits"
    ],
    "prezzo_esempio": 150,
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "rome",
@@ -5360,21 +5360,21 @@
      "url": "https://www.comune.roma.it/web-resources/cms/documents/Nuove_tariffe_contributo_di_soggiorno_dal_01.10.2023_logo.pdf",
      "http": 200,
      "formato": "PDF (Italian)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-11-25"
     },
     {
      "titolo": "Roma Capitale - Contributo di soggiorno service page (tariffs = Annex A of the regulation in force)",
      "url": "https://www.comune.roma.it/web/it/scheda-servizi.page?contentId=INF41430",
      "http": 200,
      "formato": "HTML (Italian)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-11-25"
     },
     {
      "titolo": "Regulation on the Contributo di soggiorno, Assemblea Capitolina resolution 34/2024 (art. 5: children up to their 10th birthday exempt)",
      "url": "https://www.comune.roma.it/web-resources/cms/documents/Assemblea_Capitolina_34_2024.pdf",
      "http": 200,
      "formato": "PDF (Italian)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-11-25"
     }
    ],
    "note": [
@@ -5390,7 +5390,7 @@
     "People with severe disability certified under art. 3(3) of Law 104/1992 (or equivalent foreign rules) and their family caregiver (signed declaration)",
     "Other cases listed in art. 5 of the regulation"
    ],
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "florence",
@@ -5586,14 +5586,14 @@
      "url": "https://servizi.comune.fi.it/sites/www.comune.fi.it/files/deliberazione_di_giunta_completa-dg_2024_00599_00535-1.pdf",
      "http": 200,
      "formato": "PDF (Italian)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-11-25"
     },
     {
      "titolo": "Comune di Firenze - Imposta di soggiorno information page (max 7 nights, exemptions incl. children up to 12)",
      "url": "https://servizi.comune.fi.it/servizi/imposta-di-soggiorno-informati",
      "http": 200,
      "formato": "HTML (Italian)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-11-25"
     }
    ],
    "note": [
@@ -5609,7 +5609,7 @@
     "People with severe disability (Law 104/92 art. 3(3)) and one companion",
     "Police, fire brigade and civil protection on duty"
    ],
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "milan",
@@ -5910,21 +5910,21 @@
      "url": "https://www.comune.milano.it/documents/20118/1016509/Tariffe+2026+decorrenza+1%C2%B0aprile+2026.pdf/d101078f-26b0-4446-d16b-787845b76bca?version=1.1&t=1771602332605&download=true",
      "http": 200,
      "formato": "PDF (Italian)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-11-25"
     },
     {
      "titolo": "Comune di Milano - Imposta di soggiorno tariffs 2026 (1 January - 31 March 2026)",
      "url": "https://www.comune.milano.it/documents/20118/89692/Imposta+di+soggiorno+-+Tariffe+2026.pdf/bca1a050-9aee-49ff-c0ec-9e394072971c?version=1.0&t=1769615644638&download=true",
      "http": 200,
      "formato": "PDF (Italian)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-11-25"
     },
     {
      "titolo": "Comune di Milano - official guest notice on the tax (2025 edition): exemptions, incl. under 18 and the 15th-day rule for RTA, non-profit case per ferie and holiday homes",
-     "url": "https://www.comune.milano.it/en/documents/20118/1016509/Espositore+2025+-+Imposta+di+soggiorno.pdf/70201c68-43fe-aa56-dbf1-3406b894d874?version=1.0&t=1754056696155&download=true",
+     "url": "https://www.comune.milano.it/documents/20118/1016509/Espositore+2025+-+Imposta+di+soggiorno.pdf/70201c68-43fe-aa56-dbf1-3406b894d874?version=1.0&t=1754056696155&download=true",
      "http": 200,
      "formato": "PDF (Italian)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-11-25"
     }
    ],
    "note": [
@@ -5940,7 +5940,7 @@
     "People with disabilities and their companions",
     "Police and armed forces on duty"
    ],
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "naples",
@@ -6195,7 +6195,7 @@
      "url": "https://www.city.kyoto.lg.jp/gyozai/page/0000236942.html",
      "http": 200,
      "formato": "HTML (Japanese)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-11-25"
     }
    ],
    "note": [
@@ -6208,7 +6208,7 @@
     "Children aged 3+ and staff on events of nurseries and certified centres"
    ],
    "prezzo_esempio": 30000,
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "tokyo",
@@ -6329,7 +6329,7 @@
      "url": "https://www.soumu.go.jp/main_content/001022974.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-11-25"
     },
     {
      "titolo": "Hokkaido Government - accommodation tax poster for Kutchan Town: Hokkaido tax + Kutchan tax = uniform 3% (as of September 2025)",
@@ -6343,7 +6343,7 @@
      "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-11-25"
     }
    ],
    "note": [
@@ -6356,7 +6356,7 @@
     "Nursery and certified centre events"
    ],
    "prezzo_esempio": 60000,
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "sapporo",
@@ -6420,14 +6420,14 @@
      "url": "https://www.city.sapporo.jp/citytax/shukuhakuzei/index.html",
      "http": 200,
      "formato": "HTML (Japanese)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-11-25"
     },
     {
      "titolo": "Ministry of Internal Affairs and Communications - consent to the new Hokkaido accommodation tax (¥100/¥200/¥500), 31 July 2025",
      "url": "https://www.soumu.go.jp/main_content/001022967.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-11-25"
     }
    ],
    "note": [
@@ -6440,7 +6440,7 @@
     "Nursery and certified centre events"
    ],
    "prezzo_esempio": 24000,
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "hakuba",
@@ -6571,28 +6571,28 @@
      "url": "https://www.soumu.go.jp/main_content/001033236.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-11-25"
     },
     {
      "titolo": "Ministry of Internal Affairs and Communications - consent to the new Nagano Prefecture accommodation tax (¥300, ¥200 for 3 years; half in Hakuba)",
      "url": "https://www.soumu.go.jp/main_content/001040415.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-11-25"
     },
     {
      "titolo": "Ministry of Internal Affairs and Communications - list of non-statutory taxes as of 1 October 2026 (Nagano and Hakuba in force since 1 June 2026)",
      "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-11-25"
     },
     {
      "titolo": "Ministry of Internal Affairs and Communications - consent to the new Nozawa Onsen accommodation tax (5%, 3.5% for the first three years), 13 February 2026",
      "url": "https://www.soumu.go.jp/main_content/001055670.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-11-25"
     }
    ],
    "note": [
@@ -6607,7 +6607,7 @@
     "Nursery and certified centre events"
    ],
    "prezzo_esempio": 40000,
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "bali",
@@ -6638,7 +6638,7 @@
      "url": "https://lovebali.baliprov.go.id/",
      "http": 200,
      "formato": "HTML (English)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-11-25"
     }
    ],
    "note": [
@@ -6648,7 +6648,7 @@
    ],
    "esenzioni": [],
    "senza_notti": true,
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "iceland",
@@ -6696,7 +6696,7 @@
      "url": "https://www.skatturinn.is/atvinnurekstur/skattar-og-gjold/gistinattaskattur/",
      "http": 200,
      "formato": "HTML (Icelandic)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-11-25"
     }
    ],
    "note": [
@@ -6707,7 +6707,7 @@
    "esenzioni": [
     "Accommodation sold without VAT"
    ],
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-25"
   },
   {
    "slug": "cardiff",
