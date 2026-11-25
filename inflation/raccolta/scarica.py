@@ -312,7 +312,9 @@ def frasi(fonti):
         trovate = {c: c in t for c in cerca}
         fonti[fid] = {"chi": chi, "titolo": titolo, "url": url, "http": http, "letto_il": OGGI, "sha256": sha(b), "cerca": cerca, "trovate": trovate}
         print(f"{fid}: HTTP {http}, frasi trovate {sum(trovate.values())}/{len(cerca)}")
-    fonti["_non_lette"] = {k: dict(v, provato_il=OGGI) for k, v in NON_LETTE.items()}
+    # update, non sostituzione: irs.py e regole2027.py scrivono qui le loro fonti non lette e verifica.py le cerca
+    # (il 25/11/2026 la sostituzione ne aveva tolte 8 e la verifica si fermava)
+    fonti.setdefault("_non_lette", {}).update({k: dict(v, provato_il=OGGI) for k, v in NON_LETTE.items()})
 
 
 def main():

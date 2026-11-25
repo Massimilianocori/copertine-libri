@@ -8,7 +8,7 @@
    "risultato_ufficiale": 892.89,
    "url": "https://data.bls.gov/cgi-bin/cpicalc.pl?cost1=100.00&year1=197001&year2=202610",
    "http": 200,
-   "letto_il": "2026-11-13"
+   "letto_il": "2026-11-25"
   },
   {
    "importo": 1.0,
@@ -17,7 +17,7 @@
    "risultato_ufficiale": 14.18,
    "url": "https://data.bls.gov/cgi-bin/cpicalc.pl?cost1=1.00&year1=195006&year2=202610",
    "http": 200,
-   "letto_il": "2026-11-13"
+   "letto_il": "2026-11-25"
   },
   {
    "importo": 1000.0,
@@ -26,7 +26,7 @@
    "risultato_ufficiale": 4174.81,
    "url": "https://data.bls.gov/cgi-bin/cpicalc.pl?cost1=1000.00&year1=198001&year2=202509",
    "http": 200,
-   "letto_il": "2026-11-13"
+   "letto_il": "2026-11-25"
   },
   {
    "importo": 50.0,
@@ -35,7 +35,7 @@
    "risultato_ufficiale": 76.41,
    "url": "https://data.bls.gov/cgi-bin/cpicalc.pl?cost1=50.00&year1=200001&year2=202001",
    "http": 200,
-   "letto_il": "2026-11-13"
+   "letto_il": "2026-11-25"
   },
   {
    "importo": 100.0,
@@ -44,7 +44,7 @@
    "risultato_ufficiale": 3220.46,
    "url": "https://data.bls.gov/cgi-bin/cpicalc.pl?cost1=100.00&year1=191301&year2=202412",
    "http": 200,
-   "letto_il": "2026-11-13"
+   "letto_il": "2026-11-25"
   },
   {
    "importo": 100.0,
@@ -53,7 +53,7 @@
    "risultato_ufficiale": 1079.94,
    "url": "https://data.bls.gov/cgi-bin/cpicalc.pl?cost1=100.00&year1=196501&year2=202609",
    "http": 200,
-   "letto_il": "2026-11-13"
+   "letto_il": "2026-11-25"
   },
   {
    "importo": 250.0,
@@ -62,7 +62,7 @@
    "risultato_ufficiale": 463.59,
    "url": "https://data.bls.gov/cgi-bin/cpicalc.pl?cost1=250.00&year1=199003&year2=201507",
    "http": 200,
-   "letto_il": "2026-11-13"
+   "letto_il": "2026-11-25"
   },
   {
    "importo": 1.0,
@@ -71,7 +71,7 @@
    "risultato_ufficiale": 17.49,
    "url": "https://data.bls.gov/cgi-bin/cpicalc.pl?cost1=1.00&year1=192001&year2=202610",
    "http": 200,
-   "letto_il": "2026-11-13"
+   "letto_il": "2026-11-25"
   },
   {
    "importo": 1000.0,
@@ -80,7 +80,7 @@
    "risultato_ufficiale": 1486.42,
    "url": "https://data.bls.gov/cgi-bin/cpicalc.pl?cost1=1000.00&year1=200806&year2=202601",
    "http": 200,
-   "letto_il": "2026-11-13"
+   "letto_il": "2026-11-25"
   },
   {
    "importo": 75.5,
@@ -89,7 +89,7 @@
    "risultato_ufficiale": 346.96,
    "url": "https://data.bls.gov/cgi-bin/cpicalc.pl?cost1=75.50&year1=194412&year2=198005",
    "http": 200,
-   "letto_il": "2026-11-13"
+   "letto_il": "2026-11-25"
   }
  ]
 }

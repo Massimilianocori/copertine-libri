@@ -6,8 +6,8 @@
   "pagina": "https://data.bls.gov/timeseries/CUUR0000SA0",
   "file": "grezzi/bls_cpiu.csv",
   "http": 200,
-  "letto_il": "2026-11-13",
-  "sha256_pagina": "6c01addde88ce884b8d9b93bd3f98f198430f4de25b059a0f4fbf709f0964352",
+  "letto_il": "2026-11-25",
+  "sha256_pagina": "e2d0c76f85c9784e375b3964a6554bd55fcdf60f38e34e10a8b65264edd4b09a",
   "titolo_letto": "All items in U.S. city average, all urban consumers, not seasonally adjusted",
   "licenza": {
    "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
@@ -20,7 +20,7 @@
   "titolo": "CPI Inflation Calculator",
   "url": "https://data.bls.gov/cgi-bin/cpicalc.pl",
   "http": 200,
-  "letto_il": "2026-11-13",
+  "letto_il": "2026-11-25",
   "licenza": {
    "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
    "url": "https://www.bls.gov/opub/copyright-information.htm",
@@ -34,10 +34,10 @@
   "pagina": "https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7bt/mm23",
   "file": "grezzi/ons_d7bt.csv",
   "http": 200,
-  "letto_il": "2026-11-13",
-  "sha256": "05bf2ec5459e46961aa994c2cbfdd2abcef5c1591b99659358a414652966bee6",
-  "uscita": "21-10-2026",
-  "prossima_uscita": "18 November 2026",
+  "letto_il": "2026-11-25",
+  "sha256": "fe1d758dfed5205f458062a27097983e266989c8a2d262642b80c4e827a3bfab",
+  "uscita": "18-11-2026",
+  "prossima_uscita": "16 December 2026",
   "licenza": {
    "nome": "Open Government Licence v3.0",
    "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
@@ -52,10 +52,10 @@
   "pagina": "https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/cdko/mm23",
   "file": "grezzi/ons_cdko.csv",
   "http": 200,
-  "letto_il": "2026-11-13",
-  "sha256": "522ba6c10503449c92d324772907baede8bb383e2aaf3d29f4df80ecb1dbc879",
-  "uscita": "21-10-2026",
-  "prossima_uscita": "18 November 2026",
+  "letto_il": "2026-11-25",
+  "sha256": "c116995e973bf0aea52280c409da55716a198746f25e2f73804b0ca3567c0f9d",
+  "uscita": "18-11-2026",
+  "prossima_uscita": "16 December 2026",
   "licenza": {
    "nome": "Open Government Licence v3.0",
    "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
@@ -70,10 +70,10 @@
   "pagina": "https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/chaw/mm23",
   "file": "grezzi/ons_chaw.csv",
   "http": 200,
-  "letto_il": "2026-11-13",
-  "sha256": "b1eae2aa897595dc2a48312c5bf5e801f0d48aa8490e176816d8518b7995fcf3",
-  "uscita": "21-10-2026",
-  "prossima_uscita": "18 November 2026",
+  "letto_il": "2026-11-25",
+  "sha256": "4df04c33271b81da8b7271ccbd063cddce7a0148cf5fdea17d5692ee9c540340",
+  "uscita": "18-11-2026",
+  "prossima_uscita": "16 December 2026",
   "licenza": {
    "nome": "Open Government Licence v3.0",
    "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
@@ -88,10 +88,10 @@
   "pagina": "https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7g7/mm23",
   "file": "grezzi/ons_d7g7.csv",
   "http": 200,
-  "letto_il": "2026-11-13",
-  "sha256": "f849c7535125edb6532c3c24772247c2dccb241345e6b5122eaa4bf08f69610d",
-  "uscita": "21-10-2026",
-  "prossima_uscita": "18 November 2026",
+  "letto_il": "2026-11-25",
+  "sha256": "4ffe4b42bb060a8138d1c55fc1442343ca77aa687e4428415545bc297a15ec6f",
+  "uscita": "18-11-2026",
+  "prossima_uscita": "16 December 2026",
   "licenza": {
    "nome": "Open Government Licence v3.0",
    "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
@@ -106,10 +106,10 @@
   "pagina": "https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/czbh/mm23",
   "file": "grezzi/ons_czbh.csv",
   "http": 200,
-  "letto_il": "2026-11-13",
-  "sha256": "e3843f1874caea5f53e897fcc5fc008ef696da9786bcc1853faf83fd719d7339",
-  "uscita": "21-10-2026",
-  "prossima_uscita": "18 November 2026",
+  "letto_il": "2026-11-25",
+  "sha256": "b17401031fde62d9e1a902955274aedba3ebf8111186a24420c8ddf13cbb5166",
+  "uscita": "18-11-2026",
+  "prossima_uscita": "16 December 2026",
   "licenza": {
    "nome": "Open Government Licence v3.0",
    "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
@@ -124,7 +124,7 @@
   "pagina": "https://www.destatis.de/DE/Themen/Wirtschaft/Preise/Verbraucherpreisindex/_inhalt.html",
   "file": "grezzi/destatis_lange_reihen.csv",
   "http": 200,
-  "letto_il": "2026-11-13",
+  "letto_il": "2026-11-25",
   "sha256": "8c728e44fa400d762009fa34507a34e1fee3947641d2579484d7d040763b11f4",
   "titolo_letto": "Statistischer Bericht Verbraucherpreisindex für Deutschland - Lange Reihen ab 1948 45809",
   "impressum_letto": "r: DE 206511374 © Statistisches Bundesamt (Destatis), 2025 Vervielfältigung und Verbreitung, auch auszugsweise, mit Quellenangabe gestattet. Ende des Impressums",
@@ -141,9 +141,9 @@
   "url": "https://www.destatis.de/DE/Themen/Wirtschaft/Preise/Verbraucherpreisindex/Tabellen/Verbraucherpreise-12Kategorien.html",
   "file": "grezzi/destatis_12kategorien.csv",
   "http": 200,
-  "letto_il": "2026-11-13",
-  "sha256": "c174f321183fd17e7d6288cde3955b3c400565bfc37395253b6141c2c8c1f29b",
-  "stand": "11. November 2026",
+  "letto_il": "2026-11-25",
+  "sha256": "71345d102e66c57b0b58f80f5fb73f10b6e303599c300887683de942614783f6",
+  "stand": "17. November 2026",
   "licenza": {
    "nome": "© Statistisches Bundesamt (Destatis); Vervielfältigung und Verbreitung, auch auszugsweise, mit Quellenangabe gestattet (Inhalte von GENESIS-Online: Datenlizenz Deutschland – Namensnennung – Version 2.0, dl-de/by-2-0)",
    "url": "https://www.destatis.de/DE/Service/Impressum/_inhalt.html",
@@ -169,8 +169,8 @@
   "titolo": "Why does the Federal Reserve aim for inflation of 2 percent over the longer run?",
   "url": "https://www.federalreserve.gov/faqs/economy_14400.htm",
   "http": 200,
-  "letto_il": "2026-11-13",
-  "sha256": "d13db9691aee178430b0acaff28f53c92ed9b84387610d1ee6813ff337b90eab",
+  "letto_il": "2026-11-25",
+  "sha256": "bfa609686bba846b3acf07c3ae2ae8a84f9b7a389089bd057b089365480a93b4",
   "cerca": [
    "inflation of 2 percent over the longer run, as measured by the annual change in the price index for personal consumption expenditures"
   ],
@@ -183,8 +183,8 @@
   "titolo": "Our currency: the euro (irrevocable conversion rates)",
   "url": "https://www.ecb.europa.eu/euro/intro/html/index.en.html",
   "http": 200,
-  "letto_il": "2026-11-13",
-  "sha256": "e5e8e7ab65ed4ce502eabe15bda33f04cd202c82e919798ea7bdd5ef66d4e652",
+  "letto_il": "2026-11-25",
+  "sha256": "e035a0a383750895987ed35c17adfe45c5c98157ccc98fdcec9d9c11c0b1c330",
   "cerca": [
    "1 DEM 1.95583 (Deutsche Mark)",
    "Germany 1957 1999 (cash since 2002)"
@@ -199,7 +199,7 @@
   "titolo": "Verordnung (EG) Nr. 2866/98 des Rates über die Umrechnungskurse zwischen dem Euro und den Währungen der Mitgliedstaaten, die den Euro einführen",
   "url": "https://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=CELEX:31998R2866",
   "http": 200,
-  "letto_il": "2026-11-13",
+  "letto_il": "2026-11-25",
   "sha256": "1af7488c89447433549c55f8f1ef91b2ccdf84a341fd75f105607d4557c95fab",
   "cerca": [
    "1,95583 Deutsche Mark"
@@ -212,17 +212,17 @@
   "bls_flat": {
    "url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
    "motivo": "HTTP 403 (Access Denied) to our server; we use the BLS data viewer instead",
-   "provato_il": "2026-11-13"
+   "provato_il": "2026-11-25"
   },
   "bls_copyright": {
    "url": "https://www.bls.gov/opub/copyright-information.htm",
    "motivo": "HTTP 403 to our server (www.bls.gov); public-domain status of U.S. federal works per 17 U.S.C. § 105",
-   "provato_il": "2026-11-13"
+   "provato_il": "2026-11-25"
   },
   "genesis_api": {
    "url": "https://genesis.destatis.de/genesisWS/rest/2020/data/tablefile",
    "motivo": "HTTP 401: the GENESIS-Online web service needs a registered account; we use the Destatis downloads instead",
-   "provato_il": "2026-11-13"
+   "provato_il": "2026-11-25"
   },
   "irs_n_2014_70": {
    "url": "https://www.irs.gov/pub/irs-drop/n-14-70.pdf",
@@ -270,8 +270,8 @@
   "titolo": "Inflation calculator",
   "url": "https://www.bankofengland.co.uk/monetary-policy/inflation/inflation-calculator",
   "http": 200,
-  "letto_il": "2026-11-13",
-  "sha256": "0464ace46af06ba52571b7cdfe5b52bc273725d2026461c543b0dc23ba13410c",
+  "letto_il": "2026-11-25",
+  "sha256": "362ae913606390c65c951b1d85b3ace1161b0d5adc8c74a59dc3c8bb80cc2469",
   "cerca": [
    "CPI estimates before 1988 are modelled based on data collected for the Retail Price Index (RPI)",
    "The price index for 1975 = 17.78",
@@ -1534,18 +1534,18 @@
   "url": "https://www.eia.gov/dnav/pet/xls/PET_PRI_WFR_A_EPD2F_PRS_DPGAL_W.xls",
   "file": "grezzi/eia/heating_oil.xls",
   "http": 200,
-  "letto_il": "2026-11-19",
-  "sha256": "453da31ceee745fde0893c4f3a03a8b856df44bbc7b528f3237949d71cfdfb18",
-  "byte": 431616,
+  "letto_il": "2026-11-25",
+  "sha256": "8c31d4ade851071eb2a457f3c79af9d1e91c9df625ff3d138d0d4e62f441ac20",
+  "byte": 432128,
   "licenza": {
    "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
    "url": "https://www.eia.gov/about/copyrights_reuse.php",
    "nota": "EIA: U.S. government publications are in the public domain and are not subject to copyright protection; citation requested."
   },
   "pagina": "https://www.eia.gov/dnav/pet/pet_pri_wfr_a_EPD2F_prs_dpgal_w.htm",
-  "rilascio": "2026-11-18",
-  "prossimo_rilascio": "2026-11-25",
-  "ultima_settimana": "2026-11-16"
+  "rilascio": "2026-11-25",
+  "prossimo_rilascio": "2026-12-02",
+  "ultima_settimana": "2026-11-23"
  },
  "eia_propane_xls": {
   "chi": "U.S. Energy Information Administration",
@@ -1553,18 +1553,18 @@
   "url": "https://www.eia.gov/dnav/pet/xls/PET_PRI_WFR_A_EPLLPA_PRS_DPGAL_W.xls",
   "file": "grezzi/eia/propane.xls",
   "http": 200,
-  "letto_il": "2026-11-19",
-  "sha256": "008e9a1daea36f7ac6ae9ee479226b616387326720f55f16bf65f451cf2714db",
-  "byte": 558592,
+  "letto_il": "2026-11-25",
+  "sha256": "7df843e4b98b5e04928d96be58fa7387098ec73721f41477c6961db0b1819690",
+  "byte": 559616,
   "licenza": {
    "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
    "url": "https://www.eia.gov/about/copyrights_reuse.php",
    "nota": "EIA: U.S. government publications are in the public domain and are not subject to copyright protection; citation requested."
   },
   "pagina": "https://www.eia.gov/dnav/pet/pet_pri_wfr_a_EPLLPA_prs_dpgal_w.htm",
-  "rilascio": "2026-11-18",
-  "prossimo_rilascio": "2026-11-25",
-  "ultima_settimana": "2026-11-16"
+  "rilascio": "2026-11-25",
+  "prossimo_rilascio": "2026-12-02",
+  "ultima_settimana": "2026-11-23"
  },
  "eia_oil_tabella": {
   "chi": "U.S. Energy Information Administration",
@@ -1572,9 +1572,9 @@
   "url": "https://www.eia.gov/dnav/pet/pet_pri_wfr_a_EPD2F_prs_dpgal_w.htm",
   "file": "grezzi/eia/heating_oil.htm",
   "http": 200,
-  "letto_il": "2026-11-19",
-  "sha256": "c2f1de98c0a98d459ccfca5f5295ae2e0758912d894836dc00cf13b1b3b92d0b",
-  "byte": 28781,
+  "letto_il": "2026-11-25",
+  "sha256": "1bc60cb5dcfb78edef0f4e04259e62e5487d5f85ceb0a62fd8cd6f2484e2be19",
+  "byte": 28780,
   "licenza": {
    "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
    "url": "https://www.eia.gov/about/copyrights_reuse.php",
@@ -1593,9 +1593,9 @@
   "url": "https://www.eia.gov/dnav/pet/pet_pri_wfr_a_EPLLPA_prs_dpgal_w.htm",
   "file": "grezzi/eia/propane.htm",
   "http": 200,
-  "letto_il": "2026-11-19",
-  "sha256": "8f89ef6da63fa63ceb4966f0e810da4c7b800a4c5fabfecb330bad6d13f3bfcd",
-  "byte": 41167,
+  "letto_il": "2026-11-25",
+  "sha256": "649c53889cfd05be7e9dfda8fc760440ff55f846f3a714ab3c9812d5794a6e19",
+  "byte": 40146,
   "licenza": {
    "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
    "url": "https://www.eia.gov/about/copyrights_reuse.php",
@@ -1614,9 +1614,9 @@
   "url": "https://www.eia.gov/petroleum/heatingoilpropane/",
   "file": "grezzi/eia/update.htm",
   "http": 200,
-  "letto_il": "2026-11-19",
-  "sha256": "c9c16a910e539d12821b2c903a375af6997483820e937c72d33e8ac87dea5c3a",
-  "byte": 91272,
+  "letto_il": "2026-11-25",
+  "sha256": "0571c5ad9be0f0ba7ec1725d1ca4f739ae5363d253893b4f9cf1afbbc38a3314",
+  "byte": 91247,
   "licenza": {
    "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
    "url": "https://www.eia.gov/about/copyrights_reuse.php",
@@ -1635,7 +1635,7 @@
   "url": "https://www.eia.gov/dnav/pet/TblDefs/pet_pri_wfr_tbldef2.asp",
   "file": "grezzi/eia/definitions.htm",
   "http": 200,
-  "letto_il": "2026-11-19",
+  "letto_il": "2026-11-25",
   "sha256": "b1dde69ebf17a8df07918e9e1d5c5a4d432eddc40c9fcd3d648baf0d14e8b73a",
   "byte": 9305,
   "licenza": {
@@ -1668,9 +1668,9 @@
   "url": "https://www.eia.gov/about/copyrights_reuse.php",
   "file": "grezzi/eia/copyrights_reuse.htm",
   "http": 200,
-  "letto_il": "2026-11-19",
-  "sha256": "33c1a9f95672c78e3ebdbbe5cd30edd0065029174391188f458ca8651204f05a",
-  "byte": 52571,
+  "letto_il": "2026-11-25",
+  "sha256": "57346cef99c7de759e1099258e9d29b7aa1cbfaac75dccbd98da99acd2737c28",
+  "byte": 52531,
   "licenza": {
    "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
    "url": "https://www.eia.gov/about/copyrights_reuse.php",
