@@ -845,14 +845,18 @@ def home():
               + "</ul>")
     corpo += '<h2 id="sezioni">Le 22 sezioni di ATECO 2025</h2><ul class="albero">'
     for s in SEZIONI:
-        corpo += (f'<li><a class="cod" href="{url_di(s)}">Sezione {s}</a><span>{h(C[s]["it"][0] + C[s]["it"][1:].lower())}</span>'
+        # La home linka solo pagine indicizzate (audit del 25/11/2026: 12 link a pagine noindex). Se la pagina della sezione è noindex
+        # (poco testo proprio), il link va alla prima divisione indicizzata della sezione; se non ce n'è, la riga resta senza link.
+        dest = url_di(s) if INDICIZZA.get(percorso_pagina(s), True) else next((url_di(d) for d in FIGLI[s] if INDICIZZA.get(percorso_pagina(d), True)), None)
+        etichetta = f'<a class="cod" href="{dest}">Sezione {s}</a>' if dest else f'<span class="cod">Sezione {s}</span>'
+        corpo += (f'<li>{etichetta}<span>{h(C[s]["it"][0] + C[s]["it"][1:].lower())}</span>'
                   f'<span class="mini">Divisioni {", ".join(FIGLI[s][:1] + (["…", FIGLI[s][-1]] if len(FIGLI[s]) > 1 else []))}</span></li>')
     corpo += "</ul>"
     corpo += ('<h2 id="come-si-legge">Come si legge un codice ATECO</h2><div class="testo">'
               f'<p>ATECO 2025 è una classificazione ad albero: una lettera per la sezione, poi fino a sei cifre. Esempio con '
-              f'{link_cod("96.21.00")} «{h(C["96.21.00"]["it"])}»:{rim.ref("istat_ateco")}</p><ul>'
+              f'<strong>96.21.00</strong> «{h(C["96.21.00"]["it"])}»:{rim.ref("istat_ateco")}</p><ul>'
               f'<li><strong>{antenato("96", 1)}</strong>: sezione «{h(C[antenato("96", 1)]["it"].capitalize())}»</li>'
-              f'<li><strong>96</strong>: divisione «{h(C["96"]["it"])}»</li><li><strong>96.2</strong>: gruppo «{h(C["96.2"]["it"])}»</li>'
+              f'<li><strong>{link_cod("96") if INDICIZZA.get(percorso_pagina("96"), True) else "96"}</strong>: divisione «{h(C["96"]["it"])}»</li><li><strong>96.2</strong>: gruppo «{h(C["96.2"]["it"])}»</li>'
               f'<li><strong>96.21</strong>: classe; <strong>96.21.0</strong>: categoria; <strong>96.21.00</strong>: sottocategoria, il codice a sei cifre dei moduli.</li></ul>'
               '<p>Le note Istat dicono cosa è incluso («Comprende»), cosa è incluso anche se non ovvio («Comprende anche») e cosa sta in un altro codice '
               '(«Non comprende», con il rimando). Istat avverte che gli esempi delle note di inclusione non sono esaustivi.</p></div>')
