@@ -106,7 +106,7 @@ ALIAS = {
     "MARANO DI NAPOLI": "Napoli", "CASORIA": "Napoli", "PORTICI": "Napoli", "ELMAS": "Cagliari", "OLBIA": "Sassari",
     "ALGHERO": "Sassari", "MOLFETTA": "Bari", "VASTO": "Chieti", "LANCIANO": "Chieti", "TERMOLI": "Campobasso",
     "ROVERETO": "Trento", "CORIGLIANO-ROSSANO": "Cosenza", "SPINADESCO": "Cremona", "VADO LIGURE": "Savona",
-    "SAN DONA' DI PIAVE": "Venezia", "VILLAFRANCA DI VERONA": "Verona",
+    "SAN DONA' DI PIAVE": "Venezia", "VILLAFRANCA DI VERONA": "Verona", "CASALE MONFERRATO": "Alessandria",
 }
 
 

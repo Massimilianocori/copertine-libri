@@ -100,10 +100,6 @@ def percorso_en(p_it):
 
 ATTRIBUZIONE_CGSSE_IT = ("Alcuni scioperi e revoche vengono dal calendario della {cg} {lic}, come indicato su "
                          "ciascuno sciopero.")
-AVVISO_GIU_IT = "Il registro ufficiale non risponde dal DATA: teniamo l'ultima lettura buona e riproviamo due volte al giorno."
-AVVISO_RISERVA_IT = ("Il registro del Ministero non risponde dal DATA: i nuovi scioperi vengono dal calendario della "
-                     "Commissione di garanzia sciopero.")
-
 
 def costruisci(g):
     d = g.d
@@ -143,6 +139,29 @@ def costruisci(g):
              "none_tomorrow": "Nessuno sciopero in elenco domani", "none_week": "Nessun altro sciopero in elenco nei prossimi 7 giorni",
              "more1": "Mostra 1 altro sciopero", "more": "Mostra altri {n} scioperi", "until": " · fino a ", "s1": "1 sciopero",
              "sn": "{n} scioperi"}
+    # Righe di freschezza: stessi modelli e segnaposto di TX_EN in genera.py (testo_fonti, fonti() nel JS)
+    src = '<span class="src">' + g.svg("shield") + "<span>"
+    reg = f'<a href="{g.URL_REGISTRO}" rel="noopener">'
+    TX_IT.update({
+        "fr_mit": f"{src}Fonte: {reg}registro scioperi ufficiale del MIT</a>, controllato due volte al giorno</span></span>"
+                  "<span>Registro aggiornato al <strong>{reg}</strong></span><span>Ultimo controllo {letto} (ora italiana)</span>",
+        "fr_ris": f'{src}Fonti: <a href="{g.URL_CGSSE}" rel="noopener">calendario della Commissione di garanzia sciopero</a> e '
+                  f"{reg}registro scioperi del Ministero (MIT)</a></span></span>"
+                  "<span>Ultimo controllo <strong>{ris}</strong> (ora italiana), sul calendario della Commissione di garanzia</span>"
+                  "<span>Il registro del Ministero non risponde dal {giu}: possono mancare scioperi appena proclamati per date oltre i 30 giorni</span>",
+        "fr_giu": f"{src}Fonte: {reg}registro scioperi ufficiale del MIT</a></span></span>"
+                  "<span>Ultima lettura riuscita <strong>{letto}</strong> (ora italiana)</span>"
+                  "<span>Il registro non risponde dal {giu}: riproviamo due volte al giorno</span>",
+        "pa_mit": "Registro ufficiale aggiornato al {reg} · controllato {letto} (ora italiana)",
+        "pa_ris": "Ultimo controllo: {ris} (ora italiana), sul calendario scioperi della " + g.FONTE_CGSSE + ", letto dalla "
+                  "copia in dati aperti di onData{copia}. Il registro del Ministero (MIT) non risponde alle nostre richieste dal "
+                  "{giu} (ultima lettura: {letto}); riproviamo due volte al giorno. Finché non risponde, gli scioperi proclamati "
+                  "dopo quella lettura compaiono solo quando mancano 30 giorni o meno, e non aggiungiamo i nuovi scioperi "
+                  "delle merci e delle autostrade.",
+        "pa_giu": "Registro ufficiale letto l'ultima volta: {letto} (ora italiana). Non risponde dal {giu}: teniamo l'ultima "
+                  "lettura riuscita e riproviamo due volte al giorno.",
+        "copia": " (aggiornata il {c})"})
+    assert set(TX_IT) == set(g.TX_EN), "TX_IT e TX_EN devono avere le stesse chiavi"
 
     # ---------------- JS: lo stesso del sito inglese, con testi e campi italiani
     js = g.JS
@@ -173,7 +192,6 @@ def costruisci(g):
          """var w={'today':'oggi ('+breve(r[0])+')','tomorrow':'domani ('+breve(r[0])+')','thisweek':'nel resto della settimana','nextweek':'la prossima settimana ('+interv(r[0],r[1])+')'}[n]||'in questo periodo';"""),
         ("""'<div class="vuoto"><strong>No strikes listed '+w+'</strong> in the official register for this selection. Strikes must be announced at least 10 days ahead, but check again before you travel.</div>'""",
          """'<div class="vuoto"><strong>Nessuno sciopero in elenco '+w+'</strong> nel registro ufficiale per questa selezione. Gli scioperi vanno proclamati almeno 10 giorni prima, ma controlla di nuovo prima di partire.</div>'"""),
-        ("+' (Italy time)'", "+' (ora italiana)'"),
         ("'The end date must be after the start date'", "'La data di ritorno deve essere dopo quella di partenza'"),
     ]
     for a, b in sost:
@@ -236,9 +254,7 @@ def costruisci(g):
         return '<div class="riquadri">' + "".join(out) + "</div>"
 
     def fresco():
-        return (f'<p class="fresco"><span class="src">{g.svg("shield")}<span>Fonte: <a href="{g.URL_REGISTRO}" rel="noopener">registro scioperi ufficiale del MIT</a>, '
-                f'controllato due volte al giorno</span></span><span>Registro aggiornato al <strong data-reg>{breve(d(g.AGGIORNATO))}</strong></span>'
-                f'<span>Ultimo controllo <span data-letto>{escape(g.letto_breve(breve))} (ora italiana)</span></span></p>')
+        return f'<p class="fresco" data-fresco>{g.testo_fonti("fr", TX_IT, breve)}</p>'
 
     AVVISO = ('<p class="avviso">Gli scioperi possono essere revocati o modificati all\'ultimo momento. Prima di partire verifica sempre '
               'con l\'azienda di trasporto, la compagnia aerea o il gestore del servizio.</p>')
@@ -367,7 +383,7 @@ def costruisci(g):
 </div>
 <p class="piede-avviso"><strong>Gli scioperi possono essere revocati o modificati all'ultimo momento: verifica sempre con l'azienda di trasporto prima di partire.</strong> Le informazioni non sono consulenza legale.</p>
 {g.blocco_altri(g.ALTRI_SITI_IT, "Altri strumenti utili per il viaggio")}
-<p class="piede-agg">Registro ufficiale aggiornato al <span data-reg>{breve(d(g.AGGIORNATO))}</span> · controllato <span data-letto>{escape(g.letto_breve(breve))} (ora italiana)</span> <span data-fonte-giu="{AVVISO_GIU_IT}" data-fonte-riserva="{AVVISO_RISERVA_IT}"{g.avviso_fonte_giu(AVVISO_GIU_IT, breve, AVVISO_RISERVA_IT)}></span></p>
+<p class="piede-agg" data-agg>{g.testo_fonti("pa", TX_IT, breve)}</p>
 </div></footer>
 {dati_html}
 <script>{JS_IT}</script>

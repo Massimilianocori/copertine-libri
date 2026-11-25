@@ -551,20 +551,37 @@ def recenti():
     return [v for v in VOCI if v["fine"] >= limite]
 
 
-AVVISO_GIU = "The official register has not been reachable since DATA: we keep the last good reading and retry twice a day."
-AVVISO_RISERVA = ("The Ministry register is not reachable since DATA: new strikes come from the Strike Guarantee "
-                  "Commission calendar.")
+def stato_fonti():
+    """Stato delle fonti per i testi di freschezza (testo_fonti qui, fonti() nel JS, stessi campi in vista.json):
+    giu = giorno dal quale il registro MIT non risponde ("" se risponde); ris = ora dell'ultima lettura riuscita della
+    riserva CGSSE ("" se la riserva non è in uso); copia = ultimo aggiornamento della copia onData letta."""
+    giu = registro.get("fonte_non_raggiungibile_dal") or ""
+    ris = (registro.get("riserva_cgsse") or {}) if giu else {}
+    return {"reg": AGGIORNATO, "letto": LETTO, "giu": giu, "ris": ris.get("usata_il") or "",
+            "copia": (ris.get("copia_aggiornata_il") or "") if ris.get("usata_il") else ""}
 
 
-def avviso_fonte_giu(testo=None, formato=None, riserva=None):
-    """Attributi dello span di avviso: pieno e visibile se la fonte non risponde, altrimenti nascosto (lo riempie il JS).
-    Se raccogli.py ha usato la riserva CGSSE, il testo dice da dove arrivano gli scioperi nuovi."""
-    dal = registro.get("fonte_non_raggiungibile_dal")
-    if not dal:
-        return " hidden"
-    modello = (riserva or AVVISO_RISERVA) if registro.get("riserva_cgsse") else (testo or AVVISO_GIU)
-    data = (formato or data_breve)(d(dal))
-    return ">" + escape(modello.replace("DATA", data)) + "</span><span hidden"
+def quando_breve(s, breve_fn=None):
+    """'2026-10-11 12:46' -> 'Sun 11 Oct, 12:46' (stesso formato delle altre date; uguale a quando() nel JS)."""
+    m = re.match(r"(\d{4}-\d\d-\d\d) (\d\d:\d\d)", s or "")
+    if not m:
+        return s or ""
+    return (breve_fn or data_breve)(d(m.group(1))).rsplit(" ", 1)[0] + ", " + m.group(2)
+
+
+def testo_fonti(parte, tx=None, breve_fn=None):
+    """HTML della riga di freschezza: parte "fr" (sotto il titolo) o "pa" (piè di pagina). Tre casi: "mit" (registro
+    letto), "ris" (registro muto, riserva CGSSE letta: si mostra l'ora dell'ultimo controllo riuscito della riserva e
+    da quando manca il registro), "giu" (registro muto e riserva non usata). Uguale a fonti() nel JS, stessi modelli."""
+    tx, b, f = tx or TX_EN, breve_fn or data_breve, stato_fonti()
+    caso = ("ris" if f["ris"] else "giu") if f["giu"] else "mit"
+    valori = {"{reg}": b(d(f["reg"])), "{letto}": quando_breve(f["letto"], b), "{ris}": quando_breve(f["ris"], b),
+              "{copia}": tx["copia"].replace("{c}", quando_breve(f["copia"], b)) if f["copia"] else "",
+              "{giu}": b(d(f["giu"])) if f["giu"] else ""}
+    out = tx[f"{parte}_{caso}"]
+    for k, v in valori.items():
+        out = out.replace(k, escape(v))
+    return out
 
 
 def scrivi_vista():
@@ -575,7 +592,9 @@ def scrivi_vista():
         vista["fonte_non_raggiungibile_dal"] = registro["fonte_non_raggiungibile_dal"]
         vista["ultimo_tentativo_fallito"] = registro.get("ultimo_tentativo_fallito", "")
         if registro.get("riserva_cgsse"):
+            # ora dell'ultimo controllo riuscito della riserva e data della copia letta: le pagine li mostrano
             vista["riserva_cgsse"] = registro["riserva_cgsse"].get("usata_il", "")
+            vista["riserva_copia"] = registro["riserva_cgsse"].get("copia_aggiornata_il", "")
     (DATI / "vista.json").write_text(json.dumps(vista, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
 
 
@@ -971,6 +990,30 @@ ALTRO_OPERATORE_RE = r"^(Trenitalia|Trenord|Ferrovie del Sud Est|EAV)\b"
 TX_EN = {"today": "Today", "tomorrow": "Tomorrow", "none_today": "No strikes listed today",
          "none_tomorrow": "No strikes listed tomorrow", "none_week": "No other strikes listed in the next 7 days",
          "more1": "Show 1 more strike", "more": "Show {n} more strikes", "until": " · up to ", "s1": "1 strike", "sn": "{n} strikes"}
+# Righe di freschezza (testo_fonti in Python, fonti() nel JS): fr_ = sotto il titolo, pa_ = piè di pagina; _mit = registro
+# MIT letto, _ris = registro muto e riserva CGSSE letta, _giu = registro muto senza riserva. Segnaposto: {reg} data del
+# registro, {letto} ultima lettura MIT riuscita, {ris} ultimo controllo riuscito della riserva, {copia} data della copia
+# onData (modello "copia", vuoto se non si sa), {giu} giorno dal quale il registro non risponde.
+_SRC = '<span class="src">' + svg("shield") + "<span>"
+_REG = f'<a href="{URL_REGISTRO}" rel="noopener">'
+TX_EN.update({
+    "fr_mit": f"{_SRC}Source: {_REG}official MIT strike register</a>, checked twice a day</span></span>"
+              "<span>Register updated <strong>{reg}</strong></span><span>Last check {letto} (Italy time)</span>",
+    "fr_ris": f'{_SRC}Sources: <a href="{URL_CGSSE}" rel="noopener">Commissione di garanzia strike calendar</a> and '
+              f"{_REG}Ministry (MIT) strike register</a></span></span>"
+              "<span>Last check <strong>{ris}</strong> (Italy time), against the Commissione di garanzia calendar</span>"
+              "<span>Ministry register not answering since {giu}: newly announced strikes more than 30 days ahead may be missing</span>",
+    "fr_giu": f"{_SRC}Source: {_REG}official MIT strike register</a></span></span>"
+              "<span>Last good reading <strong>{letto}</strong> (Italy time)</span>"
+              "<span>Register not answering since {giu}: we retry twice a day</span>",
+    "pa_mit": "Official register last updated: {reg} · checked {letto} (Italy time)",
+    "pa_ris": "Last check: {ris} (Italy time), against the strike calendar of the " + FONTE_CGSSE + ", read through the "
+              "onData open-data copy{copia}. The Ministry (MIT) register has not answered our requests since {giu} "
+              "(last reading: {letto}); we retry twice a day. Until it answers, strikes announced after that reading are "
+              "listed only once they are within 30 days, and new freight and motorway strikes are not added.",
+    "pa_giu": "Official register last read: {letto} (Italy time). It has not answered since {giu}: we keep the last good "
+              "reading and retry twice a day.",
+    "copia": " (last updated {c})"})
 
 JS = r"""
 (function(){
@@ -1033,6 +1076,12 @@ JS = r"""
   var TX=__TX__, OKI=__OKI__;
   function gtxt(k){var b=breve(k);return b.slice(0,b.lastIndexOf(' '));}
   function quando(s){var m=/^(\d{4}-\d\d-\d\d) (\d\d:\d\d)/.exec(s||'');if(!m)return s;return gtxt(m[1])+', '+m[2];}
+  function fonti(L){var giu=L.fonte_non_raggiungibile_dal||'',caso=giu?(L.riserva_cgsse?'ris':'giu'):'mit';
+    var val={'{reg}':L.registro_aggiornato_al?breve(L.registro_aggiornato_al):'','{letto}':quando(L.letto_il)||'','{ris}':quando(L.riserva_cgsse)||'',
+      '{copia}':caso==='ris'&&L.riserva_copia?TX.copia.split('{c}').join(quando(L.riserva_copia)):'','{giu}':giu?breve(giu):''};
+    function testo(m){for(var k in val)m=m.split(k).join(esc(val[k]));return m;}
+    document.querySelectorAll('[data-fresco]').forEach(function(e){e.innerHTML=testo(TX['fr_'+caso]);});
+    document.querySelectorAll('[data-agg]').forEach(function(e){e.innerHTML=testo(TX['pa_'+caso]);});}
   function giorni(lista,n,vis,aperto){
     if(!lista.length)return vuoto(n);
     var dom=add(OGGI,1),lim=add(OGGI,vis-1),gr={},ord=[OGGI,dom],su='',giu='',nGiu=0,ult='',altri=false;
@@ -1065,10 +1114,7 @@ JS = r"""
   if(nodo){
     var D=JSON.parse(nodo.textContent);disegna(D.scioperi);
     if(window.fetch){fetch('URL_LIVE',{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(L){
-      if(L&&L.scioperi&&(L.generato_il||L.letto_il)>(D.generato_il||D.letto_il)){disegna(L.scioperi);
-        document.querySelectorAll('[data-letto]').forEach(function(e){e.textContent=quando(L.letto_il)+' (Italy time)';});
-        document.querySelectorAll('[data-reg]').forEach(function(e){e.textContent=breve(L.registro_aggiornato_al);});}
-      document.querySelectorAll('[data-fonte-giu]').forEach(function(e){if(L&&L.fonte_non_raggiungibile_dal){e.textContent=(L.riserva_cgsse&&e.dataset.fonteRiserva||e.dataset.fonteGiu).replace('DATA',breve(L.fonte_non_raggiungibile_dal));e.hidden=false;}else{e.hidden=true;}});
+      if(L&&L.scioperi&&(L.generato_il||L.letto_il)>(D.generato_il||D.letto_il)){disegna(L.scioperi);fonti(L);}
     }).catch(function(){});}
   }else if(document.querySelector('[data-italo]')&&window.fetch){fetch('URL_LIVE',{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json();})
     .then(function(L){if(L&&L.scioperi)italo(L.scioperi);}).catch(function(){});}
@@ -1196,7 +1242,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, con_dati=False, 
 </div>
 <p class="piede-avviso"><strong>Strikes can be called off or changed at short notice. Always check with your train operator, airline or local transport company before travelling.</strong> Nothing on this site is legal advice.</p>
 {blocco_altri(ALTRI_SITI, "Other useful tools for your trip")}
-<p class="piede-agg">Official register last updated: <span data-reg>{data_breve(d(AGGIORNATO))}</span> · checked <span data-letto>{escape(letto_breve())} (Italy time)</span> <span data-fonte-giu="{AVVISO_GIU}" data-fonte-riserva="{AVVISO_RISERVA}"{avviso_fonte_giu()}></span></p>
+<p class="piede-agg" data-agg>{testo_fonti("pa")}</p>
 </div></footer>
 {dati_html}
 <script>{JS}</script>
@@ -1343,18 +1389,8 @@ def riquadri(filtro="passengers", base=""):
     return '<div class="riquadri">' + "".join(out) + "</div>"
 
 
-def letto_breve(breve_fn=None):
-    """'2026-10-11 12:46' -> 'Sun 11 Oct, 12:46' (stesso formato delle altre date; uguale a quando() nel JS)."""
-    m = re.match(r"(\d{4}-\d\d-\d\d) (\d\d:\d\d)", LETTO or "")
-    if not m:
-        return LETTO
-    return (breve_fn or data_breve)(d(m.group(1))).rsplit(" ", 1)[0] + ", " + m.group(2)
-
-
 def fresco():
-    return (f'<p class="fresco"><span class="src">{svg("shield")}<span>Source: <a href="{URL_REGISTRO}" rel="noopener">official MIT strike register</a>, '
-            f'checked twice a day</span></span><span>Register updated <strong data-reg>{data_breve(d(AGGIORNATO))}</strong></span>'
-            f'<span>Last check <span data-letto>{escape(letto_breve())} (Italy time)</span></span></p>')
+    return f'<p class="fresco" data-fresco>{testo_fonti("fr")}</p>'
 
 
 AVVISO = ('<p class="avviso">Strikes can be called off or changed at short notice. Always check with your train operator, '
@@ -2285,6 +2321,30 @@ def about_cgsse():
             f'next 30 days; when the Ministry register is readable again, its entries replace the matching ones.</li>')
 
 
+def about_copertura():
+    """Paragrafo dei limiti (pagina About) quando il registro MIT non risponde: da quando, cosa si controlla al suo
+    posto e quanti degli scioperi in programma vengono da ciascuna fonte, alla data di generazione della pagina."""
+    f = stato_fonti()
+    if not f["giu"]:
+        return ""
+    futuri = [s for s in scioperi.values() if s["fine"] >= OGGI.isoformat() and s["stato"] == "in programma"]
+    n_cg = sum(1 for s in futuri if s.get("fonte") == "cgsse")
+    n_mit = len(futuri) - n_cg
+    if not f["ris"]:
+        return (f'\n<p><strong>Current limit.</strong> The Ministry register has not answered our requests since '
+                f'{data_breve(d(f["giu"]))}. The site shows its last good reading ({escape(quando_breve(f["letto"]))}, Italy '
+                f'time) and we retry twice a day: strikes announced or called off after that reading may be missing.</p>')
+    return (f'\n<p><strong>Current limit.</strong> The Ministry register has not answered our requests since '
+            f'{data_breve(d(f["giu"]))} (last reading: {escape(quando_breve(f["letto"]))}, Italy time); we retry twice a day. '
+            f'Until it answers, we check the strike calendar of the {FONTE_CGSSE} instead (last check: '
+            f'{escape(quando_breve(f["ris"]))}). On {data_breve(OGGI)} the site lists {len(futuri)} upcoming strikes: {n_mit} from the '
+            f'last reading of the Ministry register and {n_cg} added from the Commission calendar. Coverage may be incomplete: '
+            f'that calendar shows only the next 30 days, so strikes announced after {data_breve(d(f["giu"]))} for later dates '
+            f'appear only once they are within 30 days; we add from it only passenger transport strikes (trains, local '
+            f'transport, flights, ferries, taxis, general strikes), not freight or motorway strikes; and the Ministry '
+            f'entries for dates beyond 30 days cannot be re-checked until the register answers.</p>')
+
+
 def about():
     rel = "../"
     corpo = f"""<section class="hero"><h1>About {NOME} and our sources</h1></section><div class="testo">
@@ -2295,7 +2355,7 @@ def about():
 <h2>How we translate</h2>
 <p>Sectors, scope and hours are translated automatically with fixed rules. The original Italian text is always shown next to the translation. If our rules cannot translate the hours, we show only the original.</p>
 <h2>Limits</h2>
-<p>Strikes can be called off or changed at short notice, and the register may be updated after our daily check. Always confirm with your operator before travelling.</p>
+<p>Strikes can be called off or changed at short notice, and the register may be updated after our daily check. Always confirm with your operator before travelling.</p>{about_copertura()}
 <p>Questions or corrections? <a href="{rel}contact/">Contact us</a>.</p></div>"""
     pagina("about/", f"About and sources | {NOME}", "Where our strike data comes from and how we translate it.", corpo, briciole=[("About", "about/")])
 

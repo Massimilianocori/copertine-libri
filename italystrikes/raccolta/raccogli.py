@@ -264,7 +264,8 @@ ETA_MAX_ORE = 96  # sull'ultimo commit del file: onData fa un commit solo se il 
 ETA_MAX_ORE_FILE = 48  # sulle date nel file, quando l'API GitHub non risponde: limite prudente (sciopero a 29-30 giorni)
 URL_COMMIT_CGSSE = ("https://api.github.com/repos/ondata/liberiamoli-tutti/commits"
                     "?path=scioperi/data/cgsse/cgsse_data.jsonl&sha=main&per_page=1")
-SETTORI_PASSEGGERI = {"Ferroviario", "Trasporto pubblico locale", "Aereo", "Marittimo", "Generale", "Plurisettoriale"}
+# Taxi (e NCC) aggiunto il 25/11/2026: sciopero nazionale dei taxi del 15/12 presente nel calendario CGSSE ma non sul sito
+SETTORI_PASSEGGERI = {"Ferroviario", "Trasporto pubblico locale", "Aereo", "Marittimo", "Taxi", "Generale", "Plurisettoriale"}
 PARTI_PASSEGGERI = {"TRASPORTO PUBBLICO LOCALE", "TRASPORTO AEREO", "TRASPORTO FERROVIARIO", "APPALTI FERROVIARI",
                     "TRASPORTO MARITTIMO", "PLURISETTORIALE TRASPORTI"}
 

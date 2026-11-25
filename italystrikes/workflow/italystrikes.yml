@@ -2,7 +2,7 @@ name: Italy Strikes Today – registro scioperi
 
 # Legge ogni giorno il registro scioperi del MIT e aggiorna italystrikes/dati sul branch di lavoro.
 # Le pagine si aggiornano nel browser da italystrikes/dati/vista.json; il sito su Netlify si ripubblica
-# solo quando lo decide italystrikes/raccolta/decidi_deploy.py (massimo 6 volte al mese, per i crediti Netlify).
+# solo quando lo decide italystrikes/raccolta/decidi_deploy.py (massimo 12 volte al mese, per i crediti Netlify).
 # I workflow programmati partono solo dal branch principale (main): per questo il file sta qui.
 
 on:
