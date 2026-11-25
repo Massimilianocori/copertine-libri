@@ -399,3 +399,17 @@ Conclusione con i dati: nessun guasto tecnico nostro. Le pagine interne dei domi
 | altri siti .netlify.app | 0-1 | 0-1 | 0-1 | 0-1 |
 
 Lettura: **calano solo i siti sui domini nuovi** (spostati l'8/11 e il 13/11). I siti rimasti su .netlify.app nello stesso periodo tengono o crescono (Italy Strikes 2 → 31, Tourist Tax 8 → 22). Dopo lo spostamento Visa e BYF erano saliti (settimana 10/11 la migliore di sempre), poi sono crollati dal 17/11. Il problema riguarda i domini nuovi, non un guasto comune a tutti i siti. Per i siti .netlify.app non serve nessun intervento strutturale: si continua con la manutenzione normale.
+
+## Correzioni della revisione indipendente (25/11 sera, voto 7,5) — valgono sopra il testo precedente
+
+Revisione completa in `studio-business/REVISIONE-STRATEGIA-RECUPERO.md`.
+
+1. **Azione 9 corretta.** pagaccnl.com e payrolltaxbystate.com sono siti nati sul dominio l'11-12/11, non spostamenti di contenuti con traffico. Niente Cambio di indirizzo e niente sitemap dei vecchi indirizzi per loro. Solo C1-C3. «Payroll regge» non è dimostrato (2-4 visite a settimana): non si usa come prova.
+2. **`lastmod` vero, con queste condizioni.** Il registro delle impronte parte con le date vere già note (data del commit che ha cambiato il testo principale della pagina, da `git log`), non con la data di stanotte. L'impronta esclude i blocchi «Most used», «Related», la data di generazione e il piè di pagina. Visa ha già il `lastmod` vero: si tiene. BYF ed EsameB1 si allineano allo stesso metodo.
+3. **Sitemap dei vecchi indirizzi:** solo BYF, Visa ed EsameB1, file separato (`sitemap-vecchi-indirizzi.xml`), solo gli URL che esistevano prima dell'8/11.
+4. **Azioni 5 e 6 ridotte, per non fare un'altra modifica di massa.** Blocco «Related» solo sulle 181 pagine BYF con 2 link in entrata o meno. Data e fonte in alto solo sulle pagine dove mancano, non su tutte. Il punto 6.4 (privacy e contatti nel piè di pagina) è già fatto. Pagine nuove di fiducia: sì.
+5. **Diagnosi scritta come ipotesi.** I quattro domini nuovi salgono e poi crollano 7-10 giorni dopo; pagaccnl crolla senza nostre modifiche e senza Cambio di indirizzo. Questo rafforza l'ipotesi I1 (Google rivaluta i siti su domini nuovi e li giudica poco prioritari) e indebolisce I2. La conclusione della «Verifica del 25/11» è un'ipotesi, non un fatto: i siti di confronto sono piccoli.
+6. **Citazioni.** La guida al budget di scansione ci riguarda (molti URL «Rilevata, attualmente non indicizzata»): si usa. «Try not to combine multiple moves» era fuori contesto: non si usa come motivo.
+7. **Aggiunte.** La home di BYF entra nelle richieste di indicizzazione (prima della riserva). Le pubblicazioni BYF del 19 e 20/11 vanno contate tra le modifiche (F3).
+
+**Decisioni per stanotte:** azione 3 VIA (con i punti 2 e 3); azione 5 VIA (blocco in home, indici di sezione, link a pagine noindex tolti dalla home; «Related» solo sulle 181 pagine); azione 6 VIA per le pagine nuove; azione 9 solo controlli.
