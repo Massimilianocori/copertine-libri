@@ -43,15 +43,15 @@
 <div class="wrap">
 <div class="testo">
 <h2>The data</h2>
-<p>Everything on this site comes from FEMA's open data platform, <strong>OpenFEMA</strong>, retrieved through its API on October 15, 2026:</p>
+<p>Everything on this site comes from FEMA's open data platform, <strong>OpenFEMA</strong>, retrieved through its API on November 25, 2026:</p>
 <ul>
-<li><a href="https://www.fema.gov/openfema-data-page/nfip-redacted-policies-v3" rel="noopener">NFIP Redacted Policies, version 3</a> (74,739,461 records, all NFIP policy transactions since 2009; FEMA last updated it on September 9, 2026). API: <code>https://www.fema.gov/api/open/v3/NfipPolicies</code>.</li>
-<li><a href="https://www.fema.gov/openfema-data-page/nfip-redacted-claims-v3" rel="noopener">NFIP Redacted Claims, version 3</a> (2,725,989 claims since 1978; updated September 9, 2026). API: <code>https://www.fema.gov/api/open/v3/NfipClaims</code>.</li>
+<li><a href="https://www.fema.gov/openfema-data-page/nfip-redacted-policies-v3" rel="noopener">NFIP Redacted Policies, version 3</a> (74,778,941 records, all NFIP policy transactions since 2009; FEMA last updated it on November 15, 2026). API: <code>https://www.fema.gov/api/open/v3/NfipPolicies</code>.</li>
+<li><a href="https://www.fema.gov/openfema-data-page/nfip-redacted-claims-v3" rel="noopener">NFIP Redacted Claims, version 3</a> (2,731,064 claims since 1978; updated November 16, 2026). API: <code>https://www.fema.gov/api/open/v3/NfipClaims</code>.</li>
 <li><a href="https://www.fema.gov/openfema-data-page/nfip-residential-penetration-rates-v1" rel="noopener">NFIP Residential Penetration Rates, version 1</a> (share of homes with NFIP flood insurance, by county; updated August 4, 2026).</li>
 </ul>
 <p>FEMA removes names, street addresses and exact locations before publishing these files. The older "FIMA NFIP" version 2 datasets were retired on October 15, 2026; this site uses the current versions above.</p>
 <h2>Which policies we count</h2>
-<p>A policy is counted if it was <strong>in force on August 31, 2026</strong>: it started on or before that day, it had not expired, and it had not been cancelled by then. In practice we take the policies whose current term started between September 1, 2025 and August 31, 2026. In FEMA's data, practically every home policy in force on that date started in that window (home policies run for one year). A small number of multi-year condominium association policies (about 0.7% of all policies) started earlier and are not counted, so the "all policies" and "type of building" figures slightly undercount whole-building policies; figures for homes are not affected. Records with a zero or negative cost (refunds and rewrites) are left out. For the year-on-year comparison we repeat the same steps for August 31, 2025.</p>
+<p>A policy is counted if it was <strong>in force on September 30, 2026</strong>: it started on or before that day, it had not expired, and it had not been cancelled by then. In practice we take the policies whose current term started between October 1, 2025 and September 30, 2026. In FEMA's data, practically every home policy in force on that date started in that window (home policies run for one year). A small number of multi-year condominium association policies (about 0.7% of all policies) started earlier and are not counted, so the "all policies" and "type of building" figures slightly undercount whole-building policies; figures for homes are not affected. Records with a zero or negative cost (refunds and rewrites) are left out. For the year-on-year comparison we repeat the same steps for September 30, 2025.</p>
 <h2>What "cost" means</h2>
 <p>We use FEMA's <code>policyCost</code> field: "calculated in dollars by adding together calculated premium, reserve fund assessment, federal policy fee, and HFIAA surcharge" (FEMA data dictionary). It is the total yearly amount on the policyholder's bill. FEMA's <a href="https://www.floodsmart.gov/premiumcosts" rel="noopener">premium costs page</a> lists those charges: a reserve fund assessment of 18% of the discounted premium, an HFIAA surcharge of $25 for primary residences and $250 for other occupancies, and a federal policy fee of $47 for most policies. Each policy counts once, whatever its coverage.</p>
 <h2>Homes and other buildings</h2>
@@ -81,7 +81,7 @@
 <h2>California: FAIR Plan policies and non-renewals</h2>
 <p>The <a href="../california-home-insurance/">California section</a> does not use FEMA data. It uses the California FAIR Plan's ZIP code reports (residential policies in force and insured value on September 30 of each year since 2022; policies and premium by risk group and type of policy) and the California Department of Insurance file of new, renewed and non-renewed policies by ZIP code (2020–2023). Average premium = premium of the FAIR Plan policies in force ÷ number of those policies, for owner-occupied single-family homes; policies "not renewed or cancelled" = the Department's non-renewed/canceled count (75-80% initiated by policyholders), voluntary market only, from insurers writing $5 million or more in premiums (about 98% of the market), renters (HO-4) and condo unit (HO-6) policies excluded; non-renewal rate = (non-renewed + canceled) ÷ (new + renewed), as in the Department's fact sheet. The limits of these files (non-renewals stop in 2023; totals include non-renewals asked by policyholders) are written on every page of the section.</p>
 <h2>Updates</h2>
-<p>We refresh the data every month after FEMA's update. This edition: policies in force on August 31, 2026, data retrieved October 15, 2026, pages built October 15, 2026.</p>
+<p>We refresh the data every month after FEMA's update. This edition: policies in force on September 30, 2026, data retrieved November 25, 2026, pages built November 25, 2026.</p>
 <h2>Check any number</h2>
 <p>Each page has links to the OpenFEMA API with the filter for that area, so you can download the same records and recompute the figures. Spotted a problem? <a href="../contact/?ref=methodology">Tell us</a>.</p>
 <p class="small">This product uses the Federal Emergency Management Agency’s OpenFEMA API, but is not endorsed by FEMA. The Federal Government or FEMA cannot vouch for the data or analyses derived from these data after the data have been retrieved from the Agency's website(s).</p>
@@ -98,7 +98,7 @@
 <h2>Explore</h2>
 <ul><li><a href="../states/">All states</a></li><li><a href="../flood-zones/">Cost by flood zone</a></li><li><a href="../disaster-relief/">Disaster declarations and IRS relief</a></li><li><a href="../california-home-insurance/">California FAIR Plan and non-renewals</a></li><li><a href="../methodology/">Methodology and sources</a></li><li><a href="../about/">About</a></li><li><a href="../contact/">Contact</a></li><li><a href="../privacy.html">Privacy</a></li></ul>
 </div></div>
-<p class="f-base">Data: FEMA OpenFEMA, policies in force on August 31, 2026, retrieved October 15, 2026 · Updated monthly.</p>
+<p class="f-base">Data: FEMA OpenFEMA, policies in force on September 30, 2026, retrieved November 25, 2026 · Updated monthly.</p>
 </div></footer>
 <script src="/assets/app.8d60ed9b1d.js" defer></script>
 <script>window.goatcounter={path:function(p){return location.host+p}}</script><script data-goatcounter="https://rete-siti.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>

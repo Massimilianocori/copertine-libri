@@ -87,6 +87,9 @@ Monetizzazione: spazio pubblicitario `<div class="ad-slot">` dopo la scheda prin
 1. Controllare la data dei dati FEMA: `python3 floodcost/raccolta/scarica.py --solo-meta` (stampa versione, `lastDataSetRefresh`, righe).
 2. In `raccolta/scarica.py` spostare `RIF_ATTUALE` all'ultimo giorno del mese completo prima dell'`asOfDate` di NfipPolicies
    (es. dati di inizio novembre → `2026-10-31`) e `RIF_PRECEDENTE` allo stesso giorno dell'anno prima.
+   **Edizione del 25/11/2026**: `lastDataSetRefresh` 15/11/2026, `asOfDate` 11/11/2026, ma l'ultima `policyEffectiveDate` nel dataset
+   era il 30/9/2026 (ottobre: 0 righe). Per questo `RIF_ATTUALE` è `2026-09-30`, non `2026-10-31`: prima di spostare la data
+   controllare che il mese scelto abbia polizze (richiesta con `$count=true` sul mese). Polizze in vigore: 3.349.543 (31/8: 3.367.522).
 3. Cancellare la cache vecchia e riscaricare: `rm -rf floodcost/cache/polizze floodcost/cache/sinistri && python3 floodcost/raccolta/scarica.py` (~20 min).
 4. `python3 floodcost/raccolta/aggrega.py` → `python3 floodcost/genera.py` → `python3 floodcost/verifica.py --browser`.
 5. `python3 floodcost/raccolta/controllo_api.py` e aggiornare la tabella dei controlli qui sotto.

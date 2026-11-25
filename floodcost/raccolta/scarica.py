@@ -35,8 +35,8 @@ CACHE = RADICE / "cache"
 API = "https://www.fema.gov/api/open"
 # Data di riferimento: polizze in vigore alla fine di questo giorno. Da spostare a ogni aggiornamento mensile
 # all'ultimo giorno del mese completo prima dell'asOfDate di NfipPolicies (vedi NOTE.md).
-RIF_ATTUALE = "2026-08-31"
-RIF_PRECEDENTE = "2025-08-31"
+RIF_ATTUALE = "2026-09-30"
+RIF_PRECEDENTE = "2025-09-30"
 VERSIONI_ATTESE = {"NfipPolicies": 3, "NfipClaims": 3, "NfipResidentialPenetrationRates": 1}
 CAMPI_POLIZZE = ["id", "propertyState", "reportedZipCode", "censusGeoid", "ratedFloodZone", "occupancyType", "policyCost",
                  "totalInsurancePremiumOfThePolicy", "totalBuildingInsuranceCoverage", "totalContentsInsuranceCoverage",

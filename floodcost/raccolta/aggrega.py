@@ -97,6 +97,18 @@ def leggi_polizze(rif):
     z = df["reportedZipCode"].str[:5]
     df["zip"] = z.where(z.str.fullmatch(r"\d{5}") & (z != "00000"), "")
     g = df["censusGeoid"].str.strip()
+    # Dall'aggiornamento FEMA del 15/11/2026 il censusGeoid delle polizze arriva senza lo zero iniziale negli Stati con codice
+    # FIPS sotto 10 (Alabama "10010208011" invece di "010010208011"): le contee uscivano come "10010". Lo zero si rimette solo
+    # quando il codice ha 11 cifre e, con lo zero davanti, comincia con il FIPS dello Stato della polizza (propertyState).
+    fips_st = {}
+    for riga in (CACHE / "contee-census.txt").read_text(encoding="utf-8").splitlines()[1:]:
+        c = riga.split("|")
+        if len(c) > 1:
+            fips_st[c[0]] = c[1]
+    con_zero = "0" + g
+    manca = g.str.fullmatch(r"\d{11}") & (con_zero.str[:2] == df["st"].map(fips_st)) & (g.str[:2] != df["st"].map(fips_st))
+    g = g.where(~manca, con_zero)
+    print(f"{rif}: zero iniziale rimesso a {int(manca.sum()):,} censusGeoid", file=sys.stderr)
     df["cty"] = g.str[:5].where(g.str.fullmatch(r"\d{11,12}"), "")
     df["comm"] = df["nfipCommunityName"].str.strip()
     print(f"{rif}: {righe:,} righe scaricate, {len(df):,} polizze in vigore con costo > 0", file=sys.stderr)
