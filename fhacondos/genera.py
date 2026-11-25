@@ -631,6 +631,12 @@ APP_JS = r"""
     var out=document.getElementById(inp.getAttribute('data-filtro')+'-n');rows.forEach(function(r){r._k=norm(r.textContent);});
     inp.addEventListener('input',function(){var v=norm(inp.value),n=0;rows.forEach(function(r){var ok=!v||r._k.indexOf(v)>=0;r.hidden=!ok;if(ok)n++;});
       if(out)out.textContent=v?(n+' of '+rows.length+' shown'):'';});});
+  // scadenze passate: la copia è mensile, quindi una scadenza può passare dopo lo scarico. Se la data è prima di oggi
+  // (data del lettore) la riga non resta "approved": dice che la scadenza è passata e rimanda a HUD (il rinnovo non lo conosciamo).
+  var og=new Date(),oggiN=og.getFullYear()*10000+(og.getMonth()+1)*100+og.getDate();
+  document.querySelectorAll('td[data-exp]').forEach(function(td){var e=+td.getAttribute('data-exp').replace(/-/g,'');if(!e||e>=oggiN)return;
+    var bd=td.querySelector('.badge');if(!bd){bd=document.createElement('span');td.appendChild(document.createTextNode(' '));td.appendChild(bd);}
+    bd.className='badge b-bad';bd.textContent='Past expiration date: check HUD';});
   var box=document.querySelector('[data-cerca]');if(!box)return;
   var inp=box.querySelector('input'),out=box.querySelector('.risultati'),D=null,carico=false,coda=null,rel=box.getAttribute('data-rel')||'';
   var MESI=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -639,7 +645,7 @@ APP_JS = r"""
     fetch(box.getAttribute('data-url')).then(function(r){if(!r.ok)throw new Error(r.status);return r.json();}).then(function(d){D=d;
       d.c.forEach(function(x){x.k=' '+norm(x[0])+' ';x.t=norm(d.t[x[1]][0]);x.ts=x.t+' '+d.t[x[1]][1].toLowerCase();});d.p.forEach(function(x){x.k=norm(x[1]);});if(coda)coda();})
     .catch(function(){out.innerHTML='<p class="errore">Could not load the list. Please try again.</p>';carico=false;});}
-  function stato(x){if(x[6]===0){return x[7]?'<span class="badge b-soon">Expires '+dt(x[5])+'</span>':'<span class="badge b-ok">Approved until '+dt(x[5])+'</span>';}
+  function stato(x){if(x[6]===0){if(x[5]&&x[5]<oggiN)return '<span class="badge b-bad">Past expiration '+dt(x[5])+': check HUD</span>';return x[7]?'<span class="badge b-soon">Expires '+dt(x[5])+'</span>':'<span class="badge b-ok">Approved until '+dt(x[5])+'</span>';}
     if(x[6]===1)return '<span class="badge b-bad">Expired '+dt(x[5])+'</span>';if(x[6]===3)return '<span class="badge b-soon">Approval ends '+dt(x[5])+'</span>';return '<span class="badge b-mute">Withdrawn '+dt(x[5])+'</span>';}
   function riga(x){var t=D.t[x[1]],p=D.p[x[4]];return '<a href="'+esc(rel+p[0])+'#c-'+esc(x[8])+'"><b>'+esc(x[0])+'</b>'+stato(x)+
     '<span class="dove">'+esc(t[0])+', '+esc(t[1])+(x[2]?' '+esc(x[2]):'')+' · HUD ID '+esc(x[8])+'</span></a>';}
@@ -774,7 +780,7 @@ def pagina(percorso, titolo_p, descrizione, corpo, briciole=None, indicizza=True
 <h2>Explore</h2>
 <ul><li><a href="{rel}states/">All states</a></li><li><a href="{rel}is-my-condo-fha-approved/">Is my condo FHA approved?</a></li><li><a href="{rel}condo-not-fha-approved/">If a condo is not approved</a></li><li><a href="{rel}fha-vs-va-vs-warrantable-condos/">FHA vs VA vs warrantable</a></li><li><a href="{rel}balcony-solar/">Balcony solar laws by state</a></li><li><a href="{rel}methodology/">Methodology and sources</a></li><li><a href="{rel}about/">About</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li></ul>
 </div></div>
-<p class="f-base">Data: HUD FHA Condominium Lookup, as of {data_lunga(ASOF)} · Updated weekly.</p>
+<p class="f-base">Data: HUD FHA Condominium Lookup, as of {data_lunga(ASOF)} · Updated monthly.</p>
 </div></footer>
 <script src="/assets/{JS_FILE}" defer></script>
 {SCRIPT_CONTATORE}
@@ -798,14 +804,14 @@ def banda(eyebrow, titolo_b, sub, extra="", corta=False):
 def avviso(luogo=""):
     return (f'<div class="nota">{ico("alert")}<p><strong>Check before you rely on this list.</strong> FHA approval can change at any time: '
             f'approvals expire, and HUD can withdraw them. Some approvals cover only certain phases or buildings of a project, '
-            f'and this page is a weekly copy of HUD\'s list, not the live record.</p>'
+            f'and this page is a monthly copy of HUD\'s list, not the live record.</p>'
             f'<p>Confirm the current status in the <a href="{HUD_LOOKUP}" rel="noopener">official HUD FHA Condominium Lookup</a> '
             f'and with your lender before you make an offer.</p></div>')
 
 
 def fonte_box():
     return f"""<section class="fonti-box"><h2>{ico("db")}Source</h2>
-<p>U.S. Department of Housing and Urban Development (HUD), <a href="{HUD_LOOKUP}" rel="noopener">FHA Condominium Lookup</a>: projects with status "Approved", plus projects whose approval expired or was withdrawn in the last {MESI_RECENTI} months. HUD data as of {data_lunga(ASOF)}; we re-download the full list every week (last download {data_lunga(ESTRATTO)}).</p>
+<p>U.S. Department of Housing and Urban Development (HUD), <a href="{HUD_LOOKUP}" rel="noopener">FHA Condominium Lookup</a>: projects with status "Approved", plus projects whose approval expired or was withdrawn in the last {MESI_RECENTI} months. HUD data as of {data_lunga(ASOF)}; we re-download the full list once a month (last download {data_lunga(ESTRATTO)}).</p>
 <p class="small">HUD's list is public-domain U.S. government data. We show the project name, address, county, unit count (when HUD states one), FHA concentration and dates. <a href="{{rel}}methodology/">How we build this list</a>.</p></section>"""
 
 
@@ -858,7 +864,7 @@ def tabella_approvati(lista, tid, mostra_citta=True, filtro=True):
         citta = f'<td class="cc">{h(c["citta"] or "–")}</td>' if mostra_citta else ""
         righe.append(f'<tr id="c-{h(c["id"])}"{cls}>{cella_nome(c)}{citta}<td class="cz">{h(c["cap"] or "–")}</td>'
                      f'<td class="n cu">{unita_txt(c)}</td><td class="n cf">{fha_txt(c)}</td>'
-                     f'<td class="ce">{data_tab(c["scadenza"])} {etichetta_scadenza(c)}</td></tr>')
+                     f'<td class="ce" data-exp="{h(c["scadenza"] or "")}">{data_tab(c["scadenza"])} {etichetta_scadenza(c)}</td></tr>')
     th_citta = '<th>City</th>' if mostra_citta else ""
     filt = ""
     if filtro and len(lista) > 12:
@@ -905,7 +911,7 @@ def riquadro_stats(lista):
 <div class="stat"><b>{intero(tot_u) if unita else "–"}</b><span>units listed by HUD{nota_u}</span></div>
 <div class="stat soon"><b>{intero(len(soon))}</b><span>approvals expire in the next {MESI_SCADENZA} months</span></div>
 <div class="stat"><b>{intero(len(R))}</b><span>expired or withdrawn in the last {MESI_RECENTI} months</span></div>
-<p class="asof"><span>{ico("calendar")} HUD data as of <b>{data_lunga(ASOF)}</b> · updated weekly</span><a href="{HUD_LOOKUP}" rel="noopener">Official HUD lookup {ico("ext")}</a></p>
+<p class="asof"><span>{ico("calendar")} HUD data as of <b>{data_lunga(ASOF)}</b> · updated monthly</span><a href="{HUD_LOOKUP}" rel="noopener">Official HUD lookup {ico("ext")}</a></p>
 </section>"""
 
 
@@ -1048,7 +1054,7 @@ def pagina_stato(st):
     corpo.append(fonte_box())
     sub = frase_apertura(n, h(luogo_txt), soon)
     testata = banda(f"FHA condo list · {nome}", f"FHA-approved condos in {nome}", sub,
-                    f'<ul class="trust"><li>{ico("db")}Copied from HUD\'s official list</li><li>{ico("calendar")}Updated weekly</li>'
+                    f'<ul class="trust"><li>{ico("db")}Copied from HUD\'s official list</li><li>{ico("calendar")}Updated monthly</li>'
                     f'<li>{ico("shield")}Free, no sign-up</li></ul>')
     titolo_p = f"FHA Approved Condos in {nome}: {intero(n)} on HUD's List ({mese_anno(ASOF)})"
     descr = (f"{'All ' if n > 1 else ''}{plur(n, 'FHA-approved condo project')} in {nome} from HUD's list, by county and city, with approval "
@@ -1133,7 +1139,7 @@ def pagina_luogo(tipo, st, k):
     if gemella:
         sub += f" This list also covers {h(gemella[0])}: HUD records almost the same projects for the city and the county."
     testata = banda(f"FHA condo list · {nome_st}", f"FHA-approved condos in {luogo_in}", sub,
-                    f'<ul class="trust"><li>{ico("db")}Copied from HUD\'s official list</li><li>{ico("calendar")}Updated weekly</li>'
+                    f'<ul class="trust"><li>{ico("db")}Copied from HUD\'s official list</li><li>{ico("calendar")}Updated monthly</li>'
                     f'<li>{ico("shield")}Free, no sign-up</li></ul>')
     progetti = plur(n, "Project")
     if gemella:
@@ -1209,7 +1215,7 @@ def home():
     citta_top = sorted(URL_CITTA, key=lambda k: -len(approvati(CITTA_C[k])))[:12]
     contee_top = sorted(URL_CONTEA, key=lambda k: -len(approvati(CONTEE_C[k])))[:12]
     tre = sum(1 for c in A if c["data_stato"] and c["scadenza"] and piu_mesi(date.fromisoformat(c["data_stato"]), 36).isoformat() == c["scadenza"])
-    testata = banda("HUD data · updated weekly", "Is the condo FHA approved?",
+    testata = banda("HUD data · updated monthly", "Is the condo FHA approved?",
                     f"Search HUD's list of <strong>{intero(len(A))} FHA-approved condo projects</strong> by name, city or ZIP code, and browse every state, county and city. "
                     f"Each listing shows when the approval expires.",
                     f'<ul class="trust"><li>{ico("db")}Copied from HUD\'s official lookup</li><li>{ico("calendar")}HUD data as of {data_lunga(ASOF)}</li>'
@@ -1220,7 +1226,7 @@ def home():
 <div class="stat"><b>{intero(unita)}</b><span>units in projects where HUD states a unit count</span></div>
 <div class="stat soon"><b>{intero(soon)}</b><span>approvals expire in the next {MESI_SCADENZA} months</span></div>
 <div class="stat"><b>{intero(R)}</b><span>expired or withdrawn in the last {MESI_RECENTI} months</span></div>
-<p class="asof"><span>{ico("calendar")} HUD data as of <b>{data_lunga(ASOF)}</b> · updated weekly</span><a href="{HUD_LOOKUP}" rel="noopener">Official HUD lookup {ico("ext")}</a></p>
+<p class="asof"><span>{ico("calendar")} HUD data as of <b>{data_lunga(ASOF)}</b> · updated monthly</span><a href="{HUD_LOOKUP}" rel="noopener">Official HUD lookup {ico("ext")}</a></p>
 </section>
 {avviso()}
 <h2>FHA-approved condos by state</h2>
@@ -1239,12 +1245,12 @@ def home():
 <a class="card guida" href="{{rel}}fha-vs-va-vs-warrantable-condos/"><b>FHA vs VA vs warrantable condos</b><span>Who approves what, where to check, and the rules behind each.</span><em>Compare {ico("arrow")}</em></a>
 </div>
 <h2>How this list works</h2>
-<div class="cols"><div class="card"><h3 style="margin-top:0">What it is</h3><p class="small">HUD keeps the official list of condominium projects approved for FHA-insured mortgages in its FHA Condominium Lookup, a search form that shows 25 results at a time. Every week we download the whole list for all {len(NOMI_STATI)} states and territories and publish it by place. {intero(tre)} of the {intero(len(A))} current approvals run exactly three years, the standard term set by HUD's rule.</p></div>
+<div class="cols"><div class="card"><h3 style="margin-top:0">What it is</h3><p class="small">HUD keeps the official list of condominium projects approved for FHA-insured mortgages in its FHA Condominium Lookup, a search form that shows 25 results at a time. Once a month we download the whole list for all {len(NOMI_STATI)} states and territories and publish it by place. {intero(tre)} of the {intero(len(A))} current approvals run exactly three years, the standard term set by HUD's rule.</p></div>
 <div class="card"><h3 style="margin-top:0">What it is not</h3><p class="small">It is not HUD's site and not a loan approval. An approval can expire, be renewed or be withdrawn after our last download, and some approvals cover only part of a project. Always confirm with the <a href="{HUD_LOOKUP}" rel="noopener">HUD lookup</a> and your lender. <a href="{{rel}}methodology/">Read the methodology</a>.</p></div></div>
 {fonte_box()}"""
     pagina("", f"FHA Approved Condos List: Search HUD's {intero(len(A))} Approved Projects",
            f"Is the condo FHA approved? Search HUD's list of {intero(len(A))} FHA-approved condo projects by name, city or ZIP code, "
-           f"with approval expiration dates. Updated weekly.", corpo, testata=testata)
+           f"with approval expiration dates. Updated monthly.", corpo, testata=testata)
 
 
 def pagina_stati():
@@ -1290,7 +1296,7 @@ def guida_controllo():
 <p class="lead" style="margin-top:24px"><strong>Short answer:</strong> for an FHA-insured mortgage, the condo unit generally has to be in a project approved by HUD or by a lender with HUD's DELRAP authority. The other routes are a single-unit approval or, for some detached or townhouse-style projects, the "site condominium" rules (<a href="{CFR_FHA}" rel="noopener">24 CFR 203.43b(c)</a>). Here is how to check a project in a few minutes.</p>
 <ol class="passi">
 <li><h3>Search the project on this site</h3><p>Type the condo name, the city or the ZIP code in the box above. HUD's lookup cuts project names at 30 characters and often abbreviates them (for example "CONDO" for "Condominium"), so one distinctive word or the ZIP code works best. Each result shows whether the approval is current and when it expires.</p></li>
-<li><h3>Confirm it on HUD's official lookup</h3><p>Open the <a href="{HUD_LOOKUP}" rel="noopener">HUD FHA Condominium Lookup</a>. Choose the state, then enter the city, the ZIP code or the start of the name, and leave the other fields empty. With "Status" set to "All" (the default), expired and withdrawn projects are shown too. Our list is a weekly copy, so HUD's page is the one that counts.</p></li>
+<li><h3>Confirm it on HUD's official lookup</h3><p>Open the <a href="{HUD_LOOKUP}" rel="noopener">HUD FHA Condominium Lookup</a>. Choose the state, then enter the city, the ZIP code or the start of the name, and leave the other fields empty. With "Status" set to "All" (the default), expired and withdrawn projects are shown too. Our list is a monthly copy, so HUD's page is the one that counts.</p></li>
 <li><h3>Read the status and the dates</h3><p>HUD's lookup shows a status for each project (Approved, Expired, Rejected or Withdrawn), a status date and an expiration date. Unless HUD specifies otherwise in writing, a project is approved for three years from the date it is placed on the list, and HUD can rescind an approval at any time if the project fails to comply with a requirement (<a href="{CFR_FHA}" rel="noopener">24 CFR 203.43b(h)(3)</a>). In HUD's data as of {data_lunga(ASOF)}, {intero(S["tre"])} of the {intero(S["A"])} current approvals run exactly three years.</p></li>
 <li><h3>Check which phases or buildings are covered</h3><p>The "Composition of Project" column in HUD's lookup describes what is approved, for example "PHASES 1-8" or "BLDG C, D, E". If the unit you want is in a building or phase that is not listed, the project approval may not cover it. We do not copy that column, because it is free text; read it on HUD's page.</p></li>
 <li><h3>Look at the FHA concentration</h3><p>HUD sets a maximum share of units in a project that can have FHA-insured mortgages; under the rule, the limit must be between 25% and 75%, and HUD fixes the exact figure by notice. HUD may stop issuing new FHA case numbers in a project that is over the limit (<a href="{CFR_FHA}" rel="noopener">24 CFR 203.43b(d)(6)(viii)</a>). The lookup shows an FHA concentration figure for each project; ask your lender how close the project is to the limit.</p></li>
@@ -1366,7 +1372,7 @@ def guida_confronto():
 <div class="tab scorre"><table class="cmp"><thead><tr><th></th><th>FHA-approved</th><th>VA-approved</th><th>"Warrantable" (conventional)</th></tr></thead><tbody>
 <tr><td>Loan</td><td>FHA-insured mortgage</td><td>VA-guaranteed loan for eligible veterans and service members</td><td>Conventional loan, for example one sold to Fannie Mae</td></tr>
 <tr><td>Who approves the project</td><td>HUD, or a lender with DELRAP authority (<a href="{CFR_FHA}" rel="noopener">24 CFR 203.43b(c)</a>)</td><td>VA (<a href="{USC_VA}" rel="noopener">38 U.S.C. 3710(a)(6)</a>)</td><td>The lender reviews the project against the investor's standards (<a href="{FANNIE_PROJECT}" rel="noopener">Fannie Mae B4-2.1-01</a>)</td></tr>
-<tr><td>Where to check</td><td><a href="{HUD_LOOKUP}" rel="noopener">HUD FHA Condominium Lookup</a> (copied weekly on this site)</td><td><a href="{VA_CONDO}" rel="noopener">VA condo report on the LGY Hub</a>, or ask your lender</td><td>Ask the lender</td></tr>
+<tr><td>Where to check</td><td><a href="{HUD_LOOKUP}" rel="noopener">HUD FHA Condominium Lookup</a> (copied monthly on this site)</td><td><a href="{VA_CONDO}" rel="noopener">VA condo report on the LGY Hub</a>, or ask your lender</td><td>Ask the lender</td></tr>
 <tr><td>Approval term</td><td>3 years from listing, unless HUD specifies otherwise (<a href="{CFR_FHA}" rel="noopener">203.43b(h)(3)</a>)</td><td>Ask VA or your lender</td><td>Set by the investor's rules</td></tr>
 <tr><td>One unit in an unapproved project</td><td>Possible with a single-unit approval, within limits (<a href="{CFR_FHA}" rel="noopener">203.43b(i)</a>)</td><td>Ask VA or your lender</td><td>Depends on the investor's rules</td></tr>
 <tr><td>Rules</td><td><a href="{CFR_FHA}" rel="noopener">24 CFR 203.43b</a></td><td><a href="{USC_VA}" rel="noopener">38 U.S.C. 3710</a>; <a href="{CFR_VA}" rel="noopener">38 CFR 36.4360</a> and following</td><td><a href="{FANNIE_PROJECT}" rel="noopener">Fannie Mae Selling Guide, chapter B4-2</a></td></tr>
@@ -1375,7 +1381,7 @@ def guida_confronto():
 <h2>Three separate checks</h2>
 <p>FHA, VA and conventional loans each have their own project rules, written in different places (see the table), and HUD's FHA list does not cover VA or conventional loans. A project can be on HUD's FHA list and not approved by VA, or the other way around. Check the list that matches the loan you plan to use.</p>
 <h2>FHA approval</h2>
-<p>For an FHA-insured mortgage, the unit must be in a project approved by HUD or by a DELRAP lender, or qualify as a site condominium or through a single-unit approval (<a href="{CFR_FHA}" rel="noopener">24 CFR 203.43b(c)</a>). Approved projects are placed on HUD's public list, which this site copies every week with the expiration date of each approval. See <a href="{{rel}}is-my-condo-fha-approved/">how to check a project</a>.</p>
+<p>For an FHA-insured mortgage, the unit must be in a project approved by HUD or by a DELRAP lender, or qualify as a site condominium or through a single-unit approval (<a href="{CFR_FHA}" rel="noopener">24 CFR 203.43b(c)</a>). Approved projects are placed on HUD's public list, which this site copies every month with the expiration date of each approval. See <a href="{{rel}}is-my-condo-fha-approved/">how to check a project</a>.</p>
 <h2>VA approval</h2>
 <p>The law allows a VA-guaranteed loan to buy a unit in a condominium project only if the project is approved by VA under criteria set in its regulations (<a href="{USC_VA}" rel="noopener">38 U.S.C. 3710(a)(6)</a>; VA's condominium rules start at <a href="{CFR_VA}" rel="noopener">38 CFR 36.4360</a>). VA.gov lists "buy a condo in a VA-approved project" among the uses of a VA-backed purchase loan (<a href="{VA_PURCHASE}" rel="noopener">VA.gov</a>). VA's condo report is on its <a href="{VA_CONDO}" rel="noopener">LGY Hub</a>; your lender can also check it.</p>
 <h2>"Warrantable" condos</h2>
@@ -1658,10 +1664,10 @@ def metodologia():
 <h2 style="margin-top:28px">Source</h2>
 <p>Everything on this site comes from the U.S. Department of Housing and Urban Development's <a href="{HUD_LOOKUP}" rel="noopener">FHA Condominium Lookup</a>, the official search of condominium projects approved for FHA-insured mortgages. HUD's page states the date of its data ("as of"); the current edition is <strong>{data_lunga(ASOF)}</strong>.</p>
 <h2>How we download it</h2>
-<ul><li>Every week we run HUD's search for each of the {len(NOMI_STATI)} states and territories in its menu, with the search type "Project" (one row per condominium project; the separate rows for phases, which HUD calls submissions, are not repeated).</li>
+<ul><li>Once a month we run HUD's search for each of the {len(NOMI_STATI)} states and territories in its menu, with the search type "Project" (one row per condominium project; the separate rows for phases, which HUD calls submissions, are not repeated).</li>
 <li>Three searches per state: status "Approved"; status "Expired" with an expiration date in the last {MESI_RECENTI} months; status "Withdrawn" with a status date in the last {MESI_RECENTI} months.</li>
 <li>HUD shows 25 results per page. We read every page, one request at a time, a second or two apart, and check that the rows we read match the total HUD reports for each search. If they do not match, the update stops and the site is not changed.</li>
-<li>Each week we also look up a random sample of 20 projects again, one by one, on HUD's lookup and compare every field we publish.</li></ul>
+<li>After each download we also look up a random sample of 20 projects again, one by one, on HUD's lookup and compare every field we publish.</li></ul>
 <h2>What we publish</h2>
 <ul><li><strong>Project name, street, city, ZIP code and county</strong>, as HUD lists them (we convert HUD's capital letters to normal capitalization).</li>
 <li><strong>HUD condo ID</strong>, to look the project up on HUD's site.</li>
@@ -1678,7 +1684,7 @@ def metodologia():
 <p>Number of projects returned by HUD's search, by state; the rows we read are identical. Total: {intero(sum(cm["A"].values()))} approved, {intero(sum(cm["E"].values()))} expired and {intero(sum(cm["W"].values()))} withdrawn in the last {MESI_RECENTI} months{f" (we removed {META['doppi_tolti']} projects that appear both as approved and as expired or withdrawn, keeping the approved row)" if META.get("doppi_tolti") else ""}.</p>
 <div class="tab scorre"><table class="pl"><thead><tr><th>State or territory</th><th class="n">Approved</th><th class="n">Expired (24 months)</th><th class="n">Withdrawn (24 months)</th></tr></thead><tbody>{righe}</tbody></table></div>
 <h2>Limits</h2>
-<ul><li>HUD updates its list every day; we update weekly. A project can be approved, renewed or withdrawn after our last download.</li>
+<ul><li>HUD updates its list every day; we update once a month. A project can be approved, renewed or withdrawn after our last download.</li>
 <li>Some approvals cover only certain phases or buildings. The list shows the project, not each unit.</li>
 <li>Names and addresses are HUD's, including its abbreviations and occasional typos.</li>
 <li>This is not a loan approval. The lender checks the project and the loan.</li></ul>
@@ -1687,17 +1693,17 @@ def metodologia():
 {fonte_box()}"""
     testata = banda("Methodology", "How we build the list", f"Where the data comes from, how we check it and what we leave out. HUD data as of {data_lunga(ASOF)}.", corta=True)
     pagina("methodology/", f"Methodology and Sources | {NOME}",
-           "How we copy HUD's FHA Condominium Lookup every week, check it against HUD's totals, read unit counts and choose which places get a page.",
+           "How we copy HUD's FHA Condominium Lookup every month, check it against HUD's totals, read unit counts and choose which places get a page.",
            corpo, briciole=[("Methodology", "methodology/")], testata=testata)
 
 
 def about():
     corpo = f"""<div class="testo">
 <p class="lead" style="margin-top:28px">{NOME} answers one question that decides many condo purchases: <em>can I buy this condo with an FHA loan?</em></p>
-<p>HUD publishes the official answer in its FHA Condominium Lookup, a search form that shows 25 results at a time and only after you submit a search. We copy the whole list every week and publish it by state, county and city, with the expiration date of each approval, the approvals that expire soon and the ones that expired recently.</p>
+<p>HUD publishes the official answer in its FHA Condominium Lookup, a search form that shows 25 results at a time and only after you submit a search. We copy the whole list every month and publish it by state, county and city, with the expiration date of each approval, the approvals that expire soon and the ones that expired recently.</p>
 <h2>Rules we follow</h2>
 <ul><li>Every listing comes from HUD's data, with the HUD date on every page and a link to the official lookup.</li>
-<li>We check our copy against HUD's totals every week and re-check a random sample of projects one by one.</li>
+<li>We check our copy against HUD's totals at every download and re-check a random sample of projects one by one.</li>
 <li>We publish only information about condominium projects: names, addresses, counts and dates. No personal data.</li>
 <li>No advice: this is information to check with HUD and your lender, not a loan approval.</li></ul>
 <h2>Who we are</h2>

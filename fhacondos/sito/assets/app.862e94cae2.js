@@ -19,6 +19,12 @@
     var out=document.getElementById(inp.getAttribute('data-filtro')+'-n');rows.forEach(function(r){r._k=norm(r.textContent);});
     inp.addEventListener('input',function(){var v=norm(inp.value),n=0;rows.forEach(function(r){var ok=!v||r._k.indexOf(v)>=0;r.hidden=!ok;if(ok)n++;});
       if(out)out.textContent=v?(n+' of '+rows.length+' shown'):'';});});
+  // scadenze passate: la copia è mensile, quindi una scadenza può passare dopo lo scarico. Se la data è prima di oggi
+  // (data del lettore) la riga non resta "approved": dice che la scadenza è passata e rimanda a HUD (il rinnovo non lo conosciamo).
+  var og=new Date(),oggiN=og.getFullYear()*10000+(og.getMonth()+1)*100+og.getDate();
+  document.querySelectorAll('td[data-exp]').forEach(function(td){var e=+td.getAttribute('data-exp').replace(/-/g,'');if(!e||e>=oggiN)return;
+    var bd=td.querySelector('.badge');if(!bd){bd=document.createElement('span');td.appendChild(document.createTextNode(' '));td.appendChild(bd);}
+    bd.className='badge b-bad';bd.textContent='Past expiration date: check HUD';});
   var box=document.querySelector('[data-cerca]');if(!box)return;
   var inp=box.querySelector('input'),out=box.querySelector('.risultati'),D=null,carico=false,coda=null,rel=box.getAttribute('data-rel')||'';
   var MESI=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -27,7 +33,7 @@
     fetch(box.getAttribute('data-url')).then(function(r){if(!r.ok)throw new Error(r.status);return r.json();}).then(function(d){D=d;
       d.c.forEach(function(x){x.k=' '+norm(x[0])+' ';x.t=norm(d.t[x[1]][0]);x.ts=x.t+' '+d.t[x[1]][1].toLowerCase();});d.p.forEach(function(x){x.k=norm(x[1]);});if(coda)coda();})
     .catch(function(){out.innerHTML='<p class="errore">Could not load the list. Please try again.</p>';carico=false;});}
-  function stato(x){if(x[6]===0){return x[7]?'<span class="badge b-soon">Expires '+dt(x[5])+'</span>':'<span class="badge b-ok">Approved until '+dt(x[5])+'</span>';}
+  function stato(x){if(x[6]===0){if(x[5]&&x[5]<oggiN)return '<span class="badge b-bad">Past expiration '+dt(x[5])+': check HUD</span>';return x[7]?'<span class="badge b-soon">Expires '+dt(x[5])+'</span>':'<span class="badge b-ok">Approved until '+dt(x[5])+'</span>';}
     if(x[6]===1)return '<span class="badge b-bad">Expired '+dt(x[5])+'</span>';if(x[6]===3)return '<span class="badge b-soon">Approval ends '+dt(x[5])+'</span>';return '<span class="badge b-mute">Withdrawn '+dt(x[5])+'</span>';}
   function riga(x){var t=D.t[x[1]],p=D.p[x[4]];return '<a href="'+esc(rel+p[0])+'#c-'+esc(x[8])+'"><b>'+esc(x[0])+'</b>'+stato(x)+
     '<span class="dove">'+esc(t[0])+', '+esc(t[1])+(x[2]?' '+esc(x[2]):'')+' · HUD ID '+esc(x[8])+'</span></a>';}
