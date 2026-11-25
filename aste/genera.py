@@ -720,7 +720,7 @@ def pagina(percorso, titolo, descrizione, corpo, tipo, briciole=None, indicizza=
 <h2>Esplora</h2>
 <ul><li><a href="{rel}citta/">Tutte le città</a></li><li><a href="{rel}auto-all-asta/">Auto all'asta</a></li><li><a href="{rel}guide/">Guide</a></li><li><a href="{rel}metodologia/">Metodo e fonti</a></li><li><a href="{rel}chi-siamo/">Chi siamo</a></li><li><a href="{rel}contatti/">Contatti</a></li><li><a href="{rel}privacy.html">Privacy</a></li></ul>
 </div></div>
-<p class="f-base">Aste lette sul PVP il <span data-letto>{letto_testo(LETTO)}</span> · Prezzi e date si aggiornano ogni giorno, le pagine ogni settimana.</p>
+<p class="f-base">Aste lette sul PVP il <span data-letto>{letto_testo(LETTO)}</span> · Prezzi e date si aggiornano ogni giorno, le pagine due volte al mese.</p>
 </div></footer>
 <script src="/assets/{JS_FILE}" defer></script>
 {SCRIPT_CONTATORE}
@@ -1307,7 +1307,7 @@ def metodologia():
 <li>Quando nello stesso lotto ci sono un box o una cantina, il loro prezzo è compreso: il €/m² dell'abitazione risulta un po' più alto (lo sconto è prudente).</li>
 <li>Il PVP non dice in modo affidabile a quale tentativo d'asta siamo: lo trovi nell'avviso di vendita.</li></ul>
 <h2>Aggiornamenti</h2>
-<p>Ogni giorno rileggiamo prezzi, date ed esiti e scriviamo un piccolo file di dati che le pagine leggono quando le apri: i numeri si aggiornano e le aste già svolte o tolte dal PVP spariscono, anche se la pagina è stata pubblicata giorni prima. Le pagine (nuove aste, nuove città) si rigenerano una volta a settimana. Le quotazioni OMI cambiano a ogni semestre.</p>
+<p>Ogni giorno rileggiamo prezzi, date ed esiti e scriviamo un piccolo file di dati che le pagine leggono quando le apri: i numeri si aggiornano e le aste già svolte o tolte dal PVP spariscono, anche se la pagina è stata pubblicata giorni prima. Le pagine (nuove aste, nuove città) si rigenerano due volte al mese, il primo e il terzo lunedì: un'asta pubblicata sul PVP dopo l'ultima rigenerazione compare qui alla successiva. Le quotazioni OMI cambiano a ogni semestre.</p>
 <h2>Parole che non usiamo</h2>
 <p>Non diciamo mai che un lotto è un «affare» o un'«occasione»: scriviamo i fatti (prezzo, metri quadri, media di zona, occupazione) e il link alla scheda ufficiale. Nessun consiglio d'acquisto personalizzato.</p>
 <h2>Licenze e citazioni</h2>
