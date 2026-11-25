@@ -1,8 +1,8 @@
 """Decide se rigenerare e ripubblicare il sito (ogni pubblicazione Netlify costa 15 crediti su 300 al mese,
 condivisi da tutti i siti dell'account: se finiscono, TUTTI i siti vanno offline fino al mese dopo).
 
-Regole: al massimo MAX_MESE pubblicazioni nel mese solare; una ogni 3 giorni per tenere fresche le pagine;
-una in più (dopo almeno 1 giorno dall'ultima) se cambia uno sciopero importante: nazionale o in una delle
+Regole: al massimo MAX_MESE pubblicazioni nel mese solare; una ogni 5 giorni per tenere fresche le pagine;
+una in più (dopo almeno 2 giorni dall'ultima) se cambia uno sciopero importante: nazionale o in una delle
 città/aeroporti del sito, per il trasporto passeggeri, nei prossimi 21 giorni. Tra una pubblicazione e l'altra le
 pagine si aggiornano nel browser da dati/vista.json (pubblicato su GitHub, non su Netlify).
 
@@ -17,7 +17,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 DATI = Path(__file__).resolve().parent.parent / "dati"
-MAX_MESE = 12  # 25/11/2026: Netlify Personal (1.000 crediti al mese), prima 6 con 300 crediti
+MAX_MESE = 8  # 26/11/2026: 8 al mese (piano crediti: 34 visite/settimana, incasso 0 finché il sito è su netlify.app)
 PASSEGGERI = {"trains", "flights", "local-transport", "ferries", "taxis"}
 
 
@@ -45,9 +45,9 @@ def main():
         motivo = "forzata"
     elif len(nel_mese) >= MAX_MESE:
         motivo = ""
-    elif giorni >= 3:
-        motivo = "ogni 3 giorni"
-    elif giorni >= 1 and imp != stato.get("impronta"):
+    elif giorni >= 5:
+        motivo = "ogni 5 giorni"
+    elif giorni >= 2 and imp != stato.get("impronta"):
         motivo = "sciopero importante cambiato"
     if motivo and (ultima != oggi or motivo == "forzata"):
         stato["pubblicazioni"].append(oggi.isoformat())
