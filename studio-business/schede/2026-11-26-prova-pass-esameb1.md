@@ -15,3 +15,7 @@ Deviazioni scritte dall'agente che ha costruito (26/11/2026, niente salvato né 
 - privacy.html: una frase in più sul riquadro «Pass EsameB1» (email usata solo per avvisare quando il Pass è pronto, poi cancellata; lasciare l'email non è un acquisto). Senza, il modulo avrebbe uno scopo non scritto nell'informativa.
 - Nelle pagine /esempi/ il riquadro dice «6 prove complete di livello B1 come la nostra prova gratis» (invece di «come questa»): lì non c'è una prova, e 5 pagine sono di altri livelli (A1, A2, B2, C1, C2).
 - Il riquadro del Pass resta fuori dall'impronta del lastmod, come i riquadri del libro: cambiano data solo privacy.html (25/11 → 26/11) e la pagina nuova; home ed /esempi/ erano già al 26/11.
+
+## Chiusura della costruzione (26/11)
+- [x] revisione 8,2 → 9 (24 chiavi corrette, testi onesti) · [x] pubblicato 8df8cd6b2 · [x] online: pagina 200, evento GoatCounter arrivato (1 clic di prova nostro da sottrarre), riquadro solo su pagine B1, IndexNow ok, salute.py 0 errori
+- [ ] misura ogni lunedì; esito il 2/1/2027
