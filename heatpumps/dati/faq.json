@@ -20,7 +20,7 @@
     "bus_xlsx"
    ],
    "q": "Who can get the £9,000 heat pump grant?",
-   "a": "Ofgem lists £9,000 off an air-to-water or ground source heat pump for eligible off-gas-grid properties, available from 21 July 2026 until 31 March 2027. GOV.UK describes it as an extra £1,500 on top of the £7,500 when your property is heated by oil or LPG and has no mains gas connection. DESNZ counted {n9000} applications for the £9,000 grant from July to the end of September 2026, {quota9000} of all applications in those months."
+   "a": "Ofgem lists £9,000 off an air-to-water or ground source heat pump for eligible off-gas-grid properties, available from 21 July 2026 until 31 March 2027. GOV.UK describes it as an extra £1,500 on top of the £7,500 when your property is heated by oil or LPG and has no mains gas connection. DESNZ counted {n9000} applications for the £9,000 grant from July to the end of {fine9000}, {quota9000} of all applications in those months."
   },
   {
    "pagina": "home",

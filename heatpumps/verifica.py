@@ -6,6 +6,8 @@ Indipendenza: le cifre attese si ricalcolano qui leggendo direttamente gli xlsx 
 proprio, non con estrai.py né con dati/*.json), poi si cercano nelle pagine generate. L'impronta SHA-256 di ogni xlsx deve
 essere quella scritta in dati/fonti.json.
 """
+from collections import Counter
+from datetime import date
 from decimal import Decimal, ROUND_HALF_UP
 import hashlib
 import json
@@ -50,6 +52,9 @@ def testo(html_):
 
 def _arr(x, dec=0):
     # arrotondamento aritmetico sul valore come è scritto nel file (148.95 -> 149.0)
+    if isinstance(x, bool) or not isinstance(x, (int, float)):
+        # una cella vuota, "N/A", "#", "[c1]" non è un numero: chi chiama deve deciderlo prima (vedi _cifra), mai arrotondarla
+        raise TypeError(f"valore non numerico {x!r} passato a un arrotondamento: colonna spostata o cella oscurata non gestita")
     return Decimal(repr(x)).quantize(Decimal(1).scaleb(-dec), rounding=ROUND_HALF_UP)
 
 
@@ -145,6 +150,15 @@ def ricalcola():
     X["m12_dom"] = {r[1]: r[col2] for r in rm2 if r[0] == "Voucher applications received"}
     t11 = {r[0]: r for r in dopo(righe(wb["1.1"]), "Status")[1] if r[0]}
     X["pagati_tot"] = t11["Redemptions paid"][6]
+    X["pagati_pompe"] = t11["Redemptions paid"][6] - t11["Redemptions paid"][5]  # tutte le tecnologie meno le caldaie a biomassa, al mese della copertina
+    # periodi: quello mensile (copertina) e quello delle tabelle per ente locale (titolo di Q1.2, aggiornate ogni tre mesi)
+    cop = " ".join(str(c) for r in righe(wb["Cover Sheet"]) for c in r if c)
+    X["periodo"] = re.search(r"England and Wales: ([A-Z][a-z]+ \d{4})", cop).group(1)
+    X["periodo_la"] = re.search(r"May 2022 to ([A-Z][a-z]+ \d{4})", str(righe(wb["Q1.2"])[0][0])).group(1)
+    if X["periodo"][:3] + X["periodo"][-5:] != X["mese"]:
+        errore(f"bus.xlsx: la copertina dice {X['periodo']} ma l'ultima colonna di M1.1 è {X['mese']}")
+    com = " ".join(str(c) for r in righe(wb["Commentary"]) for c in r if c)
+    X["p9000"] = re.search(r"([\d,]+) applications for the £9,000 grant were received\. These applications were \d+% of the ([\d,]+) total applications received in (July to [A-Z][a-z]+ 2026)", com)
     ha, ra = dopo(righe(wb["A1.3A"]), "Technology type")
     X["fasce"] = {(str(r[0]).strip(), str(r[1]).strip()): r[8] for r in ra if r[0] and r[1]}
     X["fasce_n"] = {(str(r[0]).strip(), str(r[1]).strip()): r[9] for r in ra if r[0] and r[1]}
@@ -207,18 +221,24 @@ def controlla_cifre(X):
     lq = X["costi"][("Air-to-Water Heat Pump", "Lower quartile cost of installation (£)")]
     uq = X["costi"][("Air-to-Water Heat Pump", "Upper quartile cost of installation (£)")]
     gmed = X["costi"][("Ground Source Heat Pump", "Median cost of installation (£)")]
-    attese = {"index.html": [gbp(med), gbp(med - 7500), gbp(med - 9000), gbp(lq - 7500), gbp(uq - 7500), f0(X["cum"]["K04000001"]),
+    attese = {"index.html": [gbp(med), gbp(med - 7500), gbp(med - 9000), gbp(lq - 7500), gbp(uq - 7500), f0(X["pagati_pompe"]),
+                             f"May 2022 to {X['periodo']}", f"applications in {X['periodo']}",
                              f0(X["m11"][("Voucher applications received", "All technology types")][X["m11_col"]]), f0(X["pagati_tot"])],
               "heat-pump-cost/index.html": [gbp(med), gbp(lq), gbp(uq), gbp(gmed), gbp(med - 7500),
                                             gbp(X["fasce"][("Air-to-Water Heat Pumps", "All")]), gbp(X["fasce"][("Ground Source Heat Pumps", "All")])],
               "solar-panels/index.html": [gbp(X["sol_somm"][1]), gbp(X["sol_somm"][5]), f0(X["et"]["TOTAL"]["n"][0]),
                                           f0(X["et"]["TOTAL"]["n"][0] - X["et"]["TOTAL"]["n"][1])]}
+    if X["p9000"]:  # domande da £9,000: numero, totale e periodo come nel commento DESNZ di questa uscita (non di quella prima)
+        attese["index.html"].append(f"From {X['p9000'].group(3)}, {X['p9000'].group(1)} of the {X['p9000'].group(2)} applications")
+    else:
+        errore("bus.xlsx Commentary: frase sulle domande da £9,000 non trovata")
     for p, valori in attese.items():
         for v in valori:
             controllate += 1
             if v not in TESTI.get(p, ""):
                 errore(f"{p}: cifra attesa {v} non trovata")
     # aree (council e contee)
+    stesso_periodo = X["periodo"] == X["periodo_la"]
     pagine_area = {m.group(1): k for k, v in PAGINE.items() for m in [re.search(r"<!-- area: (\w+) -->", v)] if m}
     attesi_codici = [c for c, (reg, liv) in X["livello"].items() if (liv == "D" or c not in X["figli"]) or c.startswith("E10")]
     for c in attesi_codici:
@@ -240,7 +260,15 @@ def controlla_cifre(X):
                 att += [f0(sum(d["s25"] for d in ds)), f1(cum / fam * 1000)]
         elif sol:
             att += [f0(sol["s25"]), f1(sol["mw25"]) + " MW", f1(cum / sol["fam"] * 1000), f0(sol["s25"] / sol["fam"] * 1000)]
-        att += [gbp(med), gbp(med - 7500)]
+        att += [gbp(med), gbp(med - 7500), f"May 2022 to {X['periodo_la']}", f"by the end of {X['periodo_la']}"]
+        if all(num(v) for v in anni):
+            att.append(f"From April to {X['periodo_la']}")
+        # le cifre per ente locale sono al periodo di Q1.2: la pagina non deve attribuirle al mese della copertina
+        if not stesso_periodo:
+            for sbagliata in (f"May 2022 to {X['periodo']}", f"by the end of {X['periodo']}", f"April to {X['periodo']}"):
+                controllate += 1
+                if sbagliata in t:
+                    errore(f"{p} ({c}): cifre di Q1.2 (a {X['periodo_la']}) presentate come «{sbagliata}»")
         for v in att:
             controllate += 1
             if v not in t:
@@ -259,7 +287,11 @@ def controlla_cifre(X):
             errore(f"regione {r}: nessuna pagina")
             continue
         t = TESTI[p]
-        att = [f0(X["cum"][r]), f1(X["reg_10k"][r]), f0(X["reg_tot"][r][25]), f0(X["m12_dom"][r])] + [f0(v) for v in X["anni"][r]]
+        pompe = X["reg_tot"][r][25] - X["reg_tot"][r][24]  # 1.2A: pagati, tutte le tecnologie meno biomassa, al mese della copertina
+        if stesso_periodo and pompe != X["cum"][r]:
+            errore(f"regione {r}: 1.2A senza biomassa ({pompe}) diverso da Q1.2 ({X['cum'][r]}) nello stesso periodo")
+        att = [f0(pompe), f1(X["reg_10k"][r]), f0(X["reg_tot"][r][25]), f0(X["m12_dom"][r])] + [f0(v) for v in X["anni"][r]]
+        att += [f0(pompe - sum(X["anni"][r])), f"May 2022 to {X['periodo']}", f"May 2022 to {X['periodo_la']}"]
         for v in att:
             controllate += 1
             if v not in t:
@@ -295,6 +327,27 @@ def _cerca_riga(righe, col, valore):
     return None
 
 
+def _col(intest, schema, senza=None, dove=""):
+    """Indice dell'unica colonna con intestazione che corrisponde a `schema`: le colonne dei file DESNZ si spostano tra un'uscita e l'altra."""
+    k = [i for i, x in enumerate(intest) if x is not None and re.search(schema, re.sub(r"\s+", " ", str(x)), re.I)
+         and not (senza and re.search(senza, str(x), re.I))]
+    if len(k) != 1:
+        raise SystemExit(f"verifica: {dove}: colonna «{schema}» trovata {len(k)} volte nelle intestazioni {[x for x in intest if x]}")
+    return k[0]
+
+
+def _cifra(v, dove, formato):
+    """Cifra attesa nella pagina. Numero -> formattato. Cella oscurata dichiarata dal file ("N/A", "#", "^") -> None: nessuna cifra
+    da cercare, e un avviso. Cella vuota o altro testo -> errore (il dato manca o la colonna è sbagliata), mai un valore inventato."""
+    if num(v) and not isinstance(v, bool):
+        return formato(v)
+    if isinstance(v, str) and v.strip() in ("N/A", "#", "^"):
+        avviso(f"{dove}: cella oscurata nel file ufficiale («{v.strip()}»), nessuna cifra da controllare")
+        return None
+    errore(f"{dove}: cella non numerica {v!r} dove la pagina stampa una cifra")
+    return None
+
+
 def testo_xlsx(nome):
     wb = openpyxl.load_workbook(GREZZI / nome, read_only=True, data_only=True)
     return re.sub(r"\s+", " ", " ".join(str(c) for ws in wb.worksheets for r in ws.iter_rows(values_only=True) for c in r if c is not None)).replace("’", "'")
@@ -320,19 +373,30 @@ def controlla_schemi():
         attese.setdefault(f"heat-pump-grants/{slug_r}/index.html", []).extend([f0(reg[c][4]), f0(reg[c][2]), f0(reg[c][8])])
     # Warm Homes: Local Grant: T1 (totali), T2 (tipi e costo medio), T3 (regioni)
     wb = openpyxl.load_workbook(GREZZI / "whlg.xlsx", read_only=True, data_only=True)
-    t1 = _cerca_riga(_celle(wb["T1"]), 0, "Total")
+    # le colonne si trovano dalle intestazioni: nell'uscita di novembre 2026 il costo medio è passato dalla 7ª alla 5ª colonna
+    # e l'ultima cella della riga Total è una stringa vuota (era quella che faceva cadere la quantize)
+    c1 = _celle(wb["T1"])
+    h1 = _cerca_riga(c1, 0, "First installation month")
+    t1 = _cerca_riga(c1, 0, "Total")
+    a_mis, a_fam = _col(h1, r"measures installed", r"household|homes|percentage", "whlg T1"), _col(h1, r"(households|homes) upgraded", r"percentage", "whlg T1")
     t2 = _celle(wb["T2"])
-    w = [f0(t1[1]), f0(t1[2])]
+    h2 = _cerca_riga(t2, 0, "Measure group")
+    b_tipo, b_mis = _col(h2, r"^measure type", None, "whlg T2"), _col(h2, r"measures installed", r"homes|household|percentage|cost", "whlg T2")
+    b_costo = _col(h2, r"average \(mean\) total measure cost", None, "whlg T2")
+    w = [_cifra(t1[a_mis], "whlg T1 Total misure", f0), _cifra(t1[a_fam], "whlg T1 Total famiglie", f0)]
     for k in ("Solar PV", "Batteries", "Loft Insulation", "Air Source Heat Pump", "Cavity Wall Insulation", "Electric Storage Heating"):
-        r = _cerca_riga(t2, 1, k)
-        w += [f0(r[2]), gbp(r[6])]
-    tot_costo = _cerca_riga(t2, 0, "Total")[6]
-    w.append(gbp(tot_costo))
-    for r in _celle(wb["T3"]):
+        r = _cerca_riga(t2, b_tipo, k)
+        w += [_cifra(r[b_mis], f"whlg T2 {k} misure", f0), _cifra(r[b_costo], f"whlg T2 {k} costo", gbp)]
+    w.append(_cifra(_cerca_riga(t2, 0, "Total")[b_costo], "whlg T2 Total costo", gbp))
+    t3 = _celle(wb["T3"])
+    h3 = _cerca_riga(t3, 0, "Geographic region code")
+    d_fam, d_mis = _col(h3, r"^total households with at least one", r"%", "whlg T3"), _col(h3, r"^total .*measures installed", r"%|households", "whlg T3")
+    d_per = _col(h3, r"^average measures installed per household", None, "whlg T3")
+    for r in t3:
         if r[0] and re.match(r"^E12\d{6}$", str(r[0])):
-            w += [f0(r[2]), f0(r[6]), f1(r[4])]
+            w += [_cifra(r[d_fam], f"whlg T3 {r[1]}", f0), _cifra(r[d_mis], f"whlg T3 {r[1]}", f0), _cifra(r[d_per], f"whlg T3 {r[1]}", f1)]
             if r[0] == "E12000001":
-                attese["heat-pump-grants/north-east/index.html"].append(f0(r[2]))
+                attese["heat-pump-grants/north-east/index.html"].append(_cifra(r[d_fam], "whlg T3 North East", f0))
     ab = testo_xlsx("whlg.xlsx")
     for frase in ("The Government has published its Warm Homes Plan to upgrade up to 5 million homes by 2030.",
                   "The Warm Homes: Local Grant (WH:LG) is part of this plan."):
@@ -340,8 +404,8 @@ def controlla_schemi():
             errore(f"whlg.xlsx: frase citata non trovata «{frase}»")
         w.append(frase)
     attese["warm-homes-local-grant/index.html"] = w
-    sol = _cerca_riga(t2, 1, "Solar PV")
-    attese["solar-panel-grants/index.html"] = [f0(sol[2]), gbp(sol[6])]
+    sol = _cerca_riga(t2, b_tipo, "Solar PV")
+    attese["solar-panel-grants/index.html"] = [_cifra(sol[b_mis], "whlg T2 Solar PV misure", f0), _cifra(sol[b_costo], "whlg T2 Solar PV costo", gbp)]
     # ECO4: Household Energy Efficiency, tabella 1.6, colonna "Surplus Actions, ECO3 Interim and ECO4"
     wb = openpyxl.load_workbook(GREZZI / "hee.xlsx", read_only=True, data_only=True)
     t16 = _celle(wb["T1.6"])
@@ -360,6 +424,8 @@ def controlla_schemi():
     n_ = 0
     for p, valori in attese.items():
         for v in valori:
+            if v is None:  # cella oscurata o non numerica: già segnalata da _cifra
+                continue
             n_ += 1
             if v not in TESTI.get(p, ""):
                 errore(f"{p}: cifra attesa «{v}» non trovata (schemi)")
@@ -442,6 +508,26 @@ def controlla_pagine():
     for f in ("robots.txt", "netlify.toml", "ads.txt", "b5a26a844a465f58552debee2c8a0114.txt", "assets/og.png", "assets/fonts/figtree.woff2"):
         if not (SITO / f).exists():
             errore(f"manca sito/{f}")
+    # lastmod per pagina: sitemap = registro dati/lastmod.json, impronta del registro = impronta ricalcolata qui dalla pagina scritta
+    reg = json.loads(leggi(DATI / "lastmod.json"))["pagine"]
+    lm = dict(re.findall(r"<loc>([^<]+)</loc><lastmod>([^<]+)</lastmod>", leggi(SITO / "sitemap.xml")))
+    oggi = date.today().isoformat()
+    for loc, d in lm.items():
+        u = loc[len(URL_SITO) + 1:]
+        html_ = PAGINE.get(u + "index.html" if not u.endswith(".html") else u, "")
+        m = re.search(r'<main id="main">(.*?)</main>', html_, re.S)
+        t = re.sub(r'(?s)<p class="(?:asof|disclaimer)">.*?</p>|<section class="fonti-box".*?</section>|<script.*?</script>|<style.*?</style>|<svg.*?</svg>',
+                   " ", m.group(1) if m else "")
+        t = re.sub(r"\b(?:\d{1,2} (?:January|February|March|April|May|June|July|August|September|October|November|December) \d{4}|\d{4}-\d\d-\d\d)\b",
+                   "§", unescape(re.sub(r"<[^>]+>", " ", t)))
+        imp = hashlib.sha256(re.sub(r"\s+", " ", t).strip().encode("utf-8")).hexdigest()[:20]
+        if u not in reg or reg[u][0] != d or reg[u][1] != imp:
+            errore(f"lastmod {u or '/'}: sitemap {d}, registro {reg.get(u)}, impronta della pagina {imp}")
+        elif not ("2026-11-12" <= d <= oggi):
+            errore(f"lastmod {u or '/'}: data {d} fuori dall'intervallo")
+    if len(lm) != len(sitemap) or set(reg) != {loc[len(URL_SITO) + 1:] for loc in lm}:
+        errore(f"lastmod: {len(lm)} date nella sitemap, {len(sitemap)} indirizzi, {len(reg)} voci nel registro")
+    print("Lastmod: " + ", ".join(f"{d} × {k}" for d, k in sorted(Counter(lm.values()).items())))
     if "Sitemap: " + URL_SITO + "/sitemap.xml" not in leggi(SITO / "robots.txt"):
         errore("robots.txt senza sitemap")
     toml = leggi(SITO / "netlify.toml")

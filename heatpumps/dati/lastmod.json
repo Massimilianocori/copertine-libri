@@ -1,0 +1,925 @@
+{
+"_nota": "Scritto da genera.py: percorso -> [data dell'ultimo cambio del testo principale, impronta]. Seme del 26/11/2026 da git (raccolta/lastmod_seme.py). Non modificare a mano.",
+"pagine": {
+"": [
+"2026-11-26",
+"19793a29ab120e3960fe"
+],
+"about/": [
+"2026-11-19",
+"e4682fb811b610782405"
+],
+"eco4/": [
+"2026-11-26",
+"bc7da328688563cfbfc4"
+],
+"eligibility/": [
+"2026-11-26",
+"3a6c65d995283dfccd2c"
+],
+"great-british-insulation-scheme/": [
+"2026-11-19",
+"593547e6ac17d0e5ce40"
+],
+"heat-pump-cost/": [
+"2026-11-19",
+"daa0df6a204834e57a5b"
+],
+"heat-pump-grants/": [
+"2026-11-26",
+"4624c7278d0f9936c171"
+],
+"heat-pump-grants/amber-valley/": [
+"2026-11-12",
+"554edc47c43c2cd5656f"
+],
+"heat-pump-grants/arun/": [
+"2026-11-12",
+"878bc10d8e347e34b4a9"
+],
+"heat-pump-grants/ashford/": [
+"2026-11-12",
+"8899f1d3a9609d7c24cd"
+],
+"heat-pump-grants/babergh/": [
+"2026-11-12",
+"eb4bb7e4c1dcfbd59e53"
+],
+"heat-pump-grants/barnet/": [
+"2026-11-12",
+"ccc1cd1c22382827d5b5"
+],
+"heat-pump-grants/barnsley/": [
+"2026-11-12",
+"f399aaac19ffb27e08e1"
+],
+"heat-pump-grants/basingstoke-and-deane/": [
+"2026-11-12",
+"342980b9529f6a75627b"
+],
+"heat-pump-grants/bassetlaw/": [
+"2026-11-12",
+"bde756ad954965c047fb"
+],
+"heat-pump-grants/bath-and-north-east-somerset/": [
+"2026-11-12",
+"3f184705d845a274fbdd"
+],
+"heat-pump-grants/bedford/": [
+"2026-11-12",
+"e23811d76f3f58bf6368"
+],
+"heat-pump-grants/birmingham/": [
+"2026-11-12",
+"0eb718adfae62aa51a4f"
+],
+"heat-pump-grants/bournemouth-christchurch-and-poole/": [
+"2026-11-12",
+"2062b27b44295355782e"
+],
+"heat-pump-grants/bradford/": [
+"2026-11-12",
+"4e6c85294f79aacadb4f"
+],
+"heat-pump-grants/braintree/": [
+"2026-11-12",
+"8335f49d39bb2ba91b80"
+],
+"heat-pump-grants/breckland/": [
+"2026-11-12",
+"2748dc6a90533f68da25"
+],
+"heat-pump-grants/brighton-and-hove/": [
+"2026-11-12",
+"6c03da05ba0e7edd952d"
+],
+"heat-pump-grants/bristol/": [
+"2026-11-12",
+"7bd40036986af16b1adc"
+],
+"heat-pump-grants/broadland/": [
+"2026-11-12",
+"19feb5f70ea7e2d7fc93"
+],
+"heat-pump-grants/bromley/": [
+"2026-11-12",
+"06f12ff8192fded83714"
+],
+"heat-pump-grants/buckinghamshire/": [
+"2026-11-12",
+"116d49d88d3d05fa6893"
+],
+"heat-pump-grants/calderdale/": [
+"2026-11-12",
+"3f5372875ef3f6529446"
+],
+"heat-pump-grants/cambridge/": [
+"2026-11-12",
+"b481413fd3577b61c2f8"
+],
+"heat-pump-grants/cambridgeshire/": [
+"2026-11-12",
+"fa5094db6ebe3e9b02bd"
+],
+"heat-pump-grants/canterbury/": [
+"2026-11-12",
+"3b307116aa3ba2609742"
+],
+"heat-pump-grants/cardiff/": [
+"2026-11-12",
+"55e25c1033ef48c72cac"
+],
+"heat-pump-grants/carmarthenshire/": [
+"2026-11-12",
+"eaf4fd5fc8a697bc6e33"
+],
+"heat-pump-grants/central-bedfordshire/": [
+"2026-11-12",
+"075d987374b939c4edba"
+],
+"heat-pump-grants/ceredigion/": [
+"2026-11-12",
+"b7572f2e32a0e1e6124b"
+],
+"heat-pump-grants/charnwood/": [
+"2026-11-12",
+"3c8ef3b4247185f9b5be"
+],
+"heat-pump-grants/chelmsford/": [
+"2026-11-12",
+"cd1cd062f901c842f09d"
+],
+"heat-pump-grants/cheltenham/": [
+"2026-11-12",
+"bec5cfb334c3740ed390"
+],
+"heat-pump-grants/cherwell/": [
+"2026-11-12",
+"e097eed757928f7d4bbd"
+],
+"heat-pump-grants/cheshire-east/": [
+"2026-11-12",
+"f0dd1a1a121c3977a640"
+],
+"heat-pump-grants/cheshire-west-and-chester/": [
+"2026-11-12",
+"bd7ed890c9db60bec593"
+],
+"heat-pump-grants/chichester/": [
+"2026-11-12",
+"a9d84d7cb70976e3bb2f"
+],
+"heat-pump-grants/chorley/": [
+"2026-11-12",
+"1dad39fecfe1d05cff53"
+],
+"heat-pump-grants/colchester/": [
+"2026-11-12",
+"6b980c410f7145723e11"
+],
+"heat-pump-grants/conwy/": [
+"2026-11-12",
+"5f5cc7aeddc36f60e8cb"
+],
+"heat-pump-grants/cornwall/": [
+"2026-11-12",
+"ac99437ed6b3c4e91eac"
+],
+"heat-pump-grants/cotswold/": [
+"2026-11-12",
+"33773e8ef3ee264ad678"
+],
+"heat-pump-grants/county-durham/": [
+"2026-11-12",
+"b2cf43a86a69361ba19c"
+],
+"heat-pump-grants/coventry/": [
+"2026-11-12",
+"4b1b53e8e322991e6ca4"
+],
+"heat-pump-grants/croydon/": [
+"2026-11-12",
+"632e478be1a479159faf"
+],
+"heat-pump-grants/cumberland/": [
+"2026-11-12",
+"5242702ec9c2566a8e26"
+],
+"heat-pump-grants/dacorum/": [
+"2026-11-12",
+"434c8d6d62cdc7fd8775"
+],
+"heat-pump-grants/denbighshire/": [
+"2026-11-12",
+"001553d42660613d3690"
+],
+"heat-pump-grants/derby/": [
+"2026-11-12",
+"e26639a5d9442a723169"
+],
+"heat-pump-grants/derbyshire-dales/": [
+"2026-11-12",
+"c3ae44925bba8cd53abe"
+],
+"heat-pump-grants/derbyshire/": [
+"2026-11-12",
+"cdad589f9bc459ede062"
+],
+"heat-pump-grants/devon/": [
+"2026-11-12",
+"87431094f7c4f251db31"
+],
+"heat-pump-grants/doncaster/": [
+"2026-11-12",
+"9a660be8b4d30c36ae36"
+],
+"heat-pump-grants/dorset/": [
+"2026-11-12",
+"a133d5b89d8bf105b7f6"
+],
+"heat-pump-grants/ealing/": [
+"2026-11-12",
+"6e66634c534f7a65e201"
+],
+"heat-pump-grants/east-cambridgeshire/": [
+"2026-11-12",
+"a5a5e2da354f14333a0a"
+],
+"heat-pump-grants/east-devon/": [
+"2026-11-12",
+"245a9cb4119271938262"
+],
+"heat-pump-grants/east-hampshire/": [
+"2026-11-12",
+"d4b0de763e3c56d617f5"
+],
+"heat-pump-grants/east-hertfordshire/": [
+"2026-11-12",
+"513fa94dc0eaf48d6361"
+],
+"heat-pump-grants/east-lindsey/": [
+"2026-11-12",
+"b9dbc29c63d9018dcf54"
+],
+"heat-pump-grants/east-midlands/": [
+"2026-11-26",
+"72ea7b2b0c54bcafa9c1"
+],
+"heat-pump-grants/east-of-england/": [
+"2026-11-26",
+"83ec4d7af3c65dfc9d2d"
+],
+"heat-pump-grants/east-riding-of-yorkshire/": [
+"2026-11-12",
+"28d3d1fc756996633384"
+],
+"heat-pump-grants/east-staffordshire/": [
+"2026-11-12",
+"3bb2e7ff3ff5f43f6a0e"
+],
+"heat-pump-grants/east-suffolk/": [
+"2026-11-12",
+"d23be2d6ee0dea03b71b"
+],
+"heat-pump-grants/east-sussex/": [
+"2026-11-12",
+"95e57002e37d9440d85f"
+],
+"heat-pump-grants/eastleigh/": [
+"2026-11-12",
+"afdaf9378131f10a8bb7"
+],
+"heat-pump-grants/elmbridge/": [
+"2026-11-12",
+"e9512df90a5e120f1453"
+],
+"heat-pump-grants/essex/": [
+"2026-11-12",
+"aab6b247593fd6cfe38a"
+],
+"heat-pump-grants/exeter/": [
+"2026-11-12",
+"f367b8660d74ee0e8364"
+],
+"heat-pump-grants/fareham/": [
+"2026-11-12",
+"60868e13eaa0e3bcb5ba"
+],
+"heat-pump-grants/fenland/": [
+"2026-11-12",
+"8161a045489d8f544d3e"
+],
+"heat-pump-grants/flintshire/": [
+"2026-11-12",
+"615df1855f09e5b5b0f2"
+],
+"heat-pump-grants/folkestone-and-hythe/": [
+"2026-11-12",
+"09deab2e271741014232"
+],
+"heat-pump-grants/forest-of-dean/": [
+"2026-11-12",
+"98c48afa7add4bc8aac3"
+],
+"heat-pump-grants/gloucestershire/": [
+"2026-11-12",
+"550beb4b490e5e4c8c9c"
+],
+"heat-pump-grants/guildford/": [
+"2026-11-12",
+"75c06ace03b7573e3974"
+],
+"heat-pump-grants/gwynedd/": [
+"2026-11-12",
+"34a4edec06a4ec39e14b"
+],
+"heat-pump-grants/hampshire/": [
+"2026-11-12",
+"2afe9f329105516df1bc"
+],
+"heat-pump-grants/harborough/": [
+"2026-11-12",
+"15d603c1644d9d0684f8"
+],
+"heat-pump-grants/haringey/": [
+"2026-11-12",
+"0fcc3f6e5a286f7a3c3c"
+],
+"heat-pump-grants/hart/": [
+"2026-11-12",
+"b6ff3444d7454de76a66"
+],
+"heat-pump-grants/herefordshire/": [
+"2026-11-12",
+"87f18b534f1fac782f2c"
+],
+"heat-pump-grants/hertfordshire/": [
+"2026-11-12",
+"033266cd12df421098c7"
+],
+"heat-pump-grants/high-peak/": [
+"2026-11-12",
+"b5475f91ff9631d72876"
+],
+"heat-pump-grants/hinckley-and-bosworth/": [
+"2026-11-12",
+"c308c410c6eb583d3e7b"
+],
+"heat-pump-grants/horsham/": [
+"2026-11-12",
+"cd6ee3251ac3bcac5f50"
+],
+"heat-pump-grants/huntingdonshire/": [
+"2026-11-12",
+"db62c99b9ce608344430"
+],
+"heat-pump-grants/isle-of-anglesey/": [
+"2026-11-12",
+"54e3bc478b75b10a6638"
+],
+"heat-pump-grants/isle-of-wight/": [
+"2026-11-12",
+"b1efe0947bffada184ae"
+],
+"heat-pump-grants/kent/": [
+"2026-11-12",
+"9427f683687b862e3797"
+],
+"heat-pump-grants/kings-lynn-and-west-norfolk/": [
+"2026-11-12",
+"6d12029295eb8d97bde1"
+],
+"heat-pump-grants/kirklees/": [
+"2026-11-12",
+"7e33563d054b6bfed5c0"
+],
+"heat-pump-grants/lancashire/": [
+"2026-11-12",
+"dd8558c23bf947e2d113"
+],
+"heat-pump-grants/lancaster/": [
+"2026-11-12",
+"43557a91975bd7b11919"
+],
+"heat-pump-grants/leeds/": [
+"2026-11-12",
+"10622f1c915f0fd8cdfb"
+],
+"heat-pump-grants/leicestershire/": [
+"2026-11-12",
+"6859dcbcd3fab2dd4d5f"
+],
+"heat-pump-grants/lewes/": [
+"2026-11-12",
+"4fe14327c048ec1df798"
+],
+"heat-pump-grants/lewisham/": [
+"2026-11-12",
+"0d488ed3cae7c77cb8dd"
+],
+"heat-pump-grants/lincolnshire/": [
+"2026-11-12",
+"bd2ebfebdb21575b066d"
+],
+"heat-pump-grants/london/": [
+"2026-11-26",
+"68d97ca1c2309b34d21f"
+],
+"heat-pump-grants/maidstone/": [
+"2026-11-12",
+"0d5c044217e54f8bdfc7"
+],
+"heat-pump-grants/maldon/": [
+"2026-11-12",
+"b7858a5bc9676bb7c857"
+],
+"heat-pump-grants/malvern-hills/": [
+"2026-11-12",
+"3c35914a46130f37ccaf"
+],
+"heat-pump-grants/manchester/": [
+"2026-11-12",
+"0c7e49483816170c3cd0"
+],
+"heat-pump-grants/mid-devon/": [
+"2026-11-12",
+"a05ecea14256bbc29005"
+],
+"heat-pump-grants/mid-suffolk/": [
+"2026-11-12",
+"45f0790ba2ef6963646e"
+],
+"heat-pump-grants/mid-sussex/": [
+"2026-11-12",
+"331138ba3ea9d3318f5a"
+],
+"heat-pump-grants/milton-keynes/": [
+"2026-11-12",
+"cb3495821986e1dae6f0"
+],
+"heat-pump-grants/mole-valley/": [
+"2026-11-12",
+"19292d1cf0107bf4c01e"
+],
+"heat-pump-grants/monmouthshire/": [
+"2026-11-12",
+"76674c67e9fff4d09dc3"
+],
+"heat-pump-grants/new-forest/": [
+"2026-11-12",
+"3849bd5aa69af70b14e3"
+],
+"heat-pump-grants/newark-and-sherwood/": [
+"2026-11-12",
+"9d0d9ea838275001c1dd"
+],
+"heat-pump-grants/newcastle-upon-tyne/": [
+"2026-11-12",
+"7119d742dbb9c9758bd5"
+],
+"heat-pump-grants/norfolk/": [
+"2026-11-12",
+"d49480faff241f11a55a"
+],
+"heat-pump-grants/north-devon/": [
+"2026-11-12",
+"162fb3f6f197bcc90ec8"
+],
+"heat-pump-grants/north-east-derbyshire/": [
+"2026-11-12",
+"8d8bb181804243ff18a2"
+],
+"heat-pump-grants/north-east-lincolnshire/": [
+"2026-11-12",
+"9d9d25fe3f91824aebf0"
+],
+"heat-pump-grants/north-east/": [
+"2026-11-26",
+"2e4d0fcc9a4d9435e2de"
+],
+"heat-pump-grants/north-hertfordshire/": [
+"2026-11-12",
+"d94df780c96b3187df15"
+],
+"heat-pump-grants/north-kesteven/": [
+"2026-11-12",
+"364c6960483debc9c131"
+],
+"heat-pump-grants/north-lincolnshire/": [
+"2026-11-12",
+"d5f9bd717922a3947aa5"
+],
+"heat-pump-grants/north-norfolk/": [
+"2026-11-12",
+"ecbfd4fd017230aadf82"
+],
+"heat-pump-grants/north-northamptonshire/": [
+"2026-11-12",
+"f03400ec066b430ee140"
+],
+"heat-pump-grants/north-somerset/": [
+"2026-11-12",
+"8d569086e59ae3b2c29d"
+],
+"heat-pump-grants/north-west-leicestershire/": [
+"2026-11-12",
+"3bc1a9b356a692059dc9"
+],
+"heat-pump-grants/north-west/": [
+"2026-11-26",
+"aff964ec01095daab6b0"
+],
+"heat-pump-grants/north-yorkshire/": [
+"2026-11-12",
+"4b902df497880cd99999"
+],
+"heat-pump-grants/northumberland/": [
+"2026-11-12",
+"8600f86823dfce11fe6b"
+],
+"heat-pump-grants/nottingham/": [
+"2026-11-12",
+"3413f5f9afcd9552b229"
+],
+"heat-pump-grants/nottinghamshire/": [
+"2026-11-12",
+"88736fbe53f4320f232a"
+],
+"heat-pump-grants/oxford/": [
+"2026-11-12",
+"70fe9bc81e813da46c5e"
+],
+"heat-pump-grants/oxfordshire/": [
+"2026-11-12",
+"68c15710e19b1755c4c5"
+],
+"heat-pump-grants/pembrokeshire/": [
+"2026-11-12",
+"03744ee0f88d545c2c77"
+],
+"heat-pump-grants/peterborough/": [
+"2026-11-12",
+"c045ab67f953b8caf83b"
+],
+"heat-pump-grants/powys/": [
+"2026-11-12",
+"bbfe8a82e37864407394"
+],
+"heat-pump-grants/reigate-and-banstead/": [
+"2026-11-12",
+"67796d405e857da213f1"
+],
+"heat-pump-grants/richmond-upon-thames/": [
+"2026-11-12",
+"ca64ca73e100317fa5bd"
+],
+"heat-pump-grants/rother/": [
+"2026-11-12",
+"b729dc583332b5daa3a0"
+],
+"heat-pump-grants/rotherham/": [
+"2026-11-12",
+"0e7b2648077ceeb1d56e"
+],
+"heat-pump-grants/rugby/": [
+"2026-11-12",
+"3b48c56f4d269bf99e5a"
+],
+"heat-pump-grants/rushcliffe/": [
+"2026-11-12",
+"6d5d0e75a73bd5f1a554"
+],
+"heat-pump-grants/scotland/": [
+"2026-11-26",
+"0b1c5dbc3575785be485"
+],
+"heat-pump-grants/sevenoaks/": [
+"2026-11-12",
+"5d7663ff1020018048e5"
+],
+"heat-pump-grants/sheffield/": [
+"2026-11-12",
+"c89a8cbe82568e14285c"
+],
+"heat-pump-grants/shropshire/": [
+"2026-11-12",
+"9e8f772bfefcd5ca153c"
+],
+"heat-pump-grants/somerset/": [
+"2026-11-12",
+"140fee6952f4d38ea6c7"
+],
+"heat-pump-grants/south-cambridgeshire/": [
+"2026-11-12",
+"7b5f03dc1af101f26db1"
+],
+"heat-pump-grants/south-derbyshire/": [
+"2026-11-12",
+"bda702eeb339f7709f9d"
+],
+"heat-pump-grants/south-east/": [
+"2026-11-26",
+"3c9609d7d7b0701d7c62"
+],
+"heat-pump-grants/south-gloucestershire/": [
+"2026-11-12",
+"c3f7e6530eed0041bd60"
+],
+"heat-pump-grants/south-hams/": [
+"2026-11-12",
+"ac27059392a7264b83aa"
+],
+"heat-pump-grants/south-holland/": [
+"2026-11-12",
+"df945da186aadb99588e"
+],
+"heat-pump-grants/south-kesteven/": [
+"2026-11-12",
+"48b84319879e2977d70a"
+],
+"heat-pump-grants/south-norfolk/": [
+"2026-11-12",
+"bd63055672f808d2212f"
+],
+"heat-pump-grants/south-oxfordshire/": [
+"2026-11-12",
+"2c34f9b9bc53cd1c29ed"
+],
+"heat-pump-grants/south-west/": [
+"2026-11-26",
+"e89278942b51a4f71e73"
+],
+"heat-pump-grants/southwark/": [
+"2026-11-12",
+"7754d5e3c0f40f89f227"
+],
+"heat-pump-grants/st-albans/": [
+"2026-11-12",
+"0d25761de568df08e9a2"
+],
+"heat-pump-grants/stafford/": [
+"2026-11-12",
+"8e2d7c8f1bc1bdbfd5ae"
+],
+"heat-pump-grants/staffordshire/": [
+"2026-11-12",
+"2b40b744ef84705577bc"
+],
+"heat-pump-grants/stockport/": [
+"2026-11-12",
+"ced20f32f2039de5b9f0"
+],
+"heat-pump-grants/stratford-on-avon/": [
+"2026-11-12",
+"d55a19ee78246341d69b"
+],
+"heat-pump-grants/stroud/": [
+"2026-11-12",
+"14514e76b9e621318857"
+],
+"heat-pump-grants/suffolk/": [
+"2026-11-12",
+"a09361bf431046b2caf7"
+],
+"heat-pump-grants/surrey/": [
+"2026-11-12",
+"2abaed177cd710ed7ffa"
+],
+"heat-pump-grants/swansea/": [
+"2026-11-12",
+"eeb2a83be500a9b7abf6"
+],
+"heat-pump-grants/swindon/": [
+"2026-11-12",
+"26beef0ae9a841a2f938"
+],
+"heat-pump-grants/tandridge/": [
+"2026-11-12",
+"d46686504ecdc49a676a"
+],
+"heat-pump-grants/teignbridge/": [
+"2026-11-12",
+"13c816ce12fafa827c77"
+],
+"heat-pump-grants/telford-and-wrekin/": [
+"2026-11-12",
+"5b13127ea0c894ef351d"
+],
+"heat-pump-grants/tendring/": [
+"2026-11-12",
+"cf4fb888ef6b7165608c"
+],
+"heat-pump-grants/test-valley/": [
+"2026-11-12",
+"87458e514ea288ff9cf5"
+],
+"heat-pump-grants/tewkesbury/": [
+"2026-11-12",
+"7f8c275f69d43c9354b8"
+],
+"heat-pump-grants/tonbridge-and-malling/": [
+"2026-11-12",
+"15ea3e19ceeae32cac97"
+],
+"heat-pump-grants/torridge/": [
+"2026-11-12",
+"46d3c879f370fc5f7ab2"
+],
+"heat-pump-grants/trafford/": [
+"2026-11-12",
+"24cc1cce78a8df12ba58"
+],
+"heat-pump-grants/tunbridge-wells/": [
+"2026-11-12",
+"81a78463c472cb0ecb15"
+],
+"heat-pump-grants/uttlesford/": [
+"2026-11-12",
+"b7af31339accfc8b0a12"
+],
+"heat-pump-grants/vale-of-glamorgan/": [
+"2026-11-12",
+"47af47e46f1ccd26f1e7"
+],
+"heat-pump-grants/vale-of-white-horse/": [
+"2026-11-12",
+"d4d2542e739959efe256"
+],
+"heat-pump-grants/wakefield/": [
+"2026-11-12",
+"75b6501b70938f4c2887"
+],
+"heat-pump-grants/wales/": [
+"2026-11-26",
+"15d1d72f77d9a9558e2e"
+],
+"heat-pump-grants/waltham-forest/": [
+"2026-11-12",
+"5b5c5950decbffc6a395"
+],
+"heat-pump-grants/warrington/": [
+"2026-11-12",
+"da58e2eb29fa390f6bfc"
+],
+"heat-pump-grants/warwick/": [
+"2026-11-12",
+"7fdeb3381a89ebf05dcf"
+],
+"heat-pump-grants/warwickshire/": [
+"2026-11-12",
+"36cee3143595fca9fc5e"
+],
+"heat-pump-grants/waverley/": [
+"2026-11-12",
+"143253f05876ee2fadd5"
+],
+"heat-pump-grants/wealden/": [
+"2026-11-12",
+"5e1ecd4ada66195c5aec"
+],
+"heat-pump-grants/west-berkshire/": [
+"2026-11-12",
+"ce2a258bbc9d25b35662"
+],
+"heat-pump-grants/west-devon/": [
+"2026-11-12",
+"75b422f5775fb7edc151"
+],
+"heat-pump-grants/west-lindsey/": [
+"2026-11-12",
+"052aa5c2a59513cbf485"
+],
+"heat-pump-grants/west-midlands/": [
+"2026-11-26",
+"5c091690412f5dd8059b"
+],
+"heat-pump-grants/west-northamptonshire/": [
+"2026-11-12",
+"6c62ee31c91fdf315050"
+],
+"heat-pump-grants/west-oxfordshire/": [
+"2026-11-12",
+"243f62bc92b30f401f0e"
+],
+"heat-pump-grants/west-suffolk/": [
+"2026-11-12",
+"de84c90bf68cd1b95e91"
+],
+"heat-pump-grants/west-sussex/": [
+"2026-11-12",
+"1e8bb898179ded192e70"
+],
+"heat-pump-grants/westmorland-and-furness/": [
+"2026-11-12",
+"63ba10fed32d9bd110a2"
+],
+"heat-pump-grants/wiltshire/": [
+"2026-11-12",
+"e7712821b6937f9f293b"
+],
+"heat-pump-grants/winchester/": [
+"2026-11-12",
+"707ef06272c7ddb4ef2c"
+],
+"heat-pump-grants/windsor-and-maidenhead/": [
+"2026-11-12",
+"74a2e8fb050f03730f0c"
+],
+"heat-pump-grants/wirral/": [
+"2026-11-12",
+"bf770b20c457068ac63d"
+],
+"heat-pump-grants/wokingham/": [
+"2026-11-12",
+"1386d7f130b8d7cc47b4"
+],
+"heat-pump-grants/worcestershire/": [
+"2026-11-12",
+"385a27d3041d6410b5c0"
+],
+"heat-pump-grants/wrexham/": [
+"2026-11-12",
+"caed1566289b008faa4d"
+],
+"heat-pump-grants/wychavon/": [
+"2026-11-12",
+"f4aff4b1fb124f89a2e5"
+],
+"heat-pump-grants/york/": [
+"2026-11-12",
+"b2a67bd94cd0cd2a3efd"
+],
+"heat-pump-grants/yorkshire-and-the-humber/": [
+"2026-11-26",
+"25b6b13e356aa6762ed8"
+],
+"how-we-check/": [
+"2026-11-25",
+"480dcf958f2f04fbab1f"
+],
+"privacy/": [
+"2026-11-12",
+"39c473cdaec66c1caaa3"
+],
+"solar-panel-grants/": [
+"2026-11-26",
+"32c5a69c5347b455f068"
+],
+"solar-panels/": [
+"2026-11-26",
+"c7e0c7f05c7a9ec460dd"
+],
+"solar-panels/east-midlands/": [
+"2026-11-26",
+"5b2e102f9d290f3cbf18"
+],
+"solar-panels/east-of-england/": [
+"2026-11-26",
+"95c96417be3b80a595a9"
+],
+"solar-panels/london/": [
+"2026-11-26",
+"d3b8e9fdff97c65089b0"
+],
+"solar-panels/north-east/": [
+"2026-11-26",
+"246ca187dbcbabb67d31"
+],
+"solar-panels/north-west/": [
+"2026-11-26",
+"c56937b3294da28b9e03"
+],
+"solar-panels/northern-ireland/": [
+"2026-11-26",
+"499d64b14704ad3b9c2c"
+],
+"solar-panels/scotland/": [
+"2026-11-26",
+"7fbf4a23c4c3ac342c0d"
+],
+"solar-panels/south-east/": [
+"2026-11-26",
+"a935a832a9828e2fee2e"
+],
+"solar-panels/south-west/": [
+"2026-11-26",
+"e8c683dba13492055498"
+],
+"solar-panels/wales/": [
+"2026-11-26",
+"44fc47c3d2fece33b5cb"
+],
+"solar-panels/west-midlands/": [
+"2026-11-26",
+"e0f39127acfd2fe3cd07"
+],
+"solar-panels/yorkshire-and-the-humber/": [
+"2026-11-26",
+"0b198860680f360c461a"
+],
+"warm-homes-local-grant/": [
+"2026-11-26",
+"cdc3942d5ad0e47ae5e8"
+]
+}
+}

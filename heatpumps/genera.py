@@ -18,7 +18,7 @@ import shutil
 import sys
 import unicodedata
 from datetime import date
-from html import escape
+from html import escape, unescape
 from pathlib import Path
 
 RADICE = Path(__file__).resolve().parent
@@ -135,7 +135,8 @@ LA_REG = {"North East": "E12000001", "North West": "E12000002", "Yorkshire and H
           "East Midlands": "E12000004", "West Midlands": "E12000005", "Eastern": "E12000006", "East of England": "E12000006", "London": "E12000007",
           "South East": "E12000008", "South West": "E12000009", "Wales": "W92000004", "Scotland": "S92000003", "Northern Ireland": "N92000002"}
 
-PERIODO = B["periodo"]  # "September 2026"
+PERIODO = B["periodo"]  # "October 2026": mese delle tabelle mensili (1.1, 1.2A, M1.1, M1.2)
+PERIODO_LA = B["periodo_la"]  # "September 2026": periodo delle tabelle per ente locale (Q1.2), aggiornate ogni tre mesi
 TRIM = B["trimestri"][-1]  # "2026 Q3: Jul to Sep"
 
 
@@ -164,11 +165,20 @@ ANNO_PRIMA = MESI_SERIE[-13]
 DOM_ANNO_PRIMA = M11["Voucher applications received"]["All technology types"][ANNO_PRIMA]
 PAG_MESE = M11["Redemptions paid"]["All technology types"][ULTIMO_MESE]
 PAGATI_TOT = T11["Redemptions paid"]["totale"]
-PAGATI_POMPE = B["cumulato_regioni_pompe"]["K04000001"]
+# Pompe di calore pagate fino a PERIODO, per regione e nazionale: tabella mensile 1.2A (tutte le tecnologie meno le caldaie a biomassa).
+# Il cumulato di Q1.2 (CUM, più sotto) è lo stesso numero solo nelle uscite trimestrali: fuori da quelle è fermo a PERIODO_LA.
+POMPE = {c: r["pagati_totale"] - r["pagati_biomassa"] for c, r in B["regioni"].items()}
+PAGATI_POMPE = POMPE["K04000001"]
+if PAGATI_POMPE != PAGATI_TOT - T11["Redemptions paid"]["biomassa"]:
+    raise SystemExit("bus.json: le pompe di calore pagate di 1.2A non coincidono con la tabella 1.1")
+if PERIODO_LA == PERIODO and any(POMPE[c] != v for c, v in B["cumulato_regioni_pompe"].items()):
+    raise SystemExit("bus.json: Q1.2 e 1.2A hanno lo stesso periodo ma totali diversi")
 ANNI = B["anni_la"]  # ["2022/23", ...]
-_m9 = re.search(r"([\d,]+) applications for the £9,000 grant were received\. These applications were (\d+)% of the ([\d,]+) total applications",
-                " ".join(B["commento"]))
-N9000, Q9000, TOT_Q3 = _m9.group(1), _m9.group(2) + "%", _m9.group(3)
+_m9 = re.search(r"([\d,]+) applications for the £9,000 grant were received\. These applications were (\d+)% of the ([\d,]+) total applications "
+                r"received in (July to ([A-Z][a-z]+ 2026))", " ".join(B["commento"]))
+if not _m9:
+    raise SystemExit("bus.json: frase del commento DESNZ sulle domande da £9,000 non trovata: rileggere il foglio Commentary")
+N9000, Q9000, TOT_Q3, PER9000, FINE9000 = _m9.group(1), _m9.group(2) + "%", _m9.group(3), _m9.group(4), _m9.group(5)
 
 
 def anno_lungo(a):
@@ -248,6 +258,9 @@ FAM_EW = sum(FAM_REG.values())
 CUM = B["cumulato_regioni_pompe"]
 TASSO_REG = {r: CUM[r] / FAM_REG[r] * 1000 for r in REG_EW}
 TASSO_EW = CUM["K04000001"] / FAM_EW * 1000
+# gli stessi tassi con il dato mensile (a PERIODO), per home, hub e riquadri delle regioni; TASSO_REG/TASSO_EW (a PERIODO_LA) per i confronti nelle pagine council
+TASSO_REG_M = {r: POMPE[r] / FAM_REG[r] * 1000 for r in REG_EW}
+TASSO_EW_M = PAGATI_POMPE / FAM_EW * 1000
 for r in REG_EW:
     lista = sorted([a for a in COUNCIL if a["regione"] == r], key=lambda a: -a["cumulato"])
     for a in lista:
@@ -335,6 +348,41 @@ def ico(nome, cls="ico"):
     return f'<svg class="{cls}" aria-hidden="true" focusable="false"><use href="/assets/{ICONS_FILE}#i-{nome}"/></svg>'
 
 
+# ---------------------------------------------------------------- lastmod per pagina (26/11/2026)
+# Il lastmod della sitemap è la data dell'ultimo cambio VERO del contenuto di quella pagina, non la data della generazione.
+# Registro dati/lastmod.json: percorso -> [data, impronta]. L'impronta è il testo visibile di <main> senza la riga delle date di
+# controllo (<p class="asof">), senza l'avvertenza comune (<p class="disclaimer">), senza l'elenco delle fonti
+# (<section class="fonti-box">: nome dell'uscita, date di pubblicazione e di controllo), senza script/stile/icone e con le date complete sostituite da un segno: menu, piè di pagina, <head> e
+# «checked on …» non contano. Impronta uguale -> la data resta; diversa o pagina nuova -> oggi. Seme da git: raccolta/lastmod_seme.py.
+REGISTRO_LASTMOD = DATI / "lastmod.json"
+IMPRONTE = {}
+_DATE_RE = re.compile(r"\b(?:\d{1,2} (?:" + "|".join(["January", "February", "March", "April", "May", "June", "July", "August", "September",
+                                                     "October", "November", "December"]) + r") \d{4}|\d{4}-\d\d-\d\d)\b")
+
+
+def impronta_contenuto(html_):
+    m = re.search(r'<main id="main">(.*?)</main>', html_, re.S)
+    t = m.group(1) if m else ""
+    t = re.sub(r'(?s)<p class="(?:asof|disclaimer)">.*?</p>', " ", t)  # riga delle date e avvertenza uguale su tutte le pagine
+    t = re.sub(r'(?s)<section class="fonti-box".*?</section>', " ", t)  # elenco delle fonti: nome dell'uscita e date di controllo
+    t = re.sub(r"(?s)<script.*?</script>|<style.*?</style>|<svg.*?</svg>", " ", t)
+    t = unescape(re.sub(r"<[^>]+>", " ", t))
+    t = re.sub(r"\s+", " ", _DATE_RE.sub("§", t)).strip()
+    return hashlib.sha256(t.encode("utf-8")).hexdigest()[:20]
+
+
+def date_lastmod():
+    """percorso -> lastmod per ogni pagina indicizzabile; aggiorna il registro (solo le pagine indicizzabili di questa generazione)."""
+    reg = json.loads(REGISTRO_LASTMOD.read_text(encoding="utf-8"))["pagine"] if REGISTRO_LASTMOD.exists() else {}
+    oggi = date.today().isoformat()
+    nuovo = {u: (reg[u] if u in reg and reg[u][1] == imp else [oggi, imp]) for u, imp in IMPRONTE.items()}
+    REGISTRO_LASTMOD.write_text(json.dumps({
+        "_nota": "Scritto da genera.py: percorso -> [data dell'ultimo cambio del testo principale, impronta]. Seme del 26/11/2026 da git "
+                 "(raccolta/lastmod_seme.py). Non modificare a mano.",
+        "pagine": dict(sorted(nuovo.items()))}, ensure_ascii=False, indent=0) + "\n", encoding="utf-8")
+    return {u: v[0] for u, v in nuovo.items()}
+
+
 # ---------------------------------------------------------------- scheletro di pagina
 URLS = []
 TITOLI = {}
@@ -354,7 +402,7 @@ def pagina(percorso, titolo, descrizione, corpo, testata="", briciole=None, json
     file = file or (percorso + "index.html" if percorso else "index.html")
     url_pag = f"{URL_SITO}/{percorso}"
     if indicizza:
-        URLS.append((percorso, CONTROLLO.isoformat()))
+        URLS.append(percorso)
     if titolo in TITOLI:
         raise SystemExit(f"titolo doppio: {titolo} ({percorso}, {TITOLI[titolo]})")
     TITOLI[titolo] = percorso
@@ -422,7 +470,7 @@ def pagina(percorso, titolo, descrizione, corpo, testata="", briciole=None, json
 <a class="logo" href="/">{LOGO}<span>Heat Pump <b>Grants UK</b></span></a>
 <p><strong>{NOME}</strong> shows how many heat pumps the Boiler Upgrade Scheme has paid for in every council area of England and Wales, what
 they cost after the grant, and how much solar is installed in each region and council, from official government statistics.</p>
-<p>Heat pump figures to the end of {PERIODO} (DESNZ, published {data_lunga(B["pubblicato"])}; {prossima_uscita("next DESNZ release:")}). Sources checked on {data_lunga(CONTROLLO)}.</p>
+<p>Heat pump figures to the end of {PERIODO}{"" if PERIODO_LA == PERIODO else f", council tables to the end of {PERIODO_LA}"} (DESNZ, published {data_lunga(B["pubblicato"])}; {prossima_uscita("next DESNZ release:")}). Sources checked on {data_lunga(CONTROLLO)}.</p>
 </div><div>
 <h2>Regions</h2><ul>{reg_piede}</ul>
 </div><div>
@@ -440,6 +488,8 @@ for the Department for Energy Security and Net Zero. This site is not affiliated
     dest = SITO / file
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(testo, encoding="utf-8")
+    if indicizza:
+        IMPRONTE[percorso] = impronta_contenuto(testo)
 
 
 def banda(eyebrow, titolo, sub, extra="", corta=False, icona="fan"):
@@ -485,7 +535,7 @@ RICERCHE_PAGINA = {
 
 # ---------------------------------------------------------------- FAQ
 VAL = {
-    "n9000": N9000, "quota9000": Q9000, "mese": PERIODO, "pagati_pompe": n(PAGATI_POMPE), "pagati_totale": n(PAGATI_TOT),
+    "n9000": N9000, "quota9000": Q9000, "fine9000": FINE9000, "mese": PERIODO, "pagati_pompe": n(PAGATI_POMPE), "pagati_totale": n(PAGATI_TOT),
     "aahp_domande": n(T11["Voucher applications received"]["aahp"]), "pagati_galles": n(B["regioni"]["W92000004"]["pagati_totale"]),
     "trimestre": TRIM_L, "mediana": gbp(MED), "lq": gbp(LQ), "uq": gbp(UQ), "netto": gbp(MED - GRANT), "netto_lq": gbp(LQ - GRANT),
     "netto_uq": gbp(UQ - GRANT), "netto9000": gbp(MED - GRANT9), "gshp_mediana": gbp(GMED),
@@ -564,7 +614,11 @@ def prossima_uscita(prima, maiuscola=False):
     return f'<span data-prossima="{B["prossima"]}" data-dopo="{h(dopo)}">{prima} {d}</span>'
 
 
-def asof_bus():
+def asof_bus(la=False):
+    """la=True: pagine con le cifre per ente locale (Q1.2), che fuori dalle uscite trimestrali sono più vecchie del dato mensile."""
+    if la and PERIODO_LA != PERIODO:
+        return (f"Official DESNZ council figures to the end of {PERIODO_LA}: DESNZ updates them every three months. Latest release published "
+                f"{data_lunga(B['pubblicato'])}. {prossima_uscita('Next DESNZ release:', True)}.")
     return (f"Official DESNZ figures to the end of {PERIODO}, published {data_lunga(B['pubblicato'])}. {prossima_uscita('Next DESNZ release:', True)}.")
 
 
@@ -623,8 +677,8 @@ def griglia_regioni(attuale=None):
     for r in REG_EW:
         if r == attuale:
             continue
-        voci.append(f'<li><a href="/heat-pump-grants/{SLUG_REG[r]}/"><b>{h(NOME_REG[r])}</b><span><em>{n(CUM[r])}</em> heat pumps with a grant paid · '
-                    f'{n(TASSO_REG[r], 1)} per 1,000 households</span></a></li>')
+        voci.append(f'<li><a href="/heat-pump-grants/{SLUG_REG[r]}/"><b>{h(NOME_REG[r])}</b><span><em>{n(POMPE[r])}</em> heat pumps with a grant paid · '
+                    f'{n(TASSO_REG_M[r], 1)} per 1,000 households</span></a></li>')
     return f'<ul class="griglia">{"".join(voci)}</ul>'
 
 
@@ -668,7 +722,7 @@ def frase_posizione(a):
 def righe_anni(a):
     righe = [(y, val_anno(a["anni"][y]), f"{y} ({anno_lungo(y)}): {n(a['anni'][y]) if pubblicato(a['anni'][y]) else val_anno(a['anni'][y])} grants paid") for y in ANNI]
     if a.get("ytd") is not None:
-        righe.append(("2026/27 so far", a["ytd"], f"April to {PERIODO}: {n(a['ytd'])} grants paid (our calculation)"))
+        righe.append(("2026/27 so far", a["ytd"], f"April to {PERIODO_LA}: {n(a['ytd'])} grants paid (our calculation)"))
     return righe
 
 
@@ -701,7 +755,7 @@ def pagina_area(a):
     nome_h = nome + (f" ({a['gallese']})" if a.get("gallese") else "")
     tot = a["cumulato"]
     y = a["anni"][ANNI[-1]]
-    voci = [(n(tot), f"heat pumps with a grant paid, May 2022 to {PERIODO}", True)]
+    voci = [(n(tot), f"heat pumps with a grant paid, May 2022 to {PERIODO_LA}", True)]
     if pubblicato(y):
         voci.append((n(y), f"paid in {ANNI[-1]} ({anno_lungo(ANNI[-1])})", False))
     if a.get("tasso") is not None:
@@ -710,14 +764,14 @@ def pagina_area(a):
         voci.append((posto(a, "rango"), f"of {a['n_reg']} councils in {NEL_REG[reg]} by grants paid", False))
     else:
         voci.append((n(len(a["distretti"])), "district councils in the county", False))
-    corpo = f"<!-- area: {a['codice']} -->" + cifre(voci, asof_bus())
+    corpo = f"<!-- area: {a['codice']} -->" + cifre(voci, asof_bus(la=True))
     quota_reg = tot / CUM[reg]
     corpo += rim.t(
         f'<h2 id="years">Heat pump grants paid in {h(nome)}, year by year</h2>'
-        f'<div class="testo"><p>The Boiler Upgrade Scheme had paid grants for <strong>{n(tot)}</strong> heat pumps in {h(nome_h)} by the end of {PERIODO}: '
+        f'<div class="testo"><p>The Boiler Upgrade Scheme had paid grants for <strong>{n(tot)}</strong> heat pumps in {h(nome_h)} by the end of {PERIODO_LA}: '
         f'{pct(quota_reg, 1)} of all those paid in {h(NEL_REG[reg])} and {pct(tot / CUM["K04000001"], 2)} of England and Wales.[[bus_xlsx]] '
         + (f'In the {ANNI[-1]} financial year {n(y)} were paid. {frase_trend(a)} ' if pubblicato(y) else "")
-        + (f'From April to {PERIODO} another <strong>{n(a["ytd"])}</strong> were paid (our calculation: the total to date minus the four full years).' if a.get("ytd") is not None else
+        + (f'From April to {PERIODO_LA} another <strong>{n(a["ytd"])}</strong> were paid (our calculation: the total to date minus the four full years).' if a.get("ytd") is not None else
            'DESNZ does not publish one or more yearly figures for this area: it hides counts of 1 to 4 to protect privacy, and sometimes a second figure so that the hidden one cannot be worked out.')
         + "</p></div>")
     corpo += barre(righe_anni(a), "Grants paid by financial year", "Heat pumps; financial years run April to March")
@@ -779,9 +833,9 @@ def pagina_area(a):
                           f"{nome} Heat Pump Grants: {tot_s} Paid", f"{nome} Heat Pump Grants")
     yd = f", {n(y)} in {ANNI[-1]}" if pubblicato(y) else ""
     descr = descr_corta(
-        f"{tot_s} Boiler Upgrade Scheme grants paid for heat pumps in {nome} to {PERIODO}{yd}. Year by year, compared with {NOME_REG[reg]}, and the cost after the grant.",
-        f"{tot_s} heat pump grants paid in {nome} to {PERIODO}{yd}: official figures by year and the cost after the £7,500 grant.",
-        f"{tot_s} heat pump grants paid in {nome} to {PERIODO}: official figures and the cost after the grant.",
+        f"{tot_s} Boiler Upgrade Scheme grants paid for heat pumps in {nome} to {PERIODO_LA}{yd}. Year by year, compared with {NOME_REG[reg]}, and the cost after the grant.",
+        f"{tot_s} heat pump grants paid in {nome} to {PERIODO_LA}{yd}: official figures by year and the cost after the £7,500 grant.",
+        f"{tot_s} heat pump grants paid in {nome} to {PERIODO_LA}: official figures and the cost after the grant.",
         f"Heat pump grants paid in {nome}: official DESNZ figures and the cost after the grant.")
     bric = [("Home", ""), ("Grants by area", "heat-pump-grants/"), (NOME_REG[reg], f"heat-pump-grants/{SLUG_REG[reg]}/")]
     if contea:
@@ -795,8 +849,9 @@ def pagina_regione(r):
     rim = Rimandi()
     nome, nel = NOME_REG[r], NEL_REG[r]
     R = B["regioni"][r]
-    tot = CUM[r]
+    tot = POMPE[r]  # dato mensile (1.2A), a PERIODO; la tabella dei council sotto è a PERIODO_LA
     anni = B["anni_regioni_pompe"][r]
+    nota_la = "" if PERIODO_LA == PERIODO else f" Council figures are to the end of {PERIODO_LA}: DESNZ updates them every three months."
     lista = sorted([a for a in COUNCIL if a["regione"] == r], key=lambda a: -a["cumulato"])
     md = R["mesi_domande"]
     km = list(md.keys())
@@ -807,8 +862,8 @@ def pagina_regione(r):
             (n(ult), f"applications in {mese_lungo(km[-1])} ({variazione((ult - prima) / prima)} on a year earlier)", False)]
     corpo = f"<!-- region: {r} -->" + cifre(voci, asof_bus())
     corpo += rim.t(
-        f'<h2 id="years">Heat pump grants in {h(nel)}, year by year</h2><div class="testo"><p>{h(cap(nel))} accounts for <strong>{pct(tot / CUM["K04000001"], 1)}</strong> '
-        f'of the {n(CUM["K04000001"])} heat pumps paid for by the Boiler Upgrade Scheme in England and Wales. Counting biomass boilers too, '
+        f'<h2 id="years">Heat pump grants in {h(nel)}, year by year</h2><div class="testo"><p>{h(cap(nel))} accounts for <strong>{pct(tot / PAGATI_POMPE, 1)}</strong> '
+        f'of the {n(PAGATI_POMPE)} heat pumps paid for by the Boiler Upgrade Scheme in England and Wales. Counting biomass boilers too, '
         f'{n(R["pagati_totale"])} installations had a grant paid, from {n(R["domande"])} applications and {n(R["buoni"])} vouchers issued.[[bus_xlsx]] '
         f'DESNZ puts the region at {n(R["per10k_pagati"], 1)} grants paid per 10,000 households, against {n(B["regioni"]["K04000001"]["per10k_pagati"], 1)} for '
         f'England and Wales.[[bus_xlsx]]</p></div>')
@@ -839,10 +894,10 @@ def pagina_regione(r):
               f'<div class="tab" id="tab-reg"><table class="dati"><thead><tr><th scope="col">Council</th><th scope="col" class="n">Grants paid to date</th>'
               f'<th scope="col" class="n">In {ANNI[-1]}</th><th scope="col" class="n">Per 1,000 households</th></tr></thead><tbody>{tr}'
               f'<tr data-vuoto hidden><td colspan="4">No council matches.</td></tr></tbody>'
-              f'<caption>“n/p”: not published by DESNZ because the number is small. Per 1,000 households: our calculation.{rim.ref("bus_xlsx,solare_la_xlsx")}</caption></table></div>')
+              f'<caption>Heat pumps with a grant paid, May 2022 to {PERIODO_LA}.{nota_la} “n/p”: not published by DESNZ because the number is small. Per 1,000 households: our calculation.{rim.ref("bus_xlsx,solare_la_xlsx")}</caption></table></div>')
     contee = [c for c in CONTEE if c["regione"] == r]
     if contee:
-        corpo += ('<p>County totals: ' + " · ".join(f'<a href="/{c["url"]}">{h(c["nome"])}</a> ({n(c["cumulato"])})' for c in contee) + "</p>")
+        corpo += (f'<p>County totals{"" if PERIODO_LA == PERIODO else " to " + PERIODO_LA}: ' + " · ".join(f'<a href="/{c["url"]}">{h(c["nome"])}</a> ({n(c["cumulato"])})' for c in contee) + "</p>")
     corpo += f'<h2 id="cost">What a heat pump costs after the grant</h2>' + nota_costo_nazionale(nel) + tabella_costo(rim)
     corpo += f'<h2 id="rules">Who can get the grant</h2>' + regole_brevi(rim)
     galles = r == "W92000004"
@@ -883,7 +938,7 @@ def hub_aree():
                  f'<td class="n">{n(a["anni"][ANNI[-1]]) if pubblicato(a["anni"][ANNI[-1]]) else "n/p"}</td>'
                  f'<td class="n">{n(a["tasso"], 1) if a["tasso"] is not None else "–"}</td></tr>' for a in tutte)
     corpo = cifre([(n(PAGATI_POMPE), f"heat pumps with a grant paid in England and Wales, May 2022 to {PERIODO}", True),
-                   (n(len(COUNCIL)), "council areas", False), (n(TASSO_EW, 1), "per 1,000 households", False),
+                   (n(len(COUNCIL)), "council areas", False), (n(TASSO_EW_M, 1), "per 1,000 households", False),
                    (n(B["anni_regioni_pompe"]["K04000001"][ANNI[-1]]), f"paid in {ANNI[-1]}", False)], asof_bus())
     corpo += rim.t(f'<div class="testo"><p>DESNZ counts every Boiler Upgrade Scheme grant paid by the postcode of the property and publishes the total for each '
                    f'local authority every three months.[[bus_xlsx]] Find your council below, or start from your region.</p></div>')
@@ -894,12 +949,12 @@ def hub_aree():
     corpo += (f'<h2 id="councils">Every council in England and Wales</h2><div class="cerca"><input type="search" data-cerca="tab-tutti" placeholder="Type a council or region" '
               f'aria-label="Find a council"></div><div class="tab" id="tab-tutti"><table class="dati"><thead><tr><th scope="col">Council</th><th scope="col">Region</th>'
               f'<th scope="col" class="n">Grants paid</th><th scope="col" class="n">In {ANNI[-1]}</th><th scope="col" class="n">Per 1,000 households</th></tr></thead>'
-              f'<tbody>{tr}<tr data-vuoto hidden><td colspan="5">No council matches.</td></tr></tbody><caption>Heat pumps with a grant paid, May 2022 to {PERIODO}. '
+              f'<tbody>{tr}<tr data-vuoto hidden><td colspan="5">No council matches.</td></tr></tbody><caption>Heat pumps with a grant paid, May 2022 to {PERIODO_LA}.{"" if PERIODO_LA == PERIODO else " DESNZ updates the council figures every three months."} '
               f'“n/p”: not published by DESNZ because the number is small.{rim.ref("bus_xlsx,solare_la_xlsx")}</caption></table></div>')
-    corpo += '<h2>County councils</h2><ul class="pillole">' + "".join(f'<li><a href="/{c["url"]}">{h(c["nome"])} · {n(c["cumulato"])}</a></li>' for c in CONTEE) + "</ul>"
+    corpo += '<h2>County councils</h2>' + ("" if PERIODO_LA == PERIODO else f'<p class="small">Totals to the end of {PERIODO_LA}.</p>') + '<ul class="pillole">' + "".join(f'<li><a href="/{c["url"]}">{h(c["nome"])} · {n(c["cumulato"])}</a></li>' for c in CONTEE) + "</ul>"
     corpo += rim.elenco()
     testata = banda("Boiler Upgrade Scheme · by area", "Heat pump grants by council", f"How many heat pumps the grant has paid for in each of the {len(COUNCIL)} "
-                    f"council areas of England and Wales, from the official statistics to {PERIODO}.", icona="map")
+                    f"council areas of England and Wales, from the official statistics to {PERIODO_LA}.", icona="map")
     pagina("heat-pump-grants/", "Heat Pump Grants by Council: England and Wales", f"Boiler Upgrade Scheme grants paid in every council area of England and Wales: "
            f"{n(PAGATI_POMPE)} heat pumps to {PERIODO}, with yearly figures and rates per household.", corpo, testata,
            briciole=[("Home", ""), ("Grants by area", "heat-pump-grants/")])
@@ -931,7 +986,7 @@ def home():
     corpo += AD
     tm = M11["Voucher applications received"]["All technology types"]
     corpo += rim.t(f'<h2 id="demand">{"Applications are at a record" if record else "Applications month by month"}</h2><div class="testo"><p>Ofgem received <strong>{n(DOM_MESE)}</strong> applications in {PERIODO}, '
-                   f'{pct((DOM_MESE - DOM_ANNO_PRIMA) / DOM_ANNO_PRIMA)} more than in {mese_lungo(ANNO_PRIMA)}. From July to September 2026, {N9000} of the {TOT_Q3} '
+                   f'{pct((DOM_MESE - DOM_ANNO_PRIMA) / DOM_ANNO_PRIMA)} more than in {mese_lungo(ANNO_PRIMA)}. From {PER9000}, {N9000} of the {TOT_Q3} '
                    f'applications ({Q9000}) were for the new £9,000 grant. {n(PAG_MESE)} grants were paid in {PERIODO}.[[bus_xlsx]] The 2026/27 budget is £400 million, '
                    f'and vouchers are issued first come, first served until the year\'s budget is used.[[bus_xlsx]]</p></div>')
     corpo += barre([(k, tm[k], f"{mese_lungo(k)}: {n(tm[k])} applications") for k in MESI_SERIE[-12:]], "Applications per month, England and Wales",
@@ -939,14 +994,14 @@ def home():
     corpo += '<h2 id="eligible">Who can get it</h2>' + regole_brevi(rim)
     corpo += altri_schemi(titolo="Other grants: ECO4, Warm Homes, solar, Scotland and Wales")
     corpo += box_preventivo("home")
-    per_n = sorted(REG_EW, key=lambda r: -CUM[r])
-    per_t = sorted(REG_EW, key=lambda r: -TASSO_REG[r])
-    corpo += rim.t(f'<h2 id="areas">Grants paid in your area</h2><div class="testo"><p>{h(cap(NEL_REG[per_n[0]]))} ({n(CUM[per_n[0]])}) and {h(NEL_REG[per_n[1]])} '
-                   f'({n(CUM[per_n[1]])}) have had the most heat pump grants paid; per household, {h(NEL_REG[per_t[0]])} leads with {n(TASSO_REG[per_t[0]], 1)} per 1,000 '
-                   f'households and {h(NEL_REG[per_t[-1]])} has the fewest ({n(TASSO_REG[per_t[-1]], 1)}); the rates are our calculation with the DESNZ household estimates. Each region page lists every council, with year-by-year figures.[[bus_xlsx,solare_la_xlsx]]</p></div>')
+    per_n = sorted(REG_EW, key=lambda r: -POMPE[r])
+    per_t = sorted(REG_EW, key=lambda r: -TASSO_REG_M[r])
+    corpo += rim.t(f'<h2 id="areas">Grants paid in your area</h2><div class="testo"><p>{h(cap(NEL_REG[per_n[0]]))} ({n(POMPE[per_n[0]])}) and {h(NEL_REG[per_n[1]])} '
+                   f'({n(POMPE[per_n[1]])}) have had the most heat pump grants paid; per household, {h(NEL_REG[per_t[0]])} leads with {n(TASSO_REG_M[per_t[0]], 1)} per 1,000 '
+                   f'households and {h(NEL_REG[per_t[-1]])} has the fewest ({n(TASSO_REG_M[per_t[-1]], 1)}); the rates are our calculation with the DESNZ household estimates. Each region page lists every council, with year-by-year figures.[[bus_xlsx,solare_la_xlsx]]</p></div>')
     corpo += griglia_regioni()
     top = sorted([a for a in COUNCIL if a["indicizza"]], key=lambda a: -a["cumulato"])[:12]
-    corpo += ('<h3>Councils with the most heat pump grants paid</h3><ul class="pillole">' +
+    corpo += ('<h3>Councils with the most heat pump grants paid' + ("" if PERIODO_LA == PERIODO else f", to {PERIODO_LA}") + '</h3><ul class="pillole">' +
               "".join(f'<li><a href="/{a["url"]}">{h(a["nome"])} · {n(a["cumulato"])}</a></li>' for a in top) +
               '</ul><p><a href="/heat-pump-grants/">Find any council in England and Wales</a></p>')
     uk = ET["UK"]
@@ -1182,7 +1237,7 @@ def solare_regione(r):
               f'Many 2025 installations could not yet be assigned to a local authority, so 2025 counts will be revised up. Per 1,000 households: our calculation with the '
               f'household estimates in the same file.{rim.ref("solare_la_xlsx")}</caption></table></div>')
     if r in REG_EW:
-        corpo += rim.t(f'<p>Heat pumps: <a href="/heat-pump-grants/{SLUG_REG[r]}/">{n(CUM[r])} Boiler Upgrade Scheme grants paid in {h(nel)}</a>.[[bus_xlsx]]</p>')
+        corpo += rim.t(f'<p>Heat pumps: <a href="/heat-pump-grants/{SLUG_REG[r]}/">{n(POMPE[r])} Boiler Upgrade Scheme grants paid in {h(nel)}</a>.[[bus_xlsx]]</p>')
     else:
         corpo += rim.t(f'<p class="small">The Boiler Upgrade Scheme does not cover {h(nel)}: it is open in England and Wales only.[[gov_apply]]</p>')
     corpo += box_preventivo("solar_regione")
@@ -1698,7 +1753,8 @@ def extra():
     (SITO / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {URL_SITO}/sitemap.xml\n", encoding="utf-8")
     (SITO / f"{CHIAVE_INDEXNOW}.txt").write_text(CHIAVE_INDEXNOW, encoding="utf-8")
     MON.scrivi_ads_txt(SITO_ID, SITO)
-    voci = "".join(f"<url><loc>{URL_SITO}/{u}</loc><lastmod>{d}</lastmod></url>" for u, d in URLS)
+    lm = date_lastmod()
+    voci = "".join(f"<url><loc>{URL_SITO}/{u}</loc><lastmod>{lm[u]}</lastmod></url>" for u in URLS)
     (SITO / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{voci}</urlset>\n', encoding="utf-8")
     (SITO / "netlify.toml").write_text("""[build]
   publish = "."

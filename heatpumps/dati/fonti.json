@@ -1,13 +1,13 @@
 {
  "definizioni": {
   "bus_xlsx": {
-   "url": "https://assets.publishing.service.gov.uk/media/6ae1c68f088f42d99bbe77cc/Boiler_Upgrade_Scheme_BUS_Statistics_September_2026.xlsx",
-   "pagina": "https://www.gov.uk/government/statistics/boiler-upgrade-scheme-statistics-september-2026",
+   "url": "https://assets.publishing.service.gov.uk/media/6b05a2c4f3003ae7fcc035e8/Boiler_Upgrade_Scheme_BUS_Statistics_October_2026.xlsx",
+   "pagina": "https://www.gov.uk/government/statistics/boiler-upgrade-scheme-statistics-october-2026",
    "titolo": "Boiler Upgrade Scheme statistics (Excel workbook)",
    "chi": "Department for Energy Security and Net Zero (DESNZ), data from Ofgem",
    "file": "bus.xlsx",
-   "titolo_allegato": "Boiler Upgrade Scheme Statistics: September 2026 (Excel)",
-   "uscita": "Boiler Upgrade Scheme statistics: September 2026",
+   "titolo_allegato": "Boiler Upgrade Scheme Statistics: October 2026 (Excel)",
+   "uscita": "Boiler Upgrade Scheme statistics: October 2026",
    "tipo": "xlsx",
    "licenza": "Open Government Licence v3.0"
   },
@@ -34,7 +34,7 @@
    "licenza": "Open Government Licence v3.0"
   },
   "solare_et63_xlsx": {
-   "url": "https://assets.publishing.service.gov.uk/media/6ae0cc0c16428df537606259/ET_6.3_SOLAR_PV_OCT_26.xlsx",
+   "url": "https://assets.publishing.service.gov.uk/media/6b06afbedd1c746a6c9dbe61/ET_6.3_SOLAR_PV_NOV_26.xlsx",
    "pagina": "https://www.gov.uk/government/statistics/energy-trends-section-6-renewables",
    "titolo": "Solar photovoltaics deployment, Energy Trends table 6.3 (Excel workbook)",
    "chi": "DESNZ, Energy Trends",
@@ -56,24 +56,24 @@
    "licenza": "Open Government Licence v3.0"
   },
   "whlg_xlsx": {
-   "url": "https://assets.publishing.service.gov.uk/media/6a8ebcbbf5b35599aec18dca/Warm_Homes_Local_Grant_Statistics_-_August_2026.xlsx",
-   "pagina": "https://www.gov.uk/government/statistics/warm-homes-local-grant-statistics-august-2026",
+   "url": "https://assets.publishing.service.gov.uk/media/6b05b5fe1467fac8f01bd5fa/Warm_Homes_Local_Grant_Statistics_-_November_2026.xlsx",
+   "pagina": "https://www.gov.uk/government/statistics/warm-homes-local-grant-statistics-november-2026",
    "titolo": "Warm Homes: Local Grant statistics (Excel workbook)",
    "chi": "DESNZ, data reported by the councils that run the grant",
    "file": "whlg.xlsx",
-   "titolo_allegato": "Warm Homes: Local Grant statistics data tables - August 2026",
-   "uscita": "Warm Homes: Local Grant statistics - August 2026",
+   "titolo_allegato": "Warm Homes: Local Grant statistics data tables - November 2026",
+   "uscita": "Warm Homes: Local Grant statistics - November 2026",
    "tipo": "xlsx",
    "licenza": "Open Government Licence v3.0"
   },
   "hee_xlsx": {
-   "url": "https://assets.publishing.service.gov.uk/media/6a3d1d12da47783d87723a8f/Headline_HEE_tables_June_2026.xlsx",
-   "pagina": "https://www.gov.uk/government/statistics/household-energy-efficiency-statistics-headline-release-june-2026",
+   "url": "https://assets.publishing.service.gov.uk/media/6b05c094091d49d03c56bf74/Headline_HEE_tables_November_2026.xlsx",
+   "pagina": "https://www.gov.uk/government/statistics/household-energy-efficiency-statistics-headline-release-november-2026",
    "titolo": "Household Energy Efficiency statistics, headline tables (Excel workbook)",
    "chi": "DESNZ, data from Ofgem",
    "file": "hee.xlsx",
-   "titolo_allegato": "Headline HEE release tables, June 2026 (Excel)",
-   "uscita": "Household Energy Efficiency Statistics, headline release June 2026",
+   "titolo_allegato": "Headline HEE release tables, November 2026 (Excel)",
+   "uscita": "Household Energy Efficiency Statistics, headline release November 2026",
    "tipo": "xlsx",
    "licenza": "Open Government Licence v3.0"
   },
@@ -362,56 +362,56 @@
  "fonti": {
   "bus_xlsx": {
    "http": 200,
-   "letto_il": "2026-11-13",
-   "sha256": "0311344a6f2266656ee157086dd7560e6fe770e6944580ce0e5d980711b5771c",
-   "byte": 1143204,
-   "pubblicato": "2026-10-29T09:30:16+00:00"
+   "letto_il": "2026-11-26",
+   "sha256": "3861822dc24c8296ea1a8c8ad3f33017fc22a83cf205a6df8701cfc79ac252fc",
+   "byte": 1476429,
+   "pubblicato": "2026-11-26T09:30:23+00:00"
   },
   "solare_la_xlsx": {
    "http": 200,
-   "letto_il": "2026-11-13",
+   "letto_il": "2026-11-26",
    "sha256": "ac5cc6731685c2b24a479f22d019a10577053dc2d65ae12a792f44d5b36ae50e",
    "byte": 3446115,
    "pubblicato": "2026-09-29T09:30:05+01:00"
   },
   "solare_costi_xlsx": {
    "http": 200,
-   "letto_il": "2026-11-13",
+   "letto_il": "2026-11-26",
    "sha256": "1ce7ec3a9671fac704d313f07ee127de1fd0776e312ded7257d219131a45a1ca",
    "byte": 86279,
    "pubblicato": "2026-05-28T09:30:12+01:00"
   },
   "solare_et63_xlsx": {
    "http": 200,
-   "letto_il": "2026-11-13",
-   "sha256": "6fd2739dda6fbe44c205835c74794f371dcb64190c8b31b9e8944bb4fc943167",
-   "byte": 883330,
-   "pubblicato": "2026-11-12T09:30:14+00:00"
+   "letto_il": "2026-11-26",
+   "sha256": "14796bd2e28bee980d728a2fee60e833f57df8138c375ca05db3684a0a65e371",
+   "byte": 887508,
+   "pubblicato": "2026-11-26T09:30:12+00:00"
   },
   "gbis_xlsx": {
    "http": 200,
-   "letto_il": "2026-11-13",
+   "letto_il": "2026-11-26",
    "sha256": "e1ebcf885663c8ba5734ed3952164f42abc6b019dde20cf93313071c8e4ff99d",
    "byte": 202847,
    "pubblicato": "2026-06-25T09:30:03+01:00"
   },
   "whlg_xlsx": {
    "http": 200,
-   "letto_il": "2026-11-13",
-   "sha256": "77ad1a60b81af2844a8aa7b5b472559fcc19fac1ecd3ddd890a926a2555be99d",
-   "byte": 72039,
-   "pubblicato": "2026-08-27T09:30:07+01:00"
+   "letto_il": "2026-11-26",
+   "sha256": "d9cb631561bd2c3d3eaed4b6b8e1bbfcd5e2f1d117d786cef33da24fde8b5010",
+   "byte": 116950,
+   "pubblicato": "2026-11-26T09:30:24+00:00"
   },
   "hee_xlsx": {
    "http": 200,
-   "letto_il": "2026-11-13",
-   "sha256": "7db15096715b486b577f71b78d089d7f3b127e95349f1042b22771da4177482c",
-   "byte": 665370,
-   "pubblicato": "2026-06-25T09:30:00+01:00"
+   "letto_il": "2026-11-26",
+   "sha256": "cdc4d9686e3f83edeebb4c74157972cd576e1844834633cf2ee83a35b0c92cf5",
+   "byte": 674633,
+   "pubblicato": "2026-11-26T09:30:23+00:00"
   },
   "gov_apply": {
    "http": 200,
-   "letto_il": "2026-11-13",
+   "letto_il": "2026-11-26",
    "aggiornata": "2023-01-13T10:11:11+00:00",
    "sha256": "418ed88643b88140f37cc40d493c8c96f2e5336c2e2ec2d12fcf68ab85c3e4bf",
    "trovate": {
@@ -449,7 +449,7 @@
   },
   "ofgem_bus": {
    "http": 200,
-   "letto_il": "2026-11-13",
+   "letto_il": "2026-11-26",
    "aggiornata": null,
    "sha256": "bc661849700746bf873c7b03d13a0b25118e15dedda5c23df2ea6ea659cfd713",
    "trovate": {
@@ -463,7 +463,7 @@
   },
   "ofgem_owners": {
    "http": 200,
-   "letto_il": "2026-11-13",
+   "letto_il": "2026-11-26",
    "aggiornata": null,
    "sha256": "b34c0f7236a0ea72ac71de0f249651d63c8070eeca43d9292e7441130726eaa6",
    "trovate": {
@@ -487,7 +487,7 @@
   },
   "gov_eco": {
    "http": 200,
-   "letto_il": "2026-11-13",
+   "letto_il": "2026-11-26",
    "aggiornata": "2025-01-23T14:00:37+00:00",
    "sha256": "9160398a97fa1ae0099ebc946ea7d1086842f3f15e41c112cdd1df52b1c486b9",
    "trovate": {
@@ -516,7 +516,7 @@
   },
   "ofgem_eco": {
    "http": 200,
-   "letto_il": "2026-11-13",
+   "letto_il": "2026-11-26",
    "aggiornata": null,
    "sha256": "3a0189d04de1118e6249329f106d580b24ee56f22977079280cdb18035f557eb",
    "trovate": {
@@ -529,7 +529,7 @@
   },
   "gov_gbis": {
    "http": 200,
-   "letto_il": "2026-11-13",
+   "letto_il": "2026-11-26",
    "aggiornata": "2024-10-28T15:28:29+00:00",
    "sha256": "d0513e6cead10e208c9c1dfff0400b067e57df167aac8829ddd449d0e6e9a554",
    "trovate": {
@@ -540,7 +540,7 @@
   },
   "ofgem_gbis": {
    "http": 200,
-   "letto_il": "2026-11-13",
+   "letto_il": "2026-11-26",
    "aggiornata": null,
    "sha256": "6eb5db32ee2b16bf8d5a5a573da5cdc17b3d8d75cac779858c8fad060566f2b2",
    "trovate": {
@@ -553,9 +553,9 @@
   },
   "gov_whlg": {
    "http": 200,
-   "letto_il": "2026-11-13",
+   "letto_il": "2026-11-26",
    "aggiornata": "2025-04-01T10:59:25+01:00",
-   "sha256": "527c3f973428cd57a30aa06c68f9b6c2e12020d4f760b77dd835f5c6b44a9540",
+   "sha256": "c94708b8a5ead6f9ece99ab206113b966dc540b6f7a2e826376c12208631c605",
    "trovate": {
     "You could get free energy saving improvements made to your home if you're on a low income, getting certain benefits or living in a certain postcode area.": true,
     "The Warm Homes: Local Grant is only available in England.": true,
@@ -576,7 +576,7 @@
   },
   "hmrc_vat": {
    "http": 200,
-   "letto_il": "2026-11-13",
+   "letto_il": "2026-11-26",
    "aggiornata": "2024-01-31T15:08:23+00:00",
    "sha256": "a71955a821cfe748451bf482b17b83d77f2a9bcc3c6dc9337418a0f47b0f78b0",
    "trovate": {
@@ -589,7 +589,7 @@
   },
   "ofgem_seg": {
    "http": 200,
-   "letto_il": "2026-11-13",
+   "letto_il": "2026-11-26",
    "aggiornata": null,
    "sha256": "157abc9ecea1781e523dd0c7125c9653bcd9fe9f4d276ab690d710c827c2bc75",
    "trovate": {
@@ -604,7 +604,7 @@
   },
   "hes_grant": {
    "http": 200,
-   "letto_il": "2026-11-13",
+   "letto_il": "2026-11-26",
    "aggiornata": null,
    "sha256": "49fe4ccfcdb28bbc685b749fcf51939a0c4c93a84a6855fa717d98463e403891",
    "trovate": {
@@ -631,7 +631,7 @@
   },
   "hes_whs": {
    "http": 200,
-   "letto_il": "2026-11-13",
+   "letto_il": "2026-11-26",
    "aggiornata": null,
    "sha256": "0749fdd6ea9bcc66873ebed4b54257f2ebff0e77e807da589b985796678ab913",
    "trovate": {
@@ -652,7 +652,7 @@
   },
   "wales_nest": {
    "http": 200,
-   "letto_il": "2026-11-13",
+   "letto_il": "2026-11-26",
    "aggiornata": null,
    "sha256": "9b470d541cb729d61c2d365f929e4dc4c93073a0b765649cf502b9853ee7498a",
    "trovate": {
@@ -664,7 +664,7 @@
   },
   "wales_nest_free": {
    "http": 200,
-   "letto_il": "2026-11-13",
+   "letto_il": "2026-11-26",
    "aggiornata": null,
    "sha256": "5a13827b2fbddf84bc48075e3d2b383fd5eb905bf224ed3947a1a683bd4db0be",
    "trovate": {
@@ -673,9 +673,9 @@
   },
   "nid_grants": {
    "http": 200,
-   "letto_il": "2026-11-13",
+   "letto_il": "2026-11-26",
    "aggiornata": null,
-   "sha256": "6f59077ef8f2eff1a1cb077cd68d7ebb327956d12ff865213c063f73461442ac",
+   "sha256": "677782a2e2e03698e1e0c69301c914404e9cb3d1ecb91f7665a872b55a1f9496",
    "trovate": {
     "The Affordable Warmth Scheme aims to help with the effects of fuel poverty and energy inefficiency.": true,
     "It is run by the Northern Ireland Housing Executive (NIHE).": true,
@@ -685,9 +685,9 @@
   },
   "mcs_find": {
    "http": 200,
-   "letto_il": "2026-11-13",
+   "letto_il": "2026-11-26",
    "aggiornata": null,
-   "sha256": "52f85dfbf47f638105b3dad185ce08526747456b50a7ad9a5b62176aceebc7ed",
+   "sha256": "cd92017a0dd994b8c5b7709d7e3eeeddc8f707de8f315ede2bcadc380c200c60",
    "trovate": {}
   }
  }

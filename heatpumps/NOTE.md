@@ -100,17 +100,23 @@ nominiamo: scriviamo solo "Scottish Government's own home energy schemes".
 
 Anche: `python3 studio-business/strumenti/monetizzazione.py verifica heatpumps` → 0 errori.
 
-## Aggiornamento (ogni mese, dopo l'uscita DESNZ del giovedì: prossima 26/11/2026)
+## Aggiornamento (ogni mese, dopo l'uscita DESNZ: prossima BUS 22/12/2026, ET 6.3 17/12/2026, WH:LG 25/2/2027)
 
 1. `python3 heatpumps/raccolta/fonti.py` (scarica le ultime uscite via API GOV.UK, rilegge le frasi delle regole; se una frase manca,
    rileggere la pagina a mano e correggere testi e `cerca`).
 2. `python3 heatpumps/raccolta/estrai.py && python3 heatpumps/genera.py && python3 heatpumps/verifica.py --browser` → 0 errori.
 3. Le tabelle per council e i costi cambiano solo a gennaio, aprile, luglio e ottobre; domande e totali ogni mese. Il solare per
-   council esce a settembre, i costi del solare a maggio.
-4. **Entro il 31/3/2027** rileggere le regole: il contributo da 9.000 £ e l'IVA a zero scadono quel giorno (`genera.py` si ferma
+   council esce a settembre, i costi del solare a maggio. **Due periodi distinti dal 26/11/2026:** `PERIODO` (copertina, tabelle mensili
+   1.1, 1.2A, M1.1, M1.2) e `PERIODO_LA` (titolo del foglio Q1.2, `periodo_la` in `bus.json`). Home, hub e regioni usano il dato
+   mensile (pompe pagate = 1.2A meno biomassa); council e contee restano a `PERIODO_LA` e lo scrivono. Nelle uscite trimestrali i due
+   coincidono e `genera.py` e `verifica.py` controllano che 1.2A meno biomassa = Q1.2.
+4. **Se `estrai.py` si ferma** («foglio … non trovato», «colonna … non trovata», «frasi citate non trovate», «la somma … non dà il
+   totale»): il formato è cambiato. Aprire l'xlsx, leggere il foglio a mano, correggere `estrai.py` **e** `verifica.py` (codice
+   separato apposta); mai togliere il controllo. Vedi la sezione del 26/11/2026 in fondo.
+5. **Entro il 31/3/2027** rileggere le regole: il contributo da 9.000 £ e l'IVA a zero scadono quel giorno (`genera.py` si ferma
    con un errore dopo il 31/3/2027). Se cambia l'anno finanziario (A1.7 con 2026/27), le pagine prendono da sole il nuovo anno.
-5. FAQ: ogni tanto `python3 heatpumps/raccolta/domanda.py` e controllare che ogni FAQ abbia ancora la sua ricerca.
-6. Pubblicare solo se `sito/` è cambiato (crediti Netlify); poi IndexNow.
+6. FAQ: ogni tanto `python3 heatpumps/raccolta/domanda.py` e controllare che ogni FAQ abbia ancora la sua ricerca.
+7. Pubblicare solo se `sito/` è cambiato (crediti Netlify); poi IndexNow.
 
 ## Da fare per pubblicare (passi del titolare)
 
@@ -298,3 +304,63 @@ non a fondo perduto resta fuori, va bene (l'unica traccia è l'indirizzo della f
 tenuto (la pagina risponde alla ricerca e la descrizione nomina ground source, £9,000 e £2,500); (e) titolo costo "UK": tenuto, ambito ora nella
 descrizione. Blocco del generatore dopo il 31/12/2026: sensato, ma ferma anche l'aggiornamento mensile del BUS finché `/eco4/` non è riscritta:
 metterlo in agenda per la settimana del 28/12.
+
+
+## Aggiornamento del 26/11/2026: formato degli xlsx cambiato (NON pubblicato, nessun commit: da rivedere)
+
+Uscite DESNZ del 26/11/2026, ore 9:30: BUS «October 2026», ET 6.3 (dati a ottobre), Warm Homes: Local Grant «November 2026» (dati a
+ottobre), HEE «November 2026» (ECO4 a settembre). `fonti.py` le aveva scaricate; `estrai.py` cadeva e `genera.py` aveva rigenerato il
+sito con `bus.json` nuovo e `schemi.json` vecchio.
+
+**Che cosa è cambiato nei file**
+
+| File | Cambio | Effetto sul vecchio codice |
+|---|---|---|
+| `whlg.xlsx` | foglio «About this release» rinominato «About this Release» (stesso contenuto: piano, «Data Completeness») | `KeyError` in `estrai.py` |
+| `whlg.xlsx` «About this Release» | frase sui progetti: da «based on data submitted by 67 of these projects» a «includes valid delivery data reported by 69 of these projects and linked to TrustMark lodgements» | regex senza risultato |
+| `whlg.xlsx` T2 | colonne riordinate: misure (3ª), % misure, **costo medio (5ª, era 7ª)**, **case (6ª, era 5ª)**, % case; righe di subtotale per gruppo; celle vuote come stringa `""`; costi oscurati `N/A` (nota 4) | `estrai.py` avrebbe scritto il costo come «case» e una percentuale come costo; `verifica.py` cadeva con `decimal.InvalidOperation` sulla cella `""` in fondo alla riga Total |
+| `whlg.xlsx` | intestazioni «Grant Recipient-reported …»; tabelle nuove T4 (collegi), T5 (enti locali), T6 (combined authorities) con `#` e `^` per i valori oscurati; date in Title invariate (periodo, «updated on», prossima 25/2/2027) | T4-T6 non usate (espansione possibile) |
+| `bus.xlsx` | 32 fogli (nuovo «1.3B», domande per combustibile sostituito); nel foglio «Scheme background» la frase «The Government confirmed funding … up to 2029/30 …» è sostituita da «The Government will maintain the current funding levels at £400m in 2027/28, rising broadly in line with inflation thereafter.» | `/eligibility/` avrebbe stampato «None» dentro la citazione |
+| `bus.xlsx` Commentary | il periodo delle domande da £9,000 è «July to October 2026» | la home aveva «From July to September 2026» scritto fisso con i numeri nuovi |
+| `bus.xlsx` Q1.2, A1.7 | invariati (trimestrali, a settembre 2026): è la prima uscita non trimestrale da quando esiste il sito | le pagine scrivevano «May 2022 to October 2026» accanto a cifre di settembre (council, contee, regioni, home, hub) |
+| `hee.xlsx` | stessa struttura; prossima uscita «Summer 2027»; misure ECO4 riviste al ribasso da Ofgem (1.043.846 → 1.043.418, case 306.624 → 304.814: nota in «Further Info») | nessuno |
+| `solare_et63.xlsx` | stessa struttura, una colonna in più (Oct 2026) | nessuno |
+
+**Correzioni**
+
+- `estrai.py`: `foglio()` cerca il foglio per nome senza badare a maiuscole e spazi e, se non c'è, per contenuto; `colonna()` trova
+  le colonne dall'intestazione (una sola corrispondenza, altrimenti si ferma); `numero()`/`intero()` accettano numeri, lasciano come
+  testo le celle oscurate (`N/A`, `#`, `^`, `[c1]`, `[x]`) e si fermano su celle vuote o altro testo. Controlli di coerenza WH:LG:
+  somma dei mesi = totale, totali T1 = T2 = somma delle 9 regioni di T3, ultimo mese = periodo della copertina. Ogni frase citata
+  del BUS deve esserci, altrimenti l'estrazione si ferma (prima finiva `None` nella pagina). Nuovo campo `periodo_la`.
+- `verifica.py` (codice suo): colonne WH:LG dalle intestazioni; `_cifra()` distingue cella oscurata (avviso, nessuna cifra da
+  cercare) da cella vuota o testo (errore); `_arr()` rifiuta i non numeri con un messaggio chiaro. Nuovi controlli: periodo della
+  copertina = ultima colonna di M1.1; home con le pompe pagate di 1.1 meno biomassa e la frase sulle £9,000 con periodo e numeri del
+  commento di questa uscita; regioni con 1.2A meno biomassa e «2026/27 so far»; ogni pagina council/contea deve dire «May 2022 to
+  <periodo di Q1.2>» e non può attribuire quelle cifre al mese della copertina. Valori controllati: 6.178 (erano 4.132).
+- `genera.py`: `PERIODO_LA`, `POMPE` (mensile per regione), `TASSO_REG_M`/`TASSO_EW_M`; periodo delle £9,000 letto dal commento;
+  `dati/faq.json` usa `{fine9000}` al posto di «September 2026».
+
+**Prima → dopo (Inghilterra e Galles, tabella 1.1 e M1.1)**: domande ricevute 160.874 → 175.160; buoni emessi 131.619 → 139.840;
+contributi pagati 96.611 → 101.742; pompe di calore pagate 96.185 → 101.313; domande del mese 9.738 (settembre) → 14.286 (ottobre,
+record); pagati nel mese 3.332 → 5.138 (settembre rivisto a 3.329). WH:LG: 5.469 case e 11.247 misure (luglio) → 6.803 e 13.972
+(ottobre). Solare UK: 2.189.367 impianti, 23.588 MW a ottobre.
+
+**Controllo a mano del 26/11** (xlsx aperto con codice a parte, poi `bus.json`, poi pagina): le 4 righe di 1.1; i 54 mesi di M1.1
+per i 4 stati; South West e Wales (1.2A, 1.2B, M1.2 settembre e ottobre); Cornwall e Leeds (Q1.2 e 4 anni di A1.7): tutto uguale.
+`verifica.py --browser` 0 errori 0 avvisi; `monetizzazione.py verifica heatpumps` 0 errori.
+
+**Lastmod per pagina (dopo la revisione del 26/11, voto 8,5).** Prima ogni pagina della sitemap prendeva la data di controllo
+delle fonti. Ora `dati/lastmod.json` tiene per ogni pagina indicizzabile [data, impronta]: l'impronta è il testo visibile di `<main>`
+senza `<p class="asof">` (date di uscita e controllo), senza `<p class="disclaimer">`, senza l'elenco delle fonti
+(`<section class="fonti-box">`) e con le date complete sostituite da un segno; menu, piè di pagina e `<head>` non contano. La data si
+sposta a oggi solo se l'impronta cambia. Seme da git con `raccolta/lastmod_seme.py` (4 commit di `sito/`; il commit del 25/11 ha
+cambiato una sola pagina, quello del 19/11 ne ha cambiate 22). Distribuzione oggi: 12/11 × 196 (195 council e contee con cifre
+invariate, privacy), 19/11 × 3 (about, GBIS, costo), 25/11 × 1 (how-we-check), 26/11 × 30 (home, hub, regole, 10 regioni, Scozia,
+13 pagine solari, ECO4, WH:LG, contributi solari). `verifica.py` ricalcola l'impronta con codice suo e la confronta con registro e
+sitemap. Il seme si lancia una volta sola: non rilanciarlo dopo una generazione con dati nuovi (riporterebbe le impronte a HEAD).
+Anche le colonne di 1.2A, 1.2B, Q1.2 e A1.7 ora si cercano dall'intestazione (`colonna()`), con il controllo «pagati totale = somma
+delle tecnologie»; `bus.json` è rimasto identico byte per byte.
+
+**Da sapere:** council e contee non cambiano fino all'uscita di gennaio 2027 (dati a dicembre); in `sito/` cambiano comunque quasi
+tutte le pagine per date, piè di pagina e riquadri delle regioni. La tabella «Pagine» in cima descrive ancora l'uscita di settembre.
