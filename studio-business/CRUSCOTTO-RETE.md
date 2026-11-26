@@ -85,6 +85,7 @@ Una riga al giorno, scritta dal riassunto delle 08:12. Previsto = stima centrale
 | 23/11/2026 | 37.035 | invariato (pausa). Settimana 16-22/11: 1.218 visite (−32 %, calo da Google sui 3 domini nuovi, ChatGPT in crescita; vedi nota della settimana) | vedi riassunto | 0 |
 | 24/11/2026 | 37.035 | invariato (pausa). Before You Fly respinto da AdSense (low value content): piano di correzione dalla ripresa | 202 (23/11, lunedì; 22/11: 105) · clic libro B1: 1 | 0 |
 | 25/11/2026 | 37.035 | invariato (pausa fino alle 21). Strategia di recupero scritta (STRATEGIA-RECUPERO.md) | vedi riassunto | 0 |
+| 26/11/2026 | 37.035 | invariato: notte di recupero e correzioni (Visa, BYF, EsameB1 rivisti 9,0/9,0/8,8; 13 siti corretti; 4 pagine /esempi/ e /iscrizione/ su EsameB1), nessuna sezione nuova con stima propria | 173 (25/11; 24/11: 166) · clic libro B1: 2 | 0 |
 
 ## 2b. Stima dei ricavi a 18 mesi (14/10/2026, aggiornata il 17/10 con FloodCost, rifiuti visti, navi e FHA). Sono stime, non numeri: si rifanno con i dati veri.
 
