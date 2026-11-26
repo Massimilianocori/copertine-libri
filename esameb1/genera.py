@@ -50,6 +50,7 @@ import monetizzazione as MON  # noqa: E402
 import genera_en as EN  # noqa: E402  sezione inglese /en/ (dal 31/10/2026)
 import genera_lingue as LG  # noqa: E402  sezioni /uk/ e /ro/ (dal 31/10/2026); hreflang e menu delle lingue per tutto il sito
 import genera_cpia as CP  # noqa: E402  pagine CPIA: una per CPIA più l'indice /cpia/ (20/11/2026)
+import genera_prova as PV  # noqa: E402  prova B1 online gratuita scritta da noi e prova di domanda «Pass EsameB1» (26/11/2026)
 import genera_livelli as LV  # noqa: E402  prove d'esempio per livello: CILS B1 standard, A1, C1, C2 (25/11/2026)
 import genera_dopo as DP  # noqa: E402  pagine «dopo l'esame» (certificato, tempi per sessione, esame non superato) ed esempi A2 e B2 (15/11/2026)
 import genera_guide as GU  # noqa: E402  test A2, carta di soggiorno, cittadinanza per matrimonio, stato della pratica (13/11/2026); ricongiungimento familiare, documenti, permesso per motivi familiari, idoneità alloggiativa (14/11/2026)
@@ -892,6 +893,13 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None, indiciz
         raise SystemExit(f"{percorso}: titolo {len(titolo)}/{MAX_TITOLO} o description {len(descrizione)}/{MAX_DESC} troppo lunghi")
     profondita = percorso.count("/")
     rel = base if base is not None else ("../" * profondita or "./")
+    # 26/11/2026, prova di domanda «Pass EsameB1»: riquadro del Pass nella prova gratis (al posto del segnaposto) e, nelle pagine
+    # /esempi/, subito dopo il primo blocco (il titolo). Prima di libro_in_alto(), che lavora sullo stesso primo blocco.
+    if "<!--pass-->" in corpo:
+        corpo = corpo.replace("<!--pass-->", riquadro_pass(rel, qui=True))
+    elif percorso.startswith("esempi/") and percorso.split("/")[1] not in PASS_ESCLUSE:
+        i_pass = fine_primo_blocco_di_contenuto(corpo)
+        corpo = corpo[:i_pass] + "\n" + riquadro_pass(rel) + corpo[i_pass:]
     if (percorso[:-10] if percorso.endswith("index.html") else percorso) in LIBRO_IN_ALTO:
         corpo = libro_in_alto(corpo, rel)  # 25/11/2026: riquadro del libro subito sotto il titolo nelle 10 pagine più viste
     avvisami = "#avvisami" if 'id="avvisami"' in corpo else f"{rel or '/'}#avvisami"
@@ -1109,6 +1117,70 @@ def riquadro_libro(rel="../"):
 <p class="small" style="margin:4px 0 0">Guida a tutti e 4 gli esami, 4 simulazioni con soluzioni, modelli di email e orale.
 Le tracce audio delle prove d'ascolto sono gratis sulla pagina <a href="{rel}audio-libro/">audio del libro</a>.</p></div></div>
 <div class="azioni"><a class="btn" href="{LIBRO_URL}" rel="noopener" target="_blank" data-libro-proprio="si" data-goatcounter-click="esameb1.eu/clic/libro-esempi">{ic("libro")}Vedi il libro su Amazon</a></div>
+</section>"""
+
+
+# Decisione del 26/11/2026: il Pass è un prodotto B1, quindi niente riquadro nelle pagine degli altri livelli (i clic lì falserebbero
+# la misura); nelle pagine B1 di /esempi/ sta SOTTO il primo blocco di contenuto, non subito sotto il riquadro del libro in alto.
+PASS_ESCLUSE = {"a1", "a2", "b2", "c1", "c2"}
+_RE_BLOCCHI = re.compile(r"<(/?)(section|div|aside)\b([^>]*)>")
+
+
+def fine_primo_blocco_di_contenuto(corpo):
+    """Indice subito dopo la fine della seconda <section> di primo livello del corpo (la prima è il titolo), saltando i riquadri
+    (class="card ..."): è il primo blocco di contenuto della pagina. Errore se non c'è."""
+    prof, viste, aperta = 0, 0, False
+    for m in _RE_BLOCCHI.finditer(corpo):
+        if not m.group(1):
+            if prof == 0 and m.group(2) == "section" and 'class="card' not in m.group(3):
+                viste += 1
+                aperta = viste == 2
+            prof += 1
+        else:
+            prof -= 1
+            if prof == 0 and aperta:
+                return m.end()
+    raise SystemExit("riquadro del Pass: la pagina non ha un primo blocco di contenuto dopo il titolo")
+
+
+# Stile e script del riquadro stanno dentro il riquadro (non nel CSS e nel JS comuni): così cambiano solo le pagine che lo hanno.
+CSS_PASS = (".pass{margin:22px 0 8px;border:2px solid var(--brand)}"
+            ".pass-riga{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between}"
+            ".pass-riga p{margin:0;flex:1 1 300px}.pass .prezzo{font-weight:800;white-space:nowrap}"
+            ".pass-pannello{border-top:1px solid var(--line);margin-top:16px;padding-top:14px;max-width:560px}"
+            ".pass-pannello:focus{outline:none}.pass-pannello>p{margin:0}")
+JS_PASS = ("(function(){var b=document.querySelector('[data-pass-apri]'),p=document.getElementById('pass-pannello');if(!b||!p)return;"
+           "b.addEventListener('click',function(){p.hidden=false;b.setAttribute('aria-expanded','true');"
+           "try{p.focus({preventScroll:true});p.scrollIntoView({block:'nearest'});}catch(e){}});})();")
+
+
+def riquadro_pass(rel, qui=False):
+    """Prova di domanda «Pass EsameB1» (26/11/2026, studio-business/schede/2026-11-26-prova-pass-esameb1.md): riquadro con il prezzo
+    nella prova gratis (qui=True) e nelle pagine /esempi/ (lo mette pagina()). Il pulsante NON vende: conta il clic
+    (esameb1.eu/clic/pass-prezzo) e apre il pannello «in preparazione» con il modulo Netlify «avvisami», campo nascosto fonte=pass.
+    Nessun pagamento, nessuna data promessa. Resta fuori dall'impronta del lastmod (_RE_LIBRO), come i riquadri del libro."""
+    come = "come questa" if qui else f'di livello B1 come la nostra <a href="{rel}{PV.PERCORSO}">prova gratis</a>'
+    return f"""<section class="card pass" id="pass" aria-label="Pass EsameB1">
+<style>{CSS_PASS}</style>
+<div class="pass-riga"><p><strong>Pass EsameB1</strong>: 6 prove {come}, con correzione automatica e spiegazioni — prezzo indicativo <span class="prezzo">19 €</span></p>
+<button class="btn" type="button" data-pass-apri aria-expanded="false" aria-controls="pass-pannello" data-goatcounter-click="esameb1.eu/clic/pass-prezzo" data-goatcounter-title="Pass EsameB1 19 €">Voglio il Pass · 19 €</button></div>
+<noscript><p class="small">Il Pass è in preparazione: non è ancora in vendita.</p></noscript>
+<div class="pass-pannello" id="pass-pannello" tabindex="-1" hidden>
+<p><strong>Il Pass è in preparazione e non è ancora in vendita.</strong> Lasciaci l'email: ti scriviamo se e quando è pronto, con il prezzo definitivo (nessun pagamento ora).</p>
+<form class="form avvisami" name="avvisami" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
+<input type="hidden" name="form-name" value="avvisami">
+<input type="hidden" name="fonte" value="pass">
+<input type="hidden" name="source" value="">
+<p class="hp"><label>Non compilare <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+<label>La tua email<input type="email" name="email" required autocomplete="email" placeholder="nome@esempio.it"></label>
+<label class="check"><input type="checkbox" name="consenso" value="si" required>
+<span>Accetto di ricevere da {NOME} un'email quando il Pass è pronto. Posso cancellarmi quando voglio. Ho letto la <a href="/privacy.html">privacy</a>.</span></label>
+<button class="btn" type="submit">{ic("campana")}Avvisami quando è pronto</button>
+<p class="errore" data-errore hidden>Non è stato possibile inviare. Riprova tra poco.</p>
+</form>
+<div class="ok" data-ok hidden>{ic("ok")}<span><strong>Fatto!</strong> Ti scriviamo se e quando il Pass è pronto. Non hai pagato niente.</span></div>
+</div>
+<script>{JS_PASS}</script>
 </section>"""
 
 
@@ -1558,7 +1630,7 @@ def scrivi_piu_usate(urls):
 REGISTRO_LASTMOD = DATI / "lastmod.json"
 _RE_CONTA = re.compile(r'(<span class="conta)[^"]*("[^>]*>)[^<]*(</span>)')
 _RE_LIBRO = re.compile(r'<div class="libro-mini">.*?</a></div></div>|<section class="card libro libro-top" id="libro">.*?</section>'
-                       r'|<aside class="libro-top".*?</aside>', re.S)
+                       r'|<aside class="libro-top".*?</aside>|<section class="card pass" id="pass".*?</section>', re.S)
 
 
 # Date di controllo («controllato il 23 novembre 2026», «letta il…», «checked on…», «verificat la…», «перевірено…»): rileggere una
@@ -1706,6 +1778,7 @@ dei 4 enti principali: le date sono uguali in tutta Italia, ci si iscrive presso
 </aside>
 </div>
 {passi_home(prossime)}
+<p>{ic("matita")} Vuoi provare subito? <a href="{PV.PERCORSO}">Prova B1 online gratis, con correzione automatica</a>: l'abbiamo scritta noi, non è una prova ufficiale.</p>
 {riquadro_preparati("")}
 <section id="citta">
 <h2>{ic("pin")}Sedi per città</h2>
@@ -3280,6 +3353,7 @@ def pagina_esempi(prossime):
 <p class="lead">Secondo le pagine ufficiali dei 4 enti ({controllo_esempi()}), CILS, CELI, PLIDA e CERT.IT pubblicano gratis una prova d'esempio del B1 con audio e soluzioni.
 Le prove d'esempio si scaricano e si fanno online, a casa; l'esame vero invece si fa in presenza, in una sede d'esame (<a href="../come-funziona/#online">fonti</a>). Scegli l'ente: per ognuno trovi i link ai file ufficiali (per CERT.IT la pagina dell'ente), com'è fatta ogni prova, quanto dura e quanti punti servono.</p>
 <nav class="es-vai" aria-label="Esempi ente per ente">{vai}</nav>
+<p>{ic("matita")} In più, scritta da noi (non ufficiale): <a href="../{PV.PERCORSO}">prova B1 online gratis, con correzione automatica e spiegazioni</a>.</p>
 </section>
 {segnaposto_piu_usate("esempi")}
 {avviso("I file sono degli enti e restano sui loro siti: qui ci sono solo i link e una descrizione. Sono protetti dal diritto d'autore: scaricali per studiare, ma non ricaricarli su altri siti. <a href=\"#uso\">Le condizioni d'uso</a>.")}
@@ -5549,6 +5623,7 @@ def privacy():
 <h2>Chi tratta i dati</h2><p>Titolare del trattamento è Massimiliano Cori (Italia), che gestisce {NOME} come progetto indipendente. Puoi scriverci rispondendo a qualsiasi email che ti mandiamo.</p>
 <h2>Quali dati raccogliamo</h2><p>Solo se compili il modulo "Avvisami": la tua email, la città e l'ente che scegli, e la pagina o il link da cui arrivi (per capire quali canali funzionano).</p>
 <p>Se lasci l'email nel riquadro «Libro in arrivo»: solo l'email e la pagina da cui arrivi, che usiamo con il tuo consenso per scriverti una sola email quando esce il libro; dopo quell'email la cancelliamo, se non sei iscritto anche agli avvisi sulle date.</p>
+<p>Se lasci l'email nel riquadro «Pass EsameB1»: solo l'email e la pagina da cui arrivi, che usiamo con il tuo consenso per scriverti quando il Pass (le prove online a pagamento, oggi in preparazione) è pronto; dopo quell'email la cancelliamo, se non sei iscritto anche agli avvisi sulle date. Se decidiamo di non fare il Pass, cancelliamo l'email senza scriverti. Lasciare l'email non è un acquisto e non ti impegna a pagare.</p>
 <p>Se usi il modulo "Segnala un errore" o il modulo della pagina <a href="contatti/">Contatti</a> (è lo stesso modulo): il testo che scrivi, la pagina e il link che indichi e, solo se la lasci, la tua email. Li usiamo solo per controllare e correggere il dato segnalato e, se lasci l'email, per risponderti; la base giuridica è il nostro legittimo interesse a correggere gli errori del sito (art. 6.1.f GDPR). Non ti iscriviamo agli avvisi e cancelliamo la segnalazione quando l'abbiamo gestita.</p>
 <h2>Perché</h2><p>Per mandarti avvisi sulle date e sulle scadenze dell'esame B1. La base giuridica è il tuo consenso (art. 6.1.a GDPR), che puoi ritirare quando vuoi.</p>
 <h2>Chi li gestisce per noi</h2><p>Il sito e il modulo sono ospitati da Netlify, Inc., che conserva i dati del modulo per nostro conto. Netlify può trattare i dati fuori dall'UE con le garanzie previste dal GDPR (clausole contrattuali standard). Non vendiamo né cediamo i tuoi dati.</p>
@@ -5745,6 +5820,7 @@ def main():
             pagina_prefettura(sl, prossime)
             urls.append(f"cittadinanza/{pref_url(sl)}/")
     urls += DP.genera(sys.modules[__name__], prossime)  # 15/11/2026: /dopo-esame/ (indice, 4 enti, non superato) ed /esempi/a2/, /esempi/b2/ (genera_dopo.py)
+    urls += PV.genera(sys.modules[__name__])  # 26/11/2026: /prova-b1-online/, prova gratuita scritta da noi (genera_prova.py)
     urls += LV.genera(sys.modules[__name__], prossime)  # 25/11/2026: /esempi/cils-b1-standard/, /esempi/a1/, /esempi/c1/, /esempi/c2/ (genera_livelli.py); 26/11/2026: /esempi/ascolto/, /esempi/prova-orale/, /esempi/celi-2/
     urls += CP.genera(sys.modules[__name__], prossime)  # 20/11/2026: /cpia/ e una pagina per CPIA (genera_cpia.py)
     urls += GU.genera(sys.modules[__name__])  # 4 guide del 13/11/2026, 3 sul ricongiungimento familiare e 1 sull'idoneità alloggiativa del 14/11/2026 (genera_guide.py)
@@ -5763,6 +5839,7 @@ def main():
     n_en = EN.controlli(sys.modules[__name__])  # cifre /en/ = cifre italiane, link tra le lingue
     n_l = LG.controlli(sys.modules[__name__])
     DP.controlli(sys.modules[__name__])  # frasi tra «» = frasi citate, ricerche misurate, FAQ visibili
+    PV.controlli(sys.modules[__name__])  # prova B1 online: 24 domande, avviso «non ufficiale», un solo riquadro del Pass
     LV.controlli(sys.modules[__name__])  # esempi per livello: frasi tra «» = frasi citate, FAQ visibili, file solo sui siti degli enti, riquadro del libro
     CP.controlli(sys.modules[__name__])  # pagine CPIA: frasi tra «» = frasi citate, sedi dell'anagrafe, titolo = ricerca misurata, riquadro del libro
     GU.controlli(sys.modules[__name__])  # cifre delle 4 guide nelle frasi citate, FAQ visibili  # cifre /uk/ e /ro/, hreflang reciproci su tutto il sito, calcolatore identico in 4 lingue
