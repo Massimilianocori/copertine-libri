@@ -388,3 +388,8 @@ Tre avvertenze.
 - Le regole attuali su contributo e "consultazione semplificata" per l'interpello.
 - L'obbligo di SCIA per i soli servizi digitali.
 - Il trattamento INPS delle royalties per diritti d'autore.
+
+## Decisione del 26/11 (Massimiliano: «io non ho nessun titolo per correggere questi esami»)
+La strada A (lavoro autonomo con correzione personale) è esclusa: Massimiliano non è insegnante di italiano per stranieri e non ha il tempo; far correggere a un insegnante pagato renderebbe l'attività organizzata, quindi impresa. Restano due strade, decise con i numeri della prova di domanda (esito il 2/1/2027):
+- **Domanda forte** (prova passata e stima centrale sopra ~5.000 €/anno): Pass automatico come **impresa** (Camera di Commercio + INPS commercianti con riduzione del 35 %, ~3.050 €/anno fissi), con interpello o parere del CAF prima di incassare.
+- **Domanda debole o media**: le stesse prove in un **libro KDP** («6 prove complete B1»), nessun dubbio fiscale, decisione il 28/2/2027 con le vendite vere del primo libro.
