@@ -7,3 +7,6 @@
 6. Non tocco: titoli, URL, robots, sitemap, contenuti.
 7. Misura: verifica.py 0 errori con controllo indipendente; «Most used» 0 link sotto soglia; 0 lastmod mossi; revisione ≥ 8,5.
 8. Fatto = pubblicato e verificato online. 9. Costo: 15 crediti. 10. Dopo: controllo online, IndexNow, salute.py, DA-PUBBLICARE.
+
+## Chiusura (26/11)
+- [x] 7 controllo indipendente provato (7 casi di rottura), revisione 9, 0 lastmod mossi · [x] 8 pubblicato 6da71164a · [x] 10 online: «Most used» senza casey, IndexNow 813 ok, salute.py 0 errori.
