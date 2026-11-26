@@ -1074,6 +1074,9 @@ _RE_NON_TESTO = re.compile(r"<(script|style|svg|select)\b.*?</\1>", re.S | re.I)
 # è la stessa prima e dopo averli tolti. Il lastmod non si muove: l'impronta è quella calcolata da pagina() prima della soglia.
 # Le pagine noindex (fuori_indice) non passano dalla soglia e restano come sono.
 _RE_RIQUADRO_AFF = re.compile(r'\n?<section class="card aff-r".*?</section>', re.S)
+# 26/11/2026 (scheda «Visa, cancello controllato in modo indipendente»): pagine in indice rimaste senza lo script (sotto la soglia o di
+# servizio), percorso -> parole proprie. Le riempie applica_soglia_adsense(); il blocco «Most used pages» della home non le elenca.
+SOTTO_CANCELLO = {}
 
 
 def parole_testo_proprio(html):
@@ -1113,6 +1116,7 @@ def applica_soglia_adsense():
     pagine = pagine_del_sito()
     senza = MON.script_adsense(SITO_ID, False)
     con, tolte, link, pag_link = 0, 0, 0, 0
+    SOTTO_CANCELLO.clear()
     for p, n in parole_proprie(pagine).items():
         t = pagine[p]
         if ADSENSE_HEAD in t and n >= MIN_PAROLE_PROPRIE_ADSENSE:
@@ -1120,6 +1124,7 @@ def applica_soglia_adsense():
             continue
         if 'content="noindex' in t:   # pagine fuori indice e 404: già senza script, non passano dalla soglia
             continue
+        SOTTO_CANCELLO[p] = n
         nuovo = t
         if ADSENSE_HEAD in t:
             nuovo = nuovo.replace(ADSENSE_HEAD, senza, 1)
@@ -1298,7 +1303,10 @@ def blocco_piu(percorso):
     """HTML del blocco per la home ("") o per un indice di sezione. Solo pagine generate e in indice."""
     in_indice = set(URLS)
     if percorso == "":
-        scelte = [p for n, p in sorted(((n, p) for p, n in PIU_USATE.items() if p), key=lambda x: (-x[0], x[1])) if p in in_indice][:N_PIU_HOME]
+        # 26/11/2026: solo pagine che passano il cancello della pubblicità (con lo script AdSense); una pagina debole rientra da sola
+        # nel blocco quando viene arricchita. Gli indici di sezione restano come sono (fermo fino al 9/12).
+        scelte = [p for n, p in sorted(((n, p) for p, n in PIU_USATE.items() if p), key=lambda x: (-x[0], x[1]))
+                  if p in in_indice and p not in SOTTO_CANCELLO][:N_PIU_HOME]
         titolo, lingua_pag = "Most used pages", "en"
     else:
         scelte = [p for p in visite_sezione(percorso) if p in in_indice][:N_PIU_SEZ]
@@ -14104,7 +14112,6 @@ def extra():
     MON.scrivi_ads_txt(SITO_ID, SITO)  # sito/ads.txt solo con AdSense acceso (monetizzazione.json)
     date_ = date_lastmod()
     scrivi_date_esperimento(date_)  # esperimento citazioni (31/10/2026): data "Updated on" e dateModified = lastmod della pagina
-    scrivi_piu_usate()               # blocchi «Most used» (home e indici di sezione): dopo le pagine, fuori dall'impronta del lastmod
     scrivi_sitemap(date_)
     (SITO / "netlify.toml").write_text("""[build]
   publish = "."
@@ -14137,7 +14144,10 @@ def extra():
     pagina("404.html", f"Page not found | {NOME}", "Page not found.",
            '<section class="hero"><h1>Page not found</h1><p class="lead">Go to the <a href="/">visa income calculator</a>.</p></section>', indicizza=False, assoluto=True)
     global ADS_ESITO
-    ADS_ESITO = applica_soglia_adsense()   # per ultima: la misura delle parole proprie legge tutte le pagine finite (anche la 404)
+    ADS_ESITO = applica_soglia_adsense()   # dopo l'ultima pagina: la misura delle parole proprie legge tutte le pagine finite (anche la 404)
+    # blocchi «Most used» (home e indici di sezione), fuori dall'impronta del lastmod e dalla misura delle parole proprie (_RE_PIU toglie
+    # allo stesso modo il segnaposto e il blocco): dal 26/11/2026 dopo il cancello, perché la home elenca solo le pagine che lo passano
+    scrivi_piu_usate()
 
 
 def copia_grafica():

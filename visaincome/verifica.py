@@ -136,7 +136,10 @@ Uso (dalla radice del repository, dopo python3 visaincome/genera.py):
     (visite misurate, prime 3 destinazioni per nazionalità, occupazioni H-1B delle ricerche salvate, India e Nigeria, Stati nominati nei
     suggerimenti generali) e uguale a quello di genera.py; ogni pagina fuori indice ha "noindex, follow", nessun canonical, nessuno script
     AdSense (c'è il segno di monetizzazione.py), non è in sitemap ed è linkata da almeno una pagina in indice; ogni altra pagina (tranne la
-    404) è in sitemap con il suo canonical e senza noindex; AdSense manca solo sotto le 110 parole proprie (26/11/2026: gruppi di 5 parole che non stanno in 3 o più pagine) e su privacy.html e contact/; nessuna pagina dell'esperimento A/B,
+    404) è in sitemap con il suo canonical e senza noindex; AdSense manca solo sotto le 110 parole proprie (26/11/2026: gruppi di 5 parole che non stanno in 3 o più pagine) e su privacy.html e contact/;
+    la misura è rifatta da cancello_indipendente() con codice proprio (non con le funzioni di genera.py): errore se lo script sta su una
+    pagina sotto le 110 parole uniche, se una pagina in indice sotto la soglia ha un link di affiliazione o sponsorizzato, se lo script
+    sta su privacy o contact, se la home è senza script; il blocco «Most used pages» della home non linka pagine sotto il cancello (42); nessuna pagina dell'esperimento A/B,
     nessun indice, hub o pagina con visite è fuori indice; About dice chi gestisce il sito e come si paga, Contact spiega cosa scrivere.
 35. Riquadro AnchorLess «Get your codice fiscale from abroad» (12/11/2026, interruttore _anchorless in dati/affiliati.json): pagine
     ricalcolate (programma e pagina Paese dell'Italia, Study in Italy, flat tax del 7%, nessuna fuori indice) = genera.pagine_al();
@@ -716,7 +719,14 @@ def controlla_recupero():
                 errori.append(f"42: {p or 'home'}: testo del link diverso dall'H1 di {d}: {testo}")
             if p and not d.startswith(p):
                 errori.append(f"42: {p}: link a un'altra sezione: {d}")
-        ordine = sorted((x for x in P if x and x.startswith(p) and x != p and f"{G.URL_SITO}/{x}" in visti and (p == "" or P[x] >= 2)), key=lambda x: (-P[x], x))[:len(arrivi)]
+        # 26/11/2026: la home elenca solo pagine che passano il cancello della pubblicità (misura rifatta da cancello_indipendente)
+        sotto_cancello = cancello_indipendente()[2]
+        if p == "":
+            for d in arrivi:
+                if d in sotto_cancello:
+                    errori.append(f"42: home: «Most used pages» linka una pagina sotto il cancello della pubblicità: {d}")
+        ordine = sorted((x for x in P if x and x.startswith(p) and x != p and f"{G.URL_SITO}/{x}" in visti and (p == "" or P[x] >= 2)
+                         and not (p == "" and x in sotto_cancello)), key=lambda x: (-P[x], x))[:len(arrivi)]
         if arrivi != ordine:
             errori.append(f"42: {p or 'home'}: i link non sono le pagine più visitate, nell'ordine di dati/piu_usate.json")
         # l'impronta del lastmod non deve dipendere dal blocco
@@ -5992,6 +6002,99 @@ def controlla_grow(online=True):
     return errori, n, conti, esito
 
 
+# Cancello della pubblicità (26/11/2026, scheda «Visa, cancello AdSense controllato in modo indipendente»): la misura è rifatta qui con
+# codice proprio, senza nessuna funzione, espressione regolare o costante di genera.py, come il punto 33 di Before You Fly e
+# controlli_cancello() di EsameB1. Soglia, gruppo, pagine di servizio e indirizzo dello script sono scritti qui: se genera.py cambia
+# i suoi, i due file non coincidono più e il controllo 34 fallisce.
+SOGLIA_PAROLE_UNICHE = 110            # sotto questa soglia: niente script AdSense e niente link di affiliazione
+GRUPPO_UNICHE, PAGINE_COMUNI = 5, 3   # un gruppo di 5 parole di fila è «comune» se sta in almeno 3 pagine del sito
+SERVIZIO_SENZA_ADS = ("privacy.html", "contact/")
+JS_ADSENSE = "pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+_CANCELLO = {}
+
+
+def _parole_del_main(pagina_html):
+    """Parole (minuscole, divise dagli spazi) del <main> di una pagina: fuori i riquadri di affiliazione, il blocco «più usate» (cambia con
+    le visite), script, stili, icone e menu a tendina."""
+    i = pagina_html.find("<main")
+    j = pagina_html.find("</main>", i)
+    if i < 0 or j < 0:
+        return []
+    corpo = pagina_html[pagina_html.index(">", i) + 1:j]
+    while True:   # riquadri di affiliazione: <section class="card aff-r" …> … </section> (non contengono altre <section>)
+        a = corpo.find('<section class="card aff-r"')
+        if a < 0:
+            break
+        b = corpo.find("</section>", a)
+        corpo = corpo[:a] + " " + (corpo[b + len("</section>"):] if b >= 0 else "")
+    while True:
+        a = corpo.find("<!--piu-usate-->")
+        b = corpo.find("<!--/piu-usate-->", a)
+        if a < 0 or b < 0:
+            break
+        corpo = corpo[:a] + " " + corpo[b + len("<!--/piu-usate-->"):]
+    for tag in ("script", "style", "svg", "select"):
+        corpo = re.sub(rf"(?is)<{tag}\b.*?</{tag}>", " ", corpo)
+    return html.unescape(re.sub(r"(?s)<[^>]+>", " ", corpo)).lower().split()
+
+
+def cancello_indipendente():
+    """Ritorna (errori, {pagina: parole uniche}, pagine in indice sotto il cancello). Fallisce se: lo script AdSense sta su una pagina sotto
+    la soglia; una pagina in indice sotto la soglia ha un link di affiliazione o sponsorizzato (o un riquadro); lo script sta su privacy o
+    contact; la home è senza script; lo script è fuori dal <head> o ripetuto; soglia e pagine di servizio di genera.py sono diverse da qui."""
+    if _CANCELLO:
+        return _CANCELLO["esito"]
+    from collections import Counter
+    errori, testi, parole = [], {}, {}
+    for f in sorted(SITO.rglob("*.html")):
+        if re.fullmatch(r"google[0-9a-f]+\.html", f.name):   # file di verifica di Google: non sono pagine
+            continue
+        r = f.relative_to(SITO).as_posix()
+        p = r[:-len("index.html")] if r.endswith("index.html") else r
+        testi[p] = f.read_text(encoding="utf-8")
+        parole[p] = _parole_del_main(testi[p])
+    n = GRUPPO_UNICHE
+    in_quante = Counter()
+    for w in parole.values():
+        in_quante.update(set(zip(*(w[k:] for k in range(n)))))
+    uniche = {}
+    for p, w in parole.items():
+        libera = [True] * len(w)
+        for i, g in enumerate(zip(*(w[k:] for k in range(n)))):
+            if in_quante[g] >= PAGINE_COMUNI:
+                for k in range(i, i + n):
+                    libera[k] = False
+        uniche[p] = sum(libera)
+    sotto = set()
+    for p, t in testi.items():
+        fine_head = t.find("</head>")
+        script = JS_ADSENSE in t[:fine_head]
+        if JS_ADSENSE in t[fine_head:] or t.count(JS_ADSENSE) > 1 or ("adsbygoogle" in t) != script:
+            errori.append(f"34 (cancello): {p or 'home'}: codice AdSense fuori dal <head>, ripetuto o senza lo script")
+        noindex = bool(re.search(r'<meta\s+name="robots"\s+content="noindex', t[:fine_head]))
+        if p in SERVIZIO_SENZA_ADS:
+            if script:
+                errori.append(f"34 (cancello): {p}: script AdSense su una pagina di servizio (privacy o contact)")
+            if not noindex:
+                sotto.add(p)
+            continue
+        if uniche[p] < SOGLIA_PAROLE_UNICHE:
+            if script:
+                errori.append(f"34 (cancello): {p or 'home'}: script AdSense con {uniche[p]} parole uniche (soglia {SOGLIA_PAROLE_UNICHE})")
+            if not noindex:   # le pagine noindex e la 404 restano come sono (fermo fino al 9/12): hanno già zero script
+                sotto.add(p)
+                link = [h for h in re.findall(r'<a\b[^>]*\bhref="([^"]+)"', t) if h.startswith("http") and G.MON.dominio_ammesso(h)]
+                if link or re.search(r'(?i)<a\b[^>]*\brel="[^"]*\bsponsored\b', t) or 'class="card aff-r"' in t or "aff-tag" in t[t.find("<main"):]:
+                    errori.append(f"34 (cancello): {p or 'home'}: link o riquadro di affiliazione con {uniche[p]} parole uniche ({link[:1]})")
+    if "" not in testi or JS_ADSENSE not in testi[""][:testi[""].find("</head>")]:
+        errori.append("34 (cancello): la home non ha lo script AdSense")
+    if (G.MIN_PAROLE_PROPRIE_ADSENSE, G.GRUPPO_PAROLE_PROPRIE, G.PAGINE_GRUPPO_COMUNE, tuple(sorted(G.SENZA_PUBBLICITA))) != \
+            (SOGLIA_PAROLE_UNICHE, GRUPPO_UNICHE, PAGINE_COMUNI, tuple(sorted(SERVIZIO_SENZA_ADS))) or SOGLIA_PAROLE_UNICHE < 100:
+        errori.append("34 (cancello): soglia, gruppo o pagine di servizio di genera.py diversi da quelli scritti in verifica.py (o soglia sotto 100)")
+    _CANCELLO["esito"] = (errori, uniche, sotto)
+    return _CANCELLO["esito"]
+
+
 def controlla_fuori_indice():
     """34 (12/11/2026): pagine "in scala" fuori dall'indice e AdSense solo dove c'è contenuto. Ritorna (errori, n fuori indice, n in sitemap,
     conteggio per sezione, n pagine in indice senza AdSense)."""
@@ -6032,9 +6135,9 @@ def controlla_fuori_indice():
         pagine[r[:-len("index.html")] if r.endswith("index.html") else r] = f.read_text(encoding="utf-8")
     controllo_ab = {f"visa-refusal-rates/{k}/" for k in json.loads((G.DATI / "esperimento_citazioni.json").read_text(encoding="utf-8"))["pagine"]}
     fuori, per_sez, senza_ads, linkate = set(), {k: [0, 0] for k in SEZ}, [], set()
-    proprie = G.parole_proprie(pagine)
-    if G.MIN_PAROLE_PROPRIE_ADSENSE < 100 or G.SENZA_PUBBLICITA != {"privacy.html", "contact/"}:
-        errori.append("34: soglia delle parole proprie sotto 100 (audit AdSense del 26/11/2026) o elenco delle pagine di servizio cambiato")
+    # 26/11/2026: misura rifatta da cancello_indipendente() con codice proprio (prima si usava G.parole_proprie: non era indipendente)
+    e_cancello, proprie, sotto_cancello = cancello_indipendente()
+    errori += e_cancello
     for p, t in pagine.items():
         sez = next((k for k, r in SEZ.items() if re.match(r, p)), None)
         atteso_fuori = (bool(sez) and p not in tieni) or p == "teach-english-abroad/south-korea/"   # 19/11/2026: pagina fissa fuori indice (controllo 41)
@@ -6057,18 +6160,20 @@ def controlla_fuori_indice():
                 errori.append(f"34: {p} in indice ma con noindex, senza canonical o fuori dalla sitemap")
             if ads + segno != 1:
                 errori.append(f"34: {p}: script AdSense {ads} volte, segno 'senza AdSense' {segno}")
-            # 26/11/2026 (audit AdSense): la regola è sulle parole proprie, rimisurate qui sulle pagine scritte (G.parole_proprie)
+            # 26/11/2026 (audit AdSense): la regola è sulle parole proprie, rimisurate qui sulle pagine scritte (cancello_indipendente)
             parole = proprie[p]
-            servizio = p in G.SENZA_PUBBLICITA
+            servizio = p in SERVIZIO_SENZA_ADS
+            if segno != (p in sotto_cancello):
+                errori.append(f"34: {p}: segno 'senza AdSense' {segno}, ma sotto il cancello rimisurato {p in sotto_cancello}")
             if segno:
                 senza_ads.append(p)
                 if 'rel="sponsored' in t or 'class="card aff-r"' in t or "aff-tag" in main:   # criterio 5 dell'audit: stessa soglia per le affiliazioni
                     errori.append(f"34: {p} in indice senza AdSense ma con un link o un riquadro di affiliazione")
-                if not servizio and parole >= G.MIN_PAROLE_PROPRIE_ADSENSE:
+                if not servizio and parole >= SOGLIA_PAROLE_UNICHE:
                     errori.append(f"34: {p} in indice senza AdSense ma con {parole} parole proprie")
             elif servizio:
-                errori.append(f"34: {p} è una pagina di servizio (SENZA_PUBBLICITA) ma ha AdSense")
-            elif parole < G.MIN_PAROLE_PROPRIE_ADSENSE:
+                errori.append(f"34: {p} è una pagina di servizio (SERVIZIO_SENZA_ADS) ma ha AdSense")
+            elif parole < SOGLIA_PAROLE_UNICHE:
                 errori.append(f"34: {p} con AdSense ma solo {parole} parole proprie")
         else:
             if ads or 'content="noindex"' not in t:
