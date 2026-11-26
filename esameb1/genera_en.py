@@ -179,8 +179,12 @@ def nota_en(G, s):
         num(n, r"(ogni centro PLIDA)")
         return "Each PLIDA centre sets its own deadline: ask the centre you choose."
     if s["ente"] == "CERT.IT":
-        return (f"Registration opens on {data_it_en(num(n, r'Iscrizioni aperte dal?l?.?(\d{1,2} \w+ \d{4})'))} at the partner centres, which set the deadline. "
-                "Confirm the exact day with the centre.")
+        # 26/11/2026 (revisione): la fonte non distingue tra la sede di Roma e i centri; niente «i centri fissano la scadenza»
+        if not s.get("iscrizioni_al"):  # note vecchie (sessioni 2026, già passate): solo l'apertura
+            return f"Registration opens on {data_it_en(num(n, r'Iscrizioni aperte dal?l?.?(\d{1,2} \w+ \d{4})'))}. Ask your centre for its deadline."
+        regola = r"Iscrizioni aperte dal?l?.?(\d{1,2} \w+ \d{4}) all?.?(\d{1,2} \w+ \d{4}): lo scrive Roma Tre"
+        return (f"Roma Tre states that registration is open from {data_it_en(num(n, regola))} to {data_it_en(num(n, regola, 2))}: "
+                "that is the last day stated by Roma Tre. At a partner centre you register with the centre: ask your centre whether it has a different deadline.")
     raise SystemExit(f"genera_en: ente sconosciuto {s['ente']}")
 
 

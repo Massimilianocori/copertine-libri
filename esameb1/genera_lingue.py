@@ -457,9 +457,17 @@ def nota_scad(lg, s):
         return ("Кожен центр PLIDA сам встановлює кінцевий термін: запитайте в обраному центрі." if lg == "uk"
                 else "Fiecare centru PLIDA își stabilește propriul termen: întrebați la centrul ales.")
     if e == "CERT.IT":
-        quando = data(lg, iso_it(num(n, r"Iscrizioni aperte dal?l?.?(\d{1,2} \w+ \d{4})")))
-        return (f"Реєстрація відкривається {quando} у партнерських центрах, які встановлюють кінцевий термін. Точний день уточніть у центрі." if lg == "uk"
-                else f"Înscrierile se deschid pe {quando} la centrele partenere, care stabilesc termenul. Confirmați ziua exactă cu centrul.")
+        # 26/11/2026 (revisione): la fonte non distingue tra la sede di Roma e i centri; niente «i centri fissano la scadenza»
+        if not s.get("iscrizioni_al"):  # note vecchie (sessioni 2026, già passate): solo l'apertura
+            quando = data(lg, iso_it(num(n, r"Iscrizioni aperte dal?l?.?(\d{1,2} \w+ \d{4})")))
+            return (f"Реєстрація відкривається {quando}. Кінцевий термін запитайте у своєму центрі." if lg == "uk"
+                    else f"Înscrierile se deschid pe {quando}. Întrebați la centrul dumneavoastră care este termenul.")
+        regola = r"Iscrizioni aperte dal?l?.?(\d{1,2} \w+ \d{4}) all?.?(\d{1,2} \w+ \d{4}): lo scrive Roma Tre"
+        dal, al = data(lg, iso_it(num(n, regola))), data(lg, iso_it(num(n, regola, 2)))
+        return (f"Університет Roma Tre пише, що реєстрація відкрита з {dal} до {al}: це останній день, указаний Roma Tre. "
+                "У партнерському центрі ви реєструєтеся в самому центрі: запитайте у своєму центрі, чи має він інший кінцевий термін." if lg == "uk"
+                else f"Universitatea Roma Tre scrie că înscrierile sunt deschise de la {dal} până la {al}: este ultima zi indicată de Roma Tre. "
+                "La un centru partener vă înscrieți la centru: întrebați la centrul dumneavoastră dacă are un termen diferit.")
     raise SystemExit(f"genera_lingue: ente sconosciuto {e}")
 
 

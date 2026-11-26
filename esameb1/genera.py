@@ -691,6 +691,9 @@ JS = """
     slot.querySelectorAll('[data-fino]').forEach(function(o){var ok=!vista&&giorni(o.dataset.fino)>=0;o.hidden=!ok;if(ok)vista=true;});
     var r=slot.querySelector('[data-riserva]');if(r)r.hidden=vista;
   });
+  /* /iscrizione/ (26/11/2026): via le righe degli esami passati; termine passato tra una pubblicazione e l'altra */
+  document.querySelectorAll('[data-via]').forEach(function(el){if(giorni(el.dataset.via)<0){var tb=el.parentNode;el.remove();if(tb.tagName==='TBODY'&&!tb.children.length){var w=tb.closest('.tab-wrap');if(w)w.remove();}}});
+  document.querySelectorAll('[data-chiude]').forEach(function(el){if(giorni(el.dataset.chiude)<0){var c=el.querySelector('.conta');var pr=el.querySelector('[data-prima]');if(pr)pr.remove();if(c){c.classList.remove('vicino');c.classList.add('urg');c.textContent='termine passato: chiedi alla sede';}}});
   document.querySelectorAll('[data-conta]').forEach(function(el){var g=giorni(el.dataset.conta);if(g>=0)conta(el,g,el.dataset.modo);});
   /* elenco corto: le prossime 6 date, poi "Mostra tutte" */
   var LIMITE=6;
@@ -1451,7 +1454,8 @@ _RE_LIBRO = re.compile(r'<div class="libro-mini">.*?</a></div></div>|<section cl
 _MESI_IMPRONTA = ("gennaio|febbraio|marzo|aprile|maggio|giugno|luglio|agosto|settembre|ottobre|novembre|dicembre|January|February|March|April|May|June|July|"
                   "August|September|October|November|December|ianuarie|februarie|martie|aprilie|mai|iunie|iulie|august|septembrie|octombrie|noiembrie|"
                   "decembrie|січня|лютого|березня|квітня|травня|червня|липня|серпня|вересня|жовтня|листопада|грудня")
-_RE_CONTROLLO = re.compile(r"\b(lett[oaie]|controllat[oaie]|ultimo controllo|verificat[aeăi]?|checked|read|перевірено|прочитано)\s+"
+# 26/11/2026: anche «Ultimo controllo dei dati: 23 novembre 2026» di /come-lavoriamo/ (prima la pagina cambiava data a ogni rilettura dei calendari).
+_RE_CONTROLLO = re.compile(r"\b(lett[oaie]|controllat[oaie]|[Uu]ltimo controllo dei dati:|ultimo controllo|verificat[aeăi]?|checked|read|перевірено|прочитано)\s+"
                            r"(?:il\s+|l'|l&#x27;|la\s+|on\s+)?\d{1,2}°?\s+(?:" + _MESI_IMPRONTA + r")\s+\d{4}")
 
 
@@ -1577,7 +1581,7 @@ dei 4 enti principali: le date sono uguali in tutta Italia, ci si iscrive presso
 <li>{ic("cal")}<span><strong>{len(prossime)}</strong> sessioni in programma</span></li>
 <li>{ic("doc")}<span>dati presi dalle fonti ufficiali</span></li></ul>
 </section>
-{avviso("Ogni sede può avere una scadenza diversa da quella nazionale. <strong>Prima di iscriverti, chiedi sempre conferma alla sede.</strong>")}
+{avviso(f'Ogni sede può avere una scadenza diversa da quella nazionale. <strong>Prima di iscriverti, chiedi sempre conferma alla sede.</strong> <a href="iscrizione/">{RIGA_ISCRIZIONE}</a>.')}
 {segnaposto_piu_usate("home")}
 <div class="due">
 <section id="date">
@@ -1944,7 +1948,8 @@ def pagina_citta(c, prossime):
     # 19/11/2026: una città può restare senza sessioni future (date tutte passate): niente elenco di fonti vuoto.
     nota_date = (f'<p class="small">{ic("doc")} ' + (f'Fonti: calendari ufficiali {elenco_e(fonti_date)}'
                  f'{", controllati il " + data_breve(controllo) if controllo else ""}. ' if fonti_date else '')
-                 + f'<a href="../../#date">Calendario completo: tutte le {len(prossime)} sessioni di CILS, CELI, PLIDA e CERT.IT</a>.</p>')
+                 + f'<a href="../../#date">Calendario completo: tutte le {len(prossime)} sessioni di CILS, CELI, PLIDA e CERT.IT</a>.'
+                 + (f' <a href="../../iscrizione/">{RIGA_ISCRIZIONE}</a>.' if c["slug"] in CITTA_ISCRIZIONE else "") + '</p>')
     faq = faq_citta(c, enti_prov, mancano, regione, cap)
     corpo = f"""<section class="hero">
 {briciole(("EsameB1", "../../"), ("Città", "../../#citta"), (c["nome"], None))}
@@ -2058,6 +2063,7 @@ def pagina_ente(e, prossime):
 <section>
 <h2 id="iscrizione">{ic("lista")}Come ti iscrivi al {escape(sigla)} B1, passo per passo</h2>
 <ol class="passi">{passi_iscrizione(e, date_ente, "../../")}</ol>
+<p><a href="../../iscrizione/">{ic("orologio")} {RIGA_ISCRIZIONE}</a></p>
 </section>
 <section>
 <h2 id="prepararsi">{ic("libro")}Come prepararti</h2>
@@ -2244,6 +2250,285 @@ Le cifre sono quelle scritte dagli enti, con la fonte.</p>
            descrizione_pagina(f"Esame B1 per la cittadinanza: CILS B1 Cittadinanza {cils} € in tutta Italia, CERT.IT B1 {certit} € a Roma Tre, "
                               "CELI e PLIDA a prezzo del centro. Fonti ufficiali."), corpo,
            {"@context": "https://schema.org", "@graph": [faq_jsonld(faq)]})
+
+
+# ---------------------------------------------------------------- iscrizione (26/11/2026)
+# /iscrizione/: le scadenze di iscrizione delle prossime sessioni B1, ente per ente (ricerca del 26/11/2026: «iscrizione» non era nel
+# titolo di nessuna pagina). Tutto viene da dati/sessioni.json: quando una sessione passa, la pagina mostra le successive
+# (a ogni rigenerazione; tra una rigenerazione e l'altra ci pensa il JS, come nelle pagine città: data-slot, data-via, data-chiude).
+# Nessuna scadenza per città: le sedi decidono la propria, qui c'è solo la regola dell'ente. Etichetta dei clic del libro: libro-iscrizione.
+GIORNI_ISCRIZIONE = 120  # la tabella mostra le sessioni dei prossimi 120 giorni e, in ogni caso, la prossima di ogni ente
+CLIC_ISCRIZIONE = "libro-iscrizione"
+CITTA_ISCRIZIONE = ("milano", "torino", "bologna", "parma", "verona", "roma", "bari", "brescia")  # le 8 pagine città più viste (GoatCounter 17/10-24/11/2026): una riga verso /iscrizione/
+RIGA_ISCRIZIONE = "Scadenze di iscrizione di CILS, CELI, PLIDA e CERT.IT, a confronto"
+COME_ISCRIVERSI = {  # pagine ufficiali «come ci si iscrive», lette il 26/11/2026 (per CERT.IT pagine HTML, mai i PDF: note legali di Roma Tre)
+    "CILS": ("https://cils.unistrasi.it/1/88/71/Iscrizione_agli_esami_CILS.htm", "Università per Stranieri di Siena",
+             "Devi rivolgerti alla sede dove vuoi fare l'esame: la contatti e segui le sue istruzioni. "
+             "Per la sede di Siena l'Università pubblica istruzioni a parte."),
+    "CELI": ("https://cvcl.unistrapg.it/pagine/iscrizione-esami-celi-000", "Università per Stranieri di Perugia",
+             "Ti iscrivi presso uno dei centri d'esame convenzionati: consegni la scheda di iscrizione al centro, che ti dice la tassa e come pagare. "
+             "Il calendario avvisa che i centri possono anticipare il termine delle iscrizioni."),
+    "PLIDA": ("https://plida.dante.global/it/faq/", "Società Dante Alighieri",
+              "Contatti un centro d'esame PLIDA: il centro ti dice come iscriverti, quando iscriverti e quanto costa. Prima devi aprire il tuo account "
+              "sul sito PLIDA. Alcuni centri partecipano solo ad alcune sessioni: chiedi se la data c'è nella tua città."),
+    "CERT.IT": ("https://certificazioneitaliano.uniroma3.it/gli-esami/iscrizione-agli-esami/", "Università Roma Tre",
+                "Nei centri convenzionati ti iscrivi e paghi presso il centro scelto. Alla sede di Roma (Via Ostiense 123-129) ti iscrivi online: "
+                "ti registri al portale dell'Università, prenoti l'esame, alleghi documento e codice fiscale e paghi la tassa entro i termini."),
+}
+
+
+def dal_(iso):
+    return "dall'" if d(iso).day in (8, 11) else "dal "
+
+
+def al_(iso):
+    return "all'" if d(iso).day in (8, 11) else "al "
+
+
+# Il B1 generale vale per la cittadinanza? PLIDA e CERT.IT: lo scrive l'ente (pagine lette il 26/11/2026). CELI 2: stessa fonte di
+# /come-funziona/ (documento della Prefettura – Ministero dell'Interno, riletto il 26/11/2026: tra gli enti c'è «Università per stranieri di Perugia - CELI»).
+VALE_CITTADINANZA = {
+    "CELI": (PREFETTURA, "Prefettura – Ministero dell'Interno",
+             "per il CELI 2, che è il B1 generale del CELI, il documento della Prefettura dice che la certificazione B1 si può prendere presso gli enti riconosciuti, tra cui l'Università per Stranieri di Perugia (CELI)"),
+    "PLIDA": ("https://plida.dante.global/it/faq/", "domande frequenti PLIDA",
+              "la Società Dante Alighieri scrive che il certificato PLIDA B1 è valido per richiedere la cittadinanza"),
+    "CERT.IT": ("https://certificazioneitaliano.uniroma3.it/il-sistema-di-certificazione/livello-b1-livello-soglia/", "pagina del livello B1 di Roma Tre",
+                "Roma Tre scrive che per chiedere la cittadinanza serve una conoscenza dell'italiano non inferiore al B1 e presenta il Certit B1 come esame di quel livello"),
+}
+
+
+def nome_esame(s):
+    """Il primo esame della sessione senza le parentesi: «CELI 2 i cittadinanza», «CERT.IT B1»."""
+    return s["esami"][0].replace(" (sessione A2/B1)", "").replace(" (B1)", "")
+
+
+def sessioni_iscrizione(prossime):
+    """Le sessioni della tabella: quelle dei prossimi GIORNI_ISCRIZIONE giorni più, se manca, la prossima di ogni ente."""
+    scelte = [s for s in prossime if (d(s["data"]) - OGGI).days <= GIORNI_ISCRIZIONE]
+    for e in ENTE:
+        p = prossima_di(prossime, [e])
+        if p and p not in scelte:
+            scelte.append(p)
+    return sorted(scelte, key=lambda s: (s["data"], s["ente"]))
+
+
+def termine_iscrizione(s):
+    """Ultimo giorno scritto dall'ente (ISO): il termine nazionale (CILS, CELI) o l'ultimo giorno scritto da Roma Tre (CERT.IT: la fonte non distingue tra le sedi). None per PLIDA."""
+    return s.get("scadenza") or s.get("iscrizioni_al")
+
+
+def cella_iscrizione(s):
+    """La regola o la data, come la scrive l'ente, più la frase sulla sede."""
+    if s.get("scadenza"):
+        t = s["scadenza"]
+        if d(t) < OGGI:
+            return f'Termine nazionale passato {il(t)}{data_breve(t)}. Chiedi alla sede se accetta ancora iscrizioni.'
+        return (f'<span data-chiude="{t}">Entro <strong>{il(t)}{data_breve(t)}</strong> (termine nazionale) '
+                f'<span class="conta {classe_conta(t, "scad")}" data-conta="{t}" data-modo="scad">{testo_conta(t, "scad")}</span>'
+                f'<span data-prima><br><span class="small">La sede può chiudere prima: chiedi conferma.</span></span></span>')
+    if s.get("iscrizioni_al"):
+        a, z = s["iscrizioni_dal"], s["iscrizioni_al"]
+        centri = '<span data-prima><br><span class="small">Se ti iscrivi in un centro convenzionato, chiedi al centro se ha un termine diverso.</span></span>'
+        if d(z) < OGGI:
+            return f'Ultimo giorno scritto da Roma Tre passato {il(z)}{data_breve(z)}. Chiedi al centro se accetta ancora iscrizioni.'
+        return (f'<span data-chiude="{z}">Roma Tre scrive: iscrizioni aperte <strong>{dal_(a)}{giorno_mese(a)} {al_(z)}{data_breve(z)}</strong> '
+                f'<span class="conta {classe_conta(z, "scad")}" data-conta="{z}" data-modo="scad">{testo_conta(z, "scad")}</span>{centri}</span>')
+    return ('<strong>Nessun termine nazionale</strong>: la scadenza la decide ogni centro.'
+            '<br><span class="small">Chiedila al centro scelto quando lo contatti.</span>')
+
+
+def iscrizione_chiusa(s):
+    """True se l'ultimo giorno scritto dall'ente è già passato (la sessione esce dalla tabella e va nella riga «già chiuse»)."""
+    return bool(termine_iscrizione(s)) and d(termine_iscrizione(s)) < OGGI
+
+
+def tabella_iscrizione(righe):
+    corpo = []
+    for s in righe:
+        if iscrizione_chiusa(s):
+            continue
+        e = s["ente"]
+        citt = s["tipo"] == "cittadinanza"
+        nome = nome_esame(s)
+        if citt:
+            offerto = f'<td data-l="Nome dell\'esame" class="si">{escape(nome)}<br><span class="small">esame dedicato alla cittadinanza</span></td>'
+        else:
+            vale = ", valido per la cittadinanza" if e in VALE_CITTADINANZA else ""
+            offerto = f'<td data-l="Nome dell\'esame">{escape(nome)}<br><span class="small">B1 generale{vale}</span></td>'
+        corpo.append(
+            f'<tr data-via="{s["data"]}"><td>{eb(e)}<strong><time datetime="{s["data"]}">{data_breve(s["data"])}</time></strong></td>'
+            f'{offerto}<td data-l="Iscrizione">{cella_iscrizione(s)}</td>'
+            f'<td data-l="Fonte ufficiale"><a href="{escape(s["fonte"])}" rel="noopener">calendario {escape(e)}</a> · '
+            f'<a href="{COME_ISCRIVERSI[e][0]}" rel="noopener">come iscriversi</a></td></tr>')
+    return (('<div class="tab-wrap ris-tab"><table class="conf"><thead><tr><th scope="col">Ente e data dell\'esame</th>'
+            '<th scope="col">Nome dell\'esame</th><th scope="col">Iscrizione</th><th scope="col">Fonte ufficiale</th></tr></thead>'
+            f'<tbody>{"".join(corpo)}</tbody></table></div>' if corpo else "") + "".join(
+        f'<p class="small" data-via="{s["data"]}">{eb(s["ente"])} Esame {del_(s["data"])}{data_breve(s["data"])} ({escape(nome_esame(s))}): {cella_iscrizione(s)[0].lower()}{cella_iscrizione(s)[1:]}</p>'
+        for s in righe if iscrizione_chiusa(s)))
+
+
+def apertura_iscrizione(righe, da):
+    """La frase d'apertura vista dal giorno «da» (ISO o date): il prossimo termine scritto da un ente, con ente, fonte e data del controllo.
+    None se da quel giorno non c'è più nessun termine tra le sessioni della tabella."""
+    da = d(da) if isinstance(da, str) else da
+    aperte = sorted((s for s in righe if termine_iscrizione(s) and d(termine_iscrizione(s)) >= da), key=lambda s: (termine_iscrizione(s), s["data"]))
+    if not aperte:
+        return None
+    s, poi = aperte[0], aperte[1:3]
+    t = termine_iscrizione(s)
+
+    def breve(x):
+        if x.get("scadenza"):
+            return f'{x["ente"]} {del_(x["data"])}{giorno_mese(x["data"])} entro {il(x["scadenza"])}{giorno_mese(x["scadenza"])}'
+        return f'{x["ente"]} {del_(x["data"])}{giorno_mese(x["data"])} entro {il(x["iscrizioni_al"])}{giorno_mese(x["iscrizioni_al"])}'
+
+    dove = "il termine nazionale" if s.get("scadenza") else "l'ultimo giorno scritto da Roma Tre"
+    frase = (f'<strong>La prossima scadenza per iscriversi all\'esame B1 per la cittadinanza è {il(t)}{data_breve(t)}: è {dove} '
+             f'per l\'esame {escape(s["ente"])} {del_(s["data"])}{data_breve(s["data"])}</strong> ({escape(nome_esame(s))}). '
+             f'Fonte: <a href="{escape(s["fonte"])}" rel="noopener">calendario ufficiale {escape(s["ente"])}</a> '
+             f'({COME_ISCRIVERSI[s["ente"]][1]}), controllato il {data_breve(s["verificato_il"])}.')
+    if poi:
+        frase += f' Poi: {elenco_e(breve(x) for x in poi)}.'
+    if any(x["ente"] == "PLIDA" for x in righe):
+        frase += " Per il PLIDA la scadenza la decide ogni centro."
+    return t, frase + " Ogni sede può chiudere prima: chiedi sempre conferma alla sede."
+
+
+def libro_iscrizione(rel, righe):
+    """Riquadro del libro della pagina /iscrizione/: stessa struttura di riquadro_libro() (resta fuori dall'impronta del lastmod),
+    etichetta dei clic propria. Nessun prezzo e nessuna promessa di superare l'esame."""
+    con = next((s for s in righe if s.get("scadenza") and d(s["scadenza"]) >= OGGI), None)
+    if con:
+        sett = round((d(con["data"]) - d(con["scadenza"])).days / 7)
+        tempo = (f'Tra la chiusura delle iscrizioni e l\'esame {escape(con["ente"])} {del_(con["data"])}{giorno_mese(con["data"])} '
+                 f'passano circa {sett} settimane: conviene cominciare a prepararsi prima di iscriversi. ')
+    else:
+        tempo = ""
+    attr = f'href="{LIBRO_URL}" rel="noopener" target="_blank" data-libro-proprio="si" data-goatcounter-click="esameb1.eu/clic/{CLIC_ISCRIZIONE}"'
+    cop = (f'<a {attr} class="cop"><img src="{rel}{COPERTINA_LIBRO}" alt="Copertina del libro {LIBRO_TITOLO}" width="80" height="104" loading="lazy" '
+           f'style="border-radius:4px;box-shadow:0 3px 10px rgba(0,0,0,.25)"></a>' if (RADICE / "assets" / COPERTINA_LIBRO).exists()
+           else '<span class="bolla">' + ic("libro") + '</span>')
+    return f"""<section class="card libro libro-top" id="libro">
+<div class="modulo-testa">{cop}<div>
+<h2>Ti iscrivi all'esame B1? Il libro per prepararti</h2>
+<p class="small" style="margin:4px 0 0">{tempo}«{LIBRO_TITOLO}»: guida a tutti e 4 gli esami (CILS, CELI, PLIDA, CERT.IT), 4 simulazioni con soluzioni, modelli di email e orale.
+Le tracce audio delle prove d'ascolto sono gratis sulla pagina <a href="{rel}audio-libro/">audio del libro</a>.</p></div></div>
+<div class="azioni"><a class="btn" {attr}>{ic("libro")}Vedi il libro su Amazon</a></div>
+</section>"""
+
+
+def pagina_iscrizione(prossime):
+    righe = sessioni_iscrizione(prossime)
+    controllo = data_breve(max(s["verificato_il"] for s in righe))
+    # frase d'apertura: una variante per ogni termine ancora aperto; il JS mostra la prima non scaduta (come le schede delle città)
+    varianti, visti = [], set()
+    for g in [OGGI] + sorted({d(termine_iscrizione(s)) for s in righe if termine_iscrizione(s) and d(termine_iscrizione(s)) >= OGGI}):
+        a = apertura_iscrizione(righe, g)
+        if a and a[0] not in visti:
+            visti.add(a[0])
+            varianti.append(a)
+    riserva = ("In questo momento nessun ente ha un termine di iscrizione aperto tra le prossime sessioni: chiedi alla sede se accetta ancora iscrizioni "
+               "e guarda nella tabella le date successive.")
+    apertura = ("".join(f'<p class="lead" data-fino="{t}"{"" if i == 0 else " hidden"}>{f}</p>' for i, (t, f) in enumerate(varianti))
+                + f'<p class="lead" data-riserva{" hidden" if varianti else ""}>{riserva}</p>')
+    # mese nel titolo e nella description: quello della prima sessione con un termine scritto dall'ente ancora aperto (le date della
+    # description sono di quelle sessioni); se non ce n'è nessuna, niente mese
+    primo = next((s for s in righe if termine_iscrizione(s) and d(termine_iscrizione(s)) >= OGGI), None)
+    stagione = f"{MESI[d(primo['data']).month - 1]} {d(primo['data']).year}" if primo else None
+    nazionali = [s for s in righe if s.get("scadenza") and d(s["scadenza"]) >= OGGI]
+    cils = next((s for s in nazionali if s["ente"] == "CILS"), None)
+    celi = next((s for s in nazionali if s["ente"] == "CELI"), None)
+    certit = next((s for s in righe if s.get("iscrizioni_al") and d(s["iscrizioni_al"]) >= OGGI), None)
+    plida = next((s for s in righe if s["ente"] == "PLIDA"), None)
+    faq = []
+    if cils:
+        faq.append((f"Quando scadono le iscrizioni al {cils['esami'][0]} {del_(cils['data'])}{data_breve(cils['data'])}?",
+                    f"Il termine scritto dall'Università per Stranieri di Siena è {il(cils['scadenza'])}{data_breve(cils['scadenza'])}. "
+                    "Ti iscrivi presso la sede d'esame, che può chiudere prima: chiedi alla sede il suo ultimo giorno."))
+    if celi:
+        faq.append((f"Quando scadono le iscrizioni al {celi['esami'][0].replace(' (B1)', '')} {del_(celi['data'])}{data_breve(celi['data'])}?",
+                    f"Il termine scritto dall'Università per Stranieri di Perugia è {il(celi['scadenza'])}{data_breve(celi['scadenza'])}. "
+                    "Il calendario ufficiale avvisa che i centri d'esame possono anticipare il termine presso le loro sedi."))
+    if certit:
+        faq.append((f"Quando ci si iscrive al CERT.IT B1 {del_(certit['data'])}{data_breve(certit['data'])}?",
+                    f"Il sito di Roma Tre scrive: iscrizioni aperte {dal_(certit['iscrizioni_dal'])}{giorno_mese(certit['iscrizioni_dal'])} "
+                    f"{al_(certit['iscrizioni_al'])}{data_breve(certit['iscrizioni_al'])}. Alla sede di Roma ti iscrivi online sul portale dell'Università; "
+                    "nei centri convenzionati ti iscrivi e paghi presso il centro: chiedi al centro se ha un termine diverso."))
+    if plida:
+        faq.append((f"Qual è la scadenza per iscriversi al PLIDA B1 {del_(plida['data'])}{data_breve(plida['data'])}?",
+                    "Non c'è una scadenza nazionale: il calendario PLIDA dà solo la data dell'esame. Secondo le domande frequenti della Società Dante Alighieri, "
+                    "è il centro d'esame che ti dice come e quando iscriverti. Alcuni centri partecipano solo ad alcune sessioni."))
+    faq += [
+        ("Posso iscrivermi online all'esame B1 per la cittadinanza?",
+         "Dipende dalla sede. Per CILS, CELI e PLIDA ti iscrivi presso la sede o il centro d'esame, che ti dice come fare. "
+         "Per il PLIDA prima devi aprire il tuo account sul sito PLIDA. Per il CERT.IT alla sede di Roma Tre ti iscrivi online sul portale dell'Università. "
+         "L'esame si fa sempre in presenza."),
+        ("Perché non c'è la scadenza della mia città?",
+         f"Perché ogni sede decide il proprio ultimo giorno e in Italia le sedi sono {len(sedi)}. Qui trovi solo quello che scrive l'ente, con la fonte: "
+         "non scriviamo date che non abbiamo letto. Nella pagina della tua città trovi i contatti delle sedi per chiedere la scadenza."),
+    ]
+    come = "".join(
+        f'<li>{eb(e)}<span>{escape(COME_ISCRIVERSI[e][2])} <a href="{COME_ISCRIVERSI[e][0]}" rel="noopener">Fonte: {COME_ISCRIVERSI[e][1]}</a>. '
+        f'<a href="../ente/{SLUG_ENTE[e]}/#iscrizione">{e}: i passi uno per uno</a>.</span></li>' for e in ENTE)
+    corpo = f"""<section class="hero">
+{briciole(("EsameB1", "../"), ("Iscrizione", None))}
+<span class="occhiello">{ic("orologio")}Fonti ufficiali · controllato il {controllo}</span>
+<h1>Iscrizione all'esame B1 per la cittadinanza: le scadenze di CILS, CELI, PLIDA e CERT.IT</h1>
+<div data-slot>{apertura}</div>
+</section>
+<section>
+<h2 id="scadenze">{ic("cal")}Scadenze di iscrizione, ente per ente</h2>
+{tabella_iscrizione(righe)}
+<p class="small">CILS e CELI hanno un esame con il nome «cittadinanza»; il B1 generale vale lo stesso:
+{"; ".join(f'{v[2]} (<a href="{v[0]}" rel="noopener">{v[1]}</a>)' for v in VALE_CITTADINANZA.values())}.
+<a href="../come-funziona/">Come funziona l'esame</a>. Le date d'esame sono le stesse in tutta Italia. <a href="../#date">Tutte le {len(prossime)} sessioni in calendario</a>.</p>
+</section>
+{libro_iscrizione("../", righe)}
+<section>
+<h2 id="adesso">{ic("lista")}Cosa fare adesso</h2>
+<ol class="passi">
+<li><span><strong>Scegli l'ente e la sede.</strong> Cerca la tua città nell'<a href="#citta">elenco qui sotto</a>: per ogni sede trovi i contatti pubblicati dall'ente.</span></li>
+<li><span><strong>Chiedi alla sede il suo ultimo giorno.</strong> La sede può chiudere le iscrizioni prima del termine dell'ente. Chiedi anche il <a href="../costo/">prezzo</a> e i documenti.</span></li>
+<li><span><strong>Iscriviti e paga.</strong> L'iscrizione si fa presso la sede, non su questo sito. Conserva la ricevuta.</span></li>
+<li><span><strong>Preparati.</strong> Fai una <a href="../esempi/">prova d'esempio ufficiale</a> con i tempi veri.</span></li>
+</ol>
+</section>
+{avviso("Le date di questa pagina sono quelle scritte dagli enti. <strong>La scadenza della tua sede può essere diversa: prima di iscriverti chiedi sempre conferma alla sede.</strong>")}
+<section>
+<h2 id="come">{ic("doc")}Come ci si iscrive, ente per ente</h2>
+<ul class="note-scad">{come}</ul>
+<div class="fonte">{ic("doc")}<span>Pagine ufficiali dei 4 enti, controllate il {controllo}.</span></div>
+</section>
+<div class="due">
+<section>
+<h2 id="citta">{ic("pin")}Trova la sede e chiedi la sua scadenza</h2>
+<p>Scegli la tua città: per ogni sede trovi indirizzo, telefono, email e sito, quando l'ente li pubblica.</p>
+{citta_per_regione("../")}
+<h2 id="domande">{ic("info")}Domande frequenti</h2>
+{"".join(domanda(q, a) for q, a in faq)}
+<h2>{ic("lista")}Altre guide</h2>
+{link_guide("../")}
+</section>
+<aside>{modulo()}</aside>
+</div>"""
+    quando = []
+    if cils:
+        quando.append(f"CILS entro {il(cils['scadenza'])}{giorno_mese(cils['scadenza'])}")
+    if celi:
+        quando.append(f"CELI entro {il(celi['scadenza'])}{giorno_mese(celi['scadenza'])}")
+    if certit:
+        stesso_mese = certit["iscrizioni_dal"][:7] == certit["iscrizioni_al"][:7]
+        inizio = d(certit["iscrizioni_dal"]).day if stesso_mese else giorno_mese(certit["iscrizioni_dal"])
+        quando.append(f"CERT.IT {dal_(certit['iscrizioni_dal'])}{inizio} {al_(certit['iscrizioni_al'])}{giorno_mese(certit['iscrizioni_al'])}")
+    elenco = ", ".join(quando)
+    pagina("iscrizione/index.html",
+           titolo_pagina(stagione and f"Iscrizione esame B1 cittadinanza: scadenze {stagione}", "Iscrizione esame B1 cittadinanza: scadenze ente per ente"),
+           descrizione_pagina(elenco and f"Iscrizione all'esame B1 per la cittadinanza: {elenco}. PLIDA: decide il centro. Fonti ufficiali.",
+                              elenco and f"Iscrizione esame B1 cittadinanza: {elenco}. PLIDA: decide il centro. Fonti ufficiali.",
+                              elenco and f"Iscrizione esame B1 cittadinanza: {elenco}. PLIDA: decide il centro.",
+                              elenco and f"Iscrizione esame B1 cittadinanza: {elenco}.",
+                              "Iscrizione all'esame B1 per la cittadinanza: le scadenze di CILS, CELI, PLIDA e CERT.IT scritte dagli enti, con le fonti ufficiali."),
+           corpo, {"@context": "https://schema.org", "@graph": [faq_jsonld(faq)]})
 
 
 # ---------------------------------------------------------------- risultati (indice + una pagina per ente, dal 30/10/2026)
@@ -2846,6 +3131,7 @@ Le prove d'esempio si scaricano e si fanno online, a casa; l'esame vero invece s
 <h2 id="esonero">{ic("scudo")}Devi davvero fare l'esame?</h2>
 <p>Non tutti devono presentare il certificato B1 per la cittadinanza: per esempio chi ha il permesso di soggiorno UE per soggiornanti di lungo periodo o ha firmato l'accordo di integrazione.
 <a href="../esonero-test-italiano/">Chi è esonerato dal B1 e dal test A2 per la carta di soggiorno, con le fonti</a>.</p>
+<p>Hai deciso di farlo? <a href="../iscrizione/">{RIGA_ISCRIZIONE}</a>.</p>
 </section>
 <section>
 <h2 id="uso">{ic("scudo")}Condizioni d'uso dei materiali</h2>
@@ -5154,6 +5440,8 @@ def controlli(prossime):
             errori.append(f"sessione senza fonte: {s}")
         if s.get("scadenza") and d(s["scadenza"]) >= d(s["data"]):
             errori.append(f"scadenza non prima dell'esame: {s['ente']} {s['data']}")
+        if ("iscrizioni_dal" in s) != ("iscrizioni_al" in s) or ("iscrizioni_al" in s and not d(s["iscrizioni_dal"]) < d(s["iscrizioni_al"]) < d(s["data"])):
+            errori.append(f"finestra delle iscrizioni incoerente: {s['ente']} {s['data']}")
     for s in sedi:
         if not s.get("fonte") or not s.get("citta"):
             errori.append(f"sede incompleta: {s['ente']} {s['nome']}")
@@ -5241,6 +5529,8 @@ def main():
     urls.append("come-funziona/")
     pagina_costo()
     urls.append("costo/")
+    pagina_iscrizione(prossime)  # 26/11/2026
+    urls.append("iscrizione/")
     pagina_risultati(prossime)
     urls.append("risultati/")
     for e in enti:
