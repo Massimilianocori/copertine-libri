@@ -10,3 +10,9 @@
 8. Fatto = 2 pagine online verificate; stop = file ufficiali non esistenti (allora la pagina non si fa).
 9. Costo: 1 pubblicazione Netlify (15 crediti).
 10. Dopo: controllo online, IndexNow, salute.py, riga in DA-PUBBLICARE.md, misura delle visite il 14/12.
+
+## Chiusura (26/11)
+- [x] 7 file e frasi verificati (70 file, 132 frasi), revisione 8,2 → 9,2 dopo la correzione CERT.IT
+- [x] 8 pubblicato commit 34aa1bc88; 2 pagine online 200
+- [x] 10 sitemap online = repository, IndexNow 215 ok, salute.py 0 errori
+- [ ] misura visite il 14/12
