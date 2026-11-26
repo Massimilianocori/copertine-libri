@@ -9,7 +9,7 @@ REFRESH-INTERVAL;VALUE=DURATION:P1D
 X-PUBLISHED-TTL:P1D
 BEGIN:VEVENT
 UID:mt-whitney-permits-uscita-risultati-2027-03-15@before-you-fly.com
-DTSTAMP:20261125T000000Z
+DTSTAMP:20261126T000000Z
 DTSTART;VALUE=DATE:20270315
 DTEND;VALUE=DATE:20270316
 SUMMARY:Mt Whitney lottery results posted (for the coming permit season)
@@ -26,7 +26,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mt-whitney-permits-uscita-scadenza-2027-04-21@before-you-fly.com
-DTSTAMP:20261125T000000Z
+DTSTAMP:20261126T000000Z
 DTSTART;VALUE=DATE:20270421
 DTEND;VALUE=DATE:20270422
 SUMMARY:Mt Whitney: deadline to claim a lottery win (for the coming permit 
@@ -43,7 +43,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mt-whitney-permits-uscita-aperte-2027-04-22@before-you-fly.com
-DTSTAMP:20261125T000000Z
+DTSTAMP:20261126T000000Z
 DTSTART;VALUE=DATE:20270422
 DTEND;VALUE=DATE:20270423
 SUMMARY:Mt Whitney unclaimed dates open for reservations (for the coming pe

@@ -108,6 +108,113 @@ def fuori_indice(percorso):
     return False
 
 
+# Cancello della pubblicità (26/11/2026, studio-business/ADSENSE-AUDIT-2026-11-26.md, punti 3.3.1 e 3.3.3; AdSense ha rifiutato il sito
+# il 24/11 per «Low value content»). Lo script AdSense resta SOLO sulle pagine con almeno MIN_PAROLE_PROPRIE parole proprie. La misura è
+# quella dell'audit e si rifà a ogni generazione su TUTTE le pagine appena scritte (nessun elenco a mano: una pagina nuova a modello
+# nasce senza script, una pagina arricchita lo riprende da sola):
+#  - testo della pagina senza <head>, testata, menu, briciole e blocchi «Most used»/«Related» (<nav>), piè di pagina, script, stili,
+#    menu a tendina e riquadro eSIM;
+#  - il testo si divide in gruppi di GRUPPO_PAROLE parole di fila; un gruppo è «comune» se compare in almeno MIN_PAGINE_COMUNE pagine;
+#  - una parola è «propria» se non sta in nessun gruppo comune.
+# Sotto la soglia: al posto dello script il segno «pagina volutamente senza pubblicità» (lo stesso delle pagine fuori indice), via il
+# riquadro eSIM, e la pagina non entra nel blocco «Most used pages» della home. Titolo, URL, canonical, robots, sitemap e lastmod NON
+# cambiano: la pagina resta in indice. cancello_pubblicita() gira in main() dopo l'ultima pagina e prima di recupero(); i numeri vanno
+# in dati/cancello_pubblicita.json; verifica.py (punto 33) rifà la misura sul sito finito.
+MIN_PAROLE_PROPRIE = 100
+GRUPPO_PAROLE, MIN_PAGINE_COMUNE = 5, 3
+E_INIZIO, E_FINE = "<!--riquadro-esim-->", "<!--/riquadro-esim-->"  # il riquadro eSIM: fuori dalla misura e dall'impronta del lastmod
+# 26/11/2026 (sera), criterio 5 dell'audit: NESSUN link di affiliazione sotto il cancello. Ogni altro riquadro di affiliazione (DiscoverCars,
+# Wise, SafetyWing, Amazon, Stay22/Booking, Viator, Italo, K9 Jets) sta tra A_INIZIO e A_FINE: lo mette il decoratore @riquadro_aff sulla
+# funzione che lo scrive. Il cancello toglie dalle pagine sotto la soglia tutto ciò che sta tra i segni (eSIM compreso) e si ferma con un
+# errore se resta un link rel="sponsored": un riquadro nuovo senza @riquadro_aff non può sfuggire. I link alle fonti ufficiali restano.
+A_INIZIO, A_FINE = "<!--riquadro-affiliati-->", "<!--/riquadro-affiliati-->"
+
+
+def riquadro_aff(f):
+    """Decoratore delle funzioni che scrivono un riquadro (o una riga) con link di affiliazione: mette il risultato tra A_INIZIO e A_FINE."""
+    import functools
+
+    @functools.wraps(f)
+    def dentro(*a, **k):
+        h = f(*a, **k)
+        return A_INIZIO + h + A_FINE if h else h
+    return dentro
+
+
+TOGLI_AFFILIATI_SOTTO_CANCELLO = True
+PAROLE_PROPRIE = {}  # percorso -> parole proprie (tutte le pagine; riempito da cancello_pubblicita())
+SOTTO_CANCELLO = {}  # percorso -> parole proprie, pagine in indice a cui il cancello ha tolto lo script
+_RE_ESIM = re.compile(re.escape(E_INIZIO) + ".*?" + re.escape(E_FINE) + "|" + re.escape(A_INIZIO) + ".*?" + re.escape(A_FINE), re.S)  # eSIM e ogni altro riquadro di affiliazione
+_RE_FUORI_MISURA = re.compile(r"(?s)<head.*?</head>|<header.*?</header>|<footer.*?</footer>|<nav.*?</nav>|<script.*?</script>|<style.*?</style>"
+                              r"|<svg.*?</svg>|<select.*?</select>")
+
+
+def parole_misura(html):
+    """Parole (minuscole) del testo proprio della pagina: quello che resta tolte le parti uguali in tutto il sito (vedi sopra)."""
+    t = _RE_FUORI_MISURA.sub(" ", _RE_ESIM.sub(" ", html))
+    return re.findall(r"\w+", unescape(re.sub(r"<[^>]+>", " ", t)).lower())
+
+
+def parole_proprie(pagine):
+    """pagine = {percorso: html} di TUTTO il sito -> {percorso: numero di parole proprie} (misura dell'audit del 26/11/2026)."""
+    from collections import Counter
+    testi = {u: parole_misura(h) for u, h in pagine.items()}
+    n = GRUPPO_PAROLE
+    in_pagine = Counter()
+    for w in testi.values():
+        in_pagine.update({tuple(w[i:i + n]) for i in range(len(w) - n + 1)})
+    out = {}
+    for u, w in testi.items():
+        comune = [False] * len(w)
+        for i in range(len(w) - n + 1):
+            if in_pagine[tuple(w[i:i + n])] >= MIN_PAGINE_COMUNE:
+                comune[i:i + n] = [True] * n
+        out[u] = comune.count(False)
+    return out
+
+
+def pagine_del_sito():
+    """{percorso: html} di tutte le pagine scritte in sito/ (404 compresa; senza i file di verifica di Google)."""
+    return {(f.relative_to(SITO).as_posix()[:-len("index.html")] if f.name == "index.html" else f.relative_to(SITO).as_posix()): f.read_text(encoding="utf-8")
+            for f in SITO.rglob("*.html") if not f.name.startswith("google")}
+
+
+def cancello_pubblicita():
+    """Misura le parole proprie di ogni pagina appena generata e toglie lo script AdSense e il riquadro eSIM dalle pagine in indice sotto
+    MIN_PAROLE_PROPRIE. Tocca solo il <head> (script -> segno) e il riquadro tra E_INIZIO e E_FINE: il resto della pagina è uguale."""
+    pagine = pagine_del_sito()
+    PAROLE_PROPRIE.update(parole_proprie(pagine))
+    con_script = 0
+    for u in URLS:
+        if u in NOINDEX["senza_pubblicita"]:
+            continue
+        if PAROLE_PROPRIE[u] >= MIN_PAROLE_PROPRIE:
+            con_script += 1
+            continue
+        SOTTO_CANCELLO[u] = PAROLE_PROPRIE[u]
+        h = pagine[u]
+        if ADSENSE_HEAD:
+            assert h.count(ADSENSE_HEAD) == 1, u
+            h = h.replace(ADSENSE_HEAD, ADSENSE_HEAD_NO)
+        h = _RE_ESIM.sub("", h)
+        if TOGLI_AFFILIATI_SOTTO_CANCELLO:
+            h = h.replace(MON.nota_trasparenza("en") + "\n</div>\n</main>", "\n</div>\n</main>")  # riga di trasparenza di fine pagina: senza link non serve
+            if MON.ha_link_sponsorizzati(h):
+                raise SystemExit(f"cancello della pubblicità: {u} è sotto la soglia ma ha ancora un link di affiliazione fuori dai segni "
+                                 "(manca @riquadro_aff sulla funzione che scrive il riquadro)")
+        (SITO / (u if u.endswith(".html") else u + "index.html")).write_text(h, encoding="utf-8")
+    from collections import Counter
+    fam = Counter((u.split("/")[0] if "/" in u else "(root)") for u in SOTTO_CANCELLO)
+    (DATI / "cancello_pubblicita.json").write_text(json.dumps({
+        "_nota": "Scritto da genera.py (cancello_pubblicita): pagine in indice a cui la misura delle parole proprie ha tolto lo script AdSense e "
+                 "il riquadro eSIM. Regola e metodo in genera.py (MIN_PAROLE_PROPRIE). Non modificare a mano: si riscrive a ogni generazione.",
+        "soglia_parole_proprie": MIN_PAROLE_PROPRIE, "gruppo_parole": GRUPPO_PAROLE, "pagine_per_gruppo_comune": MIN_PAGINE_COMUNE,
+        "pagine_in_indice": len(URLS), "con_script": con_script, "senza_script_per_il_cancello": len(SOTTO_CANCELLO),
+        "per_sezione": dict(sorted(fam.items())), "pagine": dict(sorted(SOTTO_CANCELLO.items()))}, ensure_ascii=False, indent=0) + "\n", encoding="utf-8")
+    print(f"Cancello della pubblicità: soglia {MIN_PAROLE_PROPRIE} parole proprie; script AdSense su {con_script} pagine in indice, tolto da "
+          f"{len(SOTTO_CANCELLO)} ({', '.join(f'{k} {v}' for k, v in sorted(fam.items()))})")
+
+
 def ci_sono_affiliati():
     """True se il sito pubblica almeno un link di affiliazione (voce con "url" in dati/affiliati.json e il riquadro noleggio NOLEGGIO_AUTO):
     accende la sezione privacy sui link di affiliazione. Domini ammessi in monetizzazione.json, controlli in verifica.py."""
@@ -743,6 +850,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 # comprende la destinazione non compare. Pagine senza destinazione (indici, EES/ETIAS) e destinazioni senza codice ISO: Roamable, Vodafone,
 # Pocket con il testo generico «check that your destination is on its list». Nessuna promessa su copertura, velocità o prezzi.
 ESIM_VOCI = ("esim", "esim_vodafone", "esim_pocket")
+MAX_ESIM = 1  # voci eSIM per pagina
 _f_esim = DATI / "esim.json"
 ESIM = json.loads(_f_esim.read_text(encoding="utf-8")) if _f_esim.exists() else {"fornitori": {}}
 
@@ -773,7 +881,9 @@ def esim_voci(iso=None):
             elif iso:
                 continue  # elenco letto senza la destinazione: il fornitore non compare
         out.append(v)
-    return out
+    # 26/11/2026 (audit AdSense, punto 3.3.3: tre riquadri eSIM con la stessa frase pesavano più del contenuto): UNA sola voce eSIM per
+    # pagina, la prima dell'ordine (Roamable). Vodafone e Pocket restano in dati/affiliati.json: tornano togliendo questo limite.
+    return out[:MAX_ESIM]
 
 
 _ISO_PASS = {}
@@ -796,7 +906,7 @@ def iso_destinazione(nome, url=""):
     return _ISO_PASS.get(url.split("#")[0].rstrip("/")) or _ISO_PASS.get(nome.casefold())
 
 
-def box_affiliati(iso=None):
+def box_affiliati(iso=None, segni=True):
     """Riquadro generico «Before you go» (assicurazione, eSIM, parcheggi/lounge: voci di dati/affiliati.json con 'url' pieno, tranne
     'bagagli' e le voci con '_'): vuoto (non mostrato) finché non ci sono URL.
     Dal 6/11/2026 (eSIM Roamable acceso) compare SOLO dove chi legge sta preparando un viaggio all'estero: pagine destinazione e indici
@@ -809,9 +919,11 @@ def box_affiliati(iso=None):
         return ""
     righe = "".join(f'<li><a href="{escape(v["url"])}" rel="sponsored noopener" target="_blank">{escape(v["titolo"])}</a> '
                     f'<span class="small">{escape(v["nome"]) + ": " if v.get("nome") else ""}{escape(v["testo"])}</span></li>' for v in voci)
-    return (f'<section class="card" style="margin-top:22px" aria-label="Before you go, affiliate links" data-affiliati><h2 style="margin-top:0">Before you go <span class="aff-tag">Affiliate</span></h2>'
-            f'<ul style="margin:0 0 8px;padding-left:20px">{righe}</ul>'
-            f'<p class="small" style="margin:0">{MON.RIGA_EN}</p></section>')  # riga di trasparenza comune (monetizzazione.py)
+    box = (f'<section class="card" style="margin-top:22px" aria-label="Before you go, affiliate links" data-affiliati><h2 style="margin-top:0">Before you go <span class="aff-tag">Affiliate</span></h2>'
+           f'<ul style="margin:0 0 8px;padding-left:20px">{righe}</ul>'
+           f'<p class="small" style="margin:0">{MON.RIGA_EN}</p></section>')
+    # tra E_INIZIO e E_FINE: il cancello della pubblicità lo toglie dalle pagine sotto la soglia; misura e impronta del lastmod lo saltano
+    return E_INIZIO + box + E_FINE if segni else box  # riga di trasparenza comune (monetizzazione.py)
 
 
 def dati_json(id_, oggetto):
@@ -2533,6 +2645,7 @@ PAESI_PARTENZA_LIQ = {"United Kingdom", "Ireland", "Jersey", "Guernsey", "United
 SCALI_TRANSITO_LIQ = {"istanbul", "dubai", "doha", "hong-kong"}
 
 
+@riquadro_aff
 def box_noleggio_liq(A):
     """Riquadro "Hire a car at <aeroporto>" (DiscoverCars): '' se il noleggio è spento o l'aeroporto non è tra quelli di vacanza."""
     if not NOLEGGIO_AUTO or A["slug"] not in NOLEGGIO_LIQ:
@@ -2547,6 +2660,7 @@ def box_noleggio_liq(A):
             f'{MON.nota_trasparenza("en")}</section>')
 
 
+@riquadro_aff
 def box_alloggio_liq(A):
     """Riquadro "Where to stay in <città>" (Stay22 → Booking.com): solo dove c'è già un link Stay22 della stessa città; '' altrimenti."""
     v = STAY22_BIG.get(ALLOGGI_LIQ.get(A["slug"], ""))
@@ -3048,6 +3162,7 @@ def ricerche_compagnia(C):
     return out
 
 
+@riquadro_aff
 def box_bagagli(C=None, misura=None):
     """Riquadro «Bags in the right size» con link di ricerca Amazon (voce 'bagagli' di dati/affiliati.json): '' se spento.
     C = pagina compagnia (le sue misure), misura = (slug, misure) della pagina per misura; nessuno dei due = indice o strumento."""
@@ -4075,7 +4190,7 @@ def esim_srv(S, c):
     if S["slug"] not in ("starlink", "google-fi"):
         return ""
     elenchi = [esim_elenco(k) for k in ("esim_vodafone", "esim_pocket") if (AFFILIATI.get(k) or {}).get("url")]
-    box = box_affiliati(c) if any(el and c in el for el in elenchi) else ""
+    box = box_affiliati(c, segni=False) if any(el and c in el for el in elenchi) else ""
     if not box:
         return ""
     st, P = stato_srv(S, c)[0], frase_srv(c)
@@ -4094,7 +4209,7 @@ def esim_srv(S, c):
         tit = f"Travelling to {P} without Google Fi coverage"
         intro = (f"<p>Google Fi says:</p>{cit_srv(['google_fi_sim'])}<p>A travel eSIM is a mobile data plan for your phone that you set up before "
                  "you land.</p>")
-    return f'<h2 id="instead">{escape(tit)}</h2>{intro}{box}'
+    return f'{E_INIZIO}<h2 id="instead">{escape(tit)}</h2>{intro}{box}{E_FINE}'
 
 
 # ---- Wise (Partnerize, 13/11/2026): riquadro «Affiliate» SOLO nella sezione «Available in?» di Wise. Interruttore _wise in dati/affiliati.json;
@@ -4114,6 +4229,7 @@ def wise_srv_ammesso(S, c=None):
     return c is None or stato_srv(S, c)[0] == "si" or solo_invio_wise(S, c)
 
 
+@riquadro_aff
 def box_wise_srv(S, c=None):
     """Riquadro Wise (affiliato) dopo la risposta, le citazioni ufficiali e la sezione sull'uso: '' dove wise_srv_ammesso() è falso."""
     if not wise_srv_ammesso(S, c):
@@ -4760,14 +4876,17 @@ def box_noleggio(k=None, c=None):
     avviso = avviso_noleggio_pat(k, c) if k and c else ""
     regole = "" if avviso else " " + (FRASE_NOLEGGIO if c else FRASE_NOLEGGIO.replace("rules above", "rules for your country in the table above"))
     dove = f" in {P}" if P else " abroad"
-    return (f'<h2 id="hire-a-car">Hire a car{escape(dove) if P else ""}</h2>\n{avviso}'
-            f'<section class="card noleggio" aria-label="Car hire, affiliate link" data-noleggio>'
+    # 26/11/2026: titolo e riquadro tra i segni dei riquadri di affiliazione (via sotto il cancello della pubblicità); l'avviso sul
+    # permesso è informazione di sicurezza e resta in ogni pagina, anche senza il riquadro
+    return (f'{A_INIZIO}<h2 id="hire-a-car">Hire a car{escape(dove) if P else ""}</h2>{A_FINE}\n{avviso}'
+            f'{A_INIZIO}<section class="card noleggio" aria-label="Car hire, affiliate link" data-noleggio>'
             f'<p>Hiring a car{escape(dove)}? Compare rental companies and prices on DiscoverCars.{escape(regole)}</p>'
             f'<p class="noleggio-btn"><a class="btn" href="{escape(NOLEGGIO_AUTO)}" rel="sponsored noopener" target="_blank">'
             f'{ico("car")}Compare car hire{escape(" in " + P) if P else ""}</a></p>'
-            f'{MON.nota_trasparenza("en")}</section>')
+            f'{MON.nota_trasparenza("en")}</section>{A_FINE}')
 
 
+@riquadro_aff
 def home_noleggio():
     """Riga discreta "Hire a car" nella sezione Driving abroad della home (stesso link DiscoverCars): '' con NOLEGGIO_AUTO vuoto."""
     if not NOLEGGIO_AUTO:
@@ -5087,6 +5206,7 @@ FRASE_NOLEGGIO_PED = {"pedaggio": "Before you book, ask how each company charges
                       "indice": "Before you book, ask how each company charges you for tolls or a vignette."}
 
 
+@riquadro_aff
 def box_noleggio_ped(c=None):
     """Riquadro "Hire a car" (DiscoverCars) per la sezione pedaggi: '' con NOLEGGIO_AUTO vuoto. Sempre dopo le regole ufficiali."""
     if not NOLEGGIO_AUTO:
@@ -5358,6 +5478,7 @@ AVVISO_GOM = ('<p class="avviso"><strong>Local orders and road signs come first.
               'and ask the rental company whether winter tyres or chains are included and at what cost.</p>')
 
 
+@riquadro_aff
 def box_noleggio_gom(c=None):
     """Riquadro "Hire a car" (DiscoverCars) per la sezione gomme: '' con NOLEGGIO_AUTO vuoto. Sempre dopo le regole ufficiali."""
     if not NOLEGGIO_AUTO:
@@ -6039,6 +6160,7 @@ def box_ufficiale_big(a):
             f'{"; resellers may charge more." if a.get("viator") is not False else "."}</p>{blocco_cit_big(a, list(dict.fromkeys(B["cit"] + [c["id"] for c in a["citazioni"] if c["tema"] == "biglietti"])))}</section>')
 
 
+@riquadro_aff
 def box_tour_big(a=None):
     """Riquadro "Guided tours with skip-the-line" (Viator): '' finché VIATOR_TOUR è vuoto. Sempre dopo la biglietteria ufficiale."""
     if not VIATOR_TOUR or (a and a.get("viator") is False):  # 13/11/2026: niente riquadro dove una visita guidata non include il permesso (lotterie)
@@ -6056,6 +6178,7 @@ def box_tour_big(a=None):
             f'{ico("calendar")}See guided tours on Viator</a></p>{MON.nota_trasparenza("en")}</section>')
 
 
+@riquadro_aff
 def box_alloggio_big(a):
     """Riquadro "Where to stay" (Stay22, link di affiliazione verso Booking.com) della pagina attrazione: '' se l'attrazione non ha un link.
     Sempre dopo la biglietteria ufficiale."""
@@ -6070,6 +6193,7 @@ def box_alloggio_big(a):
             f'{MON.nota_trasparenza("en")}</section>')
 
 
+@riquadro_aff
 def riga_alloggi_big(rel):
     """Riga "Where to stay" dell'indice (tutti i link Stay22, uno per città): '' senza link. Dopo i calendari."""
     voci = [(a, STAY22_BIG[a["slug"]]) for a in BIG_ATT if a["slug"] in STAY22_BIG]
@@ -6107,6 +6231,10 @@ def righe_eventi_big(a, ee):
 
 
 def tabella_eventi_big(a):
+    return M_INIZIO + _tabella_eventi_big(a) + M_FINE  # le righe scorrono ogni giorno: fuori dall'impronta del lastmod
+
+
+def _tabella_eventi_big(a):
     ee = eventi_big(a)
     testa = '<thead><tr><th>Date</th><th>What</th><th>Time</th></tr></thead>'
     cap = (f'<caption class="cap">{escape(a["nome"])}: dates calculated from the official rules, from {data_lunga(OGGI.isoformat())} to '
@@ -6478,6 +6606,7 @@ AVVISO_FL = ('<p class="avviso"><strong>These rules differ from place to place, 
 FRASE_NOLEGGIO_FL = "Check the licence rules above before you book: the rental company can ask for more than the law, such as an IDP or a translation."
 
 
+@riquadro_aff
 def box_noleggio_fl(g=None):
     """Riquadro "Hire a car" (DiscoverCars): '' con NOLEGGIO_AUTO vuoto. Sempre dopo la risposta e le regole ufficiali."""
     if not NOLEGGIO_AUTO:
@@ -7086,6 +7215,7 @@ def link_es_tb(rel):
 ITALO_TB = ((AFFILIATI.get("_italo_treni") or {}).get("url") or "").strip()
 
 
+@riquadro_aff
 def box_italo_tb(c):
     """Riquadro "Booking an Italo train?" (Italo tramite Awin, link di affiliazione) SOLO nella pagina di Italo, dopo le citazioni
     ufficiali: '' per le altre compagnie o con l'URL vuoto in dati/affiliati.json (_italo_treni)."""
@@ -8150,6 +8280,7 @@ def regole_ufficiali_da(rel):
             f'<a href="{rel}{PET_PASS}">Pet passport UK</a> · <a href="{rel}{PET_CALC}">Pet travel date calculator</a></p>')
 
 
+@riquadro_aff
 def box_k9_da():
     """Riquadro del partner K9 Jets: '' finché dati/affiliati.json non ha il link (voce "_k9jets"). Sempre dopo i fatti, con la trasparenza."""
     if not K9_JETS:
@@ -8919,6 +9050,7 @@ def faq_cit_in(ff):
     return out
 
 
+@riquadro_aff
 def box_assicurazione_in():
     """Riquadro SafetyWing (assicurazione medica di viaggio, link di affiliazione): '' finché _safetywing_india è vuoto. Dopo le regole ufficiali."""
     if not SW_IN:
@@ -10139,20 +10271,30 @@ IMPRONTE = {}  # percorso -> impronta della pagina appena generata (prima dei bl
 N_USATE_HOME, N_USATE_INDICE, MIN_USATE_INDICE, MAX_ENTRATA_CORRELATE, N_USATE_MOBILE = 30, 8, 5, 2, 12
 _MESI_EN = "January|February|March|April|May|June|July|August|September|October|November|December"
 _DATE_RE = re.compile(rf"\b\d{{1,2}}(?:st|nd|rd|th)? (?:{_MESI_EN})(?: \d{{4}})?\b|\b(?:{_MESI_EN}) \d{{1,2}}(?:, \d{{4}})?\b|\b(?:{_MESI_EN}) \d{{4}}\b|\b\d{{4}}-\d{{2}}-\d{{2}}\b")
+M_INIZIO, M_FINE = "<!--date-mobili-->", "<!--/date-mobili-->"  # parti che scorrono con il calendario: fuori dall'impronta del lastmod
+_RE_MOBILE = re.compile(r'(?s)<span data-prox="[^"]*">.*?</span>|' + re.escape(M_INIZIO) + ".*?" + re.escape(M_FINE))
+_GIORNO_DATA_RE = re.compile(r"\b(?:Mon|Tues|Wednes|Thurs|Fri|Satur|Sun)day,? §")
+_ELENCO_DATE_RE = re.compile(r"§(?:\s*(?:,|;|and|or|to|–|-)?\s*§)+")
 RECUPERO = {}  # numeri dell'ultima generazione (rapporto in fondo a main)
 
 
 def impronta_contenuto(html):
     """Impronta del testo principale della pagina: il testo visibile di <main>, senza i blocchi di recupero («Most used», «Related»),
-    senza script e con le date sostituite da un segno (la data della generazione e la data del ricontrollo non sono un cambio di contenuto).
+    senza il riquadro eSIM, senza script e con le date sostituite da un segno (la data della generazione e la data del ricontrollo non sono un cambio di contenuto).
     Menu, piè di pagina, CSS e <head> non entrano."""
     import hashlib
     m = re.search(r'<main id="main">(.*?)</main>', html, re.S)
     t = m.group(1) if m else ""
     t = re.sub(re.escape(B_INIZIO) + ".*?" + re.escape(B_FINE), " ", t, flags=re.S)
+    # 26/11/2026 (revisione): le date che scorrono da sole ogni giorno non sono un cambio di contenuto. Fuori dall'impronta: la «prossima
+    # data» calcolata (<span data-prox>, che il browser aggiorna comunque), le tabelle dei prossimi eventi (tra M_INIZIO e M_FINE) e, più
+    # sotto, il giorno della settimana davanti a una data («for Friday 25 December» -> «for §»).
+    t = _RE_MOBILE.sub(" § ", t)
+    t = _RE_ESIM.sub(" ", t)  # 26/11/2026: il riquadro eSIM (affiliazione) non è contenuto: toglierlo o accorciarlo non sposta il lastmod
     t = re.sub(r"(?s)<script.*?</script>|<style.*?</style>|<svg.*?</svg>", " ", t)
     t = unescape(re.sub(r"<[^>]+>", " ", t))
-    t = re.sub(r"\s+", " ", _DATE_RE.sub("§", t)).strip()
+    t = re.sub(r"\s+", " ", _GIORNO_DATA_RE.sub("§", _DATE_RE.sub("§", t))).strip()
+    t = _ELENCO_DATE_RE.sub("§", t)  # un elenco di date («Next six months: §, §, §») si accorcia da solo quando una data passa
     return hashlib.sha256(t.encode("utf-8")).hexdigest()[:20]
 
 
@@ -10300,7 +10442,8 @@ def recupero():
             aggiunti[t].add(u)
 
     # 1) home: le pagine indicizzabili con più visite
-    top = ordine[:N_USATE_HOME]
+    #    (26/11/2026: solo pagine che passano il cancello della pubblicità; una pagina debole rientra da sola quando viene arricchita)
+    top = [u for u in ordine if u not in SOTTO_CANCELLO][:N_USATE_HOME]
     if top:
         h = pagine[""]
         assert h.count(SEGNO_USATE) == 1
@@ -10936,6 +11079,7 @@ def main():
     pagina_come_controlliamo()
     contatti()
     privacy()
+    cancello_pubblicita()
     recupero()
     extra()
     auto = sum(1 for P in PAESI if P["regola"])

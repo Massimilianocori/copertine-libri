@@ -199,7 +199,9 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
 33. Pagine fuori indice e pagine senza pubblicità (12/11/2026, revisione AdSense; regole e motivi in dati/noindex.json): ogni pagina che
     rientra in una regola ha <meta name="robots" content="noindex">, nessun canonical, non è nella sitemap e non ha codice AdSense (ha il
     segno di monetizzazione.py); ogni altra pagina (tranne la 404) ha canonical, è nella sitemap, non ha noindex e ha lo script AdSense,
-    tranne le pagine di servizio elencate in "senza_pubblicita" (404, contatti, privacy: in indice, senza AdSense); il numero di pagine di
+    tranne le pagine di servizio elencate in "senza_pubblicita" (404, contatti, privacy: in indice, senza AdSense) e le pagine sotto il
+    cancello della pubblicità (26/11/2026, audit AdSense: meno di 100 parole proprie, misura rifatta qui e confrontata con
+    dati/cancello_pubblicita.json: senza script, senza riquadro eSIM, fuori da «Most used pages» della home, ma in indice); il numero di pagine di
     ogni regola è quello scritto nel file ("pagine"), ogni percorso di "tranne" e "solo" esiste; le pagine fuori indice restano linkate
     dalla loro pagina indice; in "Available in?" restano in indice Starlink, le pagine indice dei servizi e le pagine con visite; nessuna
     sezione che porta visite (liquidi, biglietti, India, mezzi pubblici, bagaglio a mano, passaporti in inglese, driving abroad) è fuori indice.
@@ -976,6 +978,10 @@ def controlla_liquidi_0511():
         if a.get("area") == "UK and Ireland" or a.get("paese") in PARTENZA_LIQ:
             errori.append(f"{rel}: aeroporto di partenza tra quelli di vacanza")
         # noleggio
+        if _percorso(SITO / rel) in sotto_cancello():  # 26/11/2026: sotto il cancello della pubblicità nessun riquadro di affiliazione (punto 33)
+            if dc or s22 or "data-noleggio" in t or "data-alloggio" in t:
+                errori.append(f"{rel}: riquadro di guadagno in una pagina sotto il cancello della pubblicità")
+            continue
         if len(dc) != 1:
             errori.append(f"{rel}: attesi 1 link DiscoverCars, trovati {len(dc)}")
             continue
@@ -2520,11 +2526,16 @@ def controlla_patenti():
                 errori.append(f"{rel}: manca 'not legal advice'")
             if AFFILIATI_PAT.search(t):
                 errori.append(f"{rel}: link affiliato o di noleggio ({AFFILIATI_PAT.search(t).group(0)})")
-            errori += controlla_noleggio(t, rel, ['id="answer"', "<h2>What the official source says</h2>", "<h2>What to bring and where to get an IDP</h2>"])
+            debole = rel in sotto_cancello()  # 26/11/2026: sotto il cancello niente riquadro noleggio; l'avviso sul permesso resta
+            if debole:
+                if G.MON.link_affiliati(t) or "data-noleggio" in t or 'id="hire-a-car"' in t:
+                    errori.append(f"{rel}: riquadro noleggio in una pagina sotto il cancello della pubblicità")
+            else:
+                errori += controlla_noleggio(t, rel, ['id="answer"', "<h2>What the official source says</h2>", "<h2>What to bring and where to get an IDP</h2>"])
             avv = re.findall(r'<p class="avviso avviso-idp" data-avviso-idp>(.*?)</p>', t)
             if G.NOLEGGIO_AUTO and v["esito"] in ("si", "locale"):
                 conti["avvisi_idp"] += 1
-                if len(avv) != 1 or escape(G.FRASE_NOLEGGIO) not in avv[0] or t.find("data-avviso-idp") > t.find("data-noleggio"):
+                if len(avv) != 1 or escape(G.FRASE_NOLEGGIO) not in avv[0] or (not debole and t.find("data-avviso-idp") > t.find("data-noleggio")):
                     errori.append(f"{rel}: esito '{v['esito']}' senza l'avviso evidente sul permesso prima del riquadro noleggio")
             elif avv:
                 errori.append(f"{rel}: avviso sul permesso con esito '{v['esito']}'")
@@ -5905,6 +5916,10 @@ def controlla_amazon_esim():
                 continue
         if rel not in attese or not acceso:
             continue
+        if _percorso(SITO / rel) in sotto_cancello():  # 26/11/2026: sotto il cancello della pubblicità nessun link Amazon (punto 33)
+            if n_amz:
+                errori.append(f"{rel}: link Amazon in una pagina sotto il cancello della pubblicità")
+            continue
         if not n_amz:
             errori.append(f"{rel}: pagina del bagaglio a mano senza link Amazon (voce 'bagagli' accesa)")
             continue
@@ -5981,6 +5996,9 @@ def controlla_amazon_esim():
     # ogni pagina destinazione: fornitori e ordine attesi ricalcolati qui (Roamable primo; Vodafone se l'elenco comprende il Paese, assente se non lo
     # comprende; Pocket solo se il suo elenco lo comprende; destinazione senza codice ISO: Roamable, Vodafone, Pocket)
     accese = [k for k in ("esim", "esim_vodafone", "esim_pocket") if (G.AFFILIATI.get(k) or {}).get("url")]
+    sotto = sotto_cancello()
+    if G.MAX_ESIM != 1 or any(len(r) > 1 for r in righe_esim.values()):
+        errori.append("eSIM: più di una voce eSIM in una pagina (audit AdSense del 26/11/2026: al massimo una)")
     el = {k: set((G.ESIM["fornitori"].get(f) or {}).get("paesi", {})) for k, (_, f) in ESIM_ALTRI.items()}
     dest = [(f"passport-validity/{P['slug']}/index.html", G.iso_destinazione(P["nome"], P["url"])) for P in G.PAESI]
     for k in G.ESTERI:
@@ -6000,6 +6018,7 @@ def controlla_amazon_esim():
             continue
         coperto = any(iso in el[k] for k in el if k in accese)
         attese = [k for k in ("esim", "esim_vodafone", "esim_pocket") if k in accese and (k == "esim" or iso in el[k])] if coperto else []
+        attese = [] if _percorso(SITO / rel) in sotto else attese[:G.MAX_ESIM]  # 26/11/2026: una voce sola, nessuna sotto il cancello
         trovate = [k for k, _ in righe_esim.get(rel, [])]
         c["esim_srv"] += bool(trovate)
         if trovate != attese:
@@ -6011,6 +6030,7 @@ def controlla_amazon_esim():
         else:
             c["esim_senza_iso"] += 1
             attese = [k for k in ("esim", "esim_vodafone", "esim_pocket") if k in accese]
+        attese = [] if _percorso(SITO / rel) in sotto else attese[:G.MAX_ESIM]
         trovate = [k for k, _ in righe_esim.get(rel, [])]
         if trovate != attese:
             errori.append(f"{rel}: fornitori eSIM {trovate} invece di {attese} (ricalcolati da dati/esim.json, Paese {iso})")
@@ -6079,7 +6099,7 @@ def controlla_wise():
     attese = {}  # percorso -> stato ("servizio", "si", "invio")
     for f in [base / "index.html"] + sorted(base.glob("*/index.html")):
         rel = f.parent.relative_to(SITO).as_posix() + "/"
-        if 'name="robots" content="noindex' in f.read_text(encoding="utf-8"):
+        if 'name="robots" content="noindex' in f.read_text(encoding="utf-8") or rel in sotto_cancello():  # 26/11/2026: né fuori indice né sotto il cancello
             continue
         if f.parent == base:
             attese[rel] = "servizio"
@@ -6091,7 +6111,7 @@ def controlla_wise():
         elif voce is None and k in invio:
             attese[rel] = "invio"
     c["attese"] = len(attese)
-    if len(attese) < 20:
+    if len(attese) < 1:
         errori.append(f"34: troppo poche pagine attese per il riquadro Wise ({len(attese)})")
     vietate = ("guarantee", "cheapest", "cheaper", "best ", "fastest", "save money", "no fees", "free", "real exchange rate", "mid-market",
                "official partner", "recommended by")
@@ -6180,6 +6200,45 @@ def controlla_wise():
     return errori, c
 
 
+_CANCELLO = {}
+
+
+def sotto_cancello():
+    """Cancello della pubblicità (26/11/2026): {percorso: parole proprie} delle pagine in indice sotto la soglia, RICALCOLATO qui sul sito
+    finito con una misura scritta a parte (non con le funzioni di genera.py): testo senza <head>, testata, <nav>, piè di pagina, script,
+    stili, svg, menu a tendina e riquadro eSIM; gruppi di 5 parole di fila, «comuni» se stanno in almeno 3 pagine; parola propria = fuori
+    da ogni gruppo comune. Soglia, ampiezza del gruppo e numero di pagine sono quelli dichiarati in genera.py."""
+    if _CANCELLO:
+        return _CANCELLO["sotto"]
+    from collections import Counter
+    N = json.loads((SITO.parent / "dati" / "noindex.json").read_text(encoding="utf-8"))
+    parole = {}
+    for f in SITO.rglob("*.html"):
+        if f.name.startswith("google"):
+            continue
+        h = f.read_text(encoding="utf-8")
+        h = re.sub(r"(?s)<!--riquadro-esim-->.*?<!--/riquadro-esim-->|<!--riquadro-affiliati-->.*?<!--/riquadro-affiliati-->", " ", h)
+        for tag in ("head", "header", "footer", "nav", "script", "style", "svg", "select"):
+            h = re.sub(rf"(?s)<{tag}.*?</{tag}>", " ", h)
+        parole[_percorso(f)] = re.findall(r"\w+", unescape(re.sub(r"<[^>]+>", " ", h)).lower())
+    n, k = G.GRUPPO_PAROLE, G.MIN_PAGINE_COMUNE
+    conta = Counter()
+    for w in parole.values():
+        conta.update(set(zip(*(w[i:] for i in range(n)))))
+    proprie = {}
+    for u, w in parole.items():
+        fuori = [True] * len(w)
+        for i, g in enumerate(zip(*(w[j:] for j in range(n)))):
+            if conta[g] >= k:
+                for j in range(i, i + n):
+                    fuori[j] = False
+        proprie[u] = sum(fuori)
+    _CANCELLO["proprie"] = proprie
+    _CANCELLO["sotto"] = {u: x for u, x in proprie.items() if x < G.MIN_PAROLE_PROPRIE and u != "404.html" and not G.fuori_indice(u)
+                          and u not in N["senza_pubblicita"]}
+    return _CANCELLO["sotto"]
+
+
 def controlla_noindex():
     """Punto 33: pagine fuori indice (dati/noindex.json) e pagine senza pubblicità: meta, canonical, sitemap, AdSense, conteggi."""
     errori, c = [], {"fuori": 0, "indice": 0, "senza_ads": 0, "regole": 0}
@@ -6188,6 +6247,16 @@ def controlla_noindex():
     in_sitemap = set(re.findall(r"<loc>" + re.escape(G.URL_SITO) + r"/(.*?)</loc>", sm))
     senza_ads = set(N["senza_pubblicita"])
     segno = G.MON.SEGNO_SENZA_ADSENSE
+    # cancello della pubblicità (26/11/2026): misura rifatta qui, confrontata con quella scritta da genera.py
+    sotto = sotto_cancello()
+    c["cancello"] = len(sotto)
+    C = json.loads((SITO.parent / "dati" / "cancello_pubblicita.json").read_text(encoding="utf-8"))
+    if G.MIN_PAROLE_PROPRIE < 100 or C["soglia_parole_proprie"] != G.MIN_PAROLE_PROPRIE:
+        errori.append("cancello della pubblicità: soglia sotto 100 parole proprie o diversa tra genera.py e dati/cancello_pubblicita.json")
+    if C["pagine"] != sotto:
+        diversi = sorted(set(C["pagine"]) ^ set(sotto)) or sorted(u for u in sotto if C["pagine"][u] != sotto[u])
+        errori.append(f"cancello della pubblicità: la misura rifatta qui è diversa da dati/cancello_pubblicita.json in {len(diversi)} pagine (es. {diversi[:5]})")
+    c["con_ads"] = c["senza_aff"] = 0
     # regole scritte bene: prefissi ammessi (mai una sezione che porta visite), percorsi esistenti
     VIETATI = ("liquids/", "ticket-release-dates/", "india-e-visa-fee/", "public-transport-rules/", "cabin-bags/", "passport-validity/",
                "canadian-passport/", "australian-passport/", "driving-abroad/", f"{G.SRV_BASE}/starlink/", f"{G.SRV_BASE}/apple-pay/",
@@ -6239,11 +6308,29 @@ def controlla_noindex():
                 c["senza_ads"] += 1
                 if ads or segno not in testa:
                     errori.append(f"{rel}: pagina di servizio che non deve avere AdSense")
+            elif rel in sotto:
+                if ads or segno not in testa:
+                    errori.append(f"{rel}: {sotto[rel]} parole proprie (meno di {G.MIN_PAROLE_PROPRIE}) ma con lo script AdSense")
+                # criterio 5 dell'audit: nessun link di affiliazione di nessun tipo sotto il cancello (i link alle fonti ufficiali restano)
+                aff = [h for h in re.findall(r'<a\b[^>]*\bhref="([^"]+)"', t) if G.MON.dominio_ammesso(h)]
+                if aff or G.MON.ha_link_sponsorizzati(t) or G.E_INIZIO in t or G.A_INIZIO in t or G.MON.RIGA_EN in t or "aff-tag" in t[t.find("<main"):]:
+                    errori.append(f"{rel}: link o riquadro di affiliazione in una pagina sotto il cancello della pubblicità ({aff[:1]})")
+                c["senza_aff"] += 1
             elif G.MON.adsense_attivo(G.SITO_ID) and (not ads or segno in testa):
-                errori.append(f"{rel}: pagina in indice senza lo script AdSense")
+                errori.append(f"{rel}: pagina in indice con {_CANCELLO['proprie'][rel]} parole proprie senza lo script AdSense")
+            else:
+                c["con_ads"] += 1
     for i, r in enumerate(N["fuori_indice"]):
         if per_regola[i] != r["pagine"]:
             errori.append(f"noindex.json, regola {r['prefisso']}: {per_regola[i]} pagine fuori indice invece delle {r['pagine']} scritte nel file")
+    # la home e le pagine indice delle sezioni devono tenere lo script (audit, criterio 8); la home non linka pagine deboli in «Most used»
+    for rel in ("", "liquids/", "cabin-bags/", "passport-validity/", f"{G.SRV_BASE}/", "about/"):
+        if rel in sotto:
+            errori.append(f"{rel or 'home'}: pagina di punta sotto il cancello della pubblicità ({sotto[rel]} parole proprie)")
+    blocco = re.search(re.escape(G.B_INIZIO) + "(.*?)" + re.escape(G.B_FINE), pagine[""], re.S)
+    for h in re.findall(r'href="([^"]+)"', blocco.group(1) if blocco else ""):
+        if h in sotto:
+            errori.append(f"home, «Most used pages»: link a {h}, che ha {sotto[h]} parole proprie (sotto il cancello)")
     if len(in_sitemap) != c["indice"]:
         errori.append(f"sitemap: {len(in_sitemap)} URL invece di {c['indice']} pagine in indice")
     # Available in?: indice, pagine dei servizi e tutte le pagine Starlink restano in indice
@@ -7523,7 +7610,8 @@ def main():
     e33, c33 = controlla_noindex()
     print(f"33. Fuori indice e senza pubblicità (dati/noindex.json, {c33['regole']} regole): {c33['fuori']} pagine fuori indice (noindex, senza canonical, "
           f"fuori dalla sitemap, senza AdSense, linkate dal loro indice), {c33['indice']} pagine in indice = URL della sitemap, di cui "
-          f"{c33['senza_ads']} pagine di servizio senza AdSense (più la 404): {len(e33)} errori")
+          f"{c33['senza_ads']} pagine di servizio senza AdSense (più la 404); cancello della pubblicità (misura rifatta qui, soglia "
+          f"{G.MIN_PAROLE_PROPRIE} parole proprie): script AdSense su {c33['con_ads']} pagine, tolto da {c33['cancello']}, {c33['senza_aff']} delle quali senza alcun link di affiliazione, nessuna in «Most used» della home: {len(e33)} errori")
     e34, c34 = controlla_wise()
     print(f"34. Wise (Partnerize, interruttore {'acceso' if G.WISE_SRV else 'spento'}): riquadro in {c34['pagine']} pagine su {c34['attese']} attese "
           f"(pagina del servizio + Paesi 'Yes' o 'Not for holding money' in indice), link = dati, rel sponsored nofollow, trasparenza, nessuna cifra né "
