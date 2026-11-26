@@ -1,0 +1,328 @@
+# Piano per fatturare — 26/11/2026
+
+Solo studio. Nessun sito toccato. Nessun commit.
+Regola usata: ogni numero ha una fonte o un conto. Dove il dato non c'è, c'è scritto **manca** o **ipotesi**.
+Non sono un consulente fiscale. Le parti sul fisco riassumono i file già nel repo.
+
+## La risposta onesta, in breve
+
+- **Incassi veri dei siti a oggi: 0 €.** Fonte: registro del cruscotto, riga del 26/11.
+- **Maturato a oggi: circa 11 €.** Sono 2 copie del libro «Esame B1» (dato tuo del 25/11) × 5,64 € a copia. Amazon le paga circa 60 giorni dopo la fine del mese: **fine gennaio 2027**. È il primo euro vero.
+- I 37.035 €/anno del cruscotto sono una **stima a 36 mesi**. Non sono incassi.
+- **Nei prossimi 12 mesi la stima realistica è piccola: circa 230 € prudente, circa 1.030 € centrale.** Lordi, prima di tasse e contributi. I conti sono sotto.
+- **Quasi tutto viene dal libro, non dalla pubblicità.** Libro: 175 / 812 €. AdSense: 43 / 210 €.
+- Il motivo è un conto solo. Una visita con la pubblicità vale 0,0016-0,003 €. Una visita su EsameB1 con il libro vale circa 0,025 € (3 clic ogni 100 visite × 15 % × 5,64 €). **Otto volte di più.**
+- I costi di 12 mesi sono circa 155-210 €. Nello scenario prudente la rete va quasi in pari. Nello scenario centrale li copre già da dicembre.
+- Le soglie che hai fissato sono lontane: 400 €/mese per il piano Max, 500 €/mese per la Camera di Commercio. Il centrale è circa 86 €/mese.
+
+Cosa cambierebbe il quadro è scritto nella sezione 7.
+
+## 1. I dati di partenza
+
+Letti oggi, 26/11/2026, dall'API GoatCounter `rete-siti` (`stats/total` e `stats/hits`, 12 chiamate, una ogni 1,5 secondi). Host vecchi e nuovi sommati.
+
+| Dato | Valore |
+|---|---|
+| Visite della rete, 28 giorni (29/10-25/11) | 4.860 |
+| Visite della rete, ultima settimana (19-25/11) | 1.099 |
+| EsameB1 | 1.906 in 28 giorni · 427 nell'ultima settimana |
+| Visa Income | 1.272 · 266 |
+| Before You Fly | 1.014 · 219 |
+| Tutti gli altri siti insieme (20 siti) | 668 · 187 |
+| Settimana migliore (9-15/11, cruscotto) | 1.792: EsameB1 635, Visa 572, Before You Fly 414 |
+| Clic sul libro, 19-25/11 | 6 veri (più 2 di prova) |
+| Copie del libro vendute dal 15/11 | 2 (dato tuo, cruscotto 25/11) |
+
+Tre siti fanno l'83 % delle visite (912 su 1.099). Gli altri 20 fanno il 17 %.
+
+**Quanto paga la pubblicità.** Fonte pubblica: file del calcolatore di AdSense, `https://adsense.google.com/start/calculator-data.json`, riletto oggi (risposta 200). Dollari ogni 1.000 pagine:
+
+| Categoria | Americhe | Europa |
+|---|---|---|
+| Lavoro e istruzione (EsameB1) | 3,16 | **1,86** |
+| Legge e governo (Visa Income) | 3,05 | 2,59 |
+| Viaggi (Before You Fly) | 2,95 | 3,25 |
+
+In euro uso gli stessi valori degli altri file: **1,6 € prudente e 3,0 € centrale ogni 1.000 visite**. Cambio BCE del 25/11: 1 € = 1,0935 $.
+**Ipotesi:** 1 visita = 1 pagina con pubblicità. Chi rifiuta i cookie o usa un blocco rende meno.
+
+**Due scenari di visite, usati in tutto il file.**
+- **Prudente:** le visite restano quelle di oggi (427 / 266 / 219 a settimana).
+- **Centrale:** Google recupera e i tre siti tornano alla settimana 9-15/11 (635 / 572 / 414). È un livello già misurato, ma il ritorno è un'**ipotesi**.
+
+## 2. Da dove arriva il primo euro: i canali in ordine
+
+Euro maturati dal 26/11/2026, prudente / centrale. «Maturati» non vuol dire «in banca»: le date di pagamento sono nella colonna a destra.
+
+| # | Canale | 3 mesi (26/2) | 6 mesi (26/5) | 12 mesi (26/11/2027) | Primo pagamento in banca |
+|---|---|---|---|---|---|
+| 1 | Libro «Esame B1» venduto dal sito (diritti d'autore KDP) | 44 / 183 | 88 / 393 | 175 / 812 | **fine gennaio 2027** (copie di novembre) |
+| 2 | AdSense su esameb1.eu, visaincomechecker.com, before-you-fly.com | 0 / 22 | 14 / 83 | 43 / 210 | prudente: **non entro 12 mesi** (sotto la soglia di 70 €) · centrale: **21-26 giugno 2027** |
+| 3 | Già maturato: 2 copie del libro | 11 | 11 | 11 | fine gennaio 2027 |
+| 4 | Affiliazioni già accese (Amazon, italki, Genki, Wise, Viator, Stay22, SafetyWing) | 0 / **manca** | 0 / **manca** | 0 / **manca** | **manca**: nessun clic o vendita scritti nel repo |
+| 5 | Secondo libro KDP «prove complete con audio» (non contato nel totale) | 0 | 0 | 0 / +140 | da decidere il 28/2 |
+| 6 | Link Kindle nel riquadro (non contato nel totale) | 0 | 0 | 0 / +145 | **ipotesi** della ricerca del 25/11 |
+| 7 | Journey (pubblicità che paga di più; non contato) | 0 | 0 | 0 | solo dopo 30 giorni di AdSense e 1.000 sessioni USA/UK/CA/AU al mese |
+| 8 | Kit digitale venduto da noi | 0 | 0 | 0 | **bloccato** dalla regola «niente vendita diretta» (vedi 2.4) |
+| 9 | Affiliazioni nuove | 0 | 0 | 0 | **spente**: i numeri veri dicono 0 (vedi 2.5) |
+| | **Totale (righe 1-3)** | **55 / 216** | **113 / 487** | **229 / 1.033** | |
+
+### 2.1 Il libro «Esame B1» (canale n. 1)
+
+**Fatti.**
+- Compenso: 5,64 € a copia sul cartaceo da 14,99 € (`fronti-2026-11-12-libri-dai-siti.md`). In `ORGANIZZAZIONE.md` c'è scritto 6,35 €: **va chiarito** con il report KDP.
+- 2 copie in 10 giorni. Non so se sono nate dal sito o dentro Amazon.
+- Clic sul riquadro: 6 su 423 visite = 1,4 ogni 100 visite. In alto nella home: 4 clic su 40 visite. In basso nelle altre pagine: 1 su 270 (`ricerca-2026-11-25-asset.md`).
+- Dal 25/11 notte il riquadro è in alto sulle 10 pagine più viste.
+- Regola tua del 25/11: niente Amazon Ads per questo libro.
+
+**Conto prudente.** 427 visite a settimana × 1,4 clic ogni 100 × 10 % che compra = 0,60 copie a settimana = **3,37 € a settimana**.
+- 13 settimane: 44 €. 26 settimane: 88 €. 52 settimane: 175 €.
+
+**Conto centrale.** 3 clic ogni 100 visite (riquadro in alto ovunque) × 15 % che compra.
+- Fino al 31/12 (5 settimane, 427 visite): 1,92 copie a settimana = 9,6 copie.
+- Dal 1/1 (635 visite): 2,86 copie a settimana.
+- 13 settimane: 9,6 + 8 × 2,86 = 32,5 copie = 183 €.
+- 26 settimane: 9,6 + 21 × 2,86 = 69,6 copie = 393 €.
+- 52 settimane: 9,6 + 47 × 2,86 = 144 copie = 812 €.
+
+**Controllo con l'unico dato di vendita.** 2 copie in 10 giorni = 73 copie l'anno = 412 €. Sta fra i due scenari.
+
+**Cosa è ipotesi.** Il 10 % e il 15 % «da clic a copia». Si sostituiscono con il numero vero il 2/12.
+
+**Stagione.** Nessun esame dal 4/12 al 9/2. Poi 4 esami in 9 giorni (10, 11, 17, 18 febbraio). Iscrizioni entro il 18-22 gennaio. Chi fa l'esame a febbraio studia da metà dicembre: è **ipotesi**, il sito non ha un anno di storia.
+
+**Pagamento.** KDP paga circa 60 giorni dopo la fine del mese (regola già scritta nei file KDP). Copie di novembre → fine gennaio. Copie di gennaio-febbraio → fine marzo e fine aprile.
+
+**Fisco.** Diritti d'autore: fuori campo IVA, nessun contributo INPS, niente Camera di Commercio (`FISCO-PUBBLICITA.md`, via B; `soldi-veloci-2026-10-19.md`). È il canale con meno rischio.
+
+### 2.2 AdSense su esameb1.eu e visaincomechecker.com (canale n. 2)
+
+**Cosa chiede Google** (pagine ufficiali, rilette oggi o citate in `STRATEGIA-RECUPERO.md`):
+- contenuti «high-quality, original, and attract an audience» (https://support.google.com/adsense/answer/9724);
+- niente codice pubblicitario su «auto-generated pages or pages with little to no original content» (https://support.google.com/adsense/answer/10015918);
+- navigazione chiara, senza reindirizzamenti che confondono (https://support.google.com/adsense/answer/81904);
+- «we may review all pages of your site, not just the sign-up URL».
+- Google **non** pubblica un numero minimo di visite o di pagine. Le soglie di `ORGANIZZAZIONE.md` (21 giorni, 30 pagine, 300 visite al mese) sono nostre.
+
+**Stato oggi.** I due siti sono in «Getting ready» dall'8/11: 18 giorni. Codice, `ads.txt` e messaggio di consenso UE verificati il 19/11.
+
+| | esameb1.eu | visaincomechecker.com |
+|---|---|---|
+| Pagine HTML nel repo | 221 | 1.310 |
+| In `noindex` | 7 | 497 |
+| Con il codice AdSense | 212 | 803 |
+| Con codice AdSense **e** `noindex` | 0 | 0 |
+| Pagine con almeno 1 visita in 28 giorni (GoatCounter, oggi) | 141 (66 % di 212) | 401 (50 % di 803) |
+| Pagine principali indicizzate sul dominio nuovo (Controllo URL, 24/11) | 6 su 8 | **0 su 9** |
+| Search Console, 28 giorni | 112 clic, 2.930 impressioni (foto del 26/11) | **manca** la foto nuova |
+
+**Cosa manca ancora, e cosa sistemare.**
+
+*esameb1.eu*
+1. Il vecchio indirizzo esameb1.netlify.app è stato giudicato «Low value content» il 12/11. Le correzioni sono uscite il 13/11. **Rischio:** lo stesso giudizio sul dominio nuovo.
+2. La sitemap in Search Console era «Impossibile recuperare». Controllo già previsto il 28/11.
+3. 80 pagine hanno «prossima data 3 dicembre» nel titolo. Il 4/12 si rigenera e si pubblica (già previsto). Una data passata nel titolo è un segnale di sito non curato.
+4. I dati CELI sono fermi al 31/10: il server dell'Università non si apre da qui. Serve una tua occhiata da browser (5 minuti).
+5. 71 pagine hanno il codice AdSense e 0 visite in 28 giorni. **Da decidere il 3/12 con le impressioni per pagina di Search Console:** via il codice dalle pagine con 0 visite e 0 impressioni (esempio già misurato: `/cpia/`, 13 pagine, 2 visite in 7 settimane). Non si mette `noindex` e non si tocca la richiesta.
+
+*visaincomechecker.com*
+1. **Il problema è l'indicizzazione:** 0 pagine principali su 9 sul dominio nuovo. Google da 241 a 70 visite a settimana.
+2. Il sito ha la stessa forma di Before You Fly, che è stato respinto. **Rischio alto di «Low value content».**
+3. Fermo fino al 9/12 (strategia di recupero): nessuna modifica di massa.
+4. Poi lo sfoltimento per famiglie (azione 7, il 2/12 o il 9/12): il codice AdSense resta solo sulle pagine con visite o con testo scritto a mano. Oggi metà delle 803 pagine con codice non ha avuto nessuna visita in 28 giorni.
+
+**Conto AdSense.**
+- **Prudente:** solo EsameB1 e Visa, approvati dal 1/3/2027, visite ferme. 38,6 settimane × 693 visite = 26.750 visite × 1,6 € ÷ 1.000 = **43 €** in 12 mesi. A 6 mesi: 12,4 settimane × 693 × 1,6 ÷ 1.000 = 14 €.
+- **Centrale:** EsameB1 dal 1/1, Visa dal 1/2, Before You Fly dal 1/3, visite della settimana 9-15/11.
+  - EsameB1: 47,0 settimane × 635 = 29.845 visite → 90 €.
+  - Visa: 42,6 × 572 = 24.350 → 73 €.
+  - Before You Fly: 38,6 × 414 = 15.970 → 48 €.
+  - Totale **210 €**. A 3 mesi 22 €. A 6 mesi 83 €.
+- **Le date di approvazione sono ipotesi.** Google non dà tempi.
+
+**Quando arrivano i soldi.** Soglia di pagamento 70 € (già scritta in `DA-PUBBLICARE.md`). Google paga fra il 21 e il 26 del mese se il saldo ha raggiunto la soglia entro il 20 (https://support.google.com/adsense/answer/7164703, riletta oggi).
+- Centrale: saldo a fine aprile 65 €, a fine maggio 87 €. **Primo pagamento: 21-26 giugno 2027.**
+- Prudente: 43 € in 12 mesi. **La soglia non si raggiunge.** Incasso da AdSense nei 12 mesi: 0.
+
+**Fisco** (`FISCO-PUBBLICITA.md`). Posizione difendibile dentro il 58.19.00 in Gestione Separata. Al primo pagamento: fattura elettronica a Google Ireland senza IVA (art. 7-ter), codice XXXXXXX, bollo da 2 € sopra 77,47 €, modello INTRA 1-quater ogni trimestre. All'approvazione parte l'interpello gratuito all'Agenzia delle Entrate (testo da preparare, già previsto).
+
+### 2.3 Nuova revisione AdSense di before-you-fly.com
+
+- Respinto il 24/11: «Low value content».
+- Dato di oggi: **1.552 pagine con il codice AdSense, solo 343 (22 %) con almeno 1 visita in 28 giorni.** 2 pagine forti su 10 indicizzate sul dominio nuovo (24/11).
+- **Criteri per chiedere la revisione** (sono nostri, da `STRATEGIA-RECUPERO.md` azione 8; Google non dà un tempo minimo). Tutti e quattro veri:
+  1. codice AdSense solo su pagine con visite o con testo scritto a mano;
+  2. link interni, pagine di fiducia e sfoltimento online da almeno 14 giorni;
+  3. almeno 20 pagine di punta su 30 indicizzate, e impressioni ogni giorno da 7 giorni;
+  4. nessuna pubblicazione di massa da 14 giorni.
+- **Data:** non prima del **16/12**. Se lo sfoltimento esce il 9/12, la prima data vera è il **23/12**. Controllo dei quattro criteri ogni lunedì da allora.
+- **Valore:** 219 visite a settimana × 52 × 1,6-3,0 € ÷ 1.000 = **18-34 € l'anno** con le visite di oggi. Una seconda bocciatura costa più di un mese di attesa. Quindi si aspetta.
+
+### 2.4 Prodotto digitale nostro: il kit di prove con audio per EsameB1
+
+**Il blocco.** La tua regola del 13/11 dice: niente vendita diretta senza Camera di Commercio. Questa idea va contro la regola. La metto qui con i numeri perché l'hai chiesta, ma **non si costruisce senza una tua decisione nuova**.
+
+**Cosa sarebbe.** 3-4 prove complete in PDF con audio MP3 e chiavi, a 9,90 €.
+
+**Piattaforma.** Serve un «merchant of record»: vende lei al cliente, fa lei fattura e IVA, a te versa una quota. Nessun dato dei clienti nel repo.
+- Gumroad: 10 % + 0,50 $ a vendita. Dal 1/1/2025 gestisce tutte le imposte sulle vendite (`gumroad.com/pricing`, letta il 19/10).
+- Lemon Squeezy: 5 % + 0,50 $. Apertura di account dall'Italia: **non verificata**.
+- Netto a vendita con Gumroad: circa 8,4 € (`fronti-2026-11-11-pagatori-alti.md`).
+
+**Fisco nel forfettario** (`soldi-veloci-2026-10-19.md` sez. 4, `fiscale-affiliazioni.md` sez. 8).
+- L'IVA la risolve la piattaforma. **Il nodo è l'INPS.**
+- La circolare INPS 44/2025 cita come attività commerciale, fra gli esempi, «la vendita di video». Un catalogo di file in vendita ogni giorno le somiglia.
+- Nessuna fonte italiana trovata dice che vendere tramite un merchant of record renda l'incasso un diritto d'autore.
+- Se l'INPS la legge come commercio: Camera di Commercio (53 € l'anno) più Gestione Commercianti, minimo 4.611,64 € l'anno (circa 3.000 € con la riduzione del 35 %). Punto di pareggio: circa 2.900 € di incassi l'anno.
+
+**Conto con le visite vere di EsameB1** (formula del file dell'11/11, visite di oggi).
+- Prudente: 427 × 52 = 22.200 visite × 0,15 % = 33 vendite × 8,4 € = **280 €**.
+- Centrale: 635 × 52 = 33.000 visite × 0,3 % = 99 vendite × 8,4 € = **830 €**.
+- Circa metà toglie copie al libro: guadagno in più **140 / 415 €** l'anno.
+- **Rischio:** fino a 3.000 € l'anno di contributi. Per pagarli servono 357 vendite l'anno (3.000 ÷ 8,4). Il centrale ne dà 99.
+
+**Verdetto con i dati: NO come vendita diretta.** Rischia 3.000 € per guadagnarne 140-415.
+
+**La stessa idea, dentro le regole: un secondo libro su KDP.**
+- Stesso contenuto (prove complete, audio gratis sul sito come per il primo libro), venduto da Amazon. Sono diritti d'autore: nessun nodo fiscale nuovo.
+- Conto: 33 / 99 copie × 5,64 € = 186 / 558 €. Metà in più rispetto al libro 1: **+93 / +279 € l'anno**.
+- Ore: 15-20 mie. Tue: circa 2 ore (foto BookBeam 5 minuti, caricamento su KDP, controllo della copia).
+- **Si decide il 28/2/2027, con le copie vere del libro 1.** Cancello: almeno 24 copie dal 1/1 al 28/2 (è la stima centrale della stagione). Sotto, non si fa. Vale anche la regola KDP: almeno 3 autori indipendenti che vendono (foto BookBeam).
+- Se parte a marzo, esce per gli esami di giugno. Nei 12 mesi conto al massimo metà anno: +140 € centrale. Non è nel totale.
+
+### 2.5 Riaprire le affiliazioni nuove
+
+Regola tua del 19/11: si riaprono solo con (a) un testo ufficiale, oppure (b) numeri veri che valgono il rischio.
+
+- **(a) Testo ufficiale:** non c'è. L'interpello parte all'approvazione di AdSense.
+- **(b) Numeri veri, letti oggi:** i riquadri spenti stanno su siti e pagine senza visite.
+  - US Paycheck (Gusto, ADP): 0 visite in 28 giorni.
+  - NAICS (ZenBusiness, Northwest): 0.
+  - Statute Limits: 0. Heat Pump Grants UK: 0. Real Estate Exam (AceableAgent): 0.
+  - Codici ATECO: 1.
+  - Visa Income, assicurazione Germania (ottonova): la pagina non compare tra quelle visitate.
+- 0 visite × qualunque commissione = 0 €. **Verdetto: restano spente.** I 7.030 € tolti dal previsto il 19/11 erano ipotesi senza visite.
+- **Quando si rifà il conto:** quando una pagina con riquadro spento supera 100 visite al mese. Allora: visite × clic misurati sui riquadri accesi × commissione letta nel pannello.
+- **Affiliazioni già accese:** incassi 0. Clic e vendite: **mancano** (i pannelli li vedi solo tu). Scadenza vera: Amazon Associates UK e USA chiude l'account senza 3 vendite entro il 5/5/2027.
+
+### 2.6 Altre cose concrete
+
+| Cosa | Dato | Valore | Quando |
+|---|---|---|---|
+| Link «Kindle» nel riquadro del libro | Il Kindle esiste (ASIN in `genera.py`); il riquadro porta solo al cartaceo. Chi ha l'esame fra 9 giorni non aspetta la spedizione | 0 / +145 € l'anno (**ipotesi** +20 % di copie) | subito: 30 minuti miei, 10 tuoi (prezzo del Kindle) |
+| Riquadro in alto su tutte le pagine di `/esempi/` e sulle altre 110 | `/esempi/` fa 421 visite in 28 giorni, 67 % da ChatGPT | già dentro il conto centrale | 4/12, solo se il 2/12 dà almeno 2 clic ogni 100 visite |
+| Pagina del libro sul sito | Google suggerisce 6 frasi con «libro» («libro esame b1 cittadinanza»). Volume: **manca** | **manca** | dicembre, 3 ore |
+| Una prova del libro da fare online | «test lingua italiana b1 per cittadinanza online» 1.300 ricerche al mese | porta visite a EsameB1: ogni 100 visite a settimana in più valgono 132 € l'anno centrali (100 × 52 × 3 % × 15 % × 5,64) | la pagina c'è dal 20/11: misurare il 14/12 |
+| Lista «avvisami» di EsameB1 | 62 iscritti. Alcuni hanno chiesto proprio l'avviso del libro (`fonte=libro`): quanti, **manca** | 62 × 5 % × 5,64 = 17 € se scrivi a tutti (**ipotesi**) | Io non mando email. Decidi tu se mandare un solo avviso a chi l'ha chiesto |
+| Journey | +325 € l'anno centrali (`reti-pubblicitarie-2026-11-13.md`). Chiede 1.000 sessioni USA/UK/CA/AU in 30 giorni per sito e 30 giorni di AdSense | 0 nei primi 6 mesi | dopo l'approvazione di Visa |
+
+## 3. Le 5 tappe
+
+| # | Tappa | Data | Obiettivo in € | Cosa faccio io | Cosa fai tu (minuti) | Controllo | Se non riesce |
+|---|---|---|---|---|---|---|---|
+| 1 | **Il riquadro del libro funziona** | **2/12/2026** | almeno 2 clic ogni 100 visite; copie dal 26/11 contate | Leggo i clic per etichetta. Il 4/12 rigenero il sito (data d'esame passata) ed estendo il riquadro in alto. Aggiungo il link Kindle | 10: copie al giorno dal report KDP (cartaceo e Kindle), compenso vero a copia, prezzo del Kindle | 2/12, poi ogni lunedì | Sotto 2 clic: provo un altro testo e un'altra posizione per 7 giorni. Se il 16/12 è ancora sotto 1: il conto del libro scende al prudente (175 € l'anno) e non si costruisce niente di nuovo sul libro |
+| 2 | **AdSense approvato su esameb1.eu** (poi Visa entro il 31/1) | **31/12/2026** | circa 2 € a settimana da EsameB1, 3,6 con Visa | 28/11 sitemap. 3/12 pagine senza visite e senza impressioni: via il codice. 4/12 titoli. Sfoltimento di Visa il 2/12 o il 9/12. Testo dell'interpello pronto | 5 il 3/12: foto di AdSense → Siti. 5: dati CELI da browser. Dopo l'approvazione: 30 per inviare l'interpello | 3/12, 17/12, 31/12 | Ancora «Getting ready» il 31/12: si aspetta, nessuna azione. **Respinto:** si legge il motivo, si corregge come per Before You Fly, nuova richiesta non prima di 14 giorni. Il conto AdSense passa al prudente (43 €) |
+| 3 | **Primo incasso in banca** | **entro il 31/1/2027** | circa 11 € (2 copie di novembre) più le copie di fine novembre | Scrivo la riga nel registro del fatturato con l'importo vero | 5: foto del pagamento KDP con la parte del libro B1 | 1/2/2027 | Se Amazon paga più tardi cambia solo la data. Se le copie di dicembre sono 0: vedi tappa 1 |
+| 4 | **Fine della stagione d'esame** | **28/2/2027** | almeno 24 copie dal 1/1 (135 €); maturato totale 55 / 216 €; Before You Fly approvato da AdSense | Pagine `/iscrizione/`, `/esempi/ascolto/`, `/esempi/prova-orale/` (ricerca del 26/11). Richiesta AdSense per Before You Fly quando i 4 criteri sono veri (non prima del 16/12). Decisione scritta su libro 2 e affiliazioni | 10: report KDP di gennaio e febbraio. 5: pannelli Amazon, italki, Genki, Wise. 2: «Request review» per Before You Fly quando lo dico io | 1/2 e 1/3/2027 | Meno di 12 copie: niente libro 2, il libro resta com'è. Before You Fly respinto di nuovo: fuori dal conto, si tiene solo per le visite da ChatGPT e non ci si lavora più |
+| 5 | **Primo pagamento di AdSense e rete in pari** | **30/6/2027** | saldo AdSense ≥ 70 € a fine maggio → pagamento il 21-26/6; maturato totale 113 / 487 € al 26/5; incassi ≥ costi dall'inizio | Controllo mensile del saldo. Fattura a Google e INTRA con i passi scritti per te. Previsione rifatta con la resa vera per 1.000 visite | 15 al mese: pannelli. 20 al primo pagamento: fattura elettronica e INTRA | 1° di ogni mese, da marzo | Saldo sotto 35 € a fine maggio: AdSense non arriva alla soglia nell'anno. Si lascia acceso (non costa) e tutte le ore vanno a EsameB1 |
+
+Controllo finale il **26/11/2027**: totale dei 12 mesi contro 229 / 1.033 €.
+
+## 4. Cosa smettere di fare
+
+Le ore e i crediti vanno dove una visita vale denaro. Oggi è un solo posto: EsameB1.
+
+| Cosa si smette | Dato | Risparmio |
+|---|---|---|
+| Costruire pagine sui 20 siti piccoli | 187 visite a settimana in tutto. Con AdSense approvato varrebbero 15-29 € l'anno. Oggi 0. Le 4 costruzioni proposte costano 25 ore per 1,2-10 € l'anno (`piano-crescita-2026-11-26.md`) | 25 ore |
+| Pubblicazioni di routine sui siti a 0-5 visite | Possono chiedere 26 pubblicazioni (390 crediti) entro il 15/12 contro 370 rimasti. Farmaci: 2 a settimana, 0 visite. Inflation: 1 a settimana, 5 visite | da 26 a 9 pubblicazioni: 255 crediti, circa mezzo pacchetto da 5 $ |
+| Pagine nuove su Visa e Before You Fly «per ChatGPT» | Tutto il canale AI vale 35-70 € l'anno in pubblicità. Portano visite, non soldi. E c'è il fermo fino al 9/12 | circa 30 ore (righe 8-10 della tabella del 25/11) |
+| Altri siti nuovi | La ricerca del 25/11: miglior candidato 827 € l'anno centrali, soglia 5.000. Un sito nuovo dopo 6 settimane fa 0-60 visite a settimana | 15-40 ore a sito, più una routine per sempre |
+| Riquadri di affiliazione nuovi | Sezione 2.5: 0 visite sulle pagine | ore di costruzione e rischio fiscale |
+| Comprare domini | Nessun sito su netlify.app supera 124 visite al mese (soglia 300) | circa 10 € l'uno |
+| Chiedere AdSense per pagaccnl.com il 3/12 | Circa 190 visite al mese contro 300. Google da 66 a 28 a settimana | un rifiuto evitato |
+| EsamiDiStato | 8 visite in 28 giorni, dati fermi al 9/10 | chiusura il 1/12 con il tuo sì |
+
+**Una conseguenza della regola «nessun sito obsoleto».** Ogni sito online chiede una routine per sempre. 13 siti hanno da 0 a 5 visite a settimana. A 90 giorni (fra l'8/1 e il 17/2/2027) la regola «togliere» va applicata senza sconti: chi è sotto 100 visite al mese e non cresce si chiude o si unisce. Ogni sito chiuso libera ore e crediti.
+
+**Come dividere le ore da oggi** (proposta, dentro l'80 % già previsto per i tre siti forti):
+- 60 % EsameB1: riquadro, pagine della stagione, recupero di Google, libro.
+- 25 % recupero e AdSense di Visa e Before You Fly. Solo ciò che serve all'approvazione.
+- 15 % routine obbligatorie di tutti gli altri siti. Nessuna costruzione.
+
+La ricerca continua resta (è una tua regola). Tema già deciso il 26/11: prodotti e libri dove le visite ci sono già, non altri siti a pubblicità.
+
+## 5. Costi
+
+| Voce | Conto | € in 12 mesi |
+|---|---|---|
+| Netlify Personal | 9 $ × 12 = 108 $ ÷ 1,0935 | 99 |
+| Pacchetti di crediti (500 crediti, 5 $) | **Ipotesi:** da 0 a 1 al mese. 12 × 5 $ = 60 $ | 0-55 |
+| Rinnovo dei domini (novembre 2027) | visaincomechecker.com 11,81 $ = 10,80 € · before-you-fly.com 14,31 € · esameb1.eu 8,04 € · pagaccnl.com e payrolltaxbystate.com circa 11 € l'uno (prezzo del rinnovo: **manca**) | circa 55 |
+| **Totale** | | **circa 155-210** |
+| Già spesi per i domini nel 2026 | 9,89 + 10,82 + 6,25 + circa 22 | circa 49 |
+| Piano degli agenti, strumento dei volumi (4,99 $ al mese) | importi non scritti nel repo | **manca** |
+
+Costo di gestione: circa **3-4 € a settimana** (155-210 ÷ 52).
+
+**Quando la rete si paga da sola** (conto sul maturato, senza il piano degli agenti).
+- **Centrale:** da dicembre 2026. Il libro da solo dà 1,92 copie × 5,64 = 10,8 € a settimana.
+- **Prudente:** il libro dà 3,37 € a settimana. Sotto i 4 € fino a marzo 2027. Da marzo si aggiunge AdSense (693 visite × 1,6 ÷ 1.000 = 1,1 € a settimana): 4,5 € a settimana. In pari, di poco.
+- Sui 12 mesi: prudente 229 € contro 155-210 € di costi. Centrale 1.033 € contro gli stessi costi.
+- **In banca** nel prudente arriva solo il libro: circa 150 € entro novembre 2027 (copie fino a settembre). AdSense resta sotto la soglia.
+
+**Tasse.** Le cifre sono lorde. Sulla pubblicità: imposta del forfettario e Gestione Separata tolgono circa il 25-30 % (`fiscale-affiliazioni.md`, sez. 8: da 1.000 € ne restano 751). Sui diritti d'autore non c'è INPS.
+
+## 6. Rischi e ipotesi
+
+Tutto quello che segue è **ipotesi**, non fatto.
+
+| # | Ipotesi | Se è sbagliata | Come la verifichiamo |
+|---|---|---|---|
+| 1 | Dal 10 % al 15 % dei clic sul libro diventa una copia | Il libro vale la metà, o il doppio | Report KDP del 2/12 e di ogni lunedì |
+| 2 | Il riquadro in alto porta 3 clic ogni 100 visite | Resta 1,4: vale il conto prudente | GoatCounter, 2/12 |
+| 3 | Google recupera e le visite tornano ai livelli del 9-15/11 | Restano quelle di oggi: prudente | Calendario di `STRATEGIA-RECUPERO.md`: 28/11, 2/12, 9/12 |
+| 4 | AdSense approva EsameB1 entro il 31/12, Visa entro il 31/1, Before You Fly entro il 28/2 | Ogni mese di ritardo toglie 8-21 € al centrale. Un «Low value content» su tutti e tre porta AdSense a 0 | Foto di AdSense il 3/12, 17/12, 31/12 |
+| 5 | La pubblicità rende 1,6-3,0 € ogni 1.000 visite | Il file di Google è del 9/12/2024 ed è una media. Un sito nuovo può rendere meno | Primi 30 giorni di AdSense vero |
+| 6 | 1 visita = 1 pagina con pubblicità vista | Chi rifiuta i cookie rende meno | Pannello AdSense |
+| 7 | La domanda sale a gennaio-febbraio | Il sito non ha la stagione dell'anno scorso. Il «× 1,8 prima dell'esame» viene da un solo esame | Visite al giorno dal 20/12 |
+| 8 | ChatGPT continua a mandare visite (401 a settimana sulla rete, più di Google) | È un canale che non controlliamo. Può fermarsi in un giorno | GoatCounter ogni lunedì |
+| 9 | AdSense e diritti d'autore stanno nel 58.19.00 senza Camera di Commercio | L'INPS può leggerla come impresa: contributi minimi circa 3.000-4.600 € l'anno, più di tutto l'incasso | Interpello all'approvazione; nessuna affiliazione nuova prima |
+| 10 | Il libro 2 toglie al libro 1 solo metà delle copie | Guadagno in più vicino a 0 | Si decide il 28/2 con le copie vere |
+| 11 | I costi restano questi | Con più pubblicazioni servono più pacchetti (5 $ l'uno) | Pagina crediti di Netlify, il 1° del mese |
+
+Rischi che non dipendono da noi: un aggiornamento di Google a dicembre (preannunciato), un cambio delle regole KDP, il prezzo di Netlify.
+
+## 7. Cosa cambierebbe davvero il quadro
+
+1. **Le visite.** Per 1.000 € l'anno di sola pubblicità servono 333.000 visite l'anno (1.000 ÷ 3 × 1.000): 6.400 a settimana. Oggi la rete ne fa 1.099. Serve 6 volte tanto.
+2. **Il libro che converte meglio.** Con 5 clic ogni 100 visite e il 25 % che compra, 635 visite a settimana danno 7,9 copie a settimana: 2.300 € l'anno. È lo scenario ottimista. Si saprà a fine febbraio.
+3. **Più prodotti KDP per lo stesso pubblico.** Libro 2, Kindle. Ogni prodotto usa le stesse visite senza rischio fiscale.
+4. **Una risposta fiscale scritta.** Se l'interpello dice che vendite e provvigioni stanno nel 58.19.00, si aprono il kit a 8,4 € netti e le affiliazioni. Senza risposta restano chiusi.
+5. **Più visite a EsameB1, non agli altri siti.** 100 visite a settimana in più su EsameB1 valgono 132 € l'anno centrali. Le stesse 100 su un sito con sola pubblicità valgono 16 €.
+
+Quello che **non** cambia il quadro, con i dati di oggi: altri siti a pubblicità, altre pagine sui siti piccoli, altri riquadri di affiliazione.
+
+## 8. Cosa serve da te, in ordine
+
+| Quando | Cosa | Minuti |
+|---|---|---|
+| 1/12 | Sì alla chiusura di EsamiDiStato | 2 |
+| 2/12 | Report KDP: copie al giorno del libro B1 dal 15/11, cartaceo e Kindle; compenso a copia; prezzo del Kindle | 10 |
+| 3/12 | Foto di AdSense → Siti (stato dei 3 domini) | 5 |
+| 3/12 | Foto di Search Console di EsameB1 e Visa: Rendimento 28 giorni, scheda Pagine | 5 |
+| entro il 9/12 | Dati CELI da un browser normale | 5 |
+| 1° di ogni mese | Pannelli: KDP, AdSense, Amazon, italki, Genki, Wise; pagina crediti di Netlify | 15 |
+| all'approvazione di AdSense | Invio dell'interpello (testo pronto) | 30 |
+| quando lo dico io, non prima | «Request review» per before-you-fly.com | 2 |
+| 28/2 | Sì o no al libro 2, con i numeri davanti | 5 |
+
+## Fonti
+
+- GoatCounter `rete-siti`, API pubblica, letta il 26/11/2026.
+- Calcolatore AdSense: `https://adsense.google.com/start/calculator-data.json` (200, 26/11/2026).
+- AdSense, requisiti e pagamenti: https://support.google.com/adsense/answer/9724 · https://support.google.com/adsense/answer/7164703 (rilette il 26/11/2026) · https://support.google.com/adsense/answer/81904 · https://support.google.com/adsense/answer/10015918 (citate in `STRATEGIA-RECUPERO.md`).
+- File del repo: `REGOLE-FISSE.md`, `ORGANIZZAZIONE.md`, `CRUSCOTTO-RETE.md`, `DA-PUBBLICARE.md`, `STRATEGIA-RECUPERO.md`, `piano-crescita-2026-11-26.md`, `ricerca-2026-11-25-asset.md`, `ricerca-2026-11-25-settore-nuovo.md`, `ricerca-2026-11-26-esameb1-stagione.md`, `FISCO-PUBBLICITA.md`, `fiscale-affiliazioni.md`, `soldi-veloci-2026-10-19.md`, `intelaiatura/fronti-2026-11-11-pagatori-alti.md`.
+- Conteggio delle pagine (HTML, `noindex`, codice AdSense): cartelle `esameb1/sito`, `visaincome/sito`, `beforeyoufly/sito`, 26/11/2026.
+- Cambio: BCE, 25/11/2026, 1 € = 1,0935 $ (`italystrikes/dati/cambi-bce.json`).
