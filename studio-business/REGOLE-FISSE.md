@@ -274,3 +274,8 @@ Per i siti su .netlify.app non si cambia dominio finché Visa, Before You Fly ed
 ## PIANO OBBLIGATORIO PRIMA DI OGNI LAVORO (Massimiliano, 26/11/2026)
 Prima di ogni lavoro che cambia un sito, un dato, una routine o una decisione: scheda scritta secondo `studio-business/PIANO-OBBLIGATORIO.md` in `studio-business/schede/`, data a ogni agente nel brief, spuntata punto per punto alla fine con le prove. Senza scheda completa non si pubblica. Le routine automatiche (dati del lunedì e del giovedì) usano la scheda fissa della loro routine in ORGANIZZAZIONE.md; un lavoro fuori routine ha sempre la sua scheda.
 
+
+## OPPORTUNITÀ: CERCARE OGNI GIORNO E REALIZZARE SUBITO (Massimiliano, 26/11/2026: «ti continuo a ricordare di implementare, di trovare nuove opportunità e tu ogni volta sembra che non ascolti»)
+1. **Ricerca ogni sera** (non più solo domenica, martedì e giovedì): 1 ricercatore Fable con approccio diverso dalla sera prima, sempre con dati misurati, € l'anno prudente/centrale, ore, voto, e le 3 migliori con prova, soglia e stop.
+2. **Ogni opportunità che regge si mette in pratica entro 48 ore**: scheda, prova piccola, soglia e stop. Non resta in un file. Si chiede a Massimiliano solo ciò che tocca i suoi account, i soldi o il suo lavoro sui libri.
+3. Ogni lunedì il riassunto elenca: opportunità trovate, prove partite, prove finite con il risultato in €.
