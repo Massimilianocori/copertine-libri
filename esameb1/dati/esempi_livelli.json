@@ -1,0 +1,1138 @@
+{
+ "_nota": "Pagine del 25/11/2026: /esempi/cils-b1-standard/, /esempi/a1/, /esempi/c1/, /esempi/c2/ (genera_livelli.py). Solo link e descrizione: i file restano sui siti degli enti. Ogni file è stato aperto il 25/11/2026 (stato, tipo, byte; i PDF letti con pdftotext, gli zip PLIDA aperti per contare i file). 'modificato' = mese di ultima modifica sul server dell'ente (Last-Modified). 'etichetta_ente' = il nome del link sulla pagina ufficiale. Gruppi con 'link_diretti': false (CERT.IT, note legali di Roma Tre sul deep linking): i file non hanno 'url', la pagina mostra solo la descrizione e il link alla pagina ufficiale. CELI: le pagine del CVCL (cvcl.unistrapg.it, certificato valido) sono state lette il 25/11/2026 e elencano due esempi in zip per livello, ma i file stanno su www.unistrapg.it, che dal nostro server dà un errore di certificato: non sono stati aperti, quindi i gruppi CELI hanno 'link_diretti': false, nessun 'url' e nessuna dimensione; 'file_attesi' = i nomi dei file che la pagina del CVCL deve ancora linkare. Le frasi in 'citazioni' e i file li ricontrolla raccolta/esempi_livelli.py (con --salva porta 'verificato_il' a oggi). Prove CILS B1 Cittadinanza delle sessioni passate: il 25/11/2026 la pagina «Prove Liv. B1 c» ha un solo esempio (il prototipo) e la pagina «Esempi prove di esami» parla solo della sessione di giugno 2017 degli esami standard: nessun elenco da fare.",
+ "verificato_il": "2026-11-25",
+ "fonti": {
+  "cils_esempi": {
+   "nome": "Centro CILS, «Esempi prove di esami»",
+   "url": "https://cils.unistrasi.it/1/89/188/Esempi_prove_di_esami.htm"
+  },
+  "cils_prove_b1": {
+   "nome": "Centro CILS, «Prove Liv. B1»",
+   "url": "https://cils.unistrasi.it/1/89/197/Prove_Liv._B1.htm"
+  },
+  "cils_prove_c1": {
+   "nome": "Centro CILS, «Prove Liv. C1»",
+   "url": "https://cils.unistrasi.it/1/89/199/Prove_Liv._C1.htm"
+  },
+  "cils_prove_c2": {
+   "nome": "Centro CILS, «Prove Liv. C2»",
+   "url": "https://cils.unistrasi.it/1/89/200/Prove_Liv._C2.htm"
+  },
+  "cils_prove_a1": {
+   "nome": "Centro CILS, «Prove Liv. A1 standard»",
+   "url": "https://cils.unistrasi.it/1/89/195/Prove_Liv._A1_standard.htm"
+  },
+  "cils_prove_a1i": {
+   "nome": "Centro CILS, «Prove Liv. A1 integrazione in Italia»",
+   "url": "https://cils.unistrasi.it/1/89/193/Prove_Liv._A1_integrazione_in_Italia.htm"
+  },
+  "cils_b1c": {
+   "nome": "Centro CILS, «Prove Liv. B1 c» (B1 Cittadinanza)",
+   "url": "https://cils.unistrasi.it/1/89/382/Prove_Liv._B1_c.htm"
+  },
+  "cils_linee": {
+   "nome": "Centro CILS, «Linee guida CILS» (PDF, senza data)",
+   "url": "https://cils.unistrasi.it/public/articoli/12/linee_guida_cils_pdf(2).pdf"
+  },
+  "cils_valutazione": {
+   "nome": "Centro CILS, «La valutazione»",
+   "url": "https://cils.unistrasi.it/1/117/83/La_valutazione.htm"
+  },
+  "cils_faq": {
+   "nome": "Centro CILS, «FAQ»",
+   "url": "https://cils.unistrasi.it/1/210/412/FAQ.htm"
+  },
+  "cils_b1_quaderno": {
+   "nome": "CILS B1 standard, quaderno del candidato (PDF, sessione giugno 2017)",
+   "url": "https://cils.unistrasi.it/public/articoli/197/Quaderno%20Uno%20B1_nuovo.pdf"
+  },
+  "cils_b1_ps1": {
+   "nome": "CILS B1 standard, foglio della prova n. 1 di produzione scritta (PDF)",
+   "url": "https://cils.unistrasi.it/public/articoli/197/B1_ps1.pdf"
+  },
+  "cils_b1_ps2": {
+   "nome": "CILS B1 standard, foglio della prova n. 2 di produzione scritta (PDF)",
+   "url": "https://cils.unistrasi.it/public/articoli/197/B1_PS2_.pdf"
+  },
+  "cils_b1c_sillabo": {
+   "nome": "CILS B1 Cittadinanza, sillabo (PDF)",
+   "url": "https://cils.unistrasi.it/public/articoli/382/B1%20Cittadinanza_Sillabo.pdf"
+  },
+  "plida_prepara": {
+   "nome": "PLIDA (Società Dante Alighieri), «Preparati all'esame», sezione «Scarica i materiali»",
+   "url": "https://plida.dante.global/it/preparati-allesame/",
+   "elenco": "https://cms.plida.dante.global/it/preparati-allesame/"
+  },
+  "plida_c1_quaderno": {
+   "nome": "PLIDA, «Quaderno delle specifiche PLIDA C1» (PDF, seconda edizione, marzo 2021)",
+   "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-C1.pdf"
+  },
+  "certit_a1": {
+   "nome": "Roma Tre, CERT.IT, «Livello A1: livello di contatto»",
+   "url": "https://certificazioneitaliano.uniroma3.it/il-sistema-di-certificazione/livello-a1-livello-di-contatto/"
+  },
+  "certit_c1": {
+   "nome": "Roma Tre, CERT.IT, «Livello C1: livello dell’efficacia»",
+   "url": "https://certificazioneitaliano.uniroma3.it/il-sistema-di-certificazione/livello-c1-livello-dellefficacia/"
+  },
+  "certit_c2": {
+   "nome": "Roma Tre, CERT.IT, «Livello C2: livello della padronanza»",
+   "url": "https://certificazioneitaliano.uniroma3.it/il-sistema-di-certificazione/livello-c2-livello-della-padronanza-avanzato-superiore/"
+  },
+  "certit_iscrizione": {
+   "nome": "Roma Tre, CERT.IT, «Iscrizione agli esami»",
+   "url": "https://certificazioneitaliano.uniroma3.it/gli-esami/iscrizione-agli-esami/"
+  },
+  "certit_note": {
+   "nome": "Università Roma Tre, note legali",
+   "url": "https://www.uniroma3.it/note-legali/"
+  },
+  "celi_generici": {
+   "nome": "CVCL, Università per Stranieri di Perugia, «Esami CELI generici»",
+   "url": "https://cvcl.unistrapg.it/pagine/esami-celi-generici"
+  },
+  "celi_immigrati": {
+   "nome": "CVCL, Università per Stranieri di Perugia, «Esami CELI immigrati»",
+   "url": "https://cvcl.unistrapg.it/pagine/esami-celi-immigrati"
+  }
+ },
+ "citazioni": [
+  {
+   "fonte": "cils_esempi",
+   "testo": "puoi scaricare le prove d'esame CILS della sessione di giugno 2017, complete di tutti gli strumenti utili, tra cui le chiavi di soluzione, i criteri di valutazione e i fogli elettronici"
+  },
+  {
+   "fonte": "cils_esempi",
+   "testo": "Puoi utilizzare queste prove per orientarti nella scelta del livello di esame e autovalutare il tuo livello di competenza in italiano."
+  },
+  {
+   "fonte": "cils_linee",
+   "testo": "Per superare una abilità occorre ottenere il punteggio minimo di 11 punti."
+  },
+  {
+   "fonte": "cils_linee",
+   "testo": "Il punteggio totale massimo ottenibile è 100. Il punteggio minimo è 55."
+  },
+  {
+   "fonte": "cils_linee",
+   "testo": "Per superare un’abilità occorre ottenere il punteggio minimo di 7 punti."
+  },
+  {
+   "fonte": "cils_linee",
+   "testo": "Il punteggio totale massimo ottenibile è 60. Il punteggio minimo è 35."
+  },
+  {
+   "fonte": "cils_linee",
+   "testo": "Per superare le abilità di comprensione dell’ascolto e di produzione orale occorre ottenere il punteggio minimo di 10 punti"
+  },
+  {
+   "fonte": "cils_linee",
+   "testo": "Le abilità capitalizzate valgono per un anno dalla data del primo esame sostenuto."
+  },
+  {
+   "fonte": "cils_valutazione",
+   "testo": "Entro 18 mesi, infatti, il candidato può presentarsi allo stesso esame e sostenere solo le abilità che non ha superato."
+  },
+  {
+   "fonte": "cils_b1c",
+   "testo": "Per questo livello non è consentita la \"capitalizzazione\""
+  },
+  {
+   "fonte": "cils_prove_a1i",
+   "testo": "Per questo livello non è prevista la capitalizzazione."
+  },
+  {
+   "fonte": "cils_faq",
+   "testo": "richiesto anche per la cittadinanza italiana"
+  },
+  {
+   "fonte": "cils_b1_quaderno",
+   "testo": "Tempo a disposizione: 50 minuti"
+  },
+  {
+   "fonte": "cils_b1_quaderno",
+   "testo": "Tempo a disposizione: 1 ora e 10 minuti"
+  },
+  {
+   "fonte": "cils_b1_ps1",
+   "testo": "Devi scrivere da 100 a 120 parole."
+  },
+  {
+   "fonte": "cils_b1_ps2",
+   "testo": "Devi scrivere da 50 a 80 parole."
+  },
+  {
+   "fonte": "cils_b1c_sillabo",
+   "testo": "Da 80 a 120 parole"
+  },
+  {
+   "fonte": "plida_c1_quaderno",
+   "testo": "Per superare l’esame è necessario ottenere un punteggio di almeno 18/30 in ogni abilità."
+  },
+  {
+   "fonte": "plida_c1_quaderno",
+   "testo": "possono recuperarle nei 18 mesi successivi"
+  },
+  {
+   "fonte": "certit_a1",
+   "testo": "In fondo alla pagina è possibile scaricare un esempio di esame per esercitarsi."
+  },
+  {
+   "fonte": "certit_a1",
+   "testo": "Le sezioni Ascolto, Lettura e Produzione scritta durano complessivamente 2 ore."
+  },
+  {
+   "fonte": "certit_a1",
+   "testo": "La sezione Produzione orale dura 5 minuti."
+  },
+  {
+   "fonte": "certit_a1",
+   "testo": "L’esame è superato se si raggiunge il 60% del punteggio totale delle sezioni Ascolto, Lettura, Produzione scritta e il 60% del punteggio nella sezione di Produzione orale"
+  },
+  {
+   "fonte": "certit_c1",
+   "testo": "In fondo alla pagina è possibile scaricare un esempio di esame per esercitarsi."
+  },
+  {
+   "fonte": "certit_c1",
+   "testo": "L’esame è superato se si raggiunge il 60% del punteggio totale di tutte le 3 sezioni (Ascolto e Lettura, Produzione scritta, Produzione orale)"
+  },
+  {
+   "fonte": "certit_c1",
+   "testo": "Laddove non venissero sostenute o superate tutte le sezioni, è possibile capitalizzare quelle superate entro due anni dal superamento della prima."
+  },
+  {
+   "fonte": "certit_c2",
+   "testo": "Esempio di esame"
+  },
+  {
+   "fonte": "certit_c2",
+   "testo": "L’esame è superato se si raggiunge il 60% del punteggio in tutte le sezioni."
+  },
+  {
+   "fonte": "certit_c2",
+   "testo": "Laddove non venissero sostenute o superate tutte le sezioni, è possibile capitalizzare quelle superate entro due anni dal superamento della prima."
+  },
+  {
+   "fonte": "certit_iscrizione",
+   "testo": "A1: 35 €"
+  },
+  {
+   "fonte": "certit_iscrizione",
+   "testo": "C1: 200 €"
+  },
+  {
+   "fonte": "certit_iscrizione",
+   "testo": "C2: 200 €"
+  },
+  {
+   "fonte": "celi_generici",
+   "testo": "CELI Impatto (Livello A1 del QCER)"
+  },
+  {
+   "fonte": "celi_generici",
+   "testo": "CELI 4 (Livello C1 del QCER)"
+  },
+  {
+   "fonte": "celi_generici",
+   "testo": "CELI 5 (Livello C2 del QCER)"
+  },
+  {
+   "fonte": "celi_generici",
+   "testo": "prova d'esame: esempio 1 (zip) - esempio 2 (zip)"
+  },
+  {
+   "fonte": "celi_generici",
+   "testo": "il CELI 4 e il CELI 5 sono invece titoli validi per attestare la conoscenza della lingua italiana a parità di condizioni con gli iscritti italofoni"
+  },
+  {
+   "fonte": "celi_immigrati",
+   "testo": "prova d'esame - esempio 1 (zip) - esempio 2 (zip)"
+  },
+  {
+   "fonte": "celi_immigrati",
+   "testo": "migranti che provengono da un percorso di alfabetizzazione in lingua seconda"
+  }
+ ],
+ "gruppi": {
+  "cils_b1": {
+   "ente": "CILS",
+   "esame": "CILS B1 standard (UNO-B1)",
+   "livello": "B1",
+   "fonte": "cils_prove_b1",
+   "sessione": "giugno 2017",
+   "file": [
+    {
+     "nome": "Quaderno del candidato",
+     "parte": "Ascolto, lettura, grammatica",
+     "contenuto": "le domande delle prove di ascolto, lettura e analisi delle strutture di comunicazione",
+     "etichetta_ente": "Quaderno del candidato",
+     "url": "https://cils.unistrasi.it/public/articoli/197/Quaderno%20Uno%20B1_nuovo.pdf",
+     "formato": "PDF",
+     "byte": 265219,
+     "tipo": "application/pdf",
+     "modificato": "aprile 2026",
+     "pagine": 20
+    },
+    {
+     "nome": "File audio",
+     "parte": "Ascolto",
+     "contenuto": "l'audio della prova di ascolto",
+     "etichetta_ente": "File audio",
+     "url": "https://cils.unistrasi.it/public/articoli/197/UNO-B1_6_17.mp3",
+     "formato": "MP3",
+     "byte": 80069529,
+     "tipo": "audio/mpeg",
+     "modificato": "marzo 2025"
+    },
+    {
+     "nome": "Trascrizioni delle prove di ascolto",
+     "parte": "Ascolto",
+     "contenuto": "il testo scritto di quello che si sente nell'audio",
+     "etichetta_ente": "Trascrizioni delle Prove di Ascolto",
+     "url": "https://cils.unistrasi.it/public/articoli/197/Trascrizioni%20Uno%20B1.pdf",
+     "formato": "PDF",
+     "byte": 73646,
+     "tipo": "application/pdf",
+     "modificato": "marzo 2025",
+     "pagine": 4
+    },
+    {
+     "nome": "Foglio della prova n. 1 di produzione scritta",
+     "parte": "Scrittura",
+     "contenuto": "la traccia e lo spazio per scrivere il primo testo",
+     "etichetta_ente": "Foglio elettronico della prova n.1 di Produzione Scritta",
+     "url": "https://cils.unistrasi.it/public/articoli/197/B1_ps1.pdf",
+     "formato": "PDF",
+     "byte": 45808,
+     "tipo": "application/pdf",
+     "modificato": "aprile 2026",
+     "pagine": 2
+    },
+    {
+     "nome": "Foglio della prova n. 2 di produzione scritta",
+     "parte": "Scrittura",
+     "contenuto": "la traccia e lo spazio per scrivere il secondo testo",
+     "etichetta_ente": "Foglio elettronico della prova n.2 di Produzione Scritta",
+     "url": "https://cils.unistrasi.it/public/articoli/197/B1_PS2_.pdf",
+     "formato": "PDF",
+     "byte": 55876,
+     "tipo": "application/pdf",
+     "modificato": "aprile 2026",
+     "pagine": 1
+    },
+    {
+     "nome": "Prove di produzione orale",
+     "parte": "Orale",
+     "contenuto": "le tracce dell'orale",
+     "etichetta_ente": "prove di Produzione Orale",
+     "url": "https://cils.unistrasi.it/public/articoli/197/Produzione%20orale%20Uno%20B1.pdf",
+     "formato": "PDF",
+     "byte": 377228,
+     "tipo": "application/pdf",
+     "modificato": "marzo 2025",
+     "pagine": 2
+    },
+    {
+     "nome": "Soluzioni",
+     "parte": "Soluzioni",
+     "contenuto": "le risposte giuste",
+     "etichetta_ente": "CHIAVI",
+     "url": "https://cils.unistrasi.it/public/articoli/197/Chiavi_B1_nuove.pdf",
+     "formato": "PDF",
+     "byte": 120274,
+     "tipo": "application/pdf",
+     "modificato": "aprile 2026",
+     "pagine": 3
+    },
+    {
+     "nome": "Criteri di valutazione",
+     "parte": "Punteggio",
+     "contenuto": "come si danno i punti, prova per prova",
+     "etichetta_ente": "Criteri di Valutazione delle prove",
+     "url": "https://cils.unistrasi.it/public/articoli/197/criteri%20valutazione%20Uno-B1_nuovi.pdf",
+     "formato": "PDF",
+     "byte": 121737,
+     "tipo": "application/pdf",
+     "modificato": "aprile 2026",
+     "pagine": 3
+    },
+    {
+     "nome": "Foglio delle risposte",
+     "parte": "Foglio delle risposte",
+     "contenuto": "il foglio su cui si segnano le risposte",
+     "etichetta_ente": "Foglio delle risposte",
+     "url": "https://cils.unistrasi.it/public/articoli/197/Risposte_B1_.pdf",
+     "formato": "PDF",
+     "byte": 1522395,
+     "tipo": "application/pdf",
+     "modificato": "aprile 2026",
+     "pagine": 2
+    }
+   ]
+  },
+  "cils_c1": {
+   "ente": "CILS",
+   "esame": "CILS TRE-C1",
+   "livello": "C1",
+   "fonte": "cils_prove_c1",
+   "sessione": "giugno 2017",
+   "file": [
+    {
+     "nome": "Quaderno del candidato",
+     "parte": "Ascolto, lettura, grammatica",
+     "contenuto": "le domande delle prove di ascolto, lettura e analisi delle strutture di comunicazione",
+     "etichetta_ente": "Quaderno del candidato",
+     "url": "https://cils.unistrasi.it/public/articoli/199/PROPTOTIPO_Quaderno%20Tre_C1.pdf",
+     "formato": "PDF",
+     "byte": 417682,
+     "tipo": "application/pdf",
+     "modificato": "marzo 2025",
+     "pagine": 20
+    },
+    {
+     "nome": "File audio",
+     "parte": "Ascolto",
+     "contenuto": "l'audio della prova di ascolto",
+     "etichetta_ente": "File audio",
+     "url": "https://cils.unistrasi.it/public/articoli/199/TRE-C1%20giugno%202017.mp3",
+     "formato": "MP3",
+     "byte": 95062770,
+     "tipo": "audio/mpeg",
+     "modificato": "marzo 2025"
+    },
+    {
+     "nome": "Trascrizioni delle prove di ascolto",
+     "parte": "Ascolto",
+     "contenuto": "il testo scritto di quello che si sente nell'audio",
+     "etichetta_ente": "Trascrizioni delle Prove di Ascolto",
+     "url": "https://cils.unistrasi.it/public/articoli/199/Trascrizioni%20Tre%20C1.pdf",
+     "formato": "PDF",
+     "byte": 93823,
+     "tipo": "application/pdf",
+     "modificato": "gennaio 2026",
+     "pagine": 4
+    },
+    {
+     "nome": "Foglio della prova n. 1 di produzione scritta",
+     "parte": "Scrittura",
+     "contenuto": "la traccia e lo spazio per scrivere il primo testo",
+     "etichetta_ente": "Foglio elettronico per la prova n.1 di Produzione Scritta",
+     "url": "https://cils.unistrasi.it/public/articoli/199/C1_Ps1_.pdf",
+     "formato": "PDF",
+     "byte": 40922,
+     "tipo": "application/pdf",
+     "modificato": "marzo 2025",
+     "pagine": 2
+    },
+    {
+     "nome": "Foglio della prova n. 2 di produzione scritta",
+     "parte": "Scrittura",
+     "contenuto": "la traccia e lo spazio per scrivere il secondo testo",
+     "etichetta_ente": "Foglio elettronico per la prova n.2 della Produzione Scritta",
+     "url": "https://cils.unistrasi.it/public/articoli/199/C1_Ps2.pdf",
+     "formato": "PDF",
+     "byte": 40409,
+     "tipo": "application/pdf",
+     "modificato": "marzo 2025",
+     "pagine": 2
+    },
+    {
+     "nome": "Foglio per la prova di metalinguistica",
+     "parte": "Grammatica",
+     "contenuto": "il foglio su cui si scrive la prova n. 4 di analisi delle strutture di comunicazione",
+     "etichetta_ente": "Foglio per la prova di metalinguistica",
+     "url": "https://cils.unistrasi.it/public/articoli/199/C1_METALINGUISTICA.pdf",
+     "formato": "PDF",
+     "byte": 59513,
+     "tipo": "application/pdf",
+     "modificato": "marzo 2025",
+     "pagine": 1
+    },
+    {
+     "nome": "Prove di produzione orale",
+     "parte": "Orale",
+     "contenuto": "le tracce dell'orale",
+     "etichetta_ente": "prove di Produzione Orale",
+     "url": "https://cils.unistrasi.it/public/articoli/199/Produzione%20orale%20Tre%20C1.pdf",
+     "formato": "PDF",
+     "byte": 52167,
+     "tipo": "application/pdf",
+     "modificato": "marzo 2025",
+     "pagine": 2
+    },
+    {
+     "nome": "Soluzioni",
+     "parte": "Soluzioni",
+     "contenuto": "le risposte giuste",
+     "etichetta_ente": "Soluzioni",
+     "url": "https://cils.unistrasi.it/public/articoli/199/CHIAVI_GIUGNO2017.pdf",
+     "formato": "PDF",
+     "byte": 171497,
+     "tipo": "application/pdf",
+     "modificato": "marzo 2025",
+     "pagine": 3
+    },
+    {
+     "nome": "Criteri di valutazione",
+     "parte": "Punteggio",
+     "contenuto": "come si danno i punti, prova per prova",
+     "etichetta_ente": "Criteri di Valutazione delle prove",
+     "url": "https://cils.unistrasi.it/public/articoli/199/criteri%20di%20valutazione%20Tre-C1.pdf",
+     "formato": "PDF",
+     "byte": 135582,
+     "tipo": "application/pdf",
+     "modificato": "marzo 2025",
+     "pagine": 3
+    },
+    {
+     "nome": "Foglio delle risposte",
+     "parte": "Foglio delle risposte",
+     "contenuto": "il foglio su cui si segnano le risposte",
+     "etichetta_ente": "Foglio elettronico delle risposte",
+     "url": "https://cils.unistrasi.it/public/articoli/199/C1_v21.pdf",
+     "formato": "PDF",
+     "byte": 1787759,
+     "tipo": "application/pdf",
+     "modificato": "marzo 2025",
+     "pagine": 3
+    }
+   ]
+  },
+  "cils_c2": {
+   "ente": "CILS",
+   "esame": "CILS QUATTRO-C2",
+   "livello": "C2",
+   "fonte": "cils_prove_c2",
+   "sessione": "giugno 2017",
+   "file": [
+    {
+     "nome": "Quaderno del candidato",
+     "parte": "Ascolto, lettura, grammatica",
+     "contenuto": "le domande delle prove di ascolto, lettura e analisi delle strutture di comunicazione",
+     "etichetta_ente": "Quaderno del candidato",
+     "url": "https://cils.unistrasi.it/public/articoli/200/Quaderno%20Quattro%20C2.pdf",
+     "formato": "PDF",
+     "byte": 208663,
+     "tipo": "application/pdf",
+     "modificato": "marzo 2025",
+     "pagine": 24
+    },
+    {
+     "nome": "File audio",
+     "parte": "Ascolto",
+     "contenuto": "l'audio della prova di ascolto",
+     "etichetta_ente": "File audio",
+     "url": "https://cils.unistrasi.it/public/articoli/200/QUATTRO-C2%20giugno%202017.mp3",
+     "formato": "MP3",
+     "byte": 28395920,
+     "tipo": "audio/mpeg",
+     "modificato": "marzo 2025"
+    },
+    {
+     "nome": "Trascrizioni delle prove di ascolto",
+     "parte": "Ascolto",
+     "contenuto": "il testo scritto di quello che si sente nell'audio",
+     "etichetta_ente": "Trascrizioni delle Prove di Ascolto",
+     "url": "https://cils.unistrasi.it/public/articoli/200/Trascrizioni%20Quattro%20C2.pdf",
+     "formato": "PDF",
+     "byte": 74701,
+     "tipo": "application/pdf",
+     "modificato": "marzo 2025",
+     "pagine": 4
+    },
+    {
+     "nome": "Foglio della prova n. 1 di produzione scritta",
+     "parte": "Scrittura",
+     "contenuto": "la traccia e lo spazio per scrivere il primo testo",
+     "etichetta_ente": "Foglio elettronico per la prova n.1 di Produzione Scritta",
+     "url": "https://cils.unistrasi.it/public/articoli/200/C2_Ps1.pdf",
+     "formato": "PDF",
+     "byte": 41347,
+     "tipo": "application/pdf",
+     "modificato": "marzo 2025",
+     "pagine": 2
+    },
+    {
+     "nome": "Foglio della prova n. 2 di produzione scritta",
+     "parte": "Scrittura",
+     "contenuto": "la traccia e lo spazio per scrivere il secondo testo",
+     "etichetta_ente": "Foglio elettronico per la prova n.2 di Produzione Scritta",
+     "url": "https://cils.unistrasi.it/public/articoli/200/C2_Ps2.pdf",
+     "formato": "PDF",
+     "byte": 40883,
+     "tipo": "application/pdf",
+     "modificato": "marzo 2025",
+     "pagine": 2
+    },
+    {
+     "nome": "Foglio per la prova di metalinguistica",
+     "parte": "Grammatica",
+     "contenuto": "il foglio su cui si scrive la prova n. 4 di analisi delle strutture di comunicazione",
+     "etichetta_ente": "Foglio elettronico per la prova di metalinguistica",
+     "url": "https://cils.unistrasi.it/public/articoli/200/C2_METALINGUISTICA.pdf",
+     "formato": "PDF",
+     "byte": 59796,
+     "tipo": "application/pdf",
+     "modificato": "marzo 2025",
+     "pagine": 1
+    },
+    {
+     "nome": "Prove di produzione orale",
+     "parte": "Orale",
+     "contenuto": "le tracce dell'orale",
+     "etichetta_ente": "prove di Produzione Orale",
+     "url": "https://cils.unistrasi.it/public/articoli/200/Produzione%20orale%20Quattro%20C2.pdf",
+     "formato": "PDF",
+     "byte": 52579,
+     "tipo": "application/pdf",
+     "modificato": "marzo 2025",
+     "pagine": 2
+    },
+    {
+     "nome": "Soluzioni",
+     "parte": "Soluzioni",
+     "contenuto": "le risposte giuste",
+     "etichetta_ente": "Soluzioni",
+     "url": "https://cils.unistrasi.it/public/articoli/200/CHIAVI%20C2%20GIUGNO%202017.pdf",
+     "formato": "PDF",
+     "byte": 201347,
+     "tipo": "application/pdf",
+     "modificato": "marzo 2025",
+     "pagine": 3
+    },
+    {
+     "nome": "Criteri di valutazione",
+     "parte": "Punteggio",
+     "contenuto": "come si danno i punti, prova per prova",
+     "etichetta_ente": "Criteri di valutazione delle prove",
+     "url": "https://cils.unistrasi.it/public/articoli/200/criteri%20valutazione%20QUATTRO-C2.pdf",
+     "formato": "PDF",
+     "byte": 17635,
+     "tipo": "application/pdf",
+     "modificato": "marzo 2025",
+     "pagine": 3
+    },
+    {
+     "nome": "Foglio delle risposte",
+     "parte": "Foglio delle risposte",
+     "contenuto": "il foglio su cui si segnano le risposte",
+     "etichetta_ente": "Foglio delle risposte",
+     "url": "https://cils.unistrasi.it/public/articoli/200/Risposte_C2.pdf",
+     "formato": "PDF",
+     "byte": 1533037,
+     "tipo": "application/pdf",
+     "modificato": "marzo 2025",
+     "pagine": 3
+    }
+   ]
+  },
+  "cils_a1": {
+   "ente": "CILS",
+   "esame": "CILS A1 standard",
+   "livello": "A1",
+   "fonte": "cils_prove_a1",
+   "sessione": "giugno 2017",
+   "file": [
+    {
+     "nome": "Quaderno del candidato",
+     "parte": "Ascolto, lettura, grammatica",
+     "contenuto": "le domande delle prove di ascolto, lettura e analisi delle strutture di comunicazione",
+     "etichetta_ente": "Quaderno del candidato",
+     "url": "https://cils.unistrasi.it/public/articoli/195/Quaderno%20A1.pdf",
+     "formato": "PDF",
+     "byte": 138463,
+     "tipo": "application/pdf",
+     "modificato": "marzo 2025",
+     "pagine": 16
+    },
+    {
+     "nome": "File audio",
+     "parte": "Ascolto",
+     "contenuto": "l'audio della prova di ascolto",
+     "etichetta_ente": "File audio",
+     "url": "https://cils.unistrasi.it/public/articoli/195/A1_06_17.mp3",
+     "formato": "MP3",
+     "byte": 44233709,
+     "tipo": "audio/mpeg",
+     "modificato": "marzo 2025"
+    },
+    {
+     "nome": "Trascrizioni delle prove di ascolto",
+     "parte": "Ascolto",
+     "contenuto": "il testo scritto di quello che si sente nell'audio",
+     "etichetta_ente": "Trascrizioni delle Prove di Ascolto",
+     "url": "https://cils.unistrasi.it/public/articoli/195/Trascrizioni%20A1.pdf",
+     "formato": "PDF",
+     "byte": 64246,
+     "tipo": "application/pdf",
+     "modificato": "marzo 2025",
+     "pagine": 4
+    },
+    {
+     "nome": "Foglio della prova n. 1 di produzione scritta",
+     "parte": "Scrittura",
+     "contenuto": "la traccia e lo spazio per scrivere il primo testo",
+     "etichetta_ente": "Foglio elettronico per la prova n.1 di Produzione Scritta",
+     "url": "https://cils.unistrasi.it/public/articoli/195/A1_PS1.pdf",
+     "formato": "PDF",
+     "byte": 67465,
+     "tipo": "application/pdf",
+     "modificato": "marzo 2025",
+     "pagine": 1
+    },
+    {
+     "nome": "Foglio della prova n. 2 di produzione scritta",
+     "parte": "Scrittura",
+     "contenuto": "la traccia e lo spazio per scrivere il secondo testo",
+     "etichetta_ente": "Foglio elettronico per la prova n.2 di Produzione Scritta",
+     "url": "https://cils.unistrasi.it/public/articoli/195/A1_PS2.pdf",
+     "formato": "PDF",
+     "byte": 34699,
+     "tipo": "application/pdf",
+     "modificato": "marzo 2025",
+     "pagine": 1
+    },
+    {
+     "nome": "Prove di produzione orale",
+     "parte": "Orale",
+     "contenuto": "le tracce dell'orale",
+     "etichetta_ente": "prove di Produzione Orale",
+     "url": "https://cils.unistrasi.it/public/articoli/195/Produzione%20orale%20A1.pdf",
+     "formato": "PDF",
+     "byte": 153895,
+     "tipo": "application/pdf",
+     "modificato": "marzo 2025",
+     "pagine": 2
+    },
+    {
+     "nome": "Soluzioni",
+     "parte": "Soluzioni",
+     "contenuto": "le risposte giuste",
+     "etichetta_ente": "Soluzioni",
+     "url": "https://cils.unistrasi.it/public/articoli/195/CHIAVI%20A1.pdf",
+     "formato": "PDF",
+     "byte": 11848,
+     "tipo": "application/pdf",
+     "modificato": "marzo 2025",
+     "pagine": 2
+    },
+    {
+     "nome": "Criteri di valutazione",
+     "parte": "Punteggio",
+     "contenuto": "come si danno i punti, prova per prova",
+     "etichetta_ente": "Criteri di valutazione delle prove",
+     "url": "https://cils.unistrasi.it/public/articoli/195/criteri%20valutazione%20A1.pdf",
+     "formato": "PDF",
+     "byte": 14609,
+     "tipo": "application/pdf",
+     "modificato": "marzo 2025",
+     "pagine": 3
+    },
+    {
+     "nome": "Foglio delle risposte",
+     "parte": "Foglio delle risposte",
+     "contenuto": "il foglio su cui si segnano le risposte",
+     "etichetta_ente": "Foglio delle risposte",
+     "url": "https://cils.unistrasi.it/public/articoli/195/Risposte_A1.pdf",
+     "formato": "PDF",
+     "byte": 1471339,
+     "tipo": "application/pdf",
+     "modificato": "marzo 2025",
+     "pagine": 2
+    }
+   ]
+  },
+  "cils_a1i": {
+   "ente": "CILS",
+   "esame": "CILS A1 integrazione in Italia",
+   "livello": "A1",
+   "fonte": "cils_prove_a1i",
+   "sessione": null,
+   "file": [
+    {
+     "nome": "Quaderno del candidato",
+     "parte": "Ascolto e lettura",
+     "contenuto": "le domande delle prove di ascolto e di lettura",
+     "etichetta_ente": "Quaderno del candidato",
+     "url": "https://cils.unistrasi.it/public/articoli/193/Quaderno%20A1%20integrazione.pdf",
+     "formato": "PDF",
+     "byte": 24751,
+     "tipo": "application/pdf",
+     "modificato": "marzo 2025",
+     "pagine": 8
+    },
+    {
+     "nome": "File audio",
+     "parte": "Ascolto",
+     "contenuto": "l'audio della prova di ascolto",
+     "etichetta_ente": "File Audio",
+     "url": "https://cils.unistrasi.it/public/articoli/193/A1%20Int.mp3",
+     "formato": "MP3",
+     "byte": 45306632,
+     "tipo": "audio/mpeg",
+     "modificato": "marzo 2025"
+    },
+    {
+     "nome": "Trascrizioni delle prove di ascolto",
+     "parte": "Ascolto",
+     "contenuto": "il testo scritto di quello che si sente nell'audio",
+     "etichetta_ente": "Trascrizioni delle Prove di Ascolto",
+     "url": "https://cils.unistrasi.it/public/articoli/193/Trascrizioni%20A1%20Int.pdf",
+     "formato": "PDF",
+     "byte": 12238,
+     "tipo": "application/pdf",
+     "modificato": "marzo 2025",
+     "pagine": 2
+    },
+    {
+     "nome": "Prova di produzione scritta",
+     "parte": "Scrittura",
+     "contenuto": "le tracce della prova di scrittura",
+     "etichetta_ente": "prova di Produzione Scritta",
+     "url": "https://cils.unistrasi.it/public/articoli/193/Produzione%20scritta%20A1%20integrazione.pdf",
+     "formato": "PDF",
+     "byte": 209868,
+     "tipo": "application/pdf",
+     "modificato": "marzo 2025",
+     "pagine": 2
+    },
+    {
+     "nome": "Prove di produzione orale",
+     "parte": "Orale",
+     "contenuto": "le tracce dell'orale",
+     "etichetta_ente": "prove di Produzione Orale",
+     "url": "https://cils.unistrasi.it/public/articoli/193/Prova%20orale_A1%20int.pdf",
+     "formato": "PDF",
+     "byte": 14974,
+     "tipo": "application/pdf",
+     "modificato": "marzo 2025",
+     "pagine": 1
+    },
+    {
+     "nome": "Criteri di valutazione",
+     "parte": "Punteggio",
+     "contenuto": "come si danno i punti, prova per prova",
+     "etichetta_ente": "Criteri di Valutazione",
+     "url": "https://cils.unistrasi.it/public/articoli/193/Criteri%20di%20valutazione%20nuovo%20A1%20Integrazione.pdf",
+     "formato": "PDF",
+     "byte": 71912,
+     "tipo": "application/pdf",
+     "modificato": "marzo 2025",
+     "pagine": 2
+    },
+    {
+     "nome": "Foglio delle risposte",
+     "parte": "Foglio delle risposte",
+     "contenuto": "il foglio su cui si segnano le risposte",
+     "etichetta_ente": "Foglio elettronico delle risposte",
+     "url": "https://cils.unistrasi.it/public/articoli/193/Risposte_A1_Integrazione.pdf",
+     "formato": "PDF",
+     "byte": 1415802,
+     "tipo": "application/pdf",
+     "modificato": "marzo 2025",
+     "pagine": 1
+    }
+   ]
+  },
+  "plida_a1": {
+   "ente": "PLIDA",
+   "esame": "PLIDA A1",
+   "livello": "A1",
+   "fonte": "plida_prepara",
+   "livello_feed": "a1",
+   "file": [
+    {
+     "nome": "Prova d'esempio PLIDA Juniores A1",
+     "parte": "Tutte le prove",
+     "contenuto": "uno zip con 3 PDF (ascoltare e leggere con le soluzioni, scrivere, parlare) e 1 file audio MP3; è l'esempio del PLIDA Juniores",
+     "formato": "ZIP",
+     "url": "https://cms.plida.dante.global/wp-content/uploads/2022/11/PLIDA-A1-J-prova_esempio.zip",
+     "byte": 22582897,
+     "tipo": "application/zip",
+     "modificato": "gennaio 2023"
+    },
+    {
+     "nome": "Criteri di valutazione delle prove Scrivere",
+     "parte": "Scrittura",
+     "contenuto": "come si danno i punti nella prova scritta",
+     "formato": "PDF",
+     "url": "https://cms.plida.dante.global/wp-content/uploads/2022/11/PLIDA-A1-e-C2-Criteri-valutazione-prove-Scrivere.pdf",
+     "byte": 717408,
+     "tipo": "application/pdf",
+     "modificato": "gennaio 2023",
+     "pagine": 2
+    },
+    {
+     "nome": "Criteri di valutazione delle prove Parlare",
+     "parte": "Orale",
+     "contenuto": "come si danno i punti nella prova orale",
+     "formato": "PDF",
+     "url": "https://cms.plida.dante.global/wp-content/uploads/2022/11/PLIDA-A1-e-C2-Criteri-valutazione-prove-Parlare.pdf",
+     "byte": 766156,
+     "tipo": "application/pdf",
+     "modificato": "gennaio 2023",
+     "pagine": 1
+    }
+   ]
+  },
+  "plida_c1": {
+   "ente": "PLIDA",
+   "esame": "PLIDA C1",
+   "livello": "C1",
+   "fonte": "plida_prepara",
+   "livello_feed": "c1",
+   "file": [
+    {
+     "nome": "Prova d'esempio PLIDA C1",
+     "parte": "Tutte le prove",
+     "contenuto": "uno zip con 3 PDF (ascoltare e leggere con le soluzioni, scrivere, parlare) e 1 file audio MP3",
+     "formato": "ZIP",
+     "url": "https://cms.plida.dante.global/wp-content/uploads/2022/11/PLIDA-C1_prova-esempio.zip",
+     "byte": 48130190,
+     "tipo": "application/zip",
+     "modificato": "gennaio 2023"
+    },
+    {
+     "nome": "Quaderno delle specifiche PLIDA C1",
+     "parte": "Struttura dell'esame",
+     "contenuto": "com'è fatto l'esame, prova per prova, e le regole per superarlo",
+     "formato": "PDF",
+     "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-C1.pdf",
+     "byte": 2152359,
+     "tipo": "application/pdf",
+     "modificato": "ottobre 2026",
+     "pagine": 61
+    },
+    {
+     "nome": "Criteri di valutazione delle prove Scrivere",
+     "parte": "Scrittura",
+     "contenuto": "come si danno i punti nella prova scritta",
+     "formato": "PDF",
+     "url": "https://cms.plida.dante.global/wp-content/uploads/2022/11/PLIDA-C1-Criteri-valutazione-prove-Scrivere.pdf",
+     "byte": 342960,
+     "tipo": "application/pdf",
+     "modificato": "gennaio 2023",
+     "pagine": 2
+    },
+    {
+     "nome": "Prova Scrivere commentata",
+     "parte": "Scrittura",
+     "contenuto": "una prova di scrittura con le schede commentate e le griglie di valutazione",
+     "formato": "PDF",
+     "url": "https://cms.plida.dante.global/wp-content/uploads/2022/11/Prova-Scrivere-commentata_PLIDA-C1.pdf",
+     "byte": 2095456,
+     "tipo": "application/pdf",
+     "modificato": "gennaio 2023",
+     "pagine": 26
+    },
+    {
+     "nome": "Criteri di valutazione delle prove Parlare",
+     "parte": "Orale",
+     "contenuto": "come si danno i punti nella prova orale",
+     "formato": "PDF",
+     "url": "https://cms.plida.dante.global/wp-content/uploads/2022/11/PLIDA-C1-Criteri-valutazione-prove-Parlare.pdf",
+     "byte": 299472,
+     "tipo": "application/pdf",
+     "modificato": "gennaio 2023",
+     "pagine": 1
+    }
+   ]
+  },
+  "plida_c2": {
+   "ente": "PLIDA",
+   "esame": "PLIDA C2",
+   "livello": "C2",
+   "fonte": "plida_prepara",
+   "livello_feed": "c2",
+   "file": [
+    {
+     "nome": "Prova d'esempio PLIDA C2",
+     "parte": "Tutte le prove",
+     "contenuto": "uno zip con 3 PDF (ascoltare e leggere con le soluzioni, scrivere, parlare) e 1 file audio MP3",
+     "formato": "ZIP",
+     "url": "https://cms.plida.dante.global/wp-content/uploads/2022/11/PLIDA-C2_prova-esempio.zip",
+     "byte": 48678097,
+     "tipo": "application/zip",
+     "modificato": "gennaio 2023"
+    },
+    {
+     "nome": "Criteri di valutazione delle prove Scrivere",
+     "parte": "Scrittura",
+     "contenuto": "come si danno i punti nella prova scritta",
+     "formato": "PDF",
+     "url": "https://cms.plida.dante.global/wp-content/uploads/2022/11/PLIDA-A1-e-C2-Criteri-valutazione-prove-Scrivere.pdf",
+     "byte": 717408,
+     "tipo": "application/pdf",
+     "modificato": "gennaio 2023",
+     "pagine": 2
+    },
+    {
+     "nome": "Criteri di valutazione delle prove Parlare",
+     "parte": "Orale",
+     "contenuto": "come si danno i punti nella prova orale",
+     "formato": "PDF",
+     "url": "https://cms.plida.dante.global/wp-content/uploads/2022/11/PLIDA-A1-e-C2-Criteri-valutazione-prove-Parlare.pdf",
+     "byte": 766156,
+     "tipo": "application/pdf",
+     "modificato": "gennaio 2023",
+     "pagine": 1
+    }
+   ]
+  },
+  "certit_a1": {
+   "ente": "CERT.IT",
+   "esame": "CERT.IT A1",
+   "livello": "A1",
+   "fonte": "certit_a1",
+   "link_diretti": false,
+   "zip_attesi": 1,
+   "mp3_attesi": 0,
+   "file": [
+    {
+     "nome": "Esempio di esame",
+     "parte": "Tutte le prove",
+     "contenuto": "uno zip con l'esempio di esame",
+     "formato": "ZIP",
+     "byte": 1450519
+    },
+    {
+     "nome": "Audio della prova di ascolto",
+     "parte": "Ascolto",
+     "contenuto": "l'audio della prova di ascolto: sulla pagina c'è un link a un archivio online di Roma Tre",
+     "formato": "MP3"
+    }
+   ]
+  },
+  "certit_c1": {
+   "ente": "CERT.IT",
+   "esame": "CERT.IT C1",
+   "livello": "C1",
+   "fonte": "certit_c1",
+   "link_diretti": false,
+   "zip_attesi": 1,
+   "mp3_attesi": 3,
+   "file": [
+    {
+     "nome": "Esempio di esame",
+     "parte": "Tutte le prove",
+     "contenuto": "uno zip con l'esempio di esame",
+     "formato": "ZIP",
+     "byte": 2249152
+    },
+    {
+     "nome": "Audio della prova di ascolto",
+     "parte": "Ascolto",
+     "contenuto": "l'audio della prova di ascolto, in 3 file",
+     "formato": "MP3",
+     "numero": 3
+    }
+   ]
+  },
+  "certit_c2": {
+   "ente": "CERT.IT",
+   "esame": "CERT.IT C2",
+   "livello": "C2",
+   "fonte": "certit_c2",
+   "link_diretti": false,
+   "zip_attesi": 1,
+   "mp3_attesi": 3,
+   "file": [
+    {
+     "nome": "Esempio di esame",
+     "parte": "Tutte le prove",
+     "contenuto": "uno zip con l'esempio di esame",
+     "formato": "ZIP",
+     "byte": 2536289
+    },
+    {
+     "nome": "Audio della prova di ascolto",
+     "parte": "Ascolto",
+     "contenuto": "l'audio della prova di ascolto, in 3 file",
+     "formato": "MP3",
+     "numero": 3
+    }
+   ]
+  },
+  "celi_a1": {
+   "ente": "CELI",
+   "esame": "CELI Impatto (A1)",
+   "livello": "A1",
+   "fonte": "celi_generici",
+   "link_diretti": false,
+   "file_attesi": [
+    "celi-i-prove-esame.zip",
+    "celi-i-prove-esame-2.zip"
+   ],
+   "file": [
+    {
+     "nome": "Prova d'esame: esempio 1 ed esempio 2",
+     "parte": "Tutte le prove",
+     "contenuto": "due esempi in zip, linkati dalla pagina del CVCL; non li abbiamo aperti, quindi non scriviamo cosa contengono",
+     "formato": "ZIP",
+     "numero": 2
+    }
+   ]
+  },
+  "celi_a1i": {
+   "ente": "CELI",
+   "esame": "CELI Impatto i (A1, immigrati)",
+   "livello": "A1",
+   "fonte": "celi_immigrati",
+   "link_diretti": false,
+   "file_attesi": [
+    "esempio-CELI-impatto-i.zip",
+    "esempio-CELI-impatto-i-2.zip"
+   ],
+   "file": [
+    {
+     "nome": "Prova d'esame: esempio 1 ed esempio 2",
+     "parte": "Tutte le prove",
+     "contenuto": "due esempi in zip, linkati dalla pagina del CVCL; non li abbiamo aperti, quindi non scriviamo cosa contengono",
+     "formato": "ZIP",
+     "numero": 2
+    }
+   ]
+  },
+  "celi_c1": {
+   "ente": "CELI",
+   "esame": "CELI 4 (C1)",
+   "livello": "C1",
+   "fonte": "celi_generici",
+   "link_diretti": false,
+   "file_attesi": [
+    "celi-4-prove-esame.zip",
+    "celi-4-prove-esame-2.zip"
+   ],
+   "file": [
+    {
+     "nome": "Prova d'esame: esempio 1 ed esempio 2",
+     "parte": "Tutte le prove",
+     "contenuto": "due esempi in zip, linkati dalla pagina del CVCL; non li abbiamo aperti, quindi non scriviamo cosa contengono",
+     "formato": "ZIP",
+     "numero": 2
+    }
+   ]
+  },
+  "celi_c2": {
+   "ente": "CELI",
+   "esame": "CELI 5 (C2)",
+   "livello": "C2",
+   "fonte": "celi_generici",
+   "link_diretti": false,
+   "file_attesi": [
+    "celi-5-prova-esame.zip",
+    "celi-5-prove-esame-2.zip"
+   ],
+   "file": [
+    {
+     "nome": "Prova d'esame: esempio 1 ed esempio 2",
+     "parte": "Tutte le prove",
+     "contenuto": "due esempi in zip, linkati dalla pagina del CVCL; non li abbiamo aperti, quindi non scriviamo cosa contengono",
+     "formato": "ZIP",
+     "numero": 2
+    }
+   ]
+  }
+ }
+}

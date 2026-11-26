@@ -50,6 +50,7 @@ import monetizzazione as MON  # noqa: E402
 import genera_en as EN  # noqa: E402  sezione inglese /en/ (dal 31/10/2026)
 import genera_lingue as LG  # noqa: E402  sezioni /uk/ e /ro/ (dal 31/10/2026); hreflang e menu delle lingue per tutto il sito
 import genera_cpia as CP  # noqa: E402  pagine CPIA: una per CPIA più l'indice /cpia/ (20/11/2026)
+import genera_livelli as LV  # noqa: E402  prove d'esempio per livello: CILS B1 standard, A1, C1, C2 (25/11/2026)
 import genera_dopo as DP  # noqa: E402  pagine «dopo l'esame» (certificato, tempi per sessione, esame non superato) ed esempi A2 e B2 (15/11/2026)
 import genera_guide as GU  # noqa: E402  test A2, carta di soggiorno, cittadinanza per matrimonio, stato della pratica (13/11/2026); ricongiungimento familiare, documenti, permesso per motivi familiari, idoneità alloggiativa (14/11/2026)
 SITO_ID = "esameb1"  # nome del sito in monetizzazione.json ("adsense_siti")
@@ -552,7 +553,7 @@ text-decoration:none;color:var(--ink);font-weight:750;box-shadow:var(--ombra);tr
 .es-vai .ri .i{color:var(--ink-3)}
 .es-CILS{border-top-color:var(--cils)!important}.es-CELI{border-top-color:var(--celi)!important}.es-PLIDA{border-top-color:var(--plida)!important}.es-CERTIT{border-top-color:var(--certit)!important}
 .es-card{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--brand);border-radius:var(--r-l);padding:20px 22px;box-shadow:var(--ombra);min-width:0;overflow-wrap:anywhere}
-.es-card h3:first-child{margin-top:0}
+.es-card h3:first-child{margin-top:0}.es-card+.es-card{margin-top:14px}
 .es-testa{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;justify-content:space-between;padding-bottom:16px;margin-bottom:4px;border-bottom:1px solid var(--line)}
 .es-testa p{margin:0;color:var(--ink-2);font-size:.95rem;max-width:56ch}
 .es-testa .btn{min-height:44px;padding:9px 16px;font-size:.95rem}
@@ -570,6 +571,15 @@ text-decoration:none;color:var(--ink);font-weight:750;box-shadow:var(--ombra);tr
 .file-lista .meta{display:flex;flex-direction:column;align-items:flex-end;gap:2px;font-size:.82rem;color:var(--ink-3);text-align:right;white-space:nowrap}
 .file-lista .meta strong{font-size:.78rem;font-weight:800;letter-spacing:.04em;color:var(--ink-2);background:var(--surface-2);padding:1px 7px;border-radius:5px}
 .es-tab table{min-width:680px}
+.liv-tab table{min-width:760px}.liv-tab .cosa{display:block;font-size:.88rem;color:var(--ink-3);line-height:1.4;margin-top:2px}
+.liv-tab td a{font-weight:750;overflow-wrap:anywhere}
+@media (min-width:641px){.liv-tab td:nth-child(4){white-space:nowrap}}
+@media (max-width:640px){.tab-wrap.liv-tab tr{display:grid;grid-template-columns:auto minmax(0,1fr);gap:3px 10px;align-items:center}
+.tab-wrap.liv-tab table.conf td{padding:0}.tab-wrap.liv-tab td[data-l]::before{display:none}
+.tab-wrap.liv-tab td:nth-child(2){font-weight:650;font-size:.9rem;color:var(--ink-2)}
+.tab-wrap.liv-tab td:nth-child(5){order:3;grid-column:1/-1;padding-top:4px}
+.tab-wrap.liv-tab td:nth-child(3){order:4;grid-column:1/-1;font-size:.86rem;color:var(--ink-3)}
+.tab-wrap.liv-tab td:nth-child(4){order:5;grid-column:1/-1;font-size:.86rem;color:var(--ink-3)}}
 .rc-tab table{min-width:640px}
 .rc-tab caption{caption-side:top;text-align:left;padding:10px 12px;background:var(--surface)}
 @media (max-width:640px){.rc-tab table{min-width:0}.rc-tab thead,.rc-tab .rc-vuota{display:none}
@@ -2850,7 +2860,7 @@ Le prove d'esempio si scaricano e si fanno online, a casa; l'esame vero invece s
 </section>
 <section>
 <h2 id="altri-livelli">{ic("libro")}Ti serve un altro livello?</h2>
-<div class="altre"><a href="a2/">Prove d'esempio A2 (carta di soggiorno)</a><a href="b2/">Prove d'esempio B2</a><a href="../dopo-esame/">Dopo l'esame: certificato e tempi</a></div>
+<div class="altre"><a href="cils-b1-standard/">CILS B1 standard (non Cittadinanza)</a><a href="a1/">Prove d'esempio A1</a><a href="a2/">Prove d'esempio A2 (carta di soggiorno)</a><a href="b2/">Prove d'esempio B2</a><a href="c1/">Prove d'esempio C1</a><a href="c2/">Prove d'esempio C2</a><a href="../dopo-esame/">Dopo l'esame: certificato e tempi</a></div>
 <h2>{ic("info")}Altre domande</h2>
 {link_guide("../", salta="esempi/", dopo_b1=False)}
 </section>
@@ -2874,6 +2884,14 @@ def esercitazioni_html(e):
 <p class="small">{escape(x["ultime"])} Le date del prossimo turno non erano ancora pubblicate {v}.</p>
 <div class="fonte">{ic("doc")}<span>Fonte: <a href="{escape(x["url"])}" rel="noopener">Università per Stranieri di Siena, esercitazioni online CILS</a> · letta {v}</span></div>
 </section>"""
+
+
+def altre_prove_cils(v):
+    """Sotto i file di /esempi/cils/ (25/11/2026): le sessioni passate del B1 Cittadinanza non sono pubblicate; il B1 standard è un altro esame."""
+    return (f'<p class="ris-nota"><strong>Prove di altre sessioni.</strong> Il {v} sulla pagina ufficiale c\'è un solo esempio del B1 Cittadinanza, quello qui sopra: '
+            "prove delle sessioni passate di questo esame, sulle pagine ufficiali controllate, non ce ne sono. "
+            "Pubblica invece la sessione di giugno 2017 del CILS B1 standard, che è un altro esame: "
+            '<a href="../cils-b1-standard/">i file del CILS B1 standard e cosa cambia</a>.</p>')
 
 
 def pagina_esempi_ente(e, prossime):
@@ -2913,7 +2931,7 @@ def pagina_esempi_ente(e, prossime):
 <section class="ris-sez" aria-label="In breve">{breve}</section>
 <section>
 <h2 id="file">{ic("archivio")}{titolo_file}</h2>
-<div class="es-card es-{s.replace(".", "")}">{blocco_file(e)}</div>
+<div class="es-card es-{s.replace(".", "")}">{blocco_file(e)}</div>{altre_prove_cils(v) if s == "CILS" else ""}
 </section>
 <section>
 <h2 id="prove">{ic("lista")}Com'è fatto l'esame {escape(e["esame"])}, prova per prova</h2>
@@ -2951,7 +2969,7 @@ def pagina_esempi_ente(e, prossime):
 </section>
 <section>
 <h2>{ic("libro")}Esempi degli altri enti</h2>
-<div class="altre"><a href="../">Tutti gli esempi</a>{altri}<a href="../confronto/">I 4 esami a confronto</a><a href="../../esonero-test-italiano/">Chi è esonerato</a></div>
+<div class="altre"><a href="../">Tutti gli esempi</a>{altri}{'<a href="../cils-b1-standard/">CILS B1 standard</a>' if s == "CILS" else ""}<a href="../confronto/">I 4 esami a confronto</a><a href="../../esonero-test-italiano/">Chi è esonerato</a></div>
 <h2>{ic("info")}Altre domande</h2>
 {link_guide("../../", salta="esempi/", dopo_b1=False)}
 </section>"""
@@ -5256,6 +5274,7 @@ def main():
             pagina_prefettura(sl, prossime)
             urls.append(f"cittadinanza/{pref_url(sl)}/")
     urls += DP.genera(sys.modules[__name__], prossime)  # 15/11/2026: /dopo-esame/ (indice, 4 enti, non superato) ed /esempi/a2/, /esempi/b2/ (genera_dopo.py)
+    urls += LV.genera(sys.modules[__name__], prossime)  # 25/11/2026: /esempi/cils-b1-standard/, /esempi/a1/, /esempi/c1/, /esempi/c2/ (genera_livelli.py)
     urls += CP.genera(sys.modules[__name__], prossime)  # 20/11/2026: /cpia/ e una pagina per CPIA (genera_cpia.py)
     urls += GU.genera(sys.modules[__name__])  # 4 guide del 13/11/2026, 3 sul ricongiungimento familiare e 1 sull'idoneità alloggiativa del 14/11/2026 (genera_guide.py)
     chi_siamo()
@@ -5273,6 +5292,7 @@ def main():
     n_en = EN.controlli(sys.modules[__name__])  # cifre /en/ = cifre italiane, link tra le lingue
     n_l = LG.controlli(sys.modules[__name__])
     DP.controlli(sys.modules[__name__])  # frasi tra «» = frasi citate, ricerche misurate, FAQ visibili
+    LV.controlli(sys.modules[__name__])  # esempi per livello: frasi tra «» = frasi citate, FAQ visibili, file solo sui siti degli enti, riquadro del libro
     CP.controlli(sys.modules[__name__])  # pagine CPIA: frasi tra «» = frasi citate, sedi dell'anagrafe, titolo = ricerca misurata, riquadro del libro
     GU.controlli(sys.modules[__name__])  # cifre delle 4 guide nelle frasi citate, FAQ visibili  # cifre /uk/ e /ro/, hreflang reciproci su tutto il sito, calcolatore identico in 4 lingue
     print(f"Pagine città fuori indice (noindex, fuori sitemap, senza AdSense): {len(fuori_indice)}: {', '.join(fuori_indice)}")

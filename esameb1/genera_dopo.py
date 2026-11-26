@@ -776,7 +776,7 @@ def pagina_livello(G, livello, prossime):
 <section>
 <p class="small">{NOTA}</p>
 <h2>{G.ic("libro")}Altri esempi</h2>
-<div class="altre"><a href="../">Prove d'esempio B1</a><a href="../{altro}/">Prove d'esempio {altro.upper()}</a><a href="../confronto/">I 4 esami B1 a confronto</a><a href="../simulazione/">Simulazione</a></div>
+<div class="altre"><a href="../">Prove d'esempio B1</a><a href="../{altro}/">Prove d'esempio {altro.upper()}</a><a href="../a1/">Prove d'esempio A1</a><a href="../c1/">Prove d'esempio C1</a><a href="../c2/">Prove d'esempio C2</a><a href="../cils-b1-standard/">CILS B1 standard</a><a href="../confronto/">I 4 esami B1 a confronto</a><a href="../simulazione/">Simulazione</a></div>
 <h2>{G.ic("info")}Altre guide</h2>
 {G.link_guide("../../", salta="esempi/")}
 </section>"""

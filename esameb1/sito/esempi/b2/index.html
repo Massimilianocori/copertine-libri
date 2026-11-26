@@ -317,7 +317,7 @@ text-decoration:none;color:var(--ink);font-weight:750;box-shadow:var(--ombra);tr
 .es-vai .ri .i{color:var(--ink-3)}
 .es-CILS{border-top-color:var(--cils)!important}.es-CELI{border-top-color:var(--celi)!important}.es-PLIDA{border-top-color:var(--plida)!important}.es-CERTIT{border-top-color:var(--certit)!important}
 .es-card{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--brand);border-radius:var(--r-l);padding:20px 22px;box-shadow:var(--ombra);min-width:0;overflow-wrap:anywhere}
-.es-card h3:first-child{margin-top:0}
+.es-card h3:first-child{margin-top:0}.es-card+.es-card{margin-top:14px}
 .es-testa{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;justify-content:space-between;padding-bottom:16px;margin-bottom:4px;border-bottom:1px solid var(--line)}
 .es-testa p{margin:0;color:var(--ink-2);font-size:.95rem;max-width:56ch}
 .es-testa .btn{min-height:44px;padding:9px 16px;font-size:.95rem}
@@ -335,6 +335,15 @@ text-decoration:none;color:var(--ink);font-weight:750;box-shadow:var(--ombra);tr
 .file-lista .meta{display:flex;flex-direction:column;align-items:flex-end;gap:2px;font-size:.82rem;color:var(--ink-3);text-align:right;white-space:nowrap}
 .file-lista .meta strong{font-size:.78rem;font-weight:800;letter-spacing:.04em;color:var(--ink-2);background:var(--surface-2);padding:1px 7px;border-radius:5px}
 .es-tab table{min-width:680px}
+.liv-tab table{min-width:760px}.liv-tab .cosa{display:block;font-size:.88rem;color:var(--ink-3);line-height:1.4;margin-top:2px}
+.liv-tab td a{font-weight:750;overflow-wrap:anywhere}
+@media (min-width:641px){.liv-tab td:nth-child(4){white-space:nowrap}}
+@media (max-width:640px){.tab-wrap.liv-tab tr{display:grid;grid-template-columns:auto minmax(0,1fr);gap:3px 10px;align-items:center}
+.tab-wrap.liv-tab table.conf td{padding:0}.tab-wrap.liv-tab td[data-l]::before{display:none}
+.tab-wrap.liv-tab td:nth-child(2){font-weight:650;font-size:.9rem;color:var(--ink-2)}
+.tab-wrap.liv-tab td:nth-child(5){order:3;grid-column:1/-1;padding-top:4px}
+.tab-wrap.liv-tab td:nth-child(3){order:4;grid-column:1/-1;font-size:.86rem;color:var(--ink-3)}
+.tab-wrap.liv-tab td:nth-child(4){order:5;grid-column:1/-1;font-size:.86rem;color:var(--ink-3)}}
 .rc-tab table{min-width:640px}
 .rc-tab caption{caption-side:top;text-align:left;padding:10px 12px;background:var(--surface)}
 @media (max-width:640px){.rc-tab table{min-width:0}.rc-tab thead,.rc-tab .rc-vuota{display:none}
@@ -539,7 +548,7 @@ nav.menu details.lingue li a[aria-current]{color:var(--brand-ink);background:var
 <section>
 <p class="small">Informazioni, non consulenza: questa pagina riporta quello che gli enti scrivono nelle loro pagine e nei loro documenti ufficiali. Per il tuo esame decide l'ente o il centro d'esame; per la domanda di cittadinanza decide la Prefettura.</p>
 <h2><svg class="i" aria-hidden="true" focusable="false"><use href="#i-libro"/></svg>Altri esempi</h2>
-<div class="altre"><a href="../">Prove d'esempio B1</a><a href="../a2/">Prove d'esempio A2</a><a href="../confronto/">I 4 esami B1 a confronto</a><a href="../simulazione/">Simulazione</a></div>
+<div class="altre"><a href="../">Prove d'esempio B1</a><a href="../a2/">Prove d'esempio A2</a><a href="../a1/">Prove d'esempio A1</a><a href="../c1/">Prove d'esempio C1</a><a href="../c2/">Prove d'esempio C2</a><a href="../cils-b1-standard/">CILS B1 standard</a><a href="../confronto/">I 4 esami B1 a confronto</a><a href="../simulazione/">Simulazione</a></div>
 <h2><svg class="i" aria-hidden="true" focusable="false"><use href="#i-info"/></svg>Altre guide</h2>
 <div class="griglia link3"><a href="../../costo/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-euro"/></svg><span>Quanto costa<small>i prezzi di ogni ente</small></span></a><a href="../../come-funziona/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-lista"/></svg><span>Come si svolge<small>durata, cosa portare, esempi</small></span></a><a href="../../risultati/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg><span>Risultati<small>quando arrivano e dove vederli</small></span></a><a href="../../esenzioni-e-domande/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-voce"/></svg><span>Orale e domande<small>com'è l'orale, durata, domande</small></span></a><a href="../../esonero-test-italiano/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-scudo"/></svg><span>Chi è esonerato<small>dal B1 e dal test A2, con le fonti</small></span></a><a href="../../esempi/confronto/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-lista"/></svg><span>I 4 esami a confronto<small>durata, prove, punteggio</small></span></a><a href="../../cittadinanza/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg><span>Dopo il B1: la domanda<small>prefettura per prefettura</small></span></a><a href="../../reddito-minimo-cittadinanza/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-euro"/></svg><span>Reddito minimo<small>cittadinanza e carta di soggiorno</small></span></a><a href="../../cittadinanza-per-matrimonio/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-scudo"/></svg><span>Cittadinanza per matrimonio<small>requisiti, B1, domanda</small></span></a><a href="../../carta-di-soggiorno/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Carta di soggiorno<small>requisiti, documenti, test A2</small></span></a><a href="../../ricongiungimento-familiare/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg><span>Ricongiungimento familiare<small>requisiti, nulla osta, documenti</small></span></a></div>
 </section>

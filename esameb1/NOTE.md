@@ -447,3 +447,15 @@ Da `studio-business/STRATEGIA-RECUPERO.md` (azioni 3, 5, 6) e `AUDIT-25-11.md`. 
 - **Contatti**: `/contatti/`, con il modulo Netlify `segnalazioni` (lo stesso di «Segnala un errore»): nessun modulo nuovo da attivare.
 - **Esempi**: campo nuovo `verificato_il` per ente in `dati/esempi.json`. Il 25/11 `raccolta/esempi.py` ha confermato CILS, PLIDA e CERT.IT; i 5 file CELI su `www.unistrapg.it` non si aprono dal nostro server (errore di certificato): CELI resta al 31/10 e la pagina lo dice. Quando `esempi.py --salva` passa per intero, togliere i `verificato_il` dei singoli enti (vale di nuovo la data generale).
 - **Costi degli enti**: 11 voci su 12 del 12/10 rilette il 25/11 (prezzi invariati: CILS 100 €, CERT.IT 80 €, CELI Milano 90 €, PLIDA lo decide il centro; le FAQ PLIDA si leggono solo con un browser). Non riletta: «Il certificato CELI non ha scadenza» (PDF su `www.unistrapg.it`). `fatti_assenti_verificato_il` (CERT.IT) è la data in cui abbiamo cercato i risultati sul sito di Roma Tre senza trovarli.
+
+## Esempi per livello: CILS B1 standard, A1, C1, C2 (25/11/2026, sera) — NON PUBBLICATO, nessun commit, da rivedere
+
+Da `studio-business/ricerca-2026-11-25-asset.md` (parte 1.5, righe 1-5). Codice in `genera_livelli.py`, dati in `dati/esempi_livelli.json`, controllo ripetibile `raccolta/esempi_livelli.py` (`--salva` porta `verificato_il` a oggi).
+
+- **Pagine**: `/esempi/cils-b1-standard/`, `/esempi/a1/`, `/esempi/c1/`, `/esempi/c2/`. Frase d'apertura con dato, fonte e data; tabella dei file (ente, esame, parte, formato, link); «Cosa farne». In `sitemap-esempi.xml`.
+- **File**: 56 link diretti (54 file distinti), tutti aperti il 25/11 (CILS su `cils.unistrasi.it`, PLIDA su `cms.plida.dante.global`). CILS standard: sessione di giugno 2017. PLIDA A1: c'è solo l'esempio del PLIDA Juniores, e la pagina lo dice.
+- **CERT.IT**: solo il link alla pagina del livello (note legali di Roma Tre). **CELI**: le pagine del CVCL (`cvcl.unistrapg.it`) sono lette e linkate e elencano due zip per livello, ma i file stanno su `www.unistrapg.it`, che dal nostro server dà errore di certificato: non aperti, quindi niente link diretti e niente descrizione del contenuto. Per lo stesso motivo `/esempi/celi/` resta al 31/10 (5 file su 6 non si aprono).
+- **Sessioni passate del B1 Cittadinanza**: l'Università non le pubblica (solo il prototipo). Nessun elenco; in `/esempi/cils/` una riga lo dice e rimanda al B1 standard. Il controllo avvisa se l'elenco delle pagine «Esempi prove di esami» cambia.
+- **Libro**: in alto solo nel B1 standard; in A1, C1, C2 in basso. Etichetta dei clic propria: `esameb1.eu/clic/libro-livelli`.
+- **Link**: da `/esempi/`, `/esempi/cils/`, `/esempi/a2/`, `/esempi/b2/` (A2 e B2 per questo hanno lastmod 25/11).
+- **Non fatto**: volumi di ricerca delle domande frequenti non misurati.
