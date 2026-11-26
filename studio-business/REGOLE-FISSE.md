@@ -251,3 +251,10 @@ Il 19/11 Search Console di esameb1.eu mostrava impressioni a zero dal 16/11 e il
 
 ## Libro Esame B1: vende dal sito (Massimiliano, 25/11/2026)
 «Il libro B1 deve vendere dal sito, non dalla campagna»; «il libro b1 non vale la spesa da amazon»: il budget pubblicitario va ai libri più importanti. Niente campagne Amazon Ads per il libro B1. Le vendite si cercano portando visite a EsameB1: recupero di Google, pagine che ChatGPT già cita (/esempi/), domanda di gennaio-febbraio, riquadro del libro in alto. Il successo si misura così: copie vendute per settimana contro visite e clic sul riquadro di EsameB1.
+
+## NESSUN SITO OBSOLETO (Massimiliano, 26/11/2026: «i siti non devono mai andare obsoleti, il controllo deve essere automatico e puntuale su tutti»; «lo devi mettere come regola»)
+1. **Ogni sito online ha una routine automatica di rilettura delle fonti**, scritta in `studio-business/strumenti/calendario-routine.json` e in `ORGANIZZAZIONE.md`, con una cadenza adatta a quanto cambiano i suoi dati (dati giornalieri: ogni giorno; settimanali: ogni settimana; gli altri almeno una volta al mese). Un sito senza routine è un errore da correggere il giorno stesso; anche un sito nuovo si pubblica solo con la sua routine già scritta.
+2. **Il controllo è automatico ogni mattina:** `salute.py` gira nel riassunto del mattino e confronta ogni sito con la sua routine. Segnala: routine saltata, dati più vecchi della soglia, date passate nei titoli e nelle pagine, promesse («updated weekly») non vere, fonte principale ferma.
+3. **Ogni avviso si chiude entro la giornata:** si rilegge la fonte e si pubblica se il dato è cambiato. Se la fonte blocca i programmi automatici, la pagina dice la data vera dell'ultima lettura e la fonte va nella lista «da leggere a mano» per Massimiliano. Un avviso non resta mai aperto in silenzio.
+4. **Le date mostrate sono sempre vere:** nessuna pagina dice «aggiornato» con una data che non è quella dell'ultima lettura reale.
+5. **Se una routine non può girare** (fonte cambiata, crediti finiti, errore), lo si scrive nel riassunto del mattino lo stesso giorno.
