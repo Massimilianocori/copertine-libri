@@ -18,6 +18,8 @@ Versione 2: corretta dopo la revisione indipendente (voto 7,8). Le correzioni so
 - Il motivo è un conto solo. Una visita con la pubblicità vale 0,0017-0,0028 €. Una visita su EsameB1 con il libro vale circa 0,025 € nel conto centrale (3 clic ogni 100 visite × 15 % × 5,64 €; i due tassi sono ipotesi). **Da 9 a 15 volte di più.**
 - Costi di hosting e domini in 12 mesi: circa 155-210 €. Il piano degli agenti è il costo più grande e **non è in questo conto** (importo: manca).
 
+- **Se Google recupera** (sezione 7a): 925-1.000 € in 12 mesi, a seconda della data. Oggi Google è al 25 % della settimana di picco. Si misura ogni lunedì.
+
 Cosa cambierebbe il quadro è scritto nella sezione 7.
 
 ## 1. I dati di partenza
@@ -335,6 +337,92 @@ Rischi che non dipendono da noi: un aggiornamento di Google a dicembre (preannun
 
 Quello che **non** cambia il quadro, con i dati di oggi: altri siti a pubblicità, altre pagine sui siti piccoli, altri riquadri di affiliazione.
 
+## 7a. Scenario «recupero di Google»
+
+Indicazione tua del 26/11: «il calo di Google è provvisorio e lo devi rendere tale. Se con siti nuovi di zecca era partito significa che può ripartire e deve ripartire».
+Quindi il recupero diventa **l'obiettivo di lavoro**, con una misura ogni lunedì. Che il calo sia provvisorio resta un'**ipotesi** finché l'indicatore non sale: qui sotto c'è come si vede.
+
+### La base: la settimana di picco, 9-15/11
+
+Misurata oggi con l'API GoatCounter (`stats/hits` per le visite, `stats/toprefs` con le pagine di ogni sito per la provenienza; host vecchi e nuovi sommati).
+
+| Sito | Visite al picco (9-15/11) | Di cui da Google | Google 16-22/11 | Google 19-25/11 | Google oggi in % del picco |
+|---|---|---|---|---|---|
+| EsameB1 | 635 | 260 | 93 | 103 | 40 % |
+| Visa Income | 572 | 241 | 70 | 24 | 10 % |
+| Before You Fly | 414 | 200 | 63 | 51 | 26 % |
+| **I tre siti** | **1.621** | **701** | **226** | **178** | **25 %** |
+| Altri siti | 171 | – | – | – | – |
+| **Rete** | **1.792** | | | | |
+
+Due avvertenze.
+- Nella settimana di picco c'era l'esame CELI dell'11/11. Per EsameB1 una parte di quelle visite è stagione, non solo Google.
+- ChatGPT non è calato: 300 visite al picco sui tre siti, 367 nell'ultima settimana. Il buco è tutto di Google: 701 − 178 = 523 visite a settimana.
+
+### Tre percorsi di recupero
+
+Modello: le visite salgono in linea retta dal livello di oggi (427 / 266 / 219) al picco (635 / 572 / 414) entro la data, poi restano al picco. Niente crescita oltre il picco.
+Libro: 3 clic ogni 100 visite × 15 % × 5,64 € (gli stessi tassi del conto centrale, **ipotesi**). AdSense: 1,70 / 2,79 / 2,70 € ogni 1.000 visite.
+Date di approvazione AdSense: **ipotesi** legate al recupero. Visa un mese dopo il ritorno al picco, Before You Fly due mesi dopo (è già stato respinto una volta), EsameB1 il 1/1 o il 1/2.
+
+| | (a) picco entro il 31/12/2026 | (b) entro il 28/2/2027 | (c) entro il 31/3/2027 |
+|---|---|---|---|
+| Libro, 12 mesi | 147 copie = **827 €** | 143 copie = **805 €** | 141 copie = **793 €** |
+| AdSense, 12 mesi | **162 €** (EsameB1 51, Visa 68, BYF 43) | **134 €** (46, 54, 33) | **121 €** (45, 48, 28) |
+| Già maturato | 11 € | 11 € | 11 € |
+| **Totale rete, 12 mesi** | **1.000 €** | **949 €** | **925 €** |
+| A 3 mesi (libro + AdSense) | 198 + 14 | 176 + 4 | 168 + 3 |
+| A 6 mesi | 403 + 62 | 381 + 34 | 369 + 23 |
+| AdSense approvato: EsameB1 / Visa / BYF | 1/1 · 1/2 · 1/3/2027 | 1/2 · 1/4 · 1/5/2027 | 1/2 · 1/5 · 1/6/2027 |
+| Saldo AdSense a 10 € (parte il PIN) | metà febbraio 2027 | inizio aprile 2027 | metà aprile 2027 |
+| Saldo a 70 € | fine giugno (82 €) | fine luglio (70 €, al limite) | fine agosto (75 €) |
+| **Primo pagamento AdSense** | **21-26 luglio 2027** | **21-26 agosto 2027** (settembre se mancano pochi centesimi) | **21-26 settembre 2027** |
+
+**Cosa dicono questi numeri.**
+- Il recupero vale da 200 a 275 € in più del centrale di oggi (724 €) nei 12 mesi.
+- Fra recuperare a dicembre o a marzo ballano 75 €. La data conta poco per l'incasso del primo anno. Conta molto per AdSense: sposta il primo pagamento da luglio a settembre.
+- Il recupero da solo **non** porta la rete oltre circa 1.000 € l'anno. È però la condizione per tornare a crescere: prima del calo la rete faceva +78 % a settimana (1.009 → 1.792). Una crescita oltre il picco qui non è contata, perché non ho dati per stimarla.
+
+### L'indicatore del lunedì
+
+**Indicatore = visite da Google di EsameB1 + Visa + Before You Fly nella settimana, diviso 701 (il picco).** Lo leggo ogni lunedì con le stesse chiamate di oggi e lo scrivo nel cruscotto, anche sito per sito.
+
+- Oggi: **25 %** (178 su 701). Settimana prima: 32 % (226).
+- Dove dovrebbe stare l'indicatore, se il percorso è quello:
+
+| Lettura | (a) | (b) | (c) |
+|---|---|---|---|
+| 2/12 | 38 % | 29 % | 29 % |
+| 9/12 | 53 % | 35 % | 33 % |
+| 31/12 | 100 % | 53 % | 46 % |
+| 31/1 | 100 % | 78 % | 65 % |
+| 28/2 | 100 % | 100 % | 81 % |
+
+**Soglie che fanno partire l'azione successiva di `STRATEGIA-RECUPERO.md`.**
+
+| Data | Lettura | Azione |
+|---|---|---|
+| 2/12 | **sotto il 30 %** | Parte lo sfoltimento già previsto per il 2/12 (azione 7): le famiglie di pagine a modello senza visite e senza impressioni vanno in `noindex` e senza codice AdSense. Deciso famiglia per famiglia con i dati |
+| 2/12 | 30 % o più | Lo spostamento sta passando: lo sfoltimento slitta al 9/12, come dice la strategia |
+| 9/12 | **sotto il 50 %** | Azioni in più, quelle già scritte nella strategia per il 9/12: riscrivere a fondo le 30-50 pagine migliori di Visa e Before You Fly; altre richieste di indicizzazione (10 al giorno, lista pronta per te); unione delle famiglie morte dal 23/12. Nessun ritorno ai vecchi domini |
+| 9/12 | 50 % o più | Si continua così. Nessuna modifica di massa. Before You Fly può chiedere AdSense dal 16/12 se i 4 criteri sono veri |
+| ogni lunedì | un sito scende di oltre 30 % sulla settimana prima | Regola del 24/11: Controllo URL delle 10 pagine più viste lo stesso giorno |
+
+Visa è il sito più indietro (10 %). Se il 9/12 è ancora sotto il 20 % mentre gli altri due salgono, le azioni in più vanno prima lì.
+
+**Quale scenario diventa «centrale».**
+
+| Indicatore | Scenario centrale del piano | Totale a 12 mesi |
+|---|---|---|
+| sotto il 50 % | Resta il centrale di oggi (media dei 28 giorni) | 724 € |
+| **passa il 50 %** | Diventa centrale il percorso **(c)** | 925 € |
+| **passa l'80 %** entro il 31/12 | Diventa centrale il percorso **(a)** | 1.000 € |
+| passa l'80 % entro il 31/1 | Diventa centrale il percorso **(b)** | 949 € |
+| passa l'80 % più tardi | Resta **(c)** | 925 € |
+| scende sotto il 20 % per due lunedì | Vale il prudente | 214 € |
+
+Ogni cambio di scenario si scrive nel cruscotto con la data e il numero che lo ha fatto scattare.
+
 ## 8. Piste fuori dalla rete (numeri a parte)
 
 Fonti: `ricerca-2026-11-26-opportunita-nuove.md` (piste A e C) e `ricerca-2026-11-26-prodotti-e-libri.md` (pista B). Nessun candidato arriva a voto 7: il migliore è a 6,5 provvisorio.
@@ -438,6 +526,7 @@ Non inclusa qui: la tua voce in licenza su ElevenLabs (0 / 200 € l'anno). Chie
 6. Cancello unico per il libro 2: 24 copie.
 7. Aggiunti: perimetro del piano, passaggio del PIN, date di approvazione di Visa e Before You Fly coerenti con il rischio alto.
 8. Aggiunte le tre piste fuori dalla rete, in ordine di € per ora, con numeri separati.
+9. Aggiunta la sezione 7a «recupero di Google»: base misurata, tre percorsi, indicatore del lunedì, soglie.
 
 ## Fonti
 
