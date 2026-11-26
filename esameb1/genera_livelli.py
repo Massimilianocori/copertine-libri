@@ -13,6 +13,13 @@ quindi niente link diretti e niente descrizione del contenuto (la pagina lo dice
 CERT.IT: nessun link diretto ai file (note legali di Roma Tre sul deep linking), solo la pagina ufficiale.
 Riquadro del libro: in alto solo nella pagina del B1 standard (contesto B1 e cittadinanza); in A1, C1 e C2 in basso, dopo la frase
 che rimanda alle prove B1. Etichetta dei clic: esameb1.eu/clic/libro-livelli, solo per queste 4 pagine.
+
+26/11/2026 (scheda studio-business/schede/2026-11-26-esameb1-ascolto-orale.md): due pagine sul B1 per la cittadinanza, stesso schema.
+    /esempi/ascolto/        i file ufficiali della prova di ascolto dei 4 esami B1 (audio MP3, domande, trascrizioni, chiavi)
+    /esempi/prova-orale/    cosa chiede l'orale di ogni ente, parte per parte, con i file ufficiali (tracce, criteri, specifiche)
+Gruppi «asc_*» e «ora_*» di dati/esempi_livelli.json, con la loro data di controllo («verificato_il_prove»: file aperti il 26/11/2026).
+Riquadro del libro subito sotto il titolo, etichette dei clic esameb1.eu/clic/libro-ascolto e esameb1.eu/clic/libro-orale.
+CELI: link diretto solo al file servito da cvcl.unistrapg.it (esempio 2); i file su www.unistrapg.it non li abbiamo aperti.
 Chiamato da main() di genera.py: genera(G, prossime) e controlli(G)."""
 import json
 import re
@@ -21,6 +28,8 @@ from html import escape, unescape
 D = None  # dati/esempi_livelli.json
 PAGINE = []  # percorsi generati, per controlli()
 CLIC_LIBRO = "libro-livelli"  # etichetta propria delle 4 pagine (decisione del 25/11/2026), per misurarle a parte da /esempi/
+CLIC_PAGINA = {"esempi/ascolto/": "libro-ascolto", "esempi/prova-orale/": "libro-orale"}  # 26/11/2026: un'etichetta per pagina
+DATA = "verificato_il"  # chiave della data di controllo usata da V(): le pagine del 26/11/2026 usano «verificato_il_prove»
 NOTA = ("Informazioni, non consulenza: questa pagina riporta quello che gli enti pubblicano sulle loro pagine ufficiali. "
         "I file sono degli enti e sono protetti dal diritto d'autore: scaricali per studiare, non ricaricarli su altri siti.")
 
@@ -40,7 +49,7 @@ def A(k, testo=None):
 
 
 def V(G):
-    return G.data_breve(D["verificato_il"])
+    return G.data_breve(D[DATA])
 
 
 def fonte(G, *chiavi):
@@ -64,8 +73,8 @@ def righe_file(G, gruppo):
     g = D["gruppi"][gruppo]
     righe = []
     for f in g["file"]:
-        dim = (f'{f["numero"]} file' if f.get("numero") else "") if not f.get("byte") else G.peso(f["byte"])
-        dettagli = " · ".join(x for x in (dim, f'{f["pagine"]} pag.' if f.get("pagine") else "") if x)
+        dim = f.get("dim") or ((f'{f["numero"]} file' if f.get("numero") else "") if not f.get("byte") else G.peso(f["byte"]))
+        dettagli = " · ".join(x for x in (dim, f'{f["pagine"]} pag.' if f.get("pagine") else "", f.get("durata", "")) if x)
         if g.get("link_diretti", True):
             link = f'<a href="{escape(f["url"])}" rel="noopener" data-file-ente="si">{escape(f["nome"])}</a>'
         else:
@@ -78,19 +87,20 @@ def righe_file(G, gruppo):
     return "".join(righe)
 
 
-def tabella_file(G, *gruppi):
+def tabella_file(G, *gruppi, nota_celi=None, nota_certit=None):
     diretti = [x for x in gruppi if D["gruppi"][x].get("link_diretti", True)]
     n = sum(len(D["gruppi"][x]["file"]) for x in diretti)
-    siti = " e ".join(dict.fromkeys(G.host(f["url"]) for x in diretti for f in D["gruppi"][x]["file"]))
+    siti = list(dict.fromkeys(G.host(f["url"]) for x in diretti for f in D["gruppi"][x]["file"]))
+    siti = " e ".join(siti) if len(siti) < 3 else ", ".join(siti[:-1]) + " e " + siti[-1]
     senza = {D["gruppi"][x]["ente"] for x in gruppi if not D["gruppi"][x].get("link_diretti", True)}
-    nota_senza = (f" Per CERT.IT il link porta alla pagina ufficiale, non al file: le {A('certit_note', 'note legali di Roma Tre')} "
-                  "vietano i link diretti da altri siti.") if "CERT.IT" in senza else ""
-    nota_senza += (" Per CELI il link porta alla pagina del CVCL: i file stanno su www.unistrapg.it, che dal nostro server non si è aperto "
+    # 26/11/2026 (revisione, deviazione autorizzata): anche in A1, C1 e C2 la frase delle note legali citata parola per parola
+    nota_senza = (nota_certit or nota_certit_prove()) if "CERT.IT" in senza else ""
+    nota_senza += (nota_celi or " Per CELI il link porta alla pagina del CVCL: i file stanno su www.unistrapg.it, che dal nostro server non si è aperto "
                    "(errore di certificato), e non mettiamo link a file che non abbiamo aperto.") if "CELI" in senza else ""
     return ('<div class="tab-wrap ris-tab liv-tab"><table class="conf"><thead><tr><th scope="col">Ente</th><th scope="col">Esame</th>'
             '<th scope="col">Parte</th><th scope="col">Formato</th><th scope="col">File ufficiale</th></tr></thead>'
             f'<tbody>{"".join(righe_file(G, x) for x in gruppi)}</tbody></table></div>'
-            f'<div class="fonte">{G.ic("ok")}<span>Link controllati il {V(G)}: i {n} file con link diretto si aprono sul sito {escape(siti)} '
+            f'<div class="fonte">{G.ic("ok")}<span>Link controllati il {V(G)}: {"gli" if n in (8, 11) else "i"} {n} file con link diretto si aprono {"sui siti" if "," in siti else "sul sito"} {escape(siti)} '
             f'(stato 200), con il formato e la dimensione indicati.{nota_senza}</span></div>')
 
 
@@ -132,7 +142,8 @@ Il nostro libro è sul B1:</p>
 </section>"""
 
 
-def scrivi(G, slug, briciola, occhiello, h1, lead, bottoni, blocchi, domande, altri, titolo, desc, prossime):
+def scrivi(G, slug, briciola, occhiello, h1, lead, bottoni, blocchi, domande, altri, titolo, desc, prossime,
+           nota_date="Le date degli altri livelli sono nei calendari ufficiali degli enti."):
     jsonld, faq_html = G.faq_html_e_jsonld(domande)
     corpo = f"""<section class="hero">
 {G.briciole(("EsameB1", "../../"), ("Prove d'esempio", "../"), (briciola, None))}
@@ -146,7 +157,7 @@ def scrivi(G, slug, briciola, occhiello, h1, lead, bottoni, blocchi, domande, al
 <section>
 <h2 id="date">{G.ic("cal")}Le prossime date dell'esame B1</h2>
 {G.lista_sessioni(prossime[:4], con_filtri=False)}
-<p><a href="../../#date">Tutte le date B1</a>. Le date degli altri livelli sono nei calendari ufficiali degli enti.</p>
+<p><a href="../../#date">Tutte le date B1</a>. {nota_date}</p>
 </section>
 <aside>{G.modulo()}</aside>
 </div>
@@ -165,7 +176,8 @@ def scrivi(G, slug, briciola, occhiello, h1, lead, bottoni, blocchi, domande, al
     PAGINE.append(f"esempi/{slug}/")
 
 
-ALTRI = [("../", "Prove d'esempio B1"), ("../cils-b1-standard/", "CILS B1 standard"), ("../a1/", "Prove d'esempio A1"), ("../a2/", "Prove d'esempio A2"),
+ALTRI = [("../", "Prove d'esempio B1"), ("../ascolto/", "Ascolto B1: gli audio ufficiali"), ("../prova-orale/", "Prova orale B1: i file ufficiali"),
+         ("../cils-b1-standard/", "CILS B1 standard"), ("../a1/", "Prove d'esempio A1"), ("../a2/", "Prove d'esempio A2"),
          ("../b2/", "Prove d'esempio B2"), ("../c1/", "Prove d'esempio C1"), ("../c2/", "Prove d'esempio C2"), ("../confronto/", "I 4 esami B1 a confronto")]
 
 
@@ -407,6 +419,252 @@ def pagina_livello(G, liv, prossime):
            blocchi, domande, altri(f"../{liv}/"), titolo, desc, prossime)
 
 
+# ---------------------------------------------------------------- /esempi/ascolto/ e /esempi/prova-orale/ (26/11/2026)
+NOTA_CELI_PROVE = (" Per CELI i file che stanno su www.unistrapg.it non hanno un link diretto: dal nostro server quel sito non si apre "
+                   "(errore di certificato, visto il 25 novembre 2026), il 26 novembre 2026 non li abbiamo aperti e non mettiamo link a file "
+                   "che non abbiamo aperto. Li scarichi dalla pagina del CVCL.")
+NOTA_DATE_B1 = 'Quando chiudono le iscrizioni: <a href="../../iscrizione/">le scadenze, ente per ente</a>.'
+
+
+def nota_certit_prove():
+    """26/11/2026 (revisione): la frase delle note legali di Roma Tre, citata parola per parola, al posto di «vietano i link diretti»."""
+    return (f" Per CERT.IT il link porta alla pagina ufficiale, non al file: le {A('certit_note', 'note legali di Roma Tre')} scrivono "
+            f"{Q('certit_note', 'È vietato il cd. deep linking')}.")
+
+
+CERTIT_TAGLIATI = ("non bastano per i «25 minuti circa» del fascicolo, e i file delle prove 1 e 2 finiscono mentre l'audio è ancora in corso")
+
+
+def L(gruppo, i, testo=None):
+    """Link diretto al file numero i di un gruppo (solo gruppi con link diretti)."""
+    f = D["gruppi"][gruppo]["file"][i]
+    return f'<a href="{escape(f["url"])}" rel="noopener" data-file-ente="si">{escape(testo or f["nome"])}</a>'
+
+
+def tab(colonne, righe):
+    """Tabella a schede sul telefono (ris-tab): la prima cella è l'ente, le altre portano il nome della colonna."""
+    return ('<div class="tab-wrap ris-tab"><table class="conf"><thead><tr>' + "".join(f'<th scope="col">{c}</th>' for c in colonne) + "</tr></thead><tbody>"
+            + "".join("<tr>" + f"<td>{r[0]}</td>" + "".join(f'<td data-l="{colonne[i]}">{c}</td>' for i, c in enumerate(r) if i) + "</tr>" for r in righe)
+            + "</tbody></table></div>")
+
+
+def celi_non_aperti(G):
+    v_b1 = G.data_breve(G.v_esempi(G.ES["CELI"]))
+    return ('<p class="ris-nota">Gli altri file CELI stanno su www.unistrapg.it, che dal nostro server non si apre (errore di certificato, visto il 25 novembre 2026): '
+            f"il {V(G)} non li abbiamo aperti, quindi qui non scriviamo cosa contengono. Quello che avevamo letto in quei file il {v_b1} "
+            'è nella pagina <a href="../celi/">CELI 2 i cittadinanza</a>, con la sua data.</p>')
+
+
+def pagina_ascolto(G, prossime):
+    gr = D["gruppi"]
+    mp3_cils, zip_plida, zip_celi, mp3_certit = gr["asc_cils"]["file"][0], gr["asc_plida"]["file"][0], gr["asc_celi2"]["file"][0], gr["asc_certit"]["file"][0]
+    lead = (f"Secondo le pagine ufficiali di CILS, PLIDA, CELI e CERT.IT, controllate il {V(G)}, gli audio ufficiali della prova di ascolto B1 si scaricano senza registrazione: "
+            f"CILS B1 Cittadinanza 1 MP3 di {mp3_cils['durata']} con quaderno, trascrizione e chiavi in PDF; PLIDA B1 1 MP3 di {zip_plida['audio_durata']} "
+            f"dentro lo zip della prova d'esempio, con trascrizioni e soluzioni; CELI 2 i cittadinanza {zip_celi['audio_n']} MP3 di {zip_celi['audio_durata']} dentro lo zip dell'esempio 2, "
+            "con i testi dell'ascolto e le chiavi; "
+f"CERT.IT B1 {mp3_certit['numero']} MP3 di {mp3_certit['audio_durata']} ciascuno sulla pagina dell'ente, che però sono incompleti: {CERTIT_TAGLIATI}.")
+    confronto = tab(("Ente", "Prove di ascolto", "Durata scritta dall'ente", "Durata dell'audio d'esempio", "Quante volte si ascolta", "Punti"), [
+        (f'{G.eb("CILS")} CILS B1 Cittadinanza', f"2 prove: {Q('cils_b1c_criteri', 'Test a scelta multipla composto da 6 item')} e {Q('cils_b1c_criteri', 'Test vero/Falso composto da 12 item')}",
+         f"{Q('cils_b1c_sillabo', '30 minuti circa')} nel sillabo", f"{mp3_cils['durata']} (1 file)", Q('cils_b1c_sillabo', 'I testi sono fatti ascoltare due volte'),
+         f"12 in tutto: {Q('cils_b1c_criteri', 'Punteggio massimo: punti 6')} per ogni prova"),
+        (f'{G.eb("PLIDA")} PLIDA B1', f"4 parti, 20 domande: {Q('plida_b1_quaderno', '5 dialoghi con narrazioni')}, {Q('plida_b1_quaderno', '4 dialoghi')}, {Q('plida_b1_quaderno', '6 testi')}, {Q('plida_b1_quaderno', '5 dialoghi contenenti')}",
+         "«40 minuti circa» nel Quaderno delle specifiche", f"{zip_plida['audio_durata']} (1 file nello zip)", f"Nell'esempio: {Q('plida_b1_quaderno', 'Ascolterai ogni dialogo')}",
+         f"30; servono {Q('plida_b1_quaderno', 'almeno 18/30')}"),
+        (f'{G.eb("CELI")} CELI 2 i cittadinanza', f"Le prove C: {Q('celi_immigrati', 'contenuto del secondo fascicolo')}. Nell'esempio 2 sono {zip_celi['prove_n']} prove, {zip_celi['domande_n']} domande",
+         "Non scritta nella pagina del CVCL né nei file dell'esempio 2", f"{zip_celi['audio_durata']} (1 file nello zip)",
+         f"Due volte: lo dicono le istruzioni di tutte e {zip_celi['prove_n']} le prove dell'esempio 2", f"Non scritti nella pagina del CVCL né nell'esempio 2; i criteri di valutazione non li abbiamo aperti il {V(G)}"),
+        (f'{G.eb("CERT.IT")} CERT.IT B1', "3 prove: dialoghi, brevi notizie radiofoniche, brevi messaggi",
+         f"{Q('certit_b1_fascicolo', '25 minuti circa')} nel fascicolo dell'esempio", f"{mp3_certit['audio_durata']} per file ({mp3_certit['numero']} file): audio incompleti",
+         f"Nell'esempio, prova 1: {Q('certit_b1_fascicolo', 'Ascolterai l’audio')} Prova 2: {Q('certit_b1_fascicolo', 'Ascolterai le notizie')} Per la prova 3 non è scritto",
+         "20 su 100: 8, 7 e 5 nelle tre prove"),
+    ])
+    schede = [
+        scheda(G, "CILS", "CILS B1 Cittadinanza",
+               f"<p>Il sillabo scrive della prova di ascolto: {Q('cils_b1c_sillabo', 'Scelta multipla (a 3 opzioni)')}; {Q('cils_b1c_sillabo', 'Testi registrati in studio')}; "
+               f"{Q('cils_b1c_sillabo', 'nella registrazione sono compresi')} per fare le prove e per copiare le risposte. Nel quaderno c'è scritto {Q('cils_b1c_quaderno', 'Tempo a disposizione')}. "
+               f"Nella trascrizione si leggono le pause: {Q('cils_b1c_trascr', 'Adesso hai due minuti')} E alla fine, per copiare le risposte nel foglio: {Q('cils_b1c_trascr', 'Hai tre minuti')}</p>"
+               f"<p>File: {L('asc_cils', 0)} · {L('asc_cils', 1)} · {L('asc_cils', 2)} · {L('asc_cils', 3)} · {L('asc_cils', 4)}. "
+               'Tutti i file dell\'esempio, anche scrittura e orale: <a href="../cils/">CILS B1 Cittadinanza</a>.</p>'
+               f"{fonte(G, 'cils_b1c', 'cils_b1c_sillabo', 'cils_b1c_criteri', 'cils_b1c_trascr', 'cils_b1c_quaderno')}", "cils_b1c", "Pagina ufficiale CILS B1 Cittadinanza"),
+        scheda(G, "PLIDA", "PLIDA B1",
+               f"<p>Il Quaderno delle specifiche scrive: {Q('plida_b1_quaderno', 'La prova Ascoltare dura')} {Q('plida_b1_quaderno', 'Ogni risposta errata')} "
+               f"I testi sono {Q('plida_b1_quaderno', 'dialoghi registrati in studio')}. Alla fine {Q('plida_b1_quaderno', 'avrete dieci minuti')} nel foglio delle risposte. "
+               "Nello zip della prova d'esempio il PDF di ascolto e lettura ha in fondo le trascrizioni delle prove Ascoltare e le soluzioni.</p>"
+               f"<p>File: {L('asc_plida', 0)} · {L('asc_plida', 1)}. "
+               'Tutti i file dell\'esempio: <a href="../plida/">PLIDA B1</a>.</p>'
+               f"{fonte(G, 'plida_prepara', 'plida_b1_quaderno')}", "plida_prepara", "Pagina ufficiale PLIDA: Preparati all'esame"),
+        scheda(G, "CELI", "CELI 2 i cittadinanza (B1)",
+               f"<p>La pagina «Esami CELI immigrati» del CVCL scrive che lo scritto ha tre componenti, tra cui la {Q('celi_immigrati', 'comprensione dell')}, e che l'ascolto è nel secondo fascicolo: "
+               f"{Q('celi_immigrati', 'contenuto del secondo fascicolo')}. Elenca due esempi: {Q('celi_immigrati', 'prova d')}. L'esempio 2 è la sessione di maggio 2018 e lo serve il sito del CVCL: nello zip ci sono l'audio, il PDF delle prove C con "
+               f"{zip_celi['prove_n']} prove e {zip_celi['domande_n']} domande, i testi dell'ascolto e le chiavi (questi due in formato Word .DOC). Nelle istruzioni di ogni prova c'è scritto che i testi si ascoltano due volte.</p>"
+               f"<p>File: {L('asc_celi2', 0)}.</p>"
+               f"{celi_non_aperti(G)}{fonte(G, 'celi_immigrati')}", "celi_immigrati", "Pagina ufficiale CELI (CVCL)"),
+        scheda(G, "CERT.IT", "CERT.IT B1 (Roma Tre)",
+               f"<p>{Q('certit_b1', 'In fondo alla pagina')} Lì ci sono lo zip dell'esempio e 3 file audio, uno per ogni prova di ascolto. "
+               f"L'ascolto è una {Q('certit_b1', 'Comprensione di testi orali')} con 3 prove e 20 punti; la seconda prova usa {Q('certit_b1', 'Brevi notizie radiofoniche')}. "
+               f"{Q('certit_b1', 'Le sezioni Ascolto')} Nel fascicolo dell'esempio l'ascolto è indicato con {Q('certit_b1_fascicolo', '25 minuti circa')} e la prima prova dice: {Q('certit_b1_fascicolo', 'Ascolterai l’audio')} "
+               f"I {mp3_certit['numero']} MP3 che abbiamo aperto il {V(G)} durano {mp3_certit['audio_durata']} ciascuno e hanno tutti la stessa dimensione: {CERTIT_TAGLIATI}. "
+               "Con questi file non si fa la prova di ascolto intera. Nello zip ci sono le chiavi, non la trascrizione dell'audio.</p>"
+               f'<p class="ris-nota">Le note legali di Roma Tre scrivono {Q("certit_note", "È vietato il cd. deep linking")}: non mettiamo link diretti ai file, li scarichi dalla pagina ufficiale. Com\'è fatto tutto l\'esame: <a href="../certit/">CERT.IT B1</a>.</p>'
+               f"{fonte(G, 'certit_b1', 'certit_b1_fascicolo')}", "certit_b1"),
+    ]
+    blocchi = f"""{G.riquadro_libro("../../").replace("clic/libro-esempi", "clic/" + CLIC_PAGINA["esempi/ascolto/"])}
+<section>
+<h2 id="file">{G.ic("archivio")}I file ufficiali dell'ascolto B1, ente per ente</h2>
+<p class="small">Ogni link apre il file o la pagina sul sito dell'ente: qui non copiamo niente. La durata degli audio l'abbiamo letta nei file, il {V(G)}.</p>
+{tabella_file(G, 'asc_cils', 'asc_plida', 'asc_celi2', 'asc_celi1', 'asc_certit', nota_celi=NOTA_CELI_PROVE, nota_certit=nota_certit_prove())}
+</section>
+<section class="ris-sez">
+<h2 id="confronto">{G.ic("lista")}La prova di ascolto nei 4 esami B1</h2>
+<p>Quello che i documenti ufficiali scrivono della prova di ascolto, accanto alla durata dell'audio d'esempio. Negli esempi di CILS e PLIDA l'audio dura meno del tempo scritto dall'ente.</p>
+<p>Per CERT.IT i {mp3_certit['numero']} MP3 della pagina ufficiale durano {mp3_certit['audio_durata']} ciascuno e hanno tutti la stessa dimensione: {CERTIT_TAGLIATI}. Con questi file non si fa la prova di ascolto intera.</p>
+{confronto}
+<div class="fonte">{G.ic("doc")}<span>Fonti: {A('cils_b1c_sillabo')} · {A('cils_b1c_criteri')} · {A('plida_b1_quaderno')} · {A('celi_immigrati')} · {A('certit_b1')} · {A('certit_b1_fascicolo')} · lette il {V(G)}</span></div>
+</section>
+<section>
+<h2 id="enti">{G.ic("cuffie")}Cosa scrive ogni ente</h2>
+{"".join(schede)}
+</section>
+<section>
+<h2 id="come-usare">{G.ic("matita")}Cosa farne</h2>
+<ol class="passi">
+<li><div><strong>Fai partire l'audio e non fermarlo</strong><p>Nell'audio CILS le pause e il secondo ascolto sono già dentro la registrazione. Tieni davanti il quaderno o il fascicolo con le domande.</p></div></li>
+<li><div><strong>Copia le risposte nel foglio delle risposte</strong><p>Il quaderno CILS scrive: {Q('cils_b1c_quaderno', 'DEVI SCRIVERE')}; nell'audio ci sono tre minuti alla fine per farlo. Il Quaderno PLIDA scrive: {Q('plida_b1_quaderno', 'Le risposte date')}</p></div></li>
+<li><div><strong>Correggi con le chiavi, poi leggi la trascrizione</strong><p>Dove c'è la trascrizione, rileggi solo le parti che hai sbagliato e riascoltale.</p></div></li>
+</ol>
+<p class="ris-nota">Un esempio non è l'esame: le prove cambiano a ogni sessione. Serve a capire il tipo di domande, i tempi e i punti. Per le altre prove: <a href="../prova-orale/">la prova orale, con i file ufficiali</a> · <a href="../prova-scritta/">la prova scritta</a> · <a href="../simulazione/">la simulazione con il cronometro</a>.</p>
+</section>"""
+    domande = [
+        ("Dove trovo l'audio ufficiale della prova di ascolto CILS B1 Cittadinanza?",
+         f"Sulla pagina ufficiale «Prove Liv. B1 c» del Centro CILS (Università per Stranieri di Siena): un file MP3 di {mp3_cils['durata']}, il quaderno con le domande, "
+         "la trascrizione dell'audio, le chiavi e il foglio delle risposte in PDF."),
+        ("Quanto dura la prova di ascolto dell'esame B1?",
+         "Dipende dall'ente. Il sillabo CILS B1 Cittadinanza scrive 30 minuti circa, il Quaderno delle specifiche PLIDA B1 40 minuti circa, "
+         "il fascicolo d'esempio CERT.IT B1 25 minuti circa (ma i 3 audio d'esempio durano 1 min 15 s ciascuno e sono incompleti). Per il CELI 2 i cittadinanza la durata non è scritta nella pagina del CVCL né nei file dell'esempio 2: "
+         f"l'audio di quell'esempio dura {zip_celi['audio_durata']}."),
+        ("Quante volte si ascolta l'audio all'esame B1?",
+         "Due volte al CILS B1 Cittadinanza: lo scrive il sillabo. Lo dicono anche le istruzioni delle prove d'esempio: tutte e 4 le parti del PLIDA B1, "
+         "tutte e 4 le prove dell'esempio 2 del CELI 2 i, le prove 1 e 2 del CERT.IT B1."),
+        ("Le prove di ascolto ufficiali hanno la trascrizione e le soluzioni?",
+         "CILS B1 Cittadinanza: sì, due PDF separati, trascrizione e chiavi. PLIDA B1: sì, in fondo al PDF di ascolto e lettura dentro lo zip. "
+         "CELI 2 i cittadinanza, esempio 2: sì, i testi dell'ascolto e le chiavi sono due file Word dentro lo zip. CERT.IT B1: nello zip ci sono le chiavi, non la trascrizione, e i 3 audio della pagina ufficiale sono incompleti."),
+    ]
+    n_mp3 = 1 + 1 + zip_celi["audio_n"]  # audio interi: CILS, PLIDA, CELI; i 3 di CERT.IT sono incompleti
+    scrivi(G, "ascolto", "Ascolto B1", "File ufficiali dei 4 enti",
+           "Ascolto B1 cittadinanza: gli audio MP3 ufficiali, con domande e chiavi", lead,
+           f'<a class="btn" href="#file">{G.ic("cuffie")}Gli audio e i file ufficiali</a><a class="btn btn-2" href="#confronto">{G.ic("lista")}Durata e punti</a>',
+           blocchi, domande, altri("../ascolto/"),
+           ("Ascolto B1 cittadinanza: audio MP3 ufficiali e chiavi", "Ascolto B1 cittadinanza: audio MP3 ufficiali"),
+           (f"Ascolto B1 per la cittadinanza: i {n_mp3} audio MP3 ufficiali di CILS, PLIDA e CELI con durata, domande e chiavi. CERT.IT: 3 MP3 di 1 min 15 s, incompleti.",
+            f"Ascolto B1 cittadinanza: {n_mp3} audio MP3 ufficiali di CILS, PLIDA e CELI con domande e chiavi. CERT.IT: 3 MP3 incompleti."),
+           prossime, nota_date=NOTA_DATE_B1)
+
+
+def pagina_orale(G, prossime):
+    gr = D["gruppi"]
+    n_diretti = len({f["url"] for k in ("ora_cils", "ora_plida") for f in gr[k]["file"]})
+    lead = (f"Secondo i documenti ufficiali di CILS, PLIDA, CERT.IT e CELI, letti il {V(G)}, la prova orale del B1 dura «10 minuti circa» al CILS B1 Cittadinanza, "
+            "«circa 15 minuti» al PLIDA B1 e «10 minuti» al CERT.IT B1, e per tutti e tre c'è una traccia ufficiale d'esempio da scaricare: "
+            f"{n_diretti} file con link diretto per CILS e PLIDA e lo zip sulla pagina di CERT.IT; per il CELI 2 i il CVCL elenca 3 PDF sull'orale, che non abbiamo aperto.")
+    plida_file = f"{L('ora_plida', 0, 'Prova d' + chr(39) + 'esempio (zip)')} · {L('ora_plida', 1, 'Quaderno delle specifiche')}"
+    certit_file = f"Zip «Certit_B1»: {A('certit_b1', 'sulla pagina ufficiale CERT.IT')}"
+    parti = tab(("Ente", "Parte", "Durata", "Compito", "File ufficiale"), [
+        (f'{G.eb("CILS")} CILS B1 Cittadinanza', "Breve presentazione personale", Q('cils_b1c_po', 'Durata della presentazione'),
+         f"L'esaminatore fa alcune domande, per esempio {Q('cils_b1c_po', 'Come ti chiami?')} e {Q('cils_b1c_po', 'Che cosa fai nella vita')}; {Q('cils_b1c_po', 'non è necessario rivolgere')}",
+         L('ora_cils', 0, 'Produzione orale (PDF)')),
+        (f'{G.eb("CILS")} CILS B1 Cittadinanza', "Prova n. 1: conversazione", Q('cils_b1c_po', 'Durata della conversazione'),
+         f"{Q('cils_b1c_po', 'L’esaminatore farà scegliere')} Nell'esempio sono 4, tra cui {Q('cils_b1c_po', 'Preferisci vivere')} e {Q('cils_b1c_po', 'Quali documenti ti servono')}",
+         L('ora_cils', 0, 'Produzione orale (PDF)')),
+        (f'{G.eb("PLIDA")} PLIDA B1', "Presentazione", "«2 minuti circa»",
+         f"{Q('plida_b1_quaderno', 'L’intervistatore rivolge')} {Q('plida_b1_quaderno', 'Questa parte non è oggetto')}", L('ora_plida', 1, 'Quaderno delle specifiche (PDF)')),
+        (f'{G.eb("PLIDA")} PLIDA B1', "Prima parte: interazione", Q('plida_b1_quaderno', 'minimo 3 / massimo 4'),
+         f"{Q('plida_b1_quaderno', 'Interazione tra candidati')} Nell'esempio i due candidati si organizzano per la visita di un amico: {Q('plida_b1_quaderno', 'decidete chi di voi')}", plida_file),
+        (f'{G.eb("PLIDA")} PLIDA B1', "Seconda parte: monologo", Q('plida_b1_quaderno', 'minimo 3 / massimo 4'),
+         f"Un discorso su un tema, a partire da un testo o da un'immagine. Nell'esempio: {Q('plida_b1_quaderno', 'raccontare qual è il tuo hobby')}. {Q('plida_b1_quaderno', 'Alla fine del monologo')}", plida_file),
+        (f'{G.eb("CERT.IT")} CERT.IT B1', "Parte A", Q('certit_b1_parlato', 'Durata della conversazione: circa'),
+         f"{Q('certit_b1', 'Parte A')} L'esaminatore fa {Q('certit_b1_parlato', 'alcune domande personali')}", certit_file),
+        (f'{G.eb("CERT.IT")} CERT.IT B1', "Parte B", Q('certit_b1_parlato', 'Durata della conversazione: 2'),
+         f"Una simulazione di ruolo: l'esaminatore {Q('certit_b1_parlato', 'gli propone un role-play')}. In una di queste {Q('certit_b1_parlato', 'Il somministratore assume')}", certit_file),
+        (f'{G.eb("CERT.IT")} CERT.IT B1', "Parte C", Q('certit_b1_parlato', 'Durata del messaggio'),
+         f"Un monologo: l'esaminatore propone uno scenario {Q('certit_b1_parlato', 'a cui dovrà rispondere')}. Nell'esempio della pagina ufficiale: {Q('certit_b1', 'Mandi un vocale')}", certit_file),
+        (f'{G.eb("CELI")} CELI 2 i cittadinanza', "Orale", "Non scritta nella pagina del CVCL", Q('celi_immigrati', 'L’esame orale'),
+         f"3 PDF elencati {A('celi_immigrati', 'sulla pagina del CVCL')}, non aperti"),
+    ])
+    schede = [
+        scheda(G, "CILS", "CILS B1 Cittadinanza",
+               f"<p>Il sillabo descrive così l'orale: {Q('cils_b1c_sillabo', 'Dialogo con il somministratore')} personale, fatta con una lista di domande; durata del test {Q('cils_b1c_sillabo', '10 minuti circa')}, "
+               f"{Q('cils_b1c_sillabo', 'durata del dialogo')}. La traccia d'esempio è della sessione di {Q('cils_b1c_po', 'Maggio 2019')} e scrive: {Q('cils_b1c_po', 'La prova ha le caratteristiche')} "
+               f"{Q('cils_b1c_po', 'Le prove orali devono essere registrate')}</p>"
+               f"<p>Punti, dai criteri di valutazione: {Q('cils_b1c_criteri', 'Punteggio massimo: punti 12')}, cioè {Q('cils_b1c_criteri', 'efficacia comunicativa: fino a punti 4')}, "
+               f"{Q('cils_b1c_criteri', 'correttezza morfosintattica')}, {Q('cils_b1c_criteri', 'adeguatezza e ricchezza lessicale')}, {Q('cils_b1c_criteri', 'pronuncia e intonazione')}. "
+               f"La pagina ufficiale scrive: {Q('cils_b1c', 'Per questo livello')}</p>"
+               f"{fonte(G, 'cils_b1c_po', 'cils_b1c_sillabo', 'cils_b1c_criteri', 'cils_b1c')}", "cils_b1c", "Pagina ufficiale CILS B1 Cittadinanza"),
+        scheda(G, "PLIDA", "PLIDA B1",
+               f"<p>Il Quaderno delle specifiche scrive: {Q('plida_b1_quaderno', 'La prova Parlare dura')} {Q('plida_b1_quaderno', 'Solo la seconda e la terza parte')} "
+               f"Nei tre minuti di preparazione {Q('plida_b1_quaderno', 'il candidato può prendere appunti')}. Per superare l'esame serve {Q('plida_b1_quaderno', 'almeno 18/30')}; "
+               f"chi non supera una o più abilità, fino a tre, {Q('plida_b1_quaderno', 'possono recuperarle')} successivi.</p>"
+               f"<p>La griglia ufficiale, {Q('plida_b1_parlare', 'Criteri di valutazione delle prove di produzione orale')}, ha 5 voci: {Q('plida_b1_parlare', 'EFFICACIA')}, "
+               f"{Q('plida_b1_parlare', 'INTERAZIONE')}, {Q('plida_b1_parlare', 'LESSICO')}, {Q('plida_b1_parlare', 'GRAMMATICA')} e {Q('plida_b1_parlare', 'PRONUNCIA')}, ognuna con una scala da 1 a 10: {L('ora_plida', 2)}.</p>"
+               f"{fonte(G, 'plida_prepara', 'plida_b1_quaderno', 'plida_b1_parlare')}", "plida_prepara", "Pagina ufficiale PLIDA: Preparati all'esame"),
+        scheda(G, "CERT.IT", "CERT.IT B1 (Roma Tre)",
+               f"<p>La pagina del livello B1 scrive: {Q('certit_b1', 'La sezione Produzione orale dura')} È una {Q('certit_b1', 'Comunicazione faccia a faccia')} con 3 prove e 30 punti, 10 per prova; "
+               f"per superarla serve {Q('certit_b1', 'il 60% del punteggio nella sezione')}. La pagina «Indicazioni sullo svolgimento» aggiunge: {Q('certit_svolgimento', 'La sezione Parlato si svolge')} "
+               f"Nel PDF della sezione Parlato, dentro lo zip dell'esempio: {Q('certit_b1_parlato', 'La sezione Parlato comprende')}</p>"
+               f'<p class="ris-nota">Le note legali di Roma Tre scrivono {Q("certit_note", "È vietato il cd. deep linking")}: non mettiamo link diretti ai file, lo zip lo scarichi dalla pagina ufficiale, sotto {Q("certit_b1", "Esempio di esame")}.</p>'
+               f"{fonte(G, 'certit_b1', 'certit_svolgimento', 'certit_b1_parlato')}", "certit_b1"),
+        scheda(G, "CELI", "CELI 2 i cittadinanza (B1)",
+               f"<p>La pagina «Esami CELI immigrati» del CVCL scrive: {Q('celi_immigrati', 'L’esame orale')} E degli esami CELI 1 i e CELI 2 i cittadinanza scrive che, "
+               f"{Q('celi_immigrati', 'in particolare nella parte orale')}. Per l'orale del CELI 2 i elenca tre PDF: {Q('celi_immigrati', 'input orale celi 2 i')}, "
+               f"{Q('celi_immigrati', 'vademecum celi 2 i')} e {Q('celi_immigrati', 'criteri di valutazione orale')}. La durata dell'orale nella pagina non è scritta.</p>"
+               f"{celi_non_aperti(G)}{fonte(G, 'celi_immigrati')}", "celi_immigrati", "Pagina ufficiale CELI (CVCL)"),
+    ]
+    blocchi = f"""{G.riquadro_libro("../../").replace("clic/libro-esempi", "clic/" + CLIC_PAGINA["esempi/prova-orale/"])}
+<section>
+<h2 id="parti">{G.ic("voce")}L'orale B1, parte per parte, con il file ufficiale</h2>
+<p class="small">Durata e compito sono frasi dei documenti ufficiali, tra virgolette. Ogni link apre il file o la pagina sul sito dell'ente: qui non copiamo niente.</p>
+{parti}
+<div class="fonte">{G.ic("doc")}<span>Fonti: {A('cils_b1c_po')} · {A('plida_b1_quaderno')} · {A('certit_b1')} · {A('certit_b1_parlato')} · {A('celi_immigrati')} · lette il {V(G)}</span></div>
+</section>
+<section>
+<h2 id="file">{G.ic("archivio")}I file ufficiali dell'orale B1, ente per ente</h2>
+{tabella_file(G, 'ora_cils', 'ora_plida', 'ora_certit', 'ora_celi', nota_celi=NOTA_CELI_PROVE, nota_certit=nota_certit_prove())}
+</section>
+<section class="ris-sez">
+<h2 id="enti">{G.ic("lista")}Durata, punti e regole: cosa scrive ogni ente</h2>
+{"".join(schede)}
+</section>
+<section>
+<h2 id="come-usare">{G.ic("matita")}Cosa farne</h2>
+<ol class="passi">
+<li><div><strong>Leggi la traccia del tuo ente</strong><p>Le parti e i tempi cambiano da un ente all'altro: allenati con la traccia dell'esame che farai.</p></div></li>
+<li><div><strong>Parla ad alta voce con il tempo scritto nel file</strong><p>Per il PLIDA usa anche i 3 minuti di preparazione, con gli appunti. Registrati e riascoltati.</p></div></li>
+<li><div><strong>Guarda i criteri di valutazione</strong><p>Dicono cosa conta nei punti. Il tuo orale però non lo corregge nessun file: fallo sentire a un insegnante.</p></div></li>
+</ol>
+<p class="ris-nota">Un esempio non è l'esame: le tracce cambiano a ogni sessione. Per le altre prove: <a href="../ascolto/">l'ascolto, con gli audio ufficiali</a> · <a href="../prova-scritta/">la prova scritta</a> · <a href="../confronto/">i 4 esami a confronto</a>.</p>
+</section>"""
+    domande = [
+        ("Quanto dura la prova orale dell'esame B1 per la cittadinanza?",
+         "Dipende dall'ente: 10 minuti circa al CILS B1 Cittadinanza (sillabo), circa 15 minuti al PLIDA B1 (Quaderno delle specifiche), 10 minuti al CERT.IT B1 (pagina del livello B1). "
+         "Per il CELI 2 i cittadinanza la durata non è scritta nella pagina del CVCL."),
+        ("Cosa chiedono all'orale del CILS B1 Cittadinanza?",
+         "Secondo la traccia ufficiale d'esempio, una breve presentazione personale di 1 minuto circa e poi una conversazione di 2-3 minuti circa su un argomento che il candidato "
+         "sceglie tra quelli proposti dall'esaminatore."),
+        ("All'orale del PLIDA B1 la presentazione viene valutata?",
+         "No. Il Quaderno delle specifiche PLIDA B1 scrive che la presentazione non è oggetto di valutazione: si valutano solo l'interazione e il monologo."),
+        ("Dove trovo un esempio ufficiale della prova orale B1?",
+         "CILS B1 Cittadinanza: il PDF «Produzione orale» sulla pagina «Prove Liv. B1 c». PLIDA B1: il PDF della prova Parlare dentro lo zip della prova d'esempio e le tracce nel "
+         "Quaderno delle specifiche. CERT.IT B1: il PDF della sezione Parlato dentro lo zip in fondo alla pagina del livello B1. CELI 2 i: i PDF elencati nella pagina «Esami CELI immigrati» del CVCL."),
+    ]
+    scrivi(G, "prova-orale", "Prova orale B1", "Documenti ufficiali dei 4 enti",
+           "Prova orale B1 cittadinanza: cosa chiede ogni ente, con le tracce e i file ufficiali", lead,
+           f'<a class="btn" href="#parti">{G.ic("voce")}L\'orale parte per parte</a><a class="btn btn-2" href="#file">{G.ic("archivio")}I file ufficiali</a>',
+           blocchi, domande, altri("../prova-orale/"),
+           ("Prova orale B1 cittadinanza: tracce e file ufficiali", "Prova orale B1 cittadinanza: file ufficiali"),
+           ("Prova orale B1 per la cittadinanza: durata, parti e compiti di CILS, PLIDA, CERT.IT e CELI, con le tracce ufficiali d'esempio e i criteri di valutazione.",
+            "Prova orale B1 per la cittadinanza: parti, durata e tracce ufficiali di CILS, PLIDA, CERT.IT e CELI."),
+           prossime, nota_date=NOTA_DATE_B1)
+
+
 # ---------------------------------------------------------------- ingresso
 def carica(G):
     global D
@@ -419,6 +677,13 @@ def genera(G, prossime):
     pagina_b1_standard(G, prossime)
     for liv in ("a1", "c1", "c2"):
         pagina_livello(G, liv, prossime)
+    global DATA
+    DATA = "verificato_il_prove"  # le due pagine del 26/11/2026 hanno la loro data di controllo
+    try:
+        pagina_ascolto(G, prossime)
+        pagina_orale(G, prossime)
+    finally:
+        DATA = "verificato_il"
     return list(PAGINE)
 
 
@@ -429,6 +694,7 @@ def controlli(G):
     da_fonti = (" ".join(c["testo"].replace('"', "") for c in D["citazioni"]) + " " + " ".join(f["nome"] for f in D["fonti"].values())
                 + " " + " ".join(c["testo"] for c in b1c.get("citazioni", [])) + " " + b1c["pagina"]["nome"] + " «Preparati all'esame» «Scarica i materiali»").lower()
     host_enti = ("cils.unistrasi.it", "cms.plida.dante.global")
+    host_prove = host_enti + ("cvcl.unistrapg.it",)  # 26/11/2026: l'esempio 2 del CELI 2 i è servito dal sito del CVCL
     errori = []
     for p in PAGINE:
         h = (G.SITO / p / "index.html").read_text(encoding="utf-8")
@@ -443,12 +709,23 @@ def controlli(G):
             if escape(q["name"]) not in main or escape(q["acceptedAnswer"]["text"]) not in main:
                 errori.append(f"{p}: domanda frequente non visibile: {q['name']}")
         libro = re.findall(r'<a [^>]*data-libro-proprio="si"[^>]*>', main)
-        if len(libro) not in (1, 2) or any(f'data-goatcounter-click="esameb1.eu/clic/{CLIC_LIBRO}"' not in x for x in libro):
+        if len(libro) not in (1, 2) or any(f'data-goatcounter-click="esameb1.eu/clic/{CLIC_PAGINA.get(p, CLIC_LIBRO)}"' not in x for x in libro):
             errori.append(f"{p}: riquadro del libro assente, doppio o con un'altra etichetta dei clic")
         tab = main[main.find('liv-tab'):]
         for u in re.findall(r'href="(https?://[^"]+\.(?:pdf|mp3|zip))"', tab[:tab.find("</table>")], re.I):
             if G.host(unescape(u)) not in host_enti:
                 errori.append(f"{p}: link a un file fuori dai siti degli enti: {u}")
+        if p in CLIC_PAGINA:  # pagine del 26/11/2026: in tutta la pagina nessun link a www.unistrapg.it né ai file di Roma Tre; riquadro del libro in alto; data propria
+            for u in re.findall(r'href="(https?://[^"]+)"', main):
+                u = unescape(u)
+                if "//www.unistrapg.it" in u or "uniroma3.it/wp-content" in u:
+                    errori.append(f"{p}: link vietato (file non aperto o link diretto a un file di Roma Tre): {u}")
+                if (re.search(r"\.(pdf|mp3|zip)$", u, re.I) or "StreamRisorsa" in u) and G.host(u) not in host_prove:
+                    errori.append(f"{p}: link a un file fuori dai siti degli enti: {u}")
+            if not 0 <= main.find('id="libro"') < main.find("<h2 id="):
+                errori.append(f"{p}: il riquadro del libro non è subito sotto il titolo")
+            if f'controllato il {G.data_breve(D["verificato_il_prove"])}' not in main:
+                errori.append(f"{p}: manca la data di controllo delle pagine del 26/11/2026")
     urls = {f["url"] for g in D["gruppi"].values() for f in g["file"] if f.get("url")}
     tutte = " ".join((G.SITO / p / "index.html").read_text(encoding="utf-8") for p in PAGINE)
     for u in urls:

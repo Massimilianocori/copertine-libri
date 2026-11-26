@@ -1,4 +1,5 @@
-"""Controllo ripetibile delle pagine del 25/11/2026 di EsameB1: /esempi/cils-b1-standard/, /esempi/a1/, /esempi/c1/, /esempi/c2/.
+"""Controllo ripetibile delle pagine del 25/11/2026 di EsameB1: /esempi/cils-b1-standard/, /esempi/a1/, /esempi/c1/, /esempi/c2/,
+e delle pagine del 26/11/2026: /esempi/ascolto/ e /esempi/prova-orale/ (gruppi «asc_*» e «ora_*», data «verificato_il_prove»).
 
 Uso (dalla radice del repository):
     python3 esameb1/raccolta/esempi_livelli.py           # controlla fonti, frasi e file; esce con 1 se qualcosa non va
@@ -13,13 +14,20 @@ Cosa controlla (dati/esempi_livelli.json):
    gli zip attesi ("file_attesi"); i file non vengono aperti;
    CERT.IT (nessun link diretto): la pagina ufficiale linka ancora almeno lo zip e gli MP3 attesi, e rispondono 200;
 6. prove CILS B1 Cittadinanza di altre sessioni: se la pagina «Prove Liv. B1 c» o «Esempi prove di esami» cambia l'elenco, AVVISO.
+7. pagine del 26/11/2026: una fonte con "zip" e "dentro" è un PDF dentro uno zip dell'ente (CERT.IT B1): lo zip si scarica e il PDF
+   si legge con pdftotext; un gruppo "parziale" elenca apposta solo una parte dei file della pagina ufficiale (niente AVVISO per gli altri);
+   CELI con link diretto: solo file serviti da cvcl.unistrapg.it, e la pagina del CVCL deve linkarli ancora.
 I file non si scaricano interi (HEAD o richiesta parziale). Usa le funzioni di raccolta/esempi.py. Nessun dato personale.
 """
 import html
+import io
 import json
 import re
+import subprocess
 import sys
 import tempfile
+import time
+import zipfile
 import urllib.parse
 from datetime import date
 from pathlib import Path
@@ -44,18 +52,42 @@ def link_file(url_pagina):
     return stato, list(dict.fromkeys(trovati))
 
 
+def testo_fonte(f, cartella):
+    """Testo della fonte. Di solito la pagina o il PDF all'indirizzo "url"; se la fonte ha "zip" e "dentro", il PDF con quel nome dentro lo zip."""
+    if not f.get("zip"):
+        return E.testo_di(f["url"], cartella)
+    chiave = f["zip"] + "#" + f["dentro"]
+    if chiave not in E.cache_testi:
+        E.cache_testi[chiave] = None
+        if f["zip"] not in zip_letti:
+            zip_letti[f["zip"]] = E.richiesta(f["zip"], limite=30_000_000)
+        stato, _, corpo = zip_letti[f["zip"]]
+        try:
+            if stato == 200:
+                pdf = Path(cartella) / f"zip{len(E.cache_testi)}.pdf"
+                pdf.write_bytes(zipfile.ZipFile(io.BytesIO(corpo)).read(f["dentro"]))
+                r = subprocess.run(["pdftotext", str(pdf), "-"], capture_output=True, timeout=120)
+                E.cache_testi[chiave] = E.normalizza(r.stdout.decode("utf-8", "replace")) or None
+        except (zipfile.BadZipFile, KeyError, OSError):
+            pass
+    return E.cache_testi[chiave]
+
+
+zip_letti = {}
+
+
 def main(salva=False):
     D = json.loads(FILE.read_text(encoding="utf-8"))
     errori, avvisi, cambiati = [], [], {}
     with tempfile.TemporaryDirectory() as cartella:
         for k, f in D["fonti"].items():
-            testo = E.testo_di(f["url"], cartella)
+            testo = testo_fonte(f, cartella)
             print(f"  {'ok ' if testo else 'NO '} {k}")
             if not testo:
-                errori.append(f"{k}: fonte non leggibile ({f['url']})")
+                errori.append(f"{k}: fonte non leggibile ({f.get('zip', f['url'])})")
         n = 0
         for c in D["citazioni"]:
-            testo = E.testo_di(D["fonti"][c["fonte"]]["url"], cartella)
+            testo = testo_fonte(D["fonti"][c["fonte"]], cartella)
             if testo and E.normalizza(c["testo"]) in testo:
                 n += 1
             elif testo:
@@ -83,12 +115,18 @@ def main(salva=False):
         pagina = D["fonti"][g["fonte"]]
         if g["ente"] == "CILS":
             stato, sulla_pagina = link_file(pagina["url"])
+            if not sulla_pagina:  # 26/11/2026: una lettura fallita non è «file non più linkato»: si riprova una volta, poi si dice che la pagina non si legge
+                time.sleep(5)
+                stato, sulla_pagina = link_file(pagina["url"])
+            if not sulla_pagina:
+                errori.append(f"{nome}: pagina ufficiale non leggibile (stato {stato}): {pagina['url']}")
+                continue
             nostri = [x["url"] for x in g["file"]]
             for u in nostri:
                 if u not in sulla_pagina:
                     errori.append(f"{nome}: file non più linkato dalla pagina ufficiale: {u}")
             for u in sulla_pagina:
-                if u not in nostri:
+                if u not in nostri and not g.get("parziale"):
                     avvisi.append(f"{nome}: la pagina ufficiale ha un file che non elenchiamo: {u}")
         elif g["ente"] == "PLIDA":
             stato, _, corpo = E.richiesta(pagina["elenco"])
@@ -103,15 +141,24 @@ def main(salva=False):
                 if x["url"] not in del_livello:
                     errori.append(f"{nome}: file non più nell'elenco PLIDA del livello: {x['url']}")
             for u in del_livello:
-                if u not in [x["url"] for x in g["file"]]:
+                if u not in [x["url"] for x in g["file"]] and not g.get("parziale"):
                     avvisi.append(f"{nome}: l'elenco PLIDA del livello ha un file che non elenchiamo: {u}")
+        elif g["ente"] == "CELI" and g.get("link_diretti", True):  # 26/11/2026: file servito da cvcl.unistrapg.it, linkato dalla pagina del CVCL
+            stato, _, corpo = E.richiesta(pagina["url"])
+            t = html.unescape(corpo.decode("utf-8", "replace"))
+            for x in g["file"]:
+                u = urllib.parse.urlsplit(x["url"])
+                if u.netloc != "cvcl.unistrapg.it":
+                    errori.append(f"{nome}: link diretto a un file CELI fuori da cvcl.unistrapg.it: {x['url']}")
+                elif f'href="{u.path}?{u.query}"' not in t and f'href="{x["url"]}"' not in t:
+                    errori.append(f"{nome}: la pagina del CVCL non linka più {x['url']}")
         elif g["ente"] == "CELI":  # file su www.unistrapg.it (non si apre dal nostro server): solo che la pagina del CVCL li linki ancora
             stato, _, corpo = E.richiesta(pagina["url"])
             t = html.unescape(corpo.decode("utf-8", "replace"))
             for nome_file in g["file_attesi"]:
                 if not re.search(r'href="[^"]*/' + re.escape(nome_file) + '"', t):
                     errori.append(f"{nome}: la pagina del CVCL non linka più {nome_file}")
-            print(f"  ok  {nome}: la pagina del CVCL linka i {len(g['file_attesi'])} zip attesi (non aperti)")
+            print(f"  ok  {nome}: la pagina del CVCL linka i {len(g['file_attesi'])} file attesi (non aperti)")
         elif not g.get("link_diretti", True):
             stato, _, corpo = E.richiesta(pagina["url"])
             trovati = sorted(set(re.findall(r'href="([^"]+\.(?:zip|mp3))"', corpo.decode("utf-8", "replace"), re.I)))
@@ -144,6 +191,8 @@ def main(salva=False):
                 if x.get("url") in cambiati:
                     x["byte"] = cambiati[x["url"]]
         D["verificato_il"] = date.today().isoformat()
+        if "verificato_il_prove" in D:
+            D["verificato_il_prove"] = D["verificato_il"]
         FILE.write_text(json.dumps(D, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
         print("verificato_il aggiornato")
     return 0

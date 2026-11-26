@@ -3292,7 +3292,7 @@ Le prove d'esempio si scaricano e si fanno online, a casa; l'esame vero invece s
 <p>Tutti e quattro gli esami hanno ascolto, lettura, scrittura e orale. Cambiano i tempi, il modo di contare i punti e cosa succede se non superi una parte.</p>
 {tab_breve}
 <p><a href="confronto/">{ic("lista")} I 4 esami a confronto, prova per prova: tipo di domande, parole da scrivere, orale</a></p>
-<div class="griglia link3"><a href="simulazione/">{ic("orologio")}<span>Simulazione con il cronometro<small>le prove ufficiali con i tempi veri</small></span></a><a href="prova-scritta/">{ic("matita")}<span>La prova scritta<small>tracce, parole, criteri e contaparole</small></span></a></div>
+<div class="griglia link3"><a href="simulazione/">{ic("orologio")}<span>Simulazione con il cronometro<small>le prove ufficiali con i tempi veri</small></span></a><a href="prova-scritta/">{ic("matita")}<span>La prova scritta<small>tracce, parole, criteri e contaparole</small></span></a><a href="ascolto/">{ic("cuffie")}<span>L'ascolto<small>gli audio MP3 ufficiali, con domande e chiavi</small></span></a><a href="prova-orale/">{ic("voce")}<span>La prova orale<small>le tracce e i file ufficiali, parte per parte</small></span></a></div>
 <div class="fonte">{ic("doc")}<span>Fonti: i documenti ufficiali citati in ogni pagina ente · durata da sillabi e descrizioni (somma dei tempi delle prove, se l'ente non dà il totale) · punteggi letti il {data_breve(RISULTATI["verificato_il"])}</span></div>
 </section>
 <div class="due">
@@ -5745,7 +5745,7 @@ def main():
             pagina_prefettura(sl, prossime)
             urls.append(f"cittadinanza/{pref_url(sl)}/")
     urls += DP.genera(sys.modules[__name__], prossime)  # 15/11/2026: /dopo-esame/ (indice, 4 enti, non superato) ed /esempi/a2/, /esempi/b2/ (genera_dopo.py)
-    urls += LV.genera(sys.modules[__name__], prossime)  # 25/11/2026: /esempi/cils-b1-standard/, /esempi/a1/, /esempi/c1/, /esempi/c2/ (genera_livelli.py)
+    urls += LV.genera(sys.modules[__name__], prossime)  # 25/11/2026: /esempi/cils-b1-standard/, /esempi/a1/, /esempi/c1/, /esempi/c2/ (genera_livelli.py); 26/11/2026: /esempi/ascolto/, /esempi/prova-orale/
     urls += CP.genera(sys.modules[__name__], prossime)  # 20/11/2026: /cpia/ e una pagina per CPIA (genera_cpia.py)
     urls += GU.genera(sys.modules[__name__])  # 4 guide del 13/11/2026, 3 sul ricongiungimento familiare e 1 sull'idoneità alloggiativa del 14/11/2026 (genera_guide.py)
     chi_siamo()
