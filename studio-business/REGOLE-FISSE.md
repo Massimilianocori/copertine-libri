@@ -279,3 +279,4 @@ Prima di ogni lavoro che cambia un sito, un dato, una routine o una decisione: s
 1. **Ricerca ogni sera** (non più solo domenica, martedì e giovedì): 1 ricercatore Fable con approccio diverso dalla sera prima, sempre con dati misurati, € l'anno prudente/centrale, ore, voto, e le 3 migliori con prova, soglia e stop.
 2. **Ogni opportunità che regge si mette in pratica entro 48 ore**: scheda, prova piccola, soglia e stop. Non resta in un file. Si chiede a Massimiliano solo ciò che tocca i suoi account, i soldi o il suo lavoro sui libri.
 3. Ogni lunedì il riassunto elenca: opportunità trovate, prove partite, prove finite con il risultato in €.
+4. **Soglia minima** (Massimiliano 26/11: «non ne vale la pena» sulle idee da 130-500 €): a Massimiliano si propongono e si avviano solo opportunità con stima centrale **≥ 1.000 €/anno**; quelle sotto si scrivono nel file di ricerca e non si propongono.
