@@ -329,3 +329,18 @@ Somma centrale delle prime quattro senza doppioni (A1 e A2 sono lo stesso conten
 - trinitycollege.com/selt.
 - Ricerca web: GOV.UK «Immigration system statistics, year ending June 2026»; supporto Udemy «Instructor revenue share»; italiano-bello.com (Percorso CILS); hoeplieditore.it (CERT.IT B1); unipa.it (corsi CILS); fiscoetasse.com (Paghe e contributi 2026).
 - Nel repo: `REGOLE-FISSE.md`, `DA-PUBBLICARE.md` riga 80, `ricerca-2026-11-25-asset.md`, `ricerca-2026-11-26-esameb1-stagione.md`, `intelaiatura/fronti-2026-11-12-libri-dai-siti.md`, `intelaiatura/fronti-2026-11-11-pagatori-alti.md`, `intelaiatura/fronti-2026-10-31-prodotti.md`, `FISCO-PUBBLICITA.md`, `CRUSCOTTO-RETE.md`, `visaincome/dati/selt.json`.
+
+## VERDETTO del 26/11 con le 4 foto BookBeam di Massimiliano (amazon.co.uk)
+
+| Ricerca | Concorrenti | BSR medio | Migliori BSR (età, editore) |
+|---|---|---|---|
+| b2 english test book | 288 | – | B2-C1 Vocabulary 66.741 (2a 5m); Cambridge B2 First Complete Practice PLUS 79.216 (9 mesi, autopubblicato, Kostas Pan, sponsorizzato); Pass the B1 English Test 73.238 (9 anni, How2become); Collins Speaking B2 116.079 (12 anni) |
+| trinity gese grade 7 | 101 | 728.523 | libri d'esame tutti tra 658.000 e 937.000; sotto 50.000 solo libri di musica Trinity (fuori tema) |
+| trinity gese grade 5 b1 | 43 | 1.030.195 | Heather Batyski, guida GESE B1 (1a 3m, autopubblicata) 171.471; il resto sopra 800.000 |
+| b1 english test book 2026 | 64 | 980.690 | Pass the B1 English Test (ILR, How2become, 9 anni, 255 recensioni) 73.238; Pass the B1 Speaking and Listening 130.363; LanguageCert SELT B1 (2 mesi) 253.819; DK English for Everyone 32.798 (generico) |
+
+**Regola KDP:** voto 9 = 3 indipendenti recenti sotto 20.000; voto 7 = 1 sotto 20.000 e 3 sotto 50.000. **Nessun libro sotto 50.000 in tema** → regola di stop: **il libro B2 per l'ILR NON si scrive adesso** (voto 4,5).
+
+**Cosa dicono i dati:** la domanda per i libri d'esame per la residenza c'è ma è piccola. Il libro di riferimento per il B1 (How2become, 9 anni) sta a 73.238, circa 1 copia al giorno o meno su amazon.co.uk. Le guide GESE non vendono (sopra 650.000). Il cambio B1 → B2 del 26/3/2027 sposterà quella domanda, ma oggi non ci sono ricerche B2 per l'ILR che vendono.
+
+**Ricontrollo:** 15/2/2027 con le stesse 4 ricerche più «b2 english test ilr» e «languagecert b2». Si riapre solo se un libro B2 per l'ILR o per la residenza scende sotto 50.000. Promemoria in DA-PUBBLICARE.md.
