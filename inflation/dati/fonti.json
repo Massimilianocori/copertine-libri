@@ -1534,7 +1534,7 @@
   "url": "https://www.eia.gov/dnav/pet/xls/PET_PRI_WFR_A_EPD2F_PRS_DPGAL_W.xls",
   "file": "grezzi/eia/heating_oil.xls",
   "http": 200,
-  "letto_il": "2026-11-25",
+  "letto_il": "2026-11-26",
   "sha256": "8c31d4ade851071eb2a457f3c79af9d1e91c9df625ff3d138d0d4e62f441ac20",
   "byte": 432128,
   "licenza": {
@@ -1553,7 +1553,7 @@
   "url": "https://www.eia.gov/dnav/pet/xls/PET_PRI_WFR_A_EPLLPA_PRS_DPGAL_W.xls",
   "file": "grezzi/eia/propane.xls",
   "http": 200,
-  "letto_il": "2026-11-25",
+  "letto_il": "2026-11-26",
   "sha256": "7df843e4b98b5e04928d96be58fa7387098ec73721f41477c6961db0b1819690",
   "byte": 559616,
   "licenza": {
@@ -1572,7 +1572,7 @@
   "url": "https://www.eia.gov/dnav/pet/pet_pri_wfr_a_EPD2F_prs_dpgal_w.htm",
   "file": "grezzi/eia/heating_oil.htm",
   "http": 200,
-  "letto_il": "2026-11-25",
+  "letto_il": "2026-11-26",
   "sha256": "1bc60cb5dcfb78edef0f4e04259e62e5487d5f85ceb0a62fd8cd6f2484e2be19",
   "byte": 28780,
   "licenza": {
@@ -1593,7 +1593,7 @@
   "url": "https://www.eia.gov/dnav/pet/pet_pri_wfr_a_EPLLPA_prs_dpgal_w.htm",
   "file": "grezzi/eia/propane.htm",
   "http": 200,
-  "letto_il": "2026-11-25",
+  "letto_il": "2026-11-26",
   "sha256": "649c53889cfd05be7e9dfda8fc760440ff55f846f3a714ab3c9812d5794a6e19",
   "byte": 40146,
   "licenza": {
@@ -1614,7 +1614,7 @@
   "url": "https://www.eia.gov/petroleum/heatingoilpropane/",
   "file": "grezzi/eia/update.htm",
   "http": 200,
-  "letto_il": "2026-11-25",
+  "letto_il": "2026-11-26",
   "sha256": "0571c5ad9be0f0ba7ec1725d1ca4f739ae5363d253893b4f9cf1afbbc38a3314",
   "byte": 91247,
   "licenza": {
@@ -1635,7 +1635,7 @@
   "url": "https://www.eia.gov/dnav/pet/TblDefs/pet_pri_wfr_tbldef2.asp",
   "file": "grezzi/eia/definitions.htm",
   "http": 200,
-  "letto_il": "2026-11-25",
+  "letto_il": "2026-11-26",
   "sha256": "b1dde69ebf17a8df07918e9e1d5c5a4d432eddc40c9fcd3d648baf0d14e8b73a",
   "byte": 9305,
   "licenza": {
@@ -1668,7 +1668,7 @@
   "url": "https://www.eia.gov/about/copyrights_reuse.php",
   "file": "grezzi/eia/copyrights_reuse.htm",
   "http": 200,
-  "letto_il": "2026-11-25",
+  "letto_il": "2026-11-26",
   "sha256": "57346cef99c7de759e1099258e9d29b7aa1cbfaac75dccbd98da99acd2737c28",
   "byte": 52531,
   "licenza": {

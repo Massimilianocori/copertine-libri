@@ -10,7 +10,7 @@
    "titolo": "Open Data",
    "chi": "AIFA",
    "http": 200,
-   "letto_il": "2026-11-25",
+   "letto_il": "2026-11-26",
    "trovate": {
     "La licenza di distribuzione dei dati utilizzata da AIFA la CC-BY (attribuzione) nella versione 4.0": true,
     "anche commercialmente, con l'obbligo di citare la fonte": true
@@ -21,7 +21,7 @@
    "titolo": "Liste di trasparenza",
    "chi": "AIFA",
    "http": 200,
-   "letto_il": "2026-11-25",
+   "letto_il": "2026-11-26",
    "trovate": {
     "AIFA rende disponibile mensilmente le liste di trasparenza dei medicinali ai sensi dell’art. 7 del D.L. 18.9.2001, n. 347 (convertito in Legge 16.11.2001, n. 405)": true
    },
@@ -32,7 +32,7 @@
    "titolo": "Farmaci carenti",
    "chi": "AIFA",
    "http": 200,
-   "letto_il": "2026-11-25",
+   "letto_il": "2026-11-26",
    "trovate": {
     "si intende un medicinale temporaneamente non reperibile sul territorio nazionale in quanto il titolare AIC": true,
     "non può assicurarne una fornitura continua, rispetto al bisogno terapeutico del paziente": true,
@@ -48,7 +48,7 @@
    "titolo": "Elenchi farmaci di classe A e H",
    "chi": "AIFA",
    "http": 200,
-   "letto_il": "2026-11-25",
+   "letto_il": "2026-11-26",
    "trovate": {},
    "data_file": "2026-07-31"
   },
@@ -57,7 +57,7 @@
    "titolo": "Farmaci equivalenti",
    "chi": "AIFA",
    "http": 200,
-   "letto_il": "2026-11-25",
+   "letto_il": "2026-11-26",
    "trovate": {
     "Il farmaco equivalente è un farmaco che ha principio attivo, forma farmaceutica, via di somministrazione, modalità di rilascio, dosaggio, numero di unità posologiche e dosi unitarie uguali a un farmaco di riferimento (“di marca”) a cui è scaduta la copertura brevettuale": true,
     "Il farmaco equivalente è riconoscibile dalla dicitura “Medicinale Equivalente” sul foglio illustrativo e sulla confezione esterna": true,
@@ -71,7 +71,7 @@
    "titolo": "Cosa fare quando un farmaco è mancante",
    "chi": "AIFA",
    "http": 200,
-   "letto_il": "2026-11-25",
+   "letto_il": "2026-11-26",
    "trovate": {
     "Un medicinale può essere “mancante” a causa di due fenomeni distinti, che richiedono interventi diversi a supporto del paziente da parte del farmacista: carenza e indisponibilità": true,
     "che viene aggiornato almeno due volte alla settimana": true,
@@ -85,7 +85,7 @@
    "titolo": "Decreto-legge 18 settembre 2001, n. 347, art. 7 (testo vigente)",
    "chi": "Normattiva, Istituto Poligrafico e Zecca dello Stato",
    "http": 200,
-   "letto_il": "2026-11-25",
+   "letto_il": "2026-11-26",
    "trovate": {
     "Prezzo di rimborso dei farmaci di uguale composizione": true,
     "sono rimborsati al farmacista dal Servizio sanitario nazionale fino alla concorrenza del prezzo più basso del corrispondente prodotto disponibile nel normale ciclo distributivo regionale": true,
@@ -102,7 +102,7 @@
    "chi": "AIFA",
    "file_locale": "trasparenza.csv",
    "http": 200,
-   "letto_il": "2026-11-25",
+   "letto_il": "2026-11-26",
    "byte": 1764425,
    "sha256": "f95aff340397114274f03eab5d3600d9607a1ade12baacdb7572fa74eff4a712",
    "pubblicato_il": "2026-11-16",
@@ -114,7 +114,7 @@
    "chi": "AIFA",
    "file_locale": "carenti.csv",
    "http": 200,
-   "letto_il": "2026-11-25",
+   "letto_il": "2026-11-26",
    "byte": 903680,
    "sha256": "6fc12ac2bc4e46dc15748a5b267bab041667827f823c9d95c01d479f9390b9bb",
    "pubblicato_il": "2026-11-24",
@@ -126,7 +126,7 @@
    "chi": "AIFA",
    "file_locale": "carenti_equivalenti.ods",
    "http": 200,
-   "letto_il": "2026-11-25",
+   "letto_il": "2026-11-26",
    "byte": 143977,
    "sha256": "ba4945582b09d6175afc6b38b43e2d8907b7ec83bf6bf6b33736d5f10184b3e0",
    "pubblicato_il": "2026-11-24",
@@ -138,7 +138,7 @@
    "chi": "AIFA",
    "file_locale": "carenti_alternativo.ods",
    "http": 200,
-   "letto_il": "2026-11-25",
+   "letto_il": "2026-11-26",
    "byte": 40139,
    "sha256": "4258fa78395a0a4ac514c6acee3183bf71a0c896f8ec2dc8d654e694a187c186",
    "pubblicato_il": "2026-11-24",
@@ -150,7 +150,7 @@
    "chi": "AIFA",
    "file_locale": "classe_a.csv",
    "http": 200,
-   "letto_il": "2026-11-25",
+   "letto_il": "2026-11-26",
    "byte": 1520349,
    "sha256": "d167ef333306be7d3e70ed5b7d13f840a35d00ee11fb320f6601981deefd3832",
    "pubblicato_il": "2026-07-31",
