@@ -1,5 +1,8 @@
 # Regole fisse di Massimiliano (valide per qualsiasi idea futura)
 
+> **VINCOLANTE (26/11/2026): prima di qualsiasi lavoro leggere e seguire `studio-business/MANUALE-DI-LAVORO.md` (prima, durante, cancello di pubblicazione, ricontrollo dopo) e scrivere la scheda di `PIANO-OBBLIGATORIO.md`.**
+
+
 
 **OBIETTIVO UNICO (Massimiliano, 10/11/2026): "il tuo goal è portare il guadagno maggiore possibile".** Ogni scelta si misura in euro attesi: 1) far rendere il traffico che c'è già (AdSense, affiliazioni sulle pagine più viste); 2) espandere ciò che cresce; 3) costruire tutto ciò che rende, in ordine di €/anno ÷ ore; 4) ricerca continua di idee più grandi. Tante piccole cose insieme fanno un grande ritorno.
 
