@@ -267,3 +267,6 @@ Per i siti su .netlify.app non si cambia dominio finché Visa, Before You Fly ed
 2. **Niente del lavoro fatto si butta via.** I siti restano online e aggiornati dalle routine automatiche (regola «NESSUN SITO OBSOLETO»): la manutenzione costa poco e protegge il valore costruito. Niente chiusure senza i dati della regola dei 90 giorni (unica eccezione decisa: EsamiDiStato il 1/12).
 3. **Niente lavoro nuovo sui siti che non porta € misurabili entro 12 mesi**, salvo il passo che sblocca un incasso (approvazione AdSense) o le pagine del recupero già decise.
 4. Ogni lunedì il riassunto confronta il costo del mese (piano Claude + Netlify + domini) con gli incassi veri e con il piano; se la rete resta sotto il piano prudente per 2 mesi di fila, si propone a Massimiliano di ridurre i costi (pacchetti Netlify, domini, frequenza dei turni).
+
+## PIANO OBBLIGATORIO PRIMA DI OGNI LAVORO (Massimiliano, 26/11/2026)
+Prima di ogni lavoro che cambia un sito, un dato, una routine o una decisione: scheda scritta secondo `studio-business/PIANO-OBBLIGATORIO.md` in `studio-business/schede/`, data a ogni agente nel brief, spuntata punto per punto alla fine con le prove. Senza scheda completa non si pubblica. Le routine automatiche (dati del lunedì e del giovedì) usano la scheda fissa della loro routine in ORGANIZZAZIONE.md; un lavoro fuori routine ha sempre la sua scheda.
