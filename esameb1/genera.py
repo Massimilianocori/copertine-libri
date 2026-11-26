@@ -2234,7 +2234,7 @@ def pagina_ente(e, prossime):
 <section>
 <h2 id="in-breve">{ic("info")}{escape(sigla)} B1 in breve: costo, durata, risultati</h2>
 <div class="fatti">{fatti}</div>
-<p><a href="../../esempi/{SLUG_ENTE[sigla]}/">{ic("libro")} Prove d'esempio {escape(sigla)}: PDF e audio ufficiali, com'è fatto l'esame prova per prova, punteggio per superare</a></p>
+<p><a href="../../esempi/{SLUG_ENTE[sigla]}/">{ic("libro")} Prove d'esempio {escape(sigla)}: PDF e audio ufficiali, com'è fatto l'esame prova per prova, punteggio per superare</a></p>{(chr(10) + f'<p><a href="../../esempi/celi-2/">{ic("archivio")} CELI 2 e CELI 2 i (B1): i file del CVCL, uno per uno</a></p>') if sigla == "CELI" else ""}
 <p><a href="../../risultati/{SLUG_RISULTATI[sigla]}/">{ic("ok")} Risultati {escape(sigla)}: dove vederli, quando escono, punteggio e cosa fare se non superi</a></p>
 </section>
 <section>
@@ -3323,7 +3323,7 @@ Le prove d'esempio si scaricano e si fanno online, a casa; l'esame vero invece s
 </section>
 <section>
 <h2 id="altri-livelli">{ic("libro")}Ti serve un altro livello?</h2>
-<div class="altre"><a href="cils-b1-standard/">CILS B1 standard (non Cittadinanza)</a><a href="a1/">Prove d'esempio A1</a><a href="a2/">Prove d'esempio A2 (carta di soggiorno)</a><a href="b2/">Prove d'esempio B2</a><a href="c1/">Prove d'esempio C1</a><a href="c2/">Prove d'esempio C2</a><a href="../dopo-esame/">Dopo l'esame: certificato e tempi</a></div>
+<div class="altre"><a href="cils-b1-standard/">CILS B1 standard (non Cittadinanza)</a><a href="celi-2/">CELI 2 e CELI 2 i (B1): i file del CVCL</a><a href="a1/">Prove d'esempio A1</a><a href="a2/">Prove d'esempio A2 (carta di soggiorno)</a><a href="b2/">Prove d'esempio B2</a><a href="c1/">Prove d'esempio C1</a><a href="c2/">Prove d'esempio C2</a><a href="../dopo-esame/">Dopo l'esame: certificato e tempi</a></div>
 <h2>{ic("info")}Altre domande</h2>
 {link_guide("../", salta="esempi/", dopo_b1=False)}
 </section>
@@ -3432,7 +3432,7 @@ def pagina_esempi_ente(e, prossime):
 </section>
 <section>
 <h2>{ic("libro")}Esempi degli altri enti</h2>
-<div class="altre"><a href="../">Tutti gli esempi</a>{altri}{'<a href="../cils-b1-standard/">CILS B1 standard</a>' if s == "CILS" else ""}<a href="../confronto/">I 4 esami a confronto</a><a href="../../esonero-test-italiano/">Chi è esonerato</a></div>
+<div class="altre"><a href="../">Tutti gli esempi</a>{altri}{'<a href="../cils-b1-standard/">CILS B1 standard</a>' if s == "CILS" else ""}{'<a href="../celi-2/">CELI 2 e CELI 2 i: i file del CVCL, uno per uno</a>' if s == "CELI" else ""}<a href="../confronto/">I 4 esami a confronto</a><a href="../../esonero-test-italiano/">Chi è esonerato</a></div>
 <h2>{ic("info")}Altre domande</h2>
 {link_guide("../../", salta="esempi/", dopo_b1=False)}
 </section>"""
@@ -5745,7 +5745,7 @@ def main():
             pagina_prefettura(sl, prossime)
             urls.append(f"cittadinanza/{pref_url(sl)}/")
     urls += DP.genera(sys.modules[__name__], prossime)  # 15/11/2026: /dopo-esame/ (indice, 4 enti, non superato) ed /esempi/a2/, /esempi/b2/ (genera_dopo.py)
-    urls += LV.genera(sys.modules[__name__], prossime)  # 25/11/2026: /esempi/cils-b1-standard/, /esempi/a1/, /esempi/c1/, /esempi/c2/ (genera_livelli.py); 26/11/2026: /esempi/ascolto/, /esempi/prova-orale/
+    urls += LV.genera(sys.modules[__name__], prossime)  # 25/11/2026: /esempi/cils-b1-standard/, /esempi/a1/, /esempi/c1/, /esempi/c2/ (genera_livelli.py); 26/11/2026: /esempi/ascolto/, /esempi/prova-orale/, /esempi/celi-2/
     urls += CP.genera(sys.modules[__name__], prossime)  # 20/11/2026: /cpia/ e una pagina per CPIA (genera_cpia.py)
     urls += GU.genera(sys.modules[__name__])  # 4 guide del 13/11/2026, 3 sul ricongiungimento familiare e 1 sull'idoneità alloggiativa del 14/11/2026 (genera_guide.py)
     chi_siamo()

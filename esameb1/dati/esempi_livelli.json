@@ -138,6 +138,14 @@
    "url": "https://certificazioneitaliano.uniroma3.it/il-sistema-di-certificazione/livello-b1-livello-soglia/",
    "zip": "https://certificazioneitaliano.uniroma3.it/wp-content/uploads/sites/30/2025/11/b1.zip",
    "dentro": "b1/Certit_B1_SA_Fascicolo.pdf"
+  },
+  "celi_pretest": {
+   "nome": "CVCL, avviso «Pre-test online per i candidati iscritti agli esami CELI Generici» (27 febbraio 2026)",
+   "url": "https://cvcl.unistrapg.it/notizia/pre-test-online-per-i-candidati-iscritti-agli-esami-celi-generici"
+  },
+  "celi_pretest_guida": {
+   "nome": "CVCL, «Pre-test online CELI – Guida per la navigazione» (PDF)",
+   "url": "https://cvcl.unistrapg.it/MC-API/Risorse/StreamRisorsa.ashx?guid=fb717b6d-677a-4720-8b9b-836c45d09630"
   }
  },
  "citazioni": [
@@ -668,6 +676,118 @@
   {
    "fonte": "certit_note",
    "testo": "È vietato il cd. deep linking ossia l'utilizzo non trasparente, su siti di soggetti terzi, di parti del Sito"
+  },
+  {
+   "fonte": "celi_generici",
+   "testo": "CELI 2 (Livello B1 del QCER)"
+  },
+  {
+   "fonte": "celi_generici",
+   "testo": "Il CELI 2 attesta la conoscenza della lingua italiana al livello B1 del Quadro Comune Europeo di Riferimento."
+  },
+  {
+   "fonte": "celi_generici",
+   "testo": "rivolti ad adulti scolarizzati"
+  },
+  {
+   "fonte": "celi_generici",
+   "testo": "Al livello B1 i candidati sono in grado di interagire nell’ambito di situazioni ed argomenti familiari e di loro interesse."
+  },
+  {
+   "fonte": "celi_generici",
+   "testo": "competenze richieste"
+  },
+  {
+   "fonte": "celi_generici",
+   "testo": "struttura e descrizione della prova"
+  },
+  {
+   "fonte": "celi_generici",
+   "testo": "facsimile foglio delle risposte"
+  },
+  {
+   "fonte": "celi_generici",
+   "testo": "valutazione e punteggi"
+  },
+  {
+   "fonte": "celi_generici",
+   "testo": "tabella di conversione dei punteggi"
+  },
+  {
+   "fonte": "celi_generici",
+   "testo": "competenze e punteggi orale"
+  },
+  {
+   "fonte": "celi_generici",
+   "testo": "competenze e punteggi scritto"
+  },
+  {
+   "fonte": "celi_immigrati",
+   "testo": "cittadini stranieri legati a un progetto migratorio stanziale"
+  },
+  {
+   "fonte": "celi_immigrati",
+   "testo": "Ogni esame è diviso in due parti: scritto e orale."
+  },
+  {
+   "fonte": "celi_immigrati",
+   "testo": "contenuto del primo fascicolo: prove A e B"
+  },
+  {
+   "fonte": "celi_immigrati",
+   "testo": "descrizione dell'esame"
+  },
+  {
+   "fonte": "celi_immigrati",
+   "testo": "criteri di valutazione"
+  },
+  {
+   "fonte": "celi_immigrati",
+   "testo": "criteri di valutazione scritto"
+  },
+  {
+   "fonte": "celi_immigrati",
+   "testo": "scheda d'iscrizione"
+  },
+  {
+   "fonte": "celi_immigrati",
+   "testo": "risposte celi 2 i"
+  },
+  {
+   "fonte": "celi_pretest",
+   "testo": "tutti i candidati iscritti agli esami CELI Generici (non CELI Immigrati o CELI adolescenti) avranno la possibilità di sostenere un pre-test online di esercitazione per il livello a cui sono iscritti"
+  },
+  {
+   "fonte": "celi_pretest",
+   "testo": "è necessario essere iscritti ad un esame CELI Generico ed essere in possesso del proprio numero di matricola"
+  },
+  {
+   "fonte": "celi_pretest_guida",
+   "testo": "nel pre-test online CELI sono presenti SOLO le seguenti parti d’esame"
+  },
+  {
+   "fonte": "celi_pretest_guida",
+   "testo": "Parte A comprensione lettura (A.1, A.2, A.3, A.4, A.5)"
+  },
+  {
+   "fonte": "celi_pretest_guida",
+   "testo": "Parte C comprensione ascolto (C.1, C.2, C.3)"
+  },
+  {
+   "fonte": "celi_pretest_guida",
+   "testo": "POTRAI EFFETTUARE UN SOLO TENTATIVO PER OGNI PARTE"
+  },
+  {
+   "fonte": "celi_pretest_guida",
+   "testo": "non sono in nessun modo una garanzia di ottenere lo stesso risultato negli esami CELI"
+  },
+  {
+   "fonte": "celi_generici",
+   "testo": "Documenti correlati"
+  },
+  {
+   "fonte": "celi_immigrati",
+   "testo": "Documenti correlati"
   }
  ],
  "gruppi": {
@@ -1824,11 +1944,258 @@
      "audio_n": 1,
      "audio_durata": "23 min 45 s",
      "prove_n": 4,
-     "domande_n": 28
+     "domande_n": 28,
+     "nome_file": "esempio-CELI-2-i-2 (5).zip",
+     "contenuto_zip": [
+      {
+       "nome": "CELI 2 i maggio 2018 PROVE A e B.pdf",
+       "formato": "PDF",
+       "byte": 1413747,
+       "pagine": 10,
+       "parte": "Lettura e scrittura",
+       "contenuto": "il fascicolo delle prove A e B. Lettura: 4 prove, 30 domande (5 a scelta multipla, 10 affermazioni Sì/No, 10 parole da scegliere, 5 pronomi da scrivere). Scrittura: 3 prove (4 risposte brevi, la risposta a un avviso, un'e-mail a un amico)"
+      },
+      {
+       "nome": "CELI 2 i maggio 2018 PROVE C.pdf",
+       "formato": "PDF",
+       "byte": 235258,
+       "pagine": 4,
+       "parte": "Ascolto",
+       "contenuto": "il fascicolo delle prove C: 4 prove, 28 domande. Le istruzioni di ogni prova dicono che i testi si ascoltano due volte"
+      },
+      {
+       "nome": "Celi 02 Immigrati - Maggio 2018.mp3",
+       "formato": "MP3",
+       "byte": 45588701,
+       "durata": "23 min 45 s",
+       "parte": "Ascolto",
+       "contenuto": "l'audio di tutte e 4 le prove C, in un solo file"
+      },
+      {
+       "nome": "SpeakersCELI2  immigrati maggio 2018.DOC",
+       "formato": "DOC",
+       "byte": 52736,
+       "parte": "Ascolto",
+       "contenuto": "i testi dell'ascolto, cioè quello che dicono le voci dell'audio. È un file Word"
+      },
+      {
+       "nome": "chiavi CELI 2 i maggio 2018.DOC",
+       "formato": "DOC",
+       "byte": 31232,
+       "parte": "Soluzioni",
+       "contenuto": "le chiavi delle prove A e C, con i punti di ogni risposta giusta e i punti massimi delle prove di scrittura. È un file Word"
+      }
+     ],
+     "lettura": {
+      "prove_n": 4,
+      "domande_n": 30
+     },
+     "scrittura": {
+      "prove_n": 3,
+      "parole": [
+       "da 5 a 10 per ogni risposta",
+       "da 40 a 50",
+       "da 80 a 90"
+      ]
+     }
+    }
+   ]
+  },
+  "c2_celi2": {
+   "ente": "CELI",
+   "esame": "CELI 2 (B1)",
+   "livello": "B1",
+   "fonte": "celi_generici",
+   "link_diretti": false,
+   "file_attesi": [
+    "celi-2-competenze-richieste.pdf",
+    "celi-2-descrizione-prova.pdf",
+    "celi-2-facsimile.pdf",
+    "celi-2-valutazione.pdf",
+    "celi-2-conversione-punteggi.pdf",
+    "competenze-punteggi-orale-CELI-2.pdf",
+    "competenze-punteggi-CELI-2-B1-scritto.pdf",
+    "celi-2-prove-esame.zip",
+    "celi-2-prove-esame-2.zip"
+   ],
+   "file": [
+    {
+     "nome": "competenze richieste",
+     "parte": "Descrizione",
+     "formato": "PDF",
+     "atteso": "celi-2-competenze-richieste.pdf",
+     "contenuto": "linkato dalla pagina del CVCL; sta su www.unistrapg.it: il 26/11/2026 non l'abbiamo aperto, quindi non scriviamo cosa contiene"
+    },
+    {
+     "nome": "struttura e descrizione della prova",
+     "parte": "Descrizione",
+     "formato": "PDF",
+     "atteso": "celi-2-descrizione-prova.pdf",
+     "contenuto": "linkato dalla pagina del CVCL; sta su www.unistrapg.it: il 26/11/2026 non l'abbiamo aperto, quindi non scriviamo cosa contiene"
+    },
+    {
+     "nome": "facsimile foglio delle risposte",
+     "parte": "Foglio delle risposte",
+     "formato": "PDF",
+     "atteso": "celi-2-facsimile.pdf",
+     "contenuto": "linkato dalla pagina del CVCL; sta su www.unistrapg.it: il 26/11/2026 non l'abbiamo aperto, quindi non scriviamo cosa contiene"
+    },
+    {
+     "nome": "valutazione e punteggi",
+     "parte": "Punteggi",
+     "formato": "PDF",
+     "atteso": "celi-2-valutazione.pdf",
+     "contenuto": "linkato dalla pagina del CVCL; sta su www.unistrapg.it: il 26/11/2026 non l'abbiamo aperto, quindi non scriviamo cosa contiene"
+    },
+    {
+     "nome": "tabella di conversione dei punteggi",
+     "parte": "Punteggi",
+     "formato": "PDF",
+     "atteso": "celi-2-conversione-punteggi.pdf",
+     "contenuto": "linkato dalla pagina del CVCL; sta su www.unistrapg.it: il 26/11/2026 non l'abbiamo aperto, quindi non scriviamo cosa contiene"
+    },
+    {
+     "nome": "competenze e punteggi orale",
+     "parte": "Orale",
+     "formato": "PDF",
+     "atteso": "competenze-punteggi-orale-CELI-2.pdf",
+     "contenuto": "linkato dalla pagina del CVCL; sta su www.unistrapg.it: il 26/11/2026 non l'abbiamo aperto, quindi non scriviamo cosa contiene"
+    },
+    {
+     "nome": "competenze e punteggi scritto",
+     "parte": "Scritto",
+     "formato": "PDF",
+     "atteso": "competenze-punteggi-CELI-2-B1-scritto.pdf",
+     "contenuto": "linkato dalla pagina del CVCL; sta su www.unistrapg.it: il 26/11/2026 non l'abbiamo aperto, quindi non scriviamo cosa contiene"
+    },
+    {
+     "nome": "esempio 1",
+     "parte": "Prova d'esame",
+     "formato": "ZIP",
+     "atteso": "celi-2-prove-esame.zip",
+     "contenuto": "linkato dalla pagina del CVCL; sta su www.unistrapg.it: il 26/11/2026 non l'abbiamo aperto, quindi non scriviamo cosa contiene"
+    },
+    {
+     "nome": "esempio 2",
+     "parte": "Prova d'esame",
+     "formato": "ZIP",
+     "atteso": "celi-2-prove-esame-2.zip",
+     "contenuto": "linkato dalla pagina del CVCL; sta su www.unistrapg.it: il 26/11/2026 non l'abbiamo aperto, quindi non scriviamo cosa contiene"
+    }
+   ]
+  },
+  "c2_celi2i": {
+   "ente": "CELI",
+   "esame": "CELI 2 i cittadinanza (B1)",
+   "livello": "B1",
+   "fonte": "celi_immigrati",
+   "link_diretti": false,
+   "file_attesi": [
+    "celi-i-b1-descrizione-esame.pdf",
+    "celi-i-b1-criteri-valutazione.pdf",
+    "celi-i-b1-criteri-di-valutazione-scritto.pdf",
+    "celi-i-b1-criteri-di-valutazione-orale.pdf",
+    "celi-i-b1-vademecum-orale.pdf",
+    "esempio-CELI-2-i.zip",
+    "celi-i-scheda-iscrizione.pdf",
+    "celi-i-b1-esempi-imput-orale.pdf",
+    "celi-i-b1-fogli-risposte.pdf"
+   ],
+   "file": [
+    {
+     "nome": "descrizione dell'esame",
+     "parte": "Descrizione",
+     "formato": "PDF",
+     "atteso": "celi-i-b1-descrizione-esame.pdf",
+     "contenuto": "linkato dalla pagina del CVCL; sta su www.unistrapg.it: il 26/11/2026 non l'abbiamo aperto, quindi non scriviamo cosa contiene"
+    },
+    {
+     "nome": "criteri di valutazione",
+     "parte": "Punteggi",
+     "formato": "PDF",
+     "atteso": "celi-i-b1-criteri-valutazione.pdf",
+     "contenuto": "linkato dalla pagina del CVCL; sta su www.unistrapg.it: il 26/11/2026 non l'abbiamo aperto, quindi non scriviamo cosa contiene"
+    },
+    {
+     "nome": "criteri di valutazione scritto",
+     "parte": "Scritto",
+     "formato": "PDF",
+     "atteso": "celi-i-b1-criteri-di-valutazione-scritto.pdf",
+     "contenuto": "linkato dalla pagina del CVCL; sta su www.unistrapg.it: il 26/11/2026 non l'abbiamo aperto, quindi non scriviamo cosa contiene"
+    },
+    {
+     "nome": "criteri di valutazione orale",
+     "parte": "Orale",
+     "formato": "PDF",
+     "atteso": "celi-i-b1-criteri-di-valutazione-orale.pdf",
+     "contenuto": "linkato dalla pagina del CVCL; sta su www.unistrapg.it: il 26/11/2026 non l'abbiamo aperto, quindi non scriviamo cosa contiene"
+    },
+    {
+     "nome": "vademecum celi 2 i",
+     "parte": "Orale",
+     "formato": "PDF",
+     "atteso": "celi-i-b1-vademecum-orale.pdf",
+     "contenuto": "linkato dalla pagina del CVCL; sta su www.unistrapg.it: il 26/11/2026 non l'abbiamo aperto, quindi non scriviamo cosa contiene"
+    },
+    {
+     "nome": "esempio 1",
+     "parte": "Prova d'esame",
+     "formato": "ZIP",
+     "atteso": "esempio-CELI-2-i.zip",
+     "contenuto": "linkato dalla pagina del CVCL; sta su www.unistrapg.it: il 26/11/2026 non l'abbiamo aperto, quindi non scriviamo cosa contiene"
+    },
+    {
+     "nome": "scheda d'iscrizione",
+     "parte": "Iscrizione",
+     "formato": "PDF",
+     "atteso": "celi-i-scheda-iscrizione.pdf",
+     "contenuto": "linkato dalla pagina del CVCL; sta su www.unistrapg.it: il 26/11/2026 non l'abbiamo aperto, quindi non scriviamo cosa contiene"
+    },
+    {
+     "nome": "input orale celi 2 i",
+     "parte": "Orale",
+     "formato": "PDF",
+     "atteso": "celi-i-b1-esempi-imput-orale.pdf",
+     "contenuto": "linkato dalla pagina del CVCL; sta su www.unistrapg.it: il 26/11/2026 non l'abbiamo aperto, quindi non scriviamo cosa contiene"
+    },
+    {
+     "nome": "risposte celi 2 i",
+     "parte": "Foglio delle risposte",
+     "formato": "PDF",
+     "atteso": "celi-i-b1-fogli-risposte.pdf",
+     "contenuto": "linkato dalla pagina del CVCL; sta su www.unistrapg.it: il 26/11/2026 non l'abbiamo aperto, quindi non scriviamo cosa contiene"
+    }
+   ]
+  },
+  "c2_pretest": {
+   "ente": "CELI",
+   "esame": "CELI 2 (B1)",
+   "livello": "B1",
+   "fonte": "celi_pretest",
+   "file": [
+    {
+     "nome": "Guida all'accesso al Pre-test CELI Generico online",
+     "parte": "Pre-test online",
+     "formato": "PDF",
+     "contenuto": "come si entra nel pre-test con il numero di matricola e la data di nascita. È una guida, non una prova d'esame",
+     "url": "https://cvcl.unistrapg.it/MC-API/Risorse/StreamRisorsa.ashx?guid=93845d1a-e2b9-48d2-9edb-a71cfe5e3120",
+     "byte": 441996,
+     "tipo": "application/pdf",
+     "pagine": 4
+    },
+    {
+     "nome": "Guida di navigazione del Pre-test CELI Generico online",
+     "parte": "Pre-test online",
+     "formato": "PDF",
+     "contenuto": "quali parti d'esame ci sono nel pre-test e come ci si muove tra i compiti. È una guida, non una prova d'esame",
+     "url": "https://cvcl.unistrapg.it/MC-API/Risorse/StreamRisorsa.ashx?guid=fb717b6d-677a-4720-8b9b-836c45d09630",
+     "byte": 528139,
+     "tipo": "application/pdf",
+     "pagine": 5
     }
    ]
   }
  },
  "verificato_il_prove": "2026-11-26",
- "_nota_prove": "Pagine del 26/11/2026: /esempi/ascolto/ e /esempi/prova-orale/ (genera_livelli.py). Hanno una data di controllo loro, 'verificato_il_prove': file aperti uno per uno il 26/11/2026 (stato, tipo, byte; durata degli MP3 letta con ffprobe; pagine dei PDF con pdfinfo; contenuto degli zip con unzip). Gruppi 'asc_*' e 'ora_*'; 'parziale': il gruppo elenca solo una parte dei file della pagina ufficiale. Fonte con 'zip' e 'dentro': un PDF dentro uno zip dell'ente (letto, mai linkato). CELI: solo cvcl.unistrapg.it; www.unistrapg.it non si apre dal nostro server e non l'abbiamo aperto."
+ "_nota_prove": "Pagine del 26/11/2026: /esempi/ascolto/ e /esempi/prova-orale/ (genera_livelli.py). Hanno una data di controllo loro, 'verificato_il_prove': file aperti uno per uno il 26/11/2026 (stato, tipo, byte; durata degli MP3 letta con ffprobe; pagine dei PDF con pdfinfo; contenuto degli zip con unzip). Gruppi 'asc_*' e 'ora_*'; 'parziale': il gruppo elenca solo una parte dei file della pagina ufficiale. Fonte con 'zip' e 'dentro': un PDF dentro uno zip dell'ente (letto, mai linkato). CELI: solo cvcl.unistrapg.it; www.unistrapg.it non si apre dal nostro server e non l'abbiamo aperto. Pagina /esempi/celi-2/ (26/11/2026, scheda 2026-11-26-esameb1-celi2.md): gruppi 'c2_*' e lo zip di 'asc_celi2'. Il 26/11/2026 il sito cvcl.unistrapg.it serve 3 file che riguardano il B1: lo zip «esempio 2» del CELI 2 i (scaricato intero: 42.326.291 byte, 5 file; 'contenuto_zip' = nome, byte, pagine o durata letti con unzip, pdfinfo, ffprobe; i due PDF letti con pdftotext, i due .DOC letti come testo) e le due guide PDF del pre-test online dei CELI generici (aperte e lette). Gli altri 18 link delle due pagine del CVCL (9 del CELI 2, 9 del CELI 2 i) portano a www.unistrapg.it: non aperti, gruppi 'c2_celi2' e 'c2_celi2i' con 'link_diretti': false; 'atteso' = nome del file che la pagina del CVCL deve ancora linkare."
 }

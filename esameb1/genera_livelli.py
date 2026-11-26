@@ -20,6 +20,12 @@ che rimanda alle prove B1. Etichetta dei clic: esameb1.eu/clic/libro-livelli, so
 Gruppi «asc_*» e «ora_*» di dati/esempi_livelli.json, con la loro data di controllo («verificato_il_prove»: file aperti il 26/11/2026).
 Riquadro del libro subito sotto il titolo, etichette dei clic esameb1.eu/clic/libro-ascolto e esameb1.eu/clic/libro-orale.
 CELI: link diretto solo al file servito da cvcl.unistrapg.it (esempio 2); i file su www.unistrapg.it non li abbiamo aperti.
+
+26/11/2026 (scheda studio-business/schede/2026-11-26-esameb1-celi2.md): /esempi/celi-2/, i file che il CVCL elenca per il CELI 2 (B1)
+e per il CELI 2 i cittadinanza (B1), uno per uno. Stessa data di controllo («verificato_il_prove»), gruppi «c2_*» e lo zip di «asc_celi2».
+Link diretti solo ai 3 file serviti da cvcl.unistrapg.it (lo zip dell'esempio 2 del CELI 2 i, scaricato intero e aperto, e le due guide
+del pre-test online); i 18 file su www.unistrapg.it non li abbiamo aperti e la pagina lo scrive riga per riga. Etichetta dei clic:
+esameb1.eu/clic/libro-celi2.
 Chiamato da main() di genera.py: genera(G, prossime) e controlli(G)."""
 import json
 import re
@@ -28,7 +34,7 @@ from html import escape, unescape
 D = None  # dati/esempi_livelli.json
 PAGINE = []  # percorsi generati, per controlli()
 CLIC_LIBRO = "libro-livelli"  # etichetta propria delle 4 pagine (decisione del 25/11/2026), per misurarle a parte da /esempi/
-CLIC_PAGINA = {"esempi/ascolto/": "libro-ascolto", "esempi/prova-orale/": "libro-orale"}  # 26/11/2026: un'etichetta per pagina
+CLIC_PAGINA = {"esempi/ascolto/": "libro-ascolto", "esempi/prova-orale/": "libro-orale", "esempi/celi-2/": "libro-celi2"}  # 26/11/2026: un'etichetta per pagina
 DATA = "verificato_il"  # chiave della data di controllo usata da V(): le pagine del 26/11/2026 usano «verificato_il_prove»
 NOTA = ("Informazioni, non consulenza: questa pagina riporta quello che gli enti pubblicano sulle loro pagine ufficiali. "
         "I file sono degli enti e sono protetti dal diritto d'autore: scaricali per studiare, non ricaricarli su altri siti.")
@@ -497,7 +503,7 @@ f"CERT.IT B1 {mp3_certit['numero']} MP3 di {mp3_certit['audio_durata']} ciascuno
                f"<p>La pagina «Esami CELI immigrati» del CVCL scrive che lo scritto ha tre componenti, tra cui la {Q('celi_immigrati', 'comprensione dell')}, e che l'ascolto è nel secondo fascicolo: "
                f"{Q('celi_immigrati', 'contenuto del secondo fascicolo')}. Elenca due esempi: {Q('celi_immigrati', 'prova d')}. L'esempio 2 è la sessione di maggio 2018 e lo serve il sito del CVCL: nello zip ci sono l'audio, il PDF delle prove C con "
                f"{zip_celi['prove_n']} prove e {zip_celi['domande_n']} domande, i testi dell'ascolto e le chiavi (questi due in formato Word .DOC). Nelle istruzioni di ogni prova c'è scritto che i testi si ascoltano due volte.</p>"
-               f"<p>File: {L('asc_celi2', 0)}.</p>"
+               f"<p>File: {L('asc_celi2', 0)}. Tutti i file CELI di livello B1, uno per uno: <a href='../celi-2/'>CELI 2 e CELI 2 i</a>.</p>"
                f"{celi_non_aperti(G)}{fonte(G, 'celi_immigrati')}", "celi_immigrati", "Pagina ufficiale CELI (CVCL)"),
         scheda(G, "CERT.IT", "CERT.IT B1 (Roma Tre)",
                f"<p>{Q('certit_b1', 'In fondo alla pagina')} Lì ci sono lo zip dell'esempio e 3 file audio, uno per ogni prova di ascolto. "
@@ -665,6 +671,158 @@ def pagina_orale(G, prossime):
            prossime, nota_date=NOTA_DATE_B1)
 
 
+# ---------------------------------------------------------------- /esempi/celi-2/ (26/11/2026)
+def QE(k, testo):
+    """Come Q(), ma la frase citata deve essere proprio «testo» (per le etichette corte dei link, che cominciano allo stesso modo)."""
+    if not any(c["fonte"] == k and c["testo"] == testo for c in D["citazioni"]):
+        raise SystemExit(f"genera_livelli: «{testo}» non è tra le frasi citate di «{k}»")
+    return "«" + escape(testo) + "»"
+
+
+def pagina_celi2(G, prossime):
+    """CELI 2 (B1) e CELI 2 i cittadinanza (B1): tutti i file che le due pagine del CVCL elencano, uno per uno, con scritto quali abbiamo
+    aperto il giorno del controllo (solo quelli serviti da cvcl.unistrapg.it) e quali no (quelli su www.unistrapg.it)."""
+    gr = D["gruppi"]
+    z = gr["asc_celi2"]["file"][0]
+    dentro = z["contenuto_zip"]
+    guide = gr["c2_pretest"]["file"]
+    no_i, no_g = gr["c2_celi2i"]["file"], gr["c2_celi2"]["file"]
+    n_aperti, n_no = 1 + len(guide), len(no_i) + len(no_g)
+    v_b1 = G.data_breve(G.v_esempi(G.ES["CELI"]))
+    lead = (f"Secondo le pagine ufficiali «Esami CELI generici» e «Esami CELI immigrati» del CVCL (Università per Stranieri di Perugia), controllate il {V(G)}, "
+            f"il CVCL elenca {len(no_g)} file per il CELI 2 (B1) e {len(no_i) + 1} per il CELI 2 i cittadinanza (B1), ma dal sito del CVCL si apre una sola prova d'esame: "
+            f"lo zip «esempio 2» del CELI 2 i ({G.peso(z['byte'])}, sessione di maggio 2018, con prove, audio e chiavi); gli altri {n_no} file stanno su www.unistrapg.it "
+            f"e il {V(G)} non li abbiamo aperti.")
+
+    def riga(esame, parte, formato, file):
+        return (f'<tr><td>{G.eb("CELI")}</td><td data-l="Esame">{esame}</td><td data-l="Parte">{escape(parte)}</td>'
+                f'<td data-l="Formato">{formato}</td><td data-l="File">{file}</td></tr>')
+
+    def cosa(t):
+        return f'<span class="cosa">{escape(t[0].upper() + t[1:])}.</span>'
+
+    def non_aperto(k, f):
+        nome = f"Prova d'esame: {escape(f['nome'])}" if f["formato"] == "ZIP" else QE(k, f["nome"])
+        return riga(escape(gr["c2_celi2i" if k == "celi_immigrati" else "c2_celi2"]["esame"]), f["parte"], f'<strong>{f["formato"]}</strong> · non aperto',
+                    f'{nome}: {A(k, "sulla pagina del CVCL")}<span class="cosa">Sta su www.unistrapg.it: il {V(G)} non l\'abbiamo aperto, quindi non scriviamo cosa contiene.</span>')
+
+    cosa_zip = cosa(f"sessione di maggio 2018. Dentro ci sono {len(dentro)} file: due PDF con le prove, un audio MP3, i testi dell'ascolto e le chiavi in due file Word")
+    righe = [riga("CELI 2 i cittadinanza (B1)", "Prova d'esame", f'<strong>ZIP</strong> · {G.peso(z["byte"])} · aperto', L("asc_celi2", 0) + cosa_zip)]
+    righe += [riga("CELI 2 (B1) e gli altri CELI generici", f["parte"], f'<strong>PDF</strong> · {G.peso(f["byte"])} · {f["pagine"]} pag. · aperto',
+                   f'{L("c2_pretest", i)}{cosa(f["contenuto"])}') for i, f in enumerate(guide)]
+    righe += [non_aperto("celi_immigrati", f) for f in no_i] + [non_aperto("celi_generici", f) for f in no_g]
+    tabella = ('<div class="tab-wrap ris-tab liv-tab"><table class="conf"><thead><tr><th scope="col">Ente</th><th scope="col">Esame</th>'
+               '<th scope="col">Parte</th><th scope="col">Formato</th><th scope="col">File ufficiale</th></tr></thead>'
+               f'<tbody>{"".join(righe)}</tbody></table></div>'
+               f'<div class="fonte">{G.ic("ok")}<span>Link controllati il {V(G)}: i {n_aperti} file con link diretto si aprono sul sito cvcl.unistrapg.it (stato 200), '
+               f"con il formato e la dimensione indicati. Lo zip l'abbiamo scaricato intero e aperto. Gli altri {n_no} link delle due pagine del CVCL portano a www.unistrapg.it: "
+               f"dal nostro server quel sito non si apre (errore di certificato, visto il 25 novembre 2026), il {V(G)} non li abbiamo aperti e non mettiamo link a file che non abbiamo aperto. "
+               "Li scarichi dalle due pagine del CVCL.</span></div>")
+
+    def dettagli(f):
+        return " · ".join(x for x in (G.peso(f["byte"]), f'{f["pagine"]} pag.' if f.get("pagine") else "", f.get("durata", "")) if x)
+
+    tab_zip = tab(("File nello zip", "Parte", "Formato", "Cosa c'è"),
+                  [(f"<strong>{escape(f['nome'])}</strong>", escape(f["parte"]), f"<strong>{f['formato']}</strong> · {escape(dettagli(f))}",
+                    escape(f["contenuto"][0].upper() + f["contenuto"][1:]) + ".") for f in dentro])
+    let, scr = z["lettura"], z["scrittura"]
+    schede = [
+        scheda(G, "CELI", "CELI 2 (B1), tra i CELI generici",
+               f"<p>Nella pagina «Esami CELI generici» il CVCL scrive che i CELI generici sono {Q('celi_generici', 'rivolti ad adulti')} e li elenca per livello: {Q('celi_generici', 'CELI 2 (')}. "
+               f"Del CELI 2 scrive: {Q('celi_generici', 'Il CELI 2 attesta')} E ancora: {Q('celi_generici', 'Al livello B1')}</p>"
+               f"<p>Sotto «Documenti correlati» ci sono {len(no_g)} link: {QE('celi_generici', 'competenze richieste')}, {QE('celi_generici', 'struttura e descrizione della prova')}, "
+               f"{QE('celi_generici', 'facsimile foglio delle risposte')}, {QE('celi_generici', 'valutazione e punteggi')}, {QE('celi_generici', 'tabella di conversione dei punteggi')}, "
+               f"{QE('celi_generici', 'competenze e punteggi orale')}, {QE('celi_generici', 'competenze e punteggi scritto')} e {Q('celi_generici', 'prova d')}. "
+               f"Tutti e {len(no_g)} portano a www.unistrapg.it: il {V(G)} non li abbiamo aperti. Per questo qui non scriviamo quante prove ha il CELI 2, quanto dura e quanti punti servono.</p>"
+               f"{fonte(G, 'celi_generici')}", "celi_generici", "Pagina ufficiale CELI generici (CVCL)", ancora="celi-2"),
+        scheda(G, "CELI", "CELI 2 i cittadinanza (B1), tra i CELI immigrati",
+               f"<p>Nella pagina «Esami CELI immigrati» il CVCL scrive che gli esami CELI i sono per {Q('celi_immigrati', 'cittadini stranieri legati')}. "
+               f"Del CELI 2 i scrive: {Q('celi_immigrati', 'Ogni esame è diviso')} Lo scritto ha due fascicoli: {Q('celi_immigrati', 'contenuto del primo fascicolo')} e "
+               f"{Q('celi_immigrati', 'contenuto del secondo fascicolo')}. Dell'orale scrive: {Q('celi_immigrati', 'L’esame orale')} "
+               f"E degli esami CELI 1 i e CELI 2 i cittadinanza scrive che, {Q('celi_immigrati', 'in particolare nella parte orale')}.</p>"
+               f"<p>Sotto «Documenti correlati» ci sono {len(no_i) + 1} link: {QE('celi_immigrati', 'descrizione dell' + chr(39) + 'esame')}, {QE('celi_immigrati', 'criteri di valutazione')}, "
+               f"{QE('celi_immigrati', 'criteri di valutazione scritto')}, {QE('celi_immigrati', 'criteri di valutazione orale')}, {QE('celi_immigrati', 'vademecum celi 2 i')}, "
+               f"{Q('celi_immigrati', 'prova d')}, {QE('celi_immigrati', 'scheda d' + chr(39) + 'iscrizione')}, {QE('celi_immigrati', 'input orale celi 2 i')} e {QE('celi_immigrati', 'risposte celi 2 i')}. "
+               f"Solo l'esempio 2 lo serve il sito del CVCL: {L('asc_celi2', 0)}. Gli altri {len(no_i)} portano a www.unistrapg.it.</p>"
+               f"{celi_non_aperti(G)}{fonte(G, 'celi_immigrati')}", "celi_immigrati", "Pagina ufficiale CELI immigrati (CVCL)", ancora="celi-2-i"),
+    ]
+    blocchi = f"""{G.riquadro_libro("../../").replace("clic/libro-esempi", "clic/" + CLIC_PAGINA["esempi/celi-2/"])}
+<section>
+<h2 id="file">{G.ic("archivio")}I file CELI di livello B1 sul sito del CVCL, uno per uno</h2>
+<p class="small">Ogni link apre il file o la pagina sul sito del CVCL: qui non copiamo niente. In ogni riga c'è scritto se il file l'abbiamo aperto il {V(G)} oppure no.</p>
+{tabella}
+{fonte(G, 'celi_generici', 'celi_immigrati', 'celi_pretest')}
+</section>
+<section class="ris-sez">
+<h2 id="zip">{G.ic("lista")}Cosa c'è nello zip del CELI 2 i, file per file</h2>
+<p>Lo zip dell'esempio 2 pesa {G.peso(z['byte'])} e contiene {len(dentro)} file della sessione di maggio 2018. Li abbiamo aperti tutti il {V(G)}.</p>
+{tab_zip}
+<p>Lettura: {let['prove_n']} prove, {let['domande_n']} domande. Scrittura: {scr['prove_n']} prove; nel fascicolo le parole richieste sono {scr['parole'][0]} nella prima prova,
+{scr['parole'][1]} nella seconda e {scr['parole'][2]} nella terza. Ascolto: {z['prove_n']} prove, {z['domande_n']} domande, un audio di {z['audio_durata']}.</p>
+<p>Nel file delle chiavi ci sono anche i punti. Lettura: 2 punti per ogni risposta giusta nella prova A.1, 1,5 nella A.2, 1 nella A.3 e nella A.4. Ascolto: 2 punti nelle prove C.1 e C.2,
+1 nella C.3, 1,5 nella C.4. Scrittura: fino a 3 punti per ogni risposta della prova B.1, 15 punti per la B.2 e 20 per la B.3.
+Il punteggio totale e quanti punti servono per superare l'esame nello zip non sono scritti.</p>
+<p class="ris-nota">Nello zip non ci sono i fogli delle risposte, le tracce dell'orale e i criteri di valutazione: sono tra i file che non abbiamo aperto il {V(G)}.
+Tempi, punti per superare e orale del CELI 2 i sono nella pagina <a href="../celi/">CELI 2 i cittadinanza</a>, controllata il {v_b1}.</p>
+{fonte(G, 'celi_immigrati')}
+</section>
+<section>
+<h2 id="enti">{G.ic("info")}CELI 2 e CELI 2 i: cosa scrive il CVCL</h2>
+<p>Sono due esami di livello B1 dello stesso ente, su due pagine ufficiali diverse e con file d'esempio diversi. Quale vale per la tua domanda e dove si fa: <a href="../../ente/celi/">CELI: date, costo e sedi</a>.</p>
+{"".join(schede)}
+</section>
+<section class="ris-sez">
+<h2 id="pre-test">{G.ic("ok")}CELI 2: il pre-test online per chi è già iscritto</h2>
+<p>Un avviso del CVCL del 27 febbraio 2026 scrive che dal 2 marzo {Q('celi_pretest', 'tutti i candidati iscritti')}. Per entrare {Q('celi_pretest', 'è necessario essere iscritti')}.
+Vale per i CELI generici, quindi per il CELI 2; non per il CELI 2 i cittadinanza.</p>
+<p>La guida per la navigazione scrive: {Q('celi_pretest_guida', 'nel pre-test online CELI sono presenti')}. Per il CELI 2 sono {Q('celi_pretest_guida', 'Parte A')} e {Q('celi_pretest_guida', 'Parte C')}:
+lettura e ascolto. La guida scrive anche: {Q('celi_pretest_guida', 'POTRAI EFFETTUARE')}. E dei risultati scrive che {Q('celi_pretest_guida', 'non sono in nessun modo')}.</p>
+<p>File: {L('c2_pretest', 0)} · {L('c2_pretest', 1)}. Sono due guide: spiegano come si entra e come ci si muove. Il pre-test non l'abbiamo aperto, perché serve il numero di matricola di un iscritto.</p>
+{fonte(G, 'celi_pretest', 'celi_pretest_guida')}
+</section>
+<section>
+<h2 id="manca">{G.ic("info")}Quello che manca, detto chiaro</h2>
+<ul>
+<li><strong>CELI 2 (B1):</strong> il {V(G)} non abbiamo aperto nessuna prova d'esame. I due esempi in zip e i 7 PDF sono su www.unistrapg.it. Li trovi {A('celi_generici', 'sulla pagina «Esami CELI generici»')}.</li>
+<li><strong>CELI 2 i cittadinanza (B1):</strong> abbiamo aperto solo l'esempio 2. L'esempio 1 e gli altri {len(no_i) - 1} PDF sono su www.unistrapg.it. Li trovi {A('celi_immigrati', 'sulla pagina «Esami CELI immigrati»')}.</li>
+<li><strong>L'esempio 2 è del 2018:</strong> è la sessione di maggio 2018. Di che sessione sono gli altri tre esempi non lo sappiamo, perché non li abbiamo aperti.</li>
+<li><strong>I testi dell'ascolto e le chiavi sono file Word (.DOC):</strong> per aprirli serve un programma che legge i file Word.</li>
+</ul>
+</section>
+<section>
+<h2 id="come-usare">{G.ic("matita")}Cosa farne</h2>
+<ol class="passi">
+<li><div><strong>Controlla a quale esame sei iscritto</strong><p>CELI 2 e CELI 2 i cittadinanza hanno file d'esempio diversi. Se non lo sai, chiedilo alla sede dove ti sei iscritto.</p></div></li>
+<li><div><strong>Fai l'esempio 2 del CELI 2 i senza fermare l'audio</strong><p>Stampa i due PDF. Per l'ascolto fai partire l'MP3 e non fermarlo: dura {z['audio_durata']}. Le istruzioni dicono che ogni testo si ascolta due volte.</p></div></li>
+<li><div><strong>Correggi lettura e ascolto con le chiavi</strong><p>Il file delle chiavi non dà il punteggio totale né la soglia per superare l'esame: per i punteggi ufficiali vedi <a href="../celi/">CELI 2 i cittadinanza</a>. Per la scrittura non c'è una risposta giusta: fai leggere i tuoi testi a un insegnante.</p></div></li>
+</ol>
+<p class="ris-nota">Un esempio non è l'esame: le prove cambiano a ogni sessione. Serve a capire il tipo di domande. Per le altre prove: <a href="../ascolto/">gli audio ufficiali dell'ascolto B1</a> ·
+<a href="../prova-orale/">la prova orale</a> · <a href="../prova-scritta/">la prova scritta</a> · <a href="../simulazione/">la simulazione con il cronometro</a>.</p>
+</section>"""
+    domande = [
+        ("Dove trovo le prove d'esame del CELI 2 (B1)?",
+         f"Sulla pagina «Esami CELI generici» del CVCL (Università per Stranieri di Perugia): alla voce CELI 2 ci sono due esempi in zip e 7 PDF. I file stanno su www.unistrapg.it: "
+         f"il {V(G)} non li abbiamo aperti, quindi qui trovi il link alla pagina del CVCL e non ai file."),
+        ("CELI 2 e CELI 2 i cittadinanza sono lo stesso esame?",
+         "No. Sono due esami di livello B1 su due pagine diverse del CVCL: il CELI 2 è tra i CELI generici, il CELI 2 i cittadinanza tra i CELI immigrati. "
+         "Hanno file d'esempio diversi."),
+        ("Cosa c'è nell'esempio 2 del CELI 2 i cittadinanza?",
+         f"Uno zip di {G.peso(z['byte'])} con {len(dentro)} file della sessione di maggio 2018: il PDF delle prove A e B (lettura e scrittura, {dentro[0]['pagine']} pagine), il PDF delle prove C "
+         f"(ascolto, {dentro[1]['pagine']} pagine), l'audio MP3 di {z['audio_durata']}, i testi dell'ascolto e le chiavi in due file Word."),
+        ("C'è un test online per prepararsi al CELI 2?",
+         "Il CVCL ha un pre-test online per chi è già iscritto a un esame CELI generico: si entra con il numero di matricola e la data di nascita. "
+         "Per il CELI 2 ci sono la lettura e l'ascolto. Non c'è per il CELI 2 i cittadinanza."),
+    ]
+    scrivi(G, "celi-2", "CELI 2 e CELI 2 i", "CVCL, Università per Stranieri di Perugia",
+           "CELI 2 e CELI 2 i (B1): le prove d'esempio ufficiali, file per file", lead,
+           f'<a class="btn" href="#file">{G.ic("archivio")}I file, uno per uno</a><a class="btn btn-2" href="#zip">{G.ic("lista")}Cosa c\'è nello zip</a>',
+           blocchi, domande, altri("../celi-2/") + '<a href="../celi/">CELI 2 i cittadinanza: tempi e punti</a>',
+           ("CELI 2 e CELI 2 i (B1): prove d'esempio ufficiali", "CELI 2 e CELI 2 i (B1): prove d'esempio"),
+           (f"CELI 2 e CELI 2 i cittadinanza (B1): i file del CVCL uno per uno. Aperto il {V(G)}: lo zip dell'esempio 2 del CELI 2 i, con prove, audio e chiavi.",
+            "CELI 2 e CELI 2 i cittadinanza (B1): i file del CVCL uno per uno, con lo zip dell'esempio 2 del CELI 2 i."),
+           prossime, nota_date=NOTA_DATE_B1)
+
+
 # ---------------------------------------------------------------- ingresso
 def carica(G):
     global D
@@ -682,6 +840,7 @@ def genera(G, prossime):
     try:
         pagina_ascolto(G, prossime)
         pagina_orale(G, prossime)
+        pagina_celi2(G, prossime)  # scheda 2026-11-26-esameb1-celi2.md
     finally:
         DATA = "verificato_il"
     return list(PAGINE)

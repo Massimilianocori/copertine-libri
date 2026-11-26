@@ -17,6 +17,10 @@ Cosa controlla (dati/esempi_livelli.json):
 7. pagine del 26/11/2026: una fonte con "zip" e "dentro" è un PDF dentro uno zip dell'ente (CERT.IT B1): lo zip si scarica e il PDF
    si legge con pdftotext; un gruppo "parziale" elenca apposta solo una parte dei file della pagina ufficiale (niente AVVISO per gli altri);
    CELI con link diretto: solo file serviti da cvcl.unistrapg.it, e la pagina del CVCL deve linkarli ancora.
+8. /esempi/celi-2/ (26/11/2026): gruppi «c2_celi2» e «c2_celi2i» = i 18 file del CELI 2 e del CELI 2 i che stanno su www.unistrapg.it
+   (non aperti: si controlla solo che le due pagine del CVCL li linkino ancora); «c2_pretest» = le due guide PDF del pre-test online,
+   servite da cvcl.unistrapg.it e linkate dall'avviso del CVCL. Lo zip dell'esempio 2 del CELI 2 i è nel gruppo «asc_celi2»: qui si
+   controllano stato, tipo e byte; il contenuto ("contenuto_zip") è stato letto il 26/11/2026 scaricando lo zip intero (42 MB).
 I file non si scaricano interi (HEAD o richiesta parziale). Usa le funzioni di raccolta/esempi.py. Nessun dato personale.
 """
 import html
