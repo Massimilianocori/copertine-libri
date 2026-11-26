@@ -10,3 +10,11 @@
 8. Fatto = tre siti pubblicati con il cancello attivo e verificato online. Stop = revisione sotto 8,5 o lastmod mossi.
 9. Costo: 3 pubblicazioni Netlify (45 crediti).
 10. Dopo: controllo online (script presente/assente su 3+3 pagine per sito), IndexNow, salute.py, riga in DA-PUBBLICARE.md; BYF: nuova richiesta di revisione non prima del 16/12 e solo con la checklist dell'audit tutta verde.
+
+## Chiusura (26/11)
+- [x] Visa 3e9735a33 (rev. 8,5): 803 → 496 pagine con script; online verificato; IndexNow 813 ok
+- [x] EsameB1 832fd9d21 (rev. 8,8): 212 → 205; Vicenza corretto; online verificato; IndexNow 213 ok
+- [x] BYF 1beee3b26 (rev. 8,8): 1.552 → 661; 0 lastmod mossi; online verificato; IndexNow 1.554 ok
+- [x] salute.py 0 errori dopo ogni pubblicazione
+- [ ] BYF nuova richiesta di revisione AdSense: non prima del 16/12, con la lista dei criteri tutta verde
+- [ ] Visa: misura indipendente del cancello in verifica.py e «Most used» senza pagine sotto soglia (prossima pubblicazione)
