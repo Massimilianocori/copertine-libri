@@ -538,3 +538,16 @@ Non inclusa qui: la tua voce in licenza su ElevenLabs (0 / 200 € l'anno). Chie
 - File del repo: `REGOLE-FISSE.md`, `ORGANIZZAZIONE.md`, `CRUSCOTTO-RETE.md`, `DA-PUBBLICARE.md`, `STRATEGIA-RECUPERO.md`, `piano-crescita-2026-11-26.md`, `ricerca-2026-11-25-asset.md`, `ricerca-2026-11-25-settore-nuovo.md`, `ricerca-2026-11-26-esameb1-stagione.md`, `ricerca-2026-11-26-opportunita-nuove.md`, `ricerca-2026-11-26-prodotti-e-libri.md`, `FISCO-PUBBLICITA.md`, `fiscale-affiliazioni.md`, `soldi-veloci-2026-10-19.md`, `intelaiatura/fronti-2026-11-11-pagatori-alti.md`.
 - Conteggio delle pagine (HTML, `noindex`, codice AdSense): cartelle `esameb1/sito`, `visaincome/sito`, `beforeyoufly/sito`, 26/11/2026.
 - Cambio: BCE, 25/11/2026, 1 € = 1,0935 $ (`italystrikes/dati/cambi-bce.json`).
+
+## 9. Pacchetto di crescita dalle ricerche del 26/11 (Massimiliano: «non c'è soglia, può essere un insieme di cose che alza il fatturato»; «non preoccuparti dei limiti, se ne vale la pena facciamo tutto»; «deve essere concreta»)
+
+Fonti: ricerca-2026-11-26-grandi-b2b.md, -grandi-prodotti.md, -grandi-pubblico.md. Stime centrali lorde, con ipotesi di conversione da verificare con le prove.
+
+| # | Azione | Chi paga e quanto | Centrale 12 / 24 mesi | Cosa serve dopo la prova | Prova gratuita (senza iscrizione né spese) | Esito |
+|---|---|---|---|---|---|---|
+| 1 | **Pass EsameB1**: 6 prove online con correzione automatica | candidati B1, 19-29 € | 4.800 / 8.600 € | Camera di Commercio + INPS (≈3.050 €/anno), Stripe | prova gratis + pulsante «Pass completo» con prezzo e lista d'attesa (nessuna vendita), 11-31/12 | ≥14 clic sul prezzo e ≥8 email → si costruisce; <6 → stop. Esito il 2/1/2027 |
+| 2 | **EsameB1 per le sedi e le scuole**: scheda in evidenza nella pagina città + licenza del simulatore | sedi d'esame e scuole, 29 €/mese o 199 €/anno | 2.600 / 7.500 € | come sopra | pagina «Per le sedi e le scuole» + pulsante «Sei questa sede?» sulle pagine città, entro il 10/12 | ≥8 richieste e ≥3 domande di prezzo entro il 28/2 |
+| 3 | **Paga CCNL per chi assume** (D.Lgs. 96/2026: paga di partenza obbligatoria negli annunci) | aziende e consulenti, 149 €/anno o API 49 €/mese | 2.800 / 9.200 € | come sopra | strumento gratuito «fascia retributiva per l'annuncio» + lista d'attesa Pro, dal 10/12 | ≥300 usi e ≥10 email Pro, o ≥2 richieste API, entro il 15/1 |
+| 4 | **Visa Income → studi di avvocati dell'immigrazione** | studi, 75-250 € a cliente firmato | 2.700 / 4.500 € | affiliazioni riaperte + iscrizione | riquadro «Vuoi parlare con un avvocato?» che conta le richieste, dal 10/12 (fermo Visa fino al 9/12) | ≥15 richieste in 4 settimane entro l'8/1 |
+
+**Totale centrale del pacchetto (senza sovrapposizioni): circa 12.900 € a 12 mesi e circa 30.000 € a 24 mesi**; prudente sotto il costo fisso. **Regola di decisione:** le 4 prove partono subito e gratis; se la somma delle prove passate porta la stima centrale sopra il pareggio dell'iscrizione (≈3.500 € l'anno), si propone a Massimiliano l'iscrizione alla Camera di Commercio con i numeri veri, altrimenti stop senza aver speso nulla. Ordine di costruzione: 1 e 2 (EsameB1, sito non fermo, stagione d'esame), poi 3 e 4 dal 10/12.
