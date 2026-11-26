@@ -1,0 +1,11 @@
+{
+ "_nota": "Scritto da genera.py (soglia_parole_proprie): pagine in indice sotto la soglia di parole proprie, senza script AdSense e senza link di affiliazione, con la loro misura. verifica.py rifà la misura e la confronta. Non modificare a mano.",
+ "soglia_parole_proprie": 110,
+ "pagine": {
+  "citta/avellino/index.html": 105,
+  "citta/foggia/index.html": 109,
+  "citta/isernia/index.html": 100,
+  "citta/trento/index.html": 103,
+  "cittadinanza/varese/index.html": 94
+ }
+}

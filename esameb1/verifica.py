@@ -8,7 +8,8 @@ Controlla, su tutte le pagine HTML:
 - sitemap e noindex coerenti (una pagina noindex non è in sitemap, una pagina in indice sì; la 404 è esclusa);
 - sitemap.xml indice di sitemap di sezione, lastmod uguale al registro dati/lastmod.json, robots.txt con il solo indice,
   sitemap-vecchi-indirizzi.xml fuori dall'indice e con soli vecchi indirizzi vivi; la home non linka pagine noindex (25/11/2026);
-- AdSense mai nelle pagine noindex;
+- AdSense mai nelle pagine noindex; cancello della pubblicità rifatto qui (controlli_cancello): niente script e niente link di
+  affiliazione sotto la soglia di parole proprie, niente script nelle privacy, script nella home;
 - JSON-LD valido; ogni domanda e risposta del FAQPage è visibile nel testo della pagina;
 - link interni e ancore (#id) esistenti;
 - titoli ≤ 65 e description ≤ 155 caratteri, nessun titolo o description doppi tra le pagine in indice;
@@ -72,8 +73,9 @@ def controlli_cpia(err):
         if "dati.istruzione.it" not in corpo or f"letta il {letta}" not in t:
             err.append(f"{rel}: manca la fonte del Ministero con la data di lettura")
         citate = {re.sub(r"\s+", " ", x["testo"]) for voci in c["citazioni"].values() for x in voci} | {c["nome_anagrafe"], "Centro territoriale"}
+        avvisi = {x["citazione"] for x in json.loads((dati / "avvisi_sedi.json").read_text(encoding="utf-8"))["avvisi"]}  # avviso ufficiale di una sede
         for frase in re.findall(r"«([^»]+)»", t):
-            if frase.strip() not in citate:
+            if frase.strip() not in citate | avvisi:
                 err.append(f"{rel}: testo tra virgolette non citato nei dati: {frase[:60]}")
         for x in citate - {"Centro territoriale"}:
             if x not in t:
@@ -87,6 +89,73 @@ def controlli_cpia(err):
             if not c["citazioni"].get(tema) and parola in titolo:
                 err.append(f"{rel}: il titolo promette «{parola}» ma nei dati non c'è una frase del CPIA")
     return len(attese & trovate)
+
+
+SOGLIA_PAROLE_PROPRIE = 110  # la stessa di genera.py (MIN_PAROLE_PROPRIE_ADSENSE): qui è scritta a mano apposta, mai sotto 100
+SCRIPT_ADSENSE = "pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+
+
+def controlli_cancello(err):
+    """Cancello della pubblicità (26/11/2026), misura rifatta qui senza usare genera.py: parole proprie = parole del <main> (senza
+    riquadro di affiliazione, briciole, script, stili, icone, menu a tendina) fuori da ogni gruppo di 5 parole presente in almeno
+    3 pagine. Ogni pagina sotto la soglia: niente script AdSense e niente link rel="sponsored". Ogni pagina con lo script: sopra la
+    soglia, in indice, non privacy. La home ha lo script. L'elenco coincide con dati/cancello_pubblicita.json.
+    Restituisce (pagine con script, pagine sotto la soglia)."""
+    testi = {}
+    for f in sorted(SITO.rglob("*.html")):
+        h = f.read_text(encoding="utf-8")
+        m = re.search(r"<main[^>]*>(.*?)</main>", h, re.S)
+        if not m:
+            continue
+        corpo = re.sub(r'<section class="card prep".*?</section>', " ", m.group(1), flags=re.S)
+        corpo = re.sub(r"<(nav|script|style|svg|select)\b.*?</\1>", " ", corpo, flags=re.S | re.I)
+        testi[str(f.relative_to(SITO))] = (re.findall(r"\w+", unescape(re.sub(r"<[^>]+>", " ", corpo)).lower()), h)
+    quante = collections.Counter()
+    gruppi = {}
+    for rel, (w, _) in testi.items():
+        gruppi[rel] = [tuple(w[i:i + 5]) for i in range(len(w) - 4)]
+        quante.update(set(gruppi[rel]))
+    sotto, con_script = {}, 0
+    for rel, (w, h) in testi.items():
+        comune = [False] * len(w)
+        for i, g in enumerate(gruppi[rel]):
+            if quante[g] >= 3:
+                comune[i:i + 5] = [True] * 5
+        proprie = comune.count(False)
+        head = h[:h.find("</head>")]
+        script = SCRIPT_ADSENSE in head
+        con_script += script
+        noindex = '<meta name="robots" content="noindex' in head
+        privacy = rel == "privacy.html" or rel.endswith("privacy/index.html")
+        if SCRIPT_ADSENSE in h[h.find("</head>"):]:
+            err.append(f"{rel}: script AdSense fuori dal <head>")
+        if privacy:
+            if script:
+                err.append(f"{rel}: script AdSense in una pagina privacy")
+            continue
+        if proprie < SOGLIA_PAROLE_PROPRIE:
+            if script:
+                err.append(f"{rel}: script AdSense con {proprie} parole proprie (soglia {SOGLIA_PAROLE_PROPRIE})")
+            if not noindex and rel != "404.html":
+                if re.search(r'<a\b[^>]*\brel="[^"]*\bsponsored\b', h) or "di affiliazione" in unescape(re.sub(r"<[^>]+>", " ", m_main(h))):
+                    err.append(f"{rel}: link di affiliazione o riga di trasparenza in una pagina sotto la soglia")
+                sotto[rel] = proprie
+        elif not script and not noindex and len(re.findall(r"\w+", unescape(re.sub(r"<[^>]+>", " ", re.sub(r"<(form|script|style|svg)\b.*?</\1>", " ", m_main(h), flags=re.S))))) >= 400:
+            err.append(f"{rel}: {proprie} parole proprie e testo sufficiente, ma senza script AdSense")
+    if SCRIPT_ADSENSE not in (SITO / "index.html").read_text(encoding="utf-8").split("</head>")[0]:
+        err.append("index.html: la home non ha lo script AdSense")
+    C = json.loads((SITO.parent / "dati" / "cancello_pubblicita.json").read_text(encoding="utf-8"))
+    if SOGLIA_PAROLE_PROPRIE < 100 or C["soglia_parole_proprie"] != SOGLIA_PAROLE_PROPRIE:
+        err.append("cancello della pubblicità: soglia sotto 100 o diversa tra verifica.py e dati/cancello_pubblicita.json")
+    diverse = sorted((k, v, sotto.get(k)) for k, v in C["pagine"].items() if sotto.get(k) != v)
+    if diverse:
+        err.append(f"cancello della pubblicità: misura rifatta diversa da dati/cancello_pubblicita.json (pagina, là, qui): {diverse[:5]}")
+    return con_script, len(sotto)
+
+
+def m_main(h):
+    m = re.search(r"<main[^>]*>(.*?)</main>", h, re.S)
+    return m.group(1) if m else ""
 
 
 def main():
@@ -199,6 +268,9 @@ def main():
     for k, v in doppi_d.items():
         err.append(f"description doppia «{k[:60]}»: {v}")
     n_cpia = controlli_cpia(err)
+    con_script, sotto = controlli_cancello(err)
+    print(f"cancello della pubblicità (misura rifatta qui, soglia {SOGLIA_PAROLE_PROPRIE} parole proprie): script AdSense su {con_script} pagine, "
+          f"{sotto} pagine in indice sotto la soglia senza script e senza link di affiliazione, privacy senza script, home con lo script")
     print(f"pagine CPIA controllate contro i dati: {n_cpia}")
     print(f"pagine {len(pagine)}, in sitemap {len(sitemap)}, link interni {n_link}, domande FAQ {n_faq}, errori {len(err)}")
     for e in err[:60]:

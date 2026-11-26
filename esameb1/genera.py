@@ -59,6 +59,17 @@ ADSENSE_HEAD = MON.script_adsense(SITO_ID)  # "" con AdSense spento; altrimenti 
 # di contenuto principale (testo del <main> senza moduli, script e icone). Al posto dello script il <head> ha il segno
 # MON.SEGNO_SENZA_ADSENSE, che monetizzazione.py verifica. Vale anche per /en/, /uk/ e /ro/ (testa_adsense()).
 MIN_PAROLE_ADSENSE = 400
+# Seconda soglia (26/11/2026, studio-business/ADSENSE-AUDIT-2026-11-26.md): niente script nelle pagine con meno di
+# MIN_PAROLE_PROPRIE_ADSENSE «parole proprie», cioè parole che non stanno in nessun gruppo di 5 parole di fila presente in
+# almeno PAGINE_GRUPPO_COMUNE pagine del sito (testo del <main> senza briciole, script, stili, icone e menu a tendina).
+# È la misura dell'audit: una città con una sola sede ha quasi solo testo uguale alle altre città. L'audit chiede 100;
+# la soglia è 110 perché la misura rifatta qui si scosta di qualche parola da quella dell'audit (isernia 97 là, 100 qui).
+# Si misura a sito finito (parole_proprie_sito(), chiamata da extra()): una pagina che sale sopra la soglia riprende lo
+# script da sola, una pagina nuova sotto la soglia nasce senza. Titoli, URL, robots, canonical e sitemap non cambiano.
+# Le informative privacy (privacy.html, /privacy/ nelle altre lingue) restano sempre senza script: sono pagine di servizio.
+MIN_PAROLE_PROPRIE_ADSENSE = 110
+PAGINE_GRUPPO_COMUNE = 3
+GRUPPO_PAROLE = 5
 
 
 def parole_principali(corpo):
@@ -71,6 +82,82 @@ def parole_principali(corpo):
 def testa_adsense(corpo, indicizza=True):
     """Script AdSense per il <head> (a capo compreso), oppure il segno «senza pubblicità» se la pagina è noindex o ha poco testo."""
     return MON.script_adsense(SITO_ID, indicizza and parole_principali(corpo) >= MIN_PAROLE_ADSENSE)
+
+
+_RE_RIQUADRO_AFF = re.compile(r'<section class="card prep".*?</section>', re.S)
+_RE_SPONSOR = re.compile(r'<p class="prep-libri">.*?</p>\s*|<p class="[^"]*\baff-nota\b[^"]*">.*?</p>\s*|<a\b[^>]*\brel="[^"]*\bsponsored\b[^"]*"[^>]*>.*?</a>', re.S)
+FRASI_SPONSOR = ("\nSu italki scegli tu un insegnante di italiano: fai lezioni 1 a 1 e paghi a lezione.",)  # frase che presenta il link italki
+FILE_CANCELLO = DATI / "cancello_pubblicita.json"
+
+
+def senza_affiliazioni(html):
+    """La pagina senza link rel="sponsored", senza le frasi che li presentano e senza le righe di trasparenza (pagine sotto la soglia)."""
+    html = _RE_SPONSOR.sub("", html)
+    for f in FRASI_SPONSOR:
+        html = html.replace(f, "")
+    return html
+
+
+def _parole_main(html):
+    """Parole (minuscole) del <main> senza briciole e menu (<nav>), script, stili, icone e menu a tendina; None se non c'è <main>."""
+    m = re.search(r"<main[^>]*>(.*?)</main>", html, re.S)
+    if not m:
+        return None
+    t = _RE_RIQUADRO_AFF.sub(" ", m.group(1))  # il riquadro di affiliazione non conta: sotto la soglia viene tolto (stessa misura prima e dopo)
+    t = re.sub(r"<(nav|script|style|svg|select)\b.*?</\1>", " ", t, flags=re.S | re.I)
+    return re.findall(r"\w+", unescape(re.sub(r"<[^>]+>", " ", t)).lower())
+
+
+def parole_proprie_sito(cartella):
+    """{percorso del file: numero di parole proprie} per tutte le pagine HTML di cartella (misura dell'audit AdSense del 26/11/2026)."""
+    from collections import Counter
+    parole = {}
+    for f in sorted(Path(cartella).rglob("*.html")):
+        w = _parole_main(f.read_text(encoding="utf-8"))
+        if w is not None:
+            parole[f] = w
+    gruppi = {f: [tuple(w[i:i + GRUPPO_PAROLE]) for i in range(len(w) - GRUPPO_PAROLE + 1)] for f, w in parole.items()}
+    in_quante = Counter(g for gg in gruppi.values() for g in set(gg))
+    proprie = {}
+    for f, w in parole.items():
+        comune = [False] * len(w)
+        for i, g in enumerate(gruppi[f]):
+            if in_quante[g] >= PAGINE_GRUPPO_COMUNE:
+                comune[i:i + GRUPPO_PAROLE] = [True] * GRUPPO_PAROLE
+        proprie[f] = comune.count(False)
+    return proprie
+
+
+def _pagina_privacy(f):
+    return f.name == "privacy.html" or (f.name == "index.html" and f.parent.name == "privacy")
+
+
+def soglia_parole_proprie():
+    """A sito finito: toglie lo script AdSense (e mette MON.SEGNO_SENZA_ADSENSE) dalle pagine con meno di
+    MIN_PAROLE_PROPRIE_ADSENSE parole proprie e dalle informative privacy. Tocca solo quella riga del <head>:
+    l'impronta del lastmod (titolo, description, JSON-LD, <main>) non la vede. Restituisce [(percorso, parole proprie)]."""
+    tag = MON.tag_adsense(SITO_ID)
+    if not tag:
+        return []
+    tolte, sotto = [], {}
+    for f, n in sorted(parole_proprie_sito(SITO).items()):
+        privacy = _pagina_privacy(f)
+        if n >= MIN_PAROLE_PROPRIE_ADSENSE and not privacy:
+            continue
+        t = f.read_text(encoding="utf-8")
+        testa = t[:t.find("</head>")]
+        if tag not in testa:
+            continue  # già senza script: noindex, poco testo, 404
+        nuovo = t.replace("\n" + tag, "\n" + MON.SEGNO_SENZA_ADSENSE, 1)
+        if not privacy:
+            nuovo = senza_affiliazioni(nuovo)  # sotto la soglia nemmeno link di affiliazione (revisione del 26/11/2026)
+            sotto[f.relative_to(SITO).as_posix()] = n
+        f.write_text(nuovo, encoding="utf-8")
+        tolte.append((f.relative_to(SITO).as_posix(), n))
+    FILE_CANCELLO.write_text(json.dumps({"_nota": "Scritto da genera.py (soglia_parole_proprie): pagine in indice sotto la soglia di parole proprie, senza script "
+                                         "AdSense e senza link di affiliazione, con la loro misura. verifica.py rifà la misura e la confronta. Non modificare a mano.",
+                                         "soglia_parole_proprie": MIN_PAROLE_PROPRIE_ADSENSE, "pagine": sotto}, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    return tolte
 
 
 AFFILIATI = json.loads((DATI / "affiliati.json").read_text(encoding="utf-8")) if (DATI / "affiliati.json").exists() else {}  # link di affiliazione (dal 30/10/2026: italki)
@@ -900,7 +987,7 @@ def nota_comune(s):
     return sum(1 for x in sessioni if x["nota_scadenza"] == s["nota_scadenza"]) > 1
 
 
-def scheda_sessione(s):
+def scheda_sessione(s, avvisi=()):
     citt = s["tipo"] == "cittadinanza"
     esami = ", ".join(s["esami"])
     badge = (f'<span class="tag citt">{ic("ok")}Esame per la cittadinanza</span>' if citt
@@ -915,7 +1002,7 @@ def scheda_sessione(s):
 {tile(s['data'])}
 <div class="cosa"><div class="testa">{eb(s['ente'])}<span class="nome">{escape(esami)}</span>{badge}</div>
 <div class="quando"><time datetime="{s['data']}">{data_lunga(s['data'])}</time>{scad}</div>
-{nota}
+{nota}{"".join(f'<div class="avviso">{ic("attenzione")}<div>{testo_avviso(a, False)}</div></div>' for a in avvisi if a["ente"] == s["ente"] and a["sessione"] == s["data"])}
 <div class="fonte">{ic("doc")}<span>Fonte: <a href="{escape(s['fonte'])}" rel="noopener">calendario ufficiale {escape(s['ente'])}</a> · controllato il {data_breve(s['verificato_il'])}</span></div>
 </div>
 </article>"""
@@ -932,7 +1019,7 @@ def note_scadenze(lista):
     return f'<ul class="note-scad" aria-label="Come leggere le scadenze">{"".join(righe)}</ul>' if righe else ""
 
 
-def lista_sessioni(lista, con_filtri=True):
+def lista_sessioni(lista, con_filtri=True, avvisi=()):
     filtri = ""
     if con_filtri:
         bottoni = ['<button type="button" data-filtro="tutti" aria-pressed="true">Tutte</button>',
@@ -941,7 +1028,7 @@ def lista_sessioni(lista, con_filtri=True):
                     for e in ENTE if any(s["ente"] == e for s in lista)]
         filtri = (f'<div class="filtri chips" role="group" aria-label="Filtra per ente">{"".join(bottoni)}</div>'
                   '<p class="esito" aria-live="polite"></p>')
-    return (f'<div data-elenco>{note_scadenze(lista)}{filtri}<div class="sessioni">' + "\n".join(scheda_sessione(s) for s in lista)
+    return (f'<div data-elenco>{note_scadenze(lista)}{filtri}<div class="sessioni">' + "\n".join(scheda_sessione(s, avvisi) for s in lista)
             + '</div><button class="btn btn-2 mostra" type="button" hidden>Mostra tutte le date</button></div>')
 
 
@@ -1059,6 +1146,32 @@ def libro_top(rel=""):
 </aside>"""
 
 
+# Avvisi su singole sedi (26/11/2026): una sede che sul suo sito ufficiale scrive che non farà una sessione del calendario nazionale
+# (dati/avvisi_sedi.json: sedi, giorno della sessione, frase citata, fonte, giorno della lettura). L'avviso compare nella scheda
+# della sede e sotto le date della pagina città, finché la sessione non è passata. Le altre sedi e gli altri enti non cambiano.
+AVVISI_SEDI = json.loads((DATI / "avvisi_sedi.json").read_text(encoding="utf-8"))["avvisi"]
+for _a in AVVISI_SEDI:
+    _mancano = [n for n in _a["sedi"] if not any(s["ente"] == _a["ente"] and s["nome"] == n for s in sedi)]
+    if _mancano or not _a.get("citazione") or not _a["fonte"]["url"].startswith("https://") or not _a["fonte"].get("letta_il"):
+        raise SystemExit(f"avvisi_sedi.json: sedi non trovate in sedi.json {_mancano}, oppure citazione o fonte mancante")
+
+
+def avvisi_di(lista_sedi):
+    """Avvisi ancora validi (sessione non passata) che riguardano almeno una delle sedi date."""
+    return [a for a in AVVISI_SEDI if d(a["sessione"]) >= OGGI and any(s["ente"] == a["ente"] and s["nome"] in a["sedi"] for s in lista_sedi)]
+
+
+def testo_avviso(a, in_questa_sede=True):
+    dove = "in questa sede" if in_questa_sede else escape(a["dove"])
+    return (f'<strong>Attenzione: l\'esame {a["ente"]} {del_(a["sessione"])}{data_breve(a["sessione"])} non si fa {dove}.</strong> {escape(a["chi"][0].upper() + a["chi"][1:])} scrive: '
+            f'«{escape(a["citazione"])}» (<a href="{escape(a["fonte"]["url"])}" rel="noopener">{escape(a["fonte"]["nome"])}</a>, letto il {data_breve(a["fonte"]["letta_il"])}). '
+            f'Le altre sedi e gli altri enti non cambiano.')
+
+
+def avviso_sede(s):
+    return "".join(f'<div class="avviso">{ic("attenzione")}<div>{testo_avviso(a)}</div></div>' for a in avvisi_di([s]))
+
+
 def scheda_sede(s, con_citta=False):
     righe = [escape(s["indirizzo"])] if s["indirizzo"] else []
     luogo = " ".join(x for x in [s.get("cap", ""), s["citta"], f'({s["sigla"]})' if s.get("sigla") else ""] if x)
@@ -1078,7 +1191,7 @@ def scheda_sede(s, con_citta=False):
     return f"""<li class="s-{s['ente'].replace('.', '')}"><div class="nome">{eb(s['ente'])}<span>{escape(s['nome'])}</span></div>
 {f'<div class="det">{ic("pin")}<span>{"<br>".join(righe)}</span></div>' if righe else ""}
 {f'<div class="contatti">{"".join(contatti)}</div>' if contatti else ""}
-<div class="fonte">{ic("doc")}<span>Fonte: <a href="{escape(s.get('fonte_pagina') or s['fonte'])}" rel="noopener">elenco ufficiale {escape(s['ente'])}</a></span></div></li>"""
+<div class="fonte">{ic("doc")}<span>Fonte: <a href="{escape(s.get('fonte_pagina') or s['fonte'])}" rel="noopener">elenco ufficiale {escape(s['ente'])}</a></span></div>{avviso_sede(s)}</li>"""
 
 
 def jsonld_sessioni(lista):
@@ -1624,7 +1737,26 @@ Qui trovi in un solo posto le date, le scadenze e le sedi dei 4 enti principali:
     pagina("index.html", titolo, descr, corpo, jsonld)
 
 
-def per_ente(c, qui, in_citta, prossime):
+def sessioni_saltate(lista_sedi):
+    """{(ente, giorno)} delle sessioni che NESSUNA delle sedi date di quell'ente farà (dati/avvisi_sedi.json): la pagina di una città
+    con sole sedi sotto avviso mostra come prossimo esame la sessione dopo."""
+    return {(a["ente"], a["sessione"]) for a in avvisi_di(lista_sedi)
+            if all(s["nome"] in a["sedi"] for s in lista_sedi if s["ente"] == a["ente"])}
+
+
+def riga_avviso_ente(e, lista, avvisi):
+    """Nella scheda dell'ente di una città dove solo alcune sedi saltano la sessione: per quelle sedi, la prossima data vera."""
+    righe = []
+    for a in avvisi:
+        if a["ente"] != e or not any(s["data"] == a["sessione"] for s in lista):
+            continue
+        dopo = next((s for s in lista if s["data"] > a["sessione"]), None)
+        righe.append(f'<p class="pe-cosa"><strong>{escape(a["dove"][0].upper() + a["dove"][1:])}</strong> l\'esame {del_(a["sessione"])}{data_breve(a["sessione"])} non si fa'
+                     + (f': lì il prossimo esame è {il(dopo["data"])}{data_breve(dopo["data"])}' if dopo else "") + '. <a href="#avviso-sedi">Leggi l\'avviso</a>.</p>')
+    return "".join(righe)
+
+
+def per_ente(c, qui, in_citta, prossime, avvisi=()):
     """Una scheda per ente con sedi in provincia: prossimo esame e prima scadenza nazionale ancora aperta.
     Il JS (data-slot / data-fino) nasconde le voci passate anche tra un aggiornamento e l'altro."""
     schede = []
@@ -1663,7 +1795,7 @@ Controlliamo il calendario ogni settimana: <a href="#avvisami">avvisami quando e
         schede.append(f"""<article class="pe pe-{e.replace('.', '')}">
 <div class="pe-testa">{eb(e)}<a href="#sedi-{SLUG_ENTE[e]}">{ic("pin")}{dove}</a></div>
 <div data-slot><div class="pe-et">{ic("cal")}Prossimo esame</div>{esami}</div>
-<div data-slot><div class="pe-et">{ic("orologio")}Iscrizioni (termine nazionale)</div>{iscr}</div>
+<div data-slot><div class="pe-et">{ic("orologio")}Iscrizioni (termine nazionale)</div>{iscr}</div>{riga_avviso_ente(e, lista, avvisi)}
 </article>""")
     return f'<div class="perente">{"".join(schede)}</div>'
 
@@ -1875,6 +2007,46 @@ def enti_per_data(enti_qui, prossime):
     return sorted(enti_qui, key=lambda e: (prima(e), ordine.index(e)))
 
 
+# Note locali delle pagine città (26/11/2026, audit AdSense: 17 città simili tra loro oltre 0,6): 2-3 frasi scritte a mano per
+# città, solo con fatti letti sul sito ufficiale della sede, nell'anagrafe del Ministero o negli elenchi ufficiali degli enti.
+# dati/note_citta.json tiene frasi, fonti (nome, url, giorno della lettura) e citazioni; una città senza voce non ha il blocco.
+NOTE_CITTA = json.loads((DATI / "note_citta.json").read_text(encoding="utf-8"))["citta"]
+
+
+def controlla_note_citta():
+    """Ogni nota ha 2-3 frasi, fonti complete e citazioni; ogni numero di almeno 2 cifre delle frasi sta in una citazione o in 'dati'."""
+    errori = []
+    slug_citta = {c["slug"] for c in citta}
+    for sl, n in NOTE_CITTA.items():
+        if sl not in slug_citta:
+            errori.append(f"note_citta.json: {sl} non è una città del sito")
+        if not 2 <= len(n.get("frasi", [])) <= 3:
+            errori.append(f"note_citta.json: {sl} deve avere 2 o 3 frasi")
+        if not n.get("fonti") or any(not f.get("nome") or not f.get("url", "").startswith("https://")
+                                     or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", f.get("letta_il", "")) for f in n.get("fonti", [])):
+            errori.append(f"note_citta.json: {sl} ha una fonte senza nome, url https o data di lettura")
+        if not n.get("citazioni"):
+            errori.append(f"note_citta.json: {sl} senza citazioni")
+        cifre = [re.sub(r"\D", "", x) for x in n.get("citazioni", []) + n.get("dati", [])]
+        for frase in n.get("frasi", []):
+            for num in re.findall(r"\d[\d .:/-]*\d", frase):
+                for pezzo in ([re.sub(r"\D", "", num)] if re.fullmatch(r"0\d[\d ]+", num) else re.findall(r"\d{2,}", num)):
+                    if not any(pezzo in x for x in cifre):
+                        errori.append(f"note_citta.json: {sl}: il numero {pezzo} della frase «{frase[:50]}…» non è nelle citazioni")
+    if errori:
+        raise SystemExit("\n".join(errori))
+
+
+def nota_sede(c):
+    """Blocco «Cosa scrive la sede» della pagina città: frasi di dati/note_citta.json con le fonti e il giorno della lettura."""
+    n = NOTE_CITTA.get(c["slug"])
+    if not n:
+        return ""
+    fonti = "; ".join(f'<a href="{escape(f["url"])}" rel="noopener">{escape(f["nome"])}</a>, letta il {data_breve(f["letta_il"])}' for f in n["fonti"])
+    return (f'<h3 id="dalla-sede">{ic("info")}Da sapere {a_(c)}</h3>' + "".join(f"<p>{escape(x)}</p>" for x in n["frasi"])
+            + f'<p class="small">{"Fonte" if len(n["fonti"]) == 1 else "Fonti"}: {fonti}.</p>')
+
+
 def pagina_citta(c, prossime):
     qui = [s for s in sedi if s["provincia"] == c["provincia"]]
     in_citta = [s for s in qui if nel_capoluogo(s, c)]
@@ -1888,6 +2060,11 @@ def pagina_citta(c, prossime):
     # provincia sta nella pagina del capoluogo. Senza pagina del capoluogo restano le sedi della provincia, come prima.
     solo_comune = not capoluogo and cap is not None
     locale = in_citta if solo_comune else qui
+    # 26/11/2026: sessioni che nessuna sede di qui farà (avviso ufficiale della sede): fuori da «Prossimo esame», titolo e description
+    avvisi_qui = avvisi_di(locale)
+    saltate = sessioni_saltate(locale)
+    tutte_le_sessioni = len(prossime)
+    prossime = [s for s in prossime if (s["ente"], s["data"]) not in saltate]
     blocchi = []
     for e in enti_per_data(list(ENTE), prossime):
         lista = [s for s in in_citta if s["ente"] == e]
@@ -1948,7 +2125,7 @@ def pagina_citta(c, prossime):
     # 19/11/2026: una città può restare senza sessioni future (date tutte passate): niente elenco di fonti vuoto.
     nota_date = (f'<p class="small">{ic("doc")} ' + (f'Fonti: calendari ufficiali {elenco_e(fonti_date)}'
                  f'{", controllati il " + data_breve(controllo) if controllo else ""}. ' if fonti_date else '')
-                 + f'<a href="../../#date">Calendario completo: tutte le {len(prossime)} sessioni di CILS, CELI, PLIDA e CERT.IT</a>.'
+                 + f'<a href="../../#date">Calendario completo: tutte le {tutte_le_sessioni} sessioni di CILS, CELI, PLIDA e CERT.IT</a>.'
                  + (f' <a href="../../iscrizione/">{RIGA_ISCRIZIONE}</a>.' if c["slug"] in CITTA_ISCRIZIONE else "") + '</p>')
     faq = faq_citta(c, enti_prov, mancano, regione, cap)
     corpo = f"""<section class="hero">
@@ -1958,15 +2135,15 @@ def pagina_citta(c, prossime):
 Le date d'esame sono le stesse in tutta Italia; la scadenza per iscriversi può cambiare da sede a sede.</p>
 <div id="date">
 <h2 id="per-ente">{ic("cal")}Prossime date {a_(c)}, ente per ente</h2>
-{per_ente(c, locale, in_citta, prossime)}
-{nota_date}
+{per_ente(c, locale, in_citta, prossime, [a for a in avvisi_qui if (a['ente'], a['sessione']) not in saltate])}
+{nota_date}{''.join(f'<div class="avviso" id="avviso-sedi">{ic("attenzione")}<div>{testo_avviso(a, False)}</div></div>' for a in avvisi_qui)}
 </div>
 <div class="azioni"><a class="btn" href="#sedi">{ic("pin")}Vedi {'la sede' if len(mie) == 1 else f'le {len(mie)} sedi'}</a><a class="btn btn-2" href="#avvisami">{ic("campana")}Avvisami per {escape(c['nome'])}</a></div>
 </section>
 <section>
 <h2 id="sedi">{ic("edificio")}Sedi d'esame {a_(c)}</h2>
 {"".join(blocchi) or "<p>Nessuna sede trovata nelle fonti ufficiali.</p>"}
-{nota_mancano}
+{nota_mancano}{nota_sede(c)}
 </section>
 <div class="due">
 {passi_citta(c, enti_prov, locale, cap, len(in_prov))}
@@ -5431,6 +5608,9 @@ def extra(urls):
            '<section class="hero"><span class="occhiello">Errore 404</span><h1>Pagina non trovata</h1><p class="lead">Torna al <a href="/">calendario delle date</a>.</p>'
            f'<div class="azioni"><a class="btn" href="/">{ic("cal")}Vedi tutte le date</a><a class="btn btn-2" href="/#citta">{ic("pin")}Sedi per città</a></div></section>',
            base="/")
+    tolte = soglia_parole_proprie()  # a sito finito (dopo i blocchi «più usate»), 26/11/2026: via lo script AdSense dalle pagine con poche parole proprie e dalle privacy
+    print(f"Pagine senza AdSense per la soglia di {MIN_PAROLE_PROPRIE_ADSENSE} parole proprie o perché privacy: {len(tolte)}: "
+          + ", ".join(f"{u} ({n})" for u, n in tolte))
 
 
 def controlli(prossime):
@@ -5499,6 +5679,7 @@ def main():
     controlli(prossime)
     controlli_ricongiungimento()
     controlli_flussi()
+    controlla_note_citta()
     if SITO.exists():
         conserva = {p.name: p.read_bytes() for p in SITO.glob("google*.html")}  # verifica Search Console
         shutil.rmtree(SITO)

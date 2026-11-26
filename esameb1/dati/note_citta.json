@@ -1,0 +1,505 @@
+{
+ "_nota": "Note locali delle pagine città (26/11/2026, audit AdSense: pagine città troppo simili tra loro). Per ogni città 2-3 frasi scritte a mano, solo con fatti letti sul sito ufficiale della sede d'esame, nell'anagrafe del Ministero dell'Istruzione o negli elenchi ufficiali degli enti già in dati/sedi.json e dati/cpia.json. 'citazioni': testo copiato dalla fonte (per l'anagrafe: campi della riga del file CSV; per i PDF con tabelle: celle della stessa riga, unite da spazi). 'dati': numeri della frase che vengono dai nostri dati (conteggi, giorno della lettura). Nessun nome di persona. genera.py controlla che ogni numero delle frasi sia nelle citazioni o in 'dati'. Niente fonte letta = niente nota: non si inventa.",
+ "letto_il": "2026-11-26",
+ "citta": {
+  "crema": {
+   "frasi": [
+    "Il CPIA di Cremona, da cui dipende la sede di Crema, attiva l'esame solo se nella sede ci sono almeno 8 iscritti allo stesso livello: lo scrive nel suo calendario CILS 2026.",
+    "Nel tariffario della scuola il B1 Cittadinanza costa 100 € sia per chi frequenta i corsi del CPIA sia per i candidati esterni, e chi non lo supera deve ripeterlo per intero.",
+    "La scuola chiede di presentarsi nella sede scelta almeno due mesi prima dell'esame, con carta d'identità o passaporto, e di compilare il modulo in stampatello."
+   ],
+   "fonti": [
+    {
+     "nome": "CPIA Cremona, pagina «Esami CILS» con calendario, tariffario e scheda informativa",
+     "url": "https://cpiacr.edu.it/didattica/offerta-formativa/esami-cils/",
+     "letta_il": "2026-11-26"
+    }
+   ],
+   "citazioni": [
+    "ESAMI DI CERTIFICAZIONE LINGUISTICA C.I.L.S. CALENDARIO ANNO 2026",
+    "attivi presso le sedi di Cremona-Crema-Casalmaggiore",
+    "N.B.:con minimo 8 iscritti al medesimo livello linguistico per ciascuna sede di attivazione",
+    "B1 Cittadinanza € 100",
+    "L’esame se non è stato superato, deve essere ripetuto per intero, pagando la tassa completa.",
+    "Presentarsi nella sede scelta per l’iscrizione almeno due mesi prima dalla data di esame, muniti di documento d’identità valido (carta d’Identità o Passaporto).",
+    "Compilare il modulo d’iscrizione in carattere STAMPATO in modo molto preciso e puntuale."
+   ]
+  },
+  "cremona": {
+   "frasi": [
+    "Il CPIA di Cremona fa gli esami CILS in tre sedi: Cremona, Crema e Casalmaggiore. Nel suo calendario 2026, per l'esame del 3 dicembre il modulo andava presentato entro il 30 settembre e la tassa pagata con PagoPA entro il 14 ottobre.",
+    "Chi frequenta i corsi del CPIA paga meno il B1 standard (60 € invece di 90 €); il B1 Cittadinanza costa 100 € per tutti.",
+    "La segreteria del CPIA è in via S. Lorenzo 4/b e risponde allo 0372 27662."
+   ],
+   "fonti": [
+    {
+     "nome": "CPIA Cremona, pagina «Esami CILS» con calendario e tariffario",
+     "url": "https://cpiacr.edu.it/didattica/offerta-formativa/esami-cils/",
+     "letta_il": "2026-11-26"
+    }
+   ],
+   "citazioni": [
+    "ESAMI DI CERTIFICAZIONE LINGUISTICA C.I.L.S. CALENDARIO ANNO 2026",
+    "attivi presso le sedi di Cremona-Crema-Casalmaggiore",
+    "30/09/26 14/10/26 03/12/2026 A2 integrazione B1 cittadinanza",
+    "Pagamento bollettino Pago PA",
+    "TASSE DI ESAME per candidati INTERNI (studenti iscritti ai corsi CPIA Cremona, Crema e Casalmaggiore) B1 € 60",
+    "TASSE DI ESAME per candidati ESTERNI B1 € 90",
+    "B1 Cittadinanza € 100",
+    "Via S.Lorenzo 4/b, 26100 - Cremona (CR) | Tel: 037227662"
+   ]
+  },
+  "l-aquila": {
+   "frasi": [
+    "Il CPIA dell'Aquila fa l'esame CILS in due sedi, L'Aquila e Avezzano. Nella circolare per la sessione del 3 dicembre 2026 scrive che le prove cominciano alle 08:30 e che l'orario di ogni candidato viene comunicato dopo l'iscrizione.",
+    "Per quella sessione il modulo andava consegnato entro il 22 ottobre 2026 e la ricevuta del pagamento entro il 24 ottobre.",
+    "Sempre secondo la circolare, i risultati del B1 Cittadinanza si vedono online 50-60 giorni dopo l'esame e il certificato di carta arriva al CPIA non prima di 5-6 mesi. Le segreterie rispondono allo 0862 313475 (L'Aquila) e allo 0863 1809831 (Avezzano)."
+   ],
+   "fonti": [
+    {
+     "nome": "CPIA L'Aquila, circolare «Esami CILS, sessione del 03.12.2026»",
+     "url": "https://www.cpialaquila.edu.it/esame-cils-sessione-dicembre-2026/",
+     "letta_il": "2026-11-26"
+    }
+   ],
+   "citazioni": [
+    "il prossimo 3 dicembre 2026, presso le Sedi del CPIA di L’Aquila ed Avezzano, a partire dalle ore 08:30, si terrà la nuova sessione degli esami CILS",
+    "Per entrambe le modalità di consegna la data di scadenza sarà il giorno 22.10.2026.",
+    "entro e non oltre il giorno 24.10.2026",
+    "Ad ogni candidato/a verrà in seguito comunicato l’orario in cui presentarsi per sostenere l’esame.",
+    "Solo i risultati del Livello B1 Cittadinanza saranno disponibili (sempre online e con la stessa modalità di accesso) 50-60 giorni dopo la data d’esame.",
+    "Il formato cartaceo della Certificazione conseguita sarà invece disponibile presso il CPIA L’Aquila non prima di 5-6 mesi dalla data d’esame.",
+    "contattare la segreteria studenti della sede del CPIA L’Aquila al numero 0862.313475 o quella della Sede Associata del CPIA di Avezzano al numero 0863.1809831"
+   ]
+  },
+  "pescara": {
+   "frasi": [
+    "La sede CELI della provincia non è in città: è la sede centrale del CPIA Pescara-Chieti, in via Elsa Morante 4 a Cepagatti. A Pescara il CPIA ha un centro territoriale in via Tavo 248, secondo l'anagrafe del Ministero dell'Istruzione.",
+    "Sul sito del CPIA c'è una pagina «Certificazioni Linguistiche CELI» con il calendario delle sessioni d'esame.",
+    "Le due sedi CILS sono invece in città: l'Università di Chieti-Pescara e il Liceo Marconi."
+   ],
+   "fonti": [
+    {
+     "nome": "anagrafe delle scuole statali del Ministero dell'Istruzione e del Merito (dati aperti, anno scolastico 2026/27)",
+     "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/?area=Scuole",
+     "letta_il": "2026-11-26"
+    },
+    {
+     "nome": "CPIA Pescara-Chieti, pagina «Certificazioni Linguistiche CELI»",
+     "url": "https://www.cpiapech.edu.it/celi-2/",
+     "letta_il": "2026-11-26"
+    }
+   ],
+   "citazioni": [
+    "C.P.I.A. PESCARA - CHIETI,VIA ELSA MORANTE 4,65012",
+    "CENTRO TERRITORIALE PESCARA,VIA TAVO 248,65129",
+    "Certificazioni Linguistiche CELI",
+    "Calendario sessioni d'esame"
+   ]
+  },
+  "messina": {
+   "frasi": [
+    "Al DICAM dell'Università di Messina la quota dell'esame PLIDA B1 è di 100 €; chi deve ripetere una sola abilità paga 25 €.",
+    "Ci si iscrive scrivendo alla segreteria del dipartimento, con oggetto «PLIDA», entro 14 giorni prima dell'esame.",
+    "Nel 2026 le sessioni con il B1 sono state quattro (11 febbraio, 10 giugno, 9 settembre e 18 novembre), al primo piano del DICAM, Polo Annunziata, con inizio alle 8.30."
+   ],
+   "fonti": [
+    {
+     "nome": "Università di Messina, DICAM, «Certificato PLIDA» 2026",
+     "url": "https://dicam.unime.it/sites/dip12/files/2026-01/Pagina%20PLIDA%20DICAM%202026.pdf",
+     "letta_il": "2026-11-26"
+    }
+   ],
+   "citazioni": [
+    "B1 € 100,00 € 25,00",
+    "e-mail: amministrazione.dicam@unime.it [specificare come oggetto: PLIDA]) entro 14 giorni prima della data dell’esame",
+    "Merc. 11 febbraio A2, B1 Aule 2 e 3 (I piano DICAM): ore 8.30 30 gennaio",
+    "Merc. 10 giugno B1, B2, C1 Aula 2 (I piano DICAM): ore 8.30 27 maggio",
+    "Merc. 9 settembre A2, B1 Aule 2 e 3 (I piano DICAM): ore 8.30 1° settembre",
+    "Merc. 18 novembre A2, B1 Aule 2 e 3 (I piano DICAM): ore 8.30 28 ottobre",
+    "Le prove d’esame PLIDA dell’anno 2026 si svolgono nelle seguenti date"
+   ]
+  },
+  "siracusa": {
+   "frasi": [
+    "Il Comitato di Siracusa della Società Dante Alighieri è centro PLIDA dal 2003. Nel modulo d'iscrizione sul suo sito l'esame «B1 cittadinanza» costa 140 €.",
+    "Per iscriversi a un corso o a un esame bisogna essere tesserati della Dante e registrarsi anche sul sito Dante Global.",
+    "C'è un servizio facoltativo di correzione urgente: 20 € in più, con il risultato in 5 settimane invece di 3 mesi."
+   ],
+   "fonti": [
+    {
+     "nome": "Società Dante Alighieri, Comitato di Siracusa, pagina PLIDA",
+     "url": "https://www.dantesiracusa.com/progetto-lingua-italiana-dante-alighieri/",
+     "letta_il": "2026-11-26"
+    }
+   ],
+   "citazioni": [
+    "CENTRO CERTIFICATORE DAL 2003",
+    "B1 cittadinanza € 140,00",
+    "Per l'iscrizione ai corsi o agli esami è necessario essere tesserati",
+    "Servizio facoltativo correzione urgente (5 settimane invece di 3 mesi) - € 20,00",
+    "per completare le modalità d'iscrizione agli esami PLIDA è necessario registrarsi al sito Dante Global"
+   ]
+  },
+  "trapani": {
+   "frasi": [
+    "Delle 5 sedi della provincia solo 2 sono a Trapani città: la Scuola Virgilio (CELI) in via Osorio 24 e l'istituto La Piramide (CILS) in via Domenico Aula 15.",
+    "Le sedi CELI e PLIDA di Alcamo sono lo stesso centro, Lingua+, in via Domenico La Bruna 39: sul suo sito indica il telefono 0924 501 177 per Alcamo e un secondo ufficio a Marsala, in via Pascasino 61."
+   ],
+   "fonti": [
+    {
+     "nome": "elenchi ufficiali delle sedi CELI, CILS e PLIDA",
+     "url": "https://cvcl.unistrapg.it/pagine/centri-desame-convenzionati",
+     "letta_il": "2026-11-23"
+    },
+    {
+     "nome": "Lingua+, pagina «Certificazioni»",
+     "url": "https://www.corsilinguapiu.com/certificazioni.html",
+     "letta_il": "2026-11-26"
+    }
+   ],
+   "citazioni": [
+    "Via Osorio 24",
+    "Via Domenico Aula, 15",
+    "Alcamo: 0924 501 177",
+    "VIA DOMENICO LA BRUNA, 39 91011 ALCAMO (TP)",
+    "VIA PASCASINO, 61 91025 MARSALA(TP)"
+   ],
+   "dati": [
+    "5 sedi",
+    "2"
+   ]
+  },
+  "novara": {
+   "frasi": [
+    "Il CPIA 1 Novara, sede CELI in città, nella sua pagina iniziale annuncia la prossima sessione: 17 febbraio 2027, CELI 2 Immigrati B1 Cittadinanza.",
+    "Sul sito della scuola ci sono una pagina sui «Certificati di lingua italiana per immigrati - CELI 2 cittadinanza - B1» e una sul test A2 della Prefettura.",
+    "Le due sedi CILS della provincia sono dell'ENAIP: una a Novara e una a Borgomanero."
+   ],
+   "fonti": [
+    {
+     "nome": "CPIA 1 Novara, pagina iniziale",
+     "url": "https://www.cpianovara.edu.it/",
+     "letta_il": "2026-11-20"
+    },
+    {
+     "nome": "CPIA 1 Novara, «Certificati di lingua italiana per immigrati - CELI 2 cittadinanza - B1»",
+     "url": "https://www.cpianovara.edu.it/servizio/certificati-di-lingua-italiana-per-immigrati-celi-2-cittadinanza-b1/",
+     "letta_il": "2026-11-20"
+    }
+   ],
+   "citazioni": [
+    "PROSSIMA SESSIONE 17/02/2027_CELI 2 IMMIGRATI B1 - CITTADINANZA -",
+    "CERTIFICATI DI LINGUA ITALIANA PER IMMIGRATI - CELI 2 CITTADINANZA - B1 - CPIA NOVARA",
+    "In questa sezione verranno visualizzati tutti i risultati dei test A2 della prefettura"
+   ]
+  },
+  "campobasso": {
+   "frasi": [
+    "La sede CELI non è in città: è il CPIA «Maestro Alberto Manzi», che ha la sede centrale in via Piero Pietrunti 28 a Ripalimosani. Nell'anagrafe del Ministero dell'Istruzione lo stesso CPIA ha anche una sede a Campobasso, in via Scarano, e una a Termoli.",
+    "In città si fanno il CILS, al Centro Linguistico dell'Università del Molise in via De Sanctis, e il PLIDA, al Comitato Dante di via Roma 41, che nell'elenco ufficiale indica come orario di apertura 10.30-12.00."
+   ],
+   "fonti": [
+    {
+     "nome": "anagrafe delle scuole statali del Ministero dell'Istruzione e del Merito (dati aperti, anno scolastico 2026/27)",
+     "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/?area=Scuole",
+     "letta_il": "2026-11-26"
+    },
+    {
+     "nome": "elenco ufficiale dei centri PLIDA",
+     "url": "https://www.dante.global/it/contatti/lista-contatti",
+     "letta_il": "2026-11-23"
+    }
+   ],
+   "citazioni": [
+    "CPIA MAESTRO ALBERTO MANZI,VIA PIERO PIETRUNTI 28,86025",
+    "CPIA SEDE DI CAMPOBASSO,VIA SCARANO,86100",
+    "CPIA SEDE DI TERMOLI,VIA ALCIDE DE GASPERI 30,86039",
+    "Via Roma 41",
+    "+39 0874 91687, orario apertura: 10.30-12.00"
+   ]
+  },
+  "chieti": {
+   "frasi": [
+    "A Chieti città la sede d'esame è una sola: il Patronato Acli di piazza Templi Romani 3, per il CILS. Le sedi CELI e PLIDA della provincia sono tutte e due a Vasto.",
+    "Il CPIA della zona è quello di Pescara-Chieti: è sede CELI, ma nella sede centrale di Cepagatti, in provincia di Pescara. Nell'anagrafe del Ministero dell'Istruzione ha centri territoriali a Chieti (via Teramo), a Lanciano e a Vasto."
+   ],
+   "fonti": [
+    {
+     "nome": "elenco ufficiale delle sedi CILS in Abruzzo",
+     "url": "https://cils.unistrasi.it/1/179/67/Abruzzo.htm",
+     "letta_il": "2026-11-23"
+    },
+    {
+     "nome": "anagrafe delle scuole statali del Ministero dell'Istruzione e del Merito (dati aperti, anno scolastico 2026/27)",
+     "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/?area=Scuole",
+     "letta_il": "2026-11-26"
+    }
+   ],
+   "citazioni": [
+    "Piazza Templi Romani, 3",
+    "CENTRO TERRITORIALE PERMANENTE CHIETI,VIA TERAMO C/0 S.M. ORTIZ,66100",
+    "CENTRO TERRITORIALE PERMANENTE LANCIANO,VIA BARRELLA,66034",
+    "CENTRO TERRITORIALE PERMANENTE VASTO,LARGO ALCIDE DE GASPERI,66054",
+    "C.P.I.A. PESCARA - CHIETI,VIA ELSA MORANTE 4,65012"
+   ]
+  },
+  "belluno": {
+   "frasi": [
+    "Il CPIA di Belluno organizza gli esami CILS in due sedi, Belluno e Feltre: ci si iscrive passando dalla segreteria della scuola.",
+    "Per le informazioni la scuola indica due numeri, 0437 31143 per Belluno e 0439 885695 per Feltre, e le email delle due segreterie.",
+    "La pagina del CPIA sulla certificazione CILS è stata rivista il 5 giugno 2026."
+   ],
+   "fonti": [
+    {
+     "nome": "CPIA di Belluno, «Certificazione CILS (Università per Stranieri di Siena)»",
+     "url": "https://www.cpiabl.edu.it/indirizzo-di-studio/certificazione-cils-universita-di-siena/",
+     "letta_il": "2026-11-26"
+    }
+   ],
+   "citazioni": [
+    "IL CPIA DI BELLUNO nelle sedi di Belluno e Feltre organizza gli Esami di Certificazione CILS (in convenzione con l’Università per Stranieri di Siena)",
+    "Per maggiori informazioni potete telefonare al numero 0439885695 (Feltre) e 043731143 (Belluno) o contattare i vostri insegnanti di riferimento.",
+    "Si accede tramite la segreteria del CPIA di Belluno",
+    "Sede di Belluno. segreteria.belluno@cpiabl.edu.it",
+    "Pubblicato: 07.04.2023 - Revisione: 05.06.2026"
+   ]
+  },
+  "cagliari": {
+   "frasi": [
+    "The One World Language Centre, una delle sedi CILS di Cagliari, chiede 125 € per l'esame CILS B1 Cittadinanza e fa pagare con bonifico bancario.",
+    "Per la sessione del 3 dicembre 2026 la sua scadenza per iscriversi era il 24 ottobre.",
+    "Prima di ogni esame la scuola organizza un corso di preparazione online."
+   ],
+   "fonti": [
+    {
+     "nome": "One World, «Preparazione all'esame CILS B1 Cittadinanza»",
+     "url": "https://oneworldcagliari.com/it/corso-cils-b1-cittadinanza",
+     "letta_il": "2026-11-26"
+    }
+   ],
+   "citazioni": [
+    "La prossima sessione dell’esame CILS B1 Cittadinanza si terrà il 3 dicembre 2026.",
+    "La scadenza per l’iscrizione è il 24 ottobre.",
+    "Il costo dell’esame è di 125 euro.",
+    "procedere al pagamento tramite bonifico bancario",
+    "Prima di ogni esame organizziamo un corso di preparazione online."
+   ]
+  },
+  "piacenza": {
+   "frasi": [
+    "A Piacenza tre sedi su quattro fanno capo a Mondo Aperto APS, che per gli esami usa il nome PLIDA Piacenza: sul suo sito scrive di essere centro autorizzato anche per CILS e CELI.",
+    "Per l'esame PLIDA il centro offre la correzione urgente, che costa 10 € in più.",
+    "Per appuntamenti e informazioni chiede di usare il modulo di contatto del sito o di scrivere alla segreteria."
+   ],
+   "fonti": [
+    {
+     "nome": "PLIDA Piacenza, «Certificazioni CILS e CELI»",
+     "url": "https://plidapiacenza.com/certificazioni-cils-e-celi/",
+     "letta_il": "2026-11-26"
+    },
+    {
+     "nome": "PLIDA Piacenza, «Iscrizioni e contatti»",
+     "url": "https://plidapiacenza.com/iscrizioni-e-contatti/",
+     "letta_il": "2026-11-26"
+    }
+   ],
+   "citazioni": [
+    "PLIDA Piacenza è centro ufficialmente autorizzato alla somministrazione degli esami CILS e CELI",
+    "Correzione urgente (la correzione urgente ha un costo di € 10)",
+    "Per appuntamenti, informazioni riguardo all’esame PLIDA e ai nostri corsi in essere compila il form di contatto."
+   ]
+  },
+  "terni": {
+   "frasi": [
+    "A Terni le 4 sedi sono tutte in città e coprono tre enti: due sedi CELI (via XX Settembre 166 e via Montefiorino 12/C), il Patronato Acli per il CILS e il Comitato Dante di via Oberdan 6 per il PLIDA.",
+    "Il CPIA 1 Terni, che nell'anagrafe del Ministero dell'Istruzione ha sede in viale Brin 32, non compare negli elenchi delle sedi d'esame dei quattro enti: per il B1 a Terni ci si rivolge alle associazioni e al patronato."
+   ],
+   "fonti": [
+    {
+     "nome": "elenchi ufficiali delle sedi CELI, CILS, PLIDA e CERT.IT",
+     "url": "https://cvcl.unistrapg.it/pagine/centri-desame-convenzionati",
+     "letta_il": "2026-11-23"
+    },
+    {
+     "nome": "anagrafe delle scuole statali del Ministero dell'Istruzione e del Merito (dati aperti, anno scolastico 2026/27)",
+     "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/?area=Scuole",
+     "letta_il": "2026-11-26"
+    }
+   ],
+   "citazioni": [
+    "Via XX Settembre n.166",
+    "Via Montefiorino n. 12/C",
+    "Via Oberdan , 6",
+    "C.P.I.A. 1 TERNI,VIALE B. BRIN 32,05100"
+   ],
+   "dati": [
+    "4 sedi"
+   ]
+  },
+  "trieste": {
+   "frasi": [
+    "La Piccola Università Italiana è sede d'esame di due enti: sul suo sito scrive che nel campus di Trieste si possono fare sia il CILS sia il CELI.",
+    "La scuola offre un corso di preparazione alle certificazioni, intensivo o con lezioni individuali. Il calendario d'esame pubblicato sulla pagina è ancora quello del 2024: le date vanno chieste alla scuola.",
+    "La sede CILS del CPIA è ospitata dall'I.C. Bergamas, in via dell'Istria 45; la pagina «Esami CILS» del CPIA è ferma alla revisione del 18 settembre 2023."
+   ],
+   "fonti": [
+    {
+     "nome": "Piccola Università Italiana, «Esami per le certificazioni di italiano»",
+     "url": "https://piccolauniversitaitaliana.com/it/esami-certificazioni-italiano/",
+     "letta_il": "2026-11-26"
+    },
+    {
+     "nome": "CPIA di Trieste, «Esami CILS»",
+     "url": "https://cpiatrieste.edu.it/esami-cils/",
+     "letta_il": "2026-11-26"
+    },
+    {
+     "nome": "elenco ufficiale delle sedi CILS in Friuli Venezia Giulia",
+     "url": "https://cils.unistrasi.it/1/179/66/Friuli_Venezia_Giulia.htm",
+     "letta_il": "2026-11-23"
+    }
+   ],
+   "citazioni": [
+    "Nel nostro campus di Trieste potrai svolgere gli esami: – CILS (Certificazione di Italiano come Lingua Straniera dell’Università di Siena); – CELI (Certificato di Conoscenza della Lingua Italiana dell’Università di Perugia).",
+    "Il nostro corso di preparazione alle certificazioni ti aiuterà a prepararti adeguatamente per superare gli esami e può essere prenotato sia come corso intensivo che come lezioni individuali.",
+    "CILS: Date degli Esami 2024 | Luogo: Trieste",
+    "Pubblicato: 05.06.2020 - Revisione: 18.09.2023",
+    "Sede associata CPIA Trieste c/o I.C. Bergamas, Via dell'Istria 45"
+   ]
+  },
+  "alessandria": {
+   "frasi": [
+    "Il CPIA 1 Alessandria fa gli esami CILS nella sede di Casale Monferrato, non ad Alessandria. L'esame B1 cittadinanza costa 100 euro.",
+    "La scuola offre gratis una prova di simulazione per capire il proprio livello e corsi di preparazione al B1, anche nella sede di Alessandria.",
+    "Per informazioni e iscrizioni si va alla Segreteria Alunni di Casale Monferrato, in via Oliviero Capello 3, o alla segreteria di Alessandria, in via G. Plana 42; il telefono è 0142 213007."
+   ],
+   "fonti": [
+    {
+     "nome": "CPIA 1 Alessandria, «Cils: livelli e linee guida»",
+     "url": "https://www.cpia1alessandria.edu.it/pagine/cils-livelli-e-linee-guida",
+     "letta_il": "2026-11-26"
+    }
+   ],
+   "citazioni": [
+    "Presso la sede del C.P.I.A. di Casale Monferrato si svolgono gli ESAMI CILS",
+    "100 euro per l’esame di B1 cittadinanza",
+    "La nostra scuola offre gratuitamente la possibilità di fare una prova di simulazione per verificare il proprio livello e corsi di preparazione all’esame di livello B1, B2, C1 sulle sedi di Alessandria (solo B1 e B2) e di Casale Monferrato.",
+    "recarsi presso la Segreteria Alunni di Casale Monferrato in via Oliviero Capello 3, o presso la Segreteria di Alessandria in via G. Plana 42",
+    "chiamare la Segreteria al numero 0142 213007"
+   ]
+  },
+  "treviglio": {
+   "frasi": [
+    "La sede d'esame di Treviglio è la sede centrale del CPIA 2 Bergamo: nell'anagrafe del Ministero dell'Istruzione la scuola ha il codice BGMM18600E e l'indirizzo via Caravaggio 52.",
+    "Lo stesso CPIA ha altri centri territoriali a Verdellino, Romano di Lombardia, Ponte San Pietro e San Paolo d'Argon.",
+    "Il 26 novembre 2026 il sito della scuola non ha risposto alle nostre richieste: prezzo finale e ultimo giorno per iscriversi vanno chiesti alla segreteria, allo 0363 303225."
+   ],
+   "fonti": [
+    {
+     "nome": "anagrafe delle scuole statali del Ministero dell'Istruzione e del Merito (dati aperti, anno scolastico 2026/27)",
+     "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/?area=Scuole",
+     "letta_il": "2026-11-26"
+    },
+    {
+     "nome": "elenco ufficiale delle sedi CILS in Lombardia",
+     "url": "https://cils.unistrasi.it/1/179/56/Lombardia.htm",
+     "letta_il": "2026-11-23"
+    }
+   ],
+   "citazioni": [
+    "BGMM18600E,CPIA 2 BERGAMO,VIA CARAVAGGIO 52,24047,L400,TREVIGLIO",
+    "C.T.P. VERDELLINO-ZINGONIA",
+    "C.T.P. ROMANO DI LOMBARDIA",
+    "C.T.P. PONTE S.PIETRO",
+    "C.T.P. ALBANO S.ALESSANDRO,VIA DANTE ALIGHIERI 11,24061,B310,SAN PAOLO D'ARGON",
+    "0363-303225"
+   ],
+   "dati": [
+    "26 novembre 2026"
+   ]
+  },
+  "arzignano": {
+   "frasi": [
+    "Per iscriversi e per sapere tasse e modalità di pagamento la sede chiede di scrivere a arzignano@cpiavicenza.edu.it; al telefono, 0444 675135, risponde da lunedì a venerdì dalle 12:00 alle 14:00.",
+    "I pagamenti al CPIA di Vicenza si fanno solo con il sistema Pago in Rete."
+   ],
+   "fonti": [
+    {
+     "nome": "CPIA di Vicenza, «Calendario sessioni esame Arzignano»",
+     "url": "https://sites.google.com/cpiavicenza.edu.it/certificazione-cils/calendario-sessioni-esame-arzignano",
+     "letta_il": "2026-11-26"
+    }
+   ],
+   "citazioni": [
+    "Per iscriversi (e per avere informazioni sulle tasse d'esame e sulle modalità di pagamento) è necessario contattare via mail (arzignano@cpiavicenza.edu.it) la Segreteria della Sede Associata di Arzignano.",
+    "Informazioni telefoniche (0444 675135) vengono fornite nei seguenti giorni e orari: - da lunedì a venerdì, ore 12:00-14:00",
+    "I pagamenti al CPIA di Vicenza devono obbligatoriamente essere effettuati tramite il sistema PAGO IN RETE."
+   ]
+  },
+  "forli": {
+   "frasi": [
+    "Il CPIA di Forlì-Cesena accetta al massimo 50 partecipanti per sessione e consiglia di iscriversi il prima possibile.",
+    "All'iscrizione chiede documento di riconoscimento, tessera sanitaria e ricevuta del pagamento; l'iscrizione si può fare anche per email.",
+    "Le tasse d'esame non vengono rimborsate, ma chi si ritira per un motivo documentato può spostarle su una sessione successiva entro 18 mesi, pagando 10 euro in più. La scuola scrive che i risultati escono da 40 a 50 giorni dopo l'esame."
+   ],
+   "fonti": [
+    {
+     "nome": "CPIA Forlì-Cesena, «Esami B1 italiano cittadinanza»",
+     "url": "https://www.cpiaforlicesena.edu.it/esami-b1-italiano-cittadinanza/",
+     "letta_il": "2026-11-26"
+    }
+   ],
+   "citazioni": [
+    "Attenzione: I posti sono limitati. Massimo 50 partecipanti per sessione. Ti consigliamo di formalizzare l’iscrizione il prima possibile.",
+    "IN SEDE DI ISCRIZIONE E’ OBBLIGATORIO DOCUMENTO DI RICONOSCIMENTO E TESSERA SANITARIA E RICEUTA DI PAGAMENTO",
+    "puoi formalizzare l’iscrizione anche via mail",
+    "Le tasse di esame non sono rimborsabili, ma possono essere trasferite per l’iscrizione alle sessioni d’esame successive fino a un massimo di 18 mesi dalla data della prima iscrizione. Al momento dell’iscrizione alla sessione d’esame successiva, il candidato deve versare un contributo aggiuntivo di 10 euro.",
+    "Per verificare i risultati che saranno pubblicati da 40 a 50 giorni dopo l’esame"
+   ]
+  },
+  "grosseto": {
+   "frasi": [
+    "Dall'anno scolastico 2025-26 al CPIA 1 Grosseto si può fare solo il CILS B1 Cittadinanza, non gli altri livelli; la tassa d'iscrizione è di 100 €.",
+    "Le scadenze del CPIA non coincidono con quelle dell'Università per Stranieri di Siena: passato il termine della scuola, ci si può iscrivere solo direttamente all'Università e fare l'esame a Siena.",
+    "Dalla sessione del 16 giugno 2026 la sede di Grosseto accetta al massimo 26 iscrizioni; raggiunto il limite, ci si prenota nelle sedi di Follonica o di Arcidosso."
+   ],
+   "fonti": [
+    {
+     "nome": "CPIA 1 Grosseto, «Esami CILS»",
+     "url": "https://cpia1grosseto.edu.it/didattica/esami-cils/",
+     "letta_il": "2026-11-26"
+    }
+   ],
+   "citazioni": [
+    "A partire dall’anno scolastico 2025-26 presso il CPIA 1 Grosseto è possibile conseguire esclusivamente la certificazione per il livello B1 Cittadinanza",
+    "L’importo delle tasse da versare all’atto dell’iscrizione è pari a € 100.",
+    "Si precisa che le date di scadenza delle iscrizioni presso le segreterie delle sedi di Arcidosso, Follonica e Grosseto non coincidono con quelle previste dall’Università per Stranieri di Siena. In nessun caso, scaduto il termine previsto, sarà possibile procedere all’iscrizione presso il CPIA 1 Grosseto, per cui il candidato dovrà iscriversi direttamente presso l’Università per Stranieri di Siena e sostenere l’esame presso la stessa Università.",
+    "Si avverte che a partire dalla sessione del 16/06/2026 la sede associata di Grosseto potrà accettare al massimo 26 iscrizioni."
+   ]
+  },
+  "busto-arsizio": {
+   "frasi": [
+    "Per il 3 dicembre 2026 il CPIA 1 Varese ha annunciato una sessione CILS di B1 e B2 standard nella sua sede di via Cav. Azimonti 50: il B1 standard costa 90 euro e le iscrizioni chiudevano il 16 ottobre.",
+    "La tassa si paga solo con PagoPA, con il bollettino che la segreteria manda per email; per informazioni si scrive a cils@cpia1varese.it.",
+    "L'orario dell'esame arriva per email pochi giorni prima: la scuola consiglia di non prendere impegni per tutta la giornata."
+   ],
+   "fonti": [
+    {
+     "nome": "CPIA 1 Varese, «Esami CILS di livello B1 e B2 standard del 03/12/2026»",
+     "url": "https://www.cpia1varese.edu.it/pagine/esami-cils-03122026",
+     "letta_il": "2026-11-26"
+    }
+   ],
+   "citazioni": [
+    "In data 3 DICEMBRE 2026 si terrà, presso il CPIA 1 Varese, la sessione d’esame CILS di livello B1 e B2 STANDARD.",
+    "B1 standard 90 euro",
+    "È possibile iscriversi fino al 16/10/2026.",
+    "ATTENZIONE: SOLO pagamento telematico PagoPA con il bollettino inviato dalla scuola",
+    "Gli esami si svolgeranno presso la sede del CPIA 1 Varese – Via Cav. Azimonti, n. 50 – 21052 Busto Arsizio (VA).",
+    "L’orario dell’esame verrà comunicato ai Candidati via e-mail alcuni giorni prima dell'esame (si consiglia di non prendere impegni per tutta la giornata dell’esame).",
+    "Per ogni ulteriore informazione è possibile scrivere all’indirizzo cils@cpia1varese.it."
+   ]
+  }
+ }
+}

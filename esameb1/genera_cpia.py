@@ -210,7 +210,7 @@ controlla sul <a href="{escape(c["sito"])}" rel="noopener">sito ufficiale</a> pr
 <div class="due">
 <section>
 <h2 id="date">{G.ic("cal")}Le prossime date dell'esame B1 per la cittadinanza</h2>
-{G.lista_sessioni(prossime[:6], con_filtri=False)}
+{G.lista_sessioni(prossime[:6], con_filtri=False, avvisi=G.avvisi_di(sedi_esame(G, c)))}
 <p><a href="../../citta/{c["citta_slug"]}/">Esame B1 per la cittadinanza a {escape(c["citta"])}: sedi e date</a> · <a href="../../#date">Tutte le date</a> ·
 <a href="../../costo/">Quanto costa</a> · <a href="../../esempi/">Prove d'esempio ufficiali</a></p>
 </section>
@@ -391,6 +391,7 @@ def controlli(G):
         main = h[h.find("<main"):h.find("</main>")]
         testo = re.sub(r"\s+", " ", unescape(re.sub(r"<[^>]+>", "", main)))
         ammesse = {x["testo"] for voci in c["citazioni"].values() for x in voci} | {c["nome_anagrafe"], "Centro territoriale"}
+        ammesse |= {a["citazione"] for a in G.AVVISI_SEDI}  # avviso ufficiale di una sede su una sessione (dati/avvisi_sedi.json)
         for frase in re.findall(r"«([^»]+)»", testo):
             if frase not in ammesse:
                 e.append(f"{percorso}: il testo tra virgolette «{frase[:60]}» non è tra le frasi citate")

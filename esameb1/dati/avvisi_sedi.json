@@ -1,0 +1,24 @@
+{
+ "_nota": "Avvisi su singole sedi d'esame (26/11/2026): una sede che scrive sul suo sito ufficiale che NON farà una sessione del calendario nazionale. 'sedi' = nomi come in dati/sedi.json; 'sessione' = giorno dell'esame: dopo quel giorno genera.py non mostra più l'avviso. 'citazione' è copiata parola per parola dalla fonte. Gli altri enti e le altre sedi non cambiano.",
+ "avvisi": [
+  {
+   "ente": "CILS",
+   "sessione": "2026-12-03",
+   "chi": "il CPIA di Vicenza",
+   "sedi": [
+    "CPIA Vicenza sede associata Vicenza Ovest",
+    "CPIA Vicenza sede associata di Bassano del Grappa",
+    "Sede Associata di Marostica - CPIA Vicenza",
+    "CPIA Vicenza sede associata di Noventa Vicentina",
+    "Arzignano Cpia VI"
+   ],
+   "citazione": "AVVISO: La sessione di esami CILS del 3 dicembre 2026 NON VERRÀ ATTIVATA in tutte le sedi del CPIA di Vicenza per problemi amministrativi.",
+   "fonte": {
+    "nome": "sito del CPIA di Vicenza sulla certificazione CILS",
+    "url": "https://sites.google.com/cpiavicenza.edu.it/certificazione-cils/home-page",
+    "letta_il": "2026-11-26"
+   },
+   "dove": "nelle sedi del CPIA di Vicenza"
+  }
+ ]
+}
