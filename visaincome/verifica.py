@@ -136,7 +136,7 @@ Uso (dalla radice del repository, dopo python3 visaincome/genera.py):
     (visite misurate, prime 3 destinazioni per nazionalità, occupazioni H-1B delle ricerche salvate, India e Nigeria, Stati nominati nei
     suggerimenti generali) e uguale a quello di genera.py; ogni pagina fuori indice ha "noindex, follow", nessun canonical, nessuno script
     AdSense (c'è il segno di monetizzazione.py), non è in sitemap ed è linkata da almeno una pagina in indice; ogni altra pagina (tranne la
-    404) è in sitemap con il suo canonical e senza noindex; AdSense manca solo sotto le 400 parole; nessuna pagina dell'esperimento A/B,
+    404) è in sitemap con il suo canonical e senza noindex; AdSense manca solo sotto le 110 parole proprie (26/11/2026: gruppi di 5 parole che non stanno in 3 o più pagine) e su privacy.html e contact/; nessuna pagina dell'esperimento A/B,
     nessun indice, hub o pagina con visite è fuori indice; About dice chi gestisce il sito e come si paga, Contact spiega cosa scrivere.
 35. Riquadro AnchorLess «Get your codice fiscale from abroad» (12/11/2026, interruttore _anchorless in dati/affiliati.json): pagine
     ricalcolate (programma e pagina Paese dell'Italia, Study in Italy, flat tax del 7%, nessuna fuori indice) = genera.pagine_al();
@@ -595,6 +595,18 @@ def controlla_js(casi):
 
 def leggi(rel):
     return (SITO / rel).read_text(encoding="utf-8")
+
+
+def senza_aff(testo):
+    """26/11/2026 (audit AdSense, criterio 5): pagina in indice rimasta senza lo script AdSense (poche parole proprie o pagina di
+    servizio). genera.py le toglie anche i riquadri di affiliazione: i controlli dei riquadri qui non li chiedono (il controllo 34
+    chiede che non ci siano)."""
+    return G.MON.SEGNO_SENZA_ADSENSE in testo and 'content="noindex' not in testo
+
+
+def senza_aff_p(rel_p):
+    f = SITO / (rel_p if rel_p.endswith(".html") else rel_p + "index.html")
+    return f.is_file() and senza_aff(f.read_text(encoding="utf-8"))
 
 
 def sitemap_completa():
@@ -1555,7 +1567,7 @@ def controlla_selt():
         # link di affiliazione
         sponsor = re.findall(r'<a [^>]*rel="([^"]*sponsored[^"]*)"[^>]*>', main) + re.findall(r'<a [^>]*href="([^"]*italki[^"]*)"', main)
         link_it = re.findall(r'<a [^>]*href="(https?://[^"]*italki\.com[^"]*)"[^>]*rel="([^"]*)"', main)
-        if url_it:
+        if url_it and not senza_aff(t):
             if len(link_it) != 1 or link_it[0][0] != html.escape(url_it) and link_it[0][0] != url_it or link_it[0][1] != "sponsored noopener":
                 errori.append(f"SELT: riquadro italki assente, doppio o con rel sbagliato in {percorso}")
             if G.MON.RIGA_EN not in main:
@@ -1872,7 +1884,7 @@ def controlla_dtv(online=True):
         altri_sp = [h for h in re.findall(r'<a [^>]*href="([^"]+)"[^>]*rel="[^"]*sponsored', main) if "safetywing.com" not in h]
         if altri_sp:
             errori.append(f"DTV: link sponsorizzati non ammessi in {percorso}: {altri_sp[:2]}")
-        if aff.get("url"):
+        if aff.get("url") and not senza_aff(t):
             if len(sw) != 1 or html.unescape(sw[0][0]) != aff["url"] or sw[0][1] != "sponsored noopener":
                 errori.append(f"DTV: riquadro SafetyWing assente, doppio o con rel sbagliato in {percorso}")
             if G.MON.RIGA_EN not in main or "Insurance is not a DTV requirement" not in main or "does not change the decision on your visa" not in main:
@@ -2023,7 +2035,7 @@ def _controlla_dtv_temi(D, aff, sitemap, letto, costo):
         altri_sp = [h for h in re.findall(r'<a [^>]*href="([^"]+)"[^>]*rel="[^"]*sponsored', main) if "safetywing.com" not in h]
         if altri_sp:
             errori.append(f"DTV temi: link sponsorizzati non ammessi in {percorso}: {altri_sp[:2]}")
-        if aff.get("url"):
+        if aff.get("url") and not senza_aff(t):
             if len(sw) != 1 or html.unescape(sw[0][0]) != aff["url"] or sw[0][1] != "sponsored noopener":
                 errori.append(f"DTV temi: riquadro SafetyWing assente, doppio o con rel sbagliato in {percorso}")
             if G.MON.RIGA_EN not in main or "Insurance is not a DTV requirement" not in main:
@@ -5534,7 +5546,7 @@ def controlla_gk(online=True):
                 errori.append(f"39: {rel_p}: il riquadro non è tra le parole ufficiali e le FAQ")
         elif not main.index("<strong>Health insurance:</strong>") < i_box < main.index("<h2>Official sources</h2>"):
             errori.append(f"39: {rel_p}: il riquadro non è dopo la riga Health insurance e prima delle fonti ufficiali")
-    if acceso and con_box != set(pagine):
+    if acceso and con_box != {p for p in pagine if not senza_aff_p(p)}:
         errori.append(f"39: Genki acceso ma riquadro in {sorted(con_box)} invece di {sorted(pagine)}")
     # pagine vietate: box_gk() vuoto qualunque cosa dicano i dati
     for p in ("spain-digital-nomad-visa/", "spain-non-lucrative-visa/", "germany-eu-blue-card/", "portugal-d7-visa/", "portugal-d8-digital-nomad-visa/",
@@ -5715,7 +5727,7 @@ def controlla_al(online=True):
             errori.append(f"35: {rel_p}: riquadro in una pagina fuori indice o fuori sitemap")
         if main.find('id="aff-al-h"') < main.find("<h2"):
             errori.append(f"35: {rel_p}: riquadro prima delle informazioni della pagina")
-    if acceso and con_box != attese:
+    if acceso and con_box != {p for p in attese if not senza_aff_p(p)}:
         errori.append(f"35: riquadro mancante in {sorted(attese - con_box)}")
     priv = (SITO / "privacy.html").read_text(encoding="utf-8")
     if acceso != ("Affiliate links to AnchorLess" in priv):
@@ -5856,7 +5868,7 @@ def controlla_wise(online=True):
             errori.append(f"36: {rel_p}: riquadro in una sezione vietata (esperimento A/B o es/pt)")
         if main.find('id="aff-wise-h"') < main.find("<h2"):
             errori.append(f"36: {rel_p}: riquadro prima delle informazioni della pagina")
-    if acceso and con_box != attese:
+    if acceso and con_box != {p for p in attese if not senza_aff_p(p)}:
         errori.append(f"36: riquadro mancante in {sorted(attese - con_box)[:5]}")
     priv = (SITO / "privacy.html").read_text(encoding="utf-8")
     if acceso != ("Affiliate links to Wise" in priv):
@@ -6020,6 +6032,9 @@ def controlla_fuori_indice():
         pagine[r[:-len("index.html")] if r.endswith("index.html") else r] = f.read_text(encoding="utf-8")
     controllo_ab = {f"visa-refusal-rates/{k}/" for k in json.loads((G.DATI / "esperimento_citazioni.json").read_text(encoding="utf-8"))["pagine"]}
     fuori, per_sez, senza_ads, linkate = set(), {k: [0, 0] for k in SEZ}, [], set()
+    proprie = G.parole_proprie(pagine)
+    if G.MIN_PAROLE_PROPRIE_ADSENSE < 100 or G.SENZA_PUBBLICITA != {"privacy.html", "contact/"}:
+        errori.append("34: soglia delle parole proprie sotto 100 (audit AdSense del 26/11/2026) o elenco delle pagine di servizio cambiato")
     for p, t in pagine.items():
         sez = next((k for k, r in SEZ.items() if re.match(r, p)), None)
         atteso_fuori = (bool(sez) and p not in tieni) or p == "teach-english-abroad/south-korea/"   # 19/11/2026: pagina fissa fuori indice (controllo 41)
@@ -6042,13 +6057,19 @@ def controlla_fuori_indice():
                 errori.append(f"34: {p} in indice ma con noindex, senza canonical o fuori dalla sitemap")
             if ads + segno != 1:
                 errori.append(f"34: {p}: script AdSense {ads} volte, segno 'senza AdSense' {segno}")
-            parole = len(html.unescape(re.sub(r"<[^>]+>", " ", re.sub(r"<(script|style|svg)\b.*?</\1>", " ", main, flags=re.S))).split())
+            # 26/11/2026 (audit AdSense): la regola è sulle parole proprie, rimisurate qui sulle pagine scritte (G.parole_proprie)
+            parole = proprie[p]
+            servizio = p in G.SENZA_PUBBLICITA
             if segno:
                 senza_ads.append(p)
-                if parole >= G.MIN_PAROLE_ADSENSE + 60:   # il conteggio di qui comprende le briciole di pane
-                    errori.append(f"34: {p} in indice senza AdSense ma con {parole} parole")
-            elif parole < G.MIN_PAROLE_ADSENSE:
-                errori.append(f"34: {p} con AdSense ma solo {parole} parole")
+                if 'rel="sponsored' in t or 'class="card aff-r"' in t or "aff-tag" in main:   # criterio 5 dell'audit: stessa soglia per le affiliazioni
+                    errori.append(f"34: {p} in indice senza AdSense ma con un link o un riquadro di affiliazione")
+                if not servizio and parole >= G.MIN_PAROLE_PROPRIE_ADSENSE:
+                    errori.append(f"34: {p} in indice senza AdSense ma con {parole} parole proprie")
+            elif servizio:
+                errori.append(f"34: {p} è una pagina di servizio (SENZA_PUBBLICITA) ma ha AdSense")
+            elif parole < G.MIN_PAROLE_PROPRIE_ADSENSE:
+                errori.append(f"34: {p} con AdSense ma solo {parole} parole proprie")
         else:
             if ads or 'content="noindex"' not in t:
                 errori.append("34: la 404 deve essere noindex e senza AdSense")
@@ -6066,6 +6087,8 @@ def controlla_fuori_indice():
                 linkate.add("/".join(parti) + "/")
     for p in sorted(fuori - linkate):
         errori.append(f"34: {p} fuori indice e senza link da una pagina in indice")
+    if "" in senza_ads:
+        errori.append("34: la home è rimasta senza AdSense (criterio C14 dell'audit: lo script deve stare sulla home)")
     if len(sitemap) != len(pagine) - len(fuori) - 1:
         errori.append(f"34: sitemap con {len(sitemap)} URL, attesi {len(pagine) - len(fuori) - 1} (pagine meno fuori indice meno la 404)")
     if any(tot[0] == 0 for tot in per_sez.values()) or len(fuori) > 0.5 * len(pagine):
@@ -6691,7 +6714,7 @@ def main():
     e34, n34, s34, sez34, a34 = controlla_fuori_indice()
     print(f"34. Pagine fuori indice (noindex, follow; senza canonical, sitemap e AdSense; linkate da pagine in indice): {n34} ("
           + ", ".join(f"{k} {v[1]} fuori e {v[0]} in indice" for k, v in sez34.items()) + f"); sitemap {s34} URL; "
-          f"in indice senza AdSense per poco testo: {a34}; About e Contact: {len(e34)} errori")
+          f"in indice senza AdSense (poche parole proprie o pagina di servizio): {a34}; About e Contact: {len(e34)} errori")
     e35, n35, r35 = controlla_al(online="--offline" not in sys.argv)
     print(f"35. Riquadro AnchorLess (codice fiscale, interruttore {'acceso' if G.AL_ATTIVO else 'spento'}): {n35} pagine (attese = programma e Paese Italia, "
           f"Study in Italy, flat tax 7%, nessuna fuori indice), link ?via=massimiliano, rel, trasparenza, vie ufficiali, codice 5%, niente prezzi né promesse, "

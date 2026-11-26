@@ -1049,13 +1049,90 @@ def entro(varianti, limite):
     raise ValueError(f"nessuna variante entro {limite} caratteri: {varianti[-1]!r} ({len(varianti[-1])})")
 
 
-MIN_PAROLE_ADSENSE = 400   # sotto queste parole di contenuto principale (testata + corpo) la pagina non ha lo script AdSense (12/11/2026)
+# ---------------------------------------------------------------- AdSense solo dove c'è testo proprio (26/11/2026, audit AdSense)
+# studio-business/ADSENSE-AUDIT-2026-11-26.md, sezione 4.3 punto 1: la vecchia soglia sulle parole totali (400) non bastava, perché
+# una pagina fatta con un modello ha molte parole ma quasi tutte uguali alle altre. Ora la regola è misurata sulle PAROLE PROPRIE:
+# - di ogni pagina si prende solo <main> (niente testata, menu e piè di pagina), senza script, stili, icone, menu a tendina (<select>)
+#   e senza il blocco «più usate» (cambia con le visite);
+# - il testo si divide in gruppi di 5 parole di fila; un gruppo è «comune» se compare in almeno 3 pagine del sito;
+# - una parola è «propria» se non sta in nessun gruppo comune.
+# Sotto MIN_PAROLE_PROPRIE_ADSENSE la pagina resta in indice ma senza lo script AdSense (al suo posto il segno di monetizzazione.py).
+# La misura serve tutte le pagine, quindi pagina() mette lo script e applica_soglia_adsense() lo toglie alla fine di extra().
+# Soglia: l'audit dice 100 e conta 304 pagine sotto; lo script dell'audit non è nel repository e questa misura, a 100, ne trova 289
+# (le stesse famiglie, 15 pagine in meno tutte tra 100 e 109). Con 110 si torna a 305: 100 dell'audit + 10 di margine di misura.
+# Nessun elenco a mano: una pagina nuova segue la regola da sola. A mano c'è solo SENZA_PUBBLICITA, per le pagine di servizio
+# (punto 5 dell'audit: niente annunci sulle pagine che non sono di contenuto, a prescindere dalle parole).
+# Lo script sta nel <head>: non entra in impronta_contenuto(), quindi toglierlo non sposta il lastmod.
+MIN_PAROLE_PROPRIE_ADSENSE = 110
+GRUPPO_PAROLE_PROPRIE, PAGINE_GRUPPO_COMUNE = 5, 3
+SENZA_PUBBLICITA = {"privacy.html", "contact/"}   # contact/ era già senza script con la vecchia soglia delle 400 parole: resta così
+_RE_NON_TESTO = re.compile(r"<(script|style|svg|select)\b.*?</\1>", re.S | re.I)
+# 26/11/2026 (audit AdSense, criterio 5): la stessa soglia vale per le affiliazioni. Una pagina in indice che resta senza lo script
+# AdSense (poche parole proprie o pagina di servizio) esce anche senza riquadri di affiliazione: applica_soglia_adsense() toglie ogni
+# <section class="card aff-r"> (tutti i link rel="sponsored" del sito stanno lì, con la loro riga di trasparenza; verifica.py lo
+# ricontrolla). I link alle fonti ufficiali non sono toccati. I riquadri non contano nella misura delle parole proprie, così la misura
+# è la stessa prima e dopo averli tolti. Il lastmod non si muove: l'impronta è quella calcolata da pagina() prima della soglia.
+# Le pagine noindex (fuori_indice) non passano dalla soglia e restano come sono.
+_RE_RIQUADRO_AFF = re.compile(r'\n?<section class="card aff-r".*?</section>', re.S)
 
 
-def parole_principali(html):
-    """Parole del contenuto principale: senza script, stili, icone e marcatori."""
-    t = re.sub(r"<(script|style|svg)\b.*?</\1>", " ", html, flags=re.S | re.I)
-    return len(unescape(re.sub(r"<[^>]+>", " ", t)).split())
+def parole_testo_proprio(html):
+    """Le parole (minuscole) del contenuto di una pagina intera, per la misura delle parole proprie."""
+    m = re.search(r'<main id="main">(.*?)</main>', html, re.S)
+    t = _RE_RIQUADRO_AFF.sub(" ", _RE_PIU.sub(" ", m.group(1) if m else ""))
+    return unescape(re.sub(r"<[^>]+>", " ", _RE_NON_TESTO.sub(" ", t))).lower().split()
+
+
+def parole_proprie(pagine):
+    """pagine: {nome: html di tutte le pagine del sito}. Ritorna {nome: numero di parole proprie} (regola qui sopra)."""
+    from collections import Counter
+    n = GRUPPO_PAROLE_PROPRIE
+    parole = {p: parole_testo_proprio(t) for p, t in pagine.items()}
+    gruppi = {p: [" ".join(w[i:i + n]) for i in range(len(w) - n + 1)] for p, w in parole.items()}
+    in_quante = Counter(g for gg in gruppi.values() for g in set(gg))
+    esito = {}
+    for p, w in parole.items():
+        comune = [False] * len(w)
+        for i, g in enumerate(gruppi[p]):
+            if in_quante[g] >= PAGINE_GRUPPO_COMUNE:
+                comune[i:i + n] = [True] * n
+        esito[p] = comune.count(False)
+    return esito
+
+
+def pagine_del_sito():
+    """{percorso: html} di tutte le pagine in sito/ (senza i file di verifica google*.html)."""
+    return {percorso_da_file(f): f.read_text(encoding="utf-8") for f in sorted(SITO.rglob("*.html")) if not re.fullmatch(r"google[0-9a-f]+\.html", f.name)}
+
+
+def applica_soglia_adsense():
+    """Toglie lo script AdSense dalle pagine in indice sotto MIN_PAROLE_PROPRIE_ADSENSE parole proprie e i riquadri di affiliazione da ogni
+    pagina in indice senza script. Ritorna (pagine con script, pagine a cui è stato tolto, link di affiliazione tolti, pagine con link tolti)."""
+    if not ADSENSE_HEAD:
+        return 0, 0, 0, 0
+    pagine = pagine_del_sito()
+    senza = MON.script_adsense(SITO_ID, False)
+    con, tolte, link, pag_link = 0, 0, 0, 0
+    for p, n in parole_proprie(pagine).items():
+        t = pagine[p]
+        if ADSENSE_HEAD in t and n >= MIN_PAROLE_PROPRIE_ADSENSE:
+            con += 1
+            continue
+        if 'content="noindex' in t:   # pagine fuori indice e 404: già senza script, non passano dalla soglia
+            continue
+        nuovo = t
+        if ADSENSE_HEAD in t:
+            nuovo = nuovo.replace(ADSENSE_HEAD, senza, 1)
+            tolte += 1
+        nuovo = _RE_RIQUADRO_AFF.sub("", nuovo)
+        k = t.count('rel="sponsored') - nuovo.count('rel="sponsored')
+        link += k
+        pag_link += bool(k)
+        if 'rel="sponsored' in nuovo:
+            raise SystemExit(f"soglia AdSense: {p} ha un link di affiliazione fuori da un riquadro aff-r")
+        if nuovo != t:
+            (SITO / (p if p.endswith(".html") else p + "index.html")).write_text(nuovo, encoding="utf-8")
+    return con, tolte, link, pag_link
 
 
 def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, calcolatore=False, jsonld_extra=None, assoluto=False, testata="", ordina=False, script="", css_extra="",
@@ -1065,7 +1142,8 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
     rel = "/" if assoluto else ("../" * profondita or "./")  # 404: link assoluti, Netlify la serve a qualsiasi profondità
     url_pag = URL_SITO + "/" + percorso
     # 12/11/2026 (sera, richiesta AdSense): le pagine "in scala" senza visite restano online e linkate ma fuori dall'indice (fuori_indice,
-    # più sotto): noindex, follow, nessun canonical, fuori dalla sitemap e senza AdSense. Niente AdSense nemmeno sulle pagine con poco testo.
+    # più sotto): noindex, follow, nessun canonical, fuori dalla sitemap e senza AdSense. Niente AdSense nemmeno sulle pagine con poche parole proprie
+    # (26/11/2026: MIN_PAROLE_PROPRIE_ADSENSE, misurata a fine generazione) e sulle pagine di servizio (SENZA_PUBBLICITA).
     in_scala = indicizza and fuori_indice(percorso)
     if in_scala:
         indicizza = False
@@ -1079,7 +1157,8 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
     if m_h1:
         H1_PAGINE[percorso] = (m_h1.group(1), lingua)
     REL_PAGINE[percorso] = "" if rel == "./" else rel
-    adsense = ADSENSE_HEAD if indicizza and parole_principali(testata + corpo) >= MIN_PAROLE_ADSENSE else MON.script_adsense(SITO_ID, False)
+    # lo script va su ogni pagina in indice che non è di servizio; applica_soglia_adsense() lo toglie poi sotto la soglia delle parole proprie
+    adsense = ADSENSE_HEAD if indicizza and percorso not in SENZA_PUBBLICITA else MON.script_adsense(SITO_ID, False)
     if indicizza:
         URLS.append(percorso)
     ld = [{"@context": "https://schema.org", "@type": "WebSite", "name": NOME, "url": URL_SITO + "/"}] if percorso == "" else []
@@ -14057,6 +14136,8 @@ def extra():
 """)
     pagina("404.html", f"Page not found | {NOME}", "Page not found.",
            '<section class="hero"><h1>Page not found</h1><p class="lead">Go to the <a href="/">visa income calculator</a>.</p></section>', indicizza=False, assoluto=True)
+    global ADS_ESITO
+    ADS_ESITO = applica_soglia_adsense()   # per ultima: la misura delle parole proprie legge tutte le pagine finite (anche la 404)
 
 
 def copia_grafica():
@@ -15583,10 +15664,11 @@ HS_ATTIVO = bool(_HS.get("attivo")) and bool(_HS.get("ref")) and _HS.get("url_ba
 _SWS = AFFILIATI.get("_safetywing_salute", {})
 URL_SW_SALUTE = _SWS.get("url", "")
 COPERTURA_ASS = L_ASS["ue_15_3_minimo"]["valore"]
-# Paesi di residenza del riquadro Schengen (codice ISO per countryResidence): i Paesi da cui arrivano più domande di visto
-# nella sezione rifiuti; HelloSafe mostra le offerte vendute ai residenti di ciascuno (se ce ne sono)
-RESIDENZE_HS = [("India", "IN"), ("Pakistan", "PK"), ("Philippines", "PH"), ("Nigeria", "NG"), ("Morocco", "MA"), ("Egypt", "EG"),
-                ("Algeria", "DZ"), ("Tunisia", "TN"), ("Türkiye", "TR"), ("United Arab Emirates", "AE"), ("United Kingdom", "GB")]
+# Paesi di residenza del riquadro Schengen (codice ISO per countryResidence): HelloSafe mostra le offerte vendute ai residenti di
+# ciascuno (se ce ne sono). 26/11/2026 (audit AdSense, punto 4): da 11 Paesi a 3, più il link «another country» = 4 link di affiliazione
+# invece di 12 (le affiliazioni devono restare una parte minore della pagina). Restano i 3 Paesi con più visite al sito tra gli 11
+# (studio-business/dati-recupero/visite-visaincome.json: Pakistan 61, Türkiye 42, India 41); chi vive altrove usa «another country».
+RESIDENZE_HS = [("India", "IN"), ("Pakistan", "PK"), ("Türkiye", "TR")]
 
 # Traduzioni nostre dei frammenti non inglesi (la pagina mostra la traduzione e il testo ufficiale)
 TRAD_ASS = {
@@ -18063,6 +18145,9 @@ def main():
     contatti()
     privacy()
     extra()
+    print(f"AdSense: script su {ADS_ESITO[0]} pagine; tolto da {ADS_ESITO[1]} pagine in indice con meno di {MIN_PAROLE_PROPRIE_ADSENSE} parole proprie; "
+          f"pagine di servizio senza pubblicità: {', '.join(sorted(SENZA_PUBBLICITA))}; "
+          f"link di affiliazione tolti dalle pagine in indice senza script: {ADS_ESITO[2]} in {ADS_ESITO[3]} pagine.")
     print(f"Sito generato in {SITO}: {len(URLS)} pagine indicizzabili; {len(PROG)} programmi in {len(PAESI)} paesi; "
           f"cambi BCE del {CAMBI['data']}; visti rifiutati: {len(PAESI_RIF)} Paesi, {len(STATI_UE)} Stati Schengen ({A1}), UK fino al {TRIM[-1]}; "
           f"Australia {len(AU_OK)} nazionalità ({AU_A1}), Nuova Zelanda {len(NZ_OK)} ({NZ_A1}), Canada {len(CA_OK)} ({CA_A1}); "
