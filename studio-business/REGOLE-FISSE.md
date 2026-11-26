@@ -273,3 +273,8 @@ Per i siti su .netlify.app non si cambia dominio finché Visa, Before You Fly ed
 
 ## PIANO OBBLIGATORIO PRIMA DI OGNI LAVORO (Massimiliano, 26/11/2026)
 Prima di ogni lavoro che cambia un sito, un dato, una routine o una decisione: scheda scritta secondo `studio-business/PIANO-OBBLIGATORIO.md` in `studio-business/schede/`, data a ogni agente nel brief, spuntata punto per punto alla fine con le prove. Senza scheda completa non si pubblica. Le routine automatiche (dati del lunedì e del giovedì) usano la scheda fissa della loro routine in ORGANIZZAZIONE.md; un lavoro fuori routine ha sempre la sua scheda.
+
+## PAUSA DAL 26/11/2026 POMERIGGIO (Massimiliano: «sei in pausa») — finché Massimiliano non dice di ripartire
+- **Nessun agente**, nessuna costruzione nuova, nessuna ricerca. Il turno di costruzione (B), la ricerca della sera (C parte B) e la ricerca del mercoledì (G) non partono: chiudono subito scrivendo una riga.
+- **Solo l'indispensabile, senza agenti:** riassunto del mattino con `salute.py` (correggere solo errori veri sui siti online), dati delle aste la sera, routine dei dati con scadenza (regola «NESSUN SITO OBSOLETO»), Italy Strikes prima dello sciopero del 4/12 (pubblicazione del 2/12), lettura della posta in sola lettura.
+- Messaggi a Massimiliano brevi.
