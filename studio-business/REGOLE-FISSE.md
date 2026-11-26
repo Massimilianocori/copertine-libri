@@ -258,3 +258,6 @@ Il 19/11 Search Console di esameb1.eu mostrava impressioni a zero dal 16/11 e il
 3. **Ogni avviso si chiude entro la giornata:** si rilegge la fonte e si pubblica se il dato è cambiato. Se la fonte blocca i programmi automatici, la pagina dice la data vera dell'ultima lettura e la fonte va nella lista «da leggere a mano» per Massimiliano. Un avviso non resta mai aperto in silenzio.
 4. **Le date mostrate sono sempre vere:** nessuna pagina dice «aggiornato» con una data che non è quella dell'ultima lettura reale.
 5. **Se una routine non può girare** (fonte cambiata, crediti finiti, errore), lo si scrive nel riassunto del mattino lo stesso giorno.
+
+## CAMBI DI DOMINIO (26/11/2026, dopo il danno dell'8-13/11)
+Per i siti su .netlify.app non si cambia dominio finché Visa, Before You Fly ed EsameB1 non mostrano un recupero misurato (Search Console + GoatCounter). Dopo: un solo sito alla volta, con il piano dei rischi scritto prima, nessun'altra modifica grande nelle 2 settimane prima e dopo, e solo se il sito ha già abbastanza visite perché AdSense renda più del costo del dominio. Tornare ai vecchi indirizzi dei siti già spostati è escluso: sarebbe un secondo trasloco.
