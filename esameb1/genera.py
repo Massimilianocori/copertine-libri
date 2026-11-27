@@ -897,6 +897,22 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None, indiciz
     rel = base if base is not None else ("../" * profondita or "./")
     # 26/11/2026, prova di domanda «Pass EsameB1»: riquadro del Pass nella prova gratis (al posto del segnaposto) e, nelle pagine
     # /esempi/, subito dopo il primo blocco (il titolo). Prima di libro_in_alto(), che lavora sullo stesso primo blocco.
+    # 27/11/2026, formato «citabile» (dati/citabile.json): riquadro dei dati ufficiali subito sotto il titolo, o al posto del blocco
+    # «in breve» dove la pagina scrive il segnaposto <!--cit-->. Prima del riquadro del Pass, che così resta dove era.
+    chiave_cit = percorso[:-10] if percorso.endswith("index.html") else percorso
+    ld_cit = ""
+    if chiave_cit in CITABILI and indicizza:
+        riq, fonti_cit = riquadro_citabile(chiave_cit, al_posto="<!--cit-->" in corpo)
+        if "<!--cit-->" in corpo:
+            corpo = corpo.replace("<!--cit-->", riq)
+        else:
+            i_cit = fine_blocco_titolo(corpo)
+            corpo = corpo[:i_cit] + "\n" + riq + corpo[i_cit:]
+        ld_cit = '<script type="application/ld+json">' + json.dumps(
+            {"@context": "https://schema.org", "@type": "WebPage", "url": URL_SITO + "/" + chiave_cit, "name": titolo, "inLanguage": "it",
+             "dateModified": CIT_SEGNA, "isBasedOn": fonti_cit}, ensure_ascii=False) + "</script>"
+    elif "<!--cit-->" in corpo:
+        raise SystemExit(f"{percorso}: segnaposto <!--cit--> in una pagina che non è in dati/citabile.json")
     if "<!--pass-->" in corpo:
         corpo = corpo.replace("<!--pass-->", riquadro_pass(rel, qui=True))
     elif percorso.startswith("esempi/") and percorso.split("/")[1] not in PASS_ESCLUSE:
@@ -944,7 +960,7 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None, indiciz
 <link rel="icon" href="{FAVICON}">
 <link rel="preload" href="/fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
 <style>{CSS}{SC.CSS_SEDE_TU if 'class="sede-tu"' in corpo else ""}</style>
-{ld}
+{ld}{ld_cit}
 </head>
 <body>
 {SPRITE}
@@ -1652,6 +1668,7 @@ _RE_CONTROLLO = re.compile(r"\b(lett[oaie]|controllat[oaie]|[Uu]ltimo controllo 
 def impronta_contenuto(testo):
     import hashlib
     testo = _RE_CONTROLLO.sub(r"\1", _RE_LIBRO.sub("", _RE_PIU.sub("", testo)))
+    testo = _RE_CIT_DATA.sub("", testo)  # 27/11/2026: la data «Pagina aggiornata il» e dateModified sono la data del registro stesso
     testo = _RE_CONTA.sub(r"\1\2\3", testo).replace("https://esameb1.netlify.app", URL_SITO)
     tit = re.search(r"<title>(.*?)</title>", testo, re.S)
     des = re.search(r'<meta name="description" content="(.*?)">', testo, re.S)
@@ -3191,6 +3208,232 @@ TITOLI_ESEMPI = {  # (titolo della pagina, h1): parole cercate su Google il 31/1
 }
 
 
+# ---------------------------------------------------------------- formato «citabile» (27/11/2026)
+# Scheda: studio-business/schede/2026-11-27-esameb1-citabile.md. Origine: esperimento di Visa Income
+# (studio-business/intelaiatura/esperimento-citazioni-2026-10-31.md): le pagine con data di aggiornamento visibile, dateModified e
+# un riquadro di dati ufficiali con fonte e data hanno ricevuto più visite da ChatGPT. Qui lo stesso formato va sulle pagine
+# elencate in dati/citabile.json (quelle dove ChatGPT manda già lettori). Il testo NON è scritto pagina per pagina: tre regole
+# (ente_b1, indice_b1, file) leggono i dati che il sito ha già, ognuno con la sua fonte ufficiale e la sua data di controllo.
+# Non cambiano titolo, description, H1 e indirizzo. Per spegnere tutto: "attivo": false in dati/citabile.json.
+CITABILE = json.loads((DATI / "citabile.json").read_text(encoding="utf-8"))
+CITABILI = CITABILE["pagine"] if CITABILE.get("attivo") else {}
+_DATI_FILE_CIT = {k: json.loads((DATI / f"{k}.json").read_text(encoding="utf-8")) for k in ("esempi_livelli", "dopo_esame")}
+CIT_SEGNA = "9999-12-31"  # segnaposto della data: extra() ci scrive la data del registro lastmod (la stessa della sitemap)
+_RE_CIT_DATA = re.compile(r'<time class="cit-agg"[^>]*>[^<]*</time>|"dateModified": "[^"]*"')  # fuori dall'impronta: è la data stessa
+CSS_CIT = (".cit{margin:18px 0 8px}.cit h2{margin:0 0 6px;font-size:1.2rem}.cit-data{font-size:.85rem;color:var(--ink-3);margin:0 0 10px}"
+           ".cit-frase{margin:0 0 12px}.cit table.conf{min-width:0}.cit .cit-f{font-size:.82rem;color:var(--ink-3)}"
+           ".cit td:first-child{font-weight:650}.cit-tutti summary{cursor:pointer;font-weight:650;color:var(--brand-ink);padding:8px 12px;min-height:32px}"
+           ".cit-tutti[open] summary{margin-bottom:8px}"
+           "@media (max-width:640px){.cit table.conf,.cit tbody{display:block}.cit thead{display:none}"
+           ".cit tr{display:block;padding:10px 12px;border-bottom:1px solid var(--line)}.cit tbody tr:last-child{border-bottom:0}"
+           ".cit table.conf td{display:block;border:0;padding:2px 0}"
+           ".cit td[data-l]::before{content:attr(data-l) \": \";color:var(--ink-3);font-size:.85rem;font-weight:400}}")
+
+
+# Su telefono la tabella è chiusa (un tocco la apre), così i file e i riquadri sotto non scendono troppo; su schermo largo è aperta.
+JS_CIT = "(function(){var d=document.querySelector('.cit-tutti');if(d&&window.matchMedia&&matchMedia('(min-width:641px)').matches)d.open=true;})();"
+
+
+def conta_file(lista):
+    """«9 file (8 PDF e 1 MP3)» da un elenco di file dei dati: una voce dell'elenco = un file, come nel resto della pagina."""
+    per = {}
+    for f in lista:
+        per[f["formato"]] = per.get(f["formato"], 0) + 1
+    return f"{len(lista)} file ({' e '.join(f'{per[k]} {k}' for k in ('ZIP', 'PDF', 'MP3') if k in per)})"
+
+
+def _punto(t):
+    return t if t.endswith((".", "!", "?")) else t + "."
+
+
+def _maiuscola(t):
+    return t[0].upper() + t[1:]
+
+
+def _cit_esempio(e):
+    """(testo, fonti, data) dell'esempio d'esame ufficiale di un ente B1 (dati/esempi.json)."""
+    if e.get("link_diretti", True):
+        testo = f"Gratis, senza registrazione: {conta_file(e['file'])} sul sito dell'ente."
+    else:
+        testo = "Gratis, sulla pagina ufficiale dell'ente (da qui non mettiamo link diretti ai file)."
+    return testo, [e["pagina"]], v_esempi(e)
+
+
+def _cit_fatto(s, chiave):
+    """(testo, fonti, data) di un fatto di dati/enti.json; se l'ente non pubblica il dato lo dice, come scheda_fatto()."""
+    en = ENTE[s]
+    f = en["fatti"].get(chiave)
+    if not f:
+        v = en.get("fatti_assenti_verificato_il") or max(x["verificato_il"] for x in en["fatti"].values())
+        return (f"Il sito ufficiale {s} non lo indica: chiedilo alla sede d'esame.", [{"nome": f"sito ufficiale {s}", "url": en["sito"]}], v)
+    return f["testo"], f["fonti"], f["verificato_il"]
+
+
+def _cit_risultati(s, voce, campo):
+    r = RISULTATI["enti"][s]
+    return _punto(_maiuscola(r["tabella"][campo])), [r["fonti"][k] for k in r["voci"][voce]["fonti"]], RISULTATI["verificato_il"]
+
+
+def _senza_doppi(fonti):
+    """Le fonti senza ripetizioni: un indirizzo, un link."""
+    viste = {}
+    for f in fonti:
+        viste.setdefault(f["url"], f)  # resta il primo nome
+    return list(viste.values())
+
+
+def _cit_cella_fonte(fonti, giorno):
+    return f'<td class="cit-f" data-l="Fonte">{link_fonti(_senza_doppi(fonti))} · controllato il {data_breve(giorno)}</td>'
+
+
+def _senza_nome(testo, esame):
+    """Toglie il nome dell'esame ripetuto: in testa («CELI 2 i: scritto…») o tra parentesi in coda («100 € (B1 Cittadinanza)»)."""
+    m = re.match(r"([^:.]{1,30}): ", testo)
+    if m and m.group(1) in esame:
+        testo = testo[m.end():]
+    m = re.search(r" \(([^()]+)\)$", testo)
+    if m and m.group(1) in esame:
+        testo = testo[:m.start()]
+    return testo
+
+
+def _minuscola(t):
+    return t if len(t) > 1 and (t[1].isupper() or t[1].isdigit()) else t[0].lower() + t[1:]
+
+
+def _ente_e_sigla(s):
+    return f"{ENTE[s]['ente']} ({s})"
+
+
+def cit_ente_b1(voce):
+    """Pagina di un esame B1: una riga per dato (esempio, durata, punteggio, recupero, costo, risultati)."""
+    s = voce["ente"]
+    esame = ES[s]["esame"]
+    durata = ENTE[s]["fatti"]["durata"]
+    t = RISULTATI["enti"][s]["tabella"]
+    righe = [("Esempio d'esame ufficiale", *_cit_esempio(ES[s])),
+             ("Quanto dura l'esame", _punto(_maiuscola(durata["prove"]["totale"])), durata["fonti"], durata["verificato_il"]),
+             ("Per superare", *_cit_risultati(s, "punteggio", "superare")),
+             ("Se non superi una parte", *_cit_risultati(s, "non_superato", "ripeti")),
+             ("Quanto costa", *_cit_fatto(s, "costo")),
+             ("Quando escono i risultati", *_cit_fatto(s, "risultati"))]
+    superare = _senza_nome(t["superare"], esame)
+    superare = ("il " if re.match(r"\d+ ?%", superare) else "") + superare
+    # costo prima del recupero; se il prezzo breve vale per una versione dell'esame («100 € (B1 Cittadinanza)») la frase lo dice
+    breve = ENTE[s]["fatti"]["costo"]["breve"]
+    m = re.search(r"^(.*) \(([^()]+)\)$", breve)
+    if m and m.group(2) in esame:
+        costo = f"Il {m.group(2)} costa {m.group(1)}."
+    else:
+        costo = f"{'Costa' if breve[0].isdigit() else 'Il prezzo'} {_punto(breve)}"
+    ripeti = t["ripeti"]
+    if "non lo dice" in ripeti:  # l'ente non scrive la regola: frase intera, senza «Se non superi una parte,» davanti
+        recupero = "Il sito non dice cosa succede se non superi una parte" + (": " + ripeti.split(": ", 1)[1] if ": " in ripeti else ".")
+    else:
+        recupero = "Se non superi una parte, " + _minuscola(_senza_nome(ripeti, esame))
+    frase = (f"In breve: il {escape(esame)} dura {escape(durata['prove']['totale'])}. Per superare serve {escape(_punto(superare))} "
+             f"{escape(costo)} {escape(_punto(recupero))}")
+    corpo = "".join(f'<tr><td>{escape(n)}</td><td data-l="{escape(esame)}">{escape(x)}</td>{_cit_cella_fonte(f, g)}</tr>' for n, x, f, g in righe)
+    tabella = ('<thead><tr><th scope="col">Dato</th><th scope="col">' + escape(esame) + '</th><th scope="col">Fonte ufficiale e data del controllo</th></tr></thead>'
+               f"<tbody>{corpo}</tbody>")
+    return f"{escape(esame)}: i dati ufficiali in breve", frase, tabella, [f for r in righe for f in r[2]], _ente_e_sigla(s)
+
+
+def cit_indice_b1(voce):
+    """Indice degli esempi B1: una riga per ente (esempio, durata, costo, risultati), con le fonti di tutti e quattro i dati."""
+    corpo, fonti, parti = "", [], []
+    for s in ENTE:
+        e, en = ES[s], ENTE[s]
+        durata, costo = en["fatti"]["durata"], en["fatti"]["costo"]
+        ris = en["fatti"].get("risultati")
+        t_es, f_es, g_es = _cit_esempio(e)
+        _, f_ris, g_ris = _cit_fatto(s, "risultati")
+        f_riga = _senza_doppi(f_es + durata["fonti"] + costo["fonti"][:1] + f_ris)  # costo: solo la fonte del prezzo breve scritto nella riga
+        fonti += f_riga
+        parti.append(f"{e['esame']}, {conta_file(e['file']) if e.get('link_diretti', True) else 'file sulla pagina ufficiale'}")
+        corpo += (f'<tr><td><a href="{SLUG_ENTE[s]}/">{escape(e["esame"])}</a></td><td data-l="Esempio ufficiale">{escape(t_es)}</td>'
+                  f'<td data-l="Durata">{escape(durata["prove"]["totale"])}</td><td data-l="Costo">{escape(costo["breve"])}</td>'
+                  f'<td data-l="Risultati">{escape(ris["breve"]) if ris else "il sito ufficiale non lo indica"}</td>'
+                  f'{_cit_cella_fonte(f_riga, min(g_es, durata["verificato_il"], costo["verificato_il"], g_ris))}</tr>')
+    frase = f"In breve: {len(ENTE)} enti pubblicano gratis un esempio ufficiale dell'esame B1. Sono {escape('; '.join(parti))}."
+    tabella = ('<thead><tr><th scope="col">Esame</th><th scope="col">Esempio ufficiale</th><th scope="col">Durata</th><th scope="col">Costo</th>'
+               f'<th scope="col">Risultati</th><th scope="col">Fonti ufficiali e data del controllo</th></tr></thead><tbody>{corpo}</tbody>')
+    return "Esempi d'esame B1: i dati ufficiali in breve", frase, tabella, fonti, elenco_e([_ente_e_sigla(s) for s in ENTE])
+
+
+def cit_file(voce):
+    """Pagine degli altri livelli: una riga per gruppo di file ufficiali (dati/esempi_livelli.json o dati/dopo_esame.json).
+    La frase non ripete il primo paragrafo della pagina (che conta i file esame per esame): dice il totale dei link diretti e per
+    quali esami il link porta alla pagina dell'ente. Con un solo gruppo non c'è frase: basta la riga."""
+    corpo, fonti, enti_, n_diretti, con, senza = "", [], [], 0, [], []
+    for g in voce["gruppi"]:
+        D_ = _DATI_FILE_CIT[g["dati"]]
+        if g["dati"] == "esempi_livelli":
+            gr = D_["gruppi"][g["gruppo"]]
+            lista, esame, fonte, diretti, ente = gr["file"], gr["esame"], D_["fonti"][gr["fonte"]], gr.get("link_diretti", True), gr["ente"]
+        else:  # dopo_esame: l'elenco dei file è la voce stessa; il nome dell'esame e l'ente sono scritti in citabile.json
+            lista, esame, fonte, diretti, ente = D_["esempi"][g["gruppo"]], g["esame"], D_["fonti"][g["gruppo"]], True, g["ente"]
+        if diretti:
+            testo = f"{_maiuscola(conta_file(lista))} con link diretto in questa pagina, gratis."
+            n_diretti += len(lista)
+            con.append(esame)
+        else:
+            testo = "I file si scaricano dalla pagina ufficiale dell'ente: da qui non c'è un link diretto."
+            senza.append(esame)
+        fonti.append(fonte)
+        enti_ += [ente] if ente not in enti_ else []
+        corpo += f'<tr><td>{escape(esame)}</td><td data-l="File ufficiali">{escape(testo)}</td>{_cit_cella_fonte([fonte], D_[voce.get("data", "verificato_il")])}</tr>'
+    frase = ""
+    if len(voce["gruppi"]) > 1:
+        frase = f"In breve: {n_diretti} file ufficiali gratis con link diretto ({escape(elenco_e(con))})"
+        frase += f"; per {escape(elenco_e(senza))} il link porta alla pagina ufficiale dell'ente." if senza else "."
+    tabella = ('<thead><tr><th scope="col">Esame</th><th scope="col">File ufficiali</th><th scope="col">Fonte ufficiale e data del controllo</th></tr></thead>'
+               f"<tbody>{corpo}</tbody>")
+    return f"Prove d'esempio {voce['nome']}: i dati ufficiali in breve", frase, tabella, fonti, elenco_e([_ente_e_sigla(x) for x in enti_])
+
+
+REGOLE_CIT = {"ente_b1": cit_ente_b1, "indice_b1": cit_indice_b1, "file": cit_file}
+
+
+def riquadro_citabile(percorso_pagina, al_posto=False):
+    """(riquadro HTML, indirizzi delle fonti) per una pagina di dati/citabile.json. al_posto=True: il riquadro prende il posto di un
+    blocco di contenuto della pagina (classe «cit card»: conta come blocco per il riquadro del Pass, che resta dove era);
+    altrimenti classe «card cit», che fine_primo_blocco_di_contenuto() salta come gli altri riquadri.
+    Tabella con una riga sola: sempre aperta, senza il comando per aprirla."""
+    voce = CITABILI[percorso_pagina]
+    titolo, frase, tabella, fonti, dati_di = REGOLE_CIT[voce["regola"]](voce)
+    classe = "cit card" if al_posto else "card cit"
+    n_righe = tabella.count("<tr>") - 1
+    tab = f'<div class="tab-wrap"><table class="conf">{tabella}</table></div>'
+    if n_righe > 1:
+        tab = f'<details class="cit-tutti"><summary>Tutti i dati, con le fonti ufficiali ({n_righe})</summary>{tab}</details><script>{JS_CIT}</script>'
+    return (f'<section class="{classe}" id="dati-ufficiali" aria-label="Dati ufficiali in breve"><style>{CSS_CIT}</style>'
+            f'<h2>{ic("ok")}{escape(titolo)}</h2>'
+            f'<p class="cit-data">Pagina aggiornata il <time class="cit-agg" datetime="{CIT_SEGNA}">{CIT_SEGNA}</time> · Dati: {escape(dati_di)} · '
+            'fonti ufficiali e date dei controlli nella tabella</p>'
+            + (f'<p class="cit-frase">{frase}</p>' if frase else "") + f"{tab}</section>"), list(dict.fromkeys(f["url"] for f in fonti))
+
+
+def fine_blocco_titolo(corpo):
+    """Indice subito dopo la fine della prima <section> di primo livello (il titolo della pagina)."""
+    prof = 0
+    for m in _RE_BLOCCHI.finditer(corpo):
+        prof += -1 if m.group(1) else 1
+        if prof == 0 and m.group(1):
+            return m.end()
+    raise SystemExit("riquadro citabile: la pagina non ha un blocco del titolo")
+
+
+def scrivi_date_citabili(date_):
+    """Dopo il registro lastmod: scrive nelle pagine citabili la data dell'ultima modifica vera (visibile e in dateModified)."""
+    for u in CITABILI:
+        f = file_di(u)
+        h = f.read_text(encoding="utf-8")
+        if h.count(CIT_SEGNA) != 3:
+            raise SystemExit(f"{u}: il segnaposto della data del riquadro citabile deve comparire 3 volte, trovato {h.count(CIT_SEGNA)}")
+        f.write_text(h.replace(f'datetime="{CIT_SEGNA}">{CIT_SEGNA}<', f'datetime="{date_[u]}">{data_breve(date_[u])}<').replace(CIT_SEGNA, date_[u]), encoding="utf-8")
+
+
 def peso(byte):
     """Dimensione in unità decimali, alla maniera italiana: 168 KB, 39,5 MB."""
     if byte < 1_000_000:
@@ -3470,7 +3713,7 @@ def pagina_esempi_ente(e, prossime):
 <p class="lead">{prima} Qui sotto trovi cosa c'è nei file, com'è fatto l'esame prova per prova e quanti punti servono per superarlo.</p>
 <div class="azioni"><a class="btn" href="{escape(e["pagina"]["url"])}" rel="noopener">{ic("freccia")}Pagina ufficiale {escape(s)}</a><a class="btn btn-2" href="#file">{ic("archivio")}{titolo_file}</a></div>
 </section>
-<section class="ris-sez" aria-label="In breve">{breve}</section>
+{"<!--cit-->" if f"esempi/{sl}/" in CITABILI else f'<section class="ris-sez" aria-label="In breve">{breve}</section>'}
 <section>
 <h2 id="file">{ic("archivio")}{titolo_file}</h2>
 <div class="es-card es-{s.replace(".", "")}">{blocco_file(e)}</div>{altre_prove_cils(v) if s == "CILS" else ""}
@@ -5645,6 +5888,7 @@ def extra(urls):
     (SITO / f"{CHIAVE_INDEXNOW}.txt").write_text(CHIAVE_INDEXNOW)  # file chiave IndexNow: non in sitemap, non linkato
     MON.scrivi_ads_txt(SITO_ID, SITO)  # sito/ads.txt solo con AdSense acceso (monetizzazione.json)
     date_ = date_lastmod(urls)   # prima dei blocchi «più usate»: la data viene dal contenuto della pagina
+    scrivi_date_citabili(date_)  # 27/11/2026: «Pagina aggiornata il» e dateModified delle pagine citabili = data del registro
     scrivi_piu_usate(urls)
     scrivi_sitemap(urls, date_)
     (SITO / "netlify.toml").write_text("""[build]

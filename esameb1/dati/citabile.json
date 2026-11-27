@@ -1,0 +1,227 @@
+{
+ "_nota": "Formato «citabile» di EsameB1 (27/11/2026). Scheda: studio-business/schede/2026-11-27-esameb1-citabile.md. pagine: ricevono il riquadro dei dati ufficiali, la data «Pagina aggiornata il» e dateModified. controllo: 3 pagine tenute fuori apposta fino al verdetto del 28/12/2026 (restano come prima; la loro voce è già pronta: per estendere il formato basta spostarla in «pagine»). nel_verdetto false: pagine nate il 25/11/2026, trattate ma contate a parte (senza linea di base). regola: ente_b1 (dati/enti.json, dati/risultati.json, dati/esempi.json), indice_b1 (gli stessi, una riga per ente), file (gruppi di file di dati/esempi_livelli.json o dati/dopo_esame.json). visite_base e chatgpt_base: visite e visite con provenienza chatgpt.com nei 14 giorni della linea di base, somma dei due host esameb1.eu ed esameb1.netlify.app (raccolta/citabile.py). titolo, h1 e description: come erano il 27/11/2026 prima del formato; verifica.py controlla che non cambino. Per spegnere il formato: attivo false.",
+ "attivo": true,
+ "costruito_il": "2026-11-27",
+ "pubblicato_il": null,
+ "base": {
+  "dal": "2026-11-13",
+  "al": "2026-11-26",
+  "sito_visite": 879,
+  "sito_chatgpt": 250,
+  "sito_google": 237,
+  "trattate_chatgpt": 140,
+  "controllo_chatgpt": 53,
+  "nuove_chatgpt": 1,
+  "resto_chatgpt": 56,
+  "clic": {
+   "libro-esempi": 1,
+   "libro-livelli": 0,
+   "libro-ascolto": 0,
+   "libro-orale": 0,
+   "libro-celi2": 0,
+   "pass-prezzo": 0
+  },
+  "letta_il": "2026-11-27",
+  "host": "esameb1.eu + esameb1.netlify.app"
+ },
+ "pagine": {
+  "esempi/": {
+   "regola": "indice_b1",
+   "visite_base": 76,
+   "chatgpt_base": 49,
+   "titolo": "Test lingua italiana B1 per cittadinanza online: prove gratis",
+   "h1": "Esempi d'esame B1 per la cittadinanza: le prove ufficiali gratis, PDF e audio",
+   "description": "Test di italiano B1 per la cittadinanza online: prove ufficiali gratuite (CILS, CELI 2 i, PLIDA, CERT.IT) con PDF, audio e soluzioni. Durata e punteggio.",
+   "nel_verdetto": true
+  },
+  "esempi/cils/": {
+   "regola": "ente_b1",
+   "ente": "CILS",
+   "visite_base": 135,
+   "chatgpt_base": 79,
+   "titolo": "CILS B1 Cittadinanza: prove d&#x27;esame PDF, audio e chiavi | EsameB1",
+   "h1": "CILS B1 Cittadinanza: l&#x27;esempio d&#x27;esame ufficiale, PDF e audio",
+   "description": "CILS B1 Cittadinanza: esempio d&#x27;esame ufficiale gratis (PDF, MP3), prove, durata, punteggio per superare e cosa fare se non superi.",
+   "nel_verdetto": true
+  },
+  "esempi/celi/": {
+   "regola": "ente_b1",
+   "ente": "CELI",
+   "visite_base": 20,
+   "chatgpt_base": 10,
+   "titolo": "Esempio esame CELI B1 cittadinanza (CELI 2 i): PDF, audio, orale",
+   "h1": "CELI 2 i cittadinanza (B1): gli esempi d&#x27;esame ufficiali, PDF, audio e orale",
+   "description": "CELI 2 i cittadinanza (B1): esempio d&#x27;esame ufficiale gratis (PDF, ZIP), prove, durata, punteggio per superare e cosa fare se non superi.",
+   "nel_verdetto": true
+  },
+  "esempi/certit/": {
+   "regola": "ente_b1",
+   "ente": "CERT.IT",
+   "visite_base": 9,
+   "chatgpt_base": 2,
+   "titolo": "CERT.IT B1 esempio d&#x27;esame: com&#x27;è fatto, PDF e audio ufficiali",
+   "h1": "CERT.IT B1: l&#x27;esempio d&#x27;esame ufficiale e com&#x27;è fatto l&#x27;esame",
+   "description": "CERT.IT B1: esempio d&#x27;esame ufficiale gratis (MP3, ZIP), prove, durata, punteggio per superare e cosa fare se non superi.",
+   "nel_verdetto": true
+  },
+  "esempi/a1/": {
+   "regola": "file",
+   "nome": "A1",
+   "gruppi": [
+    {
+     "dati": "esempi_livelli",
+     "gruppo": "cils_a1"
+    },
+    {
+     "dati": "esempi_livelli",
+     "gruppo": "cils_a1i"
+    },
+    {
+     "dati": "esempi_livelli",
+     "gruppo": "celi_a1"
+    },
+    {
+     "dati": "esempi_livelli",
+     "gruppo": "celi_a1i"
+    },
+    {
+     "dati": "esempi_livelli",
+     "gruppo": "plida_a1"
+    },
+    {
+     "dati": "esempi_livelli",
+     "gruppo": "certit_a1"
+    }
+   ],
+   "visite_base": 1,
+   "chatgpt_base": 1,
+   "titolo": "Esame italiano A1: prove d&#x27;esempio ufficiali, PDF e audio",
+   "h1": "Esame di italiano A1: le prove d&#x27;esempio ufficiali, con PDF e audio",
+   "description": "Esame di italiano A1: le prove d&#x27;esempio ufficiali di CILS (16 file PDF e MP3), PLIDA Juniores, CELI Impatto e CERT.IT, con audio e soluzioni.",
+   "nel_verdetto": false
+  },
+  "esempi/c1/": {
+   "regola": "file",
+   "nome": "C1",
+   "gruppi": [
+    {
+     "dati": "esempi_livelli",
+     "gruppo": "cils_c1"
+    },
+    {
+     "dati": "esempi_livelli",
+     "gruppo": "celi_c1"
+    },
+    {
+     "dati": "esempi_livelli",
+     "gruppo": "plida_c1"
+    },
+    {
+     "dati": "esempi_livelli",
+     "gruppo": "certit_c1"
+    }
+   ],
+   "visite_base": 0,
+   "chatgpt_base": 0,
+   "titolo": "Esame italiano C1: prove d&#x27;esempio ufficiali, PDF e audio",
+   "h1": "Esame di italiano C1: le prove d&#x27;esempio ufficiali, con PDF e audio",
+   "description": "Esame di italiano C1: le prove d&#x27;esempio ufficiali di CILS TRE-C1 (10 file PDF e MP3), PLIDA C1 (5 file), CELI 4 e CERT.IT C1, con audio e soluzioni.",
+   "nel_verdetto": false
+  },
+  "esempi/c2/": {
+   "regola": "file",
+   "nome": "C2",
+   "gruppi": [
+    {
+     "dati": "esempi_livelli",
+     "gruppo": "cils_c2"
+    },
+    {
+     "dati": "esempi_livelli",
+     "gruppo": "celi_c2"
+    },
+    {
+     "dati": "esempi_livelli",
+     "gruppo": "plida_c2"
+    },
+    {
+     "dati": "esempi_livelli",
+     "gruppo": "certit_c2"
+    }
+   ],
+   "visite_base": 0,
+   "chatgpt_base": 0,
+   "titolo": "Esame italiano C2: prove d&#x27;esempio ufficiali, PDF e audio",
+   "h1": "Esame di italiano C2: le prove d&#x27;esempio ufficiali, con PDF e audio",
+   "description": "Esame di italiano C2: le prove d&#x27;esempio ufficiali di CILS QUATTRO-C2 (10 file PDF e MP3), PLIDA C2, CELI 5 e CERT.IT C2, con audio e soluzioni.",
+   "nel_verdetto": false
+  },
+  "esempi/cils-b1-standard/": {
+   "regola": "file",
+   "nome": "CILS B1 standard",
+   "gruppi": [
+    {
+     "dati": "esempi_livelli",
+     "gruppo": "cils_b1"
+    }
+   ],
+   "visite_base": 1,
+   "chatgpt_base": 0,
+   "titolo": "CILS B1 standard: prove d&#x27;esame PDF e audio ufficiali | EsameB1",
+   "h1": "CILS B1 standard: l&#x27;esempio d&#x27;esame ufficiale, PDF e audio",
+   "description": "CILS B1 standard (UNO-B1): l&#x27;esempio d&#x27;esame ufficiale gratis, 9 file (8 PDF e 1 MP3), sessione giugno 2017. E cosa cambia dal CILS B1 Cittadinanza.",
+   "nel_verdetto": false
+  }
+ },
+ "controllo": {
+  "esempi/plida/": {
+   "regola": "ente_b1",
+   "ente": "PLIDA",
+   "visite_base": 35,
+   "chatgpt_base": 24,
+   "titolo": "PLIDA B1 esempio: prova d&#x27;esame PDF, audio e soluzioni | EsameB1",
+   "h1": "PLIDA B1: la prova d&#x27;esempio ufficiale, PDF, audio e soluzioni",
+   "description": "PLIDA B1: esempio d&#x27;esame ufficiale gratis (PDF, ZIP), com&#x27;è fatta ogni prova e punteggio per superare: almeno 18/30 in ognuna delle 4 abilità."
+  },
+  "esempi/b2/": {
+   "regola": "file",
+   "nome": "B2",
+   "gruppi": [
+    {
+     "dati": "dopo_esame",
+     "gruppo": "cils_b2",
+     "esame": "CILS DUE-B2",
+     "ente": "CILS"
+    }
+   ],
+   "visite_base": 20,
+   "chatgpt_base": 19,
+   "titolo": "Esame italiano B2: prove d&#x27;esempio ufficiali, PDF e audio",
+   "h1": "Esame di italiano B2: le prove d&#x27;esempio ufficiali, con PDF e audio",
+   "description": "Test di italiano B2: l&#x27;esempio ufficiale CILS DUE-B2 (7 file PDF e MP3) e le pagine ufficiali di CELI 3, PLIDA B2 e CERT.IT B2, con ascolto e orale."
+  },
+  "esempi/a2/": {
+   "regola": "file",
+   "nome": "A2",
+   "gruppi": [
+    {
+     "dati": "dopo_esame",
+     "gruppo": "cils_a2i",
+     "esame": "CILS A2 integrazione in Italia",
+     "ente": "CILS"
+    },
+    {
+     "dati": "dopo_esame",
+     "gruppo": "cils_a2",
+     "esame": "CILS A2 standard",
+     "ente": "CILS"
+    }
+   ],
+   "visite_base": 12,
+   "chatgpt_base": 10,
+   "titolo": "Esame italiano A2: prove d&#x27;esempio ufficiali, PDF e audio",
+   "h1": "Esame di italiano A2: le prove d&#x27;esempio ufficiali, con PDF e audio",
+   "description": "Test di italiano A2: le prove d&#x27;esempio ufficiali di CILS (14 file PDF e MP3), CELI, PLIDA e CERT.IT, con ascolto e orale, e i punti per superare."
+  }
+ }
+}

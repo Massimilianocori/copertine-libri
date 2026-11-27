@@ -20,6 +20,9 @@ Controlla, su tutte le pagine HTML:
 - pagine CPIA (/cpia/<slug>/, dal 20/11/2026) contro dati/cpia.json e dati/parole_cpia.json: una pagina per ogni CPIA dei dati e nessuna in più,
   titolo che comincia con la ricerca misurata (volume > 0), codice della scuola e tutte le sedi dell'anagrafe in pagina, fonte del Ministero
   con data di lettura, ogni testo tra «» uguale a una frase citata nei dati, riquadro del libro con l'etichetta libro-cpia e nessun link sponsorizzato.
+- formato «citabile» (27/11/2026, controlli_citabile, dati/citabile.json): riquadro dei dati ufficiali solo nelle pagine dell'elenco, una volta sola;
+  data «Pagina aggiornata il» = dateModified = lastmod del registro e della sitemap, e fuori dall'impronta; ogni riga con link alla fonte
+  ufficiale e data del controllo; cifre del riquadro uguali ai dati; titolo, H1 e description uguali a prima; Pass, libro e pubblicità al loro posto.
 Nato dallo script di controllo usato nelle revisioni del 31/10-12/11/2026 (scratchpad), scritto qui il 13/11/2026.
 """
 import collections
@@ -295,6 +298,133 @@ def controlli_cancello(err):
     return con_script, len(sotto), sotto
 
 
+def controlli_citabile(err, registro, lastmod_sitemap, sotto_soglia):
+    """Formato «citabile» (27/11/2026, scheda studio-business/schede/2026-11-27-esameb1-citabile.md). Restituisce il numero di pagine controllate.
+    a) il riquadro (id="dati-ufficiali") c'è una volta sola nelle pagine di dati/citabile.json e in nessun'altra; con "attivo": false in nessuna;
+    b) «Pagina aggiornata il <data>», dateModified del nodo WebPage e lastmod (registro e sitemap) sono la stessa data; nessun segnaposto rimasto;
+    c) la data è fuori dall'impronta: cambiandola l'impronta di genera.py non cambia ed è quella del registro;
+    d) ogni riga della tabella ha almeno un link a una fonte fuori dal sito e «controllato il <data>»; isBasedOn = i link del riquadro;
+    e) le cifre vengono dai dati: durata, punteggio, costo (pagine ente), costo breve e durata dei 4 enti (indice), numero dei file con link
+       diretto di ogni gruppo, tutti presenti nella pagina (pagine dei livelli);
+    f) titolo, H1 e description uguali a prima del formato (niente riscrittura dei titoli); FAQPage ancora primo JSON-LD;
+    g) riquadro del Pass una volta sola dove c'era, riquadro del libro presente, script AdSense presente (pagine sopra la soglia)."""
+    dati = SITO.parent / "dati"
+    C = json.loads((dati / "citabile.json").read_text(encoding="utf-8"))
+    attese = set(C["pagine"]) if C.get("attivo") else set()
+    for rel in C.get("controllo", {}):  # pagine tenute fuori apposta fino al verdetto: esistono e non sono anche tra le trattate
+        if rel in C["pagine"] or not (SITO / rel / "index.html").exists():
+            err.append(f"{rel}: pagina di controllo del formato citabile che è anche trattata, o che non esiste")
+    for f in sorted(SITO.rglob("*.html")):
+        h = f.read_text(encoding="utf-8")
+        rel = str(f.relative_to(SITO)).replace("index.html", "")
+        if "9999-12-31" in h:
+            err.append(f"{rel}: segnaposto della data del formato citabile rimasto nella pagina")
+        if rel not in attese and ('class="cit-agg"' in h or 'class="card cit"' in h or 'class="cit card"' in h or '"@type": "WebPage"' in h):
+            err.append(f"{rel}: elementi del formato citabile in una pagina fuori da dati/citabile.json")
+    if not attese:
+        return 0
+    try:
+        sys.path.insert(0, str(SITO.parent))
+        import genera
+    except Exception as e:  # noqa: BLE001
+        err.append(f"formato citabile: impossibile leggere genera.py ({e})")
+        return 0
+    E = {e["sigla"]: e for e in json.loads((dati / "enti.json").read_text(encoding="utf-8"))}
+    R = json.loads((dati / "risultati.json").read_text(encoding="utf-8"))["enti"]
+    ES = {e["sigla"]: e for e in json.loads((dati / "esempi.json").read_text(encoding="utf-8"))["enti"]}
+    FILE = {k: json.loads((dati / f"{k}.json").read_text(encoding="utf-8")) for k in ("esempi_livelli", "dopo_esame")}
+    mesi = "gennaio febbraio marzo aprile maggio giugno luglio agosto settembre ottobre novembre dicembre".split()
+    for rel, voce in sorted(C["pagine"].items()):
+        f = SITO / rel / "index.html"
+        if not f.exists():
+            err.append(f"{rel}: pagina di dati/citabile.json che non esiste")
+            continue
+        h = f.read_text(encoding="utf-8")
+        riq = re.findall(r'<section class="(?:card cit|cit card)" id="dati-ufficiali".*?</section>', h, re.S)
+        if len(riq) != 1 or h.count('id="dati-ufficiali"') != 1:
+            err.append(f"{rel}: il riquadro dei dati ufficiali deve esserci una volta sola (trovati {len(riq)})")
+            continue
+        riq = riq[0]
+        visibile = testo(riq)
+        # b) una sola data, uguale ovunque
+        giorno = registro.get(rel, [None])[0]
+        m = re.search(r'<time class="cit-agg" datetime="(20\d\d-\d\d-\d\d)">([^<]+)</time>', riq)
+        nodi = [n for b in re.findall(r'<script type="application/ld\+json">(.*?)</script>', h, re.S) for n in [json.loads(b)] if isinstance(n, dict)]
+        web = [n for n in nodi if n.get("@type") == "WebPage"]
+        if not m or not giorno or m.group(1) != giorno or m.group(2) != f"{int(giorno[8:])} {mesi[int(giorno[5:7]) - 1]} {giorno[:4]}":
+            err.append(f"{rel}: «Pagina aggiornata il» diversa dal registro dati/lastmod.json ({giorno})")
+        if len(web) != 1 or web[0].get("dateModified") != giorno or web[0].get("url") != URL + rel or lastmod_sitemap.get(URL + rel) != giorno:
+            err.append(f"{rel}: dateModified, indirizzo o lastmod della sitemap diversi dal registro ({giorno})")
+        if not nodi or nodi[0].get("@type") != "FAQPage":
+            err.append(f"{rel}: il primo JSON-LD deve restare il FAQPage")
+        # c) la data fuori dall'impronta
+        altra = re.sub(r'(<time class="cit-agg" datetime=")[^"]*(">)[^<]*', r"\g<1>2001-01-01\g<2>1 gennaio 2001", h).replace(f'"dateModified": "{giorno}"', '"dateModified": "2001-01-01"')
+        if rel not in sotto_soglia and (altra == h or genera.impronta_contenuto(altra) != genera.impronta_contenuto(h)
+                                       or genera.impronta_contenuto(h) != registro.get(rel, [None, None])[1]):
+            err.append(f"{rel}: la data del formato citabile entra nell'impronta del lastmod, o l'impronta non è quella del registro")
+        # d) fonte e data in ogni riga
+        righe = re.findall(r"<tr>(.*?)</tr>", riq[riq.find("<tbody>"):], re.S)
+        link_riq = []
+        for r in righe:
+            link = [unescape(u) for u in re.findall(r'<td class="cit-f"[^>]*>.*?</td>', r, re.S) for u in re.findall(r'href="(https://[^"]+)"', u)]
+            link_riq += link
+            if not link or any("esameb1" in u for u in link) or not re.search(r"controllato il \d{1,2} [a-z]+ 20\d\d", testo(r)):
+                err.append(f"{rel}: una riga del riquadro è senza fonte ufficiale o senza data del controllo: {testo(r)[:60]}")
+        if not righe or (web and sorted(set(web[0].get("isBasedOn", []))) != sorted(set(link_riq))):
+            err.append(f"{rel}: isBasedOn diverso dalle fonti del riquadro, o riquadro senza righe")
+        # e) cifre = dati
+        attesi = []
+        if voce["regola"] == "ente_b1":
+            s_ = voce["ente"]
+            attesi = [E[s_]["fatti"]["durata"]["prove"]["totale"], R[s_]["tabella"]["superare"], R[s_]["tabella"]["ripeti"], E[s_]["fatti"]["costo"]["testo"],
+                      f"il {ES[s_]['esame']} dura {E[s_]['fatti']['durata']['prove']['totale']}", "Per superare serve", "se non superi una parte"]
+            if ES[s_].get("link_diretti", True):
+                attesi.append(f"{len(ES[s_]['file'])} file")
+                if any(escape_(x["url"]) not in h for x in ES[s_]["file"]):
+                    err.append(f"{rel}: un file ufficiale contato nel riquadro non è nella pagina")
+        elif voce["regola"] == "indice_b1":
+            for s_ in E:
+                attesi += [E[s_]["fatti"]["durata"]["prove"]["totale"], E[s_]["fatti"]["costo"]["breve"], ES[s_]["esame"]]
+        else:
+            n = 0
+            for g in voce["gruppi"]:
+                D = FILE[g["dati"]]
+                gr = D["gruppi"][g["gruppo"]] if g["dati"] == "esempi_livelli" else {"file": D["esempi"][g["gruppo"]], "esame": g["esame"]}
+                attesi.append(gr["esame"])
+                if gr.get("link_diretti", True):
+                    n += len(gr["file"])
+                    attesi.append(f"{len(gr['file'])} file")
+                    if any(escape_(x["url"]) not in h for x in gr["file"]):
+                        err.append(f"{rel}: un file contato nel riquadro ({gr['esame']}) non ha il link nella pagina")
+            if len(voce["gruppi"]) > 1:
+                attesi.append(f"In breve: {n} file ufficiali gratis con link diretto")
+        if ("<details" in riq) != (len(righe) > 1):  # una riga sola: tabella aperta, senza comando; più righe: chiusa su telefono
+            err.append(f"{rel}: tabella del riquadro con il comando «apri» sbagliato per {len(righe)} righe")
+        if "fonti ufficiali e date dei controlli nella tabella" not in visibile or not re.search(r"Dati: [^·]*\((CILS|CELI|PLIDA|CERT\.IT)\)", visibile):
+            err.append(f"{rel}: nella riga della data manca l'ente dei dati o «date dei controlli nella tabella»")
+        compatto = re.sub(r"\s+", "", visibile).lower()
+        for a in attesi:
+            if re.sub(r"\s+", "", a).lower() not in compatto:
+                err.append(f"{rel}: nel riquadro manca il dato «{a[:60]}» di dati/")
+        # f) titolo, H1 e description come prima
+        for nome, espr in (("titolo", r"<title>(.*?)</title>"), ("h1", r"<h1[^>]*>(.*?)</h1>"), ("description", r'<meta name="description" content="(.*?)">')):
+            x = re.search(espr, h, re.S)
+            if not x or x.group(1) != voce[nome]:
+                err.append(f"{rel}: {nome} cambiato rispetto a dati/citabile.json (se il cambio è voluto, aggiorna lì la voce «{nome}»)")
+        # g) Pass, libro, pubblicità
+        if h.count('id="pass"') != (0 if rel.split("/")[1] in ("a1", "a2", "b2", "c1", "c2") else 1):
+            err.append(f"{rel}: riquadro del Pass assente, doppio o comparso dove non c'era")
+        if rel not in ("esempi/a2/", "esempi/b2/") and 'data-libro-proprio="si"' not in h:  # A2 e B2 non hanno mai avuto il riquadro del libro
+            err.append(f"{rel}: riquadro del libro sparito")
+        if rel not in sotto_soglia and "adsbygoogle" not in h[:h.find("</head>")]:
+            err.append(f"{rel}: script AdSense sparito da una pagina sopra la soglia")
+    return len(attese)
+
+
+def escape_(u):
+    return u.replace("&", "&amp;")
+
+
 def m_main(h):
     m = re.search(r"<main[^>]*>(.*?)</main>", h, re.S)
     return m.group(1) if m else ""
@@ -412,10 +542,12 @@ def main():
     n_cpia = controlli_cpia(err)
     con_script, sotto, sotto_soglia = controlli_cancello(err)
     n_schede = controlli_scuole(err, sotto_soglia)
+    n_cit = controlli_citabile(err, registro, dict(voci), sotto_soglia)
     print(f"cancello della pubblicità (misura rifatta qui, soglia {SOGLIA_PAROLE_PROPRIE} parole proprie): script AdSense su {con_script} pagine, "
           f"{sotto} pagine in indice sotto la soglia senza script e senza link di affiliazione, privacy senza script, home con lo script")
     print(f"pagine CPIA controllate contro i dati: {n_cpia}")
     print(f"per le scuole: pagina, modulo «scuole», 3 eventi di clic, pulsante «Sei questa sede?» su {n_schede[0]} schede di {n_schede[1]} pagine città, fuori dall'impronta del lastmod")
+    print(f"formato citabile: {n_cit} pagine (più le pagine di controllo, senza formato) con riquadro dei dati ufficiali, data = dateModified = lastmod, fonte e data in ogni riga, titoli e H1 invariati")
     print(f"pagine {len(pagine)}, in sitemap {len(sitemap)}, link interni {n_link}, domande FAQ {n_faq}, errori {len(err)}")
     for e in err[:60]:
         print("ERRORE:", e)

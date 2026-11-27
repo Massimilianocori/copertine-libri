@@ -494,3 +494,11 @@ Dalla ricerca `studio-business/ricerca-2026-11-26-esameb1-stagione.md` (pagina n
 - **Soglia al 28/2/2027:** almeno 8 scuole che scrivono e almeno 3 che chiedono prezzo o ordine; meno di 3 = stop. Controllo intermedio il 7/1.
 - Se una scuola chiede di aggiungere corso e date: si controlla sulla pagina pubblica della sede e si aggiunge sotto la scheda con fonte e data (da costruire alla prima richiesta: oggi la scheda non ha ancora questo campo).
 - **Promesse scritte in pagina:** risposta entro 7 giorni a chi chiede corso e date; visite dell'ultimo mese della pagina città prima di un ordine della scheda; IVA ancora da decidere. Il numero di sedi in pagina («oltre 600») è il conto delle schede diverse nelle pagine città, non le 644 sedi dei dati.
+
+## Formato «citabile» sulle pagine degli esempi (27/11/2026)
+
+- Scheda: `studio-business/schede/2026-11-27-esameb1-citabile.md`. Elenco delle pagine, gruppo di controllo, linea di base e interruttore (`"attivo"`) in `dati/citabile.json`; codice nel blocco «formato citabile» di `genera.py` (`riquadro_citabile()`, regole `ente_b1`, `indice_b1`, `file`), inserito da `pagina()`.
+- 8 pagine di `/esempi/` trattate: riquadro dei dati ufficiali con fonte e data in ogni riga, riga «Pagina aggiornata il» e `dateModified` (nodo `WebPage`), tutti e due = data di `dati/lastmod.json`. La data è scritta da `scrivi_date_citabili()` dopo il registro ed è fuori dall'impronta.
+- **Controllo fino al 28/12/2026: `/esempi/plida/`, `/esempi/b2/`, `/esempi/a2/` restano senza formato e non si cambiano.** Per estendere: spostare le loro voci da «controllo» a «pagine».
+- Titolo, H1 e description non cambiano: sono copiati in `dati/citabile.json` e `verifica.py` (`controlli_citabile()`) li confronta. Per un cambio voluto, aggiornare lì.
+- Lettura del lunedì: `python3 esameb1/raccolta/citabile.py --dal <lunedì> --al <domenica>` (due host, trattate contro controllo, clic sul libro e sul Pass). Verdetto 28/12/2026; soglie nella scheda. Dopo la pubblicazione scrivere `pubblicato_il` in `dati/citabile.json`.
