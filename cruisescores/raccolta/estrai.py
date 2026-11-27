@@ -146,8 +146,45 @@ def leggi_epidemie():
                     e.update({"agente": celle[4], "passeggeri": celle[5], "equipaggio": celle[6]})
                 else:
                     e["agente"] = celle[3]
+                    _dettaglio_epidemia(e)
+                e["inizio"] = _inizio_epidemia(e["date"], anno)
                 out.append(e)
     return out
+
+
+RE_MALATI = r"Number of %s who reported being ill[^:]*:\s*(\d[\d,]* of \d[\d,]* \([\d.]+ ?%%\))"
+
+
+def _dettaglio_epidemia(e):
+    """Dal 2025 le tabelle del CDC non hanno più i malati: stanno nella pagina di ogni epidemia ("233 of 2936 (7.9%)").
+    Si copiano alla lettera; se la pagina non è in cache o non ha la frase, i campi restano vuoti (mai stimati)."""
+    import html as _h
+    f = C.CACHE / "epidemie" / (e["url"].rsplit("/", 1)[-1] if e["url"] else "-")
+    if not f.exists():
+        AVVISI.append(f"epidemia {e['anno']} {e['nave']} ({e['date']}): pagina CDC non in cache, senza conteggio dei malati")
+        return
+    x = re.sub(r"\s+", " ", _h.unescape(re.sub(r"<[^>]+>", " ", f.read_text(encoding="utf-8", errors="replace"))))
+    for campo, chi in (("passeggeri", "passengers"), ("equipaggio", "crew")):
+        m = re.search(RE_MALATI % chi, x)
+        if m:
+            e[campo] = m.group(1)
+        else:
+            AVVISI.append(f"epidemia {e['anno']} {e['nave']} ({e['date']}): conteggio '{chi}' non trovato nella pagina CDC")
+    a = re.search(r"Causative agent:\s*(.*?)\s*(?:Actions |Note|Tips )", x)
+    if a and a.group(1).strip().lower() != e["agente"].strip().lower():
+        AVVISI.append(f"epidemia {e['anno']} {e['nave']} ({e['date']}): causa nella tabella '{e['agente']}', nella pagina '{a.group(1)[:60]}' (si mostra la tabella)")
+    nave = re.search(r"Cruise ship:\s*(.*?)\s*Voyage dates", x)
+    if nave and C.norm(nave.group(1)) != C.norm(e["nave"]) and not C.norm(nave.group(1)).endswith(C.norm(e["nave"])):
+        ERRORI.append(f"epidemia {e['anno']} {e['nave']}: la pagina CDC {f.name} parla di '{nave.group(1)}'")
+
+
+def _inizio_epidemia(testo, anno):
+    """Primo giorno del viaggio (ISO) dalle date scritte dal CDC: "11/11/2026 – 11/23/2026", "12/14-12/21, 2024", "12/30/2024-1/8/2025"."""
+    m = re.match(r"\s*(\d{1,2})/(\d{1,2})(?:/(\d{4}))?", testo)
+    if not m:
+        ERRORI.append(f"epidemia: date non lette '{testo}'")
+        return ""
+    return f"{int(m.group(3) or anno):04d}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
 
 
 def main():

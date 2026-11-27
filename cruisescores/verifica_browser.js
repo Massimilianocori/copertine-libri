@@ -37,7 +37,8 @@ function campione() {
   const pagine = ['/', '/ships/', '/cruise-lines/', '/rankings/', '/rankings/failed-inspections/', `/rankings/perfect-scores-${anno}/`,
     `/rankings/lowest-scores-${anno}/`, '/years/', `/years/${anno}/`, '/outbreaks/', '/how-cdc-cruise-ship-inspections-work/',
     '/methodology/', '/about/', '/contact/', '/privacy.html', '/does-not-exist/',
-    '/rankings/cleanest-cruise-lines/', '/rankings/year-over-year/', '/cruise-lines/princess-cruises/'];
+    '/rankings/cleanest-cruise-lines/', '/rankings/year-over-year/', '/cruise-lines/princess-cruises/',
+    '/outbreaks/cruise-lines/', '/outbreaks/cruise-lines/royal-caribbean-international/', '/outbreaks/2025/', '/rankings/cleanest-dirtiest-cruise-ships/'];
   for (const s of ['norwegian-dawn', 'adventure-of-the-seas', 'carnival-breeze', 'wonder-of-the-seas', 'villa-vie-odyssey', 'msc-magnifica', 'balmoral'])
     if (esiste('ships/' + s)) pagine.push('/ships/' + s + '/');
   for (const c of ['carnival-cruise-line', 'royal-caribbean-international', 'viking', 'villa-vie-residences'])

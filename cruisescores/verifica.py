@@ -27,6 +27,16 @@ Controlli del 31/10/2026 (pagine nuove e prime risposte: ogni cifra ricalcolata 
 15. Bocciature: numero nel titolo, nell'anno in corso e nell'anno prima; somma per compagnia = totale.
 16. Home e anno in corso: prima risposta (ispezioni dell'anno, data dell'ultima, media, bocciate, 100) e titolo dell'anno.
 17. Sitemap: lastmod = data del controllo dei dati (fonti.json), non nel futuro; pagine nuove presenti; title ≤ 70 e description ≤ 160 caratteri.
+Controlli del 27/11/2026 (epidemie per compagnia e per anno, classifica per nave; tutto ricalcolato qui, senza le funzioni di genera.py):
+18. Epidemie contro la fonte: dati/epidemie.json = tabelle CDC rilette qui (dalla cache e, senza --senza-rete, dal vivo con curl):
+    stesso numero di righe e, per ogni riga, compagnia, nave, date, causa e malati; malati dal 2025 = pagina CDC di ogni epidemia
+    (tutte quelle in cache; dal vivo 3 a caso); le frasi del CDC citate tra virgolette ci sono ancora.
+19. Pagine delle epidemie: ogni riga di ogni tabella = un'epidemia dei dati (nave, date, causa, malati, link CDC della riga);
+    ogni epidemia compare una volta sola tra pagine compagnia e indice; pagina compagnia solo con almeno 4 epidemie e con tutte
+    quelle dei nomi CDC che dichiara; pagine anno = epidemie dell'anno; conteggi per anno, per mese, per causa e somme dei malati;
+    numero nel titolo; pagina madre: tabella per mese.
+20. Classifica per nave (cleanest/dirtiest): navi, ordine, posti, voti e serie di 100 ricalcolati da navi.json e ispezioni.json.
+21. Sitemap e link: le pagine nuove sono in sitemap e collegate da home, /outbreaks/, classifiche e pagine compagnia.
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
 domini bloccati e link sponsorizzati verso altri domini sono errori; script AdSense, ads.txt e sezione privacy ci sono
@@ -569,6 +579,379 @@ def controlla_classifiche():
     print(f"Classifiche, confronti e prime risposte: {n_contr} righe ricalcolate dai dati CDC.")
 
 
+# ---------------------------------------------------------------- 18-21: epidemie per compagnia/anno e classifica per nave (27/11/2026)
+CDC_EP = "https://www.cdc.gov/vessel-sanitation/cruise-ship-outbreaks/"
+TABELLE_EP = {"epidemie": CDC_EP + "index.html", "epidemie-2025-2024": CDC_EP + "earlier-outbreaks.html", "epidemie-2023": CDC_EP + "earlier-outbreaks-2023.html"}
+FRASI_CDC = ("on voyages including both U.S. and foreign ports", "3% or more of passengers or crew reporting symptoms of GI illness to the ship's medical staff",
+             "other outbreaks of public health significance")
+RE_CONTO = r"Number of %s who reported being ill[^:]*:\s*(\d[\d,]* of \d[\d,]* \([\d.]+ ?%%\))"
+
+
+def _righe_cdc(testo):
+    """Lettura indipendente di una pagina CDC con le tabelle delle epidemie: [(anno, compagnia, nave, date, causa, passeggeri, equipaggio, url)]."""
+    import html as _h
+    out = []
+    for tab in re.findall(r"<table.*?</table>", testo, re.S):
+        cap = re.search(r"<caption.*?</caption>", tab, re.S)
+        anno = re.search(r"20\d\d", re.sub(r"<[^>]+>", "", cap.group(0))) if cap else None
+        if not anno:
+            continue
+        for riga in re.findall(r"<tr.*?</tr>", tab, re.S):
+            c = [re.sub(r"\s+", " ", _h.unescape(re.sub(r"<[^>]+>", "", x))).strip() for x in re.findall(r"<td[^>]*>(.*?)</td>", riga, re.S)]
+            if len(c) < 4 or c[0].lower() == "cruise line" or not c[1]:
+                continue
+            link = re.search(r'href="([^"]+)"', riga)
+            url = ("https://www.cdc.gov" + link.group(1) if link and link.group(1).startswith("/") else (link.group(1) if link else ""))
+            if len(c) >= 7:
+                out.append((int(anno.group(0)), c[0], c[1], c[2], c[4], c[5], c[6], url))
+            else:
+                out.append((int(anno.group(0)), c[0], c[1], c[2], c[3], None, None, url))
+    return out
+
+
+def _curl(url):
+    """www.cdc.gov a volte non risponde entro il tempo: tre tentativi, uno alla volta, con una pausa."""
+    import time
+    for tentativo in range(3):
+        if tentativo:
+            time.sleep(5)
+        r = subprocess.run(["curl", "-sS", "-L", "--max-time", "120", "-w", "\n%{http_code}", url], capture_output=True)
+        corpo, _, codice = r.stdout.decode("utf-8", errors="replace").rpartition("\n")
+        if codice.strip() == "200":
+            return corpo
+    return None
+
+
+def _conti_pagina(testo):
+    import html as _h
+    x = re.sub(r"\s+", " ", _h.unescape(re.sub(r"<[^>]+>", " ", testo)))
+    p, c = re.search(RE_CONTO % "passengers", x), re.search(RE_CONTO % "crew", x)
+    return (p.group(1) if p else None, c.group(1) if c else None)
+
+
+def _confronta_tabelle(ep, pagine, dove):
+    """pagine = {nome: html}. Le righe CDC (senza doppioni tra le pagine: la tabella 2023 compare due volte) devono essere quelle dei dati."""
+    viste, righe = set(), []
+    for nome in ("epidemie", "epidemie-2025-2024", "epidemie-2023"):
+        if nome not in pagine:
+            continue
+        rr = _righe_cdc(pagine[nome])
+        for a in sorted({r[0] for r in rr}):
+            if a not in viste:
+                righe += [r for r in rr if r[0] == a]
+        viste |= {r[0] for r in rr}
+    if len(righe) != len(ep):
+        errore(f"epidemie ({dove}): il CDC elenca {len(righe)} epidemie, i dati {len(ep)}: rilanciare scarica.py --epidemie ed estrai.py")
+    dati = [(e["anno"], e["compagnia"], e["nave"], e["date"], e["agente"], e["url"]) for e in ep]
+    for r in righe:
+        chiave = (r[0], r[1], r[2], r[3], r[4], r[7])
+        if chiave not in dati:
+            errore(f"epidemie ({dove}): riga CDC non nei dati: {chiave[:5]}")
+            continue
+        e = ep[dati.index(chiave)]
+        if r[5] is not None and (e.get("passeggeri"), e.get("equipaggio")) != (r[5], r[6]):
+            errore(f"epidemie ({dove}): malati di {r[2]} {r[3]}: CDC {r[5]} / {r[6]}, dati {e.get('passeggeri')} / {e.get('equipaggio')}")
+    for d in dati:
+        if d not in [(r[0], r[1], r[2], r[3], r[4], r[7]) for r in righe]:
+            errore(f"epidemie ({dove}): nei dati ma non nelle tabelle CDC: {d[:5]}")
+    return len(righe)
+
+
+def controlla_epidemie_fonte():
+    """18. dati/epidemie.json contro le pagine del CDC (cache; dal vivo se non c'è --senza-rete)."""
+    _, _, ep, _ = _dati_grezzi()
+    cache = RADICE / "cache"
+    pag = {n: (cache / "info" / f"{n}.html").read_text(encoding="utf-8", errors="replace") for n in TABELLE_EP if (cache / "info" / f"{n}.html").exists()}
+    if len(pag) == 3:
+        n = _confronta_tabelle(ep, pag, "cache")
+        for fr in FRASI_CDC:
+            if fr not in pag["epidemie"].replace("’", "'"):
+                errore(f"epidemie: la pagina CDC non dice più «{fr}» (frase citata nelle pagine)")
+        fatti = 0
+        for e in ep:
+            f = cache / "epidemie" / e["url"].rsplit("/", 1)[-1] if e["url"] else None
+            if f and f.exists():
+                if _conti_pagina(f.read_text(encoding="utf-8", errors="replace")) != (e.get("passeggeri"), e.get("equipaggio")):
+                    errore(f"epidemie: malati di {e['nave']} {e['date']} diversi dalla pagina CDC in cache ({f.name})")
+                fatti += 1
+        print(f"Epidemie contro la cache CDC: {n} righe, {fatti} pagine di dettaglio.")
+    else:
+        print("Epidemie: cache CDC assente (confronto con la cache saltato).")
+    for e in ep:
+        if e["anno"] >= 2025 and not (e.get("passeggeri") and e.get("equipaggio")):
+            errore(f"epidemie: {e['nave']} {e['date']} senza conteggio dei malati (pagina CDC non letta: rilanciare scarica.py --epidemie)")
+        for campo in ("passeggeri", "equipaggio"):
+            if e.get(campo) and not re.fullmatch(r"[\d,]+ of [\d,]+ \([\d.]+ ?%\)", e[campo]):
+                errore(f"epidemie: {e['nave']} {e['date']}: {campo} non leggibile «{e[campo]}»")
+    if "--senza-rete" in sys.argv:
+        return
+    vive = {n: _curl(u) for n, u in TABELLE_EP.items()}
+    if not all(vive.values()):
+        errore("epidemie: una tabella CDC non risponde (curl): confronto dal vivo non fatto")
+        return
+    n = _confronta_tabelle(ep, vive, "CDC dal vivo")
+    con_url = [e for e in ep if e["url"]]
+    for e in random.sample(con_url, min(3, len(con_url))):
+        import time
+        time.sleep(1.5)
+        tx = _curl(e["url"])
+        if tx is None:
+            errore(f"epidemie: la pagina CDC {e['url']} non risponde")
+        elif _conti_pagina(tx) != (e.get("passeggeri"), e.get("equipaggio")):
+            errore(f"epidemie: malati di {e['nave']} {e['date']} diversi dalla pagina CDC dal vivo: {_conti_pagina(tx)}")
+    print(f"Epidemie contro il CDC dal vivo: {n} righe uguali, 3 pagine di dettaglio a caso.")
+
+
+def _righe_epid(t, ident):
+    """Righe di una tabella delle epidemie: [(nave, compagnia o None, date, causa, passeggeri, equipaggio, href)]."""
+    import html as _h
+    m = re.search(r'<table class="lt" id="%s".*?</table>' % re.escape(ident), t, re.S)
+    if not m:
+        return None
+    out = []
+    for r in re.findall(r"<tr data-inizio=.*?</tr>", m.group(0), re.S):
+        prima = re.search(r'<td class="t1">(.*?)</td>', r, re.S).group(1)
+        nave, _, comp = prima.partition("<br>")
+        href = re.search(r'data-l="Source"><a href="([^"]+)"', r)
+        tx = lambda x: _h.unescape(_testo(x))  # noqa: E731
+        out.append((tx(nave), tx(comp) if comp else None, _h.unescape(_cella(r, "Sailing dates")), _h.unescape(_cella(r, "Cause (CDC)")),
+                    _h.unescape(_cella(r, "Passengers ill")), _h.unescape(_cella(r, "Crew ill")), _h.unescape(href.group(1)) if href else ""))
+    return out
+
+
+def _mese_inizio(e):
+    m = re.match(r"\s*(\d{1,2})/\d{1,2}(?:/(\d{4}))?", e["date"])
+    return (int(m.group(2) or e["anno"]), int(m.group(1)))
+
+
+def _n(x):
+    m = re.match(r"([\d,]+) of", x or "")
+    return int(m.group(1).replace(",", "")) if m else None
+
+
+def controlla_epidemie_pagine():
+    """19 e 21. Pagine delle epidemie per compagnia e per anno, indice, tabella per mese della pagina madre."""
+    _, _, ep, _ = _dati_grezzi()
+    a_ult = max(e["anno"] for e in ep)
+    anni = sorted({e["anno"] for e in ep})
+    tab_anno = {2023: CDC_EP + "earlier-outbreaks-2023.html"}
+
+    def attesa(e, con_comp):
+        href = e["url"] or (CDC_EP + "index.html" if e["anno"] == a_ult else tab_anno.get(e["anno"], CDC_EP + "earlier-outbreaks.html"))
+        return (e["nave"], e["compagnia"] if con_comp else None, e["date"], e["agente"], e.get("passeggeri") or "not given", e.get("equipaggio") or "not given", href)
+
+    def somma(t, lista, rel):
+        m = re.search(r"<strong>([\d,]+) passengers and ([\d,]+) crew members</strong>", t)
+        sp = sum(_n(e.get("passeggeri")) or 0 for e in lista)
+        sc = sum(_n(e.get("equipaggio")) or 0 for e in lista)
+        if not m or (int(m.group(1).replace(",", "")), int(m.group(2).replace(",", ""))) != (sp, sc):
+            errore(f"{rel}: somma dei malati sbagliata (attesi {sp} passeggeri e {sc} equipaggio)")
+
+    viste = []  # ogni epidemia deve comparire una volta sola tra pagine compagnia e tabella "altre" dell'indice
+    cartella = SITO / "outbreaks" / "cruise-lines"
+    pagine_linea = sorted(d for d in cartella.iterdir() if d.is_dir()) if cartella.exists() else []
+    if not pagine_linea:
+        errore("outbreaks/cruise-lines/: nessuna pagina compagnia")
+    for d in pagine_linea:
+        rel = f"outbreaks/cruise-lines/{d.name}/index.html"
+        t = _leggi(rel)
+        righe = _righe_epid(t, "epidemie") or []
+        import html as _h
+        nomi = re.search(r"The CDC names this cruise line as: (.*?)\. An outbreak", t)
+        nomi = set(re.findall(r"“([^”]+)”", _h.unescape(nomi.group(1)))) if nomi else set()
+        lista = [e for e in ep if e["compagnia"] in nomi]
+        if len(lista) < 4:
+            errore(f"{rel}: pagina con meno di 4 epidemie ({len(lista)})")
+        if righe != [attesa(e, False) for e in lista]:
+            errore(f"{rel}: le righe non sono le epidemie CDC di {sorted(nomi)} ({len(righe)} righe, {len(lista)} nei dati)")
+        ti = _h.unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if not ti.endswith(f"Norovirus & GI Outbreaks Since {anni[0]}: CDC List"):
+            errore(f"{rel}: titolo inatteso «{ti}»")
+        if f"posted <strong>{len(lista)} gastrointestinal illness outbreak" not in t:
+            errore(f"{rel}: numero di epidemie nella prima risposta diverso da {len(lista)}")
+        for k, riga in _tabella(t, "per-anno") or []:
+            ll = [e for e in lista if str(e["anno"]) == k]
+            noro = sum(1 for e in ll if "norovirus" in e["agente"].lower())
+            if (_cella(riga, "Outbreaks"), _cella(riga, "Norovirus"), _cella(riga, "Other or unknown cause")) != (str(len(ll)), str(noro), str(len(ll) - noro)):
+                errore(f"{rel}: anno {k} con conteggi sbagliati")
+        if len(_tabella(t, "per-anno") or []) != len(anni):
+            errore(f"{rel}: tabella per anno incompleta")
+        somma(t, lista, rel)
+        viste += lista
+        if f"<loc>{G.URL_SITO}/outbreaks/cruise-lines/{d.name}/</loc>" not in (SITO / "sitemap.xml").read_text(encoding="utf-8"):
+            errore(f"sitemap: manca outbreaks/cruise-lines/{d.name}/")
+    # indice
+    rel = "outbreaks/cruise-lines/index.html"
+    t = _leggi(rel)
+    altre = _righe_epid(t, "altre") or []
+    resto = [e for e in ep if e not in viste]
+    if altre != [attesa(e, True) for e in resto]:
+        errore(f"{rel}: la tabella delle compagnie senza pagina non corrisponde ({len(altre)} righe, {len(resto)} epidemie attese)")
+    if len(viste) + len(altre) != len(ep) or any(viste.count(e) != 1 for e in viste):
+        errore(f"{rel}: le epidemie non compaiono tutte una volta sola ({len(viste)} + {len(altre)} su {len(ep)})")
+    from collections import Counter
+    for nome_c, quante in Counter(e["compagnia"] for e in resto).items():
+        if quante >= 4:
+            errore(f"{rel}: {nome_c} ha {quante} epidemie ma nessuna pagina")
+    righe_l = _tabella(t, "linee") or []
+    if sum(int(_cella(r, f"Outbreaks since {anni[0]}")) for _, r in righe_l) != len(ep):
+        errore(f"{rel}: la somma per compagnia non è {len(ep)}")
+    if sum(int(_cella(r, "Norovirus")) for _, r in righe_l) != sum(1 for e in ep if "norovirus" in e["agente"].lower()):
+        errore(f"{rel}: somma dei norovirus sbagliata")
+    for y in anni:
+        if sum(int(_cella(r, str(y))) for _, r in righe_l) != sum(1 for e in ep if e["anno"] == y):
+            errore(f"{rel}: colonna {y} sbagliata")
+    for k, r in righe_l:
+        if (SITO / "outbreaks" / "cruise-lines" / k).is_dir():
+            tl = _leggi(f"outbreaks/cruise-lines/{k}/index.html")
+            if len(_righe_epid(tl, "epidemie") or []) != int(_cella(r, f"Outbreaks since {anni[0]}")):
+                errore(f"{rel}: {k} ha un numero diverso dalla sua pagina")
+    if f"posted <strong>{len(ep)} gastrointestinal illness outbreaks on cruise ships</strong>" not in t or f"on ships of {len(righe_l)} cruise lines" not in t:
+        errore(f"{rel}: prima risposta con numeri sbagliati")
+    # anni
+    for y in anni:
+        rel = f"outbreaks/{y}/index.html"
+        if y == a_ult:
+            if (SITO / rel).exists():
+                errore(f"{rel}: l'anno più recente sta su /outbreaks/, non deve avere una pagina sua")
+            continue
+        t = _leggi(rel)
+        lista = [e for e in ep if e["anno"] == y]
+        if (_righe_epid(t, "epidemie") or []) != [attesa(e, True) for e in lista]:
+            errore(f"{rel}: le righe non sono le {len(lista)} epidemie CDC del {y}")
+        if f"<title>Cruise Ship Norovirus &amp; GI Outbreaks in {y}: All {len(lista)} on the CDC List</title>" not in t:
+            errore(f"{rel}: titolo con il numero sbagliato")
+        mesi = Counter(_mese_inizio(e) for e in lista)
+        for m, riga in re.findall(r'<tr data-m="(\d+)">(.*?)</tr>', t, re.S):
+            if _cella(riga, str(y)) != str(mesi.get((y, int(m)), 0)):
+                errore(f"{rel}: mese {m} sbagliato")
+        if sum(mesi.values()) != len(lista):
+            errore(f"{rel}: {len(lista) - sum(mesi.values())} epidemie cominciano in un altro anno: tabella per mese incompleta")
+        somma(t, lista, rel)
+        if f"<loc>{G.URL_SITO}/outbreaks/{y}/</loc>" not in (SITO / "sitemap.xml").read_text(encoding="utf-8"):
+            errore(f"sitemap: manca outbreaks/{y}/")
+    # pagina madre: tabella per mese (tutti gli anni)
+    t = _leggi("outbreaks/index.html")
+    mesi = Counter(_mese_inizio(e) for e in ep)
+    m_tab = re.search(r'<table class="lt" id="mesi".*?</table>', t, re.S)
+    if not m_tab:
+        errore("outbreaks/: manca la tabella per mese")
+    else:
+        tot = 0
+        for m, riga in re.findall(r'<tr data-m="(\d+)">(.*?)</tr>', m_tab.group(0), re.S):
+            for y in anni:
+                if _cella(riga, str(y)) != str(mesi.get((y, int(m)), 0)):
+                    errore(f"outbreaks/: mese {m} del {y} sbagliato")
+            tot += int(_cella(riga, "Total"))
+        if tot != len(ep):
+            errore(f"outbreaks/: la tabella per mese somma {tot}, non {len(ep)}")
+    # 21. link verso le pagine nuove
+    sm = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    for u in ("outbreaks/cruise-lines/", "rankings/cleanest-dirtiest-cruise-ships/"):
+        if f"<loc>{G.URL_SITO}/{u}</loc>" not in sm:
+            errore(f"sitemap: manca {u}")
+    for rel, link in (("index.html", "/outbreaks/cruise-lines/"), ("index.html", "/rankings/cleanest-dirtiest-cruise-ships/"),
+                      ("outbreaks/index.html", "/outbreaks/cruise-lines/"), ("rankings/index.html", "/rankings/cleanest-dirtiest-cruise-ships/"),
+                      ("rankings/cleanest-cruise-lines/index.html", "/rankings/cleanest-dirtiest-cruise-ships/")):
+        if f'href="{link}"' not in _leggi(rel):
+            errore(f"{rel}: manca il link a {link}")
+    for d in pagine_linea:
+        if (SITO / "cruise-lines" / d.name).is_dir() and f'href="/outbreaks/cruise-lines/{d.name}/"' not in _leggi(f"cruise-lines/{d.name}/index.html"):
+            errore(f"cruise-lines/{d.name}/: manca il link alla pagina delle epidemie")
+    print(f"Epidemie: {len(pagine_linea)} pagine compagnia + indice, {len(anni) - 1} pagine anno; {len(ep)} epidemie, ognuna una volta sola.")
+
+
+def controlla_classifica_navi():
+    """20. rankings/cleanest-dirtiest-cruise-ships/: tutto ricalcolato da navi.json e ispezioni.json."""
+    from datetime import date, timedelta
+    navi = json.loads((G.DATI / "navi.json").read_text(encoding="utf-8"))
+    isp = json.loads((G.DATI / "ispezioni.json").read_text(encoding="utf-8"))
+    fine = max(r[0] for r in isp)
+    f = date.fromisoformat(fine)
+    try:
+        inizio = (f.replace(year=f.year - 1) + timedelta(days=1)).isoformat()
+    except ValueError:
+        inizio = (f.replace(year=f.year - 1, day=28) + timedelta(days=1)).isoformat()
+    nome = lambda s: re.sub(r" Of The ", " of the ", navi[s]["nome"])  # noqa: E731
+    pop = [s for s, n in navi.items() if n["stato"] == "attiva" and inizio <= n["storia"][0][0] <= fine]
+    ult = {s: navi[s]["storia"][0] for s in pop}
+
+    def serie(s):
+        k = 0
+        for x in navi[s]["storia"]:
+            if x[1] != 100:
+                break
+            k += 1
+        return k
+    ordine = sorted(pop, key=lambda s: nome(s))
+    ordine.sort(key=lambda s: ult[s][0], reverse=True)
+    bassi = sorted(ordine, key=lambda s: ult[s][1])
+    limite = ult[bassi[min(25, len(bassi)) - 1]][1]
+    bassi = [s for s in bassi if ult[s][1] <= limite]
+    alti = sorted((s for s in ordine if ult[s][1] == 100), key=lambda s: -serie(s))
+    rel = "rankings/cleanest-dirtiest-cruise-ships/index.html"
+    t = _leggi(rel)
+
+    def letta(ident):
+        m = re.search(r'<table class="lt" id="%s".*?</table>' % ident, t, re.S)
+        return re.findall(r'<tr data-s="([^"]+)">(.*?)</tr>', m.group(0), re.S) if m else []
+    for ident, attesa, chiave in (("piu-bassi", bassi, lambda s: ult[s][1]), ("a-100", alti, serie)):
+        righe = letta(ident)
+        if [s for s, _ in righe] != attesa:
+            errore(f"{rel}: tabella {ident}: navi o ordine diversi dal ricalcolo ({len(righe)} righe, attese {len(attesa)})")
+            continue
+        for i, (s, r) in enumerate(righe):
+            posto = 1 + sum(1 for x in attesa[:i] if chiave(x) != chiave(s))
+            if not re.search(r'<span class="small">%d\.</span>' % posto, r):
+                errore(f"{rel}: {s} dovrebbe essere al posto {posto}")
+            if _cella(r, "Score") != str(ult[s][1]):
+                errore(f"{rel}: voto di {s} diverso da {ult[s][1]}")
+            if ident == "a-100" and _cella(r, "100s in a row") != str(serie(s)):
+                errore(f"{rel}: serie di 100 di {s} diversa da {serie(s)}")
+    # classifica completa: tutte le navi della finestra, dal voto più alto; data e voto di ogni riga contro navi.json e contro
+    # ispezioni.json (l'ispezione più recente della nave nei dati grezzi), link alla pagina della nave esistente
+    tutte = sorted(ordine, key=lambda s: -ult[s][1])
+    righe = letta("tutte")
+    grezze = {}
+    for r in isp:
+        if r[4] and (r[4] not in grezze or r[0] > grezze[r[4]][0]):
+            grezze[r[4]] = (r[0], r[1])
+    if [s for s, _ in righe] != tutte:
+        errore(f"{rel}: tabella tutte: navi o ordine diversi dal ricalcolo ({len(righe)} righe, attese {len(tutte)})")
+    else:
+        for s, r in righe:
+            posto = 1 + sum(1 for x in pop if ult[x][1] > ult[s][1])
+            if not re.search(r'<span class="small">%d\.</span>' % posto, r):
+                errore(f"{rel}: tabella tutte: {s} dovrebbe essere al posto {posto}")
+            if _cella(r, "Score") != str(ult[s][1]):
+                errore(f"{rel}: tabella tutte: voto di {s} diverso da {ult[s][1]}")
+            d = date.fromisoformat(ult[s][0])
+            if _cella(r, "Inspected") != f"{d:%b} {d.day}, {d.year}":
+                errore(f"{rel}: tabella tutte: data di {s} diversa da {ult[s][0]}")
+            if grezze.get(s) != (ult[s][0], ult[s][1]):
+                errore(f"{rel}: tabella tutte: {s} non coincide con l'ultima ispezione in ispezioni.json ({grezze.get(s)})")
+            if f'href="/ships/{s}/"' not in r or not (G.SITO / "ships" / s / "index.html").exists():
+                errore(f"{rel}: tabella tutte: link alla pagina di {s} mancante")
+            if ("Failed" in r) != (ult[s][1] <= 85):
+                errore(f"{rel}: tabella tutte: esito di {s} sbagliato")
+            # la pagina della nave dichiara lo stesso posto
+            if f"place {posto} of {len(pop)} ships" not in _leggi(f"ships/{s}/index.html"):
+                errore(f"ships/{s}/: posto nella classifica diverso da {posto} di {len(pop)}")
+    for rel2 in (f"rankings/lowest-scores-{fine[:4]}/index.html", "ships/index.html"):
+        if "/rankings/cleanest-dirtiest-cruise-ships/" not in _leggi(rel2).split("<main", 1)[-1].split("</main>")[0]:
+            errore(f"{rel2}: manca il link alla classifica per nave")
+    boc = sum(1 for s in pop if ult[s][1] <= 85)
+    passate = sum(1 for s in bassi if ult[s][1] >= 86)
+    for frase in (f"lowest score is {nome(bassi[0])}: {ult[bassi[0]][1]} out of 100", f"<strong>{len(alti)} ships scored a perfect 100</strong>",
+                  f"Ranking of {len(pop)} ships", f"{boc} ship", f"Lowest latest CDC scores: {len(bassi)} ships",
+                  f"{passate} of these {len(bassi)} ships passed: the pass mark is 86 out of 100, and the list goes up to a score of {ult[bassi[-1]][1]}",
+                  f"All {len(pop)} ships ranked by latest CDC score"):
+        if frase not in t:
+            errore(f"{rel}: frase attesa non trovata: «{frase}»")
+    print(f"Classifica per nave: {len(pop)} navi nella finestra {inizio} - {fine}; {len(bassi)} più basse, {len(alti)} a 100, {len(righe)} nella classifica completa: ordine riprodotto.")
+
+
+
 def controlla_sitemap_lastmod():
     _, _, _, fonti = _dati_grezzi()
     from datetime import date
@@ -603,6 +986,9 @@ def main():
     controlla_parole()
     controlla_peso()
     controlla_classifiche()
+    controlla_epidemie_fonte()
+    controlla_epidemie_pagine()
+    controlla_classifica_navi()
     controlla_sitemap_lastmod()
     if "--senza-rete" not in sys.argv:
         controlla_fonte()

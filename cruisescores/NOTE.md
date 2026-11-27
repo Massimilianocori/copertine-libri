@@ -205,3 +205,27 @@ Search Console (28 giorni al 29/10/2026): 287 impressioni, 4 clic, posizione med
      «discuss travel insurance coverage or the features of Travel Guard plans» e di raccomandare l'acquisto: andrebbe solo un banner neutro. Da valutare solo dopo CruiseDirect.
   3. **Viator** (escursioni nei porti, 8%, cookie 30 giorni): account già creato, in analisi (vedi `studio-business/affiliazioni-2026-10-17.md`). Quando arriva il link,
      va in `dati/affiliati.json` come nuova voce (dominio `viator.com` già ammesso).
+
+## Epidemie per compagnia e per anno, classifica per nave (27/11/2026)
+Scheda: `studio-business/schede/2026-11-27-cruise-focolai.md` (piano di crescita dei siti minori, sezione 4, costruzioni 1 e 2). Non pubblicato da questo lavoro.
+- **Fonte riletta il 27/11/2026** (`curl`, una richiesta ogni 1-2 secondi): le tre tabelle CDC delle epidemie elencano le stesse 65 righe già nei dati
+  (2023: 14 · 2024: 18 · 2025: 23 · 2026: 10; la più recente Caribbean Princess 11/11-23/11/2026). Nessuna epidemia nuova.
+- **Malati su presenti**: dal 2025 le tabelle CDC non li hanno più; stanno nella pagina CDC di ogni epidemia. `scarica.py` le scarica in
+  `cache/epidemie/<nome>.html` (`scarica_epidemie()`; quelle dell'anno in corso si riscaricano a ogni aggiornamento, le altre una volta; solo epidemie:
+  `python3 cruisescores/raccolta/scarica.py --epidemie`). `estrai.py` copia alla lettera «233 of 2936 (7.9%)» nei campi `passeggeri` ed `equipaggio`
+  e aggiunge `inizio` (primo giorno del viaggio, ISO). Se una pagina non arriva i campi restano vuoti e `verifica.py` lo segnala come errore.
+- **Pagine nuove (11)**, tutte in sitemap:
+  - `/outbreaks/cruise-lines/` indice per compagnia (tutte le compagnie con conteggi per anno; righe complete delle compagnie senza pagina);
+  - `/outbreaks/cruise-lines/<compagnia>/` per le compagnie con almeno 4 epidemie (`MIN_EPID_PAGINA`): oggi Holland America 12, Princess 12,
+    Royal Caribbean 10, Celebrity 6, Lindblad 5, Cunard 4. Ogni riga: nave, date, causa, malati, link CDC della riga. Nascono e spariscono per regola;
+  - `/outbreaks/<anno>/` per ogni anno tranne il più recente (`ANNI_EPID_PAGINE`: oggi 2023, 2024, 2025). L'anno più recente resta su `/outbreaks/`,
+    che lo ha già nel titolo: quando il CDC apre la tabella 2027 nasce da sola `/outbreaks/2026/`;
+  - `/rankings/cleanest-dirtiest-cruise-ships/`: navi del Green Sheet con l'ultima ispezione negli ultimi 12 mesi di ispezioni pubblicate (`NAVI_12`),
+    ordinate solo per l'ultimo voto: le 25 più basse più i pari merito (`N_BASSI_NAVI`) e tutte quelle a 100, in ordine di 100 consecutivi (`serie_100`).
+- **Pagine esistenti**: nessun URL né titolo cambiato. Aggiunti link (home, `/outbreaks/`, `/rankings/`, cleanest cruise lines, pagine compagnia e nave),
+  la tabella per mese su `/outbreaks/`, i malati 2025-2026 nelle tabelle già esistenti, due sezioni in metodologia.
+- **Tono**: mai giudizi su una compagnia; il riquadro «What this list counts» cita il CDC (giurisdizione VSP = viaggi con porti USA e stranieri; 3% o più di
+  passeggeri o equipaggio; «other outbreaks of public health significance») e dice che il numero di epidemie non è un tasso.
+- **`verifica.py`, controlli 18-21**: dati = tabelle CDC (cache e dal vivo), malati = pagine CDC; ogni riga delle pagine = un'epidemia dei dati, ognuna una volta
+  sola; conteggi per anno, mese, somme; classifica per nave ricalcolata da `navi.json`; sitemap e link. `verifica_browser.js`: 4 pagine nuove nel campione.
+- **Sitemap**: `lastmod` = `scaricato_il` (25/11/2026) anche per le pagine nuove: il sito non ha un registro di impronte e `verifica.py` impone la stessa data a tutte.

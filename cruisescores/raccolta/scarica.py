@@ -4,6 +4,7 @@ Uso (dalla radice del repository):
     python3 cruisescores/raccolta/scarica.py             # aggiornamento: Green Sheet + navi cambiate + rapporti mancanti
     python3 cruisescores/raccolta/scarica.py --tutto     # riscarica la storia di tutte le navi (i rapporti già in cache restano)
     python3 cruisescores/raccolta/scarica.py --controllo # solo Green Sheet e modulo: dice se il CDC ha cambiato qualcosa
+    python3 cruisescores/raccolta/scarica.py --epidemie  # solo le tabelle delle epidemie e la pagina CDC di ogni epidemia (malati su presenti)
 
 Fonte: strumento del CDC https://wwwn.cdc.gov/InspectionQueryTool/ (ASP.NET con sessione).
   1. InspectionGreenSheetRpt.aspx  -> ultimo voto di ogni nave "attiva" (nome, data, voto, link al rapporto).
@@ -177,8 +178,51 @@ def scarica_info():
         print("   ATTENZIONE: la FAQ del CDC non dice più '85 or below' o 'two unannounced inspections': rileggere la guida del sito.")
 
 
+RE_EPID = re.compile(r'href="(?:https://www\.cdc\.gov)?(/vessel-sanitation/cruise-ship-outbreaks/([a-z0-9-]+)\.html)"')
+NON_EPIDEMIE = {"index", "earlier-outbreaks", "earlier-outbreaks-2023"}
+
+
+def scarica_epidemie():
+    """Pagina CDC di ogni epidemia collegata dalle tabelle (dal 2025 i malati su presenti sono solo lì): cache/epidemie/<nome>.html.
+    Le pagine dell'anno in corso si riscaricano a ogni aggiornamento (il CDC le corregge); le altre una volta sola.
+    Stessa regola delle pagine informative: curl, una richiesta ogni 1-2 secondi; se non arriva resta la copia in cache."""
+    import subprocess
+    nomi = []
+    for tab in ("epidemie", "epidemie-2025-2024", "epidemie-2023"):
+        f = C.CACHE / "info" / f"{tab}.html"
+        if not f.exists():
+            continue
+        for tabella in re.findall(r"<table.*?</table>", f.read_text(encoding="utf-8", errors="replace"), re.S):
+            for percorso, nome in RE_EPID.findall(tabella):
+                if nome not in NON_EPIDEMIE and (percorso, nome) not in nomi:
+                    nomi.append((percorso, nome))
+    anno = str(date.today().year)
+    nuove = 0
+    for percorso, nome in nomi:
+        f = C.CACHE / "epidemie" / f"{nome}.html"
+        if f.exists() and anno not in nome:
+            continue
+        attendi()
+        CONTO["richieste"] += 1
+        r = subprocess.run(["curl", "-sS", "-L", "--max-time", "90", "-w", "\n%{http_code}", "https://www.cdc.gov" + percorso], capture_output=True)
+        corpo, _, codice = r.stdout.decode("utf-8", errors="replace").rpartition("\n")
+        if codice.strip() == "200" and "who reported being ill" in corpo:
+            scrivi(f, corpo)
+            nuove += 1
+        else:
+            CONTO["errori"] += 1
+            print(f"   ATTENZIONE: epidemia {nome} -> HTTP {codice.strip() or '?'} (resta la copia in cache, se c'è)")
+    print(f"   pagine delle epidemie: {len(nomi)} collegate dalle tabelle, {nuove} scaricate ora")
+
+
 def main():
     tutto = "--tutto" in sys.argv
+    if "--epidemie" in sys.argv:
+        print("Solo epidemie (www.cdc.gov): tabelle e pagina di ogni epidemia")
+        scarica_info()
+        scarica_epidemie()
+        print(f"Fatto: {CONTO['richieste']} richieste, {CONTO['errori']} errori.")
+        return
     oggi = date.today().isoformat()
     print("1/4 Green Sheet")
     g = richiesta("GET", BASE + "InspectionGreenSheetRpt.aspx").text
@@ -195,6 +239,8 @@ def main():
     print(f"   {len(navi)} navi e {len(compagnie)} compagnie nel modulo")
     print("   pagine informative e epidemie (www.cdc.gov)")
     scarica_info()
+    if "--controllo" not in sys.argv:
+        scarica_epidemie()
     if "--controllo" in sys.argv:
         print(f"Controllo concluso: {CONTO['richieste']} richieste. Il CDC risponde come previsto.")
         return
