@@ -1,6 +1,6 @@
 {
  "_nota": "Dati per la sezione usa/ (Florida e Texas), scritti da raccolta/usa.py: non modificare a mano. Aliquote in percento. Texas: aliquote dichiarate dagli enti al Comptroller (anno fiscale 2025), come nel file.",
- "controllato_il": "2026-11-07",
+ "controllato_il": "2026-11-27",
  "fonti": {
   "fl_tdt": {
    "url": "https://floridarevenue.com/Forms_library/current/dr15tdt.pdf",
@@ -8,7 +8,7 @@
    "ente": "Florida Department of Revenue",
    "formato": "PDF",
    "http": 200,
-   "controllato_il": "2026-11-07",
+   "controllato_il": "2026-11-27",
    "impronta_di": "file",
    "impronta": "sha256:6c8efe7a33f0b33c20c1f98d8db3b22d7b3e5e78cec38659c8d02ef232987c8c",
    "revisione": "10/26"
@@ -19,7 +19,7 @@
    "ente": "Florida Department of Revenue",
    "formato": "PDF",
    "http": 200,
-   "controllato_il": "2026-11-07",
+   "controllato_il": "2026-11-27",
    "impronta_di": "file",
    "impronta": "sha256:cd0d923b384764afe5f026a0f7270074971f31f809412c4e251cf2bdfd37a5df",
    "revisione": "11/25",
@@ -31,7 +31,7 @@
    "ente": "Florida Department of Revenue",
    "formato": "web page",
    "http": 200,
-   "controllato_il": "2026-11-07",
+   "controllato_il": "2026-11-27",
    "impronta_di": "testo",
    "impronta": "sha256:946c9b9c9aef8ea6e74a41e768452e963ab6c94f8e613aae9fc6050c2b9c5a29"
   },
@@ -41,7 +41,7 @@
    "ente": "Florida Department of Revenue",
    "formato": "web page",
    "http": 200,
-   "controllato_il": "2026-11-07",
+   "controllato_il": "2026-11-27",
    "impronta_di": "testo",
    "impronta": "sha256:d3729739f723494a493c12c03809266d6f2aeb531c7fdf24f7a0d90ae4877554"
   },
@@ -51,7 +51,7 @@
    "ente": "Florida Department of Revenue",
    "formato": "web page",
    "http": 200,
-   "controllato_il": "2026-11-07",
+   "controllato_il": "2026-11-27",
    "impronta_di": "testo",
    "impronta": "sha256:da796c5a167a15f3769c053e05f021b4316a3b656a9b4c9cb45b28066a5fe48f"
   },
@@ -61,7 +61,7 @@
    "ente": "Texas Comptroller of Public Accounts",
    "formato": "web page",
    "http": 200,
-   "controllato_il": "2026-11-07",
+   "controllato_il": "2026-11-27",
    "impronta_di": "testo",
    "impronta": "sha256:b65888e31fd461eec3beba5d627aebff6225ad614d8e93a9f37be924856ea014"
   },
@@ -71,7 +71,7 @@
    "ente": "Texas Comptroller of Public Accounts",
    "formato": "web page",
    "http": 200,
-   "controllato_il": "2026-11-07",
+   "controllato_il": "2026-11-27",
    "impronta_di": "testo",
    "impronta": "sha256:98983c41866a74605ed15875888b3f169cc30498f1f96bcef570ee9da691475a"
   },
@@ -81,7 +81,7 @@
    "ente": "Texas Comptroller of Public Accounts",
    "formato": "web page",
    "http": 200,
-   "controllato_il": "2026-11-07",
+   "controllato_il": "2026-11-27",
    "impronta_di": "testo",
    "impronta": "sha256:8e42a74dd673ec4d06731cb7b163a9a5a648dff2fdc2eb9c7d9a9ca11ec86433"
   },
@@ -91,7 +91,7 @@
    "ente": "Texas Comptroller of Public Accounts, data.texas.gov",
    "formato": "open data (JSON)",
    "http": 200,
-   "controllato_il": "2026-11-07",
+   "controllato_il": "2026-11-27",
    "impronta_di": "json",
    "impronta": "sha256:e083c4ddd328aece0101778a598d22eb4b326f04871df776a44d1ed9746164ba",
    "url_dati": "https://data.texas.gov/resource/er34-v24h.json?$limit=5000&$order=type,name",
@@ -105,7 +105,7 @@
    "ente": "Texas Comptroller of Public Accounts, data.texas.gov",
    "formato": "open data (description)",
    "http": 200,
-   "controllato_il": "2026-11-07",
+   "controllato_il": "2026-11-27",
    "impronta_di": "testo",
    "impronta": "sha256:0f25dba2dae3f240789413386dc4e1a3dc705f1a8718d3b63ae6533bcf8ddb58",
    "url_impronta": "https://data.texas.gov/api/views/vmy5-jctb.json"
@@ -116,7 +116,7 @@
    "ente": "U.S. Census Bureau",
    "formato": "text file",
    "http": 200,
-   "controllato_il": "2026-11-07",
+   "controllato_il": "2026-11-27",
    "impronta_di": "testo",
    "impronta": "sha256:be46665b9457c9c5ea9b4e5e00b7ab8c048723e8e778e5f2a0b79ab182cc694b"
   }

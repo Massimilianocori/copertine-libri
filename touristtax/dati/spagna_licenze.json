@@ -110,8 +110,8 @@
    "ente": "Generalitat Valenciana",
    "formato": "open data (CSV)",
    "http": 200,
-   "controllato_il": "2026-11-05",
-   "impronta": "sha256:71b13ca3f29db9dc2d83db7c0b0acce3166a1a759fb442a9d25598ab6198a034",
+   "controllato_il": "2026-11-27",
+   "impronta": "sha256:ac978d146f71ebd6aa186500e0dd18eccb83482c6f27a99d6b04dda530347f7a",
    "impronta_di": "testo"
   },
   "and_ley": {
@@ -169,10 +169,10 @@
    "titolo": "Ley 13/2002 de turismo de Cataluña, consolidated text (arts. 50 bis and 73)",
    "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2002-14081",
    "ente": "Boletín Oficial del Estado",
-   "formato": "BOE consolidated text, last update 17 March 2023",
+   "formato": "BOE consolidated text, last update 13 July 2026",
    "http": 200,
-   "controllato_il": "2026-11-05",
-   "impronta": "sha256:8e3289433e2885eb364b2b686e29d2e1c00e4fc3ac47f31ac742c1683ffa140d",
+   "controllato_il": "2026-11-27",
+   "impronta": "sha256:01d6729dddf136b92357ab46c6705993276639b541ba5812278ab8a82f20124e",
    "impronta_di": "testo"
   },
   "cat_dl": {
@@ -191,8 +191,8 @@
    "ente": "Generalitat de Catalunya",
    "formato": "open data",
    "http": 200,
-   "controllato_il": "2026-11-05",
-   "impronta": "sha256:5eae1db642498f54878adc471403e7eb25003ba91f2428fb61074c3f5cf6acfd",
+   "controllato_il": "2026-11-27",
+   "impronta": "sha256:35ca6e820eeba149b5fedf553dfe12e786a7b29964e9aa4ffe855b13da6c209f",
    "impronta_di": "testo",
    "url_impronta": "https://analisi.transparenciacatalunya.cat/api/views/t2h3-cgys.json",
    "nota": "The register also lists holders' names: we use only counts by municipality."
@@ -251,11 +251,22 @@
    "titolo": "Ley 1/1999 de Ordenación del Turismo de la Comunidad de Madrid, consolidated text (art. 23)",
    "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1999-12089",
    "ente": "Boletín Oficial del Estado",
-   "formato": "BOE consolidated text, last update 15 June 2026",
+   "formato": "BOE consolidated text, last update 15 June 2026 (the 2026 reform below not yet consolidated)",
    "http": 200,
-   "controllato_il": "2026-11-05",
-   "impronta": "sha256:9bb1d82309cd487abd8b6a17de642d46ab659d7521d54ce257081c14cb6f5552",
+   "controllato_il": "2026-11-27",
+   "impronta": "sha256:d5a494752f7dd9b3f598ee2b984d89d89be485d2186629f23126bf1316ec70c8",
    "impronta_di": "testo"
+  },
+  "mad_ley2026": {
+   "titolo": "Ley 8/2026 of 4 November amending Ley 1/1999 de Ordenación del Turismo de la Comunidad de Madrid, BOCM no. 270, 10 November 2026 (new art. 23; new art. 29 ter on tourist homes; in force three months after publication)",
+   "url": "https://www.bocm.es/boletin/CM_Orden_BOCM/2026/11/10/BOCM-20261110-1.PDF",
+   "ente": "Boletín Oficial de la Comunidad de Madrid",
+   "formato": "PDF",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "impronta": "sha256:0863e31b2815bd39154e1eae73c316180fdc51e7b2ced8a9158fdd5a9c3d89b2",
+   "impronta_di": "file",
+   "nota": "In force on 10 February 2027 (BOE analysis of BOCM-m-2026-90260: 'Fecha de entrada en vigor: 10/02/2027')."
   }
  },
  "regioni": [
@@ -490,8 +501,12 @@
      "mad_decreto2019"
     ],
     [
-     "After the declaration, registration on the Registro de Empresas Turísticas follows art. 23 of Ley 1/1999 (art. 17.3); that article describes the register as public and registration as voluntary (Ley 1/1999, art. 23.2).",
+     "After the declaration, registration on the Registro de Empresas Turísticas follows art. 23 of Ley 1/1999 (art. 17.3); that article describes the register as public and registration as voluntary (Ley 1/1999, art. 23.2) until 9 February 2027.",
      "mad_ley"
+    ],
+    [
+     "From 10 February 2027 the register becomes the Registro de Empresas y Establecimientos Turísticos: public, with registration made ex officio by the regional tourism department (new art. 23.3 of Ley 1/1999, «la inscripción se practicará de oficio»), and tourist homes become a type of tourist accommodation in the law itself (new arts. 25 f and 29 ter), under Ley 8/2026 of 4 November (BOCM 10 November 2026).",
+     "mad_ley2026"
     ],
     [
      "In buildings under horizontal property, tourist use can be limited or conditioned under the Ley de Propiedad Horizontal (art. 17.5 as amended in 2019).",
@@ -506,7 +521,8 @@
    "fonti": [
     "mad_decreto2019",
     "mad_decreto",
-    "mad_ley"
+    "mad_ley",
+    "mad_ley2026"
    ],
    "risposta": "To let a home to tourists in the Community of Madrid you must file a declaración responsable, together with the CIVUT certificate of suitability, with the regional tourism department (Decreto 79/2014, art. 17, as amended by Decreto 29/2019"
   }

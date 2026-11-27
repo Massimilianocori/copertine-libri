@@ -1,12 +1,12 @@
 {
- "_nota": "Tasse di soggiorno in Giappone (宿泊税), 31/10/2026. Elenco degli enti dal PDF del Ministero degli Affari interni (法定外税の状況, al 1/10/2026); tariffe dai consensi del Ministro (PDF soumu.go.jp), dalla tabella unica dell'Hokkaido e dalle pagine di Prefetture e Comuni. regole: tipo 'bande' = [da, a (escluso), yen a persona per notte] sul prezzo per persona per notte; 'pct' = percentuale del prezzo per persona, con min (soglia), arrot (base arrotondata per difetto), base_max e cap (tetto a persona per notte); include_pref = la percentuale comprende la tassa della Prefettura. pref_regole = tariffa della Prefettura dentro quel Comune. Controllo: python3 -I touristtax/raccolta/giappone.py",
- "controllato_il": "2026-10-31",
+ "_nota": "Tasse di soggiorno in Giappone (宿泊税), 31/10/2026. Elenco degli enti dal PDF del Ministero degli Affari interni (法定外税の状況, al 27/11/2026; edizione precedente al 1/10/2026); tariffe dai consensi del Ministro (PDF soumu.go.jp), dalla tabella unica dell'Hokkaido e dalle pagine di Prefetture e Comuni. regole: tipo 'bande' = [da, a (escluso), yen a persona per notte] sul prezzo per persona per notte; 'pct' = percentuale del prezzo per persona, con min (soglia), arrot (base arrotondata per difetto), base_max e cap (tetto a persona per notte); include_pref = la percentuale comprende la tassa della Prefettura. pref_regole = tariffa della Prefettura dentro quel Comune. Controllo: python3 -I touristtax/raccolta/giappone.py",
+ "controllato_il": "2026-11-27",
  "fonte_elenco": {
-  "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-  "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+  "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+  "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
   "http": 200,
   "formato": "PDF (Japanese)",
-  "controllato_il": "2026-10-31"
+  "controllato_il": "2026-11-27"
  },
  "elenco_mic_conteggi": {
   "in_vigore": 49,
@@ -91,11 +91,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [
@@ -154,11 +154,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [
@@ -201,11 +201,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [
@@ -256,11 +256,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [
@@ -328,11 +328,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [
@@ -381,11 +381,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [
@@ -466,11 +466,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [
@@ -502,15 +502,15 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [
-    "Approved: the Minister consented on 30 September 2026. The start is planned for January 2027 or later; the exact date has not been fixed yet, so the calculator does not apply it."
+    "Approved: the Minister consented on 30 September 2026. The consent planned the start for January 2027 or later; the Ministry's list as of 27 November 2026 gives June 2027 or later (「大分県は令和９年６月以降」, note *7). The exact date has not been fixed yet, so the calculator does not apply it."
    ],
    "pagina": "japan-accommodation-tax/oita/",
    "bande_previste": [
@@ -535,7 +535,9 @@
      2000
     ]
    ],
-   "inizio_testo": "January 2027 or later (date not fixed yet)"
+   "inizio_testo": "June 2027 or later (date not fixed yet)",
+   "inizio_lungo": "June 2027 or later",
+   "inizio_breve": "Jun 2027 or later"
   },
   {
    "id": "okinawa",
@@ -578,11 +580,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [
@@ -656,11 +658,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -713,11 +715,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [
@@ -772,11 +774,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [
@@ -825,11 +827,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [
@@ -885,11 +887,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [
@@ -994,11 +996,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [
@@ -1100,11 +1102,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [
@@ -1148,11 +1150,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [
@@ -1200,11 +1202,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [
@@ -1261,11 +1263,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -1316,11 +1318,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -1382,11 +1384,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [
@@ -1432,11 +1434,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -1485,11 +1487,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -1546,11 +1548,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -1631,11 +1633,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -1701,11 +1703,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -1756,11 +1758,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -1811,11 +1813,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -1866,11 +1868,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -1921,11 +1923,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -1976,11 +1978,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -2031,11 +2033,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -2086,11 +2088,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -2141,11 +2143,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -2206,11 +2208,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -2272,11 +2274,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [
@@ -2345,11 +2347,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -2410,11 +2412,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -2475,11 +2477,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [
@@ -2531,11 +2533,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -2580,11 +2582,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -2626,11 +2628,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [
@@ -2713,11 +2715,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -2853,11 +2855,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -2956,11 +2958,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -3106,11 +3108,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -3206,11 +3208,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -3286,11 +3288,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [
@@ -3333,11 +3335,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [
@@ -3380,11 +3382,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [
@@ -3455,11 +3457,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -3509,11 +3511,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -3572,11 +3574,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -3635,11 +3637,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -3698,11 +3700,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -3761,11 +3763,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -3822,11 +3824,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -3880,11 +3882,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -3944,11 +3946,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -3995,11 +3997,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [
@@ -4038,11 +4040,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -4085,11 +4087,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -4132,11 +4134,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -4185,11 +4187,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -4232,11 +4234,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -4280,11 +4282,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [],
@@ -4331,11 +4333,11 @@
      "controllato_il": "2026-10-31"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 1 October 2026",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (non-statutory local taxes), as of 27 November 2026",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-10-31"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [

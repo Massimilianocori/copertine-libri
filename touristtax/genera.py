@@ -2126,6 +2126,10 @@ JT_HUB = "japan-accommodation-tax/"
 JT_27 = "japan-accommodation-tax-2027/"
 JT_CHECK = data_lunga(JT["controllato_il"])
 JT_LISTA_AL = data_lunga(JT_ELENCO["alla_data"])
+# Enti approvati senza data fissa (Oita): periodo di partenza scritto nei dati («inizio_lungo», «inizio_breve»), dall'elenco MIC.
+_JT_SD = next((e for e in JT["enti"] if e["stato"] == "approvato" and not e.get("inizio")), {})
+JT_SD_LUNGO = _JT_SD.get("inizio_lungo", "January 2027 or later")
+JT_SD_BREVE = _JT_SD.get("inizio_breve", "Jan 2027 or later")
 JT_PREZZO_LAB = "Room-only price per night for all guests (¥)"
 JT_ESEMPIO = {"okinawa": 17000, "ishigaki": 17000, "miyakojima": 17000, "motobu": 17000, "onna": 17000, "chatan": 17000, "nago": 17000}
 JT_FONTE_NOMI = [("soumu.go.jp", "Ministry of Internal Affairs and Communications"), ("hokkaido-shukuhakuzei.pref.hokkaido", "Hokkaido Government"),
@@ -2466,7 +2470,7 @@ def jt_risposta(e, L):
     if rif is None:
         b = e["bande_previste"]
         return (f"{nome} has approved an accommodation tax of {jt_desc({'tipo': 'bande', 'bande': b}, True).replace('–', ' to ')} per person per night, set by the "
-                f"room-only price per person ({jt_bande_frase(b)}), starting in January 2027 or later ({fonti}, checked on {JT_CHECK}). "
+                f"room-only price per person ({jt_bande_frase(b)}), starting in {e.get('inizio_lungo', JT_SD_LUNGO)} ({fonti}, checked on {JT_CHECK}). "
                 "The exact start date has not been set yet.")
     oggi = OGGI.isoformat()
     inizi = [r["dal"] for _, r in jt_attive(L, rif) if r.get("dal")]
@@ -2575,7 +2579,7 @@ def jt_link(e, rel):
 def jt_quando(e, corto=False):
     data_lunga = data_breve if corto else globals()["data_lunga"]
     if e["stato"] == "approvato":
-        return f"Starts {data_lunga(e['inizio'])}" if e.get("inizio") else ("Jan 2027 or later" if corto else f"Starts {e.get('inizio_testo', '2027')}")
+        return f"Starts {data_lunga(e['inizio'])}" if e.get("inizio") else (e.get("inizio_breve", JT_SD_BREVE) if corto else f"Starts {e.get('inizio_testo', '2027')}")
     if e.get("inizio") and e.get("inizio_da") == "mic":
         return f"Since {data_lunga(e['inizio'])}"
     if e.get("inizio") and e["inizio"] <= OGGI.isoformat():
@@ -2803,7 +2807,7 @@ def jt_eventi_2027():
                 ev.append({"dal": e["inizio"], "e": e, "nuova": True, "cifra": cifra, "dett": jt_composizione(e, L, e["inizio"])})
             else:
                 ev.append({"dal": None, "e": e, "nuova": True, "cifra": jt_desc({"tipo": "bande", "bande": e["bande_previste"]}, True) + " per person per night",
-                           "dett": "start date not fixed yet (January 2027 or later)"})
+                           "dett": f"start date not fixed yet ({e.get('inizio_lungo', JT_SD_LUNGO)})"})
             continue
         for d in jt_date_cambio(L):
             if d <= "2027-12-31" and d > oggi:
@@ -2822,7 +2826,7 @@ def jt_faq_2027(ev):
     per_data = {}
     for x in nuove:
         per_data.setdefault(x["dal"], []).append(x["e"]["en"])
-    elenco = "; ".join((data_lunga(d) if d else "January 2027 or later") + ": " + ", ".join(n) for d, n in per_data.items())
+    elenco = "; ".join((data_lunga(d) if d else JT_SD_LUNGO) + ": " + ", ".join(n) for d, n in per_data.items())
     return [
         ("Which new accommodation taxes start in Japan in 2027?",
          f"{len(nuove)} approved taxes, by start date: {elenco} (Ministry of Internal Affairs and Communications list of {JT_LISTA_AL})."),
@@ -2844,7 +2848,7 @@ def pagina_jt_2027():
     righe = ""
     for x in ev:
         e = x["e"]
-        quando = data_breve(x["dal"]) if x["dal"] else "Jan 2027 or later"
+        quando = data_breve(x["dal"]) if x["dal"] else x["e"].get("inizio_breve", JT_SD_BREVE)
         L = JT_L[e["id"]]
         if x["nuova"]:
             cosa = "New: " + (jt_breve(L, x["dal"]) if x["dal"] else jt_desc({"tipo": "bande", "bande": e["bande_previste"]}, True))
@@ -2857,7 +2861,7 @@ def pagina_jt_2027():
         e = x["e"]
         fo = e["fonti"][0]
         d = x["dal"]
-        g, m = (str(date.fromisoformat(d).day), f"{MESI_BREVI[date.fromisoformat(d).month - 1]} {d[:4]}") if d else ("Jan", "2027 or later")
+        g, m = (str(date.fromisoformat(d).day), f"{MESI_BREVI[date.fromisoformat(d).month - 1]} {d[:4]}") if d else tuple(e.get("inizio_breve", JT_SD_BREVE).split(" ", 1))
         schede += f"""<li class="vc"><div class="vc-data"><span class="vc-g">{g}</span><span class="vc-m">{m}</span></div>
 <div class="vc-c"><h3>{jt_link(e, rel)} <span class="small">{escape(e['ja'])}</span></h3>
 <p class="vc-imp"><span class="vc-lab">{"New" if x["nuova"] else "Change"}</span> {escape(x['cifra'])}</p>
@@ -2871,7 +2875,7 @@ def pagina_jt_2027():
     parti = []
     for d, n in per_data.items():
         nomi_ = ", ".join(n[:-1]) + " and " + n[-1] if len(n) > 1 else n[0]
-        parti.append(f"{nomi_} {'on ' + data_lunga(d)[:-5] if d else 'from January 2027 or later'}")
+        parti.append(f"{nomi_} {'on ' + data_lunga(d)[:-5] if d else 'from ' + JT_SD_LUNGO}")
     risp = (f"{len(nuove)} more Japanese local governments will charge an accommodation tax in 2027: " + "; ".join(parti)
             + f" (Ministry of Internal Affairs and Communications list as of {JT_LISTA_AL}, checked on {JT_CHECK}). Tokyo and Nagasaki also change their rates on 1 April 2027.")
     faq = jt_faq_2027(ev)

@@ -707,7 +707,7 @@ def controlla_giappone_tasse():
     J, E = G.JT, G.JT_ELENCO
     enti = J["enti"]
     per_ja = {e["ja"]: e for e in enti}
-    if E["url"] != J["fonte_elenco"]["url"] or E["alla_data"] != "2026-10-01":
+    if E["url"] != J["fonte_elenco"]["url"] or E["alla_data"] != "2026-11-27":
         errori.append("JP tasse: istantanea dell'elenco MIC non corrisponde alla fonte (URL o data)")
     vig = {e["ja"] for e in enti if e["stato"] == "in_vigore"}
     app = {e["ja"]: e.get("inizio") for e in enti if e["stato"] == "approvato"}
@@ -854,7 +854,7 @@ def controlla_giappone_tasse():
         if e["stato"] == "approvato":
             if link not in p27:
                 errori.append(f"JP tasse: la pagina 2027 non linka {e['pagina']}")
-            quando = G.data_breve(e["inizio"]) if e.get("inizio") else "Jan 2027 or later"
+            quando = G.data_breve(e["inizio"]) if e.get("inizio") else e.get("inizio_breve", "Jan 2027 or later")
             if not re.search(r"<td><strong>" + re.escape(quando) + r"</strong></td><td>" + re.escape(f'<a href="../{e["pagina"]}">'), p27):
                 errori.append(f"JP tasse: pagina 2027: {e['en']} senza la data {quando}")
     for pag, link in [("index.html", f'href="{G.JT_HUB}"'), ("country/japan/index.html", f'href="../../{G.JT_HUB}"'),
@@ -935,7 +935,7 @@ ESEMPI_SN = [
 ]
 SN_DOMINI = {"santiago-de-compostela": ("https://bop.dacoruna.gal/", "https://www.santiagoturismo.com/", "https://www.boe.es/"),
              "naples": ("https://www.comune.napoli.it/", "https://static-www.comune.napoli.it/")}
-SN_EVENTO = {"santiago-de-compostela": (("https://catedraldesantiago.es/", "https://www.poderjudicial.es/"), ("Holy Year", "25 July", "as of 4 November 2026")),
+SN_EVENTO = {"santiago-de-compostela": (("https://catedraldesantiago.es/", "https://www.poderjudicial.es/"), ("Holy Year", "25 July", "as of 27 November 2026")),
              "naples": (("https://www.comune.napoli.it/",), ("22 May to 4 July 2027", "10 to 19 July 2027", "calculator stops at 31 December 2026"))}
 
 
@@ -1033,17 +1033,18 @@ ESEMPI_ES_REG = [("gva", "03133", 10256), ("gva", "46250", 5691), ("gva", "03031
                  ("gva", "03099", 4616), ("gva", "03082", 4301), ("rta", "29069", 15764), ("rta", "29067", 12609), ("rta", "41091", 9542),
                  ("rta", "29070", 10595), ("cat", "08019", 10651), ("cat", "43905", 7126)]
 ESEMPI_ES_TOT = {"gva": 90015, "rta": 153476, "cat": 104502}
-ESEMPI_ES_MESI = [("gva", None, "2026-08", 263), ("gva", None, "2026-09", 382), ("gva", None, "2026-10", 350), ("rta", None, "2026-10", 567),
+# 27/11/2026: gva 2026-10 = 360 (il 5/11 erano 350: iscrizioni di ottobre registrate dopo), ricontato a mano sul CSV del 26/11 (sha256 3490837f…), csv.DictReader su fecha_alta
+ESEMPI_ES_MESI = [("gva", None, "2026-08", 263), ("gva", None, "2026-09", 382), ("gva", None, "2026-10", 360), ("rta", None, "2026-10", 567),
                   ("rta", None, "2026-03", 984)]
 ES_DOMINI = ("https://www.boe.es/", "https://www.ine.es/", "https://servicios.ine.es/", "https://dadesobertes.gva.es/", "https://www.juntadeandalucia.es/",
              "https://analisi.transparenciacatalunya.cat/", "https://www.bocm.es/")
 ES_REGOLE = {  # frasi che devono comparire nelle pagine delle Comunità, lette nei testi ufficiali il 5/11/2026
     "comunitat-valenciana": ("art. 19.1 b", "up to 10 days", "valid for 5 years", "informe municipal de compatibilidad urbanística"),
     "andalusia": ("art. 7.1", "do not set a separate rule on adverts", "art. 2.2", "expressly authorised"),
-    "catalonia": ("art. 73.5", "262 municipalities", "9 November 2023", "by 9 November 2028", "between November 2027", "updated on 5 October 2026"),
+    "catalonia": ("art. 73.5", "262 municipalities", "9 November 2023", "by 9 November 2028", "between November 2027", f"updated on {G.data_lunga(G.ESN['cat']['aggiornato'])}"),  # data del registro (27/11: dal file, non più fissa)
     "balearic-islands": ("art. 28.3", "art. 120 j", "zonas aptas", "provisionally delimited", "art. 23.7", "island Consell"),
     "canary-islands": ("art. 8.6", "art. 75.16", "13 December 2025"),
-    "madrid-region": ("1741/2018", "CIVUT", "voluntary", "5-day minimum stay", "regional tourism administration"),
+    "madrid-region": ("1741/2018", "CIVUT", "voluntary", "5-day minimum stay", "regional tourism administration", "From 10 February 2027", "«la inscripción se practicará de oficio»"),
 }
 
 

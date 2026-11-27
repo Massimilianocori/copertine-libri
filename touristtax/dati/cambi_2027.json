@@ -1,6 +1,6 @@
 {
  "_nota": "Cambi di tassa turistica già decisi, con data ufficiale (pagina tourist-tax-changes-2027/). Una voce per cambio: luogo, slug della pagina del sito (vuoto se non c'è), data, cosa cambia, importo, fonte ufficiale (URL, HTTP, data del controllo). 'verifica' = elenco [slug, data]: verifica.py controlla che quella destinazione abbia davvero una tariffa (o un supplemento, o un cambio annunciato) che parte in quella data. Solo atti o pagine ufficiali: niente stampa. 'importo_breve' = cifra corta per la tabella in cima (stessi numeri di 'importo' e 'prima'). Voce con 'uma' (Visitax del Quintana Roo): 'importo', 'prima' e 'importo_breve' li scrive genera.py da dati/uma.json (2,50 × UMA dell'anno; finché l'INEGI non pubblica la UMA 2027 la voce dice la formula).",
- "aggiornato_il": "2026-10-31",
+ "aggiornato_il": "2026-11-27",
  "voci": [
   {
    "dal": "2027-01-01",
@@ -190,10 +190,10 @@
    "riserva": "",
    "verifica": [],
    "fonte": {
-    "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (list as of 1 October 2026: start dates of approved accommodation taxes) and the Minister's consents of 30 June, 28 August and 30 September 2026",
-    "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+    "titolo": "Ministry of Internal Affairs and Communications - 法定外税の状況 (list as of 27 November 2026: start dates of approved accommodation taxes) and the Minister's consents of 30 June, 28 August and 30 September 2026",
+    "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
     "http": 200,
-    "controllato_il": "2026-10-31"
+    "controllato_il": "2026-11-27"
    }
   },
   {
@@ -302,5 +302,5 @@
    "cosa": "End of the reduced rates of the first three years: the Hakuba and Nagano amounts go up in every taxed price band."
   }
  ],
- "non_elencati": "Not listed because we could not read an official act with the date and amount: Venice's 2027 access fee calendar (the City's sites block automated reading), Milan's 2027 rates (not published when we last checked the City's site, on 10 October 2026), Naples' 2027 rates (the City's resolution sets the rates for 2026 only; nothing for 2027 when we checked, on 4 November 2026), and the Catalan rate for Barcelona from April 2027. Oita Prefecture (Japan) has an approved accommodation tax of ¥100 to ¥2,000 per person per night, but its start date is only 'January 2027 or later': see the Japan accommodation tax 2027 page."
+ "non_elencati": "Not listed because we could not read an official act with the date and amount: Venice's 2027 access fee calendar (the City's sites block automated reading), Milan's 2027 rates (we could not read the City's tax pages, which block automated reading, on 27 November 2026, so we have not seen the official 2027 table), Naples' 2027 rates (the City's resolution sets the rates for 2026 only; nothing for 2027 on the City's site when we checked, on 27 November 2026), Amsterdam's 2027 rate (no 2027 tourist tax ordinance in the official municipal gazette when we checked, on 27 November 2026), and the Catalan rate for Barcelona from April 2027. Oita Prefecture (Japan) has an approved accommodation tax of ¥100 to ¥2,000 per person per night, but its start date is only 'June 2027 or later' (Ministry list as of 27 November 2026): see the Japan accommodation tax 2027 page."
 }

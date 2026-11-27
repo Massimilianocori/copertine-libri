@@ -1629,15 +1629,15 @@
    ],
    "evento": {
     "titolo": "Compostela Holy Year 2027",
-    "testo": "2027 is a Compostela Holy Year (Año Santo Compostelano). The Cathedral of Santiago explains that it is a Holy Year when 25 July, the feast of Saint James, falls on a Sunday, as it does in 2027. The ordinance has no special rate for the Holy Year (as of 4 November 2026): the amounts on this page apply. Stays in the public pilgrim hostels run by the Xunta de Galicia and in youth hostels are exempt; other hostels (albergues) charge €1 per guest aged 18 or over per night. The hoteliers' association has challenged the ordinance in court; the High Court of Galicia refused to suspend it (30 September 2025) and will rule on the merits later.",
+    "testo": "2027 is a Compostela Holy Year (Año Santo Compostelano). The Cathedral of Santiago explains that it is a Holy Year when 25 July, the feast of Saint James, falls on a Sunday, as it does in 2027. The ordinance has no special rate for the Holy Year (as of 27 November 2026): the amounts on this page apply. Stays in the public pilgrim hostels run by the Xunta de Galicia and in youth hostels are exempt; other hostels (albergues) charge €1 per guest aged 18 or over per night. The hoteliers' association has challenged the ordinance in court; the High Court of Galicia refused to suspend it (30 September 2025) and will rule on the merits later.",
     "fonti": [
      {
       "titolo": "Cathedral of Santiago - Pilgrimage page: Holy Year section ('2027 – Año Santo Compostelano': a Holy Year when 25 July falls on a Sunday)",
       "url": "https://catedraldesantiago.es/peregrinacion/",
       "http": 200,
       "formato": "HTML (Spanish)",
-      "controllato_il": "2026-11-04",
-      "impronta": "sha256:3d5ea07eb48928af5680a2a8c5c5faeceaab2a194b241cf6cfdfbc35cab2eebb",
+      "controllato_il": "2026-11-27",
+      "impronta": "sha256:ac4b92dfb34d63bc5d52dd8f28f2ed7fb4618a0fe488cd467c9c543da2a42bb1",
       "impronta_di": "testo"
      },
      {
@@ -6077,8 +6077,8 @@
      "url": "https://www.comune.napoli.it/articolo_tematico/tributi-locali/imposta-di-soggiorno/imposta-di-soggiorno-2026/",
      "http": 200,
      "formato": "HTML (Italian)",
-     "controllato_il": "2026-11-04",
-     "impronta": "sha256:bf587633046509b98479e30f4046471f97ef16467c97e9cc5b9e0b877c41d080",
+     "controllato_il": "2026-11-27",
+     "impronta": "sha256:073d2f509958b11b2a183f8bb56c5eb665dd977d4417d08c45d4d1600e002058",
      "impronta_di": "testo"
     },
     {
@@ -6105,7 +6105,7 @@
     "Paid per person per night by guests who are not resident in Naples, up to 14 consecutive nights in the same stay.",
     "Children aged 14 or under pay nothing (the City's page: the tax is due from guests older than 14). The regulation's wording is 'minori entro il quattordicesimo anno d'età': if your child is exactly 14, ask the accommodation.",
     "Youth hostels (ostelli della gioventù) are outside the tax.",
-    "Rates rose by €1 on 1 May 2026 (Giunta resolution 89 of 12 March 2026). The rates for 2027 are not published yet (checked on 4 November 2026): the calculator stops at 31 December 2026.",
+    "Rates rose by €1 on 1 May 2026 (Giunta resolution 89 of 12 March 2026). The rates for 2027 are not published yet (checked on 27 November 2026): the calculator stops at 31 December 2026.",
     "This page covers the municipality of Naples only: Ischia, Capri, Sorrento, Pompei and the Amalfi Coast towns set their own rates."
    ],
    "esenzioni": [
@@ -6120,15 +6120,15 @@
    ],
    "evento": {
     "titolo": "America's Cup in Naples, 2027",
-    "testo": "Naples hosts the Louis Vuitton 38th America's Cup in the Gulf of Naples: the Louis Vuitton Cup races run from 22 May to 4 July 2027 and the America's Cup match from 10 to 19 July 2027 (City of Naples). The tourist tax rates for 2027 had not been published when we checked (4 November 2026); the calculator stops at 31 December 2026.",
+    "testo": "Naples hosts the Louis Vuitton 38th America's Cup in the Gulf of Naples: the Louis Vuitton Cup races run from 22 May to 4 July 2027 and the America's Cup match from 10 to 19 July 2027 (City of Naples). The tourist tax rates for 2027 had not been published when we checked (27 November 2026); the calculator stops at 31 December 2026.",
     "fonti": [
      {
-      "titolo": "Comune di Napoli - 'Napoli Città Ospitante della 38ª edizione della Louis Vuitton America's Cup' (page updated 30 September 2026): Louis Vuitton Cup 22 May - 4 July 2027, America's Cup match 10-19 July 2027",
+      "titolo": "Comune di Napoli - 'Napoli Città Ospitante della 38ª edizione della Louis Vuitton America's Cup' (page updated 23 November 2026): Louis Vuitton Cup 22 May - 4 July 2027, America's Cup match 10-19 July 2027",
       "url": "https://www.comune.napoli.it/articolo_tematico/napoli-citta-ospitante-della-38esima-edizione-della-americas-cup/",
       "http": 200,
       "formato": "HTML (Italian)",
-      "controllato_il": "2026-11-04",
-      "impronta": "sha256:fdbf2a82be122685b284f68a83caa2839a9a52414e77675c8a1f3e3575cf4246",
+      "controllato_il": "2026-11-27",
+      "impronta": "sha256:4ff6d0631e0472f7b5e8fcefc7ced6313196490892379af58163014c0a202fd5",
       "impronta_di": "testo"
      }
     ]
@@ -6339,11 +6339,11 @@
      "controllato_il": "2026-10-10"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - list of non-statutory taxes as of 1 October 2026 (Hokkaido and Kutchan taxes in force)",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - list of non-statutory taxes as of 27 November 2026 (Hokkaido and Kutchan taxes in force)",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-11-25"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [
@@ -6581,11 +6581,11 @@
      "controllato_il": "2026-11-25"
     },
     {
-     "titolo": "Ministry of Internal Affairs and Communications - list of non-statutory taxes as of 1 October 2026 (Nagano and Hakuba in force since 1 June 2026)",
-     "url": "https://www.soumu.go.jp/main_content/001094503.pdf",
+     "titolo": "Ministry of Internal Affairs and Communications - list of non-statutory taxes as of 27 November 2026 (Nagano and Hakuba taxes in force)",
+     "url": "https://www.soumu.go.jp/main_content/001103392.pdf",
      "http": 200,
      "formato": "PDF (Japanese)",
-     "controllato_il": "2026-11-25"
+     "controllato_il": "2026-11-27"
     },
     {
      "titolo": "Ministry of Internal Affairs and Communications - consent to the new Nozawa Onsen accommodation tax (5%, 3.5% for the first three years), 13 February 2026",
