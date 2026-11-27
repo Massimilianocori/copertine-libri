@@ -2,7 +2,7 @@
 
 Uso (dalla radice del repository):
     python3 ccnl/verifica.py              # dati, cifre, pagine, link, SEO, FAQ, monetizzazione, testi
-    python3 ccnl/verifica.py --browser    # + Playwright: 6 pagine a 375 e 1280 px, tema chiaro e scuro, calcolo in pagina
+    python3 ccnl/verifica.py --browser    # + Playwright: pagine campione a 375 e 1280 px, tema chiaro e scuro, calcoli in pagina
     python3 ccnl/verifica.py --rete       # + rilegge i link esterni (documenti ufficiali)
 
 Le cifre si ricalcolano qui senza usare genera.py: si rileggono dati/estratti.json (valori letti dalle fonti), si rifanno
@@ -15,6 +15,7 @@ import subprocess
 import sys
 import urllib.request
 from datetime import date
+from fractions import Fraction as Fraction_
 from decimal import ROUND_HALF_UP, Decimal
 from html import unescape
 from pathlib import Path
@@ -803,13 +804,13 @@ def _campi_modulo(html, nome):
 
 
 def impronta_pagina(testo):
-    """Impronta del contenuto di una pagina, rifatta qui: titolo, descrizione, JSON-LD e <main>, senza il riquadro dell'annuncio,
-    senza le date di controllo e di lettura delle fonti e senza i nomi con impronta dei file in /assets/."""
+    """Impronta del contenuto di una pagina, rifatta qui: titolo, descrizione, JSON-LD e <main>, senza i riquadri di rimando (annuncio di lavoro;
+    preavviso e tredicesima), senza le date di controllo e di lettura delle fonti e senza i nomi con impronta dei file in /assets/."""
     import hashlib
     date_c = {CONTROLLO.isoformat(), data_lunga(CONTROLLO.isoformat())}
     for es in list(FJ["fonti"].values()) + list(FJ["pagine"].values()):
         date_c |= {es["letto_il"], data_lunga(es["letto_il"])}
-    testo = re.sub(r"<!--annuncio-->.*?<!--/annuncio-->", "", testo, flags=re.S)
+    testo = re.sub(r"<!--(annuncio|inverno)-->.*?<!--/\1-->", "", testo, flags=re.S)
     testo = re.sub(r"(Controllato il|controllate il|Letto il|Ultimo aggiornamento:) (?:1°|\d{1,2}) [a-z]+ \d{4}", r"\1 {data}", testo)
     testo = re.sub(r"(/assets/[a-z]+)\.[0-9a-f]{10}\.", r"\1.", testo)
     for d_ in sorted(date_c, key=len, reverse=True):
@@ -833,7 +834,7 @@ def controlla_lastmod(nuove, data_nuove):
         if not "2026-11-12" <= d_ <= OGGI.isoformat():
             errore(f"sitemap: /{u} ha una data impossibile ({d_})")
         t = leggi_html(SITO / u / "index.html")
-        senza = re.sub(r"<!--annuncio-->.*?<!--/annuncio-->", "", t, flags=re.S).replace(f"Controllato il {data_lunga(CONTROLLO.isoformat())}", "Controllato il 3 marzo 2031")
+        senza = re.sub(r"<!--(annuncio|inverno)-->.*?<!--/\1-->", "", t, flags=re.S).replace(f"Controllato il {data_lunga(CONTROLLO.isoformat())}", "Controllato il 3 marzo 2031")
         if impronta_pagina(t) != impronta_pagina(senza):
             errore(f"/{u}: il riquadro dell'annuncio o la data «Controllato il» entrano nell'impronta del lastmod")
     if len(set(voci.values())) < 2:
@@ -1159,6 +1160,602 @@ def controlla_annuncio():
           f"{n_cit} citazioni di legge uguali ai frammenti; {n_es} esempi; {n_riq} riquadri; moduli pro e api; nessun link di pagamento")
 
 
+# ---------------------------------------------------------------- 8 ter. pacchetto d'inverno: preavviso e tredicesima (27/11/2026)
+# Rifatto qui senza genera.py e senza genera_inverno.py. I giorni: ogni frase di dati/inverno.json si ritrova nel testo del
+# contratto salvato (nell'articolo e sotto l'intestazione giusti) e i numeri si rileggono dalla frase. Gli euro: lo stato di
+# ogni livello viene da estratti.json (atteso_livello, corrente), le formule sono riscritte qui e ogni tabella in pagina si
+# confronta cella per cella, oggi e alla prossima data in cui un minimo cambia. Il calcolo del browser si esegue con node.
+P_PRE, P_TRE = "preavviso/", "tredicesima/"
+NUMERI_IT = {"un": 1, "uno": 1, "due": 2, "tre": 3, "quattro": 4, "cinque": 5, "sei": 6, "sette": 7, "otto": 8, "dieci": 10, "quindici": 15, "venti": 20, "trenta": 30}
+PREDEF_INV = {"terziario": "iv", "metalmeccanici": "c3", "multiservizi": "2", "logistica": "c3", "domestico": "cs"}
+BASI_DOM = {"lic25": [("Chi convive", "m"), ("A ore, 30 ore", 30)], "dim25": [("Chi convive", "m"), ("A ore, 30 ore", 30)],
+            "meno25": [("A ore, 20 ore", 20)]}
+CASI_INVERNO = []
+
+
+def pulisci_cit(t):
+    return re.sub(r"(\w)- (\w)", r"\1\2", t).replace("ﬁ", "fi").replace("ﬂ", "fl")
+
+
+def leggi_termine(frase):
+    """(mesi, giorni, unità) riletti dalla frase del contratto: «mesi due e quindici giorni», «60 giorni di calendario», «sei giorni lavorativi»."""
+    t = frase.lower()
+    for parola, n in NUMERI_IT.items():
+        t = re.sub(rf"\b{parola}\b", str(n), t)
+    m_ = re.search(r"\bmes[ei] (\d+)\b|\b(\d+) mes[ei]\b", t)
+    g_ = re.search(r"\bgiorni (\d+)\b|\b(\d+) giorni\b", t)
+    return (int(m_.group(1) or m_.group(2)) if m_ else 0, int(g_.group(1) or g_.group(2)) if g_ else 0,
+            "lav" if "lavorativ" in t else ("cal" if "calendario" in t else "gg"))
+
+
+def livelli_frase(cid, m, v):
+    """I livelli che la frase (o l'etichetta della colonna) nomina, riletti qui; None se la frase vale per una qualifica intera."""
+    fr = v["frase"]
+    if cid == "terziario":
+        romani = {"Quadri": "q", "I": "i", "Il": "ii", "II": "ii", "III": "iii", "IV": "iv", "V": "v", "VI": "vi", "VII": "vii"}
+        return {romani[x] for x in re.findall(r"\b(Quadri|VII|VI|IV|V|III|II|Il|I)\b", fr.split(" Livello")[0])}
+    if cid == "metalmeccanici":
+        return {x.lower() for x in re.findall(r"\b[A-D]\d\b", v["et"])}
+    if cid == "multiservizi":
+        if "operai" in fr:
+            return None
+        if "dal 5° al 2°" in fr:
+            return {"5", "4", "3", "2"}
+        return set(re.findall(r"(\d)° livello", fr)) | ({"q"} if "Quadri" in fr else set())
+    if cid == "logistica":
+        if "qualifica" in fr:
+            q_ = re.search(r"qualifica (\d) parametri ([A-F, ]+)", fr)
+            return {f"{x.lower()}{q_.group(1)}" for x in re.findall(r"[A-F]", q_.group(2))}
+        if "operai" in fr:
+            return None
+        if "altri livelli" in fr:
+            return {L["id"] for L in m["livelli"] if L.get("gruppo_nome") == "Personale non viaggiante"} - {"q", "1", "2"}
+        return set(re.findall(r"(\d)° livello", fr)) | ({"q"} if "quadri" in fr else set())
+    return {L["id"] for L in m["livelli"]}
+
+
+def tabelle_inv(pre):
+    per_id = {t["id"]: t for t in pre["tabelle"]}
+    out = []
+    for t in pre["tabelle"]:
+        if t.get("deriva"):
+            t = dict(per_id[t["deriva"]], **t)
+        out.append(dict(t, num=t.get("num", 1), den=t.get("den", 1)))
+    return out
+
+
+def voci_inv(tab):
+    return [(v.get("banda") or g["banda"], v) for g in tab["gruppi"] for v in g["voci"]]
+
+
+def termine_txt(v, num=1, den=1):
+    pezzi = ([("1 mese" if v["mesi"] == 1 else f"{v['mesi']} mesi")] if v["mesi"] else []) + ([f"{v['giorni']} giorni"] if v["giorni"] else [])
+    t = " e ".join(pezzi) + {"lav": " lavorativi", "cal": " di calendario"}.get(v["unita"], "")
+    if (num, den) != (1, 2):
+        return t
+    # la metà si scrive anche in numero solo quando è intera: metà di 1 mese = 15 giorni, di 2 mesi = 1 mese, di 30 giorni = 15 giorni
+    tot = v["mesi"] * 30 + v["giorni"]
+    if tot % 2 or v["giorni"] % 2 or v["unita"] == "lav":
+        return f"la metà di {t}"
+    m2, g2 = divmod(tot // 2, 30)
+    chiara = " e ".join(([("1 mese" if m2 == 1 else f"{m2} mesi")] if m2 else []) + ([f"{g2} giorni"] if g2 else []))
+    return f"la metà di {t} ({chiara})"
+
+
+def ind_attesa(mc, v, num, den, div=30, ratei=0):
+    """Indennità in centesimi, riscritta con le frazioni: mensilità del contratto, giorni lavorativi ÷ 22 o 26, mese di 30 giorni."""
+    from fractions import Fraction
+    if v.get("mens"):
+        x = Fraction(mc) * Fraction(v["mens"])
+    elif v["unita"] == "lav":
+        x = Fraction(mc * v["giorni"], div)
+    else:
+        x = Fraction(mc * (v["mesi"] * 30 + v["giorni"]), 30)
+    c = int(x * num / den + Fraction(1, 2))
+    return int(Fraction(c * ratei, 12) + Fraction(1, 2)) if ratei else c
+
+
+def e_cent(c):
+    return euro(Decimal(c) / 100)
+
+
+def celle_tabella(pezzo):
+    """Righe (intestazione compresa) della prima tabella di un pezzo di HTML, come testo."""
+    t = re.search(r"<table\b.*?</table>", pezzo, re.S)
+    if not t:
+        return None
+    return [[norm(unescape(re.sub(r"<[^>]+>", " ", c))) for c in re.findall(r"<t[hd]\b[^>]*>(.*?)</t[hd]>", r, re.S)] for r in re.findall(r"<tr\b[^>]*>(.*?)</tr>", t.group(0), re.S)]
+
+
+def blocchi_pagina(html):
+    """({nome: pezzo} visibile oggi, {nome: (data, pezzo)} nascosto fino a una data) dei blocchi con cifre <!--b:nome-->."""
+    oggi = dict(re.findall(r"<!--b:([\w-]+)-->(.*?)<!--/b-->", RE_DAL.sub(" ", html), re.S))
+    dopo = {}
+    for d, pezzo in RE_DAL.findall(html):
+        for nome, x in re.findall(r"<!--b:([\w-]+)-->(.*?)<!--/b-->", pezzo, re.S):
+            dopo[nome] = (d, x, pezzo)
+    return oggi, dopo
+
+
+def stato_inv(cid, L, att, giorno):
+    """Minimo del livello nel giorno, in centesimi, o None (riga sospesa o non pubblicabile). Per il lavoro domestico la tabella
+    dell'anno prima resta in pagina con la nota: qui non si esclude (lo fa solo il calcolo del browser, con i suoi passi)."""
+    cur, sosp = corrente(att, cid, L, giorno)
+    if not (cur and cur[1]) or sosp:
+        return None
+    if cid == "domestico":
+        a = cur[3]
+        ind = D(a["A_indennita"]) if a.get("A_indennita") else Decimal(0)
+        o = D(a["C_oraria"])
+        return {"m": int((D(a["A_mensile"]) + ind) * 100), "p": {h_: int(orario52(o, h_) * 100) for h_ in (10, 20, 25, 30, 40)}, "dal": cur[0]}
+    ore = C[cid]["ore"]["valore"]
+    return {"m": int(arr(cur[2]) * 100), "p": {h_: int(prorata(arr(cur[2]), h_, ore) * 100) for h_ in sorted({20, 24, 30, ore})}, "dal": cur[0]}
+
+
+def controlla_inverno():
+    import tempfile
+    INV = carica("inverno.json")
+    CI_ = INV["contratti"]
+    oggi = OGGI.isoformat()
+    sm = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    date_sm = dict(re.findall(r"<url><loc>https://pagaccnl\.com/([^<]*)</loc><lastmod>(\d{4}-\d{2}-\d{2})</lastmod></url>", sm))
+    if set(CI_) != set(C):
+        errore("inverno.json: i contratti non sono i 5 del sito")
+        return
+    n_frasi = n_cit = n_celle = n_euro = 0
+    # ---- A. dati = testo del contratto
+    for cid, m in C.items():
+        pre, tre = CI_[cid]["preavviso"], CI_[cid]["tredicesima"]
+        if pre["fonte"] != m["testo"]["fonte"] or tre["fonte"] != m["testo"]["fonte"]:
+            errore(f"inverno {cid}: la fonte non è il testo del contratto di contratti_meta.json")
+        T = testo_fonte(pre["fonte"])
+        ids = {L["id"] for L in m["livelli"]}
+        for t in pre["tabelle"]:
+            if t.get("deriva"):
+                base_ = next((x for x in pre["tabelle"] if x["id"] == t["deriva"] and not x.get("deriva")), None)
+                frase = norm(pre["cit"].get(t.get("cit"), {}).get("testo", ""))
+                if not base_ or (t["num"], t["den"]) != (1, 2) or not re.search(r"ridotti (rispettivamente al 50%|del 50%|della metà)", frase) or "dimissioni" != t["caso"]:
+                    errore(f"inverno {cid}/{t['id']}: tabella derivata senza la frase del contratto che dimezza i termini")
+                continue
+            i0 = T.find(norm(t["inizio"]))
+            i1 = T.find(norm(t["fine"]), i0 + 1) if i0 >= 0 else -1
+            if i0 < 0 or i1 < 0 or i1 - i0 > 12000:
+                errore(f"inverno {cid}/{t['id']}: articolo non trovato nel testo ({t['dove']})")
+                continue
+            art = T[i0:i1]
+            if t.get("intestazione"):
+                if norm(t["intestazione"]) not in art or norm(t["intestazione"]) != "Anni di servizio " + " ".join(v["et"] for v in t["gruppi"][0]["voci"]):
+                    errore(f"inverno {cid}/{t['id']}: intestazione della tabella diversa dal testo o dalle colonne")
+            pos = 0
+            inizi = []
+            for g in t["gruppi"]:
+                pg = art.find(norm(g["frase"]), pos)
+                if pg < 0:
+                    errore(f"inverno {cid}/{t['id']}: intestazione «{g['frase'][:50]}» non trovata nell'articolo, nell'ordine atteso")
+                    break
+                inizi.append(pg)
+                pos = pg + 1
+            else:
+                inizi.append(len(art))
+                for k, g in enumerate(t["gruppi"]):
+                    if g.get("pre") is not None:
+                        # tabella a matrice (metalmeccanici): la riga intera è nel testo e le celle sono i suoi pezzi, nell'ordine delle colonne
+                        if norm(" ".join([g["pre"]] + [v["frase"] for v in g["voci"]])) != norm(g["frase"]) or \
+                                norm(" ".join([g["pre"]] + [v["frase_mens"] for v in g["voci"]])) != norm(g["frase_mens"]) or norm(g["frase_mens"]) not in art:
+                            errore(f"inverno {cid}/{t['id']}: la riga «{g['pre']}» non è quella del testo")
+                    p_ = inizi[k]
+                    for v in g["voci"]:
+                        n_frasi += 1
+                        pv = art.find(norm(v["frase"]), p_)
+                        if pv < 0 or pv >= inizi[k + 1]:
+                            errore(f"inverno {cid}/{t['id']}: la frase «{v['frase'][:60]}» non è nel testo sotto «{g['frase'][:40]}»")
+                        p_ = max(p_, pv) + (1 if g.get("pre") is None else 0)
+                        if leggi_termine(v["frase"]) != (v["mesi"], v["giorni"], v["unita"]):
+                            errore(f"inverno {cid}/{t['id']}: «{v['frase'][:60]}» dice {leggi_termine(v['frase'])}, il dato dice {(v['mesi'], v['giorni'], v['unita'])}")
+                        if v.get("mens") is not None:
+                            letto = re.fullmatch(r"(\d+(?:,\d+)?) mensilità", v["frase_mens"])
+                            if not letto or Decimal(letto.group(1).replace(",", ".")) != Decimal(v["mens"]):
+                                errore(f"inverno {cid}/{t['id']}: mensilità {v['mens']} diverse dalla frase «{v['frase_mens']}»")
+                        att_l = livelli_frase(cid, m, v)
+                        if not set(v["livelli"]) <= ids or (att_l is not None and att_l != set(v["livelli"])):
+                            errore(f"inverno {cid}/{t['id']}: i livelli {v['livelli']} non sono quelli nominati dalla frase «{v['frase'][:50]}» ({sorted(att_l or [])})")
+                        if (v.get("banda") or g["banda"]) not in {b["id"] for b in t["bande"]}:
+                            errore(f"inverno {cid}/{t['id']}: fascia di anzianità sconosciuta")
+        gruppi_cit = [("preavviso", k, c) for k, c in pre["cit"].items()] + [("tredicesima", k, c) for k, c in tre["cit"].items()] + \
+                     [("tredicesima", f"14:{k}", c) for k, c in ((tre["quattordicesima"] or {}).get("cit") or {}).items()]
+        T_contratto = T
+        for sez, k, c in gruppi_cit:
+            n_cit += 1
+            T = testo_fonte(c["fonte"]) if c.get("fonte") else T_contratto
+            if c.get("fonte") and c["fonte"] not in FJ["definizioni"]:
+                errore(f"inverno {cid}/{sez}/{k}: fonte sconosciuta {c['fonte']}")
+            if norm(c["testo"]) not in T:
+                errore(f"inverno {cid}/{sez}/{k}: la citazione non è nel testo del contratto")
+            num_art = re.search(r"art\. (\d+)", c["dove"])
+            if num_art and cid != "metalmeccanici":
+                # la frase sta dopo il titolo del suo articolo (l'indice può stare in testa o in coda al file: basta un'occorrenza)
+                tit = [x.start() for x in re.finditer(rf"Art(?:icolo|\.) {num_art.group(1)} ?[-–]", T)]
+                if not any(0 <= T.find(norm(c["testo"]), a) - a < 30000 for a in tit):
+                    errore(f"inverno {cid}/{sez}/{k}: la citazione non sta sotto l'{c['dove']}")
+        T = T_contratto
+        if bool(tre["quattordicesima"]) != (m["mensilita"]["valore"] == 14):
+            errore(f"inverno {cid}: quattordicesima nei dati ma {m['mensilita']['valore']} mensilità in contratti_meta.json (o il contrario)")
+        r_ = pre["ratei"]
+        if r_ and (r_["mensilita"] != m["mensilita"]["valore"] or not re.search(r"13a e 14a mensilità|indennità sostitutiva di preavviso", norm(pre["cit"][r_["cit"]]["testo"]))):
+            errore(f"inverno {cid}: ratei nell'indennità senza la frase del contratto")
+    Tt = testo_fonte(CI_["terziario"]["preavviso"]["fonte"])
+    a251, a253 = Tt.find("Art. 251 - Termini di preavviso in caso di licenziamento I termini"), Tt.find("Art. 253 - Trattamento di fine rapporto In ogni caso")
+    a256, a257 = Tt.find("Art. 256 - Dimissioni e preavviso In caso"), Tt.find("Art. 257 - Dimissioni per matrimonio In conformità")
+    a162, a169 = Tt.find("Art. 162 - Ferie"), Tt.find("Art. 169 -")
+    if not (0 <= a251 < a253 < a256 < a257 and 0 <= a162 < a169 < a162 + 20000) or re.search(r"\bferie\b", Tt[a251:a253] + Tt[a256:a257], re.I) \
+            or "preavviso" in Tt[a162:a169].lower() or "ferie" in CI_["terziario"]["preavviso"]["cit"]:
+        errore("inverno terziario: la pagina dice che gli artt. 251, 252, 256 e 162-168 non parlano di ferie durante il preavviso, ma il testo sì")
+    if re.search(r"Articolo (20|21|57) ?-", testo_fonte("cnel_234754")):
+        errore("inverno multiservizi: l'ipotesi di rinnovo del 2025 riscrive un articolo che la pagina dice non modificato")
+    proc = INV["procedura"]
+    f_proc = GREZZI / proc["file"]
+    if f_proc.exists():
+        t_proc = norm(unescape(re.sub(r"<[^>]+>", " ", re.sub(r"<(script|style)\b.*?</\1>", " ", f_proc.read_text(encoding="utf-8", errors="replace"), flags=re.S))))
+        for k, x in proc["frammenti"].items():
+            if norm(x) not in t_proc:
+                errore(f"inverno: il frammento «{k}» non è nella pagina salvata del Ministero sulle dimissioni")
+    else:
+        avviso(f"inverno: manca {proc['file']} in raccolta/_grezzi (pagina del Ministero sulle dimissioni): frammenti non ricontrollati")
+    # ---- B. pagine
+    pagine_nuove = [P_PRE, P_TRE] + [f"{P_PRE}{m['slug']}/" for m in C.values()] + [f"{P_TRE}{m['slug']}/" for m in C.values()]
+    html = {}
+    for perc in pagine_nuove:
+        f = SITO / perc / "index.html"
+        if not f.exists():
+            errore(f"inverno: pagina /{perc} assente")
+            return
+        t = html[perc] = leggi_html(f)
+        vis_ = visibile(t)
+        if perc not in date_sm or 'name="robots" content="noindex"' in t:
+            errore(f"/{perc}: non è nella sitemap o è noindex")
+        elif date_sm[perc] < INV["aggiornato_il"]:
+            errore(f"/{perc}: lastmod {date_sm[perc]} prima della pubblicazione ({INV['aggiornato_il']})")
+        if _principale(t) < 400 or MON.SEGNO_SENZA_ADSENSE in t:
+            errore(f"/{perc}: non passa il cancello della pubblicità ({_principale(t)} parole di contenuto, minimo 400)")
+        if "verifica con il tuo consulente" not in vis_:
+            errore(f"/{perc}: manca la frase «verifica con il tuo consulente»")
+        if re.search(r"\bnett[oa]\b[^.]{0,60}\d[\d.,]*\s*€|\d[\d.,]*\s*€[^.]{0,40}\bnett[oia]\b|irpef|aliquot|detrazion", vis_, re.I):
+            errore(f"/{perc}: sembra dare un netto o una stima fiscale")
+        if "<form" in t or re.search(r'data-(?:goatcounter-click|ev-\w+)=', t):
+            errore(f"/{perc}: modulo o evento non previsto")
+        # citazioni: ogni blockquote è una frase salvata, parola per parola, del contratto della pagina
+        if f"Letto il {data_lunga(INV['letto_il'])}" not in vis_:
+            errore(f"/{perc}: manca la data in cui abbiamo letto gli articoli citati")
+        cit = re.findall(r'<blockquote class="legge" data-cit="([^"/]+)/([^"/]+)/([^"]+)"><p>«(.*?)»</p>', t, re.S)
+        cit_p = re.findall(r'<blockquote class="legge" data-proc="([^"]+)"><p>«(.*?)»</p>', t, re.S)
+        if cit_p and perc != P_PRE:
+            errore(f"/{perc}: citazione della procedura fuori dall'indice del preavviso")
+        for k, testo in cit_p:
+            if norm(unescape(testo)) != norm(proc["frammenti"].get(k, "")):
+                errore(f"/{perc}: la citazione «{k}» non è il frammento salvato della pagina del Ministero")
+        if perc == P_PRE and ({k for k, _ in cit_p} != {"telematiche", "revoca"} or f'href="{proc["url"]}"' not in t or ("SPID o CIE" in vis_) != ("SPID o CIE" in proc["frammenti"].get("spid", ""))):
+            errore(f"/{perc}: manca il paragrafo sulla procedura online delle dimissioni con la fonte")
+        if t.count("<blockquote") != len(cit) + len(cit_p):
+            errore(f"/{perc}: citazione senza riferimento a dati/inverno.json")
+        for cid, sez, k, testo in cit:
+            nodo = CI_.get(cid, {}).get(sez, {})
+            c = ((nodo.get("quattordicesima") or {}).get("cit", {}).get(k[3:]) if k.startswith("14:") else nodo.get("cit", {}).get(k))
+            if not c or norm(unescape(testo)) != norm(pulisci_cit(norm(c["testo"]))):
+                errore(f"/{perc}: la citazione {cid}/{sez}/{k} non è uguale alla frase salvata")
+            elif C[cid]["slug"] not in perc and perc != P_PRE:
+                errore(f"/{perc}: citazione di un altro contratto ({cid})")
+    for cid, m in C.items():
+        pre, tre = CI_[cid]["preavviso"], CI_[cid]["tredicesima"]
+        tt = tabelle_inv(pre)
+        liv = [(L, atteso_livello(cid, L)) for L in m["livelli"]]
+        pubblicati = [(L, att) for L, att in liv if (lambda c: c and c[1])(corrente(att, cid, L)[0])]
+        future = sorted({x[0] for L, att in pubblicati for x in att if x[0] > oggi})
+        g2 = future[0] if future and cid != "domestico" else None
+        # ogni pubblicato ha come prossimo scatto la prima data futura delle sue tranche: g2 è la più vicina tra i livelli
+        if cid != "domestico":
+            g2 = min((min(x[0] for x in att if x[0] > oggi) for L, att in pubblicati if any(x[0] > oggi for x in att)), default=None)
+        giorni = [oggi] + ([g2] if g2 else [])
+        attese_euro = set()
+
+        def pubbl(g):
+            return [(L, att) for L, att in liv if (lambda c: c and c[1])(corrente(att, cid, L, g)[0])]
+
+        # --- preavviso
+        perc = f"{P_PRE}{m['slug']}/"
+        t = html[perc]
+        vis_ = visibile(t)
+        for k in ("indennita",):
+            if f'data-cit="{cid}/preavviso/{k}"' not in t:
+                errore(f"/{perc}: manca la citazione dell'indennità sostitutiva")
+        for tab in tt:
+            # termini: la tabella sotto il titolo ha le celle riscritte qui
+            pezzo = t.split(f'<h3 id="t-{tab["id"]}">', 1)
+            righe = celle_tabella(pezzo[1]) if len(pezzo) == 2 else None
+            ets = list(dict.fromkeys(v["et"] for _, v in voci_inv(tab)))
+            att_r = [["Chi"] + [b["et"] for b in tab["bande"]]]
+            for et in ets:
+                att_r.append([et] + [next((termine_txt(v, tab["num"], tab["den"]) for b_, v in voci_inv(tab) if b_ == b["id"] and v["et"] == et), "—") for b in tab["bande"]])
+            n_celle += sum(len(r) - 1 for r in att_r[1:])
+            if righe != att_r:
+                errore(f"/{perc}: tabella dei termini «{tab['titolo']}» diversa dai dati ({righe} invece di {att_r})")
+            if not tab.get("deriva"):
+                righe_t = re.findall(rf'<li data-riga="{cid}/{tab["id"]}/(\d+)">«(.*?)»</li>', t, re.S)
+                frasi_t = ([tab["intestazione"]] + [g["frase"] for g in tab["gruppi"]] + [g["frase_mens"] for g in tab["gruppi"]]) if tab.get("intestazione") \
+                    else [v["frase"] for _, v in voci_inv(tab)]
+                att_t = [(str(i), norm(pulisci_cit(norm(x)))) for i, x in enumerate(frasi_t)]
+                if [(i, norm(unescape(x))) for i, x in righe_t] != att_t:
+                    errore(f"/{perc}: le righe del contratto sotto «{tab['titolo']}» non sono quelle salvate")
+        oggi_b, dopo_b = blocchi_pagina(t)
+        attesi_b = {g: {} for g in giorni}
+        for g in giorni:
+            st = {L["id"]: stato_inv(cid, L, att, g) for L, att in pubbl(g)}
+            for tab in tt:
+                bande = tab["bande"]
+                basi = BASI_DOM[tab["id"]] if cid == "domestico" else [("", "m")]
+                lav = any(v["unita"] == "lav" for _, v in voci_inv(tab))
+                ra = pre["ratei"]["mensilita"] if pre["ratei"] else 0
+                cols = [(bn, bk, b, d) for bn, bk in basi for b in bande for d in ((22, 26) if lav else (30,))]
+                una = len(basi) == 1 and cid != "domestico"
+                intest = ["Livello"] + (["Minimo"] if una else [])
+                for bn, _, b, d in cols:
+                    # intestazione corta: le parole «di servizio», «compiuti», «anni» cadono, la fascia resta la stessa
+                    corta = re.sub(r" di servizio| compiuti| con la stessa famiglia", "", b["et"]).replace("Oltre 5 e fino a 10 anni", "Oltre 5, fino a 10").replace("Oltre 10 anni", "Oltre 10")
+                    et = f"Giornata ÷ {d}" if lav else corta
+                    intest.append(f"{bn}: {et[0].lower() + et[1:]}" if bn else et)
+                righe = [intest]
+                for L, att in pubbl(g):
+                    if not any(L["id"] in v["livelli"] for _, v in voci_inv(tab)):
+                        continue
+                    s = st[L["id"]]
+                    r = [L["nome"]] + ([e_cent(s["m"]) if s else "da aggiornare"] if una else [])
+                    for _, bk, b, d in cols:
+                        v = next((v for b_, v in voci_inv(tab) if b_ == b["id"] and L["id"] in v["livelli"]), None)
+                        if not v or not s:
+                            r.append("—" if not v else "da aggiornare")
+                            continue
+                        mc_ = s["m"] if bk == "m" else s["p"][bk]
+                        r.append(e_cent(ind_attesa(mc_, v, tab["num"], tab["den"], d)) + (f" con ratei {e_cent(ind_attesa(mc_, v, tab['num'], tab['den'], d, ra))}" if ra else ""))
+                    righe.append(r)
+                if len(righe) > 1:
+                    attesi_b[g][f"euro-{tab['id']}"] = ("tab", righe)
+            es = pre["esempio"]
+            tab = next(x for x in tt if x["id"] == es["tabella"])
+            s = st.get(es["livello"])
+            v = next((v for b_, v in voci_inv(tab) if b_ == es["banda"] and es["livello"] in v["livelli"]), None)
+            if s and v:
+                div = 22 if v["unita"] == "lav" else 30
+                frasi = [f"= {e_cent(ind_attesa(s['m'], v, tab['num'], tab['den'], div))} lordi", e_cent(s["m"]), f"in vigore dal {data_lunga(s['dal'])}", termine_txt(v, tab["num"], tab["den"])]
+                if pre["ratei"]:
+                    frasi.append(f"× {pre['ratei']['mensilita']} ÷ 12 = {e_cent(ind_attesa(s['m'], v, tab['num'], tab['den'], div, pre['ratei']['mensilita']))} lordi")
+                attesi_b[g]["esempio"] = ("frasi", frasi)
+        n_euro += controlla_blocchi(perc, t, oggi_b, dopo_b, attesi_b, giorni, attese_euro)
+        # --- tredicesima
+        perc = f"{P_TRE}{m['slug']}/"
+        t = html[perc]
+        for k in ["quanto", "prorata", "frazioni"] + ([] if cid == "domestico" else ["parttime"]) + [f"14:{x}" for x in ((tre["quattordicesima"] or {}).get("cit") or {})]:
+            if f'data-cit="{cid}/tredicesima/{k}"' not in t:
+                errore(f"/{perc}: manca la citazione {k}")
+        vis_ = visibile(t)
+        for x in [tre["quando_breve"], f"{m['mensilita']['valore']} mensilità", "senza assenze non retribuite"] + \
+                ([tre["quattordicesima"]["quando_breve"], "30 giugno", "non quello di oggi"] if tre["quattordicesima"] else ["la quattordicesima nel contratto nazionale non c'è"]):
+            if norm(x) not in vis_:
+                errore(f"/{perc}: manca «{x}»")
+        oggi_b, dopo_b = blocchi_pagina(t)
+        attesi_b = {g: {} for g in giorni}
+        attese_euro = set()
+        for g in giorni:
+            righe = [["Livello", "Tredicesima intera (12 mesi)", "1 mese", "3 mesi", "6 mesi", "9 mesi"]]
+            orari = None
+            righe_o = []
+            for L, att in pubbl(g):
+                s = stato_inv(cid, L, att, g)
+                if not s:
+                    righe.append([L["nome"]] + ["da aggiornare"] * 5)
+                    continue
+                righe.append([L["nome"], e_cent(s["m"])] + [e_cent(int((Fraction_(s["m"] * k, 12)) + Fraction_(1, 2))) for k in (1, 3, 6, 9)])
+                orari = [h_ for h_ in s["p"] if cid == "domestico" or h_ != m["ore"]["valore"]]
+                righe_o.append([L["nome"]] + [e_cent(s["p"][h_]) for h_ in orari])
+            attesi_b[g]["tredicesima"] = ("tab", righe)
+            if righe_o:
+                attesi_b[g]["orari"] = ("tab", [["Livello"] + [f"{h_} ore a settimana" for h_ in orari]] + righe_o)
+            if tre["quattordicesima"]:
+                # quattordicesima di luglio: il minimo che le tabelle già note danno per il prossimo 30 giugno, visto dal giorno g
+                dg = date.fromisoformat(g)
+                g30 = date(dg.year if dg <= date(dg.year, 6, 30) else dg.year + 1, 6, 30).isoformat()
+                righe_q = [["Livello", f"Quattordicesima intera di luglio {g30[:4]}", "Tabella in vigore dal"]]
+                for L, att in pubbl(g):
+                    s = stato_inv(cid, L, att, g30) if (lambda c: c and c[1])(corrente(att, cid, L, g30)[0]) else None
+                    righe_q.append([L["nome"], e_cent(s["m"]), data_lunga(s["dal"])] if s else [L["nome"], "da aggiornare", "—"])
+                attesi_b[g]["quattordicesima"] = ("tab", righe_q)
+            Lp, attp = next((L, att) for L, att in liv if L["id"] == PREDEF_INV[cid])
+            s = stato_inv(cid, Lp, attp, g) if (Lp, attp) in pubbl(g) else None
+            if s:
+                attesi_b[g]["esempio"] = ("frasi", [f"{e_cent(s['m'])} × 7 ÷ 12 = {e_cent(int(Fraction_(s['m'] * 7, 12) + Fraction_(1, 2)))} lordi", f"in vigore dal {data_lunga(s['dal'])}"])
+        if cid == "domestico":
+            attese_euro.add(euro(EST["domestico"]["A"]["BS"]["F_totale"]))
+            if EST["domestico"]["A"]["BS"]["F_totale"] != EST["domestico"]["B"]["BS"]["F_totale"] or euro(EST["domestico"]["A"]["BS"]["F_totale"]) + " al giorno" not in vis_:
+                errore(f"/{perc}: il valore di vitto e alloggio non è quello delle due tabelle ufficiali")
+        n_euro += controlla_blocchi(perc, t, oggi_b, dopo_b, attesi_b, giorni, attese_euro)
+    # indici: nessuna cifra in euro fuori dal calcolo; la tabella riassuntiva nomina i 5 contratti
+    if "sotto cui la tredicesima non scende" in visibile(html[P_TRE]) or "con gli stessi mesi nel suo periodo" in html[P_TRE] or "t.c.q14" not in html[P_TRE]:
+        errore(f"/{P_TRE}: il calcolo presenta la quattordicesima o il minimo in modo troppo largo")
+    for perc in (P_PRE, P_TRE):
+        if re.search(r"\d\s*€", visibile(html[perc])):
+            errore(f"/{perc}: una cifra in euro nell'indice (le cifre stanno nelle pagine dei contratti)")
+        for cid, m in C.items():
+            dest = f"{perc}{m['slug']}/"
+            if f'href="/{dest}"' not in html[perc]:
+                errore(f"/{perc}: manca il link a /{dest}")
+    for cid, m in C.items():
+        if norm(CI_[cid]["tredicesima"]["quando_breve"]) not in visibile(html[P_TRE]) or norm(CI_[cid]["preavviso"]["decorre_breve"]) not in visibile(html[P_PRE]):
+            errore(f"indici: manca la data della tredicesima o la decorrenza del preavviso di {cid}")
+    # perché «15» e «45» nel commercio: le righe elencate sono tutte e sole quelle con quel numero di giorni
+    vis_i = visibile(html[P_PRE])
+    for g in (15, 45):
+        n_att = sum(1 for tab in tabelle_inv(CI_["terziario"]["preavviso"]) for _, v in voci_inv(tab) if v["giorni"] == g and not v["mesi"])
+        m_ = re.search(rf"{g} giorni di calendario vale per: (.*?)\.", vis_i)
+        if not m_ or len(m_.group(1).split(";")) != n_att:
+            errore(f"/{P_PRE}: l'elenco delle righe da {g} giorni del commercio non corrisponde ai dati")
+    # ---- C. calcolo della tredicesima: dati = stato rifatto da estratti.json; JS = ricalcolo per ogni livello, mese e orario
+    dati_json = None
+    for perc in [P_TRE] + [f"{P_TRE}{m['slug']}/" for m in C.values()]:
+        m_ = re.search(r'<script type="application/json" id="tredicesima-dati">(.*?)</script>', html[perc], re.S)
+        js_ = re.search(r'<script id="tredicesima-js">(.*?)</script>', html[perc], re.S)
+        if not m_ or not js_ or "data-tredicesima" not in html[perc]:
+            errore(f"/{perc}: calcolo della tredicesima assente")
+            return
+        if dati_json is None:
+            dati_json, js_calc = m_.group(1), js_.group(1)
+        elif (m_.group(1), js_.group(1)) != (dati_json, js_calc):
+            errore(f"/{perc}: dati o codice del calcolo diversi da quelli dell'indice")
+    for perc in pagine_nuove:
+        if perc.startswith(P_PRE) and ("data-tredicesima" in html[perc] or "<script id=" in html[perc]):
+            errore(f"/{perc}: codice del calcolo in una pagina del preavviso")
+    dati = json.loads(dati_json.replace("<\\/", "</"))
+    if dati.get("ordine") != list(dati["c"]) or set(dati["c"]) != set(C):
+        errore("tredicesima: contratti del calcolo diversi da quelli del sito")
+    for cid, m in C.items():
+        dc = dati["c"][cid]
+        pubblicati = [(L, att) for L in m["livelli"] for att in [atteso_livello(cid, L)] if (lambda c: c and c[1])(corrente(att, cid, L)[0])]
+        if bool(dc.get("q14")) != (m["mensilita"]["valore"] == 14) or (dc.get("q14") and not dc["q14"].startswith("Quattordicesima sul minimo di oggi (")):
+            errore(f"tredicesima: la riga della quattordicesima di {cid} non dice che usa il minimo di oggi")
+        if (dc["b"], dc["mens"], bool(dc["dom"]), dc["u"]) != (m["nome_breve"], m["mensilita"]["valore"], cid == "domestico", f"{P_TRE}{m['slug']}/"):
+            errore(f"tredicesima: dati del contratto {cid} diversi da contratti_meta.json")
+        if [x["id"] for x in dc["l"]] != [L["id"] for L, _ in pubblicati]:
+            errore(f"tredicesima: i livelli di {cid} non sono quelli pubblicati")
+            continue
+        for (L, att), dl in zip(pubblicati, dc["l"]):
+            passi = passi_attesi(cid, L, att)
+            if dl["p"] != passi or dl["n"] != L["nome"] or dl["g"] != L.get("gruppo_nome", ""):
+                errore(f"tredicesima {cid}/{L['id']}: cifre o date del calcolo diverse dal ricalcolo")
+                continue
+            for p in passi:
+                g = p["dal"] or oggi
+                if p.get("no"):
+                    CASI_INVERNO.append([cid, L["id"], g, "conv" if cid == "domestico" else "pieno", 0, "NO"])
+                    continue
+                if cid == "domestico":
+                    casi = [("conv", 0, p["m"])] + [("aore", n, int(orario52(Decimal(p["o"]) / 100, n) * 100)) for n in range(1, 41)]
+                    fuori = [("aore", 0), ("aore", 41), ("aore", "20,5"), ("aore", ""), ("pieno", 0), ("pct", 50)]
+                else:
+                    casi = [("pieno", 0, p["m"])] + [("pct", n, int(prorata(Decimal(p["m"]) / 100, n, 100) * 100)) for n in range(1, 100)]
+                    fuori = [("pct", 0), ("pct", 100), ("pct", "50.5"), ("pct", ""), ("conv", 0), ("aore", 20)]
+                for modo, n, mese in casi:
+                    tred = [int(prorata(Decimal(mese) / 100, k, 12) * 100) for k in range(1, 13)]
+                    if tred[11] != mese:
+                        errore(f"tredicesima {cid}/{L['id']}: 12 dodicesimi non danno la mensilità")
+                    CASI_INVERNO.append([cid, L["id"], g, modo, n, mese, tred, m["mensilita"]["valore"] == 14, p["t"]])
+                for modo, n in fuori:
+                    CASI_INVERNO.append([cid, L["id"], g, modo, n, "NULL"])
+                # la tredicesima intera a tempo pieno è la cifra della pagina del livello e della tabella della pagina del contratto
+                if g == oggi:
+                    x = e_cent(p["m"])
+                    if x not in visibile(leggi_html(SITO / m["slug"] / L["slug"] / "index.html")) or x not in visibile(html[f"{P_TRE}{m['slug']}/"]):
+                        errore(f"tredicesima {cid}/{L['id']}: {x} non è nella pagina del livello o nella tabella del contratto")
+    app = next((SITO / "assets").glob("app.*.js")).read_text(encoding="utf-8")
+    prova = ("var fs=require('fs');var window={};var document={querySelector:function(){return null},querySelectorAll:function(){return []},getElementById:function(){return null}};\n"
+             + app + "\n" + js_calc + "\nvar x=JSON.parse(fs.readFileSync(process.argv[2],'utf8'));var err=0,n=0;var F=window.PagaTredicesima.calcola;x.casi.forEach(function(c){"
+             "function bad(k,r){err++;if(err<4)console.log(JSON.stringify(c).slice(0,200),k,JSON.stringify(r));}"
+             "if(c[5]==='NO'){n++;var r=F(x.D,c[0],c[1],{mesi:'12',modo:c[3],n:String(c[4])},c[2]);if(!(r&&r.no===true&&r.tred===undefined))bad(12,r);return;}"
+             "if(c[5]==='NULL'){n++;var r0=F(x.D,c[0],c[1],{mesi:'6',modo:c[3],n:String(c[4])},c[2]);if(r0!==null)bad(6,r0);return;}"
+             "for(var k=1;k<=12;k++){n++;var r2=F(x.D,c[0],c[1],{mesi:String(k),modo:c[3],n:String(c[4])},c[2]);"
+             "if(!(r2&&r2.mensile===c[5]&&r2.tred===c[6][k-1]&&r2.rateo===c[6][0]&&r2.quatt===(c[7]?c[6][k-1]:null)&&r2.dal===c[8]&&r2.mesi===k))bad(k,r2);}"
+             "['0','13','6.5','6,5','','-3','1e1'].forEach(function(k2){n++;if(F(x.D,c[0],c[1],{mesi:k2,modo:c[3],n:String(c[4])},c[2])!==null)bad(k2,'mesi');});});"
+             "console.log('INVERNO_CASI='+n);console.log('INVERNO_ERRORI='+err);")
+    with tempfile.TemporaryDirectory() as tmp:
+        (Path(tmp) / "prova.js").write_text(prova, encoding="utf-8")
+        (Path(tmp) / "casi.json").write_text(json.dumps({"D": dati, "casi": CASI_INVERNO}, ensure_ascii=False), encoding="utf-8")
+        r = subprocess.run(["node", str(Path(tmp) / "prova.js"), str(Path(tmp) / "casi.json")], capture_output=True, text=True, timeout=180)
+    n_js = re.search(r"INVERNO_CASI=(\d+)", r.stdout)
+    if "INVERNO_ERRORI=0" not in r.stdout or not n_js:
+        errore(f"tredicesima: il calcolo del browser è diverso dal ricalcolo: {r.stdout[-600:]} {r.stderr[-300:]}")
+    # ---- D. riquadro «Preavviso e tredicesima»: uno per pagina livello e per pagina contratto, con i due link giusti e senza cifre
+    attesi_riq = {}
+    for cid, m in C.items():
+        attesi_riq[SITO / m["slug"] / "index.html"] = m["slug"]
+        for d in dati["c"][cid]["l"]:
+            L = next(x for x in m["livelli"] if x["id"] == d["id"])
+            attesi_riq[SITO / m["slug"] / L["slug"] / "index.html"] = m["slug"]
+    n_riq = 0
+    for p in pagine_html():
+        t = leggi_html(p)
+        riq = re.findall(r"<!--inverno-->(.*?)<!--/inverno-->", t, re.S)
+        if p not in attesi_riq:
+            if riq:
+                errore(f"{p.relative_to(SITO)}: riquadro del preavviso in una pagina che non deve averlo")
+            continue
+        if len(riq) != 1:
+            errore(f"{p.relative_to(SITO)}: {len(riq)} riquadri del preavviso invece di 1")
+            continue
+        n_riq += 1
+        r_ = riq[0]
+        if f'href="/{P_PRE}{attesi_riq[p]}/"' not in r_ or f'href="/{P_TRE}{attesi_riq[p]}/"' not in r_ or len(re.findall(r"<a ", r_)) != 2:
+            errore(f"{p.relative_to(SITO)}: riquadro del preavviso con i link sbagliati")
+        if "<table" in r_ or "<h2" in r_ or re.search(r"\d\s*€", r_) or re.search(r"\d+ giorni", r_):
+            errore(f"{p.relative_to(SITO)}: il riquadro del preavviso contiene tabelle, titoli o cifre")
+        if ("quattordicesima" in r_) != (C[next(c for c, m in C.items() if m["slug"] == attesi_riq[p])]["mensilita"]["valore"] == 14):
+            errore(f"{p.relative_to(SITO)}: il riquadro nomina la quattordicesima solo dove il contratto la prevede")
+        # il riquadro non entra nell'impronta del lastmod
+        if impronta_pagina(t) != impronta_pagina(re.sub(r"<!--inverno-->.*?<!--/inverno-->", "", t, flags=re.S)):
+            errore(f"{p.relative_to(SITO)}: il riquadro del preavviso entra nell'impronta del lastmod")
+    print(f"Inverno: {n_frasi} termini di preavviso riletti dalle frasi del contratto e ritrovati nel loro articolo, {n_cit} citazioni nel testo ufficiale; "
+          f"{n_celle} celle di termini e {n_euro} importi in euro ricalcolati da estratti.json (oggi e prossima data); "
+          f"calcolo tredicesima: browser = ricalcolo su {n_js.group(1) if n_js else 0} casi (ogni livello, 12 mesi, part time 1-99%, colf a ore); {n_riq} riquadri")
+
+
+def controlla_blocchi(perc, t, oggi_b, dopo_b, attesi_b, giorni, attese_euro):
+    """Blocchi con cifre di una pagina: quello visibile è quello di oggi; se alla prossima data cambia, c'è il pezzo nascosto con
+    la data giusta e le cifre di quel giorno, altrimenti non c'è. Ogni cifra in euro della pagina è tra quelle ricalcolate."""
+    oggi = giorni[0]
+    g2 = giorni[1] if len(giorni) > 1 else None
+    n = 0
+
+    def uguale(nome, atteso, pezzo):
+        tipo, val = atteso
+        if tipo == "tab":
+            return celle_tabella(pezzo) == val
+        v_ = norm(unescape(re.sub(r"<[^>]+>", " ", pezzo)))
+        return all(norm(x) in v_ for x in val)
+
+    def cifre(atteso):
+        tipo, val = atteso
+        testo = " ".join(" ".join(r) for r in val) if tipo == "tab" else " ".join(val)
+        return set(re.findall(r"\d[\d.]*,\d\d €", testo))
+    for nome, att in attesi_b[oggi].items():
+        n += len(cifre(att))
+        attese_euro |= cifre(att)
+        if nome not in oggi_b or not uguale(nome, att, oggi_b[nome]):
+            errore(f"/{perc}: il blocco «{nome}» di oggi non ha le cifre ricalcolate")
+    if set(oggi_b) - set(attesi_b[oggi]):
+        errore(f"/{perc}: blocchi con cifre non previsti {sorted(set(oggi_b) - set(attesi_b[oggi]))}")
+    cambia = set()
+    if g2:
+        for nome in set(attesi_b[oggi]) | set(attesi_b[g2]):
+            if attesi_b[oggi].get(nome) != attesi_b[g2].get(nome):
+                cambia.add(nome)
+        for nome in cambia:
+            att = attesi_b[g2].get(nome)
+            if att is None:
+                continue
+            n += len(cifre(att))
+            attese_euro |= cifre(att)
+            if nome not in dopo_b or dopo_b[nome][0] != g2 or not uguale(nome, att, dopo_b[nome][1]):
+                errore(f"/{perc}: manca il blocco «{nome}» del {g2}, nascosto fino a quel giorno, con le cifre ricalcolate")
+            elif not re.match(rf'<div data-dal="{g2}" hidden class="a-data">', dopo_b[nome][2]):
+                errore(f"/{perc}: il blocco «{nome}» del {g2} non è nascosto con data-dal e hidden")
+    if set(dopo_b) != {x for x in cambia if g2 and attesi_b[g2].get(x) is not None}:
+        errore(f"/{perc}: pezzi a data futura {sorted(dopo_b)} diversi da quelli che cambiano ({sorted(cambia)})")
+    n_fino = len([x for x in cambia if x in attesi_b[oggi]])
+    if t.count(f'<div data-fino="{g2}" class="a-data">') != n_fino or len(re.findall(r'data-fino="', t)) != n_fino:
+        errore(f"/{perc}: i blocchi di oggi che cambiano alla prossima data non sono marcati con data-fino")
+    corpo = re.search(r"<main[^>]*>(.*?)</main>", t, re.S).group(1)
+    corpo = re.sub(r"<(script|style)\b.*?</\1>", " ", corpo, flags=re.S)
+    trovate = set(re.findall(r"\d[\d.]*,\d\d €", norm(unescape(re.sub(r"<[^>]+>", " ", corpo)))))
+    if trovate - attese_euro:
+        errore(f"/{perc}: cifre in euro non ricalcolate {sorted(trovate - attese_euro)[:6]}")
+    return n
+
+
 # ---------------------------------------------------------------- 9. rete e browser
 def controlla_rete():
     urls = set()
@@ -1178,7 +1775,8 @@ def controlla_rete():
 
 
 PAGINE_BROWSER = ["/", "/terziario-commercio/4-livello/", "/lavoro-domestico/livello-cs/", "/logistica-trasporto-merci/", "/metalmeccanici-industria/livello-c2/",
-                  "/colf-badanti/", "/annuncio-di-lavoro/", "/annuncio-di-lavoro/cosa-scrivere/", "/per-consulenti-e-aziende/", "/api/"]
+                  "/colf-badanti/", "/annuncio-di-lavoro/", "/annuncio-di-lavoro/cosa-scrivere/", "/per-consulenti-e-aziende/", "/api/",
+                  "/preavviso/", "/preavviso/terziario-commercio/", "/preavviso/logistica-trasporto-merci/", "/preavviso/lavoro-domestico/", "/tredicesima/", "/tredicesima/lavoro-domestico/"]
 
 
 def controlla_browser():
@@ -1218,6 +1816,10 @@ def controlla_browser():
                     piccoli = pg.evaluate("""Array.from(document.querySelectorAll('main p, main li, main td, main span')).filter(e=>e.offsetParent&&e.textContent.trim()&&parseFloat(getComputedStyle(e).fontSize)<11).length""")
                     if piccoli:
                         errore(f"browser {w}px {tema} {u}: {piccoli} testi sotto 11px")
+                    # tabelle in euro del preavviso: devono stare nella pagina senza scorrere di lato, anche sul telefono
+                    strette = pg.evaluate("Array.from(document.querySelectorAll('.t-euro .tab')).filter(e=>e.offsetParent&&e.scrollWidth>e.clientWidth+1).length")
+                    if strette:
+                        errore(f"browser {w}px {tema} {u}: {strette} tabelle dell'indennità scorrono di lato")
                     sfondo = pg.evaluate("getComputedStyle(document.body).backgroundColor")
                     scuro = sfondo in ("rgb(12, 18, 27)",)
                     if (tema == "dark") != scuro:
@@ -1249,6 +1851,37 @@ def controlla_browser():
                         pg.select_option("[data-annuncio] [name=orario]", "pct")
                         if pg.locator("[data-esito]").is_visible():
                             errore(f"browser {u}: cambiando l'orario la riga vecchia resta visibile")
+                    if u == "/tredicesima/":
+                        # calcolo della tredicesima: metalmeccanici C3, part time al 50%, 7 mesi = cifra ricalcolata; mesi sbagliati = nessuna cifra
+                        box = "[data-tredicesima] "
+                        pg.select_option(box + "[name=contratto]", "metalmeccanici")
+                        pg.select_option(box + "[name=livello]", "c3")
+                        pg.select_option(box + "[name=orario]", "pct")
+                        pg.fill(box + "[name=quanto]", "50")
+                        pg.fill(box + "[name=mesi]", "7")
+                        caso = next((c for c in CASI_INVERNO if c[:5] == ["metalmeccanici", "c3", OGGI.isoformat(), "pct", 50]), None)
+                        visto = pg.locator("[data-out-tred]").inner_text().replace("\u00a0", " ")
+                        if not caso or visto != euro(Decimal(caso[6][6]) / 100):
+                            errore(f"browser {u}: tredicesima {visto} diversa da quella attesa")
+                        if pg.locator("[data-quatt]").is_visible():
+                            errore(f"browser {u}: quattordicesima mostrata per un contratto che non la prevede")
+                        pg.select_option(box + "[name=contratto]", "terziario")
+                        if not pg.locator("[data-quatt]").is_visible() or pg.locator(box + "[name=quanto]").is_visible():
+                            errore(f"browser {u}: cambiando contratto il calcolo non si aggiorna")
+                        pg.fill(box + "[name=mesi]", "13")
+                        if pg.locator("[data-esito]").is_visible() or not pg.locator("[data-err]").is_visible():
+                            errore(f"browser {u}: con 13 mesi il calcolo mostra ancora una cifra")
+                    if u == "/tredicesima/lavoro-domestico/":
+                        box = "[data-tredicesima] "
+                        if pg.input_value(box + "[name=contratto]") != "domestico" or pg.input_value(box + "[name=livello]") != "cs":
+                            errore(f"browser {u}: il calcolo non parte dal contratto della pagina")
+                        pg.select_option(box + "[name=orario]", "aore")
+                        pg.fill(box + "[name=quanto]", "25")
+                        pg.fill(box + "[name=mesi]", "6")
+                        caso = next((c for c in CASI_INVERNO if c[:5] == ["domestico", "cs", OGGI.isoformat(), "aore", 25]), None)
+                        visto = pg.locator("[data-out-tred]").inner_text().replace("\u00a0", " ")
+                        if not caso or visto != euro(Decimal(caso[6][5]) / 100):
+                            errore(f"browser {u}: tredicesima a ore {visto} diversa da quella attesa")
                     if u == "/":
                         pg.fill("[data-cerca]", "commercio 4 livello")
                         vis = pg.locator("[data-riga]:visible").count()
@@ -1286,6 +1919,7 @@ def main():
     controlla_monetizzazione()
     controlla_js()
     controlla_annuncio()
+    controlla_inverno()
     if "--rete" in sys.argv:
         controlla_rete()
     if "--browser" in sys.argv:

@@ -30,6 +30,7 @@ sys.path.append(str(RADICE.parent / "studio-business" / "strumenti"))
 import monetizzazione as MON  # noqa: E402
 import stile  # noqa: E402
 import genera_annuncio as AN  # noqa: E402  prova di domanda «Paga CCNL per chi assume» (27/11/2026): strumento, guida, Pro, API
+import genera_inverno as INV  # noqa: E402  pacchetto d'inverno (27/11/2026): preavviso e tredicesima per contratto, con il calcolo
 
 URL_SITO = "https://pagaccnl.com"  # unico punto da cambiare se il nome del sito su Netlify è diverso
 NOME = "Paga CCNL"
@@ -470,7 +471,8 @@ nel contratto. Ogni cifra viene da due fonti ufficiali confrontate al centesimo.
 di un sindacato o di un'associazione di imprese.</p>
 <p>Fonti controllate il {data_lunga(CONTROLLO)}.</p>
 </div><div>
-<h2>Contratti</h2><ul>{contratti_piede}<li><a href="/colf-badanti/">Colf e badanti: guida per le famiglie</a></li></ul>
+<h2>Contratti</h2><ul>{contratti_piede}<li><a href="/colf-badanti/">Colf e badanti: guida per le famiglie</a></li>
+<li><a href="/{INV.P_PRE}">Preavviso di dimissioni e licenziamento</a></li><li><a href="/{INV.P_TRE}">Tredicesima: calcolo per livello</a></li></ul>
 </div><div>
 <h2>Per chi assume</h2><ul><li><a href="/{AN.P_STRUMENTO}">Retribuzione per l'annuncio di lavoro</a></li><li><a href="/{AN.P_GUIDA}">Cosa scrivere nell'annuncio</a></li>
 <li><a href="/{AN.P_PRO}">Per consulenti e aziende</a></li><li><a href="/{AN.P_API}">API</a></li></ul>
@@ -497,12 +499,13 @@ dei contratti sono nell'<a href="https://www.cnel.it/Archivio-Contratti" rel="no
 # Stesso metodo di Visa Income ed EsameB1 (studio-business/PIANO-VISITE-VISA-CCNL-2026-11-27.md, B1). Il registro dati/lastmod.json
 # tiene per ogni pagina la data dell'ultima modifica del contenuto e la sua impronta: titolo, descrizione, JSON-LD e <main>.
 # Fuori dall'impronta: menu, piede e CSS (uguali in tutte le pagine), le date di controllo e di lettura delle fonti (cambiano a ogni
-# giro mensile anche se le cifre restano uguali), i nomi dei file in /assets/ (cambiano con il CSS) e il riquadro dell'annuncio.
+# giro mensile anche se le cifre restano uguali), i nomi dei file in /assets/ (cambiano con il CSS) e i riquadri di rimando
+# (annuncio di lavoro; preavviso e tredicesima).
 # A ogni generazione: impronta uguale -> la data resta; diversa o pagina nuova -> data di oggi. Con CCNL_OGGI (prova di una data
 # futura) il registro non si riscrive.
 REGISTRO_LASTMOD = DATI / "lastmod.json"
 IMPRONTE = {}
-_RE_RIQUADRO = re.compile(r"<!--annuncio-->.*?<!--/annuncio-->", re.S)
+_RE_RIQUADRO = re.compile(r"<!--(annuncio|inverno)-->.*?<!--/\1-->", re.S)  # riquadri di rimando: annuncio di lavoro, preavviso e tredicesima
 _RE_DATA_CONTROLLO = re.compile(r"(Controllato il|controllate il|Letto il|Ultimo aggiornamento:) (?:1°|\d{1,2}) [a-z]+ \d{4}")
 _RE_ASSET = re.compile(r"(/assets/[a-z]+)\.[0-9a-f]{10}\.")
 
@@ -823,7 +826,7 @@ def pagina_livello(cid, L):
     corpo += (f'<div class="formula">{euro(v["mensile"])} × {mens} = <strong>{euro(v["annuo"])}</strong>'
               f'<small>{mens} mensilità: {h(m["mensilita"]["dove"])}{rim.ref(m["mensilita"]["fonte"])}</small></div>')
     corpo += (f'<p>È il minimo annuo a tempo pieno con la tabella {"qui sopra" if v["sospese"] else "in vigore oggi"}. Se nell\'anno arriva un aumento, il totale dell\'anno sarà più alto.</p>')
-    corpo += AN.riquadro(sys.modules[__name__], cid, L)
+    corpo += AN.riquadro(sys.modules[__name__], cid, L) + INV.riquadro(sys.modules[__name__], cid, L)
     # aumenti futuri e storico
     corpo += aumenti_html(cid, L, v, rim)
     # vicini
@@ -1011,7 +1014,7 @@ def pagina_domestico(L):
               f'<small>Quota giornaliera: 1/26 della retribuzione mensile (chiarimenti a verbale, punto 1).{rim.ref("cnel_245143")}</small></div>')
     corpo += (f'<div class="formula">{euro(v["conv_tot"])} × 13 = <strong>{euro(v["annuo_conv"])}</strong> l\'anno'
               f'<small>Tredicesima: una mensilità in più a dicembre, che comprende anche il valore di vitto e alloggio (art. 39).{rim.ref("cnel_245143")}</small></div>')
-    corpo += AN.riquadro(sys.modules[__name__], cid, L)
+    corpo += AN.riquadro(sys.modules[__name__], cid, L) + INV.riquadro(sys.modules[__name__], cid, L)
     # aumenti
     corpo += '<h2 id="aumenti">Aumenti già firmati</h2>'
     corpo += f'<p>{h(m["aumenti_futuri"]["testo"])}{rim.ref(m["aumenti_futuri"]["fonte"])}</p>'
@@ -1108,7 +1111,7 @@ def pagina_contratto(cid):
                 corpo += ('<p class="small">Gli operatori di vendita hanno una tabella a parte nello stesso contratto; qui riportiamo solo il minimo mensile, '
                           f'confrontato con Filcams, senza pagina dedicata.{rim.ref([fa, fb])}</p>' + tabella(["Categoria", "Minimo al mese"], rr))
         corpo += calendario(cid, pub, rim)
-    corpo += AN.riquadro(sys.modules[__name__], cid)
+    corpo += AN.riquadro(sys.modules[__name__], cid) + INV.riquadro(sys.modules[__name__], cid)
     corpo += AD
     # regole
     corpo += '<h2 id="regole">Le regole del contratto usate per i calcoli</h2><div class="testo"><ul>'
@@ -1569,6 +1572,7 @@ def main():
             (pagina_domestico if cid == "domestico" else lambda x: pagina_livello(cid, x))(L)
     colf_badanti()
     AN.genera(sys.modules[__name__])  # 27/11/2026: /annuncio-di-lavoro/, /annuncio-di-lavoro/cosa-scrivere/, /per-consulenti-e-aziende/, /api/
+    INV.genera(sys.modules[__name__])  # 27/11/2026: /preavviso/ e /tredicesima/, indice più una pagina per contratto
     come_lavoriamo()
     chi_siamo()
     privacy()

@@ -107,7 +107,8 @@ FONTI = {
         "cerca": ["è pari a complessivi 215,00 euro lordi per il periodo di vigenza"]},
     "cnel_234754": {
         "titolo": "Ipotesi di accordo del 13 giugno 2025 per il rinnovo del CCNL pulizia e multiservizi (deposito CNEL 234754)", "chi": "CNEL, archivio dei contratti",
-        "cnel": 234754, "ocr": [2, 13], "cerca": ["sarà valido fino al 31 dicembre 2028"]},
+        "cnel": 234754, "ocr": [2, 6, 13],  # pag. 6: art. 33, proporzionamento del part time (27/11/2026)
+        "cerca": ["sarà valido fino al 31 dicembre 2028"]},
     "cnel_105782": {
         "titolo": "CCNL 31 maggio 2011 per le imprese di pulizia e servizi integrati/multiservizi (deposito CNEL 105782)", "chi": "CNEL, archivio dei contratti",
         "cnel": 105782,

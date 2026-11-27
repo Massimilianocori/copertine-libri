@@ -1,0 +1,1668 @@
+{
+ "_nota": "Pacchetto d'inverno del 27/11/2026 (studio-business/schede/2026-11-27-pagaccnl-inverno.md): preavviso e tredicesima per i 5 contratti. Ogni «frase» e ogni «testo» è copiato dal testo del contratto salvato in raccolta/_grezzi (apostrofi diritti, spazi singoli, a capo e trattini di sillabazione lasciati come nel file: «corrispon- dente»). mesi, giorni, unita e mens sono la lettura di quella frase (unita: cal = «di calendario», lav = «lavorativi», gg = il contratto non lo dice): verifica.py li rilegge dalla frase e ritrova ogni frase nel testo, nell'articolo e sotto l'intestazione indicati. Nessun giorno viene da siti terzi. Le cifre in euro non stanno qui: si calcolano dai minimi verificati (dati/contratti.json).",
+ "aggiornato_il": "2026-11-27",
+ "letto_il": "2026-11-27",
+ "procedura": {
+  "url": "https://www.lavoro.gov.it/strumenti-e-servizi/Dimissioni-volontarie/Pagine/default",
+  "titolo": "Dimissioni volontarie",
+  "chi": "Ministero del Lavoro e delle Politiche Sociali",
+  "file": "min_dimissioni_2026.html",
+  "letto_il": "2026-11-27",
+  "frammenti": {
+   "telematiche": "a partire dal 12 marzo 2016 le dimissioni volontarie e la risoluzione consensuale del rapporto di lavoro dovranno essere effettuate in modalità esclusivamente telematiche",
+   "revoca": "Il lavoratore ha sempre la possibilità di revocare le dimissioni o la risoluzione consensuale entro 7 giorni successivi alla comunicazione.",
+   "esclusi": "Restano fuori, dal campo di applicazione della presente norma, i rapporti di lavoro alle dipendenze delle pubbliche amministrazioni, il lavoro domestico,",
+   "spid": "il nuovo modulo autonomamente tramite il sito del Ministero del Lavoro a cui è possibile accedere tramite SPID o CIE.",
+   "abilitati": "rivolgersi a un soggetto abilitato (patronato, organizzazione sindacale, ente bilaterale, commissioni di certificazione, consulenti del lavoro, sedi territoriali competenti dell'Ispettorato Nazionale del Lavoro)"
+  }
+ },
+ "contratti": {
+  "terziario": {
+   "preavviso": {
+    "fonte": "cnel_246574",
+    "dove": "artt. 251, 252 e 256",
+    "decorre_breve": "dal 1° o dal 16 del mese",
+    "tabelle": [
+     {
+      "id": "lic",
+      "caso": "licenziamento",
+      "titolo": "Se ti licenzia l'azienda",
+      "dove": "art. 251",
+      "inizio": "Art. 251 - Termini di preavviso in caso di licenziamento I termini",
+      "fine": "Art. 252 - Indennità sostitutiva del preavviso Ai sensi",
+      "bande": [
+       {
+        "id": "a",
+        "et": "Fino a 5 anni di servizio compiuti"
+       },
+       {
+        "id": "b",
+        "et": "Oltre 5 e fino a 10 anni compiuti"
+       },
+       {
+        "id": "c",
+        "et": "Oltre 10 anni compiuti"
+       }
+      ],
+      "gruppi": [
+       {
+        "banda": "a",
+        "frase": "a) fino a cinque anni di servizio compiuti:",
+        "voci": [
+         {
+          "frase": "Quadri e I Livello 60 giorni di calendario",
+          "et": "Quadro e 1° livello",
+          "livelli": [
+           "q",
+           "i"
+          ],
+          "mesi": 0,
+          "giorni": 60,
+          "unita": "cal"
+         },
+         {
+          "frase": "Il e III Livello 30 giorni di calendario",
+          "et": "2° e 3° livello",
+          "livelli": [
+           "ii",
+           "iii"
+          ],
+          "mesi": 0,
+          "giorni": 30,
+          "unita": "cal"
+         },
+         {
+          "frase": "IV e V Livello 20 giorni di calendario",
+          "et": "4° e 5° livello",
+          "livelli": [
+           "iv",
+           "v"
+          ],
+          "mesi": 0,
+          "giorni": 20,
+          "unita": "cal"
+         },
+         {
+          "frase": "VI e VII Livello 15 giorni di calendario",
+          "et": "6° e 7° livello",
+          "livelli": [
+           "vi",
+           "vii"
+          ],
+          "mesi": 0,
+          "giorni": 15,
+          "unita": "cal"
+         }
+        ]
+       },
+       {
+        "banda": "b",
+        "frase": "b) oltre i cinque anni e fino a dieci anni di servizio compiuti:",
+        "voci": [
+         {
+          "frase": "Quadri e I Livello 90 giorni di calendario",
+          "et": "Quadro e 1° livello",
+          "livelli": [
+           "q",
+           "i"
+          ],
+          "mesi": 0,
+          "giorni": 90,
+          "unita": "cal"
+         },
+         {
+          "frase": "Il e III Livello 45 giorni di calendario",
+          "et": "2° e 3° livello",
+          "livelli": [
+           "ii",
+           "iii"
+          ],
+          "mesi": 0,
+          "giorni": 45,
+          "unita": "cal"
+         },
+         {
+          "frase": "IV e V Livello 30 giorni di calendario",
+          "et": "4° e 5° livello",
+          "livelli": [
+           "iv",
+           "v"
+          ],
+          "mesi": 0,
+          "giorni": 30,
+          "unita": "cal"
+         },
+         {
+          "frase": "VI e VII Livello 20 giorni di calendario",
+          "et": "6° e 7° livello",
+          "livelli": [
+           "vi",
+           "vii"
+          ],
+          "mesi": 0,
+          "giorni": 20,
+          "unita": "cal"
+         }
+        ]
+       },
+       {
+        "banda": "c",
+        "frase": "c) oltre i dieci anni di servizio compiuti:",
+        "voci": [
+         {
+          "frase": "Quadri e I Livello 120 giorni di calendario",
+          "et": "Quadro e 1° livello",
+          "livelli": [
+           "q",
+           "i"
+          ],
+          "mesi": 0,
+          "giorni": 120,
+          "unita": "cal"
+         },
+         {
+          "frase": "Il e III Livello 60 giorni di calendario",
+          "et": "2° e 3° livello",
+          "livelli": [
+           "ii",
+           "iii"
+          ],
+          "mesi": 0,
+          "giorni": 60,
+          "unita": "cal"
+         },
+         {
+          "frase": "IV e V Livello 45 giorni di calendario",
+          "et": "4° e 5° livello",
+          "livelli": [
+           "iv",
+           "v"
+          ],
+          "mesi": 0,
+          "giorni": 45,
+          "unita": "cal"
+         },
+         {
+          "frase": "VI e VII Livello 20 giorni di calendario",
+          "et": "6° e 7° livello",
+          "livelli": [
+           "vi",
+           "vii"
+          ],
+          "mesi": 0,
+          "giorni": 20,
+          "unita": "cal"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "dim",
+      "caso": "dimissioni",
+      "titolo": "Se ti dimetti tu",
+      "dove": "art. 256",
+      "inizio": "Art. 256 - Dimissioni e preavviso In caso di dimissioni",
+      "fine": "Art. 257 - Dimissioni per matrimonio In conformità",
+      "bande": [
+       {
+        "id": "a",
+        "et": "Fino a 5 anni di servizio compiuti"
+       },
+       {
+        "id": "b",
+        "et": "Oltre 5 e fino a 10 anni compiuti"
+       },
+       {
+        "id": "c",
+        "et": "Oltre 10 anni compiuti"
+       }
+      ],
+      "gruppi": [
+       {
+        "banda": "a",
+        "frase": "a) ﬁno a cinque anni di servizio compiuti:",
+        "voci": [
+         {
+          "frase": "Quadri e I Livello 45 giorni di calendario",
+          "et": "Quadro e 1° livello",
+          "livelli": [
+           "q",
+           "i"
+          ],
+          "mesi": 0,
+          "giorni": 45,
+          "unita": "cal"
+         },
+         {
+          "frase": "Il e III Livello 20 giorni di calendario",
+          "et": "2° e 3° livello",
+          "livelli": [
+           "ii",
+           "iii"
+          ],
+          "mesi": 0,
+          "giorni": 20,
+          "unita": "cal"
+         },
+         {
+          "frase": "IV e V Livello 15 giorni di calendario",
+          "et": "4° e 5° livello",
+          "livelli": [
+           "iv",
+           "v"
+          ],
+          "mesi": 0,
+          "giorni": 15,
+          "unita": "cal"
+         },
+         {
+          "frase": "VI e VII Livello 10 giorni di calendario",
+          "et": "6° e 7° livello",
+          "livelli": [
+           "vi",
+           "vii"
+          ],
+          "mesi": 0,
+          "giorni": 10,
+          "unita": "cal"
+         }
+        ]
+       },
+       {
+        "banda": "b",
+        "frase": "b) oltre i cinque anni e ﬁno a dieci anni di servizio compiuti:",
+        "voci": [
+         {
+          "frase": "Quadri e I Livello 60 giorni di calendario",
+          "et": "Quadro e 1° livello",
+          "livelli": [
+           "q",
+           "i"
+          ],
+          "mesi": 0,
+          "giorni": 60,
+          "unita": "cal"
+         },
+         {
+          "frase": "Il e III Livello 30 giorni di calendario",
+          "et": "2° e 3° livello",
+          "livelli": [
+           "ii",
+           "iii"
+          ],
+          "mesi": 0,
+          "giorni": 30,
+          "unita": "cal"
+         },
+         {
+          "frase": "IV e V Livello 20 giorni di calendario",
+          "et": "4° e 5° livello",
+          "livelli": [
+           "iv",
+           "v"
+          ],
+          "mesi": 0,
+          "giorni": 20,
+          "unita": "cal"
+         },
+         {
+          "frase": "VI e VII Livello 15 giorni di calendario",
+          "et": "6° e 7° livello",
+          "livelli": [
+           "vi",
+           "vii"
+          ],
+          "mesi": 0,
+          "giorni": 15,
+          "unita": "cal"
+         }
+        ]
+       },
+       {
+        "banda": "c",
+        "frase": "c) oltre i dieci anni di servizio compiuti:",
+        "voci": [
+         {
+          "frase": "Quadri e I Livello 90 giorni di calendario",
+          "et": "Quadro e 1° livello",
+          "livelli": [
+           "q",
+           "i"
+          ],
+          "mesi": 0,
+          "giorni": 90,
+          "unita": "cal"
+         },
+         {
+          "frase": "Il e III Livello 45 giorni di calendario",
+          "et": "2° e 3° livello",
+          "livelli": [
+           "ii",
+           "iii"
+          ],
+          "mesi": 0,
+          "giorni": 45,
+          "unita": "cal"
+         },
+         {
+          "frase": "IV e V Livello 30 giorni di calendario",
+          "et": "4° e 5° livello",
+          "livelli": [
+           "iv",
+           "v"
+          ],
+          "mesi": 0,
+          "giorni": 30,
+          "unita": "cal"
+         },
+         {
+          "frase": "VI e VII Livello 15 giorni di calendario",
+          "et": "6° e 7° livello",
+          "livelli": [
+           "vi",
+           "vii"
+          ],
+          "mesi": 0,
+          "giorni": 15,
+          "unita": "cal"
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "cit": {
+     "decorre": {
+      "dove": "art. 251",
+      "testo": "I termini di preavviso, a decorrere dal primo o dal sedicesimo giorno di ciascun mese, sono i seguenti:"
+     },
+     "decorre_dim": {
+      "dove": "art. 256",
+      "testo": "Le dimissioni devono essere rassegnate in ogni caso per iscritto, secondo le modalità previste dalla legge, e comunque con modalità utili a certiﬁcare la data di ricevimento e con rispetto dei seguenti termini di preavviso a decorrere dal primo o dal sedicesimo giorno di ciascun mese:"
+     },
+     "indennita": {
+      "dove": "art. 252",
+      "testo": "Ai sensi del secondo comma dell'art. 2118 c.c. in caso di mancato preavviso al lavoratore sarà corrisposta una indennità equivalente all'importo della retribuzione di fatto di cui all'art. 212 corrispon- dente al periodo di cui all'articolo precedente, comprensiva dei ratei di 13a e 14a mensilità."
+     },
+     "trattenuta": {
+      "dove": "art. 256",
+      "testo": "Ove il dipendente non abbia dato il preavviso, il datore di lavoro ha facoltà di ritenergli dalle competenze nette una somma pari al- l'importo della retribuzione di fatto di cui all'art. 212 corrispon- dente ai periodi di cui al comma precedente, comprensiva dei ratei di 13a e 14a mensilità."
+     },
+     "rinuncia": {
+      "dove": "art. 256",
+      "testo": "Su richiesta del dimissionario, il datore di lavoro può rinunciare al preavviso, facendo in tal caso cessare subito il rapporto di la- voro."
+     },
+     "anticipo": {
+      "dove": "art. 256",
+      "testo": "Ove invece il datore di lavoro intenda di sua iniziativa far cessare il rapporto prima della scadenza del preavviso, ne avrà fa- coltà, ma dovrà corrispondere al lavoratore l'indennità sostitutiva nelle misure di cui al comma precedente per il periodo di antici- pata risoluzione del rapporto di lavoro."
+     },
+     "malattia": {
+      "dove": "art. 190",
+      "testo": "Il periodo di malattia è considerato utile ai ﬁni del computo delle indennità di preavviso e di licenziamento."
+     },
+     "parttime": {
+      "dove": "art. 100",
+      "testo": "I termini di preavviso per i lavoratori occupati a tempo parziale hanno la stessa durata di quelli previsti per i lavoratori a tempo pieno e si calcolano in giorni di calendario indipendentemente dalla durata e dall'articolazione della prestazione lavorativa."
+     },
+     "mese": {
+      "dove": "art. 213",
+      "testo": "Essa si riferisce pertanto a tutte le giornate del mese di calendario."
+     },
+     "giornaliera": {
+      "dove": "art. 214",
+      "testo": "La quota giornaliera della retribuzione, sia normale che di fatto, si ottiene, in tutti i casi, dividendo l'importo mensile per il divisore convenzionale 26, fatto salvo quanto previsto dall'art. 194."
+     }
+    },
+    "ratei": {
+     "mensilita": 14,
+     "cit": "indennita"
+    },
+    "esempio": {
+     "tabella": "lic",
+     "livello": "iv",
+     "banda": "a"
+    }
+   },
+   "tredicesima": {
+    "fonte": "cnel_246574",
+    "dove": "art. 224",
+    "quando_breve": "alla vigilia di Natale",
+    "frazione_breve": "15 giorni o più contano un mese",
+    "cit": {
+     "quanto": {
+      "dove": "art. 224",
+      "testo": "In coincidenza con la vigilia di Natale di ogni anno le aziende do- vranno corrispondere al personale dipendente un importo pari ad una mensilità della retribuzione di fatto di cui all'art. 212 (esclusi gli assegni familiari)."
+     },
+     "prorata": {
+      "dove": "art. 224",
+      "testo": "In caso di prestazione lavorativa ridotta, rispetto all'intero periodo di 12 mesi precedenti alla suddetta data, il lavoratore avrà diritto a tanti dodicesimi dell'ammontare della 13a mensilità quanti sono i mesi interi di servizio prestato"
+     },
+     "frazioni": {
+      "dove": "art. 208",
+      "testo": "Ad eccezione degli effetti derivanti dalla normativa sugli scatti di anzianità, le frazioni di anno saranno computate, a tutti gli effetti contrattuali, per dodicesimi, computandosi come mese intero le frazioni di mese superiori o uguali a 15 giorni."
+     },
+     "parttime": {
+      "dove": "art. 88",
+      "testo": "la proporzionalità del tratta- mento economico e normativo del lavoratore assunto a tempo parziale si determina sulla base del rapporto fra orario settimanale o mensile ridotto ed il corrispondente orario intero previsto dal presente contratto."
+     },
+     "parttime_anno": {
+      "dove": "art. 99",
+      "testo": "Per i lavoratori a tempo parziale, in caso di trasformazione del rap- porto nel corso dell'anno, l'importo della 13a e della 14a mensilità è determinato per dodicesimi, riproporzionando ciascuno di essi sulla base dei criteri previsti dal precedente art. 88."
+     },
+     "retribuzione": {
+      "dove": "art. 212",
+      "testo": "La retribuzione di fatto è costituita dalle voci di cui al precedente art. 210 nonché da tutti gli altri elementi retributivi aventi carattere continuativo"
+     }
+    },
+    "quattordicesima": {
+     "dove": "art. 225",
+     "quando_breve": "il 1° luglio",
+     "periodo_breve": "i 12 mesi prima del 1° luglio",
+     "cit": {
+      "quanto": {
+       "dove": "art. 225",
+       "testo": "Al personale compreso nella sfera di applicazione del presente con- tratto sarà corrisposto, il 1° luglio di ogni anno, un importo pari ad una mensilità della retribuzione di fatto di cui all'art. 212 in atto al 30 giugno immediatamente precedente (quattordicesima mensilità), esclusi gli assegni familiari."
+      },
+      "prorata": {
+       "dove": "art. 225",
+       "testo": "In caso di prestazione lavorativa ridotta, rispetto all'intero periodo di 12 mesi precedenti alla suddetta data, il lavoratore avrà diritto a tanti dodicesimi dell'ammontare della 14a mensilità quanti sono i mesi interi di servizio prestato"
+      }
+     }
+    }
+   }
+  },
+  "metalmeccanici": {
+   "preavviso": {
+    "fonte": "cnel_157071",
+    "dove": "Sezione quarta, Titolo VIII, art. 1 del CCNL 5 febbraio 2021",
+    "decorre_breve": "dal giorno dopo il ricevimento",
+    "tabelle": [
+     {
+      "id": "tutti",
+      "caso": "entrambi",
+      "titolo": "Dimissioni e licenziamento (stessi termini)",
+      "dove": "Sezione quarta, Titolo VIII, art. 1",
+      "inizio": "Art. 1. - Preavviso di licenziamento e di dimissioni. Il rapporto",
+      "fine": "Art. 2. – Consegna dei documenti alla cessazionedel rapporto di lavoro. Entro",
+      "intestazione": "Anni di servizio Livelli B2, B3 e A1 Livelli C2, C3 e B1 Livelli D1, D2 e C1",
+      "bande": [
+       {
+        "id": "a",
+        "et": "Fino a 5 anni di servizio"
+       },
+       {
+        "id": "b",
+        "et": "Oltre 5 e fino a 10 anni"
+       },
+       {
+        "id": "c",
+        "et": "Oltre 10 anni"
+       }
+      ],
+      "gruppi": [
+       {
+        "banda": "a",
+        "pre": "Fino a 5 anni",
+        "frase": "Fino a 5 anni 2 mesi 1 mese e 15 giorni 10 giorni",
+        "frase_mens": "Fino a 5 anni 2 mensilità 1,5 mensilità 0,33 mensilità",
+        "voci": [
+         {
+          "frase": "2 mesi",
+          "et": "Livelli B2, B3 e A1",
+          "livelli": [
+           "b2",
+           "b3",
+           "a1"
+          ],
+          "mesi": 2,
+          "giorni": 0,
+          "unita": "gg",
+          "frase_mens": "2 mensilità",
+          "mens": "2"
+         },
+         {
+          "frase": "1 mese e 15 giorni",
+          "et": "Livelli C2, C3 e B1",
+          "livelli": [
+           "c2",
+           "c3",
+           "b1"
+          ],
+          "mesi": 1,
+          "giorni": 15,
+          "unita": "gg",
+          "frase_mens": "1,5 mensilità",
+          "mens": "1.5"
+         },
+         {
+          "frase": "10 giorni",
+          "et": "Livelli D1, D2 e C1",
+          "livelli": [
+           "d1",
+           "d2",
+           "c1"
+          ],
+          "mesi": 0,
+          "giorni": 10,
+          "unita": "gg",
+          "frase_mens": "0,33 mensilità",
+          "mens": "0.33"
+         }
+        ]
+       },
+       {
+        "banda": "b",
+        "pre": "Oltre 5 fino a 10",
+        "frase": "Oltre 5 fino a 10 3 mesi 2 mesi 20 giorni",
+        "frase_mens": "Oltre 5 fino a 10 3 mensilità 2 mensilità 0,67 mensilità",
+        "voci": [
+         {
+          "frase": "3 mesi",
+          "et": "Livelli B2, B3 e A1",
+          "livelli": [
+           "b2",
+           "b3",
+           "a1"
+          ],
+          "mesi": 3,
+          "giorni": 0,
+          "unita": "gg",
+          "frase_mens": "3 mensilità",
+          "mens": "3"
+         },
+         {
+          "frase": "2 mesi",
+          "et": "Livelli C2, C3 e B1",
+          "livelli": [
+           "c2",
+           "c3",
+           "b1"
+          ],
+          "mesi": 2,
+          "giorni": 0,
+          "unita": "gg",
+          "frase_mens": "2 mensilità",
+          "mens": "2"
+         },
+         {
+          "frase": "20 giorni",
+          "et": "Livelli D1, D2 e C1",
+          "livelli": [
+           "d1",
+           "d2",
+           "c1"
+          ],
+          "mesi": 0,
+          "giorni": 20,
+          "unita": "gg",
+          "frase_mens": "0,67 mensilità",
+          "mens": "0.67"
+         }
+        ]
+       },
+       {
+        "banda": "c",
+        "pre": "Oltre i 10 anni",
+        "frase": "Oltre i 10 anni 4 mesi 2 mesi e 15 giorni 1 mese",
+        "frase_mens": "Oltre i 10 anni 4 mensilità 2,5 mensilità 1 mensilità",
+        "voci": [
+         {
+          "frase": "4 mesi",
+          "et": "Livelli B2, B3 e A1",
+          "livelli": [
+           "b2",
+           "b3",
+           "a1"
+          ],
+          "mesi": 4,
+          "giorni": 0,
+          "unita": "gg",
+          "frase_mens": "4 mensilità",
+          "mens": "4"
+         },
+         {
+          "frase": "2 mesi e 15 giorni",
+          "et": "Livelli C2, C3 e B1",
+          "livelli": [
+           "c2",
+           "c3",
+           "b1"
+          ],
+          "mesi": 2,
+          "giorni": 15,
+          "unita": "gg",
+          "frase_mens": "2,5 mensilità",
+          "mens": "2.5"
+         },
+         {
+          "frase": "1 mese",
+          "et": "Livelli D1, D2 e C1",
+          "livelli": [
+           "d1",
+           "d2",
+           "c1"
+          ],
+          "mesi": 1,
+          "giorni": 0,
+          "unita": "gg",
+          "frase_mens": "1 mensilità",
+          "mens": "1"
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "cit": {
+     "regola": {
+      "dove": "Sezione quarta, Titolo VIII, art. 1",
+      "testo": "Il rapporto di lavoro a tempo indeterminato non può essere risolto da nessuna delle due parti senza un preavviso i cui termini sono stabiliti come segue a seconda dell'anzianità e della categoria professionale cui appartiene il lavoratore."
+     },
+     "decorre": {
+      "dove": "Sezione quarta, Titolo VIII, art. 1",
+      "testo": "I termini di disdetta decorrono dal giorno del ricevimento dell'atto di dimis- sioni o di licenziamento e il periodo di preavviso si calcola dal giorno successivo."
+     },
+     "indennita": {
+      "dove": "Sezione quarta, Titolo VIII, art. 1",
+      "testo": "La parte che risolve il rapporto senza l'osservanza dei predetti termini di pre- avviso deve corrispondere all'altra un'indennità pari all'importo della retribuzione per il periodo di mancato preavviso come di seguito stabilito."
+     },
+     "permessi": {
+      "dove": "Sezione quarta, Titolo VIII, art. 1",
+      "testo": "Durante il compimento del periodo di preavviso in caso di licenziamento l'azienda concederà al lavoratore dei permessi per la ricerca di nuova occupazio- ne;"
+     },
+     "scritto": {
+      "dove": "Sezione quarta, Titolo VIII, art. 1",
+      "testo": "Tanto il licenziamento quanto le dimissioni saranno comunicate per iscritto."
+     },
+     "ferie": {
+      "dove": "Sezione quarta, Titolo III, art. 10",
+      "testo": "Il periodo di preavviso non può essere considerato periodo di ferie."
+     },
+     "infortunio": {
+      "dove": "Sezione quarta, Titolo VI, art. 1",
+      "testo": "L'infortunio sul lavoro sospende il decorso del preavviso nel caso di licen- ziamento, nei limiti ed agli effetti della normativa sulla conservazione del posto e sul trattamento economico di cui al presente articolo."
+     }
+    },
+    "ratei": null,
+    "esempio": {
+     "tabella": "tutti",
+     "livello": "c3",
+     "banda": "a"
+    }
+   },
+   "tredicesima": {
+    "fonte": "cnel_157071",
+    "dove": "Sezione quarta, Titolo IV, art. 7 del CCNL 5 febbraio 2021",
+    "quando_breve": "di norma alla vigilia di Natale",
+    "frazione_breve": "più di 15 giorni contano un mese",
+    "cit": {
+     "quanto": {
+      "dove": "Sezione quarta, Titolo IV, art. 7",
+      "testo": "L'azienda è tenuta a corrispondere per ciascun anno al lavoratore, in occasione della ricorrenza natalizia, una tredicesima mensilità di importo ragguagliato alla retribuzione globale di fatto."
+     },
+     "quando": {
+      "dove": "Sezione quarta, Titolo IV, art. 7",
+      "testo": "La corresponsione deve avvenire, normalmente, alla vigilia di Natale."
+     },
+     "prorata": {
+      "dove": "Sezione quarta, Titolo IV, art. 7",
+      "testo": "Nel caso di inizio o di cessazione del rapporto di lavoro durante il corso del- l'anno, il lavoratore ha diritto a tanti dodicesimi dell'ammontare della 13a men- silità quanti sono i mesi di anzianità di servizio presso l'azienda."
+     },
+     "frazioni": {
+      "dove": "Sezione quarta, Titolo IV, art. 7",
+      "testo": "La frazione di mese superiore a 15 giorni va considerata a questi effetti come mese intero."
+     },
+     "prova": {
+      "dove": "Sezione quarta, Titolo IV, art. 7",
+      "testo": "Il periodo di prova è utile per il calcolo dei dodicesimi di cui sopra."
+     },
+     "parttime": {
+      "dove": "Sezione quarta, Titolo I, art. 4, lettera C",
+      "testo": "Il lavoratore a tempo parziale beneficia dei mede- simi diritti di un lavoratore a tempo pieno comparabile e di un trattamento ripro- porzionato in ragione della ridotta entità della prestazione lavorativa."
+     }
+    },
+    "quattordicesima": null
+   }
+  },
+  "multiservizi": {
+   "preavviso": {
+    "fonte": "cnel_105782",
+    "dove": "art. 57 del CCNL 31 maggio 2011",
+    "decorre_breve": "dalla metà o dalla fine del mese",
+    "tabelle": [
+     {
+      "id": "lic_imp",
+      "caso": "licenziamento",
+      "chi": "impiegati",
+      "titolo": "Impiegati: se ti licenzia l'azienda",
+      "dove": "art. 57",
+      "inizio": "Articolo 57 - PREAVVISO Il rapporto",
+      "fine": "Articolo 58 - CESSIONE, TRASFORMAZIONE, FALLIMENTO E CESSAZIONE",
+      "bande": [
+       {
+        "id": "a",
+        "et": "Fino a 5 anni di servizio"
+       },
+       {
+        "id": "b",
+        "et": "Oltre 5 e fino a 10 anni"
+       },
+       {
+        "id": "c",
+        "et": "Oltre 10 anni"
+       }
+      ],
+      "gruppi": [
+       {
+        "banda": "a",
+        "frase": "a) per gli impiegati che, avendo superato il periodo di prova, non hanno superato i 5 anni di servizio:",
+        "voci": [
+         {
+          "frase": "1 – mesi 2 e 15 giorni per gli impiegati di 7° livello e Quadri;",
+          "et": "7° livello e Quadro",
+          "livelli": [
+           "7",
+           "q"
+          ],
+          "mesi": 2,
+          "giorni": 15,
+          "unita": "gg"
+         },
+         {
+          "frase": "2 – mesi 1 e 15 giorni per gli impiegati di 6° livello;",
+          "et": "6° livello",
+          "livelli": [
+           "6"
+          ],
+          "mesi": 1,
+          "giorni": 15,
+          "unita": "gg"
+         },
+         {
+          "frase": "3 – mesi 1 per gli impiegati dal 5° al 2° livello;",
+          "et": "Dal 5° al 2° livello",
+          "livelli": [
+           "5",
+           "4",
+           "3",
+           "2"
+          ],
+          "mesi": 1,
+          "giorni": 0,
+          "unita": "gg"
+         }
+        ]
+       },
+       {
+        "banda": "b",
+        "frase": "b) per gli impiegati che hanno superato i 5 anni di servizio e non 10:",
+        "voci": [
+         {
+          "frase": "1 – mesi 3 e 15 giorni per gli impiegati di 7° livello e Quadri;",
+          "et": "7° livello e Quadro",
+          "livelli": [
+           "7",
+           "q"
+          ],
+          "mesi": 3,
+          "giorni": 15,
+          "unita": "gg"
+         },
+         {
+          "frase": "2 – mesi 2 per gli impiegati di 6° livello;",
+          "et": "6° livello",
+          "livelli": [
+           "6"
+          ],
+          "mesi": 2,
+          "giorni": 0,
+          "unita": "gg"
+         },
+         {
+          "frase": "3 – mesi 1 e 15 giorni per gli impiegati dal 5° al 2° livello;",
+          "et": "Dal 5° al 2° livello",
+          "livelli": [
+           "5",
+           "4",
+           "3",
+           "2"
+          ],
+          "mesi": 1,
+          "giorni": 15,
+          "unita": "gg"
+         }
+        ]
+       },
+       {
+        "banda": "c",
+        "frase": "c) per gli impiegati che hanno superato i 10 anni di servizio:",
+        "voci": [
+         {
+          "frase": "1 – mesi 4 e 15 giorni per gli impiegati di 7° livello e Quadri;",
+          "et": "7° livello e Quadro",
+          "livelli": [
+           "7",
+           "q"
+          ],
+          "mesi": 4,
+          "giorni": 15,
+          "unita": "gg"
+         },
+         {
+          "frase": "2 – mesi 2 e 15 giorni per gli impiegati di 6° livello;",
+          "et": "6° livello",
+          "livelli": [
+           "6"
+          ],
+          "mesi": 2,
+          "giorni": 15,
+          "unita": "gg"
+         },
+         {
+          "frase": "3 – mesi 2 per gli impiegati dal 5° al 2° livello.",
+          "et": "Dal 5° al 2° livello",
+          "livelli": [
+           "5",
+           "4",
+           "3",
+           "2"
+          ],
+          "mesi": 2,
+          "giorni": 0,
+          "unita": "gg"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "dim_imp",
+      "caso": "dimissioni",
+      "chi": "impiegati",
+      "titolo": "Impiegati: se ti dimetti tu",
+      "dove": "art. 57",
+      "deriva": "lic_imp",
+      "num": 1,
+      "den": 2,
+      "cit": "dimissioni"
+     },
+     {
+      "id": "lic_ope",
+      "caso": "licenziamento",
+      "chi": "operai",
+      "titolo": "Operai: se ti licenzia l'azienda",
+      "dove": "art. 57",
+      "inizio": "Articolo 57 - PREAVVISO Il rapporto",
+      "fine": "Articolo 58 - CESSIONE, TRASFORMAZIONE, FALLIMENTO E CESSAZIONE",
+      "bande": [
+       {
+        "id": "x",
+        "et": "Qualsiasi anzianità"
+       }
+      ],
+      "gruppi": [
+       {
+        "banda": "x",
+        "frase": "OPERAI Giorni 15 di calendario",
+        "voci": [
+         {
+          "frase": "Giorni 15 di calendario per gli operai di qualsiasi livello, a prescindere dalla loro anzianità di servizio.",
+          "et": "Operai di qualsiasi livello",
+          "livelli": [
+           "1",
+           "2",
+           "3",
+           "4",
+           "5"
+          ],
+          "mesi": 0,
+          "giorni": 15,
+          "unita": "cal"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "dim_ope",
+      "caso": "dimissioni",
+      "chi": "operai",
+      "titolo": "Operai: se ti dimetti tu",
+      "dove": "art. 57",
+      "inizio": "Articolo 57 - PREAVVISO Il rapporto",
+      "fine": "Articolo 58 - CESSIONE, TRASFORMAZIONE, FALLIMENTO E CESSAZIONE",
+      "bande": [
+       {
+        "id": "x",
+        "et": "Qualsiasi anzianità"
+       }
+      ],
+      "gruppi": [
+       {
+        "banda": "x",
+        "frase": "I termini di preavviso di cui al presente articolo sono ridotti",
+        "voci": [
+         {
+          "frase": "a 7 giorni di calendario per gli operai qualora sia il lavoratore a dare il preavviso.",
+          "et": "Operai di qualsiasi livello",
+          "livelli": [
+           "1",
+           "2",
+           "3",
+           "4",
+           "5"
+          ],
+          "mesi": 0,
+          "giorni": 7,
+          "unita": "cal"
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "cit": {
+     "regola": {
+      "dove": "art. 57",
+      "testo": "Il rapporto di lavoro a tempo indeterminato non può essere risolto da nessuna delle due parti senza un preavviso, i cui termini sono stabiliti come segue:"
+     },
+     "operai": {
+      "dove": "art. 57",
+      "testo": "Giorni 15 di calendario per gli operai di qualsiasi livello, a prescindere dalla loro anzianità di servizio."
+     },
+     "dimissioni": {
+      "dove": "art. 57",
+      "testo": "I termini di preavviso di cui al presente articolo sono ridotti rispettivamente al 50% per gli impiegati e a 7 giorni di calendario per gli operai qualora sia il lavoratore a dare il preavviso."
+     },
+     "decorre": {
+      "dove": "art. 57",
+      "testo": "I termini della disdetta decorrono dalla metà e dalla fine di ciascun mese."
+     },
+     "indennita": {
+      "dove": "art. 57",
+      "testo": "La parte che risolve il rapporto senza osservanza dei predetti termini di preavviso, deve corrispondere all'altra un'indennità pari all'importo della retribuzione globale per il periodo di mancato preavviso."
+     },
+     "trattenuta": {
+      "dove": "art. 57",
+      "testo": "Il datore di lavoro ha diritto di ritenere, su quanto sia da lui dovuto al lavoratore un importo corrispondente alla retribuzione per il periodo di preavviso da questi eventualmente non dato."
+     },
+     "troncare": {
+      "dove": "art. 57",
+      "testo": "E' in facoltà della parte che riceve la disdetta ai sensi del comma 1 di troncare il rapporto, sia all'inizio sia nel corso del preavviso, senza che da ciò derivi alcun obbligo di indennizzo per il periodo di preavviso non compiuto."
+     },
+     "ferie": {
+      "dove": "art. 42",
+      "testo": "Il periodo di preavviso non può essere considerato periodo di ferie."
+     },
+     "giornaliera": {
+      "dove": "art. 19",
+      "testo": "La determinazione della retribuzione giornaliera si ottiene dividendo la retribuzione mensile per 22 nel caso di prestazione su 5 giorni settimanali e per 26 nel caso di prestazione su 6 giorni settimanali."
+     }
+    },
+    "ratei": null,
+    "esempio": {
+     "tabella": "lic_ope",
+     "livello": "2",
+     "banda": "x"
+    }
+   },
+   "tredicesima": {
+    "fonte": "cnel_105782",
+    "dove": "art. 20 del CCNL 31 maggio 2011",
+    "quando_breve": "entro il 20 dicembre",
+    "frazione_breve": "più di 15 giorni contano un mese",
+    "cit": {
+     "quanto": {
+      "dove": "art. 20",
+      "testo": "L'impresa corrisponderà una tredicesima mensilità pari alla retribuzione mensile globale percepita dal lavoratore entro il 20 dicembre."
+     },
+     "prorata": {
+      "dove": "art. 20",
+      "testo": "Nel caso di inizio o di cessazione del rapporto durante il corso dell'anno, il lavoratore non in prova avrà diritto a tanti dodicesimi dell'ammontare della tredicesima mensilità per quanti sono i mesi di servizio prestato presso l'azienda nel periodo di riferimento."
+     },
+     "frazioni": {
+      "dove": "art. 20",
+      "testo": "Le frazioni di mese non superiori ai 15 giorni non saranno calcolate, mentre saranno considerate come mese intero se superiori ai 15 giorni."
+     },
+     "parttime": {
+      "dove": "art. 33, nel testo dell'ipotesi di rinnovo del 13 giugno 2025",
+      "testo": "Il trattamento economico e normativo del lavoratore assunto a tempo parziale si determina sulla base della regola di proporzionamento all'orario contrattualmente pattuito con riferimento al trattamento contrattuale dei lavoratori a tempo pieno.",
+      "fonte": "cnel_234754"
+     }
+    },
+    "quattordicesima": {
+     "dove": "art. 21 del CCNL 31 maggio 2011",
+     "quando_breve": "entro il 15 luglio",
+     "periodo_breve": "dal 1° luglio al 30 giugno",
+     "cit": {
+      "quanto": {
+       "dove": "art. 21",
+       "testo": "L'impresa corrisponderà entro il 15 luglio una 14° mensilità pari a una retribuzione globale mensile."
+      },
+      "periodo": {
+       "dove": "art. 21",
+       "testo": "Il periodo di riferimento è fissato dal 1° luglio al 30 giugno."
+      },
+      "prorata": {
+       "dove": "art. 21",
+       "testo": "Nel caso di inizio o di cessazione del rapporto durante il corso dell'anno, il lavoratore non in prova avrà diritto a tanti dodicesimi dell'ammontare della quattordicesima mensilità per quanti sono i mesi di servizio prestato presso l'azienda nel periodo di riferimento."
+      }
+     }
+    }
+   }
+  },
+  "logistica": {
+   "preavviso": {
+    "fonte": "cnel_223634",
+    "dove": "art. 36",
+    "decorre_breve": "impiegati: dal 1° o dal 16 del mese; operai e viaggianti: da qualsiasi giorno",
+    "tabelle": [
+     {
+      "id": "lic_imp",
+      "caso": "licenziamento",
+      "chi": "impiegati",
+      "titolo": "Impiegati e quadri: se ti licenzia l'azienda",
+      "dove": "art. 36, comma 1, lettere a, b, c",
+      "bande": [
+       {
+        "id": "a",
+        "et": "Fino a 5 anni di servizio"
+       },
+       {
+        "id": "b",
+        "et": "Oltre 5 e fino a 10 anni"
+       },
+       {
+        "id": "c",
+        "et": "Oltre 10 anni"
+       }
+      ],
+      "gruppi": [
+       {
+        "banda": "a",
+        "frase": "a) Per gli impiegati che, avendo superato il periodo di prova, non hanno superato i cinque anni di servizio:",
+        "voci": [
+         {
+          "frase": "- mesi due e quindici giorni per i quadri e gli impiegati del 1° livello;",
+          "et": "Quadro e 1° livello",
+          "livelli": [
+           "q",
+           "1"
+          ],
+          "mesi": 2,
+          "giorni": 15,
+          "unita": "gg"
+         },
+         {
+          "frase": "- mesi uno e quindici giorni per gli impiegati del 2° livello;",
+          "et": "2° livello",
+          "livelli": [
+           "2"
+          ],
+          "mesi": 1,
+          "giorni": 15,
+          "unita": "gg"
+         },
+         {
+          "frase": "- mesi uno per gli impiegati degli altri livelli.",
+          "et": "Altri livelli",
+          "livelli": [
+           "3s",
+           "3",
+           "4",
+           "4j",
+           "5",
+           "6"
+          ],
+          "mesi": 1,
+          "giorni": 0,
+          "unita": "gg"
+         }
+        ]
+       },
+       {
+        "banda": "b",
+        "frase": "b) Per gli impiegati che hanno superato i cinque anni di servizio e non dieci:",
+        "voci": [
+         {
+          "frase": "- mesi tre e quindici giorni per i quadri e gli impiegati del 1° livello;",
+          "et": "Quadro e 1° livello",
+          "livelli": [
+           "q",
+           "1"
+          ],
+          "mesi": 3,
+          "giorni": 15,
+          "unita": "gg"
+         },
+         {
+          "frase": "- mesi due per gli impiegati del 2° livello;",
+          "et": "2° livello",
+          "livelli": [
+           "2"
+          ],
+          "mesi": 2,
+          "giorni": 0,
+          "unita": "gg"
+         },
+         {
+          "frase": "- mesi uno e quindici giorni per gli impiegati degli altri livelli.",
+          "et": "Altri livelli",
+          "livelli": [
+           "3s",
+           "3",
+           "4",
+           "4j",
+           "5",
+           "6"
+          ],
+          "mesi": 1,
+          "giorni": 15,
+          "unita": "gg"
+         }
+        ]
+       },
+       {
+        "banda": "c",
+        "frase": "c) Per gli impiegati che hanno superato i dieci anni di servizio:",
+        "voci": [
+         {
+          "frase": "- mesi quattro e quindici giorni per i quadri e gli impiegati del 1° livello;",
+          "et": "Quadro e 1° livello",
+          "livelli": [
+           "q",
+           "1"
+          ],
+          "mesi": 4,
+          "giorni": 15,
+          "unita": "gg"
+         },
+         {
+          "frase": "- mesi due e quindici giorni per gli impiegati del 2° livello;",
+          "et": "2° livello",
+          "livelli": [
+           "2"
+          ],
+          "mesi": 2,
+          "giorni": 15,
+          "unita": "gg"
+         },
+         {
+          "frase": "- mesi due per gli impiegati degli altri livelli.",
+          "et": "Altri livelli",
+          "livelli": [
+           "3s",
+           "3",
+           "4",
+           "4j",
+           "5",
+           "6"
+          ],
+          "mesi": 2,
+          "giorni": 0,
+          "unita": "gg"
+         }
+        ]
+       }
+      ],
+      "inizio": "Art. 36 - Preavviso di licenziamento e di dimissioni 1. Il rapporto",
+      "fine": "Disposizione transitoria L'applicazione del presente articolo"
+     },
+     {
+      "id": "dim_imp",
+      "caso": "dimissioni",
+      "chi": "impiegati",
+      "titolo": "Impiegati e quadri: se ti dimetti tu",
+      "dove": "art. 36, comma 1",
+      "deriva": "lic_imp",
+      "num": 1,
+      "den": 2,
+      "cit": "decorre"
+     },
+     {
+      "id": "ope",
+      "caso": "entrambi",
+      "chi": "operai",
+      "titolo": "Operai non viaggianti: dimissioni e licenziamento",
+      "dove": "art. 36, comma 1, lettera d",
+      "bande": [
+       {
+        "id": "x",
+        "et": "Qualsiasi anzianità"
+       }
+      ],
+      "gruppi": [
+       {
+        "banda": "x",
+        "frase": "d) Per gli operai non in prova,",
+        "voci": [
+         {
+          "frase": "d) Per gli operai non in prova, sei giorni lavorativi, decorrenti da qualsiasi giorno della settimana.",
+          "et": "Operai non in prova",
+          "livelli": [
+           "3s",
+           "3",
+           "4",
+           "4j",
+           "5",
+           "6"
+          ],
+          "mesi": 0,
+          "giorni": 6,
+          "unita": "lav"
+         }
+        ]
+       }
+      ],
+      "inizio": "Art. 36 - Preavviso di licenziamento e di dimissioni 1. Il rapporto",
+      "fine": "Disposizione transitoria L'applicazione del presente articolo"
+     },
+     {
+      "id": "via",
+      "caso": "entrambi",
+      "chi": "viaggianti",
+      "titolo": "Personale viaggiante: dimissioni e licenziamento",
+      "dove": "art. 36, comma 1, lettera e",
+      "bande": [
+       {
+        "id": "x",
+        "et": "Qualsiasi anzianità"
+       }
+      ],
+      "gruppi": [
+       {
+        "banda": "x",
+        "frase": "e) Per il personale viaggiante non in prova",
+        "voci": [
+         {
+          "frase": "inquadrato alla qualifica 3 parametri A, B, C, venti giorni di calendario",
+          "et": "Qualifica 3, parametri A, B e C",
+          "livelli": [
+           "c3",
+           "b3",
+           "a3"
+          ],
+          "mesi": 0,
+          "giorni": 20,
+          "unita": "cal"
+         },
+         {
+          "frase": "inquadrato alla qualifica 2 parametri D, E, F quindici giorni di calendario",
+          "et": "Qualifica 2, parametri D, E e F",
+          "livelli": [
+           "f2",
+           "e2",
+           "d2"
+          ],
+          "mesi": 0,
+          "giorni": 15,
+          "unita": "cal"
+         }
+        ]
+       }
+      ],
+      "inizio": "Art. 36 - Preavviso di licenziamento e di dimissioni 1. Il rapporto",
+      "fine": "Disposizione transitoria L'applicazione del presente articolo"
+     }
+    ],
+    "non_nominati": {
+     "livelli": [
+      "h1",
+      "g1",
+      "i_p110",
+      "i_p116",
+      "l_p110",
+      "l_p116",
+      "l_p119"
+     ]
+    },
+    "cit": {
+     "regola": {
+      "dove": "art. 36, comma 1",
+      "testo": "Il rapporto di lavoro a tempo indeterminato, a meno che non si tratti di licenziamento per giusta causa, non può essere risolto da nessuna delle due parti senza un preavviso, i cui termini sono stabiliti come segue:"
+     },
+     "decorre": {
+      "dove": "art. 36, comma 1",
+      "testo": "Il periodo di preavviso decorre dal giorno 1 o dal giorno 16 di ciascun mese. Nel caso di dimissioni da parte dell'impiegato i termini di preavviso sono ridotti della metà."
+     },
+     "operai": {
+      "dove": "art. 36, comma 1, lettera d",
+      "testo": "d) Per gli operai non in prova, sei giorni lavorativi, decorrenti da qualsiasi giorno della settimana."
+     },
+     "viaggianti": {
+      "dove": "art. 36, comma 1, lettera e",
+      "testo": "e) Per il personale viaggiante non in prova inquadrato alla qualifica 3 parametri A, B, C, venti giorni di calendario decorrenti da qualsiasi giorno della settimana, e per il personale viaggiante non in prova inquadrato alla qualifica 2 parametri D, E, F quindici giorni di calendario decorrenti da qualsiasi giorno della settimana."
+     },
+     "indennita": {
+      "dove": "art. 36, comma 2",
+      "testo": "La parte che risolve il rapporto senza l'osservanza dei predetti termini di preavviso, deve corrispondere all'altra una indennità pari all'importo della retribuzione per il periodo di mancato preavviso."
+     },
+     "trattenuta": {
+      "dove": "art. 36, comma 3",
+      "testo": "Il datore di lavoro ha diritto di ritenere, su quanto sia da lui dovuto al lavoratore, un importo corrispondente alla retribuzione per il periodo di preavviso da questi eventualmente non prestato."
+     },
+     "troncare": {
+      "dove": "art. 36, comma 5",
+      "testo": "È in facoltà della parte che riceve la disdetta ai sensi del primo comma, di troncare il rapporto, sia all'inizio, sia nel corso del preavviso, senza che da ciò derivi alcun obbligo di indennizzo per il periodo di preavviso non compiuto."
+     },
+     "ferie": {
+      "dove": "art. 24, comma 8",
+      "testo": "L'assegnazione delle ferie non potrà aver luogo durante il periodo di preavviso, salvo richiesta scritta del lavoratore che sarà accolta compatibilmente con le esigenze organizzative aziendali."
+     },
+     "permessi": {
+      "dove": "art. 36, comma 6",
+      "testo": "Durante la decorrenza del preavviso il lavoratore ha diritto di ottenere permessi (retribuiti nel caso di licenziamento) in ragione di 2 ore giornaliere o di 12 ore settimanali per la ricerca di altra occupazione."
+     },
+     "giornaliera": {
+      "dove": "art. 61, comma 3",
+      "testo": "La retribuzione giornaliera del personale si ottiene dividendo la retribuzione mensile per 22. Per il personale non viaggiante, in caso di orario di lavoro settimanale distribuito su 6 giorni la retribuzione giornaliera si ottiene dividendo la retribuzione mensile per 26."
+     },
+     "ratei13": {
+      "dove": "art. 18, comma 3",
+      "testo": "La tredicesima mensilità va computata agli effetti del T.F.R. e della indennità sostitutiva di preavviso."
+     },
+     "ratei14": {
+      "dove": "art. 19, comma 3",
+      "testo": "La quattordicesima mensilità viene computata ai soli effetti del T.F.R. e dell'indennità sostitutiva del preavviso."
+     }
+    },
+    "ratei": {
+     "mensilita": 14,
+     "cit": "ratei13"
+    },
+    "esempio": {
+     "tabella": "via",
+     "livello": "c3",
+     "banda": "x"
+    }
+   },
+   "tredicesima": {
+    "fonte": "cnel_223634",
+    "dove": "art. 18",
+    "quando_breve": "di norma il 16 dicembre",
+    "frazione_breve": "più di 15 giorni contano un mese",
+    "cit": {
+     "quanto": {
+      "dove": "art. 18, comma 1",
+      "testo": "L'azienda corrisponderà una tredicesima mensilità pari alla retribuzione globale mensile del lavoratore del mese di novembre, determinata in base alle voci previste dagli articoli 61 e 74 del presente CCNL."
+     },
+     "quando": {
+      "dove": "art. 18, comma 1",
+      "testo": "La corresponsione di tale mensilità avverrà normalmente il 16 dicembre."
+     },
+     "prorata": {
+      "dove": "art. 18, comma 2",
+      "testo": "Nel caso di inizio o di cessazione del rapporto durante il corso dell'anno, il lavoratore avrà diritto a tanti dodicesimi dell'ammontare della tredicesima mensilità per quanti sono i mesi di servizio prestato anche nel caso di cessazione del contratto a termine o di mancato superamento del periodo di prova."
+     },
+     "frazioni": {
+      "dove": "art. 18, comma 2",
+      "testo": "Le frazioni di mese non superiori ai 15 giorni non saranno calcolate mentre saranno considerate come mese intero se superiori a 15 giorni."
+     },
+     "parttime": {
+      "dove": "art. 56, comma 19",
+      "testo": "Il personale a tempo parziale è compensato in base alla retribuzione stabilita per il personale a tempo pieno, riproporzionata in funzione della ridotta durata della prestazione lavorativa."
+     },
+     "parttime_anno": {
+      "dove": "art. 56, comma 22",
+      "testo": "In caso di passaggio dal rapporto a tempo parziale al rapporto a tempo pieno e viceversa, nel relativo anno solare i ratei di retribuzione globale mensili relativi a tutti gli istituti contrattuali e legali sono calcolati in misura proporzionale all'effettiva durata della prestazione lavorativa nei due distinti periodi."
+     }
+    },
+    "quattordicesima": {
+     "dove": "art. 19",
+     "quando_breve": "entro i primi dieci giorni di luglio",
+     "periodo_breve": "dal 1° luglio al 30 giugno",
+     "cit": {
+      "quanto": {
+       "dove": "art. 19, comma 1",
+       "testo": "L'azienda corrisponderà una quattordicesima mensilità pari alla retribuzione globale mensile percepita dal lavoratore, determinata in base alle voci previste dagli articoli 61 e 74 del presente CCNL."
+      },
+      "periodo": {
+       "dove": "art. 19, comma 2",
+       "testo": "La corresponsione della suddetta quattordicesima mensilità avverrà entro la prima decade di luglio nella misura della retribuzione globale risultante in vigore al 30 giugno. La quattordicesima mensilità è riferita all'anno che precede la data di pagamento e quindi, precisamente, al periodo dall'1 luglio dell'anno precedente al 30 giugno dell'anno in corso."
+      },
+      "prorata": {
+       "dove": "art. 19, comma 2",
+       "testo": "Le frazioni di mese non superiori a 15 giorni non saranno calcolate, mentre saranno considerate come mese intero se superiori a 15 giorni."
+      }
+     }
+    }
+   }
+  },
+  "domestico": {
+   "preavviso": {
+    "fonte": "cnel_245143",
+    "dove": "art. 40",
+    "decorre_breve": "il contratto non fissa un giorno del mese",
+    "tabelle": [
+     {
+      "id": "lic25",
+      "caso": "licenziamento",
+      "chi": "25 ore o più a settimana",
+      "titolo": "Rapporti di almeno 25 ore a settimana: se ti licenzia la famiglia",
+      "dove": "art. 40, comma 1",
+      "bande": [
+       {
+        "id": "a",
+        "et": "Fino a 5 anni con la stessa famiglia"
+       },
+       {
+        "id": "b",
+        "et": "Oltre 5 anni"
+       }
+      ],
+      "gruppi": [
+       {
+        "banda": "*",
+        "frase": "per i rapporti non inferiori a 25 ore settimanali:",
+        "voci": [
+         {
+          "frase": "- fino a 5 anni di anzianità presso lo stesso datore di lavoro: 15 giorni di calendario;",
+          "et": "Tutti i livelli",
+          "livelli": [
+           "a",
+           "as",
+           "b",
+           "bs",
+           "c",
+           "cs",
+           "d",
+           "ds"
+          ],
+          "mesi": 0,
+          "giorni": 15,
+          "unita": "cal",
+          "banda": "a"
+         },
+         {
+          "frase": "- oltre i 5 anni di anzianità presso lo stesso datore di lavoro: 30 giorni di calendario.",
+          "et": "Tutti i livelli",
+          "livelli": [
+           "a",
+           "as",
+           "b",
+           "bs",
+           "c",
+           "cs",
+           "d",
+           "ds"
+          ],
+          "mesi": 0,
+          "giorni": 30,
+          "unita": "cal",
+          "banda": "b"
+         }
+        ]
+       }
+      ],
+      "inizio": "Art. 40 - Risoluzione del rapporto di lavoro e preavviso 1. Il rapporto",
+      "fine": "Art. 41 - Trattamento di fine rapporto (T.F.R.) 1."
+     },
+     {
+      "id": "dim25",
+      "caso": "dimissioni",
+      "chi": "25 ore o più a settimana",
+      "titolo": "Rapporti di almeno 25 ore a settimana: se ti dimetti tu",
+      "dove": "art. 40, comma 1",
+      "deriva": "lic25",
+      "num": 1,
+      "den": 2,
+      "cit": "dimissioni"
+     },
+     {
+      "id": "meno25",
+      "caso": "entrambi",
+      "chi": "meno di 25 ore a settimana",
+      "titolo": "Rapporti sotto le 25 ore a settimana",
+      "dove": "art. 40, comma 1",
+      "bande": [
+       {
+        "id": "a",
+        "et": "Fino a 2 anni con la stessa famiglia"
+       },
+       {
+        "id": "b",
+        "et": "Oltre 2 anni"
+       }
+      ],
+      "gruppi": [
+       {
+        "banda": "*",
+        "frase": "Per i rapporti inferiori alle 25 ore settimanali:",
+        "voci": [
+         {
+          "frase": "- fino a 2 anni di anzianità presso lo stesso datore di lavoro: 8 giorni di calendario;",
+          "et": "Tutti i livelli",
+          "livelli": [
+           "a",
+           "as",
+           "b",
+           "bs",
+           "c",
+           "cs",
+           "d",
+           "ds"
+          ],
+          "mesi": 0,
+          "giorni": 8,
+          "unita": "cal",
+          "banda": "a"
+         },
+         {
+          "frase": "- oltre i 2 anni di anzianità presso lo stesso datore di lavoro: 15 giorni di calendario.",
+          "et": "Tutti i livelli",
+          "livelli": [
+           "a",
+           "as",
+           "b",
+           "bs",
+           "c",
+           "cs",
+           "d",
+           "ds"
+          ],
+          "mesi": 0,
+          "giorni": 15,
+          "unita": "cal",
+          "banda": "b"
+         }
+        ]
+       }
+      ],
+      "inizio": "Art. 40 - Risoluzione del rapporto di lavoro e preavviso 1. Il rapporto",
+      "fine": "Art. 41 - Trattamento di fine rapporto (T.F.R.) 1."
+     }
+    ],
+    "cit": {
+     "regola": {
+      "dove": "art. 40, comma 1",
+      "testo": "Il rapporto di lavoro può essere risolto da ciascuna delle parti con l'osservanza dei seguenti termini di preavviso:"
+     },
+     "dimissioni": {
+      "dove": "art. 40, comma 1",
+      "testo": "I suddetti termini saranno ridotti del 50% nel caso di dimissioni da parte del lavoratore."
+     },
+     "maternita": {
+      "dove": "art. 40, comma 2",
+      "testo": "I termini di preavviso di cui al comma precedente saranno raddoppiati nell'eventualità in cui il datore di lavoro intimi il licenziamento prima del trentunesimo giorno successivo al termine del congedo per maternità."
+     },
+     "portieri": {
+      "dove": "art. 40, comma 3",
+      "testo": "Per i portieri privati, custodi di villa ed altri dipendenti che usufruiscono con la famiglia di alloggio indipendente di proprietà del datore di lavoro, e/o messo a disposizione dal medesimo, il preavviso è di: - 30 giorni di calendario, sino ad un anno di anzianità; - 60 giorni di calendario per anzianità superiore."
+     },
+     "indennita": {
+      "dove": "art. 40, comma 4",
+      "testo": "In caso di mancato o insufficiente preavviso, è dovuta dalla parte recedente un'indennità pari alla retribuzione corrispondente al periodo di preavviso non concesso."
+     },
+     "giusta_causa": {
+      "dove": "art. 40, comma 6",
+      "testo": "Al lavoratore che si dimette per giusta causa compete l'indennità di mancato preavviso."
+     },
+     "ferie": {
+      "dove": "art. 17, comma 10",
+      "testo": "Le ferie non possono essere godute durante il periodo di preavviso e di licenziamento, né durante il periodo di malattia o infortunio."
+     },
+     "malattia": {
+      "dove": "art. 27, comma 10",
+      "testo": "La malattia in periodo di prova o di preavviso sospende la decorrenza degli stessi."
+     },
+     "infortunio": {
+      "dove": "art. 29, comma 8",
+      "testo": "L'infortunio e la malattia professionale in periodo di prova o di preavviso sospendono la decorrenza degli stessi."
+     },
+     "trentesimi": {
+      "dove": "chiarimenti a verbale, punto 2",
+      "testo": "Quando nel contratto viene usata l'espressione “giorni di calendario” si considerano i trentesimi della mensilità (esempio: malattia)."
+     },
+     "globale": {
+      "dove": "chiarimenti a verbale, punto 5",
+      "testo": "Per “retribuzione globale di fatto” si intende quella comprensiva di tutte le indennità di cui alle tabelle allegate, ivi incluse le indennità di vitto e alloggio."
+     },
+     "ore": {
+      "dove": "chiarimenti a verbale, punto 1",
+      "testo": "paga oraria per numero di ore lavorate nella settimana per 52:12"
+     }
+    },
+    "ratei": null,
+    "esempio": {
+     "tabella": "lic25",
+     "livello": "cs",
+     "banda": "a"
+    }
+   },
+   "tredicesima": {
+    "fonte": "cnel_245143",
+    "dove": "art. 39",
+    "quando_breve": "a Natale, comunque entro dicembre",
+    "frazione_breve": "15 giorni o più contano un mese",
+    "cit": {
+     "quanto": {
+      "dove": "art. 39, comma 1",
+      "testo": "In occasione del Natale, e comunque entro il mese di dicembre, spetta al lavoratore una mensilità aggiuntiva, pari alla retribuzione globale di fatto, in essa compresa l'indennità sostitutiva di vitto e alloggio, così come chiarito nelle note a verbale apposte in calce al presente contratto."
+     },
+     "prorata": {
+      "dove": "art. 39, comma 2",
+      "testo": "Per coloro le cui prestazioni non raggiungano un anno di servizio, saranno corrisposti tanti dodicesimi di detta mensilità quanti sono i mesi del rapporto di lavoro."
+     },
+     "frazioni": {
+      "dove": "chiarimenti a verbale, punto 4",
+      "testo": "Le frazioni di anno si computano a mesi interi e le frazioni di mese, quando raggiungono o superano i 15 giorni di calendario, si computano a mese intero."
+     },
+     "assenze": {
+      "dove": "art. 39, comma 3",
+      "testo": "La tredicesima mensilità matura anche durante le assenze per malattia, infortunio sul lavoro, malattia professionale e maternità, nei limiti del periodo di conservazione del posto e per la parte non liquidata dagli enti preposti."
+     },
+     "globale": {
+      "dove": "chiarimenti a verbale, punto 5",
+      "testo": "Per “retribuzione globale di fatto” si intende quella comprensiva di tutte le indennità di cui alle tabelle allegate, ivi incluse le indennità di vitto e alloggio."
+     },
+     "ore": {
+      "dove": "chiarimenti a verbale, punto 1",
+      "testo": "paga oraria per numero di ore lavorate nella settimana per 52:12"
+     }
+    },
+    "quattordicesima": null
+   }
+  }
+ }
+}

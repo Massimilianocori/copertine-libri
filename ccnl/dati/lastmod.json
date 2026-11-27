@@ -229,6 +229,30 @@
 "2026-11-27",
 "32602c9831ac57f87c9d"
 ],
+"preavviso/": [
+"2026-11-27",
+"83611f97525000373033"
+],
+"preavviso/lavoro-domestico/": [
+"2026-11-27",
+"feacbef0d9e7b923c4d4"
+],
+"preavviso/logistica-trasporto-merci/": [
+"2026-11-27",
+"cad26cdd95da5a0f5157"
+],
+"preavviso/metalmeccanici-industria/": [
+"2026-11-27",
+"78685bc9ad1193582317"
+],
+"preavviso/multiservizi-pulizie/": [
+"2026-11-27",
+"7d59d185627ea0909064"
+],
+"preavviso/terziario-commercio/": [
+"2026-11-27",
+"b837a01784c9fe51edf8"
+],
 "privacy/": [
 "2026-11-27",
 "23be6005a4b3513fd530"
@@ -268,6 +292,30 @@
 "terziario-commercio/quadro/": [
 "2026-11-12",
 "ed835585271add73156d"
+],
+"tredicesima/": [
+"2026-11-27",
+"a8509773aa8096bc4a8b"
+],
+"tredicesima/lavoro-domestico/": [
+"2026-11-27",
+"e301ba6197cb22675894"
+],
+"tredicesima/logistica-trasporto-merci/": [
+"2026-11-27",
+"251f1b2379317995cd21"
+],
+"tredicesima/metalmeccanici-industria/": [
+"2026-11-27",
+"7c72cc9d856334054fc8"
+],
+"tredicesima/multiservizi-pulizie/": [
+"2026-11-27",
+"167e91827aa031ad3cbf"
+],
+"tredicesima/terziario-commercio/": [
+"2026-11-27",
+"6bc363ce350b2b1cf567"
 ]
 }
 }
