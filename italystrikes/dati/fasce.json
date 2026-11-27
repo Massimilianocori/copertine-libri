@@ -1,0 +1,166 @@
+{
+ "_nota": "Fasce di garanzia e orari scritti dalle aziende sulle loro pagine ufficiali, copiati alla lettera. azienda: slug di dati/aziende.json; data: giorno dello sciopero a cui si riferisce l'avviso (vuoto = regola stabile dell'azienda); citazioni: frasi esatte della pagina (etichetta = di cosa parlano, parole nostre); url: pagina ufficiale letta (stesso dominio di un link dell'azienda in link.json); letto_il: giorno della lettura. Gli avvisi con data si mostrano solo nella pagina dell'azienda fino a quel giorno e nella pagina della data. Ricontrollo: python3 italystrikes/verifica.py --rete prima/dopo: true se la frase è tagliata all'inizio o alla fine (in pagina compare […]).",
+ "fasce": [
+  {
+   "azienda": "trenitalia",
+   "data": "",
+   "fonte": "Trenitalia, «Treni garantiti in caso di sciopero»",
+   "url": "https://www.trenitalia.com/it/informazioni/treni-garantiti-incasodisciopero.html",
+   "letto_il": "2026-11-27",
+   "citazioni": [
+    {
+     "etichetta": "Treni regionali",
+     "testo": "nei giorni feriali: dalle 6:00 alle 9:00 e dalle 18:00 alle 21:00; nei giorni festivi: dalle 7:00 alle 10:00 e dalle 18:00 alle 21:00.",
+     "prima": true
+    }
+   ]
+  },
+  {
+   "azienda": "trenitalia",
+   "data": "2026-12-04",
+   "fonte": "Trenitalia, pagina «Sciopero»",
+   "url": "https://www.trenitalia.com/it/informazioni/sciopero.html",
+   "letto_il": "2026-11-27",
+   "citazioni": [
+    {
+     "etichetta": "Orari dello sciopero",
+     "testo": "Sciopero nazionale del personale del Gruppo FS Italiane dalle ore 21:00 del 3 dicembre alle ore 21:00 del 4 dicembre"
+    }
+   ]
+  },
+  {
+   "azienda": "trenord",
+   "data": "",
+   "fonte": "Trenord, «In caso di sciopero»",
+   "url": "https://www.trenord.it/assistenza/informazioni-utili/in-caso-di-sciopero/",
+   "letto_il": "2026-11-27",
+   "citazioni": [
+    {
+     "etichetta": "Giorni feriali e sabato",
+     "testo": "nei giorni feriali e il sabato, sono assicurati servizi minimi garantiti negli orari 6-9 e 18-21",
+     "dopo": true
+    },
+    {
+     "etichetta": "Giorni festivi",
+     "testo": "nei giorni festivi, sono assicurati servizi minimi garantiti negli orari 7-10 e 18-21"
+    }
+   ]
+  },
+  {
+   "azienda": "cotral",
+   "data": "",
+   "fonte": "Cotral, «Servizi minimi in caso di sciopero»",
+   "url": "https://cotralspa.it/servizi-minimi-in-caso-di-sciopero/",
+   "letto_il": "2026-11-27",
+   "citazioni": [
+    {
+     "etichetta": "Bus e treni Cotral",
+     "testo": "Il servizio è garantito fino alle 08:30 e dalle 17:00 alle 20:00."
+    }
+   ]
+  },
+  {
+   "azienda": "autolinee-toscane",
+   "data": "2026-12-04",
+   "fonte": "Autolinee Toscane, avviso «Venerdì 4 dicembre, sciopero di 24 ore»",
+   "url": "https://www.at-bus.it/it/sciopero",
+   "letto_il": "2026-11-27",
+   "citazioni": [
+    {
+     "etichetta": "Bus in Toscana",
+     "testo": "Il servizio è garantito dalle 4.15 alle 8.14 e dalle 12.30 alle 14.29."
+    }
+   ]
+  },
+  {
+   "azienda": "actv",
+   "data": "2026-12-04",
+   "fonte": "AVM/Actv, avviso «sciopero generale nazionale 24h - 4 dicembre 2026»",
+   "url": "https://actv.avmspa.it/it/content/avmactv-informa-sciopero-generale-nazionale-24h-4-dicembre-2026",
+   "letto_il": "2026-11-27",
+   "citazioni": [
+    {
+     "etichetta": "Bus e tram",
+     "testo": "Nel servizio automobilistico e tranviario verranno garantite tutte le corse in partenza dal capolinea a partire dalle ore 06:00 e fino alle ore 08:59 e a partire dalle ore 16:30 fino alle ore 19:29",
+     "dopo": true
+    },
+    {
+     "etichetta": "Vaporetti",
+     "testo": "Nel servizio navigazione verranno garantiti i servizi minimi di collegamento",
+     "dopo": true
+    }
+   ]
+  },
+  {
+   "azienda": "amt-genova",
+   "data": "2026-12-04",
+   "fonte": "AMT Genova, avviso «Sciopero del Trasporto Pubblico proclamato da CUB, Usb e O.r.S.A. per venerdì 4 dicembre 2026»",
+   "url": "https://www.amt.genova.it/amt/sciopero-del-trasporto-pubblico-proclamato-da-cub-usb-e-o-r-s-a-per-venerdi-4-dicembre-2026/",
+   "letto_il": "2026-11-27",
+   "citazioni": [
+    {
+     "etichetta": "Servizio urbano di Genova",
+     "testo": "il servizio sarà garantito nelle due fasce: dalle ore 6.00 alle ore 9.00 e dalle ore 17.30 alle ore 20.30",
+     "prima": true,
+     "dopo": true
+    },
+    {
+     "etichetta": "Servizio provinciale",
+     "testo": "il servizio sarà garantito nelle due fasce: dalle ore 6.00 alle ore 9.00 e dalle ore 17.00 alle ore 20.00",
+     "prima": true,
+     "dopo": true
+    },
+    {
+     "etichetta": "Ferrovia Genova-Casella (bus sostitutivo)",
+     "testo": "il servizio sarà garantito nelle due fasce: dalle ore 6.30 alle ore 9.30 e dalle ore 17.30 alle ore 20.30",
+     "prima": true,
+     "dopo": true
+    }
+   ]
+  },
+  {
+   "azienda": "tper",
+   "data": "2026-12-04",
+   "fonte": "Tper, avviso «Sciopero generale nazionale di venerdì 4 dicembre: modalità per i servizi Tper»",
+   "url": "https://www.tper.it/sciopero4dicembre2026",
+   "letto_il": "2026-11-27",
+   "citazioni": [
+    {
+     "etichetta": "Bus di Bologna e Ferrara, orari dello sciopero",
+     "testo": "lo sciopero si svolgerà, nel rispetto delle fasce di garanzia, dalle ore 8.30 alle ore 16.30 e dalle ore 19.30 a fine servizio",
+     "prima": true,
+     "dopo": true
+    },
+    {
+     "etichetta": "Bacino di Bologna, corse garantite",
+     "testo": "saranno garantite solamente le corse dal capolinea centrale verso periferia, e viceversa, con orario di partenza fino alle ore 8.15 al mattino e fino alle ore 19.15 alla sera",
+     "prima": true,
+     "dopo": true
+    },
+    {
+     "etichetta": "Marconi Express (navetta per l'aeroporto)",
+     "testo": "il cui servizio potrebbe non essere garantito, per effetto dell’astensione dei lavoratori, nel corso dell’intera giornata di venerdì 4 dicembre.",
+     "prima": true
+    }
+   ]
+  },
+  {
+   "azienda": "cotral",
+   "data": "2026-12-04",
+   "fonte": "Cotral, avviso «Sciopero Venerdì 4 dicembre»",
+   "url": "https://cotralspa.it/modifiche-al-servizio/?newsId=A6007",
+   "letto_il": "2026-11-27",
+   "citazioni": [
+    {
+     "etichetta": "Adesione",
+     "testo": "le OO.SS. USB Lavoro Privato e ORSA TPL hanno aderito allo Sciopero Generale",
+     "dopo": true
+    },
+    {
+     "etichetta": "Fasce orarie",
+     "testo": "00:00 - 08:29 Bus regolari Treni regolari 08:30 - 16:59 Bus in sciopero Treni in sciopero 17:00 - 19:59 Bus regolari Treni regolari 20:00 - 23:59 Bus in sciopero Treni in sciopero"
+    }
+   ]
+  }
+ ]
+}

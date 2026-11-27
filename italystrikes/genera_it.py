@@ -10,6 +10,9 @@ from datetime import date, timedelta
 from html import escape
 from pathlib import Path
 
+import aziende as AZ
+import pagine_aziende as PA
+
 RADICE = Path(__file__).resolve().parent
 luoghi = json.loads((RADICE / "dati" / "luoghi.json").read_text(encoding="utf-8"))
 CITTA_IT = luoghi["citta_it"]
@@ -68,6 +71,8 @@ def percorso_it(p):
     m = re.fullmatch(r"airports/([a-z-]+)", t)
     if m and m.group(1) in APT_EN_IT:
         return f"it/aeroporti/{APT_EN_IT[m.group(1)]}/"
+    if AZ.data_da_slug_en(t):  # pagine per data degli scioperi nazionali
+        return f"it/{AZ.slug_data_it(AZ.data_da_slug_en(t))}/"
     return None
 
 
@@ -95,6 +100,8 @@ def percorso_en(p_it):
     m = re.fullmatch(r"aeroporti/([a-z-]+)", t)
     if m and m.group(1) in inv:
         return f"airports/{inv[m.group(1)]}/"
+    if AZ.data_da_slug_it(t):
+        return f"{AZ.slug_data_en(AZ.data_da_slug_it(t))}/"
     return None
 
 
@@ -121,9 +128,11 @@ def costruisci(g):
         for v in g.VOCI:
             if v["fine"] < da.isoformat() or v["inizio"] > a.isoformat():
                 continue
-            if not nome.startswith("month:") and (v["stato"] == "concluso" or v["fine"] < g.OGGI.isoformat()):
+            if not nome.startswith(("month:", "day:")) and (v["stato"] == "concluso" or v["fine"] < g.OGGI.isoformat()):
                 continue
             tipo, _, val = filtro.partition(":")
+            if (tipo == "az" and val not in v["az"]) or (tipo == "azgen" and val not in v["az_gen"]):
+                continue
             if tipo == "city" and val not in v["citta_it"]:
                 continue
             if tipo == "airport" and val not in v["aeroporti"]:
@@ -378,6 +387,7 @@ def costruisci(g):
 <nav class="piede-link" aria-label="Link del sito"><h2>Sito</h2><ul>
 <li><a href="{rel}it/oggi/">Scioperi oggi</a></li><li><a href="{rel}it/domani/">Scioperi domani</a></li>
 <li><a href="{rel}it/guida/">Guide</a></li><li><a href="{rel}it/aeroporti/">Aeroporti</a></li>
+<li><a href="{rel}it/aziende/">Scioperi per azienda</a></li>
 <li><a href="{rel}it/contatti/">Contatti</a></li><li><a href="{rel}it/privacy.html">Privacy</a></li>
 <li><a href="{rel}">English version</a></li></ul></nav>
 </div>
@@ -423,6 +433,9 @@ def costruisci(g):
 {griglia_settori("/")}
 <h2>Per mese</h2>
 {griglia_mesi("/")}
+{"<h2>Giorni di sciopero nazionale</h2>" + PA.giorni_it(g) if PA.giorni_it(g) else ""}
+<h2 id="aziende">Scioperi per azienda</h2>
+{PA.griglia_aziende_it(g, filtra)}
 <h2>Aeroporti</h2>
 <div class="griglia">{"".join(f'<a href="/it/aeroporti/{a["slug_it"]}/">{escape(a["nome_it"])}<small>{a["iata"]}</small></a>' for a in APT)}</div>
 {modulo("/")}
@@ -468,6 +481,7 @@ def costruisci(g):
 <h2>Merci e altri scioperi</h2>
 {blocco(chiave, "sector:freight")}
 {blocco(chiave, "sector:motorways")}
+{"<h2>Giorni di sciopero nazionale</h2>" + PA.giorni_it(g, mese=(y, m)) if PA.giorni_it(g, mese=(y, m)) else ""}
 <h2>Altri mesi</h2>
 {griglia_mesi("/")}
 {modulo("/")}""", briciole=[(f"Scioperi {nome}", p)])
@@ -483,6 +497,8 @@ def costruisci(g):
 <h2 id="next">Prossimi scioperi: {escape(nome.lower())}</h2>
 {blocco("upcoming", "sector:" + filtro)}
 {AD}
+{"<h2>Per azienda</h2>" + PA.griglia_aziende_it(g, filtra, solo=PA.aziende_del_settore(filtro)) if PA.aziende_del_settore(filtro) else ""}
+{"<h2>Giorni di sciopero nazionale</h2>" + PA.giorni_it(g) if filtro == "general-strikes" and PA.giorni_it(g) else ""}
 <h2>Altri trasporti</h2>
 {griglia_settori(rel)}
 {modulo(rel)}""", briciole=[(tit, f"it/{slug}/")])
@@ -492,6 +508,7 @@ def costruisci(g):
         apts = [a for a in APT if a["slug"] in c["aeroporti"]]
         utili = "".join(f"<li>Trasporto locale: {o}</li>" for o in ops)
         utili += "".join(f'<li>Aeroporto: <a href="{rel}it/aeroporti/{a["slug_it"]}/">{escape(a["nome_it"])}</a></li>' for a in apts)
+        utili += PA.voci_citta_it(c["slug"])
         utili += f'<li><a href="{rel}it/guida/fasce-di-garanzia/">Fasce di garanzia di treni, aerei e mezzi pubblici</a></li>'
         pagina(f"it/{c['slug']}/", f"Sciopero {c['nome']} oggi e domani: mezzi pubblici, treni e aerei",
                f"C'è sciopero a {c['nome']} oggi o domani? Prossimi scioperi di bus, metro, tram, treni e aerei che riguardano {c['nome']}, dal registro ufficiale. Aggiornato ogni giorno.",
@@ -515,6 +532,8 @@ def costruisci(g):
 {AVVISO}
 <h2>Tutti i prossimi scioperi del trasporto aereo</h2>
 {blocco("upcoming", "sector:flights")}
+<h2>Per compagnia</h2>
+{PA.griglia_aziende_it(g, filtra, solo=PA.aziende_del_settore("flights"))}
 {modulo(rel)}""", briciole=[("Aeroporti", "it/aeroporti/")])
     enac = g.L("enac_voli_garantiti")
     for a in APT:
@@ -532,7 +551,8 @@ def costruisci(g):
 {AD}
 <h2>Cosa fare</h2>
 <ul><li>Controlla il tuo volo con la compagnia aerea e sul {sito}.</li>
-<li>Durante gli scioperi del trasporto aereo i voli in programma dalle 7 alle 10 e dalle 18 alle 21 devono essere effettuati{f', insieme ai <a href="{escape(enac)}" rel="noopener">voli garantiti indicati dall' + "'" + 'ENAC</a>' if enac else ''}.</li></ul>
+<li>Durante gli scioperi del trasporto aereo i voli in programma dalle 7 alle 10 e dalle 18 alle 21 devono essere effettuati{f', insieme ai <a href="{escape(enac)}" rel="noopener">voli garantiti indicati dall' + "'" + 'ENAC</a>' if enac else ''}.</li>
+{PA.voce_aeroporti_it()}</ul>
 {modulo(r2)}""", briciole=[("Aeroporti", "it/aeroporti/"), (a["nome_it"], f"it/aeroporti/{a['slug_it']}/")])
 
     # guide
@@ -631,6 +651,10 @@ def costruisci(g):
            '<section class="hero"><h1>Guide</h1><p class="lead">Guide brevi e pratiche sugli scioperi dei trasporti.</p></section>'
            '<div class="griglia">' + "".join(f'<a href="{u}/">{libro}{t}<small>{n}</small></a>' for u, t, n in guide_it) + '</div>',
            briciole=[("Guide", "it/guida/")], con_dati=False)
+
+    from types import SimpleNamespace
+    PA.costruisci_it(g, SimpleNamespace(pagina=pagina, scheda=scheda, blocco=blocco, filtra=filtra, fresco=fresco,
+                                        modulo=modulo, AVVISO=AVVISO, AD=AD))
 
     pagina("it/contatti/", f"Contatti | {g.NOME}", f"Contatta {g.NOME}.", f"""<section class="hero"><h1>Contatti</h1><p class="lead">Correzioni, domande o suggerimenti: scrivici qui.</p></section>
 <section class="card"><form class="form ajax" name="contact" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">

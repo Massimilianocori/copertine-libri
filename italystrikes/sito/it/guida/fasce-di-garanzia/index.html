@@ -278,6 +278,20 @@ nav.menu{display:none}
 .form .due-campi{grid-template-columns:1fr}
 .piede-top{grid-template-columns:1fr;gap:20px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+.risposta{border-left:5px solid var(--accent);margin:0 0 20px}
+.risposta.no{border-left-color:var(--ok)}
+.risposta p{margin:0 0 10px}
+.risposta ul{margin:0 0 10px;padding-left:20px}
+.risposta li{margin:6px 0}
+.risposta>div>:last-child,.risposta>p:last-child{margin-bottom:0}
+.risposta .big{font-size:1.14rem;line-height:1.4}
+.cit{margin:14px 0;padding:14px 16px;border-left:4px solid var(--line-2);background:var(--card);border-radius:0 12px 12px 0;max-width:760px}
+.cit p{margin:0 0 8px}
+.cit q{font-style:italic}
+.cit .small{margin:0}
+.storico{width:100%;text-align:left}
+.storico-box{overflow-x:auto}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Scioperi oggi", "item": "https://italy-strikes-today.netlify.app/it/"}, {"@type": "ListItem", "position": 2, "name": "Guide", "item": "https://italy-strikes-today.netlify.app/it/guida/"}, {"@type": "ListItem", "position": 3, "name": "Fasce di garanzia", "item": "https://italy-strikes-today.netlify.app/it/guida/fasce-di-garanzia/"}]}</script>
 </head>
@@ -325,6 +339,7 @@ nav.menu{display:none}
 <nav class="piede-link" aria-label="Link del sito"><h2>Sito</h2><ul>
 <li><a href="/it/oggi/">Scioperi oggi</a></li><li><a href="/it/domani/">Scioperi domani</a></li>
 <li><a href="/it/guida/">Guide</a></li><li><a href="/it/aeroporti/">Aeroporti</a></li>
+<li><a href="/it/aziende/">Scioperi per azienda</a></li>
 <li><a href="/it/contatti/">Contatti</a></li><li><a href="/it/privacy.html">Privacy</a></li>
 <li><a href="/">English version</a></li></ul></nav>
 </div>
@@ -358,13 +373,16 @@ nav.menu{display:none}
     if(n.indexOf('days:')===0)return[OGGI,add(OGGI,+n.slice(5)-1)];
     if(n==='upcoming')return[OGGI,'2100-01-01'];
     if(n.indexOf('month:')===0){var p=n.slice(6).split('-');var y=+p[0],m=+p[1];var f=new Date(Date.UTC(y,m,0));return[n.slice(6)+'-01',iso(f)];}
+    if(n.indexOf('day:')===0)return[n.slice(4),n.slice(4)];
     return[OGGI,OGGI];}
   function esc(s){return String(s==null?'':s).replace(/[\u0091\u0092]/g,"'").replace(/[\u0093\u0094]/g,'"').replace(/\u0096/g,'\u2013').replace(/\u0097/g,'\u2014').replace(/[\u0080-\u009f]/g,'').replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
   function filtra(dati,n,f){var r=fin(n),da=r[0],a=r[1],out=[];
     dati.forEach(function(v){
       if(v.fine<da||v.inizio>a)return;
-      if(n.indexOf('month:')!==0&&(v.stato==='concluso'||v.fine<OGGI))return;
+      if(n.indexOf('month:')!==0&&n.indexOf('day:')!==0&&(v.stato==='concluso'||v.fine<OGGI))return;
       var p=f.split(':'),t=p[0],val=p.slice(1).join(':');
+      if(t==='az'&&(v.az||[]).indexOf(val)<0)return;
+      if(t==='azgen'&&(v.az_gen||[]).indexOf(val)<0)return;
       if(t==='city'&&v.citta_it.indexOf(val)<0)return;
       if(t==='airport'&&v.aeroporti.indexOf(val)<0)return;
       if(t==='sector'&&v.settori.indexOf(val)<0)return;
@@ -422,6 +440,12 @@ nav.menu{display:none}
       var n=filtra(dati,el.dataset.conta,el.dataset.filtro||'passengers').length;
       el.textContent=n;var box=el.closest('.riq');if(box){box.classList.toggle('si',n>0);box.classList.toggle('uno',n===1);}});
     document.querySelectorAll('[data-giorno]').forEach(function(el){var r=fin(el.dataset.giorno);el.textContent=interv(r[0],r[1]);});
+    document.querySelectorAll('[data-firma]').forEach(function(el){
+      var f=(el.dataset.fil||'all').split(',').map(function(x){return filtra(dati,el.dataset.fin,x).map(function(v){return v.id+'|'+v.inizio+'|'+v.fine+'|'+(v.stato==='concluso'?'in programma':v.stato)+'|'+v.ore;}).join(';');}).join('#');
+      var ok=f===el.dataset.firma,pas=!!el.dataset.fino&&OGGI>el.dataset.fino;
+      el.querySelectorAll('[data-vale]').forEach(function(x){x.hidden=!ok||pas;});
+      el.querySelectorAll('[data-cambiato]').forEach(function(x){x.hidden=ok||pas;});
+      el.querySelectorAll('[data-dopo]').forEach(function(x){x.hidden=!pas;});});
     italo(dati);}
   var IT_RE=new RegExp("\\bITALO\\b|\\bNTV\\b",'i'),TUTTI_RE=new RegExp("RFI|RETE FERROVIARIA|GRUPPO FS|\\bFSI?\\b|FERROVIE DELLO STATO|ATTIVIT\\S* FERROVIARI|SETTORI|CATEGORIE|GENERALE|TUTT",'i'),ALTRO_RE=new RegExp("^(Trenitalia|Trenord|Ferrovie del Sud Est|EAV)\\b");
   function italoForse(v){if(v.settori.indexOf('trains')<0||v.stato==='revocato'||v.stato==='rimosso dal registro')return false;

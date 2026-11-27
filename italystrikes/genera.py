@@ -61,6 +61,8 @@ CHIAVE_INDEXNOW = "b5a26a844a465f58552debee2c8a0114"
 # questo sito fuori elenco non cambia nulla: niente script nel <head>, niente ads.txt, privacy di oggi.
 sys.path.append(str(RADICE.parent / "studio-business" / "strumenti"))
 import monetizzazione as MON  # noqa: E402
+import aziende as AZ  # noqa: E402  (pagine per azienda e per data: regole in aziende.py)
+import pagine_aziende as PA  # noqa: E402
 SITO_ID = "italystrikes"  # nome del sito in monetizzazione.json ("adsense_siti")
 ADSENSE_HEAD = MON.script_adsense(SITO_ID)  # "" con AdSense spento; altrimenti a capo + script ufficiale, subito dopo il meta di verifica Google
 
@@ -173,6 +175,8 @@ MENZIONI = [  # parole del registro -> settore (per scioperi generali e pluriset
     (r"\bTAXI\b", "taxis")]
 ESCLUSIONI = [(r"TRASPORTO AEREO|\bAEREO\b", "flights"), (r"FERROVIARIO", "trains"),
               (r"TRASPORTO PUBBLICO LOCALE|\bTPL\b", "local-transport"), (r"MARITTIMO", "ferries")]
+# «ESCLUSO INTERO SETTORE TRASPORTI»: fuori tutti i trasporti passeggeri (27/11/2026)
+ESCLUSIONI += [(r"SETTORE (DEI )?TRASPORTI\b", x) for x in ("trains", "flights", "local-transport", "ferries", "taxis")]
 NOMI_SETT = {"trains": "rail", "flights": "air", "local-transport": "local transport", "ferries": "ferries/maritime",
              "taxis": "taxis", "motorways": "motorways", "freight": "freight"}
 
@@ -353,6 +357,9 @@ def aeroporti_in(testo):
 def leggi(s):
     """Sciopero del registro -> voce del sito (campi già in inglese)."""
     sett, ril, reg, prov = s["settore"], s["rilevanza"], s["regione"], s["provincia"]
+    appalti = sett == "Appalti ferroviari" or s.get("settore_cgsse") == "Appalti ferroviari"
+    if appalti:  # la Commissione di garanzia li classifica a parte: ditte in appalto (pulizie, servizi), non le imprese dei treni
+        sett = "Appalti ferroviari"
     up_note = s["note"].upper()
     testo = (s["categoria"] + " " + s["modalita"]).upper()
     generale = sett in ("Generale", "Plurisettoriale")
@@ -371,9 +378,13 @@ def leggi(s):
             settori += menzionati
     if "CARGO" in s["categoria"].upper() and settori == ["flights"]:
         settori = ["freight"]
-    if "ESCLUS" in up_note:
-        dopo = up_note[up_note.find("ESCLUS"):]
-        esclusi = [slug for rx, slug in ESCLUSIONI if re.search(rx, dopo)]
+    dopo = up_note[up_note.find("ESCLUS"):] if "ESCLUS" in up_note else ""
+    # esclusioni scritte nella colonna degli orari («INTERA GIORNATA AD ESCLUSIONE DEL TRASPORTO PUBBLICO LOCALE, ...»): fino al primo punto
+    m_escl = re.search(r"ES?CLUSION[^.]*", s["modalita"].upper())
+    if m_escl:
+        dopo += " " + m_escl.group(0)
+    if dopo:
+        esclusi = list(dict.fromkeys(slug for rx, slug in ESCLUSIONI if re.search(rx, dopo)))
         settori = [x for x in settori if x not in esclusi]
     nazionale = reg.strip().upper() == "ITALIA"
     tutta_regione = prov.strip().upper() in ("TUTTE", "")
@@ -497,7 +508,12 @@ def leggi(s):
         nota_it.append("Secondo il registro i trasporti pubblici non sono coinvolti.")
     if "CARGO" in s["categoria"].upper():
         nota_it.append("Riguarda un operatore di trasporto merci.")
+    if appalti:
+        titolo += " (contractors: train operators are not named)"
+        titolo_it += " (ditte in appalto: i treni non sono nominati)"
     stato = s["stato"]
+    az = AZ.nominate(s)  # aziende con una pagina propria nominate dal registro; az_gen: quelle che lo sciopero può riguardare
+    az_gen = AZ.generici(s, settori, ambito, az)
     # "Chi" in parole semplici quando il registro non nomina un'azienda nota (il testo originale resta nel riquadro chiuso)
     if sett == "Generale":
         chi_gen, chi_gen_it = "Workers in public and private sectors", "Lavoratori dei settori pubblici e privati"
@@ -506,6 +522,8 @@ def leggi(s):
     else:
         chi_gen = f"Staff of a {SETTORE_EN.get(sett, sett.lower())} company"
         chi_gen_it = f"Personale di un'azienda del settore {SETT_TIT_IT.get(sett, sett.lower())}"
+    if sett == "Taxi" and re.fullmatch(r"\s*SERVIZIO TAXI\s*", s["categoria"].upper()):
+        chi_gen, chi_gen_it = "Taxi drivers", "Tassisti"
     return {
         "id": s["id"], "inizio": s["inizio"], "fine": s["fine"], "stato": stato,
         "titolo": titolo, "settori": settori, "citta": citta, "aeroporti": apt, "ambito": ambito, "dove": dove,
@@ -515,6 +533,8 @@ def leggi(s):
         "rimosso_il": s.get("rimosso_il", ""), "regione": reg, "provincia": prov,
         "titolo_it": titolo_it, "dove_it": dove_it, "chi_it": chi_it, "nota_it": " ".join(nota_it),
         "ore_it": ore_leggibili(s["modalita"]), "citta_it": citta_it, "chi_gen": chi_gen, "chi_gen_it": chi_gen_it,
+        "az": az, "az_gen": az_gen,
+        **({"adesioni": ADESIONI[s["id"]]} if s["id"] in ADESIONI else {}),
         **({"fonte": "cgsse", "url_fonte": s["url_dettaglio"]} if s.get("fonte") == "cgsse" else {}),
         # revoca data dalla Commissione di garanzia: link alla sua scheda (voce MIT) o alla scheda della voce CGSSE
         **({"revoca_cgsse": s.get("revoca_cgsse") or s.get("url_dettaglio")}
@@ -522,6 +542,8 @@ def leggi(s):
     }
 
 
+# sindacati aggiornati degli scioperi generali secondo la Commissione di garanzia (raccolta/adesioni.py): solo in più, mai al posto del registro
+ADESIONI = json.loads((DATI / "adesioni.json").read_text(encoding="utf-8"))["voci"] if (DATI / "adesioni.json").exists() else {}
 VOCI = [leggi(s) for s in scioperi.values()]
 
 
@@ -699,6 +721,8 @@ def finestra(nome):
         y, m = map(int, nome[6:].split("-"))
         fine = date(y + (m == 12), m % 12 + 1, 1) - timedelta(days=1)
         return date(y, m, 1), fine
+    if nome.startswith("day:"):  # un giorno preciso (pagine per data): come i mesi, mostra anche gli scioperi conclusi
+        return d(nome[4:]), d(nome[4:])
     raise ValueError(nome)
 
 
@@ -708,9 +732,11 @@ def filtra(nome_finestra, filtro):
     for v in VOCI:
         if v["fine"] < da.isoformat() or v["inizio"] > a.isoformat():
             continue
-        if not nome_finestra.startswith("month:") and (v["stato"] == "concluso" or v["fine"] < OGGI.isoformat()):
+        if not nome_finestra.startswith(("month:", "day:")) and (v["stato"] == "concluso" or v["fine"] < OGGI.isoformat()):
             continue
         tipo, _, val = filtro.partition(":")
+        if (tipo == "az" and val not in v["az"]) or (tipo == "azgen" and val not in v["az_gen"]):
+            continue
         if tipo == "city" and val not in v["citta"]:
             continue
         if tipo == "airport" and val not in v["aeroporti"]:
@@ -979,6 +1005,7 @@ nav.menu{display:none}
 .piede-top{grid-template-columns:1fr;gap:20px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 """.replace("__M_INFO__", _maschera("info")).replace("__M_CHECK__", _maschera("check-circle")).replace("__M_PIN__", _maschera("pin"))
+CSS += PA.CSS  # riquadro di risposta, citazioni e tabella dello storico delle pagine per azienda e per data
 
 # Riquadro Italo: regole per capire se uno sciopero treni può riguardare Italo (usate da italo_forse() e da italoForse() nel JS)
 ITALO_FINESTRA = "upcoming"
@@ -1040,13 +1067,16 @@ JS = r"""
     if(n.indexOf('days:')===0)return[OGGI,add(OGGI,+n.slice(5)-1)];
     if(n==='upcoming')return[OGGI,'2100-01-01'];
     if(n.indexOf('month:')===0){var p=n.slice(6).split('-');var y=+p[0],m=+p[1];var f=new Date(Date.UTC(y,m,0));return[n.slice(6)+'-01',iso(f)];}
+    if(n.indexOf('day:')===0)return[n.slice(4),n.slice(4)];
     return[OGGI,OGGI];}
   function esc(s){return String(s==null?'':s).replace(/[\u0091\u0092]/g,"'").replace(/[\u0093\u0094]/g,'"').replace(/\u0096/g,'\u2013').replace(/\u0097/g,'\u2014').replace(/[\u0080-\u009f]/g,'').replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
   function filtra(dati,n,f){var r=fin(n),da=r[0],a=r[1],out=[];
     dati.forEach(function(v){
       if(v.fine<da||v.inizio>a)return;
-      if(n.indexOf('month:')!==0&&(v.stato==='concluso'||v.fine<OGGI))return;
+      if(n.indexOf('month:')!==0&&n.indexOf('day:')!==0&&(v.stato==='concluso'||v.fine<OGGI))return;
       var p=f.split(':'),t=p[0],val=p.slice(1).join(':');
+      if(t==='az'&&(v.az||[]).indexOf(val)<0)return;
+      if(t==='azgen'&&(v.az_gen||[]).indexOf(val)<0)return;
       if(t==='city'&&v.citta.indexOf(val)<0)return;
       if(t==='airport'&&v.aeroporti.indexOf(val)<0)return;
       if(t==='sector'&&v.settori.indexOf(val)<0)return;
@@ -1104,6 +1134,12 @@ JS = r"""
       var n=filtra(dati,el.dataset.conta,el.dataset.filtro||'passengers').length;
       el.textContent=n;var box=el.closest('.riq');if(box){box.classList.toggle('si',n>0);box.classList.toggle('uno',n===1);}});
     document.querySelectorAll('[data-giorno]').forEach(function(el){var r=fin(el.dataset.giorno);el.textContent=interv(r[0],r[1]);});
+    document.querySelectorAll('[data-firma]').forEach(function(el){
+      var f=(el.dataset.fil||'all').split(',').map(function(x){return filtra(dati,el.dataset.fin,x).map(function(v){return v.id+'|'+v.inizio+'|'+v.fine+'|'+(v.stato==='concluso'?'in programma':v.stato)+'|'+v.ore;}).join(';');}).join('#');
+      var ok=f===el.dataset.firma,pas=!!el.dataset.fino&&OGGI>el.dataset.fino;
+      el.querySelectorAll('[data-vale]').forEach(function(x){x.hidden=!ok||pas;});
+      el.querySelectorAll('[data-cambiato]').forEach(function(x){x.hidden=ok||pas;});
+      el.querySelectorAll('[data-dopo]').forEach(function(x){x.hidden=!pas;});});
     italo(dati);}
   var IT_RE=new RegExp(__ITALO_RE__,'i'),TUTTI_RE=new RegExp(__TUTTI_RE__,'i'),ALTRO_RE=new RegExp(__ALTRO_RE__);
   function italoForse(v){if(v.settori.indexOf('trains')<0||v.stato==='revocato'||v.stato==='rimosso dal registro')return false;
@@ -1766,6 +1802,12 @@ def strumenti_home():
 
 
 # ---------------------------------------------------------------- pagine
+def giorni_nazionali(rel, mese=None):
+    """Blocco di link alle pagine dei giorni di sciopero nazionale (da oggi in poi, o di un mese)."""
+    griglia = PA.giorni_en(sys.modules[__name__], "" if rel == "./" else rel, mese=mese)
+    return f"<h2>National strike days</h2>\n{griglia}" if griglia else ""
+
+
 def home():
     rel = "./"
     corpo = f"""<section class="hero">
@@ -1794,6 +1836,7 @@ def home():
 {griglia_settori(rel)}
 <h2>By month</h2>
 {griglia_mesi(rel)}
+{giorni_nazionali(rel)}
 <h2>Airports</h2>
 <div class="griglia">{"".join(f'<a href="airports/{a["slug"]}/">{escape(a["nome"])}<small>{a["iata"]}</small></a>' for a in AEROPORTI)}</div>
 {modulo(rel)}
@@ -1850,6 +1893,7 @@ def pagina_mese(y, m):
 <h2>Freight and other strikes</h2>
 {blocco(chiave, "sector:freight")}
 {blocco(chiave, "sector:motorways")}
+{giorni_nazionali(rel, (y, m))}
 <h2>Other months</h2>
 {griglia_mesi(rel)}
 {modulo(rel)}"""
@@ -1886,6 +1930,7 @@ def pagina_settore(slug):
 {box_italo() if slug == "trains" else ""}
 {box_affiliati()}
 {AD}
+{giorni_nazionali(rel) if slug == "general-strikes" else ""}
 <h2>Other types of transport</h2>
 {griglia_settori(rel)}
 {modulo(rel)}"""
@@ -2476,6 +2521,7 @@ def main():
     about()
     contatti()
     privacy()
+    PA.costruisci_en(sys.modules[__name__])
     if italiano_attivo():
         import genera_it
         genera_it.costruisci(sys.modules[__name__])

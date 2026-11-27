@@ -174,5 +174,60 @@
   "url": "https://www.trenitalia.com/en/information/in-case-of-strike.html",
   "status": "200",
   "verificato_il": "2026-11-27"
+ },
+ "op_atm_it": {
+  "url": "https://www.atm.it/it/Pagine/default.aspx",
+  "status": "200",
+  "verificato_il": "2026-11-27",
+  "nome": "ATM Milano"
+ },
+ "op_actv_it": {
+  "url": "https://actv.avmspa.it/it/news",
+  "status": "200",
+  "verificato_il": "2026-11-27",
+  "nome": "ACTV Venezia (avvisi)"
+ },
+ "op_cotral": {
+  "url": "https://cotralspa.it/servizi-minimi-in-caso-di-sciopero/",
+  "status": "200",
+  "verificato_il": "2026-11-27",
+  "nome": "Cotral (servizi minimi in caso di sciopero)"
+ },
+ "op_eav": {
+  "url": "https://www.eavsrl.it/avvisi-di-sciopero/",
+  "status": "200",
+  "verificato_il": "2026-11-27",
+  "nome": "EAV (avvisi di sciopero)"
+ },
+ "op_ryanair": {
+  "url": "https://www.ryanair.com/it/it",
+  "status": "200",
+  "verificato_il": "2026-11-27",
+  "nome": "Ryanair"
+ },
+ "op_easyjet": {
+  "url": "https://www.easyjet.com/it",
+  "status": "browser",
+  "verificato_il": "2026-11-27",
+  "nota": "dominio ufficiale; il sito rifiuta le richieste automatiche dal server (403 il 27/11/2026)",
+  "nome": "easyJet"
+ },
+ "trenitalia_sciopero": {
+  "url": "https://www.trenitalia.com/it/informazioni/sciopero.html",
+  "status": "200",
+  "verificato_il": "2026-11-27",
+  "nome": "Trenitalia (pagina sciopero)"
+ },
+ "trenord_it": {
+  "url": "https://www.trenord.it/assistenza/informazioni-utili/in-caso-di-sciopero/",
+  "status": "200",
+  "verificato_il": "2026-11-27",
+  "nome": "Trenord (in caso di sciopero)"
+ },
+ "italo_it": {
+  "url": "https://www.italotreno.com/it",
+  "status": "200",
+  "verificato_il": "2026-11-27",
+  "nome": "Italo"
  }
 }

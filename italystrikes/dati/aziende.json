@@ -1,0 +1,466 @@
+{
+ "_nota": "Aziende con una pagina «Sciopero <azienda>» in /it/ (domanda misurata: PIANO-CRESCITA-SITI-MINORI-2026-11-27.md, ricerche al mese in Italia). re: espressione cercata nella colonna «categoria» del registro (maiuscole); regioni: se non vuota, lo sciopero deve essere in una di queste regioni o nazionale (ATM è anche l'azienda di Messina, AMAT anche quella di Taranto); settori/regione/province: servono per gli scioperi generali e di settore che possono riguardare l'azienda (province vuota = tutta la regione; regione vuota = tutta Italia); link: chiavi di dati/link.json (la prima è la pagina principale). Logica in aziende.py. rete_rfi: l'azienda viaggia sulla rete RFI, quindi uno sciopero di RFI o del Gruppo FS può riguardarla.",
+ "aziende": [
+  {
+   "slug": "trenitalia",
+   "pagina": "sciopero-trenitalia",
+   "nome": "Trenitalia",
+   "nome_pagina": "Trenitalia",
+   "servizio": "Frecce, Intercity e treni regionali in tutta Italia",
+   "re": "TRENITALIA(?! TPER)|GRUPPO FS|\\bFSI\\b|FERROVIE DELLO STATO",
+   "regioni": [],
+   "settori": [
+    "trains"
+   ],
+   "regione": "",
+   "province": [],
+   "link": [
+    {
+     "chiave": "trenitalia_sciopero",
+     "testo": "Trenitalia: pagina sullo sciopero"
+    },
+    {
+     "chiave": "trenitalia_garantiti",
+     "testo": "Trenitalia: treni garantiti in caso di sciopero"
+    },
+    {
+     "chiave": "trenitalia_infomobilita",
+     "testo": "Trenitalia: Infomobilità"
+    }
+   ],
+   "citta": [],
+   "domanda": 110000,
+   "rete_rfi": true
+  },
+  {
+   "slug": "atm",
+   "pagina": "sciopero-atm-milano",
+   "nome": "ATM",
+   "nome_pagina": "ATM Milano",
+   "servizio": "metro, tram e bus di Milano",
+   "re": "\\bATM\\b",
+   "regioni": [
+    "Lombardia"
+   ],
+   "settori": [
+    "local-transport"
+   ],
+   "regione": "Lombardia",
+   "province": [
+    "Milano"
+   ],
+   "link": [
+    {
+     "chiave": "op_atm_it",
+     "testo": "Sito ufficiale di ATM"
+    }
+   ],
+   "citta": [
+    "milano"
+   ],
+   "domanda": 49500
+  },
+  {
+   "slug": "trenord",
+   "pagina": "sciopero-trenord",
+   "nome": "Trenord",
+   "nome_pagina": "Trenord",
+   "servizio": "treni regionali e suburbani della Lombardia, Malpensa Express",
+   "re": "TRENORD",
+   "regioni": [],
+   "settori": [
+    "trains"
+   ],
+   "regione": "Lombardia",
+   "province": [],
+   "link": [
+    {
+     "chiave": "trenord_it",
+     "testo": "Trenord: in caso di sciopero"
+    }
+   ],
+   "citta": [
+    "milano",
+    "bergamo",
+    "brescia"
+   ],
+   "domanda": 33100,
+   "rete_rfi": true
+  },
+  {
+   "slug": "gtt",
+   "pagina": "sciopero-gtt-torino",
+   "nome": "GTT",
+   "nome_pagina": "GTT Torino",
+   "servizio": "metro, tram e bus di Torino",
+   "re": "\\bGTT\\b",
+   "regioni": [
+    "Piemonte"
+   ],
+   "settori": [
+    "local-transport"
+   ],
+   "regione": "Piemonte",
+   "province": [
+    "Torino"
+   ],
+   "link": [
+    {
+     "chiave": "op_gtt",
+     "testo": "GTT: avvisi e informazioni di servizio"
+    }
+   ],
+   "citta": [
+    "torino"
+   ],
+   "domanda": 27100
+  },
+  {
+   "slug": "atac",
+   "pagina": "sciopero-atac-roma",
+   "nome": "ATAC",
+   "nome_pagina": "ATAC Roma",
+   "servizio": "metro, bus e tram di Roma",
+   "re": "\\bATAC\\b",
+   "regioni": [
+    "Lazio"
+   ],
+   "settori": [
+    "local-transport"
+   ],
+   "regione": "Lazio",
+   "province": [
+    "Roma"
+   ],
+   "link": [
+    {
+     "chiave": "op_atac",
+     "testo": "Sito ufficiale di ATAC"
+    }
+   ],
+   "citta": [
+    "roma"
+   ],
+   "domanda": 12100
+  },
+  {
+   "slug": "actv",
+   "pagina": "sciopero-actv-venezia",
+   "nome": "ACTV",
+   "nome_pagina": "ACTV Venezia",
+   "servizio": "vaporetti, bus e tram di Venezia e Mestre",
+   "re": "\\bACTV\\b|\\bAVM\\b",
+   "regioni": [
+    "Veneto"
+   ],
+   "settori": [
+    "local-transport"
+   ],
+   "regione": "Veneto",
+   "province": [
+    "Venezia"
+   ],
+   "link": [
+    {
+     "chiave": "op_actv_it",
+     "testo": "ACTV: avvisi"
+    }
+   ],
+   "citta": [
+    "venezia"
+   ],
+   "domanda": 6600
+  },
+  {
+   "slug": "italo",
+   "pagina": "sciopero-italo",
+   "nome": "Italo",
+   "nome_pagina": "Italo",
+   "servizio": "treni ad alta velocità Italo (NTV)",
+   "re": "\\bITALO\\b|\\bNTV\\b",
+   "regioni": [],
+   "settori": [
+    "trains"
+   ],
+   "regione": "",
+   "province": [],
+   "link": [
+    {
+     "chiave": "italo_it",
+     "testo": "Sito ufficiale di Italo"
+    }
+   ],
+   "citta": [],
+   "domanda": 6600,
+   "rete_rfi": true
+  },
+  {
+   "slug": "tper",
+   "pagina": "sciopero-tper-bologna",
+   "nome": "TPER",
+   "nome_pagina": "TPER Bologna",
+   "servizio": "bus di Bologna e Ferrara",
+   "re": "(?<!TRENITALIA )\\bTPER\\b",
+   "regioni": [
+    "Emilia-Romagna"
+   ],
+   "settori": [
+    "local-transport"
+   ],
+   "regione": "Emilia-Romagna",
+   "province": [
+    "Bologna",
+    "Ferrara"
+   ],
+   "link": [
+    {
+     "chiave": "op_tper",
+     "testo": "TPER: notizie e avvisi"
+    }
+   ],
+   "citta": [
+    "bologna"
+   ],
+   "domanda": 5400
+  },
+  {
+   "slug": "amt-genova",
+   "pagina": "sciopero-amt-genova",
+   "nome": "AMT",
+   "nome_pagina": "AMT Genova",
+   "servizio": "bus, metro e impianti di risalita di Genova",
+   "re": "\\bAMT\\b",
+   "regioni": [
+    "Liguria"
+   ],
+   "settori": [
+    "local-transport"
+   ],
+   "regione": "Liguria",
+   "province": [
+    "Genova"
+   ],
+   "link": [
+    {
+     "chiave": "op_amt_genova",
+     "testo": "AMT Genova: notizie e avvisi"
+    }
+   ],
+   "citta": [
+    "genova"
+   ],
+   "domanda": 4400
+  },
+  {
+   "slug": "cotral",
+   "pagina": "sciopero-cotral",
+   "nome": "Cotral",
+   "nome_pagina": "Cotral",
+   "servizio": "bus regionali del Lazio e ferrovie Roma-Viterbo e Metromare",
+   "re": "\\bCOTRAL\\b",
+   "regioni": [
+    "Lazio"
+   ],
+   "settori": [
+    "local-transport"
+   ],
+   "regione": "Lazio",
+   "province": [],
+   "link": [
+    {
+     "chiave": "op_cotral",
+     "testo": "Cotral: servizi minimi in caso di sciopero"
+    }
+   ],
+   "citta": [
+    "roma"
+   ],
+   "domanda": 4400
+  },
+  {
+   "slug": "anm",
+   "pagina": "sciopero-anm-napoli",
+   "nome": "ANM",
+   "nome_pagina": "ANM Napoli",
+   "servizio": "metro linea 1, funicolari e bus di Napoli",
+   "re": "\\bANM\\b",
+   "regioni": [
+    "Campania"
+   ],
+   "settori": [
+    "local-transport"
+   ],
+   "regione": "Campania",
+   "province": [
+    "Napoli"
+   ],
+   "link": [
+    {
+     "chiave": "op_anm",
+     "testo": "Sito ufficiale di ANM"
+    }
+   ],
+   "citta": [
+    "napoli"
+   ],
+   "domanda": 2900
+  },
+  {
+   "slug": "eav",
+   "pagina": "sciopero-eav",
+   "nome": "EAV",
+   "nome_pagina": "EAV",
+   "servizio": "Circumvesuviana, Cumana, Circumflegrea e bus EAV in Campania",
+   "re": "\\bEAV\\b|ENTE AUTONOMO VOLTURNO",
+   "regioni": [
+    "Campania"
+   ],
+   "settori": [
+    "local-transport",
+    "trains"
+   ],
+   "regione": "Campania",
+   "province": [],
+   "link": [
+    {
+     "chiave": "op_eav",
+     "testo": "EAV: avvisi di sciopero"
+    }
+   ],
+   "citta": [
+    "napoli",
+    "salerno"
+   ],
+   "domanda": 2900
+  },
+  {
+   "slug": "ryanair",
+   "pagina": "sciopero-ryanair",
+   "nome": "Ryanair",
+   "nome_pagina": "Ryanair",
+   "servizio": "voli Ryanair da e per l'Italia",
+   "re": "RYANAIR|MALTA AIR",
+   "regioni": [],
+   "settori": [
+    "flights"
+   ],
+   "regione": "",
+   "province": [],
+   "link": [
+    {
+     "chiave": "op_ryanair",
+     "testo": "Sito ufficiale di Ryanair"
+    }
+   ],
+   "citta": [],
+   "aeroporti": true,
+   "domanda": 1900
+  },
+  {
+   "slug": "easyjet",
+   "pagina": "sciopero-easyjet",
+   "nome": "easyJet",
+   "nome_pagina": "easyJet",
+   "servizio": "voli easyJet da e per l'Italia",
+   "re": "EASYJET",
+   "regioni": [],
+   "settori": [
+    "flights"
+   ],
+   "regione": "",
+   "province": [],
+   "link": [
+    {
+     "chiave": "op_easyjet",
+     "testo": "Sito ufficiale di easyJet"
+    }
+   ],
+   "citta": [],
+   "aeroporti": true,
+   "domanda": 1300
+  },
+  {
+   "slug": "autolinee-toscane",
+   "pagina": "sciopero-autolinee-toscane",
+   "nome": "Autolinee Toscane",
+   "nome_pagina": "Autolinee Toscane",
+   "servizio": "bus urbani ed extraurbani della Toscana",
+   "re": "AUTOLINEE TOSCANE",
+   "regioni": [
+    "Toscana"
+   ],
+   "settori": [
+    "local-transport"
+   ],
+   "regione": "Toscana",
+   "province": [],
+   "link": [
+    {
+     "chiave": "op_firenze",
+     "testo": "Autolinee Toscane: pagina sugli scioperi"
+    }
+   ],
+   "citta": [
+    "firenze",
+    "pisa"
+   ],
+   "domanda": 1000
+  },
+  {
+   "slug": "amat-palermo",
+   "pagina": "sciopero-amat-palermo",
+   "nome": "AMAT",
+   "nome_pagina": "AMAT Palermo",
+   "servizio": "bus e tram di Palermo",
+   "re": "\\bAMAT\\b",
+   "regioni": [
+    "Sicilia"
+   ],
+   "settori": [
+    "local-transport"
+   ],
+   "regione": "Sicilia",
+   "province": [
+    "Palermo"
+   ],
+   "link": [
+    {
+     "chiave": "op_amat_palermo",
+     "testo": "AMAT Palermo: notizie e avvisi"
+    }
+   ],
+   "citta": [
+    "palermo"
+   ],
+   "domanda": 720
+  },
+  {
+   "slug": "amtab",
+   "pagina": "sciopero-amtab-bari",
+   "nome": "AMTAB",
+   "nome_pagina": "AMTAB Bari",
+   "servizio": "bus urbani di Bari",
+   "re": "\\bAMTAB\\b",
+   "regioni": [
+    "Puglia"
+   ],
+   "settori": [
+    "local-transport"
+   ],
+   "regione": "Puglia",
+   "province": [
+    "Bari"
+   ],
+   "link": [
+    {
+     "chiave": "op_amtab",
+     "testo": "Sito ufficiale di AMTAB"
+    }
+   ],
+   "citta": [
+    "bari"
+   ],
+   "domanda": 480
+  }
+ ]
+}
