@@ -174,6 +174,12 @@ Uso (dalla radice del repository, dopo python3 visaincome/genera.py):
     blocco «Most used» in home (24 link) e negli indici di sezione attesi (5–8 link), una volta sola, mai altrove; ogni link porta a
     una pagina in sitemap, il testo è l'H1 della pagina di arrivo (o la sua prima parte) e l'ordine è quello delle visite di
     dati/piu_usate.json; la home non ha link a pagine noindex; l'impronta del lastmod non cambia togliendo il blocco.
+43. (27/11/2026) Riga «More about <Paese>» e date del lastmod: ognuna delle pagine Paese dei rifiuti ha un solo blocco
+    <!--stessa-naz-->…<!--/stessa-naz--> (vuoto o con 1–3 link), solo verso pagine in sitemap di moved-to/, uk-english-test/ o
+    nurses-abroad/, mai verso una pagina già linkata fuori dal blocco, e l'impronta non cambia togliendolo; nessun blocco altrove.
+    L'impronta non cambia se si cambiano le date di lettura/scaricamento («downloaded on …», «read on …», «leído el …»).
+    Con git: ogni URL il cui lastmod è diverso da quello del commit HEAD deve avere una pagina diversa da quella di HEAD anche dopo
+    aver tolto (con codice proprio) date di lettura/scaricamento, data «Updated on» dell'esperimento e blocchi di link.
 Il controllo 16 comprende dall'11/11/2026, sulle 4 pagine per livello: voto minimo = elenco ufficiale con i separatori uniformi e ripetuto
 sotto il nome del test (visibile solo sotto i 480 px, dove la colonna si nasconde), avviso con "aged 65 or over", tutti i fornitori dei test
 del livello in "How to book", frase del livello nel riquadro italki, Appendix FM E-ILRP.1.6 e Appendix KoLL 2.2(c)(ii) per il partner
@@ -6041,6 +6047,12 @@ def _parole_del_main(pagina_html):
         if a < 0 or b < 0:
             break
         corpo = corpo[:a] + " " + corpo[b + len("<!--/piu-usate-->"):]
+    while True:   # 27/11/2026: riga «More about <Paese>» delle pagine Paese dei rifiuti (link interni, come il blocco «più usate»)
+        a = corpo.find("<!--stessa-naz-->")
+        b = corpo.find("<!--/stessa-naz-->", a)
+        if a < 0 or b < 0:
+            break
+        corpo = corpo[:a] + " " + corpo[b + len("<!--/stessa-naz-->"):]
     for tag in ("script", "style", "svg", "select"):
         corpo = re.sub(rf"(?is)<{tag}\b.*?</{tag}>", " ", corpo)
     return html.unescape(re.sub(r"(?s)<[^>]+>", " ", corpo)).lower().split()
@@ -6720,6 +6732,80 @@ def controlla_av(online=True):
     return errori, len(trovate), note
 
 
+def controlla_stessa_naz_lastmod():
+    """43. Riga «More about <Paese>» e lastmod mosso solo da un cambio di contenuto (non dalle date di lettura)."""
+    errori = []
+    mesi = "January|February|March|April|May|June|July|August|September|October|November|December"
+    r_data = re.compile(r"\b((?:[Dd]ownloaded|[Rr]ead|[Cc]hecked|[Vv]erified)(?: on)? )\d{1,2} (?:" + mesi + r") \d{4}\b")
+    r_data_es = re.compile(r"\b((?:[Ll]e[ií]d[oa]s?|[Ll]id[oa]s?|[Cc]onsultad[oa]s?|[Dd]escargad[oa]s?|[Dd]escarregad[oa]s?) (?:el|em) )\d{1,2} de [a-zç]+ de \d{4}\b")
+    sitemap = sitemap_completa()
+    paesi = {f"visa-refusal-rates/{s}/" for s in G.SLUG_RIF.values()}
+    n_righe = n_link = 0
+    for f in SITO.rglob("*.html"):
+        r = f.relative_to(SITO).as_posix()
+        p = r[:-len("index.html")] if r.endswith("index.html") else r
+        t = f.read_text(encoding="utf-8")
+        blocchi = re.findall(r"<!--stessa-naz-->(.*?)<!--/stessa-naz-->", t, re.S)
+        if p not in paesi:
+            if blocchi or 'class="small naz"' in t:
+                errori.append(f"43: riga «More about» in una pagina che non è una pagina Paese dei rifiuti: {p}")
+            continue
+        if len(blocchi) != 1:
+            errori.append(f"43: {p}: {len(blocchi)} blocchi «More about» (atteso 1)")
+            continue
+        link = re.findall(r'<a href="\.\./\.\./([^"]+)"', blocchi[0])
+        if blocchi[0]:
+            n_righe += 1
+            n_link += len(link)
+            if not 1 <= len(link) <= 3 or len(link) != blocchi[0].count("<a "):
+                errori.append(f"43: {p}: {blocchi[0].count('<a ')} link nella riga")
+        fuori = re.sub(r"<!--stessa-naz-->.*?<!--/stessa-naz-->", "", t, flags=re.S)
+        for d in link:
+            if f"{G.URL_SITO}/{d}" not in sitemap or not d.startswith(("moved-to/", "uk-english-test/", "nurses-abroad/")) or d.count("/") != 2:
+                errori.append(f"43: {p}: link della riga non ammesso o fuori sitemap: {d}")
+            if f'href="../../{d}"' in fuori:
+                errori.append(f"43: {p}: {d} è già linkata fuori dalla riga")
+        if G.impronta_contenuto(t) != G.impronta_contenuto(fuori):
+            errori.append(f"43: {p}: la riga entra nell'impronta del lastmod")
+    if n_righe < 30:
+        errori.append(f"43: solo {n_righe} righe «More about» con link")
+    # l'impronta non deve vedere le date di lettura/scaricamento
+    provate = 0
+    for f in sorted(SITO.rglob("index.html"))[::25]:
+        t = f.read_text(encoding="utf-8")
+        t2 = r_data_es.sub(r"\g<1>3 de enero de 2001", r_data.sub(r"\g<1>3 January 2001", t))
+        if t2 != t:
+            provate += 1
+            if G.impronta_contenuto(t) != G.impronta_contenuto(t2):
+                errori.append(f"43: {f.relative_to(SITO)}: l'impronta cambia con la sola data di lettura/scaricamento")
+    if not provate:
+        errori.append("43: nessuna pagina con date di lettura da provare")
+    # lastmod mosso rispetto al commit HEAD solo dove il contenuto cambia davvero
+    def pulisci(t):
+        t = re.sub(r"<!--(stessa-naz|piu-usate)-->.*?<!--/\1-->", "", t, flags=re.S)
+        t = re.sub(r'<time class="agg-t" datetime="[^"]*">[^<]*</time>', "", t)
+        t = re.sub(r'"dateModified":\s*"[^"]*"', "", t)
+        t = r_data_es.sub(r"\1§", r_data.sub(r"\1§", t))
+        pezzi = [re.search(r"<title>(.*?)</title>", t, re.S), re.search(r'<meta name="description" content="(.*?)">', t, re.S),
+                 re.search(r'<main id="main">(.*?)</main>', t, re.S)]
+        return "\n".join(m.group(1) if m else "" for m in pezzi) + "\n".join(re.findall(r'<script type="application/ld\+json">(.*?)</script>', t, re.S))
+    radice = str(G.RADICE.parent)
+    try:
+        prima = json.loads(subprocess.run(["git", "-C", radice, "show", "HEAD:visaincome/dati/lastmod.json"], capture_output=True, text=True,
+                                          timeout=60, check=True).stdout)["pagine"]
+    except (OSError, subprocess.SubprocessError, ValueError):
+        avviso(43, "git non disponibile: confronto del lastmod con il commit HEAD saltato")
+        return errori, n_righe, n_link, provate, 0
+    ora = json.loads((G.DATI / "lastmod.json").read_text(encoding="utf-8"))["pagine"]
+    mossi = [u for u in ora if u in prima and ora[u][0] != prima[u][0]]
+    for u in mossi:
+        file = f"visaincome/sito/{u if u.endswith('.html') else u + 'index.html'}"
+        r = subprocess.run(["git", "-C", radice, "show", f"HEAD:{file}"], capture_output=True, text=True, timeout=60)
+        if r.returncode == 0 and pulisci(r.stdout) == pulisci((G.RADICE.parent / file).read_text(encoding="utf-8")):
+            errori.append(f"43: {u}: lastmod spostato ({prima[u][0]} -> {ora[u][0]}) ma la pagina cambia solo nelle date di lettura o nei blocchi di link")
+    return errori, n_righe, n_link, provate, len(mossi)
+
+
 def main():
     errori = controlla_esempi()
     print(f"1. Esempi a mano: {len(ESEMPI)} importi e {len(ESITI)} confronti con il reddito, {len(errori)} errori")
@@ -6868,7 +6954,10 @@ def main():
     print(f"42. Recupero dopo il cambio di dominio (25/11/2026): indice di {f42} sitemap per sezione con {u42} URL (= pagine in indice), "
           f"{G.SITEMAP_VECCHI} con {v42} vecchi indirizzi (fuori da indice e robots.txt), {b42} blocchi «Most used» con {l42} link "
           f"(pagine in sitemap, testo = H1, ordine delle visite, fuori dall'impronta del lastmod), home senza link a pagine noindex: {len(e42)} errori")
-    tutti = errori +e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31 + e32 + e33 + e34 + e35 + e36 + e37 + e38 + e39 + e40 + e41 + e42
+    e43, r43, l43, p43, m43 = controlla_stessa_naz_lastmod()
+    print(f"43. Riga «More about <Paese>» ({r43} pagine Paese, {l43} link, fuori dall'impronta) e lastmod senza le date di lettura "
+          f"({p43} pagine provate cambiando le date; {m43} URL con lastmod diverso dal commit HEAD, tutti con un cambio di contenuto): {len(e43)} errori")
+    tutti = errori +e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31 + e32 + e33 + e34 + e35 + e36 + e37 + e38 + e39 + e40 + e41 + e42 + e43
     if AVVISI:  # fonti che rispondono non-200 o con una pagina anti-robot (controllo 28): non sono errori
         per_punto = {}
         for k, _ in AVVISI:

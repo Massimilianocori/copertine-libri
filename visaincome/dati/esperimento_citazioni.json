@@ -814,154 +814,158 @@
  ],
  "impronte_controllo": {
   "angola": {
-   "contenuto": "e33483dc3f9f0333888f",
-   "file_sha256": "3749e9ee2117306f0e081877543c493319041a2757ac705d69b20a9cc6dd4e7f"
+   "contenuto": "e212701e503038db824f",
+   "file_sha256": "92c14e32b4b7d1ac0318a3b66d8b1eb2409dfe7fc67557a224f9141f25f345c0"
   },
   "azerbaijan": {
-   "contenuto": "a5b4a060c87873ec6b18",
-   "file_sha256": "5fde6cc15411c513bd83488df5c6c63fbde234fdc817919f4a2668f6387869d4"
+   "contenuto": "bc797d69f3f22153bf3a",
+   "file_sha256": "b5cbfbe2edd61836d5144db3baf46468127e9456941847ea49a423dae108358e"
   },
   "bahrain": {
-   "contenuto": "f7c7019d77444071721d",
-   "file_sha256": "b08230c8912068f19eed056a3667e0052b71035557f83be24872c58f33855471"
+   "contenuto": "c3e53d21d6c481c42bab",
+   "file_sha256": "56c28edc03f8a3bd9c15e4a5092a53208d4da4622f23cc3bef4539f037a4cc57"
   },
   "bolivia": {
-   "contenuto": "a229ce04b8c55d5aeb4c",
-   "file_sha256": "b18e2951b2ee56edb5a5d3b3c74c47b9de7a6bf7ad24c488cea9bfb09e50b67c"
+   "contenuto": "1afcabdc182e16c0234f",
+   "file_sha256": "53f40b9fa900b699aea515c8874d416a847d452702a7c158ccf3d69c30e4d541"
   },
   "cambodia": {
-   "contenuto": "6974f0fcae1f0201798e",
-   "file_sha256": "23d196d501e157f035cd7d1fb7756bd9d7ff9478c636ceb286fc96eabaefb301"
+   "contenuto": "828cd66a9c17cca0db5a",
+   "file_sha256": "393718b426d8ba9432c57a4ae2a0ec6f63adb8f1714d9ed604c51d0da7b24705"
   },
   "cameroon": {
-   "contenuto": "6d1d7982d7a2aa3f262b",
-   "file_sha256": "7dddee850c6b20226ff8c09e7ce9df0da6602d07494ab381632951cd2fb9703d"
+   "contenuto": "0b81efa5606d997341a8",
+   "file_sha256": "75eabc4352776d69ef19224507439ee2a9ccd16d29a0dc955d5b23a81377b904"
   },
   "cuba": {
-   "contenuto": "660fb2cc0e8e7d7ac49d",
-   "file_sha256": "f2146b75ff2891c7696af06fd1bf341d2ad8e25d80a268b51b799b7311350f66"
+   "contenuto": "196de202b42c6db56c52",
+   "file_sha256": "577d78d8fb51850fa30361d9c5466660f44362dd0805e434b671140b1a9500a5"
   },
   "dominican-republic": {
-   "contenuto": "e27186c938f1ac23db20",
-   "file_sha256": "92f138637055c48536e3446fe1918356239d82c2d07a2867d892c0f6b9ab05f5"
+   "contenuto": "9f52704dd4127220fc87",
+   "file_sha256": "f1804dfb5acaf390f7830b8c2fa96646ac8e6cb791b0f8166e86c874e79157fa"
   },
   "dr-congo": {
-   "contenuto": "c3ac2054ce7b52427c33",
-   "file_sha256": "a08f7a846c4b5bab4411f3377cbbc7e6ba40ec1d214c8b32ec9e720a342c29a0"
+   "contenuto": "b4c885180be3e184016f",
+   "file_sha256": "87b9cf11c988cee18d5a6bd5ddde5591695cc658da30d2cd23822a179d87aba1"
   },
   "ecuador": {
-   "contenuto": "b847628f10cc45ed5b2c",
-   "file_sha256": "3c788166b211aa57831c7791b038b22c9d31f023394dc8fc8191cfbf1cfe62c1"
+   "contenuto": "0ac1ea840e3e961426ad",
+   "file_sha256": "c66bcdfe021f949ec9d34c20c4267ca3a35018ee821d8affd922fe3982ae322c"
   },
   "equatorial-guinea": {
-   "contenuto": "0af06461050912a1cec9",
-   "file_sha256": "d21f12720534f4e238b7a027734616f6fe9e4c11b2a094e21b58326cb20f15ef"
+   "contenuto": "8ff81c8b7122fcd30937",
+   "file_sha256": "ef8b84b1241f166285065ffb3afde275b850a64bda89d73e43d6b71b7f0002b8"
   },
   "ethiopia": {
-   "contenuto": "ed4c2061e72b1affa8aa",
-   "file_sha256": "7cc5116a19f29e8f4767f50fee35fa6640c9d643d8fe1c51fa28e7b5dbd7469f"
+   "contenuto": "8976ab28ca758a8fce4b",
+   "file_sha256": "1d0623135e046a9a3abc74dbe7ab98a4c4776b2ce28f6789f3ba206b6e137273"
   },
   "hong-kong": {
-   "contenuto": "e7357f7966ae36c94ee3",
-   "file_sha256": "24aa6353bceef8414e6aa98264b285206f173de74ac92e1718aa84b6cc77ea63"
+   "contenuto": "86441529b85d2165161b",
+   "file_sha256": "47d626479c3d87848ada3458dc6a3724b2ba520995fa2745d64f89570c6742ae"
   },
   "indonesia": {
-   "contenuto": "3d693e2ce9a7a4b93ddc",
-   "file_sha256": "33e55ad1d81af673b1a8f3fb7316101038f43c96cfd07e798931b39e0bf57c54"
+   "contenuto": "d72d40fdd72368747368",
+   "file_sha256": "905c111bf795b50bb720aa2b72255b6b0892710ecf2f3c9a258e59c0444f2230"
   },
   "iran": {
-   "contenuto": "2e081204b50551f3ba06",
-   "file_sha256": "68f4c56c892a171839367c11b3ab160dcbf3eb0c1db516a0493ce685f73eedf2"
+   "contenuto": "f3d7a699d8941192fb4a",
+   "file_sha256": "908e9c09bede61ad8a543c89dc47037e1275310edf9000d7e72f9d2a6e0ea019"
   },
   "iraq": {
-   "contenuto": "852f0c5f3a8ddecc333d",
-   "file_sha256": "3b65a5f054d3e8519f8adb48dff65c4a86e1beb7d9153ce4bd8395756949acf9"
+   "contenuto": "3d0c25027aafcf4bf350",
+   "file_sha256": "21de2f542dbe12420c5397013cd1815b07b718d3928ede133b3d62bcaea8b003"
   },
   "ireland": {
-   "contenuto": "4cb1961f088226078ba1",
-   "file_sha256": "95d104af514260d609373e87c6ed2b67ea7e0f2422d74ed273d2485817e6d202"
+   "contenuto": "544565d3561370e9cecb",
+   "file_sha256": "99e63c9ef4ada28e8afe2fe27f9044695e2f45c3db9b457f2caea04f8b01c161"
   },
   "israel": {
-   "contenuto": "acc28ae76e93b0c76e15",
-   "file_sha256": "b32bf0858f4f950cebf7724d68a0e6e0bd2e20ec2cf212f59d61b69cb8c131c2"
+   "contenuto": "917db466fcc58e337451",
+   "file_sha256": "cbeb073973cc6b51376835c88ee8a51d807dbcec6aae528cb3498abd98a22846"
   },
   "kazakhstan": {
-   "contenuto": "be277f022ed69d4b548c",
-   "file_sha256": "bb3f4ee4d08c62fe3105b702d94eac42780fe730955229807eadc1445cc64a8a"
+   "contenuto": "1e8d5c91578bd7305ab9",
+   "file_sha256": "be9da0e83e66ea8ceca7e3d93971712543b452a085c5738bb923b04ff155545c"
   },
   "lebanon": {
-   "contenuto": "5005b2694b65b1837202",
-   "file_sha256": "c4ee9c89813b1f53f782d5bbde5a30be79e601df34edf9d36afa8a8a96274134"
+   "contenuto": "d2a3864ccfd97095906f",
+   "file_sha256": "2bc6c5dea53c2ad19a5aa1a5ce49f3f6b4c80592935b9ba6d4c1e89f836ce10e"
   },
   "madagascar": {
-   "contenuto": "17b2c0c3ae22dd619a64",
-   "file_sha256": "23a36f2b2f3c78a632041d38b2985c3b00d36713f8bdac7bd93411f0937803f2"
+   "contenuto": "ddd7d631cc37f7abc3dd",
+   "file_sha256": "10cf2fc6d11c17feb7713a6e8976ab77a32f334c7063d739a766f5dfe0919f3a"
   },
   "mali": {
-   "contenuto": "ae51a6486ef03452726c",
-   "file_sha256": "3863bcb4a7560b6b7f801b60a1d2fa156352552c810b0c7505bb26cc170b5954"
+   "contenuto": "472322fd182556c58b22",
+   "file_sha256": "67304e808c96cc1ba6edeca2f3b22e365f2e16f03717a85cc87ed792e0f1c93c"
   },
   "mauritania": {
-   "contenuto": "94e9b2e79d9e1c855fd6",
-   "file_sha256": "880a29fcf4f31f802d3521b44da5064e7e8267ed895b63849487df57c539eb6c"
+   "contenuto": "57560b55ae6cd4f82d7d",
+   "file_sha256": "24455b9758c1fcb2f0ce958fd59b57b80750d98728c3ae02ba0bf30f9db00248"
   },
   "morocco": {
-   "contenuto": "f7dd346238bfeff65a24",
-   "file_sha256": "9dea18d8d1e890ef42894ec566475426cccd5cb7511f357b4b915fbc14c57896"
+   "contenuto": "cc76cbddaae254192d84",
+   "file_sha256": "48155fe5c45a59e10639dd778a2a8d1eb0dab4810be2f8de9c8232f47487e20e"
   },
   "mozambique": {
-   "contenuto": "2f2d3d8e59055dc80261",
-   "file_sha256": "244f2f468683ee7c3c52670d023bd8e077151017f640e64db39b23c85d7e72c7"
+   "contenuto": "5daa5260a5bb8d366df0",
+   "file_sha256": "037a4e72611307243a804e97a325d10b06d132a657e76f903235c58dbb718fc0"
   },
   "nigeria": {
-   "contenuto": "ce9392713212edf3ff26",
-   "file_sha256": "a1b5b65b40ce416373d5616e1943da567a51df7d4c711894dfe6c58072e6491e"
+   "contenuto": "77fc443b9285b249cb77",
+   "file_sha256": "ea101eaa05b5f555026066f12e6c9b46ef00aee18f5b7a72b79426896eeddd06"
   },
   "qatar": {
-   "contenuto": "1480c51707c2dc8777ab",
-   "file_sha256": "016d80ba005f0e683a656f333921ab5f5e82abe00ceceb220b9d41c0b07389e0"
+   "contenuto": "8f8a2e9d3ac36158dff2",
+   "file_sha256": "1cec1683dc673a591d80e55b528c8bbd09e949904b740906d0d79490f0e921fa"
   },
   "russia": {
-   "contenuto": "228bf9c5ef29f853c5eb",
-   "file_sha256": "c648e3240454880af058d36db8ceac81a755c2a2553b46edb961fe912708b089"
+   "contenuto": "4e4dd11119c94f8433e7",
+   "file_sha256": "57678cdeca313c5b1d886d952eef1daf96c14442eea41aee5b0a48e3b25faf49"
   },
   "senegal": {
-   "contenuto": "f31feae214269c048157",
-   "file_sha256": "67e6471e8972af5d55af444a77d14296cc6bbcafc4d5712236d2acc8aa7809a5"
+   "contenuto": "b3c46451173c19e429b8",
+   "file_sha256": "9400be769b47622c88d86b82d86d9e72e467cdb6f780ca2e72dafa4c9dfd89cf"
   },
   "serbia": {
-   "contenuto": "8aa30e39f552160cd578",
-   "file_sha256": "c1b25a16b151ed74f8029fafa484a6330645e07bd77e1828de3c325955c0bac3"
+   "contenuto": "9c445f1bcba7e5eb2045",
+   "file_sha256": "5da45c40c7761416b295a579c9d1ee83a1c0a302b9de71e239c1930168ba793a"
   },
   "south-africa": {
-   "contenuto": "a2c24535711899170d5b",
-   "file_sha256": "dff006b0aced0f71bbdcaee5bef0b425e03fe895e38eb4522e554ed343e686ba"
+   "contenuto": "74305bea04ee274d1eae",
+   "file_sha256": "ce3bb23c99227cca39effe16fc502feb3402c7bf40bdda5049134e582f1db72e"
   },
   "suriname": {
-   "contenuto": "44bfc8e3687e6349e7b3",
-   "file_sha256": "74c37a3bb2a00a6cff31d80bb6e9d0e8e8284bc94cedca9449a1bd9fc88e186d"
+   "contenuto": "87d3cd2ef26df52177a6",
+   "file_sha256": "f193a311e32d6cc72a5d7345242bcc35f434f6781769a42c4f30f8b754397a26"
   },
   "thailand": {
-   "contenuto": "e23ca5a4682ffeb517ea",
-   "file_sha256": "888cf3420737b14a9d17aacd787a0939d5b136d4ae4259771240d98ac00956b7"
+   "contenuto": "5aa1f3e42576d9b8eaff",
+   "file_sha256": "d15b8e0f8da95a1cf5b827b90f2f353f6ed06e38864bfa6cad95dce92cb5e93c"
   },
   "tunisia": {
-   "contenuto": "4bdc1aa04ee75c99cd15",
-   "file_sha256": "91ff5e92b94997a73b6156de5c83a7f9143bd06e3b0aa5aede3d136386da7b3e"
+   "contenuto": "c21bc14ddb9e5b8cb13b",
+   "file_sha256": "374a0ec12ad5f94182b07c4a09d14a85c1a418e31a98d5acec1959aed8c9feb1"
   },
   "united-states": {
-   "contenuto": "c175cf1d0eb58aba28c7",
-   "file_sha256": "ee119a40e7f32a1e71888402bc328c5e8fe108db9863fb5c1c48c56c7fb93890"
+   "contenuto": "8888373fa49836b5de5d",
+   "file_sha256": "200f031d9fffce21c0d1d30ffb6fbbd297c1e89a864612a0a20778f380f7182e"
   },
   "vietnam": {
-   "contenuto": "bd09b4de149709638846",
-   "file_sha256": "9b61d490a24f86b7f6b0cf2ef1c966265b9e9fc46c3e9bb92094d50360407fae"
+   "contenuto": "c9247f75a10ac72c9564",
+   "file_sha256": "893f494db001052d7dedcfeae2022670861610a06999a26a477352c9b0592c99"
   }
  },
  "impronte_aggiornate": [
   {
    "il": "2026-11-09",
    "motivo": "8/11/2026: dominio proprio visaincomechecker.com (canonical, link e JSON-LD con il nuovo indirizzo), uguale per i due gruppi"
+  },
+  {
+   "il": "2026-11-27",
+   "motivo": "27/11/2026: Home Office, anno fino a settembre 2026; riga «More about <Paese>» fuori dall'impronta del lastmod; nota dell'asterisco sotto la tabella UK; stessa regola; riga su 21 trattate e 16 di controllo"
   }
  ]
 }

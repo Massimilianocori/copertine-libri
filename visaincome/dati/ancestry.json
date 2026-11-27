@@ -1,8 +1,8 @@
 {
 "_nota": "Generato da raccolta/ancestry.py: non modificare a mano. naz: nazionalità -> anno della decisione -> M (richiedenti principali) / D (familiari) = [concessi, rifiutati, ritirati, decaduti], trimestri dell'anno presenti nel file. Home Office e GOV.UK: OGL v3.0.",
-"generato_il": "2026-11-05",
-"letto_il": "2026-11-05",
-"impronta": "c48766fe1d07e63ac0c2",
+"generato_il": "2026-11-27",
+"letto_il": "2026-11-27",
+"impronta": "69d66768621ed38dae92",
 "domanda": {
 "data": "2026-11-05",
 "metodo": "https://suggestqueries.google.com/complete/search?client=firefox&gl=<Paese>&hl=en&q=…",
@@ -249,22 +249,22 @@
 "titolo": "UK Ancestry visa",
 "aggiornata": "2015-02-26",
 "sha256": "01fb5c4156ce564d06ac085e005adef8d5be91500220270ec69b4f7d0b9ed8b6",
-"letto_il": "2026-11-05",
+"letto_il": "2026-11-27",
 "licenza": "Open Government Licence v3.0"
 },
 "ho": {
-"titolo": "Entry clearance visa applications and outcomes detailed datasets, year ending June 2026",
+"titolo": "Entry clearance visa applications and outcomes detailed datasets, year ending September 2026",
 "editore": "Home Office, Immigration System Statistics",
-"url": "https://assets.publishing.service.gov.uk/media/6a85c3741b45e4e555421eda/entry-clearance-visa-outcomes-datasets-jun-2026.xlsx",
+"url": "https://assets.publishing.service.gov.uk/media/6afd7db5df17de35d3a44e5f/entry-clearance-visa-outcomes-datasets-sep-2026.xlsx",
 "pagina": "https://www.gov.uk/government/statistical-data-sets/immigration-system-statistics-data-tables",
 "formato": "XLSX",
-"byte": 33032191,
-"sha256": "5151f0bdce2f057a4a89e712f2234dceedddb9857f5d97820d48c693477fcdef",
-"scaricato_il": "2026-10-15",
-"pubblicato": "27 August 2026",
-"prossimo": "26 November 2026",
-"periodo": "Year ending June 2026",
-"pagina_aggiornata": "2026-08-27"
+"byte": 33477183,
+"sha256": "e43c612005bca999558b8f0b9eca069e7f9c316c77b50816b79171a81bd28004",
+"scaricato_il": "2026-11-27",
+"pubblicato": "26 November 2026",
+"prossimo": "25 February 2027",
+"periodo": "Year ending September 2026",
+"pagina_aggiornata": "2026-11-26"
 }
 },
 "trimestri": [
@@ -353,10 +353,11 @@
 "2025 Q3",
 "2025 Q4",
 "2026 Q1",
-"2026 Q2"
+"2026 Q2",
+"2026 Q3"
 ],
 "primo_trimestre_familiari": "2020 Q3",
-"controlli_work": 236,
+"controlli_work": 243,
 "naz": {
 "Australia": {
 "2005": {
@@ -781,20 +782,21 @@
 },
 "2026": {
 "M": [
-259,
-0,
+359,
+1,
 3,
 0
 ],
 "D": [
-46,
-0,
+62,
+1,
 1,
 0
 ],
 "trimestri": [
 "Q1",
-"Q2"
+"Q2",
+"Q3"
 ]
 }
 },
@@ -1125,6 +1127,23 @@
 "Q1",
 "Q2"
 ]
+},
+"2026": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
 }
 },
 "British overseas citizens": {
@@ -1305,19 +1324,20 @@
 },
 "2026": {
 "M": [
-2,
+3,
 0,
 0,
 0
 ],
 "D": [
-1,
+2,
 0,
 0,
 0
 ],
 "trimestri": [
-"Q2"
+"Q2",
+"Q3"
 ]
 }
 },
@@ -1744,20 +1764,21 @@
 },
 "2026": {
 "M": [
-109,
+196,
 0,
-3,
+4,
 0
 ],
 "D": [
-15,
+32,
 0,
 1,
 0
 ],
 "trimestri": [
 "Q1",
-"Q2"
+"Q2",
+"Q3"
 ]
 }
 },
@@ -1864,12 +1885,13 @@
 "D": [
 0,
 0,
-2,
+4,
 0
 ],
 "trimestri": [
 "Q1",
-"Q2"
+"Q2",
+"Q3"
 ]
 }
 },
@@ -2844,20 +2866,21 @@
 },
 "2026": {
 "M": [
-3,
+6,
 2,
 1,
 0
 ],
 "D": [
-8,
+16,
 2,
-9,
+10,
 0
 ],
 "trimestri": [
 "Q1",
-"Q2"
+"Q2",
+"Q3"
 ]
 }
 },
@@ -3229,6 +3252,23 @@
 "Q2",
 "Q3",
 "Q4"
+]
+},
+"2026": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
 ]
 }
 },
@@ -3633,19 +3673,20 @@
 },
 "2026": {
 "M": [
-2,
+3,
 0,
 0,
 0
 ],
 "D": [
-0,
+3,
 0,
 0,
 0
 ],
 "trimestri": [
-"Q2"
+"Q2",
+"Q3"
 ]
 }
 },
@@ -4006,7 +4047,7 @@
 },
 "2026": {
 "M": [
-1,
+2,
 0,
 0,
 0
@@ -4019,7 +4060,8 @@
 ],
 "trimestri": [
 "Q1",
-"Q2"
+"Q2",
+"Q3"
 ]
 }
 },
@@ -4136,7 +4178,7 @@
 },
 "2026": {
 "M": [
-3,
+7,
 0,
 0,
 0
@@ -4144,12 +4186,13 @@
 "D": [
 0,
 0,
-0,
+1,
 0
 ],
 "trimestri": [
 "Q1",
-"Q2"
+"Q2",
+"Q3"
 ]
 }
 },
@@ -4865,20 +4908,21 @@
 },
 "2026": {
 "M": [
-160,
+246,
 0,
 0,
 0
 ],
 "D": [
-17,
+26,
 0,
 0,
 0
 ],
 "trimestri": [
 "Q1",
-"Q2"
+"Q2",
+"Q3"
 ]
 }
 },
@@ -5287,20 +5331,21 @@
 },
 "2026": {
 "M": [
+6,
 4,
-3,
 0,
 0
 ],
 "D": [
-0,
+8,
 3,
 0,
 0
 ],
 "trimestri": [
 "Q1",
-"Q2"
+"Q2",
+"Q3"
 ]
 }
 },
@@ -5727,20 +5772,21 @@
 },
 "2026": {
 "M": [
-218,
-2,
+329,
+4,
 1,
 0
 ],
 "D": [
-96,
+127,
 1,
-0,
+2,
 0
 ],
 "trimestri": [
 "Q1",
-"Q2"
+"Q2",
+"Q3"
 ]
 }
 },
@@ -7379,20 +7425,21 @@
 },
 "2026": {
 "M": [
-5,
+6,
 0,
-8,
+10,
 0
 ],
 "D": [
-9,
+18,
 0,
-2,
+3,
 0
 ],
 "trimestri": [
 "Q1",
-"Q2"
+"Q2",
+"Q3"
 ]
 }
 },
@@ -7803,7 +7850,7 @@
 },
 "2026": {
 "M": [
-1,
+2,
 0,
 0,
 0
@@ -7816,7 +7863,8 @@
 ],
 "trimestri": [
 "Q1",
-"Q2"
+"Q2",
+"Q3"
 ]
 }
 },
@@ -8243,20 +8291,21 @@
 },
 "2026": {
 "M": [
-27,
-2,
+39,
+3,
 1,
 0
 ],
 "D": [
-13,
+19,
 1,
-4,
+6,
 0
 ],
 "trimestri": [
 "Q1",
-"Q2"
+"Q2",
+"Q3"
 ]
 }
 },
@@ -8571,19 +8620,20 @@
 "2026": {
 "M": [
 3,
-0,
+1,
 0,
 0
 ],
 "D": [
-1,
+2,
 0,
 0,
 0
 ],
 "trimestri": [
 "Q1",
-"Q2"
+"Q2",
+"Q3"
 ]
 }
 },
@@ -8637,6 +8687,23 @@
 ],
 "trimestri": [
 "Q2"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
 ]
 }
 },
@@ -9052,13 +9119,14 @@
 ],
 "D": [
 0,
-0,
-7,
+2,
+10,
 0
 ],
 "trimestri": [
 "Q1",
-"Q2"
+"Q2",
+"Q3"
 ]
 }
 },
@@ -9568,6 +9636,23 @@
 "trimestri": [
 "Q3"
 ]
+},
+"2026": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
 }
 },
 "Mauritania": {
@@ -9900,9 +9985,9 @@
 },
 "2026": {
 "M": [
-3,
+5,
 0,
-0,
+1,
 0
 ],
 "D": [
@@ -9913,7 +9998,8 @@
 ],
 "trimestri": [
 "Q1",
-"Q2"
+"Q2",
+"Q3"
 ]
 }
 },
@@ -10175,6 +10261,23 @@
 ],
 "trimestri": [
 "Q2"
+]
+},
+"2026": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
 ]
 }
 },
@@ -10564,7 +10667,7 @@
 },
 "2026": {
 "M": [
-1,
+5,
 0,
 0,
 0
@@ -10576,7 +10679,8 @@
 0
 ],
 "trimestri": [
-"Q2"
+"Q2",
+"Q3"
 ]
 }
 },
@@ -11125,7 +11229,7 @@
 },
 "2026": {
 "M": [
-0,
+2,
 0,
 0,
 0
@@ -11137,7 +11241,8 @@
 0
 ],
 "trimestri": [
-"Q2"
+"Q2",
+"Q3"
 ]
 }
 },
@@ -11297,6 +11402,23 @@
 ],
 "trimestri": [
 "Q2"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q3"
 ]
 }
 },
@@ -11903,11 +12025,12 @@
 "D": [
 0,
 0,
-0,
+1,
 0
 ],
 "trimestri": [
-"Q1"
+"Q1",
+"Q3"
 ]
 }
 },
@@ -12857,19 +12980,20 @@
 },
 "2026": {
 "M": [
-1,
+3,
 0,
 0,
 0
 ],
 "D": [
-0,
+3,
 0,
 0,
 0
 ],
 "trimestri": [
-"Q2"
+"Q2",
+"Q3"
 ]
 }
 },
@@ -13051,6 +13175,23 @@
 ]
 },
 "2023": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2026": {
 "M": [
 1,
 0,
@@ -13475,19 +13616,20 @@
 },
 "2026": {
 "M": [
-0,
-0,
-0,
-0
-],
-"D": [
 1,
 0,
 0,
 0
 ],
+"D": [
+2,
+0,
+0,
+0
+],
 "trimestri": [
-"Q2"
+"Q2",
+"Q3"
 ]
 }
 },
@@ -13706,6 +13848,23 @@
 "trimestri": [
 "Q4"
 ]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
 }
 },
 "Germany": {
@@ -13798,6 +13957,23 @@
 ],
 "trimestri": [
 "Q2",
+"Q3"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
 "Q3"
 ]
 }
@@ -13962,6 +14138,23 @@
 "trimestri": [
 "Q3"
 ]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
 }
 },
 "Peru": {
@@ -14092,7 +14285,7 @@
 },
 "2026": {
 "M": [
-0,
+1,
 0,
 0,
 0
@@ -14104,7 +14297,8 @@
 0
 ],
 "trimestri": [
-"Q1"
+"Q1",
+"Q3"
 ]
 }
 },
@@ -14519,6 +14713,23 @@
 "trimestri": [
 "Q4"
 ]
+},
+"2026": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
 }
 },
 "Switzerland": {
@@ -14775,6 +14986,23 @@
 "trimestri": [
 "Q1"
 ]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q3"
+]
 }
 },
 "Tunisia": {
@@ -14866,6 +15094,23 @@
 ],
 "trimestri": [
 "Q1"
+]
+},
+"2026": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
 ]
 }
 },
@@ -15116,13 +15361,14 @@
 0
 ],
 "D": [
-0,
+1,
 0,
 0,
 0
 ],
 "trimestri": [
-"Q2"
+"Q2",
+"Q3"
 ]
 }
 },
@@ -15257,6 +15503,44 @@
 ],
 "trimestri": [
 "Q1"
+]
+}
+},
+"Kazakhstan": {
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+}
+},
+"Montenegro": {
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q3"
 ]
 }
 }

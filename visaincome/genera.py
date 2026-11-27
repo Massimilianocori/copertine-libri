@@ -1082,7 +1082,7 @@ SOTTO_CANCELLO = {}
 def parole_testo_proprio(html):
     """Le parole (minuscole) del contenuto di una pagina intera, per la misura delle parole proprie."""
     m = re.search(r'<main id="main">(.*?)</main>', html, re.S)
-    t = _RE_RIQUADRO_AFF.sub(" ", _RE_PIU.sub(" ", m.group(1) if m else ""))
+    t = _RE_RIQUADRO_AFF.sub(" ", _RE_PIU.sub(" ", _RE_NAZ.sub(" ", m.group(1) if m else "")))
     return unescape(re.sub(r"<[^>]+>", " ", _RE_NON_TESTO.sub(" ", t))).lower().split()
 
 
@@ -1335,6 +1335,64 @@ def scrivi_piu_usate():
     return len(attesi)
 
 
+# ---------------------------------------------------------------- riga «More about <Paese>» sulle 74 pagine Paese dei rifiuti (27/11/2026)
+# studio-business/PIANO-VISITE-VISA-CCNL-2026-11-27.md, azione A2 (link interni, ammessi durante il fermo fino al 9/12).
+# Per regola, al massimo N_NAZ link verso le pagine IN INDICE di altre sezioni per lo stesso Paese o la stessa nazionalità:
+# hub «Who moved where» (NAZ_TR, chiave della Commissione in posizione 4), test di inglese UK nel Paese (PAESI_PAG, nomi del Home Office
+# -> chiave con _NOMI_UK_INV), infermieri formati nel Paese (PAG_INF). Si salta una pagina già linkata altrove nella pagina.
+# Testo del link = H1 della pagina di arrivo (come nei blocchi «Most used»). Uguale per pagine trattate e di controllo dell'esperimento.
+# pagina_rif_paese() scrive solo il segnaposto; extra() lo riempie quando tutte le pagine esistono e dopo il cancello della pubblicità.
+# Il blocco sta tra due commenti e non entra nell'impronta del lastmod né nella misura delle parole proprie.
+SEGNA_NAZ = "<!--stessa-naz--><!--/stessa-naz-->"
+_RE_NAZ = re.compile(r"\n?<!--stessa-naz-->.*?<!--/stessa-naz-->", re.S)
+N_NAZ = 3
+PAGINE_NAZ = {}   # percorso della pagina Paese -> chiave del Paese nel file della Commissione
+
+
+def pagine_stessa_naz(p):
+    """Percorsi delle pagine in indice di altre sezioni per il Paese p (chiave della Commissione), nell'ordine della regola."""
+    cand = []
+    c = next((k for k, v in NAZ_TR.items() if v[4] == p), None)
+    if c:
+        cand.append(f"{SEZ_TR}{NAZ_TR[c][0]}/")
+    s = next((x for x in PAESI_PAG if _NOMI_UK_INV.get(x, x.upper()) == p), None)
+    if s:
+        cand.append(f"{SEZ_SELT}{SLUG_SELT[s]}/")
+    i = next((k for k in PAG_INF if k.upper() == p), None)
+    if i:
+        cand.append(f"{SEZ_INF}{PAESI_INF[i][0]}/")
+    in_indice = set(URLS)
+    return [x for x in cand if x in in_indice]
+
+
+def blocco_stessa_naz(percorso, p, testo):
+    rel = REL_PAGINE[percorso]
+    gia = set(re.findall(r'href="([^"#]+)', _RE_NAZ.sub("", testo)))
+    scelte = [x for x in pagine_stessa_naz(p) if rel + x not in gia][:N_NAZ]
+    if not scelte:
+        return ""
+    # il nome del Paese come lo scrive questa pagina (es. «Türkiye»; la pagina SELT usa il nome del Home Office, «Turkey»)
+    s = next((y for y in PAESI_PAG if _NOMI_UK_INV.get(y, y.upper()) == p), None)
+    nomi = (nome_p_selt(s), art(nome_paese(p))) if s else ("", "")
+    voci = " · ".join(f'<a href="{rel}{x}">{testo_link_piu(x).replace(*nomi) if x.startswith(SEZ_SELT) and nomi[0] else testo_link_piu(x)}</a>'
+                      for x in scelte)
+    return f'\n<p class="small naz">{ico("globe")} More about {escape(art(nome_paese(p)))}: {voci}</p>'
+
+
+def scrivi_stessa_naz():
+    """Riempie i segnaposto delle pagine Paese dei rifiuti. Ritorna il numero di righe con almeno un link."""
+    n = 0
+    for percorso, p in sorted(PAGINE_NAZ.items()):
+        f = SITO / percorso / "index.html"
+        t = f.read_text(encoding="utf-8")
+        if t.count(SEGNA_NAZ) != 1:
+            raise SystemExit(f"stessa nazionalità: segnaposto mancante o doppio in {percorso}")
+        b = blocco_stessa_naz(percorso, p, t)
+        n += bool(b)
+        f.write_text(t.replace(SEGNA_NAZ, "<!--stessa-naz-->" + b + "<!--/stessa-naz-->"), encoding="utf-8")
+    return n
+
+
 # ---------------------------------------------------------------- lastmod vero per ogni URL della sitemap (28/10/2026)
 # Il registro dati/lastmod.json tiene per ogni pagina la data dell'ultima modifica del contenuto e la sua impronta
 # (titolo, descrizione, JSON-LD e <main>: non il CSS, il menu o il piè di pagina, uguali in tutte le pagine).
@@ -1346,10 +1404,25 @@ IMPRONTE = {}   # percorso -> impronta della pagina appena generata
 VECCHIE = {}    # percorso -> impronta della pagina in sito/ prima della generazione
 
 
+# 27/11/2026 (revisione): la data in cui NOI abbiamo letto o scaricato una fonte non è un cambio di contenuto. Nell'impronta le date
+# dopo «downloaded/read/checked/verified (on)» e «leído/lido/consultado/descargado (el/em)» diventano un segno (come heatpumps, ccnl e
+# beforeyoufly). Le date della fonte (published, updated, dated…) restano: se cambiano, cambia il contenuto.
+_MESI_EN = "January|February|March|April|May|June|July|August|September|October|November|December"
+_RE_DATA_LETTURA = re.compile(r"\b((?:[Dd]ownloaded|[Rr]ead|[Cc]hecked|[Vv]erified)(?: on)? )\d{1,2} (?:" + _MESI_EN + r") \d{4}\b")
+_RE_DATA_LETTURA_ES = re.compile(r"\b((?:[Ll]e[ií]d[oa]s?|[Ll]id[oa]s?|[Cc]onsultad[oa]s?|[Dd]escargad[oa]s?|[Dd]escarregad[oa]s?) (?:el|em) )"
+                                 r"\d{1,2} de [a-zç]+ de \d{4}\b")
+
+
+def senza_date_lettura(testo):
+    return _RE_DATA_LETTURA_ES.sub(r"\1§", _RE_DATA_LETTURA.sub(r"\1§", testo))
+
+
 def impronta_contenuto(testo):
     import hashlib
     testo = normalizza_data_agg(testo)  # esperimento citazioni: la data "Updated on" scritta dopo il registro non entra nell'impronta
     testo = _RE_PIU.sub("", testo)      # blocchi «Most used» (25/11/2026): cambiano con le visite, non con il contenuto della pagina
+    testo = _RE_NAZ.sub("", testo)      # riga «More about <Paese>» (27/11/2026): link interni, non contenuto della pagina
+    testo = senza_date_lettura(testo)   # date di lettura/scaricamento delle fonti (27/11/2026)
     tit = re.search(r"<title>(.*?)</title>", testo, re.S)
     des = re.search(r'<meta name="description" content="(.*?)">', testo, re.S)
     ld = re.findall(r'<script type="application/ld\+json">(.*?)</script>', testo, re.S)
@@ -2577,12 +2650,14 @@ def sezione_uk(p, nome):
                 f'from {periodo_uk(T1)} (and fewer than {intero(SOGLIA_UK)} for study and work visas), fewer than the {intero(SOGLIA_UK)} we need to show a meaningful rate. '
                 f'See <a href="../uk/">UK refusal rates for all nationalities</a>.</p>{fonte_uk_p()}'), None
     righe = []
+    stelle = [False, False]   # asterisco: un gruppo sotto SOGLIA_POCO, il partner sotto SOGLIA_UK (nota sotto la tabella, 27/11/2026)
     for g in GRUPPI_UK + ["All"]:
         gg = GRUPPI_UK if g == "All" else [g]
         v1, v0 = uk_somma(nuk, gg, T1), uk_somma(nuk, gg, T0)
         if v1[0] + v1[1] == 0:
             continue
         poco = v1[0] + v1[1] < SOGLIA_POCO
+        stelle[0] |= poco
         cls = ' class="tot-r"' if g == "All" else (' class="poco"' if poco else "")
         righe.append(f'<tr{cls}><td>{"All visas" if g == "All" else NOMI_GRUPPI_UK[g]}</td>'
                      f'{cella_tasso(uk_tasso(v1), poco)}{cella_tasso(uk_tasso(v0))}'
@@ -2590,6 +2665,7 @@ def sezione_uk(p, nome):
         if g == "Family":  # sotto-voce: visti del partner (coniuge), solo con almeno SOGLIA_POCO decisioni
             p1, p0 = uk_somma(nuk, [PARTNER_UK], T1), uk_somma(nuk, [PARTNER_UK], T0)
             if p1[0] + p1[1] >= SOGLIA_POCO:
+                stelle[1] |= p1[0] + p1[1] < SOGLIA_UK
                 righe.append(f'<tr{" class=\"poco\"" if p1[0] + p1[1] < SOGLIA_UK else ""}><td>of which {NOME_PARTNER_UK.lower()}</td>'
                              f'{cella_tasso(uk_tasso(p1), p1[0] + p1[1] < SOGLIA_UK)}{cella_tasso(uk_tasso(p0)) if p0[0] + p0[1] >= SOGLIA_POCO else cella_tasso(None)}'
                              f'<td class="n">{intero(p1[0] + p1[1])}</td><td class="n">{intero(p1[0])}</td><td class="n">{intero(p1[1])}</td></tr>')
@@ -2647,6 +2723,9 @@ def sezione_uk(p, nome):
              f'<th class="n" scope="col">Year before<br><span class="small">{periodo_breve(T0)}</span></th><th class="n" scope="col">Decisions</th><th class="n" scope="col">Granted</th>'
              f'<th class="n" scope="col">Refused</th></tr></thead><tbody>{"".join(righe)}</tbody></table></div>'
              f'{fonte_uk_p()}'
+             + (f'<p class="small">* ' + "; ".join(x for x, s in ((f"Fewer than {intero(SOGLIA_POCO)} decisions", stelle[0]),
+                                                               (f"partner visas: fewer than {intero(SOGLIA_UK)} decisions", stelle[1])) if s).capitalize()
+                + ': the rate can swing a lot.</p>' if any(stelle) else '') +
              f'<h3>{NOMI_GRUPPI_UK[primo]}, quarter by quarter</h3><ol class="trim" aria-label="UK {NOMI_BREVI_UK[primo]} visa refusal rate by quarter">{barre}</ol>'
              f'<p class="fonte">Source: Home Office, same file as above (published {escape(F_UK["pubblicato"])}, downloaded on {data_lunga(F_UK["scaricato_il"])}). Each bar is the share of {NOMI_BREVI_UK[primo]} visa decisions '
              f'taken in that quarter that were refusals; 2026 figures are provisional.</p>{tab_q}')
@@ -2755,7 +2834,7 @@ def pagina_rif_paese(p):
 <p class="lead">Each Schengen country's consulates (or visa sections) in {escape(art(nome))}, by number of applications in {A1}. Where a country is represented by another, the applications appear under the country that decided them.</p>
 {tab_c}
 {fonte_ue_p(A1)}
-{uk_html}
+{uk_html}{SEGNA_NAZ}
 {au_html}
 {nz_html}
 {ca_html}
@@ -2787,6 +2866,7 @@ def pagina_rif_paese(p):
              + (f", and the UK refusal rate for nationals of {art(nome)} ({', '.join(f'{NOMI_BREVI_UK[g]} {pct(uk_r[g][0])}' for g in uk_r)})" if con_uk else "") + "."
              + (f" Australia student visas: {pct(au_r[0])} refused ({AU_A1})." if au_r else "")
              + (" New Zealand and Canada figures too." if nz_r and ca_r else " New Zealand figures too." if nz_r else " Canada figures too." if ca_r else ""))
+    PAGINE_NAZ[f"{SEZ}{slug}/"] = p
     if trattata:
         pagina(f"{SEZ}{slug}/", titolo, descr, corpo, ordina=True, briciole=[("Visa refusal rates", SEZ), (nome, f"{SEZ}{slug}/")],
                jsonld_extra=ld_esperimento(p, nome, slug, titolo), css_extra=CSS_ESP)
@@ -14148,6 +14228,7 @@ def extra():
     # blocchi «Most used» (home e indici di sezione), fuori dall'impronta del lastmod e dalla misura delle parole proprie (_RE_PIU toglie
     # allo stesso modo il segnaposto e il blocco): dal 26/11/2026 dopo il cancello, perché la home elenca solo le pagine che lo passano
     scrivi_piu_usate()
+    scrivi_stessa_naz()   # riga «More about <Paese>» delle pagine Paese dei rifiuti (27/11/2026), anche lei dopo il cancello
 
 
 def copia_grafica():

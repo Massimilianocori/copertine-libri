@@ -250,6 +250,9 @@ def main():
     agg_pag = re.search(r'"dateModified":\s*"(\d{4}-\d{2}-\d{2})', pag)
     ue = {}
     fonti = {}
+    # 27/11/2026: se il file della Commissione riscaricato è identico a quello già usato (stesso SHA-256) resta la data di scaricamento
+    # di prima: le pagine Schengen non cambiano e il loro lastmod non si muove per la sola data (REGISTRO-RISCHI-ERRORI, 25/11).
+    prima = json.loads(USCITA.read_text(encoding="utf-8")).get("fonti", {}) if USCITA.exists() else {}
     for anno in sorted(anni)[-2:]:
         b, meta = scarica(anni[anno], GREZZI / f"schengen-consolati-{anno}.xlsx", nuovo)
         righe, e, anom = leggi_ue(GREZZI / f"schengen-consolati-{anno}.xlsx", anno)
@@ -262,6 +265,8 @@ def main():
             "file": nome.group(1) if nome else anni[anno].rsplit("filename=", 1)[-1], "byte": len(b), "sha256": impronta(b),
             "scaricato_il": meta.get("scaricato_il", oggi), "pagina_aggiornata": agg_pag.group(1) if agg_pag else "", "righe": len(righe),
             "mev_anomalie": anom}
+        if prima.get(f"schengen_{anno}", {}).get("sha256") == fonti[f"schengen_{anno}"]["sha256"]:
+            fonti[f"schengen_{anno}"]["scaricato_il"] = prima[f"schengen_{anno}"]["scaricato_il"]
     agg_uk, det, sin = allegati_uk()
     b_uk, meta_uk = scarica(det["url"], GREZZI / "uk-entry-clearance-outcomes.xlsx", nuovo)
     uk = leggi_uk(GREZZI / "uk-entry-clearance-outcomes.xlsx")
