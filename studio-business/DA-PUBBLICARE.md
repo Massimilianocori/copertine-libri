@@ -15,6 +15,8 @@ Sezioni già revisionate, con i sorgenti salvati, che aspettano la pubblicazione
 | Sito (cartella) | Sezione | Revisione | Note |
 |---|---|---|---|
 
+Pubblicato il 27/11/2026 mattina: Visa Income (commit 630ca783f): elenco ufficiale dei centri SELT del 20/11 e sedi DTV rilette (giro del lunedì 23/11 saltato, rifatto); Migration Regulations australiane compilazione 293 del 13/11 (F2026C01242, unica modifica il visto 485 che non usiamo: importi e punti identici, confronto parola per parola); verifica.py: fonte non raggiungibile o limite di richieste (429) = avviso, non errore. verifica TUTTO OK (7 avvisi), monetizzazione 0 errori, pagina dal vivo controllata, IndexNow fatto. Da sapere: la compilazione 294 è attesa a giorni, australia_visti.py si fermerà di nuovo e va riletta.
+
 Pubblicato il 31/10/2026 alle 14:20 circa (ora di Roma): Visa Income, Before You Fly, EsameB1 (tutte le sezioni revisionate del giorno). Esperimento citazioni: conteggio dal 1/11/2026.
 
 Pubblicato il 20/11/2026 ~23:40 (lotto di venerdì): Before You Fly (bagaglio da stiva 11 compagnie, revisione 9,1; regole power bank 33 compagnie + /cabin-bags/power-banks/, revisione 8,8; cani_volo riletto), EsameB1 (12 pagine CPIA + /cpia/, revisione 7,0 → 8,8; pagina «Test lingua italiana B1 per cittadinanza online»; FAQ «cittadinanza italiana»), Visa Income (Teach English abroad, 6 pagine + Corea noindex, revisione 9/10). Verifiche 0 errori (Visa Income: 2 link esterni della Commissione UE in 429, verifica offline TUTTO OK), monetizzazione 0 errori; sitemap online = commit; 6 pagine nuove 200; IndexNow 3 siti HTTP 200; salute.py 0 errori, 0 avvisi. Dati aste aggiornati.
