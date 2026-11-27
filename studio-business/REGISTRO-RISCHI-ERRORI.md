@@ -28,3 +28,8 @@ Regola: ogni errore mio o ogni variabile esterna che costa visite o soldi entra 
 | Fonti ufficiali che cambiano formato o bloccano | salute.py, script di raccolta | non pubblicare dati non verificati; adattare lo script; data vera in pagina |
 | Assistenti AI (ChatGPT) come fonte di visite | GoatCounter, provenienze | pagine con dato, fonte e data in apertura e file ufficiali |
 | Costi (piano, Netlify, domini) | crediti Netlify, riassunto del lunedì | rete sotto il piano prudente per 2 mesi: proposta di taglio dei costi |
+
+## 9. Calo delle visite visto da Massimiliano prima che da noi (27/11/2026)
+- **Errore:** Before You Fly è sceso del 40 % dal 16-17/11 (414 → 236 → ~220 pagine viste a settimana) e Massimiliano ha dovuto dirci «sembra morto». Il controllo automatico guardava dati e pagine, non le visite; il confronto per sito era solo il lunedì e non scattava.
+- **Correzione:** `salute.py` ha l'ALLARME VISITE giornaliero per ogni sito; il riassunto del mattino lo riporta sempre e l'indagine parte lo stesso giorno (REGOLE-FISSE, «SUPERVISIONE DELLE VISITE»).
+- **Controllo:** il 27/11 il primo giro ha dato 3 allarmi: visaincomechecker.com −40 %, before-you-fly.com −41 %, pagaccnl.com −73 %.
