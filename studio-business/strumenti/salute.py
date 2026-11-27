@@ -373,6 +373,64 @@ def controlli_locali(cartella, cal, prima):
     return errori, avvisi
 
 
+# 27/11/2026 (Massimiliano: «perché te lo devo dire io che è morto quando sei tu che devi supervisionare»):
+# controllo automatico delle VISITE di ogni sito. GoatCounter conta le pagine viste con il percorso "/<host>/<pagina>";
+# per i domini spostati si sommano anche le visite del vecchio indirizzo (VECCHI). Gli eventi /clic/ non contano.
+# ALLARME (riga a parte, prima di avvisi ed errori) se, su un sito con almeno 70 pagine viste nella settimana migliore
+# delle ultime 6: gli ultimi 7 giorni sono sotto il 60 % della settimana migliore, oppure sotto il 70 % dei 7 giorni prima.
+# I siti a picchi (scioperi) hanno un avviso, non un allarme: il calo dopo un picco è normale.
+GC = "https://rete-siti.goatcounter.com/api/v0/"
+PICCHI = {"italystrikes"}
+
+def _gc(u):
+    for _ in range(5):
+        try:
+            return json.load(urllib.request.urlopen(GC + u, timeout=60))
+        except Exception:
+            __import__("time").sleep(5)
+    return None
+
+def _viste(da, a):
+    """{host: pagine viste} tra le date da e a (comprese), tolti gli eventi /clic/. None se l'API non risponde."""
+    righe = []
+    while True:
+        ex = ",".join(str(h["path_id"]) for h in righe)
+        d = _gc(f"stats/hits?start={da}T00:00:00Z&end={a}T23:59:59Z&limit=100" + (f"&exclude_paths={ex}" if ex else ""))
+        if d is None: return None
+        righe += d["hits"]
+        __import__("time").sleep(0.3)
+        if not d.get("more") or not d["hits"]: break
+    tot = {}
+    for h in righe:
+        if "/clic/" in h["path"]: continue
+        host = h["path"].lstrip("/").split("/")[0]
+        tot[host] = tot.get(host, 0) + h["count"]
+    return tot
+
+def visite(lista):
+    """-> (allarmi, avvisi, righe di riepilogo) sulle visite di ogni sito."""
+    allarmi, avvisi, righe = [], [], []
+    settimane = []
+    for k in range(6):  # k=0: ultimi 7 giorni completi (fino a ieri)
+        a = OGGI - dt.timedelta(days=1 + 7 * k)
+        v = _viste(a - dt.timedelta(days=6), a)
+        if v is None:
+            return [], ["visite: API GoatCounter non raggiungibile, controllo delle visite non fatto"], []
+        settimane.append(v)
+    for host, cart in lista:
+        nomi = {host, VECCHI.get(host, "")}
+        w = [sum(n for h, n in s.items() if h in nomi) for s in settimane]
+        ult, prec, best = w[0], w[1], max(w)
+        righe.append(f"{host}: ultimi 7 giorni {ult}, 7 giorni prima {prec}, settimana migliore (6 settimane) {best}")
+        if best < 70: continue
+        motivi = []
+        if ult < 0.6 * best: motivi.append(f"−{round(100 - 100 * ult / best)} % dalla settimana migliore ({best})")
+        if prec >= 50 and ult < 0.7 * prec: motivi.append(f"−{round(100 - 100 * ult / prec)} % dai 7 giorni prima ({prec})")
+        if motivi:
+            testo = f"{host}: pagine viste negli ultimi 7 giorni {ult}, " + "; ".join(motivi) + " (settimane, dalla più recente: " + ", ".join(map(str, w)) + ")"
+            (avvisi if cart in PICCHI else allarmi).append(testo)
+    return allarmi, avvisi, righe
+
 def main():
     solo = sys.argv[sys.argv.index("--solo") + 1] if "--solo" in sys.argv else None
     errori, avvisi = [], []
@@ -423,9 +481,13 @@ def main():
         e += el
         errori += [f"{host}: {x}" for x in e]
         print(f"{host:42} {len(locs):5} URL  {'OK' if not e else 'ERRORI: ' + ' | '.join(e)}", flush=True)
+    allarmi, av_vis, righe_vis = visite([(h, c) for h, c in siti() if not solo or solo in (h, c)])
+    avvisi += av_vis
+    for r in righe_vis: print("VISITE", r)
+    for x in allarmi: print("ALLARME VISITE", x)
     for a in avvisi: print("AVVISO", a)
     for x in errori: print("ERRORE", x)
-    print(f"Riepilogo {OGGI}: {len(errori)} errori, {len(avvisi)} avvisi")
+    print(f"Riepilogo {OGGI}: {len(errori)} errori, {len(avvisi)} avvisi, {len(allarmi)} allarmi visite")
     sys.exit(1 if errori else 0)
 
 if __name__ == "__main__":
