@@ -1,4 +1,4 @@
-"""Ricontrollo delle impronte delle fonti (campo "impronta" in dati/destinazioni.json, anche dentro "evento", e in dati/spagna_licenze.json).
+"""Ricontrollo delle impronte delle fonti (campo "impronta" in dati/destinazioni.json, anche dentro "evento", in dati/spagna_licenze.json e in dati/canarie.json).
 
 Uso (dalla radice del repository):
     python3 -I touristtax/raccolta/impronte.py            # riscarica le fonti con impronta e dice quali sono cambiate
@@ -41,6 +41,15 @@ def impronta(corpo):
     return "testo", "sha256:" + hashlib.sha256(s.encode("utf-8")).hexdigest()
 
 
+def testo_di(corpo):
+    """Testo di una pagina HTML con la stessa ricetta dell'impronta "testo" (per le fonti con "impronta_di": "frammenti")."""
+    t = corpo.decode("utf-8", "replace")
+    m = re.search(r"<main.*?</main>", t, re.S)
+    t = m.group(0) if m else t
+    t = re.sub(r"<script.*?</script>|<style.*?</style>|<form.*?</form>", "", t, flags=re.S)
+    return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", t))).strip()
+
+
 def main():
     if len(sys.argv) > 1:
         codice, corpo = scarica(sys.argv[1])
@@ -66,6 +75,18 @@ def main():
         ok = codice == 200 and tipo == f["impronta_di"] and imp == f["impronta"]
         cambiate += not ok
         print(f"{'ok      ' if ok else 'CAMBIATA'} spagna/{k}: HTTP {codice} {f.get('url_impronta', f['url'])}")
+    # Canarie (27/11/2026): fonti in dati/canarie.json. I PDF hanno l'impronta del file; le pagine HTML hanno "impronta_di":
+    # "frammenti" (le pagine del Cabildo di Tenerife cambiano a ogni richiesta): si controlla che ogni frammento letto sia ancora nel testo.
+    canarie = json.loads((DATI.parent / "canarie.json").read_text(encoding="utf-8"))["fonti"]
+    for k, f in canarie.items():
+        codice, corpo = scarica(f["url"])
+        if f["impronta_di"] == "frammenti":
+            ok = codice == 200 and all(re.sub(r"\s+", " ", x).strip() in testo_di(corpo) for x in f["frammenti"])
+        else:
+            tipo, imp = impronta(corpo)
+            ok = codice == 200 and tipo == f["impronta_di"] and imp == f["impronta"]
+        cambiate += not ok
+        print(f"{'ok      ' if ok else 'CAMBIATA'} canarie/{k}: HTTP {codice} {f['url']}")
     print(f"Fonti con impronta cambiata o non leggibile: {cambiate}")
 
 

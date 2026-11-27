@@ -1428,6 +1428,216 @@ def controlla_usa():
     return errori
 
 
+# 16. Canarie: c'è una tassa di soggiorno? (27/11/2026). Fatti letti a mano il 27/11/2026 nei testi ufficiali (BOP Las Palmas n. 30 del
+# 10/3/2025 e n. 134 del 9/11/2026, Diario de Sesiones 61 e 74 del Parlamento delle Canarie, avviso del Cabildo di Tenerife del 18/1/2026,
+# Decreto Legislativo 1/2025 art. 32.1), scritti qui una seconda volta: se dati/canarie.json cambia senza una nuova lettura, il controllo si ferma.
+CN_ATTESI = {"mogan": 0.15, "la_oliva": 0.56, "voti": (25, 40), "mozione": (24, 37), "igic": 7,
+             "teide": {("PNT 10", "any day"): (0, 6, 15), ("PNT 07", "working days"): (0, 3, 6), ("PNT 07", "weekends and public holidays"): (0, 5, 10)}}
+CN_ESEMPI = [  # (pagina, testo atteso, calcolo a mano)
+    ("gran-canaria", "2 × 7 × €0.15 = <strong>€2.10</strong>", 2 * 7 * 0.15), ("gran-canaria", "4 × 7 × €0.15 = <strong>€4.20</strong>", 4 * 7 * 0.15),
+    ("fuerteventura", "2 × 7 × €0.56 = <strong>€7.84</strong>", 2 * 7 * 0.56), ("fuerteventura", "4 × 7 × €0.56 = <strong>€15.68</strong>", 4 * 7 * 0.56),
+    ("tenerife", "2 × €15 = <strong>€30</strong>", 2 * 15), ("tenerife", "2 × €10 = <strong>€20</strong>", 2 * 10), ("tenerife", "2 × €6 = <strong>€12</strong>", 2 * 6),
+    ("canary-islands", "2 × 7 × €0.15 = <strong>€2.10</strong>", 2.10), ("canary-islands", "2 × 7 × €0.56 = <strong>€7.84</strong>", 7.84),
+    ("lanzarote", "2 × €0.56 = €1.12", 1.12),
+]
+CN_DOMINI = ("https://www.boplaspalmas.net/", "https://www.parcan.es/", "https://tenerifemassostenible.tenerife.es/", "https://www.boe.es/ccaa/boc/",
+             "https://www.boe.es/buscar/act.php?id=BOE-A-2004-4214", "https://www.boe.es/buscar/act.php?id=BOE-A-1998-16718")
+CN_PAGINE = ("canary-islands", "tenerife", "gran-canaria", "fuerteventura", "lanzarote")
+CN_INIZIO = {  # inizio esatto della risposta, pagina per pagina (un «no» pieno solo dove è stato letto)
+    "canary-islands": "Short answer: no, the Canary Islands have no regional tourist tax",
+    "tenerife": "Short answer: no tourist tax per night in Tenerife that we could find",
+    "gran-canaria": "Short answer: not for the island as a whole",
+    "fuerteventura": "Short answer: no, nobody in Fuerteventura charges a tourist tax today",
+    "lanzarote": "Short answer: no, Lanzarote has no tourist tax",
+}
+CN_SOGLIA_PAROLE_UNICHE = 110   # cancello AdSense della rete (visaincome/verifica.py): sotto questa soglia niente pubblicità
+CN_MAX_FRASI_COMUNI = 0.40      # quota massima di frasi di una pagina che compaiono anche in un'altra pagina delle Canarie
+
+
+def _cn_main(t):
+    m = re.search(r"<main\b.*?</main>", t, re.S).group(0)
+    return m[:m.find("<h2>Sources</h2>")] if "<h2>Sources</h2>" in m else m
+
+
+def _cn_frasi(t):
+    """Frasi del contenuto proprio (senza l'elenco delle fonti, le righe delle fonti e l'avviso), per misurare i doppioni."""
+    m = re.sub(r'<p class="(fonte[^"]*|avviso)">.*?</p>', " ", _cn_main(t), flags=re.S)
+    m = re.sub(r"</(p|li|td|th|h1|h2|h3|summary|small)>", ". ", m)
+    x = re.sub(r"\s+", " ", unescape(re.sub(r"<[^>]+>", " ", m)))
+    return {f.strip().lower() for f in re.split(r"(?<=[.?!:]) ", x) if len(f.split()) >= 6}
+
+
+def controlla_canarie():
+    """16. Fonti (domini ufficiali, HTTP 200, data, impronta del file o frammenti letti; la stampa solo come 'stampa'); fatti = attesi letti a mano
+    = numeri dentro i frammenti; esempi a mano; 5 pagine: titolo ≤ 70, H1 = domanda, prima frase = risposta con la data, ogni fonte linkata con la
+    data, stampa dichiarata, nessun importo in euro fuori dai dati, FAQ = JSON-LD, sitemap, link (Spagna, Baleari, home, Europa), parole uniche,
+    doppioni fra le pagine."""
+    errori = []
+    C, F = G.CN, G.CN_F
+    oggi_dati = C["controllato_il"]
+    for k, f in F.items():
+        if f["tipo"] == "ufficiale":
+            if not f["url"].startswith(CN_DOMINI):
+                errori.append(f"Canarie: fonte ufficiale su un dominio non atteso: {k} {f['url']}")
+        elif f["tipo"] != "stampa" or not f["url"].startswith("https://rtvc.es/"):
+            errori.append(f"Canarie: fonte né ufficiale né stampa dichiarata: {k}")
+        if f["http"] != 200 or f.get("controllato_il", "") < "2026-11-27" or not f.get("frammenti") or not f.get("breve"):
+            errori.append(f"Canarie: fonte non letta, senza data, senza frammenti o senza nome breve: {k}")
+        if f["impronta_di"] == "file" and not re.fullmatch(r"sha256:[0-9a-f]{64}", f.get("impronta", "")):
+            errori.append(f"Canarie: PDF senza impronta sha256: {k}")
+        if f["impronta_di"] not in ("file", "frammenti") or (f["url"].endswith(".pdf") != (f["impronta_di"] == "file")):
+            errori.append(f"Canarie: tipo di impronta sbagliato: {k}")
+    fr = lambda k: " ".join(F[k]["frammenti"])
+    mg, ol, te, reg = C["mogan"], C["la_oliva"], C["teide"], C["regionale"]
+    if mg["importo"] != CN_ATTESI["mogan"] or "en concreto 0,15 /día por alojamiento/día" not in fr("bop_mogan") or mg["fonte"] != "bop_mogan":
+        errori.append("Canarie: importo di Mogán diverso da 0,15 (BOP n. 30 del 10/3/2025, art. 8)")
+    if (mg["bop"], mg["in_vigore_dal"], mg["approvazione_definitiva"], mg["esenzioni"]) != ({"numero": 30, "data": "2025-03-10"}, "2025-03-11", "2025-02-28", 0):
+        errori.append("Canarie: Mogán, bollettino, date o esenzioni diversi dal testo letto")
+    if "Pleno de 28 de febrero de 2025" not in fr("bop_mogan") or "día siguiente al de su publicación íntegra" not in fr("bop_mogan"):
+        errori.append("Canarie: Mogán, frammenti senza l'approvazione definitiva o l'entrata in vigore")
+    if ol["importo"] != CN_ATTESI["la_oliva"] or "0,56 euros por cada pernoctación y contribuyente" not in fr("bop_la_oliva") or ol["in_vigore"] is not False:
+        errori.append("Canarie: La Oliva, importo diverso da 0,56 (BOP n. 134 del 9/11/2026, art. 13) o data come 'in vigore'")
+    if (ol["stato"], ol["approvazione_iniziale"], ol["bop"], ol["esenti_sotto_anni"], ol["giorni_osservazioni"]) != \
+            ("approvazione_iniziale", "2026-10-29", {"numero": 134, "data": "2026-11-09"}, 3, 30):
+        errori.append("Canarie: La Oliva, stato, date, esenzioni o giorni diversi dal testo letto")
+    if "celebrado el 29 de octubre de 2026, acordó aprobar inicialmente" not in fr("bop_la_oliva") or "menores de 3 años" not in fr("bop_la_oliva") \
+            or "TREINTA DÍAS HÁBILES" not in fr("bop_la_oliva"):
+        errori.append("Canarie: La Oliva, frammenti senza approvazione iniziale, esenzione sotto i 3 anni o 30 giorni")
+    P, M = reg["proposta_legge"], reg["mozione"]
+    if (P["voti_si"], P["voti_no"]) != CN_ATTESI["voti"] or "sí, 25; no, 40; abstenciones, 0" not in fr("parcan_ppl") or P["dibattito"] != "2024-12-11" \
+            or (P["tariffa_min"], P["tariffa_max"]) != (1.0, 3.5) or "desde el euro hasta los tres euros y medio" not in fr("parcan_ppl"):
+        errori.append("Canarie: voto o tariffe proposte della PPL-0004 diversi dal Diario de Sesiones 61")
+    if (M["voti_si"], M["voti_no"]) != CN_ATTESI["mozione"] or "sí, 24; no, 37" not in fr("parcan_mozione"):
+        errori.append("Canarie: voto della mozione M-0039 diverso dal Diario de Sesiones 74")
+    L = reg["leggi_in_corso"]
+    codici = set(re.findall(r"11L/(?:DL|PL|PPL)-\d{4}", fr("parcan_leggi")))
+    if codici != set(L["proposte"] + L["progetti"] + L["decreti_legge"]) or re.search(r"tur[ií]st|estancias|pernoctaci", fr("parcan_leggi"), re.I) or L["su_tassa_turistica"] != 0:
+        errori.append("Canarie: elenco delle leggi in corso diverso dai frammenti letti, o una legge parla di turismo: rileggere parcan.es/leyes/")
+    if reg["igic"]["aliquota_generale"] != CN_ATTESI["igic"] or "es el 7 por ciento" not in fr("boc_igic"):
+        errori.append("Canarie: aliquota generale IGIC diversa dal 7 % (Decreto Legislativo 1/2025, art. 32.1)")
+    got = {(s["id"], t["giorni"]): (t["tenerife"], t["altre_isole"], t["altri"]) for s in te["sentieri"] for t in s["tariffe"]}
+    ft = fr("cabildo_teide")
+    if got != CN_ATTESI["teide"] or te["dal"] != "2026-01-19" or "deberán abonar 6 euros, y el resto de personas usuarias, 15 euros" not in ft \
+            or "3 euros para residentes en el resto de Canarias y de 6 euros para el resto de usuarios" not in ft \
+            or "5 euros para residentes en el resto de las islas y 10 euros para el resto de visitantes" not in ft or "menores de 14 años" not in ft:
+        errori.append("Canarie: tariffe dei sentieri del Teide diverse dall'avviso del Cabildo del 18/1/2026")
+    if te["annunciato"]["importo"] is not None:
+        errori.append("Canarie: importo per il parcheggio del Teide senza un atto ufficiale che lo dica")
+    st = mg["stampa_annullamento"]
+    if F[st["fonte"]]["tipo"] != "stampa" or st["sentenza_letta"] is not False or "nula de pleno derecho" not in fr("rtvc_mogan"):
+        errori.append("Canarie: annullamento di Mogán non segnato come notizia di stampa (sentenza non letta)")
+    ra = mg.get("ricerca_annullamento", {})
+    if ra.get("avvisi_di_annullamento_o_abrogazione") != 0 or ra.get("fatta_il", "") < "2026-11-27" or "sentencias firmes que anulen una disposición general" not in fr("boe_ljca"):
+        errori.append("Canarie: Mogán, ricerca dell'avviso di annullamento nel BOP mancante o con un avviso trovato: rileggere e riscrivere lo stato")
+    if "sin necesidad de acuerdo plenario" not in fr("boe_trlhl"):
+        errori.append("Canarie: La Oliva, frammento dell'art. 17.3 (approvazione definitiva senza nuovo voto) mancante")
+    R = C["ricerca_bop"]
+    if R["fatta_il"] > oggi_dati or [(x["bollettino"], x["data"]) for x in R["trovate"]] != [(153, "2024-12-18"), (30, "2025-03-10"), (134, "2026-11-09")]:
+        errori.append("Canarie: risultati della ricerca nel BOP di Las Palmas diversi da quelli letti il 27/11/2026")
+    # pagine
+    sm = _sitemap()
+    testi, frasi = {}, {}
+    ammessi = {G.eur(v) for v in (0.15, 0.56, 1, 3.5, 3, 5, 6, 10, 15, 30, 20, 12, 2.10, 4.20, 7.84, 15.68, 1.12)}
+    bal = D["mallorca"]
+    ammessi |= {G.soldi_breve(t["valore"], "EUR") for t in bal["tariffe"]}
+    for slug in CN_PAGINE:
+        f = SITO / slug / "index.html"
+        if not f.exists():
+            errori.append(f"Canarie: pagina mancante {slug}")
+            continue
+        t = testi[slug] = f.read_text(encoding="utf-8")
+        chiave = "hub" if slug == "canary-islands" else slug
+        titolo = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        descr = unescape(re.search(r'<meta name="description" content="([^"]*)"', t).group(1))
+        if len(descr) > 160 or not re.search(r"Checked \d{1,2} [A-Z][a-z]{2} 20\d\d\.$", descr):
+            errori.append(f"Canarie: {slug}: descrizione oltre 160 caratteri o senza la data: {len(descr)}")
+        if "«" in t or "»" in t:
+            errori.append(f"Canarie: {slug}: virgolette « » (stile non britannico)")
+        if len(titolo) > 70 or "tourist tax" not in titolo or str(G.ANNO) not in titolo or titolo != G.CN_TITOLI[chiave][0]:
+            errori.append(f"Canarie: {slug}: titolo oltre 70 caratteri o senza 'tourist tax' e anno: {titolo}")
+        h1 = unescape(re.sub(r"<[^>]+>", "", re.search(r"<h1>(.*?)</h1>", t, re.S).group(1)))
+        if not h1.startswith("Is there a tourist tax in ") or not h1.endswith("?"):
+            errori.append(f"Canarie: {slug}: l'H1 non è la domanda")
+        r = re.search(r'<p class="risposta">(.*?)</p>', t, re.S)
+        prima = unescape(r.group(1)).split(". ")[0] if r else ""
+        r2 = re.search(r'<p class="risposta-seguito">(.*?)</p>', t, re.S)
+        risposta_intera = unescape((r.group(1) if r else "") + " " + (r2.group(1) if r2 else ""))
+        if not r2 or len(re.findall(r"(?<=[.)]) (?=[A-Z])", unescape(r.group(1) if r else ""))) > 2:
+            errori.append(f"Canarie: {slug}: la risposta non è divisa in due paragrafi dopo la seconda frase")
+        if not prima.startswith(CN_INIZIO[slug]) or f"checked on {G.CN_CHECK}" not in prima:
+            errori.append(f"Canarie: {slug}: la prima frase non è la risposta con la data della lettura")
+        corpo = _cn_main(t)
+        for m in re.finditer(r'<p class="fonte[^"]*">(.*?)</p>', t, re.S):
+            p = m.group(0)
+            link = re.findall(r'href="([^"]+)"', p)
+            stampa = [u for u in link if any(unescape(u) == x["url"] and x["tipo"] == "stampa" for x in F.values())]
+            if not link or not re.search(r"(checked|read) on \d{1,2} [A-Z][a-z]+ 20\d\d", p):
+                errori.append(f"Canarie: {slug}: riga di fonte senza link o senza data")
+            if stampa and not p.startswith('<p class="fonte fonte-stampa">Press report, not an official source:'):
+                errori.append(f"Canarie: {slug}: fonte di stampa non dichiarata come stampa")
+            if (len(stampa) != len(link)) and stampa:
+                errori.append(f"Canarie: {slug}: stampa e fonti ufficiali nella stessa riga")
+        elenco = t[t.find("<h2>Sources</h2>"):]
+        for k, x in F.items():
+            if G.escape(x["url"]) in corpo and G.escape(x["url"]) not in elenco:
+                errori.append(f"Canarie: {slug}: fonte usata ma non nell'elenco finale: {k}")
+        if "rtvc.es" in t and "press report, not an official source" not in elenco:
+            errori.append(f"Canarie: {slug}: la stampa nell'elenco finale non è dichiarata")
+        for h2 in re.split(r"<h[23]>", corpo)[1:]:
+            if re.search(r"€\d", h2) and 'class="fonte' not in h2 and "Questions" not in h2[:20] and not h2.startswith(("The other islands", "Island pages", "What other islands charge")):
+                errori.append(f"Canarie: {slug}: sezione con un importo ma senza riga di fonte: {h2[:50]}")
+        for v in set(re.findall(r"€\d+(?:\.\d+)?", unescape(re.sub(r"<[^>]+>", " ", corpo)))):
+            if v not in ammessi:
+                errori.append(f"Canarie: {slug}: importo {v} che non viene dai dati")
+        if slug in ("canary-islands", "gran-canaria") and "may still be" not in risposta_intera:
+            errori.append(f"Canarie: {slug}: la risposta non dice che la tassa di Mogán può essere ancora chiesta")
+        faq_v = re.findall(r'<details class="faq"><summary>(.*?)</summary><p>(.*?)</p></details>', t, re.S)
+        ld = [json.loads(x) for x in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t, re.S)]
+        fp = next((x for x in ld if x.get("@type") == "FAQPage"), None)
+        if not fp or len(faq_v) < 4 or [(unescape(q), unescape(a)) for q, a in faq_v] != [(x["name"], x["acceptedAnswer"]["text"]) for x in fp["mainEntity"]]:
+            errori.append(f"Canarie: {slug}: FAQ visibili diverse dal JSON-LD o meno di 4")
+        if f"{G.URL_SITO}/{slug}/" not in sm:
+            errori.append(f"Canarie: {slug}: non nella sitemap")
+        for altro in CN_PAGINE:
+            if altro != slug and f'href="../{altro}/"' not in t:
+                errori.append(f"Canarie: {slug}: manca il link a {altro}")
+        for dest in ("mallorca", "country/spain"):
+            if f'href="../{dest}/"' not in t:
+                errori.append(f"Canarie: {slug}: manca il link a {dest}")
+        if 'class="ad-slot"' not in t or "Not tax advice" not in t:
+            errori.append(f"Canarie: {slug}: manca lo spazio pubblicitario o l'avviso")
+        frasi[slug] = _cn_frasi(t)
+        parole = {w for w in re.findall(r"[a-zà-ÿ0-9€.%]+", " ".join(frasi[slug]))}
+        if len(parole) < CN_SOGLIA_PAROLE_UNICHE:
+            errori.append(f"Canarie: {slug}: {len(parole)} parole uniche (soglia {CN_SOGLIA_PAROLE_UNICHE})")
+    for slug, fs in frasi.items():
+        altre = set().union(*(v for k, v in frasi.items() if k != slug))
+        quota = len(fs & altre) / max(1, len(fs))
+        if quota > CN_MAX_FRASI_COMUNI:
+            errori.append(f"Canarie: {slug}: {quota:.0%} delle frasi è uguale a un'altra pagina delle Canarie (massimo {CN_MAX_FRASI_COMUNI:.0%})")
+    for slug, atteso, mano in CN_ESEMPI:
+        cifra = float(re.findall(r"€(\d+(?:\.\d+)?)", atteso)[-1])
+        if abs(cifra - mano) > 0.005 or atteso not in testi.get(slug, ""):
+            errori.append(f"Canarie: esempio a mano non trovato o sbagliato in {slug}: {atteso}")
+    # link in entrata e pagine esistenti
+    spagna = (SITO / "country" / "spain" / "index.html").read_text(encoding="utf-8")
+    if 'href="../../canary-islands/"' not in spagna or any(f'href="../../{s}/"' not in spagna for s in CN_PAGINE[1:]):
+        errori.append("Canarie: la pagina Spagna non linka le 5 pagine")
+    for b in ("mallorca", "ibiza", "menorca", "formentera"):
+        if 'href="../canary-islands/"' not in (SITO / b / "index.html").read_text(encoding="utf-8"):
+            errori.append(f"Canarie: la pagina {b} non linka la pagina Canarie")
+    home = (SITO / "index.html").read_text(encoding="utf-8")
+    if any(f'<a href="{s}/">' not in home for s in CN_PAGINE):
+        errori.append("Canarie: la home non elenca le 5 pagine")
+    if 'href="../canary-islands/"' not in (SITO / "tourist-taxes-europe-2026" / "index.html").read_text(encoding="utf-8"):
+        errori.append("Canarie: la pagina Europa non linka la pagina Canarie")
+    about = G.MON.testo_visibile((SITO / "about" / "index.html").read_text(encoding="utf-8"))
+    if re.search(r"Morocco and the Canary Islands", about):
+        errori.append("Canarie: la pagina About dice ancora che le Canarie non sono pubblicate")
+    return errori, {s: len({w for w in re.findall(r"[a-zà-ÿ0-9€.%]+", " ".join(f))}) for s, f in frasi.items()}, \
+        {s: len(fs & set().union(*(v for k, v in frasi.items() if k != s))) / max(1, len(fs)) for s, fs in frasi.items()}
+
+
 def voce_futura_nel_titolo(titolo, attese, oggi):
     fut = [x for x in attese if x[0] > oggi]
     return bool(fut) and G.soldi(fut[0][1], "MXN") in titolo
@@ -1472,9 +1682,13 @@ def main():
     print(f"USA, Florida e Texas ({len(G.US['fonti'])} fonti con impronta e data, aliquote = file riscaricati e riletti = {len(ESEMPI_US_FL) + len(ESEMPI_US_TX)} "
           f"esempi a mano, {len(ESEMPI_US_CALC)} calcoli a mano, JS = Python, {3 + sum(len(v) for v in G.US['pagine'].values())} pagine, titoli, prima frase, "
           f"FAQ = JSON-LD, sitemap, link): {len(eus)} errori")
+    ecn, pu, dop = controlla_canarie()
+    print(f"Canarie ({len(G.CN_F)} fonti con data e frammenti letti, fatti = letti a mano = frammenti, {len(CN_ESEMPI)} esempi a mano, 5 pagine: titolo, domanda, "
+          f"risposta con data, fonti linkate, stampa dichiarata, importi = dati, FAQ = JSON-LD, sitemap, link; parole uniche "
+          f"{min(pu.values()) if pu else 0}-{max(pu.values()) if pu else 0} (soglia {CN_SOGLIA_PAROLE_UNICHE}), frasi in comune fino al {max(dop.values()) if dop else 0:.0%}): {len(ecn)} errori")
     em, im = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
     print(G.MON.riepilogo(G.SITO_ID, im, em))
-    tutti = errori + ej + el + ef + ea + ei + e7 + en + et + ex + ejp + ejt + ebe + esn + ees + eus + em
+    tutti = errori + ej + el + ef + ea + ei + e7 + en + et + ex + ejp + ejt + ebe + esn + ees + eus + ecn + em
     for e in tutti[:40]:
         print("  -", e)
     if tutti:

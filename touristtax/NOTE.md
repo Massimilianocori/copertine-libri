@@ -96,7 +96,8 @@ destinazione interessata, commit (Netlify pubblica da solo).
 | ~~Okinawa~~ | aggiunta il 31/10/2026 (pagina e calcolatore, partenza 1/2/2027) | – |
 | Anversa | antwerpen.be/info/stadsbelasting 403 | regolamento comunale leggibile |
 | Bruges, tassa per crocieristi e pullman dal 2027 | solo notizia VRT del 19/3/2025, nessun regolamento su brugge.be | regolamento ufficiale |
-| Egitto, Marocco, Canarie | nessuna fonte ufficiale con tariffa | – |
+| Egitto, Marocco | nessuna fonte ufficiale con tariffa | – |
+| ~~Canarie~~ | 5 pagine informative dal 27/11/2026 (vedi sezione in fondo) | – |
 | Francia: comuni senza righe 2026 nel file DGFiP (es. Nizza, Marsiglia, Tolosa) | le tariffe nel file sono di anni precedenti | non si mostrano: la ricerca dice di chiedere al comune |
 
 ## Note e limiti noti
@@ -341,3 +342,32 @@ Scheda: `studio-business/schede/2026-11-27-touristtax-fonti-2027.md`. Non pubbli
 - Napoli: nulla per il 2027. Turchia: nessuna decisione dopo la 11263 (resta 2 % dal 1/1/2027). Islanda: il progetto di bilancio 2027 prevede +5,2 % sulla gistináttaskattur, ma non è legge (Althingi 403 dal server): non inserito. Praga: solo proposte. Edimburgo, Vienna: niente di nuovo.
 
 **Da fare:** dicembre 2026: Amsterdam (Gemeenteblad), Milano (PDF tariffe 2027), Islanda (legge di bilancio approvata), Napoli; gennaio 2027: data di partenza di Oita (pagina della Prefettura).
+
+## 27/11/2026 — Canarie: «c'è una tassa di soggiorno?» (5 pagine, NON pubblicate, nessun commit)
+
+Scheda: `studio-business/schede/2026-11-27-touristtax-canarie.md`.
+
+**Pagine nuove (in sitemap):** `canary-islands/` (pagina madre), `tenerife/`, `gran-canaria/`, `fuerteventura/`, `lanzarote/`. Pagine indicizzabili 382 → 387. Nessun calcolatore: sono pagine di risposta, con la data della lettura e il link per ogni fatto.
+
+**Dati:** `dati/canarie.json` (11 fonti, ognuna con data e frammenti letti in spagnolo; i PDF hanno l'impronta sha256). Codice: blocco «Canarie» in `genera.py` (`pagine_canarie()`); controllo 16 in `verifica.py` (`controlla_canarie()`); `raccolta/impronte.py` rilegge anche queste fonti.
+
+**Cosa dicono le fonti ufficiali lette il 27/11/2026:**
+- Nessuna tassa regionale: il Parlamento delle Canarie ha respinto la proposta di legge 11L/PPL-0004 l'11/12/2024 (25 sì, 40 no; proponeva da 1 a 3,50 €); mozione respinta il 9/4/2025 (24 sì, 37 no); il 27/11/2026 nessuna legge in corso ha «tassa turistica» nel titolo (14 voci in parcan.es/leyes/).
+- Mogán (Gran Canaria): ordinanza nel BOP di Las Palmas n. 30 del 10/3/2025, 0,15 € per pernottamento, nessuna esenzione, applicabile dal giorno dopo.
+- La Oliva (Fuerteventura, Corralejo): approvazione INIZIALE del 29/10/2026, BOP n. 134 del 9/11/2026, 0,56 € a persona a notte, esenti sotto i 3 anni e residenti; 30 giorni lavorativi per le osservazioni; NON in vigore.
+- Tenerife: nessuna tassa a notte; il Cabildo fa pagare dal 19/1/2026 due sentieri del Teide (non residenti alle Canarie: 15 € Telesforo Bravo; 6 € feriali e 10 € festivi Montaña Blanca – La Rambleta). Annunciato (7/5/2026) parcheggio a pagamento con prenotazione, senza importo.
+- IGIC: aliquota generale 7 % (Decreto Legislativo 1/2025, art. 32.1).
+- Lanzarote: niente. Ricerca nei sommari del BOP di Las Palmas 2024-2026 (5 parole): solo Mogán e La Oliva.
+
+**Stampa (dichiarata come stampa in pagina, mai per un importo):** RTVC, 14/7/2026: il TSJC ha annullato l'ordinanza di Mogán. La sentenza NON è stata letta (nessuna nota tra le notizie del TSJ su poderjudicial.es; mogan.es blocca). Le pagine dicono «chiedi alla struttura».
+
+**Revisione indipendente (27/11/2026):** stato di Mogán riscritto come «incerto, può essere ancora chiesta» (nessun avviso di annullamento nel BOP di Las Palmas 2025-2026; Ley 29/1998 art. 72.2; CENDOJ 403, sentenza non letta); passi di La Oliva corretti (senza osservazioni l'approvazione diventa definitiva senza nuovo voto, TRLHL art. 17.3); fonti 11 → 13. Ogni mese, insieme a La Oliva: cercare «Mogán» nel BOP dell'anno in corso (avviso della sentenza, abrogazione o nuova ordinanza) e aggiornare `mogan.ricerca_annullamento`. Da rileggere quando il sito del Cabildo risponde: orari a pagamento dei sentieri del Teide (la stampa del 14/10/2026 riferisce una risoluzione con fascia 09:00-18:00 e tre sentieri nuovi con prenotazione senza tariffa).
+
+**Fonti non lette (non aggirate):** mogan.es (403), tenerifeon.es (403, controllo del browser), bopsantacruzdetenerife.es (403: quindi le ordinanze comunali di Tenerife, La Palma, La Gomera, El Hierro non sono state cercate; in pagina è scritto), www.tenerife.es (pagina di blocco del Cabildo). Le due notizie del Cabildo sono state lette su tenerifemassostenible.tenerife.es, che a volte risponde con la stessa pagina di blocco (HTTP 200, circa 3.500 byte): in quel caso `impronte.py` scrive CAMBIATA e la fonte va riletta a mano.
+
+**Da fare (date):**
+- Dal 5/1/2027, poi ogni mese: cercare nel BOP di Las Palmas l'approvazione definitiva di La Oliva (parola «turística», anno 2026 e 2027). Quando esce: aggiornare `la_oliva` in `dati/canarie.json` (stato, importo finale, data), titolo e risposta della pagina Fuerteventura.
+- Ogni mese: `python3 -I touristtax/raccolta/impronte.py` (se cambia `parcan_leggi`, rileggere l'elenco delle leggi in corso).
+- Mogán: cercare la sentenza del TSJC (CENDOJ) o un avviso del Comune; se si legge, togliere «secondo la stampa».
+- Tenerife: quando il Cabildo pubblica la tariffa del parcheggio del Teide, aggiungerla con la fonte.
+- Il 1/1/2027 `ANNO` resta 2026 nei titoli finché non si cambia in `genera.py` (come per tutto il sito).

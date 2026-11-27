@@ -1572,7 +1572,7 @@ def pagina_destinazione(R):
 {fonti_html(R)}
 <p class="small">Spotted a change in the official rate? <a href="{rel}contact/?ref={slug}">Tell us</a>.</p>
 {box_affiliati()}
-{link_sorelle}
+{link_sorelle}{cn_callout(rel) if R.get("gruppo") == "balearics" else ""}
 <p><a href="{rel}country/{R['country_slug']}/">All tourist taxes in {escape(paese)}</a> · <a href="{rel}tourist-taxes-europe-2026/">Tourist taxes in Europe {ANNO}</a></p>
 {blocco_dati(id_dati, [R])}"""
     pagina(f"{slug}/", titolo_seo(R), descrizione_seo(R), corpo,
@@ -4385,6 +4385,559 @@ def pagine_us():
         pagina_us_luogo(*voce)
 
 
+# ---------------------------------------------------------------- Canarie: c'è una tassa di soggiorno? (27/11/2026)
+# Dati: dati/canarie.json. Ogni fatto delle 5 pagine (pagina Canarie + Tenerife, Gran Canaria, Fuerteventura, Lanzarote) viene da lì:
+# ogni fonte ha la data di lettura e i frammenti letti; "tipo": "stampa" = non ufficiale, mostrata come «Press report» e usata solo
+# per ciò che è stato riferito (annullamento dell'ordinanza di Mogán). Nessun importo viene dalla stampa. verifica.py, controllo 16.
+CN = json.loads((DATI / "canarie.json").read_text(encoding="utf-8"))
+CN_F = CN["fonti"]
+CN_HUB = CN["hub"]
+CN_CHECK = data_lunga(CN["controllato_il"])
+CN_REG, CN_MG, CN_LO, CN_TE, CN_BOP = CN["regionale"], CN["mogan"], CN["la_oliva"], CN["teide"], CN["ricerca_bop"]
+CN_PPL, CN_IGIC = CN_REG["proposta_legge"], CN_REG["igic"]
+CN_ISOLE = {i["slug"]: i for i in CN["isole"]}
+CN_NOTTI, CN_ADULTI = 7, 2  # esempio a mano: 2 adulti, 7 notti
+AVVISO_CN = ('<p class="avviso"><strong>Not tax advice.</strong> This page summarises official texts read on the date shown. Local fees in the Canary Islands '
+             'are being approved and challenged in court: check the final amount with your accommodation.</p>')
+
+
+def eur(v):
+    return soldi_breve(v, "EUR")
+
+
+def cn_e(lista, fine="and"):
+    """'a, b and c' (o 'a, b or c')."""
+    lista = list(lista)
+    return lista[0] if len(lista) == 1 else ", ".join(lista[:-1]) + f" {fine} " + lista[-1]
+
+
+def cn_anni():
+    return cn_e((str(a) for a in CN_BOP["anni"]), "or")
+
+
+def cn_link(k, testo=None):
+    f = CN_F[k]
+    return f'<a href="{escape(f["url"])}" rel="noopener">{escape(testo or f["breve"])}</a>'
+
+
+def cn_fonte(chiavi):
+    """Riga della fonte sotto un fatto: le fonti ufficiali e, separata e dichiarata, la stampa."""
+    uff = [k for k in chiavi if CN_F[k]["tipo"] == "ufficiale"]
+    st = [k for k in chiavi if CN_F[k]["tipo"] == "stampa"]
+    righe = ""
+    if uff:
+        righe += (f'<p class="fonte">Official source{"s" if len(uff) > 1 else ""}: ' + " · ".join(cn_link(k) for k in uff) +
+                  f' · checked on {data_lunga(max(CN_F[k]["controllato_il"] for k in uff))}</p>')
+    if st:
+        righe += (f'<p class="fonte fonte-stampa">Press report, not an official source: ' + " · ".join(cn_link(k) for k in st) +
+                  f' · read on {data_lunga(max(CN_F[k]["controllato_il"] for k in st))}</p>')
+    return righe
+
+
+def cn_bal():
+    """Baleari oggi, dai dati delle destinazioni (Maiorca): fascia, età esente."""
+    m = next(d for d in DEST if d["slug"] == "mallorca")
+    return fascia_breve(m, _vigenti(m, OGGI.isoformat())).replace("–", " to "), m["esenti_sotto_eta"]
+
+
+def cn_teide_altri():
+    v = [t["altri"] for s in CN_TE["sentieri"] for t in s["tariffe"]]
+    return min(v), max(v)
+
+
+def cn_teide_isole():
+    v = [t["altre_isole"] for s in CN_TE["sentieri"] for t in s["tariffe"]]
+    return min(v), max(v)
+
+
+def cn_es_mogan(persone=CN_ADULTI):
+    return r2(persone * CN_NOTTI * CN_MG["importo"])
+
+
+def cn_es_oliva(persone=CN_ADULTI):
+    return r2(persone * CN_NOTTI * CN_LO["importo"])
+
+
+def cn_voto():
+    return (f"on {data_lunga(CN_PPL['dibattito'])} the Parliament of the Canary Islands refused to take up a bill to create a tax on tourist stays, "
+            f"by {CN_PPL['voti_no']} votes to {CN_PPL['voti_si']}")
+
+
+def cn_risposta(slug):
+    """Prima frase = risposta alla domanda del titolo, con la data della lettura. Tutte le cifre da dati/canarie.json."""
+    lo, hi = cn_teide_altri()
+    il, ih = cn_teide_isole()
+    mg, ol = CN_MG, CN_LO
+    st = mg["stampa_annullamento"]
+    if slug == "hub":
+        return (f"Short answer: no, the Canary Islands have no regional tourist tax on overnight stays (checked on {CN_CHECK}). "
+                f"{cn_voto()[0].upper() + cn_voto()[1:]}, and no such bill is pending.\n"
+                f"Three local charges exist or are planned. Mogán, in Gran Canaria, approved {eur(mg['importo'])} per person per night in {mg['bop']['data'][:4]}; "
+                f"press reports say a court annulled it in {MESI[int(st['riferito_il'][5:7]) - 1]} {st['riferito_il'][:4]}, but no annulment has been published in the official gazette, "
+                "so it may still be charged there. "
+                f"La Oliva, in Fuerteventura, gave initial approval on {data_lunga(ol['approvazione_iniziale'])} to {eur(ol['importo'])} per person per night, not in force yet. "
+                f"Tenerife charges visitors {eur(lo)} to {eur(hi)} to walk two trails on Mount Teide.")
+    if slug == "tenerife":
+        s10, s07 = CN_TE["sentieri"]
+        return (f"Short answer: no tourist tax per night in Tenerife that we could find (checked on {CN_CHECK}), though the provincial gazette where its municipalities publish "
+                "their ordinances did not open for us. The Canary Islands have no regional tax and we found no official act creating one on the island.\n"
+                f"What visitors do pay, since {data_lunga(CN_TE['dal'])}, is a fee to walk two trails near the summit of Mount Teide: {eur(s10['tariffe'][0]['altri'])} per person "
+                f"for the {s10['nome']} trail and {eur(s07['tariffe'][0]['altri'])} on working days or {eur(s07['tariffe'][1]['altri'])} at weekends and on public holidays for "
+                f"{s07['nome']}, according to the Cabildo de Tenerife (the island government). Residents of Tenerife pay nothing; residents of the other Canary Islands pay {eur(il)} to {eur(ih)}.")
+    if slug == "gran-canaria":
+        loc = mg["localita"]
+        return (f"Short answer: not for the island as a whole (checked on {CN_CHECK}). The Canary Islands have no regional tourist tax, and in the official gazette of the province "
+                "of Las Palmas the only Gran Canaria municipality with a tourist fee is Mogán.\n"
+                f"Mogán's ordinance, published on {data_lunga(mg['bop']['data'])} and applicable from the next day, sets {eur(mg['importo'])} per person per night for stays in {", ".join(loc[:3])} and the rest of the municipality. "
+                f"Its status is uncertain: the public broadcaster RTVC reported on {data_lunga(st['riferito_il'])} that the regional high court (TSJC) annulled it, but we have not been able "
+                "to read the ruling and the gazette carries no notice annulling or repealing the ordinance. If you stay in Mogán the fee may still be on your bill: ask your accommodation. "
+                "No fee has been published for Maspalomas, Playa del Inglés or Las Palmas.")
+    if slug == "fuerteventura":
+        return (f"Short answer: no, nobody in Fuerteventura charges a tourist tax today (checked on {CN_CHECK}). One is planned in the north of the island: "
+                f"on {data_lunga(ol['approvazione_iniziale'])} the council of La Oliva, the municipality of {cn_e(ol['localita'][:2])}, gave initial approval to a fee of "
+                f"{eur(ol['importo'])} per person per night, published in the official provincial gazette on {data_lunga(ol['bop']['data'])}.\n"
+                f"It cannot be charged until it is approved definitively and the final text is published in the gazette, after {ol['giorni_osservazioni']} working days for objections. "
+                "The other five municipalities, which include Caleta de Fuste, Costa Calma and Morro Jable, have published nothing similar.")
+    I = CN_ISOLE["lanzarote"]
+    return (f"Short answer: no, Lanzarote has no tourist tax (checked on {CN_CHECK}). The Canary Islands have no regional tax on overnight stays, and none of the island's "
+            f"seven municipalities ({cn_e(I['comuni'])}) has published a tourist fee in the official gazette of the province of Las Palmas in "
+            f"{cn_anni()}.\nSo nothing is added to your bill in {cn_e((x[0] for x in I['localita_comuni']), 'or')}. "
+            f"The nearest plan is across the strait in Fuerteventura: La Oliva (Corralejo) gave initial approval on {data_lunga(ol['approvazione_iniziale'])} "
+            f"to {eur(ol['importo'])} per person per night, not in force yet.")
+
+
+CN_TITOLI = {  # slug -> (title ≤ 70, H1 = la domanda, etichetta breve per griglie e briciole)
+    "hub": (f"Canary Islands tourist tax {ANNO}: is there one? Island by island", f"Is there a tourist tax in the Canary Islands in {ANNO}?", "Canary Islands"),
+    "tenerife": (f"Tenerife tourist tax {ANNO}: no nightly tax, Teide trail fees", f"Is there a tourist tax in Tenerife in {ANNO}?", "Tenerife"),
+    "gran-canaria": (f"Gran Canaria tourist tax {ANNO}: only Mogán, and a court ruling", f"Is there a tourist tax in Gran Canaria in {ANNO}?", "Gran Canaria"),
+    "fuerteventura": (f"Fuerteventura tourist tax {ANNO}: none yet, La Oliva plan", f"Is there a tourist tax in Fuerteventura in {ANNO}?", "Fuerteventura"),
+    "lanzarote": (f"Lanzarote tourist tax {ANNO}: none in force, official check", f"Is there a tourist tax in Lanzarote in {ANNO}?", "Lanzarote"),
+}
+
+
+def cn_descrizione(slug):
+    """Meta description: la risposta in una riga, con le cifre dei dati."""
+    lo, hi = cn_teide_altri()
+    c = CN["controllato_il"]
+    coda = f" Checked {int(c[8:])} {MESI[int(c[5:7]) - 1][:3]} {c[:4]}."
+    return {"hub": f"No regional tourist tax in the Canary Islands in {ANNO}. Mogán's {eur(CN_MG['importo'])} fee, La Oliva's planned {eur(CN_LO['importo'])} and the Teide trail fees.",
+            "tenerife": f"No tourist tax per night found in Tenerife in {ANNO}. Visitors pay {eur(lo)} to {eur(hi)} per person to walk two Teide trails.",
+            "gran-canaria": f"No island-wide tourist tax in Gran Canaria in {ANNO}. Only Mogán has a fee, {eur(CN_MG['importo'])} a night: reported annulled in court, not confirmed.",
+            "fuerteventura": f"No tourist tax in Fuerteventura today. La Oliva (Corralejo) gave initial approval to {eur(CN_LO['importo'])} per person per night, not in force.",
+            "lanzarote": f"No tourist tax in Lanzarote in {ANNO}: no regional tax and no fee published by any of its seven municipalities."}[slug] + coda
+
+
+def cn_percorso(slug):
+    return CN_HUB if slug == "hub" else f"{slug}/"
+
+
+def cn_sub(slug):
+    """Riga breve per le griglie (home, pagine sorelle)."""
+    lo, hi = cn_teide_altri()
+    return {"hub": "No regional tourist tax · island by island",
+            "tenerife": f"No nightly tax · Teide trails {eur(lo)}–{eur(hi)}",
+            "gran-canaria": f"Only Mogán ({eur(CN_MG['importo'])}), status disputed",
+            "fuerteventura": f"None today · La Oliva plans {eur(CN_LO['importo'])}",
+            "lanzarote": "No tourist tax"}[slug]
+
+
+def cn_griglia(rel, salta=""):
+    return ('<div class="griglia">' + "".join(f'<a href="{rel}{cn_percorso(s)}">{escape(CN_TITOLI[s][2])}<small>{escape(cn_sub(s))}</small></a>'
+                                              for s in CN_TITOLI if s != salta) + "</div>")
+
+
+def cn_callout(rel):
+    """Riquadro di collegamento (pagina Spagna, pagine delle Baleari)."""
+    return (f'<section class="card callout cn-box" aria-label="Canary Islands"><span class="ic">{ico("info")}</span>'
+            f'<p><strong>Canary Islands:</strong> no regional tourist tax (checked on {CN_CHECK}). '
+            f'<a href="{rel}{CN_HUB}">Is there a tourist tax in the Canary Islands?</a> See also <a href="{rel}tenerife/">Tenerife</a>, '
+            f'<a href="{rel}gran-canaria/">Gran Canaria</a>, <a href="{rel}fuerteventura/">Fuerteventura</a> and <a href="{rel}lanzarote/">Lanzarote</a>.</p></section>')
+
+
+def cn_faq_html(faq):
+    return ('<div class="faq-box">' + "".join(f'<details class="faq"><summary>{escape(q)}</summary><p>{escape(r)}</p></details>' for q, r in faq) + "</div>",
+            {"@context": "https://schema.org", "@type": "FAQPage",
+             "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": r}} for q, r in faq]})
+
+
+def cn_fonti_elenco(chiavi):
+    def riga(k):
+        f = CN_F[k]
+        segno = "press report, not an official source; " if f["tipo"] == "stampa" else ""
+        return (f'<li><a href="{escape(f["url"])}" rel="noopener">{escape(f["titolo"])}</a> – {segno}{escape(f["formato"])}, '
+                f'{"read" if f["tipo"] == "stampa" else "checked"} {data_lunga(f["controllato_il"])}</li>')
+    return "<ul>" + "".join(riga(k) for k in chiavi) + "</ul>"
+
+
+def cn_igic_frase():
+    return (f"Prices in the Canary Islands include IGIC, the islands' general sales tax, instead of Spanish VAT. Its general rate is {CN_IGIC['aliquota_generale']}% "
+            f"({CN_IGIC['norma']}, {CN_IGIC['articolo']}). It is part of the price of almost everything you buy, residents included, so it is not a tourist tax.")
+
+
+def cn_breve_igic_bal(rel):
+    """Pagine delle isole: una frase con link per l'IGIC e una per le Baleari (i dettagli e le fonti stanno nella pagina Canarie)."""
+    return (f'<p>Prices on the islands include IGIC, a general sales tax that residents pay too, so it is not a tourist tax: <a href="{rel}{CN_HUB}">the Canary Islands page</a> has the rate.</p>\n'
+            f'<p>The Balearic Islands do charge a regional tourist tax: see <a href="{rel}mallorca/">Mallorca</a> or <a href="{rel}country/spain/">all tourist taxes in Spain</a>.</p>')
+
+
+def cn_bal_frase(rel):
+    f, eta = cn_bal()
+    return (f'For comparison, the Balearic Islands do have a regional tourist tax (the ecotasa): {f} per person per night, 75% lower from November to April, '
+            f'nothing for under-{eta}s. See <a href="{rel}mallorca/">Mallorca</a>, <a href="{rel}ibiza/">Ibiza</a>, <a href="{rel}menorca/">Menorca</a> and '
+            f'<a href="{rel}formentera/">Formentera</a>, or <a href="{rel}country/spain/">all tourist taxes in Spain</a>.')
+
+
+def cn_non_lette(isola=None):
+    v = [x for x in CN["non_lette"] if isola is None or isola in x["isole"]]
+    return "".join(f'<li>{escape(x["nome"])}: {escape(x["esito"])} on {CN_CHECK}. We do not get around blocks, so we did not read it.</li>' for x in v)
+
+
+def cn_metodo_bop():
+    b = CN_BOP
+    return (f"On {data_lunga(b['fatta_il'])} we searched the summaries of the Boletín Oficial de la Provincia de Las Palmas (the official gazette where every municipality of "
+            f"Gran Canaria, Fuerteventura and Lanzarote must publish its tax ordinances) for {cn_e(str(a) for a in b['anni'])} with the words "
+            f"{cn_e('‘' + t + '’' for t in b['termini'])}. The only tourist fees we found are Mogán's (gazette no. {b['trovate'][0]['bollettino']} of "
+            f"{data_lunga(b['trovate'][0]['data'])} and no. {b['trovate'][1]['bollettino']} of {data_lunga(b['trovate'][1]['data'])}) and La Oliva's "
+            f"(no. {b['trovate'][2]['bollettino']} of {data_lunga(b['trovate'][2]['data'])}).")
+
+
+def cn_pagina(slug, sezioni, faq, fonti):
+    rel = "../"
+    tit, h1, nome = CN_TITOLI[slug]
+    faq_html, ld = cn_faq_html(faq)
+    risp = cn_risposta(slug)
+    uff = [k for k in fonti if CN_F[k]["tipo"] == "ufficiale"]
+    piede = (f'<p><a href="{rel}{CN_HUB}">Canary Islands tourist tax</a> · ' if slug != "hub" else "<p>") + \
+        (f'<a href="{rel}country/spain/">Tourist taxes in Spain</a> · <a href="{rel}tourist-taxes-europe-2026/">Tourist taxes in Europe {ANNO}</a> · '
+         f'<a href="{rel}">Tourist tax calculator</a></p>')
+    corpo = f"""<section class="hero"><h1>{escape(h1)}</h1>
+<p class="risposta">{escape(risp.split(chr(10))[0])}</p>
+<p class="risposta-seguito">{escape(risp.split(chr(10))[1])}</p>
+{cn_fonte(uff[:3])}</section>
+{sezioni}
+<h2>Questions</h2>
+{faq_html}
+<h2>{'The other islands' if slug != 'hub' else 'Island pages'}</h2>
+{cn_griglia(rel, salta=slug)}
+<h2>Sources</h2>
+{cn_fonti_elenco(fonti)}
+<p class="small">Spotted a change in the official rules? <a href="{rel}contact/?ref={'canary-islands' if slug == 'hub' else slug}">Tell us</a>.</p>
+{piede}"""
+    briciole = [("Spain", "country/spain/"), ("Canary Islands", CN_HUB)] + ([] if slug == "hub" else [(nome, f"{slug}/")])
+    pagina(cn_percorso(slug), tit, cn_descrizione(slug), corpo, briciole=briciole, jsonld_extra=ld)
+
+
+def cn_tab(testa, righe, classe="tab sintesi"):
+    return (f'<div class="{classe}"><table><thead><tr>' + "".join(f"<th>{t}</th>" for t in testa) + "</tr></thead><tbody>" +
+            "".join("<tr>" + "".join(f"<td>{c}</td>" for c in r) + "</tr>" for r in righe) + "</tbody></table></div>")
+
+
+def cn_mogan_stato():
+    st = CN_MG["stampa_annullamento"]
+    return (f"According to RTVC, the public broadcaster of the Canary Islands, the Tribunal Superior de Justicia de Canarias (TSJC) upheld an appeal by the Las Palmas hotel and "
+            f"tourism employers' federation and declared the ordinance null; the ruling was made public on {data_lunga(st['sentenza_resa_pubblica'])}. "
+            "This is a press report: we have not read the ruling, and we found no official notice saying whether it is final, whether the council has appealed or whether "
+            "the fee is still being collected.")
+
+
+def cn_pagina_hub():
+    rel = "../"
+    lo, hi = cn_teide_altri()
+    mg, ol, st, P, M, L, Q = CN_MG, CN_LO, CN_MG["stampa_annullamento"], CN_PPL, CN_REG["mozione"], CN_REG["leggi_in_corso"], CN_REG["domanda_cabildos"]
+    f_bal, eta = cn_bal()
+    isole = cn_tab(["Island", "Tourist tax per night today", "Other charge for visitors", "Planned"], [
+        (f'<a href="{rel}tenerife/">Tenerife</a>', "No", f"Two Teide trails: {eur(lo)} to {eur(hi)} per person", "Paid parking with booking in Teide National Park (announced, no amount)"),
+        (f'<a href="{rel}gran-canaria/">Gran Canaria</a>', f"Only in Mogán: {eur(mg['importo'])} per person per night; reported annulled by a court (press), no official notice", "–", "–"),
+        (f'<a href="{rel}fuerteventura/">Fuerteventura</a>', "No", "–", f"La Oliva: {eur(ol['importo'])} per person per night (initial approval, not in force)"),
+        (f'<a href="{rel}lanzarote/">Lanzarote</a>', "No", "–", "–"),
+        ("La Palma, La Gomera, El Hierro", "No regional tax; local gazette not readable (see below)", "–", "–"),
+    ])
+    confronto = cn_tab(["", "Canary Islands", "Balearic Islands"], [
+        ("Regional tourist tax", "None", f"{f_bal} per person per night"),
+        ("Low season", "–", "75% lower from 1 November to 30 April"),
+        ("Children", "–", f"Under-{eta}s pay nothing"),
+        ("Local fees", f"Mogán {eur(mg['importo'])} (reported annulled, not confirmed), La Oliva {eur(ol['importo'])} (planned)", "None on top of the regional tax in our sources"),
+        ("General sales tax in prices", f"IGIC, general rate {CN_IGIC['aliquota_generale']}%", "Spanish VAT"),
+    ])
+    sezioni = f"""<h2>Island by island</h2>
+{isole}
+{cn_fonte(["bop_mogan", "bop_la_oliva", "cabildo_teide", "cabildo_accessi", "rtvc_mogan"])}
+{AVVISO_CN}
+{AD}
+<h2>Why there is no regional tourist tax</h2>
+<p>A tourist tax for all the islands would need a law of the Parliament of the Canary Islands. The last attempt was bill {P['codice']}, tabled by the {P['gruppo']}: it proposed a tax on tourist stays with rates from {eur(P['tariffa_min'])} to {eur(P['tariffa_max'])} depending on the category and type of accommodation, not paid by residents of the islands. The regional government gave an unfavourable opinion and, on {data_lunga(P['dibattito'])}, Parliament voted {P['voti_si']} for and {P['voti_no']} against taking it up, so it went no further.</p>
+{cn_fonte(["parcan_ppl"])}
+<p>On {data_lunga(M['data'])} a motion that again asked for a tax on tourist stays was rejected by {M['voti_no']} votes to {M['voti_si']}.</p>
+{cn_fonte(["parcan_mozione"])}
+<p>On {data_lunga(L['alla_data'])} the Parliament's list of legislation in progress held {len(L['proposte']) + len(L['progetti']) + len(L['decreti_legge'])} items: {len(L['decreti_legge'])} government decree-laws, {len(L['progetti'])} government bills and {len(L['proposte'])} other bills, on subjects such as the 2027 budget, sustainable mobility and housing. None has a tourist tax in its title.</p>
+{cn_fonte(["parcan_leggi"])}
+<p>In January 2026 a member of Parliament asked the tourism minister whether the government plans a legal framework that would let each island's Cabildo (island government) set its own tourist fee (question {Q['codice']}). The government answered in writing and the answer was published in the Parliament's bulletin no. {Q['bollettino']} on {data_lunga(Q['risposta_scritta_pubblicata'])}; we have not read the text of the answer, so we do not describe it.</p>
+{cn_fonte(["parcan_domanda"])}
+<h2>What is charged locally</h2>
+<h3>Mogán, Gran Canaria: {eur(mg['importo'])} per person per night</h3>
+<p>Mogán ({cn_e(mg['localita'][:4])}) published its tourist fee ordinance in the provincial gazette on {data_lunga(mg['bop']['data'])}: {eur(mg['importo'])} for each overnight stay, with no exemptions, collected through the owner of the accommodation. Two adults for {CN_NOTTI} nights: {CN_ADULTI} × {CN_NOTTI} × {eur(mg['importo'])} = <strong>{eur(cn_es_mogan())}</strong>.</p>
+{cn_fonte(["bop_mogan"])}
+<p>{escape(cn_mogan_stato())} <a href="{rel}gran-canaria/">Gran Canaria: the Mogán fee in detail</a>.</p>
+{cn_fonte(["rtvc_mogan"])}
+<h3>La Oliva, Fuerteventura: {eur(ol['importo'])} per person per night, planned</h3>
+<p>The council of La Oliva ({cn_e(ol['localita'][:2])}) gave initial approval on {data_lunga(ol['approvazione_iniziale'])} to a fee of {eur(ol['importo'])} per person per night, with children under {ol['esenti_sotto_anni']} and residents of La Oliva exempt. It is open to objections for {ol['giorni_osservazioni']} working days and applies only from the day after its final text is published. If it enters into force as drafted, two adults for {CN_NOTTI} nights would pay {CN_ADULTI} × {CN_NOTTI} × {eur(ol['importo'])} = <strong>{eur(cn_es_oliva())}</strong>. <a href="{rel}fuerteventura/">Fuerteventura: the La Oliva plan in detail</a>.</p>
+{cn_fonte(["bop_la_oliva"])}
+<h3>Mount Teide, Tenerife: {eur(lo)} to {eur(hi)} to walk two trails</h3>
+<p>Since {data_lunga(CN_TE['dal'])} the Cabildo de Tenerife charges people who do not live in Tenerife to walk the {CN_TE['sentieri'][0]['nome']} and {CN_TE['sentieri'][1]['nome']} trails at set hours. It is a fee for those two walks, booked in advance, not a tax on your stay. <a href="{rel}tenerife/">Tenerife: the Teide fees in detail</a>.</p>
+{cn_fonte(["cabildo_teide"])}
+<h2>What you do pay on every bill: IGIC</h2>
+<p>{escape(cn_igic_frase())}</p>
+{cn_fonte(["boc_igic"])}
+<h2>Canary Islands and Balearic Islands compared</h2>
+{confronto}
+{fonte_breve(next(d for d in DEST if d["slug"] == "mallorca"))}
+{cn_fonte(["boc_igic", "bop_mogan", "bop_la_oliva"])}
+<p>{cn_bal_frase(rel)}</p>
+<h2>How we checked, and what we could not read</h2>
+<p>{escape(cn_metodo_bop())}</p>
+{cn_fonte(["bop_ricerca"])}
+<ul>{cn_non_lette()}</ul>
+<p>Because the gazette of the province of Santa Cruz de Tenerife did not open, we cannot rule out a municipal fee published only there. We know of none.</p>"""
+    faq = [
+        (f"Do the Canary Islands charge a tourist tax in {ANNO}?",
+         f"No regional tourist tax exists in the Canary Islands as of {CN_CHECK}. Parliament refused to take up a bill to create one on {data_lunga(P['dibattito'])} ({P['voti_no']} votes to {P['voti_si']}) "
+         f"and no such bill is pending. The only nightly fee published by a municipality is Mogán's {eur(mg['importo'])} per person per night, which press reports say a court annulled in "
+         f"{MESI[int(st['riferito_il'][5:7]) - 1]} {st['riferito_il'][:4]}; no annulment has been published in the official gazette, so it may still be charged in Mogán."),
+        (f"Will the Canary Islands have a tourist tax in {ANNO + 1}?",
+         f"Nothing with an official start date. The step with a date is local: La Oliva (Fuerteventura) gave initial approval on {data_lunga(ol['approvazione_iniziale'])} to "
+         f"{eur(ol['importo'])} per person per night, which needs final approval and a second publication before it applies. The Cabildo de Tenerife has also announced paid parking "
+         "with booking in Teide National Park, without publishing an amount."),
+        ("Do I pay a tourist tax in Tenerife, Gran Canaria, Lanzarote or Fuerteventura?",
+         f"Tenerife: no nightly tax; {eur(lo)} to {eur(hi)} per person if you walk one of two Teide trails. Gran Canaria: only Mogán published a fee ({eur(mg['importo'])} per person per night), "
+         f"reported annulled but not officially confirmed. Fuerteventura: nothing today; La Oliva plans {eur(ol['importo'])}. Lanzarote: nothing."),
+        ("Is the Canary Islands tourist tax the same as in Mallorca?",
+         f"No. The Balearic Islands have a regional tax of {f_bal} per person per night that every hotel and holiday let collects. The Canary Islands have no regional tax; "
+         "only single municipalities have approved or planned small fees."),
+        ("What is IGIC? Is it a tourist tax?", cn_igic_frase()),
+    ]
+    cn_pagina("hub", sezioni, faq, ["parcan_ppl", "parcan_leggi", "bop_mogan", "bop_la_oliva", "cabildo_teide", "parcan_mozione", "parcan_domanda",
+                                    "cabildo_accessi", "boc_igic", "bop_ricerca", "rtvc_mogan"])
+
+
+def cn_pagina_tenerife():
+    rel = "../"
+    T, A = CN_TE, CN_TE["annunciato"]
+    s10, s07 = T["sentieri"]
+    lo, hi = cn_teide_altri()
+    il, ih = cn_teide_isole()
+    righe = []
+    for s in T["sentieri"]:
+        for t in s["tariffe"]:
+            righe.append((f"{escape(s['nome'])} ({s['id']})", f"{t['giorni'].capitalize()}, {s['orario'].replace('-', ' to ')}",
+                          "Free" if not t["tenerife"] else eur(t["tenerife"]), eur(t["altre_isole"]), f"<strong>{eur(t['altri'])}</strong>"))
+    tab = cn_tab(["Trail", "When the fee applies (notice of January 2026)", "Tenerife residents", "Residents of other Canary Islands", "Other visitors"], righe, classe="tab")
+    sezioni = f"""<h2>Teide trail fees for visitors</h2>
+{tab}
+<p>Prices are per person. On the {s10['nome']} trail children under {s10['gratis_sotto_anni']} are free. The Cabildo calls the charge an ‘ecotasa’ and says the money goes to conservation and safety in the national park. The hours are those in the Cabildo's notice of {data_lunga(CN_TE['avviso'])}, which set prices only for those hours; they may have changed since, so check the hours shown when you book.</p>
+{cn_fonte(["cabildo_teide"])}
+<p class="esempio">Examples for visitors from outside the Canary Islands: two adults on {s10['nome']}: 2 × {eur(s10['tariffe'][0]['altri'])} = <strong>{eur(2 * s10['tariffe'][0]['altri'])}</strong>. Two adults on {s07['nome']} on a Saturday: 2 × {eur(s07['tariffe'][1]['altri'])} = <strong>{eur(2 * s07['tariffe'][1]['altri'])}</strong>; on a Tuesday: 2 × {eur(s07['tariffe'][0]['altri'])} = <strong>{eur(2 * s07['tariffe'][0]['altri'])}</strong>.</p>
+{AVVISO_CN}
+{AD}
+<h2>How booking and payment work</h2>
+<ul><li>You book and pay on {escape(T['prenotazione'])}, the Cabildo's booking platform, with a credit or debit card, and give the details of every walker.</li>
+<li>A new week of places opens every Monday at 7:00 (Canary Islands time); places can be booked up to 28 days ahead.</li>
+<li>Confirmed bookings cannot be changed, cancelled or refunded, except when the trail is closed because of the weather or other exceptional reasons, or the Teide cable car is not running.</li>
+<li>No refund if you are turned back for not carrying the compulsory equipment listed on the platform.</li></ul>
+{cn_fonte(["cabildo_teide"])}
+<p class="small">We could not open the booking platform itself (it blocks automatic reading), so the prices above are those in the Cabildo's notice of {data_lunga(T['avviso'])}: check the price and the hours shown when you book.</p>
+<h2>Announced: paid parking with booking in the national park</h2>
+<p>On {data_lunga(A['avviso'])} the Cabildo de Tenerife announced access control at the main road entrances to Teide {escape(A['quando'])} and {A['posti_auto']} parking spaces that must be booked in advance: free and with priority for residents of Tenerife, while visitors ‘will pay a tariff’. The notice gives no amount and no start date, so we show none.</p>
+{cn_fonte(["cabildo_accessi"])}
+<h2>No tax on your hotel bill</h2>
+<p>In {", ".join(CN_ISOLE['tenerife']['localita'])} and the rest of Tenerife, accommodation does not add a tourist tax per night. A regional tax would need a law, and {cn_voto()}. <a href="{rel}{CN_HUB}">The Canary Islands page</a> explains the votes and the bills pending today.</p>
+{cn_fonte(["parcan_ppl", "parcan_leggi"])}
+<p>What we could not check: municipal ordinances in Tenerife are published in the gazette of the province of Santa Cruz de Tenerife, which did not open for us.</p>
+<ul>{cn_non_lette("Tenerife")}</ul>
+<h2>IGIC and the Balearic Islands</h2>
+{cn_breve_igic_bal(rel)}"""
+    faq = [
+        (f"Is there a tourist tax in Tenerife in {ANNO}?",
+         f"We found no tourist tax per night on hotel or holiday-let bills in Tenerife as of {CN_CHECK}; the provincial gazette for municipal ordinances did not open for us. The Canary Islands have no regional tourist tax. Visitors pay a separate fee only "
+         f"if they walk the {s10['nome']} or {s07['nome']} trails on Mount Teide at the set hours."),
+        ("How much is the Teide fee for visitors from the UK?",
+         f"Visitors who do not live in the Canary Islands pay {eur(s10['tariffe'][0]['altri'])} per person for the {s10['nome']} trail ({s10['orario'].replace('-', ' to ')}) and, for "
+         f"{s07['nome']} ({s07['orario'].replace('-', ' to ')}), {eur(s07['tariffe'][0]['altri'])} on working days or {eur(s07['tariffe'][1]['altri'])} at weekends and on public holidays, "
+         f"according to the Cabildo de Tenerife's notice of {data_lunga(T['avviso'])}."),
+        ("Do residents pay the Teide fee?",
+         f"Residents of Tenerife pay nothing. Residents of the other Canary Islands pay {eur(il)} to {eur(ih)} depending on the trail and the day."),
+        ("Do I have to pay to drive into Teide National Park?",
+         f"The Cabildo de Tenerife announced on {data_lunga(A['avviso'])} access control and {A['posti_auto']} bookable parking spaces where visitors will pay a tariff, {A['quando']}. "
+         "It has not published an amount or a start date in that notice, so check the Cabildo's site before you go."),
+        (f"Will Tenerife introduce a tourist tax in {ANNO + 1}?",
+         f"No tourist tax per night has an official start date in Tenerife. No bill to create a regional tax was pending in the Parliament of the Canary Islands on {CN_CHECK}."),
+    ]
+    cn_pagina("tenerife", sezioni, faq, ["cabildo_teide", "cabildo_accessi", "parcan_ppl", "parcan_leggi"])
+
+
+def cn_pagina_gran_canaria():
+    rel = "../"
+    mg, st, I = CN_MG, CN_MG["stampa_annullamento"], CN_ISOLE["gran-canaria"]
+    fatti = cn_tab(["What", "What the ordinance says"], [
+        ("Amount", f"<strong>{eur(mg['importo'])}</strong> for each overnight stay (per person per night)"),
+        ("Who pays", "People who stay overnight in tourist accommodation in the municipality of Mogán, including holiday homes"),
+        ("Exemptions", "None: no exemption or reduction is granted, so children are not exempt"),
+        ("Who collects it", "The owner of the accommodation, who may pass it on to guests and pays the council twice a year (1 to 20 April and 1 to 20 October)"),
+        ("Applies from", f"{data_lunga(mg['in_vigore_dal'])}, the day after the full text was published"),
+        ("Published", f"Boletín Oficial de la Provincia de Las Palmas no. {mg['bop']['numero']}, {data_lunga(mg['bop']['data'])}"),
+    ])
+    tempi = cn_tab(["Date", "Step", "Source"], [
+        (data_lunga(mg["approvazione_iniziale"]), "The council of Mogán approves the ordinance for the first time", "Official gazette"),
+        (data_lunga(mg["bop_iniziale"]["data"]), f"Published for objections (gazette no. {mg['bop_iniziale']['numero']})", "Official gazette"),
+        (data_lunga(mg["approvazione_definitiva"]), "Objections decided, final approval", "Official gazette"),
+        (data_lunga(mg["bop"]["data"]), f"Full text published (gazette no. {mg['bop']['numero']})", "Official gazette"),
+        (data_lunga(mg["in_vigore_dal"]), "The ordinance starts to apply (final provision)", "Official gazette"),
+        (data_lunga(mg["stampa_sospensione"]["sospesa_riferito_il"]), "RTVC reports that the TSJC has suspended the fee as an interim measure", "Press report"),
+        (data_lunga(mg["stampa_sospensione"]["ripresa_riferito_il"]), "RTVC reports that the TSJC has lifted the suspension and Mogán applies the fee again", "Press report"),
+        (data_lunga(st["riferito_il"]), "RTVC reports that the TSJC has annulled the ordinance", "Press report"),
+    ])
+    sezioni = f"""<h2>Mogán: what the ordinance says</h2>
+{fatti}
+{cn_fonte(["bop_mogan"])}
+<p class="esempio">Examples at {eur(mg['importo'])}: two adults for {CN_NOTTI} nights: {CN_ADULTI} × {CN_NOTTI} × {eur(mg['importo'])} = <strong>{eur(cn_es_mogan())}</strong>. A family of four for {CN_NOTTI} nights (no exemption for children): 4 × {CN_NOTTI} × {eur(mg['importo'])} = <strong>{eur(cn_es_mogan(4))}</strong>.</p>
+{AVVISO_CN}
+{AD}
+<h2>Is Mogán's fee still charged? The court ruling</h2>
+<p>{escape(cn_mogan_stato())}</p>
+{cn_fonte(["rtvc_mogan"])}
+<p>What we can say from official sources: the ordinance was published in March 2025 and applied from the next day. We checked Mogán's entries in the gazette summaries for {cn_e((str(a) for a in mg['ricerca_annullamento']['anni']))}: up to {CN_CHECK} there is no notice annulling or repealing it, and no new tourist fee ordinance. Under Spanish law a final ruling that annuls an ordinance takes general effect on the day its decision is published in that same gazette (Ley 29/1998, art. 72.2).</p>
+<p><strong>In practice:</strong> the fee may still be on bills in Mogán, so ask your hotel or host. At {eur(mg['importo'])} a night the most it can add to a week for two is {eur(cn_es_mogan())}.</p>
+{cn_fonte(["bop_ricerca", "boe_ljca"])}
+<h2>Timeline</h2>
+{tempi}
+{cn_fonte(["bop_mogan", "rtvc_sospensione", "rtvc_ripresa", "rtvc_mogan"])}
+<h2>Where in Gran Canaria it applies</h2>
+<p><strong>Mogán only:</strong> {cn_e(mg['localita'])} are in the municipality of Mogán, in the south-west of the island.</p>
+<p><strong>Not elsewhere:</strong> no tourist fee has been published by {", ".join(I['comuni_senza'])} or any other municipality of Gran Canaria. {escape(cn_metodo_bop())}</p>
+{cn_fonte(["bop_ricerca"])}
+<ul>{cn_non_lette("Gran Canaria")}</ul>
+<h2>No regional tax, and what is planned on other islands</h2>
+<p>A tax for the whole of the Canary Islands would need a regional law: {cn_voto()}. <a href="{rel}{CN_HUB}">The Canary Islands page</a> has the details. A second municipality of the same province, La Oliva in Fuerteventura, gave initial approval on {data_lunga(CN_LO['approvazione_iniziale'])} to a similar fee of {eur(CN_LO['importo'])} per person per night: see <a href="{rel}fuerteventura/">Fuerteventura</a>.</p>
+{cn_fonte(["parcan_ppl", "bop_la_oliva"])}
+{cn_breve_igic_bal(rel)}"""
+    faq = [
+        (f"Is there a tourist tax in Gran Canaria in {ANNO}?",
+         f"There is no island-wide or regional tourist tax in Gran Canaria as of {CN_CHECK}. Only the municipality of Mogán published a fee, {eur(mg['importo'])} per person per night, "
+         f"applicable from {data_lunga(mg['in_vigore_dal'])}. RTVC reported on {data_lunga(st['riferito_il'])} that a court annulled it; we could not confirm this in an official source, so it may still be charged in Mogán."),
+        ("How much is the tourist tax in Puerto Rico and Puerto de Mogán?",
+         f"Mogán's ordinance sets {eur(mg['importo'])} per person per night with no exemptions: {eur(cn_es_mogan())} for two adults for {CN_NOTTI} nights. "
+         "Press reports say the ordinance was annulled in court, but no annulment has been published in the official gazette: it may still be on your bill, so ask your accommodation."),
+        ("Is there a tourist tax in Maspalomas or Playa del Inglés?",
+         "No. Maspalomas, Playa del Inglés, Meloneras and San Agustín are in San Bartolomé de Tirajana, which has published no tourist fee in the official provincial gazette "
+         f"in {cn_anni()}."),
+        ("Do children pay the Mogán fee?",
+         "The ordinance grants no exemption or reduction, so it applies to every person who stays overnight, children included."),
+        ("Who collects the Mogán tourist fee?",
+         "The owner of the hotel, apartment or holiday home, who may add it to the guest's bill and pays the council twice a year."),
+    ]
+    cn_pagina("gran-canaria", sezioni, faq, ["bop_mogan", "bop_ricerca", "boe_ljca", "parcan_ppl", "bop_la_oliva", "rtvc_sospensione", "rtvc_ripresa", "rtvc_mogan"])
+
+
+def cn_pagina_fuerteventura():
+    rel = "../"
+    ol, I = CN_LO, CN_ISOLE["fuerteventura"]
+    fatti = cn_tab(["What", "What the draft ordinance says"], [
+        ("Amount", f"<strong>{eur(ol['importo'])}</strong> for each overnight stay and guest (per person per night)"),
+        ("Who would pay", "Everyone who stays overnight in a tourist establishment in La Oliva, including homes with a consolidated tourist use"),
+        ("Exemptions", f"Children under {ol['esenti_sotto_anni']} at the start of the stay; residents of La Oliva, with a certificate of residence"),
+        ("Who would collect it", "The owner or operator of the establishment, who can ask the guest for it at any time before the end of the stay and pays the council twice a year (1 to 20 April and 1 to 20 October)"),
+        ("What it would fund", "Costs the council links to tourism: beach lifeguards and signs, cleaning, water supply, green areas, emergency services"),
+        ("Status", f"Initial approval by the full council on {data_lunga(ol['approvazione_iniziale'])}; published in gazette no. {ol['bop']['numero']} on {data_lunga(ol['bop']['data'])}"),
+        ("In force", "Not yet: from the day after the final text is published in the provincial gazette"),
+    ])
+    sezioni = f"""<h2>La Oliva's plan: what the text says</h2>
+{fatti}
+{cn_fonte(["bop_la_oliva"])}
+<p class="esempio">If it enters into force as drafted: two adults for {CN_NOTTI} nights in Corralejo: {CN_ADULTI} × {CN_NOTTI} × {eur(ol['importo'])} = <strong>{eur(cn_es_oliva())}</strong>. Two adults and a two-year-old: still {eur(cn_es_oliva())}, because children under {ol['esenti_sotto_anni']} are exempt. Four paying guests: 4 × {CN_NOTTI} × {eur(ol['importo'])} = <strong>{eur(cn_es_oliva(4))}</strong>.</p>
+{AVVISO_CN}
+{AD}
+<h2>What has to happen before anyone pays</h2>
+<ol><li><strong>Objections.</strong> The text is open to objections for {ol['giorni_osservazioni']} working days from its publication on {data_lunga(ol['bop']['data'])}.</li>
+<li><strong>Final approval.</strong> If objections are filed, the council must decide on them and approve the final text, which may differ from the draft. If none are filed, the initial approval becomes final without a new vote (Ley Reguladora de las Haciendas Locales, art. 17.3).</li>
+<li><strong>Second publication.</strong> The final decision and the full text are published in the Boletín Oficial de la Provincia de Las Palmas, and the fee applies from the next day.</li></ol>
+<p>Until step 3 no hotel, apartment or holiday home in La Oliva may charge it, and the amount of {eur(ol['importo'])} is not final.</p>
+{cn_fonte(["bop_la_oliva", "boe_trlhl"])}
+<h2>Could it be challenged?</h2>
+<p>A very similar fee already exists on paper in Gran Canaria: Mogán's, {eur(CN_MG['importo'])} per person per night, published in March 2025. {escape(cn_mogan_stato())} See <a href="{rel}gran-canaria/">Gran Canaria</a>.</p>
+{cn_fonte(["bop_mogan"])}
+{cn_fonte(["rtvc_mogan"])}
+<h2>Where in Fuerteventura</h2>
+<p><strong>La Oliva (planned):</strong> {cn_e(ol['localita'])}, in the north of the island. A day trip to Corralejo or to the island of Lobos would not be affected: the draft taxes overnight stays only.</p>
+<p><strong>Nothing published:</strong> {cn_e(I['comuni_senza'])}. {escape(cn_metodo_bop())}</p>
+{cn_fonte(["bop_ricerca"])}
+<h2>No regional tax</h2>
+<p>Fuerteventura has no island-wide tourist tax and the Canary Islands have no regional one: {cn_voto()}. <a href="{rel}{CN_HUB}">The Canary Islands page</a> lists the votes and the bills pending today.</p>
+{cn_fonte(["parcan_ppl", "parcan_leggi"])}
+{cn_breve_igic_bal(rel)}"""
+    faq = [
+        (f"Is there a tourist tax in Fuerteventura in {ANNO}?",
+         f"No tourist tax is charged anywhere in Fuerteventura as of {CN_CHECK}. La Oliva (Corralejo, El Cotillo) gave initial approval on {data_lunga(ol['approvazione_iniziale'])} to "
+         f"{eur(ol['importo'])} per person per night, which is not in force."),
+        ("When does the Corralejo tourist tax start?",
+         f"There is no start date. The ordinance is open to objections for {ol['giorni_osservazioni']} working days from {data_lunga(ol['bop']['data'])}. It then needs final approval, "
+         "which is automatic if nobody objects, and a second publication in the provincial gazette; it applies from the day after that publication."),
+        ("How much would the La Oliva tourist tax be?",
+         f"{eur(ol['importo'])} per person per night in the draft: {eur(cn_es_oliva())} for two adults for {CN_NOTTI} nights. Children under {ol['esenti_sotto_anni']} and residents of La Oliva would not pay."),
+        ("Is there a tourist tax in Caleta de Fuste, Costa Calma or Morro Jable?",
+         "No. Caleta de Fuste is in Antigua, and Costa Calma and Morro Jable are in Pájara: neither municipality has published a tourist fee in the official provincial gazette "
+         f"in {cn_anni()}."),
+        ("Would I pay it on a day trip from Lanzarote to Corralejo?",
+         "No. The draft taxes overnight stays in tourist establishments, not day visits, and it is not in force."),
+    ]
+    cn_pagina("fuerteventura", sezioni, faq, ["bop_la_oliva", "boe_trlhl", "bop_ricerca", "parcan_ppl", "parcan_leggi", "bop_mogan", "rtvc_mogan"])
+
+
+def cn_pagina_lanzarote():
+    rel = "../"
+    ol, I = CN_LO, CN_ISOLE["lanzarote"]
+    lo, hi = cn_teide_altri()
+    luoghi = cn_tab(["Resort or area", "Municipality", "Tourist fee published"], [(escape(a), escape(b), "None") for a, b in I["localita_comuni"]] + [
+        ("La Graciosa", "Teguise", "None"), ("Arrecife (capital, cruise port)", "Arrecife", "None"),
+        ("Famara, Haría, Tinajo and the north", "Teguise, Haría, Tinajo", "None"), ("San Bartolomé (inland)", "San Bartolomé", "None")])
+    sezioni = f"""<h2>Resort by resort</h2>
+{luoghi}
+<p>‘None’ means that no ordinance creating a tourist fee was published by that municipality, or by the Cabildo de Lanzarote, in the official gazette of the province in the years we searched.</p>
+{cn_fonte(["bop_ricerca"])}
+{AVVISO_CN}
+{AD}
+<h2>How we checked Lanzarote</h2>
+<p>A Spanish municipality cannot charge a fee until the full text of its ordinance has been published in the official gazette of its province. {escape(cn_metodo_bop())} Neither is in Lanzarote.</p>
+<p>A tax for all the islands would need a regional law instead, and {cn_voto()}. No bill on a tourist tax was pending on {CN_CHECK}. <a href="{rel}{CN_HUB}">The Canary Islands page</a> has the votes and sources.</p>
+{cn_fonte(["parcan_ppl", "parcan_leggi"])}
+<h2>If you also visit Fuerteventura</h2>
+<p>Many Lanzarote holidays include the ferry from Playa Blanca to Corralejo. Corralejo is in La Oliva, whose council gave initial approval on {data_lunga(ol['approvazione_iniziale'])} to a fee of {eur(ol['importo'])} per person per night. It is not in force, and the draft taxes overnight stays only, so a day trip would not be affected even after it starts. If you sleep in Corralejo once it applies, two adults would pay {CN_ADULTI} × {eur(ol['importo'])} = {eur(r2(CN_ADULTI * ol['importo']))} a night. See <a href="{rel}fuerteventura/">Fuerteventura</a>.</p>
+{cn_fonte(["bop_la_oliva"])}
+<h2>What other islands charge</h2>
+<ul><li><a href="{rel}gran-canaria/">Gran Canaria</a>: only Mogán published a fee, {eur(CN_MG['importo'])} per person per night, reported annulled by a court in 2026.</li>
+<li><a href="{rel}tenerife/">Tenerife</a>: no nightly tax; {eur(lo)} to {eur(hi)} per person to walk two trails on Mount Teide.</li></ul>
+<h2>What is on your bill instead</h2>
+{cn_breve_igic_bal(rel)}"""
+    faq = [
+        (f"Is there a tourist tax in Lanzarote in {ANNO}?",
+         f"No. As of {CN_CHECK} there is no regional tourist tax in the Canary Islands and none of Lanzarote's seven municipalities has published a tourist fee in the official provincial gazette."),
+        ("Do I pay a tourist tax in Puerto del Carmen, Costa Teguise or Playa Blanca?",
+         "No. Puerto del Carmen is in Tías, Costa Teguise in Teguise and Playa Blanca in Yaiza; none of these municipalities has published a tourist fee."),
+        (f"Will Lanzarote have a tourist tax in {ANNO + 1}?",
+         f"No tourist tax has an official start date in Lanzarote. No bill to create a regional tax was pending in the Parliament of the Canary Islands on {CN_CHECK}, "
+         "and we found no draft ordinance from a Lanzarote municipality."),
+        ("Is there a tourist tax on La Graciosa?",
+         "No. La Graciosa is part of the municipality of Teguise, which has published no tourist fee."),
+    ]
+    cn_pagina("lanzarote", sezioni, faq, ["bop_ricerca", "parcan_ppl", "parcan_leggi", "bop_la_oliva"])
+
+
+def pagine_canarie():
+    cn_pagina_hub()
+    cn_pagina_tenerife()
+    cn_pagina_gran_canaria()
+    cn_pagina_fuerteventura()
+    cn_pagina_lanzarote()
+
+
 def fr_slug_map():
     m, usati = {}, set()
     for code, nome, dep, _ in FR_TOP["comuni"]:
@@ -4501,7 +5054,7 @@ def pagina_paese(slug):
 {"" if risp else f'<p class="lead">{escape(testo_extra) if testo_extra else f"Official tourist tax rates in {escape(nome)}, with a calculator for each destination."}</p>'}</section>
 {f'<p class="small">What changes next: <a href="{rel}tourist-tax-changes-2027/">tourist tax changes in 2027</a>.</p>' if any(cambi_di(d["slug"]) for d in dd) else ""}
 {(jt_callout(rel) + jp_callout(rel)) if slug == "japan" else ""}
-{es_callout(rel) if slug == "spain" else ""}
+{(es_callout(rel) + cn_callout(rel)) if slug == "spain" else ""}
 <div class="tab"><table><thead><tr><th>Destination</th><th>Rate {ANNO}</th><th>Max taxable nights</th><th>Exempt</th></tr></thead><tbody>{righe}</tbody></table></div>
 {AVVISO}
 {AD}
@@ -4577,6 +5130,7 @@ def home():
     griglia = "".join(f'<a href="{d["slug"]}/">{escape(d["name"])}<small>{escape(PAESI[d["country_slug"]])} · {escape(riassunto(d, seguito=False))}</small></a>' for d in DEST)
     griglia += "".join(f'<a href="{L["pagina"]}">{escape(L["nome"])}<small>United States · {escape(sub)}</small></a>'
                        for L, sub in us_voci_stato("fl") + us_voci_stato("tx") if not L["pagina"].endswith("-county/"))  # USA (7/11/2026): città con pagina
+    griglia += "".join(f'<a href="{cn_percorso(c)}">{escape(CN_TITOLI[c][2])}<small>Spain · {escape(cn_sub(c))}</small></a>' for c in CN_TITOLI)  # Canarie (27/11/2026)
     griglia += (f'<div class="fr-card"><a href="france/">{ico("search")}France: {len(FR["comuni"]):,} towns{ico("arrow")}</a>'
                 f'<p class="fr-top" style="margin:0">' + " · ".join(f'<a href="france/{FR_SLUG[c[0]]}/">{escape(c[1])}</a>' for c in FR_TOP["comuni"][:24]) + '</p></div>')
     tipi = "".join(f'<li><span class="ic">{ico(i)}</span><strong>{t}</strong>{e}</li>' for i, t, e in TIPI_HOME)
@@ -4630,7 +5184,8 @@ def pagina_europa():
 {AVVISO}
 {AD}
 <h2>Not covered yet</h2>
-<p>We only publish a destination when we can read a complete official source. Not covered on the date we checked: Venice, Lisbon and the Algarve, Budapest, Croatia (Dubrovnik, Split), Cyprus, Glasgow, Antwerp. See <a href="{rel}about/">About and sources</a>.</p>"""
+<p>We only publish a destination when we can read a complete official source. Not covered on the date we checked: Venice, Lisbon and the Algarve, Budapest, Croatia (Dubrovnik, Split), Cyprus, Glasgow, Antwerp. See <a href="{rel}about/">About and sources</a>.</p>
+<p>The Canary Islands are not in the table because they have no regional tourist tax: see <a href="{rel}{CN_HUB}">is there a tourist tax in the Canary Islands?</a> (checked on {CN_CHECK}).</p>"""
     pagina("tourist-taxes-europe-2026/", f"Tourist taxes in Europe {ANNO}: city by city table (official rates)",
            f"Tourist taxes in Europe {ANNO}: official rates for Paris, Barcelona, Mallorca, Greece, Amsterdam, Berlin, Vienna, Prague, Edinburgh, Cardiff, Rome, Florence, Milan, Malta, Porto, Iceland and Turkey.",
            corpo, briciole=[(f"Tourist taxes in Europe {ANNO}", "tourist-taxes-europe-2026/")])
@@ -4760,9 +5315,10 @@ def about():
 <li>Japan tax-free refund: rules from the Japan Tourism Agency, the National Tax Agency and Japan Customs (Ministry of Finance), cited as facts with a link to each official page; see the <a href="{rel}japan-tax-free-refund/">Japan tax-free refund page</a> for all sources.</li>
 <li>Spain, holiday let licences: counts from INE (experimental statistics on tourist homes, source: INE), the Generalitat Valenciana open data (CC BY 4.0), the Junta de Andalucía OPEN RTA (CC BY 4.0) and the Generalitat de Catalunya open data (Registre de Turisme de Catalunya); we publish only counts by municipality and month, never names, addresses or contact details. Laws on BOE, BOCM and the Junta de Andalucía site are cited as facts with a link. See the <a href="{rel}{ES_SLUG}">Spain holiday let licence page</a> for all sources.</li>
 <li>United States (Florida and Texas hotel tax): rates from the Florida Department of Revenue (forms DR-15TDT and DR-15DSS) and from the Texas Comptroller of Public Accounts (hotel occupancy tax pages and the Local Hotel Occupancy Tax Reporting dataset on data.texas.gov, rates as reported by each city and county); counties of each city from the U.S. Census Bureau's 2020 place-by-county file (public domain). See the <a href="{rel}{US_HUB}">USA hotel tax page</a> for all sources.</li>
+<li>Canary Islands: municipal ordinances from the Boletín Oficial de la Provincia de Las Palmas, votes and bills from the Parlamento de Canarias, Teide trail fees from the Cabildo de Tenerife and the IGIC rate from the Boletín Oficial de Canarias, cited as facts with a link. The one press report we use (on the court ruling about Mogán's fee) is labelled as a press report on each page. See the <a href="{rel}{CN_HUB}">Canary Islands page</a> for all sources.</li>
 <li>Laws, ordinances and official decisions are cited as facts with a link to the official text; we do not reproduce the documents.</li></ul>
 <h2>Destinations not published (official source not readable or incomplete)</h2>
-<p>Venice, Lisbon, the Algarve, Budapest, Croatia (Dubrovnik, Split), Cyprus, Naples, Bologna, Glasgow, Antwerp, Egypt, Morocco and the Canary Islands. We will add them when we can verify a complete official source.</p>
+<p>Venice, Lisbon, the Algarve, Budapest, Croatia (Dubrovnik, Split), Cyprus, Naples, Bologna, Glasgow, Antwerp, Egypt and Morocco. We will add them when we can verify a complete official source.</p>
 <h2>Sources, destination by destination</h2>
 <p>France: see the <a href="{rel}france/">France page</a>.</p>
 {elenco}
@@ -4899,6 +5455,7 @@ def main():
     pagine_jt()
     pagine_es()
     pagine_us()
+    pagine_canarie()
     pagina_francia()
     for c in FR_TOP["comuni"]:
         pagina_francia_comune(c[0])

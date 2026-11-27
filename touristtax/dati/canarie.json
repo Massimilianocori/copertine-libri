@@ -1,0 +1,609 @@
+{
+ "_nota": "Canarie (27/11/2026): c'è una tassa di soggiorno? Ogni fatto delle 5 pagine viene da qui. Ogni fonte ha la data di lettura e i frammenti letti (in spagnolo, copiati dal testo); i PDF hanno anche l'impronta sha256 del file. 'tipo: stampa' = non ufficiale, usata solo per ciò che è stato riferito o annunciato. Ricontrollo: python3 -I touristtax/raccolta/impronte.py",
+ "controllato_il": "2026-11-27",
+ "hub": "canary-islands/",
+ "fonti": {
+  "bop_mogan": {
+   "url": "https://www.boplaspalmas.net/boletines/2025/10-3-25/10-3-25.pdf",
+   "titolo": "Boletín Oficial de la Provincia de Las Palmas no. 30, 10 March 2025: Mogán ordinance (announcement 831, pages 4131-4134)",
+   "ente": "Ayuntamiento de Mogán, in the official provincial gazette",
+   "formato": "PDF",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "pubblicato_il": "2025-03-10",
+   "impronta": "sha256:dbbc8c5b2e56736957d4c0320f1eecee526e2936277636c4fd452ed7f690959b",
+   "impronta_di": "file",
+   "frammenti": [
+    "se presentaron varias alegaciones, que fueron resueltas en el Pleno de 28 de febrero de 2025. En dicha sesión se aprobó definitivamente el establecimiento de la citada ordenanza",
+    "serán las cantidades que resulten de aplicar tarifas por pernoctación y día, en concreto 0,15 /día por alojamiento/día en los establecimientos turísticos del municipio de Mogán.",
+    "Tendrán la condición de sustitutos del contribuyente, los propietarios de los inmuebles con establecimiento turístico con alojamiento en el municipio de Mogán, quienes podrán repercutir, en su caso, las cuotas sobre los respectivos beneficiarios.",
+    "No se concederá exención ni bonificación alguna en la exacción de esta Tasa, salvo disposición legal en contrario",
+    "entrará en vigor el día siguiente al de su publicación íntegra en el Boletín Oficial de la Provincia"
+   ],
+   "nota": "Nel testo estratto dal PDF il simbolo dell'euro dopo 0,15 non compare («0,15 /día»): l'importo è 0,15 euro per pernottamento.",
+   "breve": "Las Palmas provincial gazette no. 30, 10 March 2025 (Mogán ordinance)"
+  },
+  "bop_la_oliva": {
+   "url": "https://www.boplaspalmas.net/boletines/2026/09-11-26/09-11-26.pdf",
+   "titolo": "Boletín Oficial de la Provincia de Las Palmas no. 134, 9 November 2026: La Oliva ordinance, initial approval (announcement 3.045, pages 19308-19313)",
+   "ente": "Ayuntamiento de La Oliva, in the official provincial gazette",
+   "formato": "PDF",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "pubblicato_il": "2026-11-09",
+   "impronta": "sha256:0e69e445ef1a1c30297596fab7394ae1fbb8ba6aeaea2eb16690f26000a9d44b",
+   "impronta_di": "file",
+   "frammenti": [
+    "el Pleno, celebrado el 29 de octubre de 2026, acordó aprobar inicialmente la Ordenanza Fiscal Reguladora de la Tasa por Prestación de Servicios y Realización de Actividades Derivadas de la Acción Turística y la Obligación de Sostenibilidad.",
+    "para que durante el plazo de TREINTA DÍAS HÁBILES se presenten las alegaciones oportunas.",
+    "Municipio de La Oliva: 0,56 euros por cada pernoctación y contribuyente en cada uno de los establecimientos turísticos referidos en el artículo 12 de esta norma.",
+    "a) Las estancias que realicen los menores de 3 años, en el momento de iniciar la estancia.",
+    "b) Las estancias que se realicen por personas residentes en el municipio de La Oliva",
+    "Esta Ordenanza fiscal entrará en vigor y será de aplicación al día siguiente de su publicación en el Boletín Oficial de la Provincia, una vez aprobada definitivamente."
+   ],
+   "breve": "Las Palmas provincial gazette no. 134, 9 November 2026 (La Oliva ordinance)"
+  },
+  "bop_ricerca": {
+   "url": "https://www.boplaspalmas.net/nbop2/busqueda.php",
+   "titolo": "Boletín Oficial de la Provincia de Las Palmas: search of the summaries by keyword and year",
+   "ente": "Boletín Oficial de la Provincia de Las Palmas",
+   "formato": "HTML form",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "impronta_di": "frammenti",
+   "frammenti": [
+    "BUSCAR EN GENERAL Concepto 2026 2025 2024"
+   ],
+   "nota": "Ricerca fatta il 27/11/2026 (modulo, metodo POST): vedi «ricerca_bop».",
+   "breve": "Las Palmas provincial gazette, search of the summaries"
+  },
+  "parcan_ppl": {
+   "url": "https://www.parcan.es/pub/ds.py/2024/61/5/",
+   "titolo": "Parlamento de Canarias, Diario de Sesiones no. 61, 11 December 2024, item 5: bill 11L/PPL-0004 to create a tax on tourist stays",
+   "ente": "Parlamento de Canarias",
+   "formato": "HTML",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "pubblicato_il": "2024-12-11",
+   "impronta_di": "frammenti",
+   "frammenti": [
+    "el Gobierno, tras deliberar, acuerda manifestar su criterio desfavorable a la toma en consideración",
+    "con tarifas que irían desde el euro hasta los tres euros y medio en función de la categoría y tipo de establecimiento",
+    "Por tanto, finalmente, sí, 25; no, 40; abstenciones, 0. Queda, por tanto, rechazada la toma en consideración de la proposición de ley, la número 4."
+   ],
+   "breve": "Parliament of the Canary Islands, session of 11 December 2024"
+  },
+  "parcan_mozione": {
+   "url": "https://www.parcan.es/files/pub/diarios/11l/074/ds074.pdf",
+   "titolo": "Parlamento de Canarias, Diario de Sesiones no. 74, 9 April 2025: motion 11L/M-0039 (pages 20-25)",
+   "ente": "Parlamento de Canarias",
+   "formato": "PDF",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "pubblicato_il": "2025-04-09",
+   "impronta": "sha256:ddff03d642d94e37e22989e483b0b4ac0910b6ba1f66a7fed780a714f61ecf6d",
+   "impronta_di": "file",
+   "frammenti": [
+    "se recoge en esta moción y es la creación de un impuesto a las estancias turísticas",
+    "Votos emitidos presentes, 61: sí, 24; no, 37; abstenciones, 0."
+   ],
+   "breve": "Parliament of the Canary Islands, session of 9 April 2025"
+  },
+  "parcan_leggi": {
+   "url": "https://www.parcan.es/leyes/",
+   "titolo": "Parlamento de Canarias: bills in progress (Leyes en tramitación)",
+   "ente": "Parlamento de Canarias",
+   "formato": "HTML",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "impronta_di": "frammenti",
+   "frammenti": [
+    "DL - DECRETOS LEYES DEL GOBIERNO 11L/DL-0027",
+    "11L/DL-0028 Por el que se aprueban normas para dar cumplimiento a los Acuerdos de la Comisión Bilateral",
+    "11L/DL-0029 De medidas urgentes complementarias para el impulso de la recuperación económica y social de La Palma",
+    "11L/DL-0030 De medidas urgentes en materia de actividades clasificadas. 11L/DL-0031 de modificación de la Ley 2/2025",
+    "PPL - PROPOSICIONES DE LEY 11L/PPL-0008 De accesibilidad universal de Canarias. 11L/PPL-0009 De conciliación corresponsable y de medidas de apoyo a la conciliación de la vida personal, familiar y de la actividad laboral. 11L/PPL-0015 de garantía del derecho a la vivienda protegida y asequible. 11L/PPL-0016 de modificación de la Ley 2/2025, de 26 de junio, de medidas urgentes para la reducción de la temporalidad, la gestión eficiente y la calidad en el empleo público de la Administración Pública de la Comunidad Autónoma de Canarias, así como para la protección de la infancia en el ámbito de los juegos de azar y apuestas. Iniciativas legislativas por tipo",
+    "PL - PROYECTOS DE LEY 11L/PL-0016 De modificación de la Ley 6/2022, de 27 de diciembre, de cambio climático y transición energética de Canarias",
+    "11L/PL-0017 De Movilidad Sostenible de Canarias. 11L/PL-0018 De actualización de la Ley 4/2017, de 13 de julio, del Suelo y de los Espacios Naturales Protegidos de Canarias. 11L/PL-0019 De Presupuestos Generales de la Comunidad Autónoma de Canarias para 2027. 11L/PL-0020 De Biodiversidad y de los Recursos Naturales de Canarias. PPL - PROPOSICIONES DE LEY"
+   ],
+   "breve": "Parliament of the Canary Islands, bills in progress"
+  },
+  "parcan_domanda": {
+   "url": "https://www.parcan.es/iniciativas/tramites.py?id_iniciativa=11L/PO/P-2443",
+   "titolo": "Parlamento de Canarias, question 11L/PO/P-2443 on a legal framework letting the island Cabildos set tourist fees: steps",
+   "ente": "Parlamento de Canarias",
+   "formato": "HTML",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "pubblicato_il": "2026-01-09",
+   "impronta_di": "frammenti",
+   "frammenti": [
+    "Previsión de impulsar la elaboración de un marco normativo habilitante que permita a los cabildos insulares establecer tasas turísticas",
+    "9/sep/2026 Publicación de la contestación Boletín Oficial del Parlamento Nº 311/2026"
+   ],
+   "breve": "Parliament of the Canary Islands, question 11L/PO/P-2443"
+  },
+  "cabildo_teide": {
+   "url": "https://tenerifemassostenible.tenerife.es/noticias/el-cabildo-implanta-la-ecotasa-del-teide-el-acceso-a-los-senderos-10-y-7-del-teide-se-cobraran-desde-el-19-de-enero-para-no-residentes-de-tenerife/",
+   "titolo": "Cabildo de Tenerife, notice of 18 January 2026: fees for Teide trails 10 and 7 from 19 January 2026",
+   "ente": "Cabildo de Tenerife",
+   "formato": "HTML",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "pubblicato_il": "2026-01-18",
+   "impronta_di": "frammenti",
+   "frammenti": [
+    "A partir del lunes 19 de enero de 2026",
+    "se aplicarán precios en las franjas horarias comprendidas entre las 09:00 y las 17:00 horas",
+    "El acceso seguirá siendo gratuito para las personas residentes en Tenerife y para los menores de 14 años",
+    "mientras que las personas residentes en el resto de Canarias deberán abonar 6 euros, y el resto de personas usuarias, 15 euros.",
+    "tendrá tarifas en la franja horaria entre las 09:00 y las 15:00 horas",
+    "En días laborables, el acceso será gratuito para residentes en Tenerife, tendrá un coste de 3 euros para residentes en el resto de Canarias y de 6 euros para el resto de usuarios.",
+    "En fines de semana y días festivos, las tarifas serán de 0 euros para residentes en Tenerife, 5 euros para residentes en el resto de las islas y 10 euros para el resto de visitantes.",
+    "Cada lunes a las 7:00 horas (hora canaria) se habilita una nueva semana de plazas, manteniéndose siempre un periodo de 28 días disponible para reserva.",
+    "Durante el proceso de reserva será necesario disponer de una tarjeta de crédito o débito y facilitar los datos de todas las personas participantes",
+    "Tampoco se procederá a la devolución del importe cuando no se permita el acceso por no cumplir con el equipamiento mínimo obligatorio",
+    "los recursos obtenidos se destinarán a reforzar la conservación, la seguridad y la calidad de la experiencia de las personas usuarias",
+    "Las reservas confirmadas no podrán modificarse ni cancelarse, ni cambiar asistentes, fechas u horarios, y no serán reembolsables, salvo en casos de cierre del sendero por causas meteorológicas"
+   ],
+   "breve": "Cabildo de Tenerife, notice of 18 January 2026"
+  },
+  "cabildo_accessi": {
+   "url": "https://tenerifemassostenible.tenerife.es/noticias/el-cabildo-de-tenerife-se-marca-como-objetivo-rebajar-un-50-la-presion-sobre-el-teide-con-guaguas-lanzaderas-y-cupos-a-los-vehiculos-de-no-residentes/",
+   "titolo": "Cabildo de Tenerife, notice of 7 May 2026: access control and paid parking planned for Teide National Park",
+   "ente": "Cabildo de Tenerife",
+   "formato": "HTML",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "pubblicato_il": "2026-05-07",
+   "impronta_di": "frammenti",
+   "frammenti": [
+    "De cara a finales de 2026, se implantará un sistema de control de accesos en las principales entradas al Teide",
+    "se establecerá un cupo de 500 plazas de aparcamiento con reserva previa , con prioridad y gratuidad para los residentes en Tenerife, mientras que los visitantes deberán abonar una tarifa."
+   ],
+   "breve": "Cabildo de Tenerife, notice of 7 May 2026"
+  },
+  "boc_igic": {
+   "url": "https://www.boe.es/ccaa/boc/2025/207/j43942-44070.pdf",
+   "titolo": "Boletín Oficial de Canarias no. 207, 20 October 2025: Decreto Legislativo 1/2025, consolidated IGIC rules (art. 32.1)",
+   "ente": "Gobierno de Canarias, in the official gazette of the Canary Islands (copy on boe.es)",
+   "formato": "PDF",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "pubblicato_il": "2025-10-20",
+   "impronta": "sha256:7452020667745fb4bc7336160c2c27b2d6b747a261421a99c6e3654acec0bd8d",
+   "impronta_di": "file",
+   "frammenti": [
+    "1. El tipo general en el Impuesto General Indirecto Canario es el 7 por ciento"
+   ],
+   "breve": "Decreto Legislativo 1/2025, Boletín Oficial de Canarias no. 207"
+  },
+  "boe_trlhl": {
+   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2004-4214",
+   "titolo": "Real Decreto Legislativo 2/2004, Ley Reguladora de las Haciendas Locales, consolidated text on boe.es: art. 17 (how a municipal tax ordinance is approved and published)",
+   "ente": "Agencia Estatal Boletín Oficial del Estado",
+   "formato": "HTML",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "impronta_di": "frammenti",
+   "frammenti": [
+    "En el caso de que no se hubieran presentado reclamaciones, se entenderá definitivamente adoptado el acuerdo, hasta entonces provisional, sin necesidad de acuerdo plenario.",
+    "incluyendo los provisionales elevados automáticamente a tal categoría, y el texto íntegro de las ordenanzas o de sus modificaciones, habrán de ser publicados en el boletín oficial de la provincia",
+    "sin que entren en vigor hasta que se haya llevado a cabo dicha publicación"
+   ],
+   "nota": "Aggiunta dalla revisione indipendente del 27/11/2026: senza osservazioni l'approvazione iniziale diventa definitiva senza un nuovo voto (art. 17.3).",
+   "breve": "Ley Reguladora de las Haciendas Locales, art. 17 (BOE)"
+  },
+  "boe_ljca": {
+   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1998-16718",
+   "titolo": "Ley 29/1998, reguladora de la Jurisdicción Contencioso-administrativa, consolidated text on boe.es: art. 72.2 (when a ruling that annuls an ordinance takes general effect)",
+   "ente": "Agencia Estatal Boletín Oficial del Estado",
+   "formato": "HTML",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "impronta_di": "frammenti",
+   "frammenti": [
+    "Las sentencias firmes que anulen una disposición general tendrán efectos generales desde el día en que sea publicado su fallo y preceptos anulados en el mismo periódico oficial en que lo hubiera sido la disposición anulada."
+   ],
+   "nota": "Aggiunta dalla revisione indipendente del 27/11/2026.",
+   "breve": "Ley 29/1998, art. 72.2 (BOE)"
+  },
+  "rtvc_mogan": {
+   "url": "https://rtvc.es/tsjc-anula-tasa-turistica-mogan-13-julio-2026/",
+   "titolo": "RTVC (Radio Televisión Canaria, public broadcaster), 14 July 2026: the TSJC annuls Mogán's tourist fee",
+   "ente": "RTVC",
+   "formato": "HTML",
+   "tipo": "stampa",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "pubblicato_il": "2026-07-14",
+   "impronta_di": "frammenti",
+   "frammenti": [
+    "ha estima el recurso interpuesto por la Federación de Empresarios de Hostelería y Turismo de Las Palmas y anulado la tasa turística del municipio de Mogán, que cobraba 0,15 euros por pernoctación.",
+    "La sentencia, hecha pública este lunes, declara la ordenanza nula de pleno derecho"
+   ],
+   "nota": "STAMPA, non fonte ufficiale: usata solo per dire che l'annullamento è stato riferito. La sentenza non è stata letta (non c'è una nota su poderjudicial.es tra le notizie del TSJ di luglio 2026; mogan.es blocca le richieste).",
+   "breve": "RTVC, 14 July 2026"
+  },
+  "rtvc_sospensione": {
+   "url": "https://rtvc.es/el-tsjc-frena-la-tasa-turistica-de-mogan/",
+   "titolo": "RTVC (Radio Televisión Canaria, public broadcaster), 12 March 2025: the TSJC suspends Mogán's tourist fee as an interim measure",
+   "ente": "RTVC",
+   "formato": "HTML",
+   "tipo": "stampa",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "pubblicato_il": "2025-03-12",
+   "impronta_di": "frammenti",
+   "frammenti": [
+    "ha aceptado la solicitud de suspensión presentada por la Federación de Empresarios de Hostelería y Turismo (FEHT) de Las Palmas y ha ordenado al Ayuntamiento de Mogán detener su aplicación de manera inmediata"
+   ],
+   "nota": "STAMPA, non fonte ufficiale. Aggiunta dalla revisione indipendente del 27/11/2026: solo per la cronologia.",
+   "breve": "RTVC, 12 March 2025"
+  },
+  "rtvc_ripresa": {
+   "url": "https://rtvc.es/la-tasa-turistica-volvera-a-aplicarse-en-mogan/",
+   "titolo": "RTVC (Radio Televisión Canaria, public broadcaster), 27 March 2025: the TSJC lifts the suspension and Mogán applies the fee again",
+   "ente": "RTVC",
+   "formato": "HTML",
+   "tipo": "stampa",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "pubblicato_il": "2025-03-27",
+   "impronta_di": "frammenti",
+   "frammenti": [
+    "a partir del jueves, 27 de marzo , volverá a su municipio la tasa por prestación de servicios y realización de actividades derivadas de la acción turística",
+    "el TSJC ha levantado la suspensión dictada el pasado 12 de marzo contra la tasa turística"
+   ],
+   "nota": "STAMPA, non fonte ufficiale. Aggiunta dalla revisione indipendente del 27/11/2026: solo per la cronologia.",
+   "breve": "RTVC, 27 March 2025"
+  }
+ },
+ "regionale": {
+  "tassa": false,
+  "proposta_legge": {
+   "codice": "11L/PPL-0004",
+   "gruppo": "Socialist group (PSOE)",
+   "dibattito": "2024-12-11",
+   "parere_governo": "unfavourable",
+   "parere_governo_riunione": "2024-12-02",
+   "voti_si": 25,
+   "voti_no": 40,
+   "astenuti": 0,
+   "tariffa_min": 1.0,
+   "tariffa_max": 3.5,
+   "fonte": "parcan_ppl"
+  },
+  "mozione": {
+   "codice": "11L/M-0039",
+   "data": "2025-04-09",
+   "voti_si": 24,
+   "voti_no": 37,
+   "astenuti": 0,
+   "fonte": "parcan_mozione"
+  },
+  "leggi_in_corso": {
+   "alla_data": "2026-11-27",
+   "proposte": [
+    "11L/PPL-0008",
+    "11L/PPL-0009",
+    "11L/PPL-0015",
+    "11L/PPL-0016"
+   ],
+   "progetti": [
+    "11L/PL-0016",
+    "11L/PL-0017",
+    "11L/PL-0018",
+    "11L/PL-0019",
+    "11L/PL-0020"
+   ],
+   "decreti_legge": [
+    "11L/DL-0027",
+    "11L/DL-0028",
+    "11L/DL-0029",
+    "11L/DL-0030",
+    "11L/DL-0031"
+   ],
+   "su_tassa_turistica": 0,
+   "fonte": "parcan_leggi"
+  },
+  "domanda_cabildos": {
+   "codice": "11L/PO/P-2443",
+   "presentata": "2026-01-09",
+   "risposta_scritta_pubblicata": "2026-09-09",
+   "bollettino": "311/2026",
+   "risposta_letta": false,
+   "fonte": "parcan_domanda"
+  },
+  "igic": {
+   "aliquota_generale": 7,
+   "articolo": "art. 32.1",
+   "norma": "Decreto Legislativo 1/2025",
+   "fonte": "boc_igic"
+  }
+ },
+ "mogan": {
+  "isola": "gran-canaria",
+  "comune": "Mogán",
+  "importo": 0.15,
+  "unita": "per person per night",
+  "approvazione_iniziale": "2024-12-12",
+  "bop_iniziale": {
+   "numero": 153,
+   "data": "2024-12-18"
+  },
+  "approvazione_definitiva": "2025-02-28",
+  "bop": {
+   "numero": 30,
+   "data": "2025-03-10"
+  },
+  "in_vigore_dal": "2025-03-11",
+  "esenzioni": 0,
+  "versamento": "half-yearly, by the owner of the accommodation (1-20 April and 1-20 October)",
+  "fonte": "bop_mogan",
+  "localita": [
+   "Puerto Rico",
+   "Amadores",
+   "Puerto de Mogán",
+   "Taurito",
+   "Playa del Cura",
+   "Patalavaca"
+  ],
+  "stampa_annullamento": {
+   "riferito_il": "2026-07-14",
+   "sentenza_resa_pubblica": "2026-07-13",
+   "tribunale": "Tribunal Superior de Justicia de Canarias (TSJC)",
+   "fonte": "rtvc_mogan",
+   "sentenza_letta": false
+  },
+  "ricerca_annullamento": {
+   "fatta_il": "2026-11-27",
+   "fonte": "bop_ricerca",
+   "anni": [
+    2025,
+    2026
+   ],
+   "termini": [
+    "Mogán",
+    "nulidad",
+    "anula",
+    "fallo",
+    "acción turística"
+   ],
+   "voci_mogan_lette": {
+    "2025": 170,
+    "2026": 129
+   },
+   "avvisi_di_annullamento_o_abrogazione": 0,
+   "nota": "Revisione indipendente del 27/11/2026: nei sommari 2025 e 2026 del BOP di Las Palmas nessun avviso che annulla o abroga l'ordinanza del 10/3/2025, e nessuna nuova ordinanza sulla tassa. CENDOJ (poderjudicial.es/search) ha risposto 403: sentenza non letta."
+  },
+  "stampa_sospensione": {
+   "sospesa_riferito_il": "2025-03-12",
+   "ripresa_riferito_il": "2025-03-27",
+   "fonti": [
+    "rtvc_sospensione",
+    "rtvc_ripresa"
+   ]
+  }
+ },
+ "la_oliva": {
+  "isola": "fuerteventura",
+  "comune": "La Oliva",
+  "importo": 0.56,
+  "unita": "per person per night",
+  "stato": "approvazione_iniziale",
+  "approvazione_iniziale": "2026-10-29",
+  "bop": {
+   "numero": 134,
+   "data": "2026-11-09"
+  },
+  "giorni_osservazioni": 30,
+  "esenti_sotto_anni": 3,
+  "esenti_residenti": true,
+  "versamento": "half-yearly, by the establishment (1-20 April and 1-20 October)",
+  "in_vigore": false,
+  "fonte": "bop_la_oliva",
+  "localita": [
+   "Corralejo",
+   "El Cotillo",
+   "Lajares",
+   "Villaverde"
+  ]
+ },
+ "teide": {
+  "isola": "tenerife",
+  "dal": "2026-01-19",
+  "avviso": "2026-01-18",
+  "prenotazione": "Tenerife ON",
+  "fonte": "cabildo_teide",
+  "sentieri": [
+   {
+    "id": "PNT 10",
+    "nome": "Telesforo Bravo",
+    "orario": "09:00-17:00",
+    "tariffe": [
+     {
+      "giorni": "any day",
+      "tenerife": 0,
+      "altre_isole": 6,
+      "altri": 15
+     }
+    ],
+    "gratis_sotto_anni": 14
+   },
+   {
+    "id": "PNT 07",
+    "nome": "Montaña Blanca – La Rambleta",
+    "orario": "09:00-15:00",
+    "tariffe": [
+     {
+      "giorni": "working days",
+      "tenerife": 0,
+      "altre_isole": 3,
+      "altri": 6
+     },
+     {
+      "giorni": "weekends and public holidays",
+      "tenerife": 0,
+      "altre_isole": 5,
+      "altri": 10
+     }
+    ]
+   }
+  ],
+  "annunciato": {
+   "avviso": "2026-05-07",
+   "quando": "towards the end of 2026",
+   "posti_auto": 500,
+   "importo": null,
+   "fonte": "cabildo_accessi"
+  }
+ },
+ "ricerca_bop": {
+  "fatta_il": "2026-11-27",
+  "fonte": "bop_ricerca",
+  "anni": [
+   2024,
+   2025,
+   2026
+  ],
+  "termini": [
+   "turística",
+   "pernoctaci",
+   "estancias",
+   "sostenibilidad",
+   "visitantes"
+  ],
+  "trovate": [
+   {
+    "ente": "Ayuntamiento de Mogán",
+    "bollettino": 153,
+    "data": "2024-12-18"
+   },
+   {
+    "ente": "Ayuntamiento de Mogán",
+    "bollettino": 30,
+    "data": "2025-03-10"
+   },
+   {
+    "ente": "Ayuntamiento de La Oliva",
+    "bollettino": 134,
+    "data": "2026-11-09"
+   }
+  ],
+  "copre": [
+   "gran-canaria",
+   "fuerteventura",
+   "lanzarote"
+  ]
+ },
+ "non_lette": [
+  {
+   "nome": "Boletín Oficial de la Provincia de Santa Cruz de Tenerife",
+   "url": "https://www.bopsantacruzdetenerife.es/",
+   "esito": "HTTP 403",
+   "isole": "Tenerife, La Palma, La Gomera, El Hierro"
+  },
+  {
+   "nome": "Ayuntamiento de Mogán (mogan.es)",
+   "url": "https://www.mogan.es/",
+   "esito": "HTTP 403 (request blocked)",
+   "isole": "Gran Canaria"
+  },
+  {
+   "nome": "Tenerife ON booking platform (tenerifeon.es)",
+   "url": "https://tenerifeon.es/",
+   "esito": "HTTP 403 (browser check)",
+   "isole": "Tenerife"
+  },
+  {
+   "nome": "CENDOJ, the courts' case-law search (poderjudicial.es/search)",
+   "url": "https://www.poderjudicial.es/search/indexAN.jsp",
+   "esito": "HTTP 403",
+   "isole": "Gran Canaria"
+  }
+ ],
+ "isole": [
+  {
+   "slug": "tenerife",
+   "nome": "Tenerife",
+   "provincia": "Santa Cruz de Tenerife",
+   "localita": [
+    "Costa Adeje",
+    "Playa de las Américas",
+    "Los Cristianos",
+    "Puerto de la Cruz",
+    "Los Gigantes"
+   ]
+  },
+  {
+   "slug": "gran-canaria",
+   "nome": "Gran Canaria",
+   "provincia": "Las Palmas",
+   "comuni_senza": [
+    "San Bartolomé de Tirajana (Maspalomas, Playa del Inglés, Meloneras, San Agustín)",
+    "Las Palmas de Gran Canaria"
+   ]
+  },
+  {
+   "slug": "fuerteventura",
+   "nome": "Fuerteventura",
+   "provincia": "Las Palmas",
+   "comuni": [
+    "Antigua",
+    "Betancuria",
+    "La Oliva",
+    "Pájara",
+    "Puerto del Rosario",
+    "Tuineje"
+   ],
+   "comuni_senza": [
+    "Antigua (Caleta de Fuste)",
+    "Pájara (Costa Calma, Morro Jable, Jandía)",
+    "Puerto del Rosario",
+    "Tuineje",
+    "Betancuria"
+   ]
+  },
+  {
+   "slug": "lanzarote",
+   "nome": "Lanzarote",
+   "provincia": "Las Palmas",
+   "comuni": [
+    "Arrecife",
+    "Haría",
+    "San Bartolomé",
+    "Teguise",
+    "Tías",
+    "Tinajo",
+    "Yaiza"
+   ],
+   "localita_comuni": [
+    [
+     "Puerto del Carmen",
+     "Tías"
+    ],
+    [
+     "Costa Teguise",
+     "Teguise"
+    ],
+    [
+     "Playa Blanca",
+     "Yaiza"
+    ]
+   ]
+  }
+ ]
+}

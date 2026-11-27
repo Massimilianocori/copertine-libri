@@ -18,7 +18,7 @@ principale blocca (403/404) serve una seconda fonte ufficiale; altrimenti la des
 | 5 | Ibiza | idem | 200 | HTML | Sì | Sì | **PASSA** |
 | 6 | Minorca | idem | 200 | HTML | Sì | Sì | **PASSA** |
 | 7 | Formentera | idem | 200 | HTML | Sì | Sì | **PASSA** |
-| 8 | Canarie | nessuna tassa regionale; solo il comune di Mogán (fonte non letta) | – | – | No | – | ESCLUSA |
+| 8 | Canarie | 27/11/2026: BOP Las Palmas n. 30 del 10/3/2025 (Mogán, 0,15 €) e n. 134 del 9/11/2026 (La Oliva, 0,56 €, solo approvazione iniziale); Parlamento delle Canarie (nessuna tassa regionale); Cabildo di Tenerife (sentieri del Teide) | 200 | PDF, HTML | Non c'è una tariffa regionale: 5 pagine «c'è una tassa?» senza calcolatore | Sì (`raccolta/impronte.py`, dati in `dati/canarie.json`) | **PASSA come pagine informative** |
 | 9 | Atene | Gazzetta ufficiale ΦΕΚ Α' 198/05.12.2024, legge 5162/2024 art. 24 (copia ufficiale su archivio search.et.gr); AADE dà 403 | 200 (AADE 403) | PDF testo | Sì (dal 2025, nessuna modifica successiva trovata) | Sì | **PASSA** |
 | 10 | Santorini | idem (tariffa nazionale) | 200 | PDF | Sì | Sì | **PASSA** |
 | 11 | Mykonos | idem | 200 | PDF | Sì | Sì | **PASSA** |
