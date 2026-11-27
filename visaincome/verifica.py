@@ -2983,6 +2983,9 @@ def controlla_it(online=True):
         for nome, fonte, fr in scelte:
             if fonte not in testi:
                 _m, testi[fonte] = RI.leggi(RI.FONTI[fonte])
+            if not testi[fonte]:
+                avviso("Italia", f"fonte {fonte} non raggiungibile ora (frammento {nome} non riletto)")
+                continue
             ok = fr in testi[fonte]
             riletti.append(f"{fonte} {nome}: {'presente' if ok else 'ASSENTE'}")
             if not ok:
@@ -3183,6 +3186,9 @@ def controlla_f7(online=True):
         for nome, fonte, fr in rng.sample(voci, 8):
             if fonte not in testi:
                 _m, testi[fonte], _b = R7.leggi(R7.FONTI[fonte])
+            if not testi[fonte]:
+                avviso("7%", f"fonte {fonte} non raggiungibile ora (frammento {nome} non riletto)")
+                continue
             ok = fr in testi[fonte]
             riletti.append(f"{fonte} {nome}: {'presente' if ok else 'ASSENTE'}")
             if not ok:

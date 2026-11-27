@@ -1,20 +1,20 @@
 {
 "_nota": "Generato da raccolta/dtv.py: non modificare a mano (i valori letti a mano stanno in LETTURE dentro lo script). Fonte: siti delle ambasciate e dei consolati generali thailandesi (Ministero degli Esteri thailandese), letti il giorno indicato.",
-"generato_il": "2026-11-18",
-"letto_il": "2026-11-18",
-"impronta": "10a2181f9ccf9b3eb56d",
+"generato_il": "2026-11-27",
+"letto_il": "2026-11-27",
+"impronta": "6cd7b4f7b52e1f61f64b",
 "fonti": {
 "elenco": {
 "url": "https://www.thaiembassy.org/",
 "titolo": "Thai Embassy and Consulates (Ministry of Foreign Affairs of Thailand)",
-"letto_il": "2026-11-18"
+"letto_il": "2026-11-27"
 },
 "annuncio_mfa": {
 "url": "https://consular.mfa.go.th/th/content/28-8-69-00?cate=5ddbe42115e39c4768007e1d",
 "titolo": "ประกาศแจ้งเตือน การปรับเพิ่มเอกสารประกอบคำร้องการตรวจลงตรา ประเภท ‘Destination Thailand Visa (DTV)",
 "data": "2026-08-28",
 "editore": "Department of Consular Affairs, Ministry of Foreign Affairs of Thailand",
-"letto_il": "2026-11-18"
+"letto_il": "2026-11-27"
 },
 "evisa": {
 "url": "https://www.thaievisa.go.th/",
@@ -7062,9 +7062,9 @@
 "ok": true,
 "titolo": "Destination Thailand Visa (DTV) for Workcation",
 "inserita": "2026-11-12",
-"modificata": "2026-11-18",
-"caratteri": 7924,
-"sha256": "f575f939bb38f8bad169faba4420e1aa751539c02f875966883517244a72b56a"
+"modificata": "2026-11-24",
+"caratteri": 7994,
+"sha256": "8c4db9353e616b341b06afb25a052972b2ec790f68dd69197f0627ee6a3f46e6"
 },
 {
 "url": "https://london.thaiembassy.org/en/page/visa-general-information",
@@ -7072,9 +7072,9 @@
 "ok": true,
 "titolo": "Thai E-Visa Information",
 "inserita": "2023-07-25",
-"modificata": "2026-11-18",
-"caratteri": 4491,
-"sha256": "3f45941c922887d4981319d1948f4e7e24597e251f81bb09352c8ebd1bb49d5a"
+"modificata": "2026-11-26",
+"caratteri": 5954,
+"sha256": "7be00210a5d66b849849c6a606a938f8b62ff64099a66ced09c27309155b7ee5"
 },
 {
 "url": "https://london.thaiembassy.org/en/page/visa-categories-and-requirements",
@@ -7082,7 +7082,7 @@
 "ok": true,
 "titolo": "Visa Categories and Requirements",
 "inserita": "2026-11-11",
-"modificata": "2026-11-18",
+"modificata": "2026-11-24",
 "caratteri": 3940,
 "sha256": "45221331bf998a069930be576f25efbc08c71c6653e1edd969f41cf5d20adf56"
 }
@@ -8366,7 +8366,7 @@
 "proof of sufficient funds of 20,000 THB per person",
 "they may request an extension of stay for up to 30 days"
 ],
-"modificata": "2026-11-17",
+"modificata": "2026-11-19",
 "sha256": "522a179efe26ba4df6dbe1ae82175796e255bbb4057fdf868319f7ac713ef178"
 },
 "esenzione_washington": {
@@ -8398,9 +8398,9 @@
 "estratti_esteri": "any bank statements issued outside of the UK, Ireland, or British Overseas Territories, need to be submitted together with a letter from the bank stating the balance equivalent to Pound Sterling (GBP), United States Dollars (USD), or Euro (EUR)"
 },
 "titolo": "Destination Thailand Visa (DTV) for Workcation",
-"modificata": "2026-11-18",
+"modificata": "2026-11-24",
 "http": 200,
-"sha256": "f575f939bb38f8bad169faba4420e1aa751539c02f875966883517244a72b56a"
+"sha256": "8c4db9353e616b341b06afb25a052972b2ec790f68dd69197f0627ee6a3f46e6"
 },
 "londra_dtv_sp": {
 "url": "https://london.thaiembassy.org/en/page/dtv-for-soft-power-activities",
@@ -8411,9 +8411,9 @@
 "doc_fondi": "a minimum closing balance of £12,000"
 },
 "titolo": "Destination Thailand Visa (DTV) for Soft Power Activities",
-"modificata": "2026-11-18",
+"modificata": "2026-11-24",
 "http": 200,
-"sha256": "3090fc7f53b0bedb739b67fb5c4f6cf9a1bfb79020f818b5507e3b8f6fb690b1"
+"sha256": "0c11029d86064299a12ff2b97f97feee23375129dfa7737472cf15f71fc4099f"
 },
 "londra_dtv_fam": {
 "url": "https://london.thaiembassy.org/en/page/dtv-for-dependents",
@@ -8423,9 +8423,9 @@
 "doc_visto_titolare": "Copy of the DTV visa of the main visa holder"
 },
 "titolo": "Destination Thailand Visa (DTV) for Dependents",
-"modificata": "2026-11-18",
+"modificata": "2026-11-24",
 "http": 200,
-"sha256": "51a9d9aae1da3c2d1537e28b653f992161ac46caea4d4882477e0d36c11e2689"
+"sha256": "09328a33eb1b7ded43e5e7add2a25d0d76db419ab39baeb048739b28a678424b"
 },
 "londra_info": {
 "url": "https://london.thaiembassy.org/en/page/visa-general-information",
@@ -8434,9 +8434,9 @@
 "anticipo": "At the earliest, applicants can apply for a visa 90 days before their intended arrival date"
 },
 "titolo": "Thai E-Visa Information",
-"modificata": "2026-11-18",
+"modificata": "2026-11-26",
 "http": 200,
-"sha256": "3f45941c922887d4981319d1948f4e7e24597e251f81bb09352c8ebd1bb49d5a"
+"sha256": "7be00210a5d66b849849c6a606a938f8b62ff64099a66ced09c27309155b7ee5"
 },
 "londra_come": {
 "url": "https://london.thaiembassy.org/en/page/how-to-apply-for-a-thai-e-visa",
@@ -8445,9 +8445,9 @@
 "non_garantito": "Submission of a visa application cannot be implied that a visa will be granted"
 },
 "titolo": "How to Apply for a Thai E-Visa",
-"modificata": "2026-11-18",
+"modificata": "2026-11-20",
 "http": 200,
-"sha256": "a2481ac2ade241b646e41d257c3844a93524fd9aced48c163ba9eb2bd091fbe5"
+"sha256": "f2d4b03a5a701d3b49e9bb6c68c3f6e84a726366d265798ee1db00d91d2b2d5f"
 },
 "londra_req": {
 "url": "https://london.thaiembassy.org/en/page/visa-categories-and-requirements",
@@ -8456,7 +8456,7 @@
 "traduzioni": "Otherwise, legalisation and certified translation into Thai or English will be requested"
 },
 "titolo": "Visa Categories and Requirements",
-"modificata": "2026-11-18",
+"modificata": "2026-11-24",
 "http": 200,
 "sha256": "45221331bf998a069930be576f25efbc08c71c6653e1edd969f41cf5d20adf56"
 },
@@ -8484,9 +8484,9 @@
 "oa_tariffa": "Fee: £150"
 },
 "titolo": "Non-Immigrant Visa (O-A) for Retirement",
-"modificata": "2026-11-18",
+"modificata": "2026-11-24",
 "http": 200,
-"sha256": "4e2371efb9aa91d084a7b7e91cba39001181db7ba9fd4926ca85c0b3cb628f5e"
+"sha256": "8be149a6a94187b0d7cfb464d0bfc27256d25d749f0b866d72c49c6c5ebd6744"
 },
 "londra_ox": {
 "url": "https://london.thaiembassy.org/en/page/non-o-x-visa-for-retirement",
@@ -8497,9 +8497,9 @@
 "ox_tariffa": "Fee: £300"
 },
 "titolo": "Non-Immigrant Visa (O-X) for Retirement",
-"modificata": "2026-11-18",
+"modificata": "2026-11-26",
 "http": 200,
-"sha256": "775b95fa144448c1b8834f1f21dc2a65e4ccfac8959e892bf26b14c733e40ad4"
+"sha256": "45ee8f91206017d5426cf9c6b710d33c2715b3a13ecb9ed4c88ee47d27518aeb"
 },
 "londra_studio": {
 "url": "https://london.thaiembassy.org/en/page/non-ed-visa-for-a-short-course",
@@ -8512,9 +8512,9 @@
 "tariffa": "Fee: £60"
 },
 "titolo": "Non-Immigrant Visa (ED) to Study a Short Course",
-"modificata": "2026-11-18",
+"modificata": "2026-11-24",
 "http": 200,
-"sha256": "72faf76a776b424fd0eab6764121e9c497e9601250c9bf17620d6e6530ff7456"
+"sha256": "8d7a0bce8eda35d144a768ac09b10091452a348263ac69725c3d71aefee4e63b"
 },
 "londra_ltr": {
 "url": "https://london.thaiembassy.org/en/page/long-term-resident-visa-boi",
@@ -8523,9 +8523,9 @@
 "tariffa": "Fee: £1,500"
 },
 "titolo": "Long-Term Resident Visa (LTR)",
-"modificata": "2026-11-18",
+"modificata": "2026-11-26",
 "http": 200,
-"sha256": "d5918f98f321a17d0fc4c20f7e04fd77600c19aa738d1d65b690a11001cf47e7"
+"sha256": "051122a592e2f9aafb4cd3e22b01eef9c90eed89825b0e24de4c2d4a8f4c1667"
 },
 "boi_ltr": {
 "url": "https://ltr.boi.go.th/",
