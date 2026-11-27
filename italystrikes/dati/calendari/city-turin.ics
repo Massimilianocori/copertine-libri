@@ -9,7 +9,7 @@ REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
 UID:mit-8606@italy-strikes-today.netlify.app
-DTSTAMP:20261127T151738Z
+DTSTAMP:20261127T201605Z
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
 SUMMARY:Strike: National ferry and port strike
@@ -24,7 +24,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8590@italy-strikes-today.netlify.app
-DTSTAMP:20261127T151738Z
+DTSTAMP:20261127T201605Z
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
 SUMMARY:Strike: National general strike
@@ -44,7 +44,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:cgsse-382437@italy-strikes-today.netlify.app
-DTSTAMP:20261127T151738Z
+DTSTAMP:20261127T201605Z
 DTSTART;VALUE=DATE:20261109
 DTEND;VALUE=DATE:20261110
 SUMMARY:Called off: National rail strike – Italo
@@ -60,7 +60,7 @@ STATUS:CANCELLED
 END:VEVENT
 BEGIN:VEVENT
 UID:cgsse-382665@italy-strikes-today.netlify.app
-DTSTAMP:20261127T151738Z
+DTSTAMP:20261127T201605Z
 DTSTART;VALUE=DATE:20261109
 DTEND;VALUE=DATE:20261110
 SUMMARY:Called off: National rail strike – Italo
@@ -76,7 +76,7 @@ STATUS:CANCELLED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8610@italy-strikes-today.netlify.app
-DTSTAMP:20261127T151738Z
+DTSTAMP:20261127T201605Z
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261121
 SUMMARY:Strike: National general strike
@@ -91,7 +91,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:cgsse-382981@italy-strikes-today.netlify.app
-DTSTAMP:20261127T151738Z
+DTSTAMP:20261127T201605Z
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261121
 SUMMARY:Strike: National general strike
@@ -112,7 +112,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-8592@italy-strikes-today.netlify.app
-DTSTAMP:20261127T151738Z
+DTSTAMP:20261127T201605Z
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261122
 SUMMARY:Strike: National multi-sector strike
@@ -131,7 +131,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:cgsse-383057@italy-strikes-today.netlify.app
-DTSTAMP:20261127T151738Z
+DTSTAMP:20261127T201605Z
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261122
 SUMMARY:Strike: National multi-sector strike
@@ -148,7 +148,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:cgsse-383015@italy-strikes-today.netlify.app
-DTSTAMP:20261127T151738Z
+DTSTAMP:20261127T201605Z
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261122
 SUMMARY:Strike: National rail strike – Trenitalia Tper (Emilia-Romagna re
@@ -166,8 +166,26 @@ TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
+UID:mit-8571@italy-strikes-today.netlify.app
+DTSTAMP:20261127T201605Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:Called off: National air transport strike – ENAV (air traffic con
+ trol)
+DESCRIPTION:Hours: 4 hours: from 13:00 to 17:00\nOriginal: 4 ORE: DALLE 13.
+ 00 ALLE 17.00\nWho: ENAV (air traffic control) (PERSONALE SOC. ENAV)\nWher
+ e: Whole of Italy\nStrikes can be called off or changed: always check with
+  your operator.\nhttps://italy-strikes-today.netlify.app/turin/\nSource: M
+ IT strike register (CC BY 4.0)\, id 8571\nCalled off according to the Comm
+ issione di garanzia sciopero (via onData\, CC BY 4.0)\, https://www.cgsse.
+ it/calendario-scioperi/dettaglio-sciopero/381401
+URL:https://italy-strikes-today.netlify.app/turin/
+TRANSP:TRANSPARENT
+STATUS:CANCELLED
+END:VEVENT
+BEGIN:VEVENT
 UID:mit-8575@italy-strikes-today.netlify.app
-DTSTAMP:20261127T151738Z
+DTSTAMP:20261127T201605Z
 DTSTART;VALUE=DATE:20261204
 DTEND;VALUE=DATE:20261205
 SUMMARY:Strike: National general strike
@@ -188,7 +206,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:cgsse-382773@italy-strikes-today.netlify.app
-DTSTAMP:20261127T151738Z
+DTSTAMP:20261127T201605Z
 DTSTART;VALUE=DATE:20261204
 DTEND;VALUE=DATE:20261205
 SUMMARY:Strike: National general strike
@@ -204,7 +222,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:cgsse-382881@italy-strikes-today.netlify.app
-DTSTAMP:20261127T151738Z
+DTSTAMP:20261127T201605Z
 DTSTART;VALUE=DATE:20261215
 DTEND;VALUE=DATE:20261216
 SUMMARY:Strike: National taxi strike
@@ -220,7 +238,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:cgsse-383457@italy-strikes-today.netlify.app
-DTSTAMP:20261127T151738Z
+DTSTAMP:20261127T201605Z
 DTSTART;VALUE=DATE:20261216
 DTEND;VALUE=DATE:20261218
 SUMMARY:Strike: National rail strike – Italo
@@ -236,7 +254,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:cgsse-383477@italy-strikes-today.netlify.app
-DTSTAMP:20261127T151738Z
+DTSTAMP:20261127T201605Z
 DTSTART;VALUE=DATE:20261216
 DTEND;VALUE=DATE:20261217
 SUMMARY:Strike: National rail strike – Italo
@@ -252,7 +270,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:cgsse-383453@italy-strikes-today.netlify.app
-DTSTAMP:20261127T151738Z
+DTSTAMP:20261127T201605Z
 DTSTART;VALUE=DATE:20261217
 DTEND;VALUE=DATE:20261218
 SUMMARY:Strike: National rail contractors strike (contractors: train operat
@@ -264,6 +282,37 @@ DESCRIPTION:Hours: ASTENSIONE DI MEZZO TURNO PER OGNI TURNO DI LAVORO\nOrig
  es-today.netlify.app/turin/\nSource: Commissione di garanzia sciopero (via
   onData\, CC BY 4.0)\, https://www.cgsse.it/calendario-scioperi/dettaglio-
  sciopero/383453
+URL:https://italy-strikes-today.netlify.app/turin/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:mit-8613@italy-strikes-today.netlify.app
+DTSTAMP:20261127T201605Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270116
+SUMMARY:Strike: National air transport strike – ENAV (air traffic control
+ )
+DESCRIPTION:Hours: 24 hours\nOriginal: 24 ORE\nWho: ENAV (air traffic contr
+ ol) (PERSONALE SOC. ENAV)\nWhere: Whole of Italy\nStrikes can be called of
+ f or changed: always check with your operator.\nhttps://italy-strikes-toda
+ y.netlify.app/turin/\nSource: MIT strike register (CC BY 4.0)\, id 8613
+URL:https://italy-strikes-today.netlify.app/turin/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:mit-8614@italy-strikes-today.netlify.app
+DTSTAMP:20261127T201605Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270116
+SUMMARY:Strike: National air transport strike – Techno Sky (air traffic c
+ ontrol systems)
+DESCRIPTION:Hours: 24 hours\nOriginal: 24 ORE\nWho: Techno Sky (air traffic
+  control systems) (PERSONALE SOC. TECHNO SKY)\nWhere: Whole of Italy\nStri
+ kes can be called off or changed: always check with your operator.\nhttps:
+ //italy-strikes-today.netlify.app/turin/\nSource: MIT strike register (CC 
+ BY 4.0)\, id 8614
 URL:https://italy-strikes-today.netlify.app/turin/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED

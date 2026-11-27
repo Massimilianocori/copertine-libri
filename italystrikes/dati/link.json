@@ -21,9 +21,8 @@
  },
  "enac_voli_garantiti": {
   "url": "https://www.enac.gov.it/trasporto-aereo/diritto-alla-mobilita/scioperi-nel-trasporto-aereo/voli-garantiti/",
-  "status": "browser",
-  "verificato_il": "2026-11-25",
-  "nota": "dominio ufficiale; dal 27/11/2026 il sito blocca le richieste automatiche dal server (403): ultima lettura riuscita il 25/11/2026"
+  "status": "200",
+  "verificato_il": "2026-11-27"
  },
  "legge_146_1990": {
   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-06-12;146",
@@ -229,5 +228,68 @@
   "status": "200",
   "verificato_il": "2026-11-27",
   "nome": "Italo"
+ },
+ "apt_cta": {
+  "url": "https://www.aeroporto.catania.it/",
+  "status": "200",
+  "verificato_il": "2026-11-27"
+ },
+ "apt_pmo": {
+  "url": "https://www.aeroportodipalermo.it/",
+  "status": "200",
+  "verificato_il": "2026-11-27"
+ },
+ "apt_puglia": {
+  "url": "https://www.aeroportidipuglia.it/",
+  "status": "200",
+  "verificato_il": "2026-11-27"
+ },
+ "apt_trn": {
+  "url": "https://www.aeroportoditorino.it/it",
+  "status": "200",
+  "verificato_il": "2026-11-27"
+ },
+ "apt_cag": {
+  "url": "https://www.sogaer.it/",
+  "status": "200",
+  "verificato_il": "2026-11-27"
+ },
+ "apt_trs": {
+  "url": "https://triesteairport.it/it/",
+  "status": "200",
+  "verificato_il": "2026-11-27"
+ },
+ "apt_vrn": {
+  "url": "https://www.aeroportoverona.it/",
+  "status": "browser",
+  "verificato_il": "2026-11-27",
+  "nota": "dominio scritto nella Carta dei Servizi 2026 del gestore pubblicata dall'ENAC (letta il 27/11/2026); il sito rifiuta le richieste automatiche dal server (403)"
+ },
+ "apt_tsf": {
+  "url": "https://www.trevisoairport.it/",
+  "status": "browser",
+  "verificato_il": "2026-11-27",
+  "nota": "dominio scritto nella Carta dei Servizi 2026 del gestore pubblicata dall'ENAC (letta il 27/11/2026); il sito rifiuta le richieste automatiche dal server (403)"
+ },
+ "apt_olb": {
+  "url": "https://www.geasar.it/",
+  "status": "browser",
+  "verificato_il": "2026-11-27",
+  "nota": "dominio scritto nella Carta dei Servizi 2026 del gestore pubblicata dall'ENAC (letta il 27/11/2026); il sito rifiuta le richieste automatiche dal server (403)"
+ },
+ "enac_carte_servizi": {
+  "url": "https://www.enac.gov.it/aeroporti/qualita-dei-servizi-aeroportuali/carte-dei-servizi-dei-gestori-aeroportuali/",
+  "status": "200",
+  "verificato_il": "2026-11-27"
+ },
+ "enac_aeroporti_italia": {
+  "url": "https://www.enac.gov.it/aeroporti/infrastrutture-aeroportuali/aeroporti-in-italia/",
+  "status": "200",
+  "verificato_il": "2026-11-27"
+ },
+ "enac_prestazioni": {
+  "url": "https://www.enac.gov.it/trasporto-aereo/diritto-alla-mobilita/scioperi-nel-trasporto-aereo/prestazioni-minime-garantite/",
+  "status": "200",
+  "verificato_il": "2026-11-27"
  }
 }

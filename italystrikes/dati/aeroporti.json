@@ -1,0 +1,346 @@
+{
+ "_nota": "Schede degli aeroporti aggiunti il 27/11/2026 (pagine /it/aeroporti/<slug_it>/ e /airports/<slug>/). Ogni fatto viene dalla fonte indicata in «fonti», letta il giorno «letto_il»: Carta dei Servizi 2026 del gestore pubblicata dall'ENAC, oppure il sito del gestore dove l'ENAC non pubblica il documento (Cagliari, Trieste). classe: elenco ENAC degli aeroporti di interesse nazionale (d.P.R. 201/2015). isola: vale la regola del collegamento giornaliero da e per le isole (regolamentazione della Commissione di garanzia, pubblicata dall'ENAC). testo_it/testo_en: scritti a mano; [[percorso/|testo]] = link interno, [[L:chiave|testo]] = link di dati/link.json. Da rileggere quando l'ENAC pubblica le Carte dei Servizi nuove (di solito tra maggio e ottobre).",
+ "letto_il": "2026-11-27",
+ "fonti_comuni": {
+  "enac_classi": {
+   "url": "https://www.enac.gov.it/aeroporti/infrastrutture-aeroportuali/aeroporti-in-italia/",
+   "aggiornata_il": "2026-06-23"
+  },
+  "enac_carte": {
+   "url": "https://www.enac.gov.it/aeroporti/qualita-dei-servizi-aeroportuali/carte-dei-servizi-dei-gestori-aeroportuali/",
+   "aggiornata_il": "2026-10-22"
+  },
+  "enac_prestazioni": {
+   "url": "https://www.enac.gov.it/trasporto-aereo/diritto-alla-mobilita/scioperi-nel-trasporto-aereo/prestazioni-minime-garantite/",
+   "aggiornata_il": "2024-04-12"
+  }
+ },
+ "aeroporti": {
+  "catania": {
+   "gestore": "SAC S.p.A.",
+   "uff_it": "Aeroporto di Catania-Fontanarossa",
+   "uff_en": "Catania-Fontanarossa Airport",
+   "luogo_it": "Catania, a 6 km dal centro",
+   "luogo_en": "Catania, 6 km from the city centre",
+   "classe": "strategico",
+   "isola": true,
+   "fonti": [
+    {
+     "nome_it": "Carta dei Servizi 2026 di SAC, pubblicata dall'ENAC",
+     "nome_en": "SAC 2026 Service Charter, published by ENAC",
+     "url": "https://www.enac.gov.it/app/uploads/2026/07/Carta-Servizi-Catania-2026.pdf"
+    }
+   ],
+   "testo_it": [
+    "L'aeroporto di Catania-Fontanarossa è gestito da SAC S.p.A. e si trova a 6 km dal centro di Catania. Secondo la Carta dei Servizi 2026 del gestore, l'assistenza a terra di aerei e passeggeri è affidata a quattro società: GH Catania, Aviation Services, Avia Partner e ASC Handling. Quando il registro annuncia uno sciopero del personale di una di queste società, i disagi toccano i voli delle compagnie che quella società assiste: check-in, imbarco e riconsegna dei bagagli possono rallentare anche se la compagnia aerea non sciopera.",
+    "Per arrivare in aeroporto la Carta indica l'Alibus Shuttle dell'AMTS, che collega lo scalo con il centro, la Stazione Centrale e il porto, e una navetta AMTS fino alla fermata ferroviaria di Fontanarossa, servita da Trenitalia. Uno sciopero del trasporto pubblico locale a Catania può quindi fermare l'Alibus anche in un giorno senza scioperi aerei: in quel caso restano taxi e auto. Gli scioperi locali sono nella pagina [[it/catania/|sciopero a Catania]], quelli dei treni in [[it/sciopero-trenitalia/|sciopero Trenitalia]]; gli avvisi sul servizio sono sul sito di [[L:op_amts|AMTS]]."
+   ],
+   "testo_en": [
+    "Catania-Fontanarossa is run by SAC S.p.A. and sits 6 km from the centre of Catania. The operator's 2026 Service Charter lists four ground handling companies working at the airport: GH Catania, Aviation Services, Avia Partner and ASC Handling. When the Italian register announces a strike by the staff of one of them, the flights that company looks after are the ones at risk: check-in, boarding and baggage delivery can slow down even if your airline is not on strike.",
+    "To reach the terminal, the Charter points to the Alibus Shuttle run by AMTS, the city bus company, which links the airport with the city centre, Catania Centrale station and the port, plus an AMTS shuttle to the nearby Fontanarossa rail stop served by Trenitalia. A local public transport strike in Catania can therefore stop the Alibus on a day with no air strike at all; taxis and cars are then the fallback. Local strikes are on the [[catania/|Catania strikes]] page and rail strikes under [[trains/|train strikes]]; service notices are on the [[L:op_amts|AMTS website]]."
+   ]
+  },
+  "palermo": {
+   "gestore": "GESAP S.p.A.",
+   "uff_it": "Aeroporto Internazionale di Palermo Falcone Borsellino",
+   "uff_en": "Palermo Falcone Borsellino International Airport",
+   "luogo_it": "Cinisi, località Punta Raisi, a circa 35 km da Palermo",
+   "luogo_en": "Cinisi (Punta Raisi), about 35 km from Palermo",
+   "classe": "strategico",
+   "isola": true,
+   "fonti": [
+    {
+     "nome_it": "Carta dei Servizi 2026 di GESAP, pubblicata dall'ENAC",
+     "nome_en": "GESAP 2026 Service Charter, published by ENAC",
+     "url": "https://www.enac.gov.it/app/uploads/2026/10/CDS-2026-PALERMO.pdf"
+    }
+   ],
+   "testo_it": [
+    "L'aeroporto Falcone Borsellino è a Cinisi, in località Punta Raisi, a circa 35 km da Palermo: una distanza che pesa quando scioperano i mezzi. Lo gestisce GESAP S.p.A., i cui soci principali sono la Città Metropolitana e il Comune di Palermo, la Camera di Commercio di Palermo ed Enna e il Comune di Cinisi. Per l'assistenza bagagli la Carta dei Servizi 2026 indica GH Palermo e ASC Handling: sono due nomi che possono comparire nel registro quando sciopera il personale di terra.",
+    "Il terminal ha una stazione al piano -1, servita dalla linea ferroviaria metropolitana per Palermo, con orari sul sito di Trenitalia. Gli autobus per la città sono di Prestia e Comandè; altre autolinee collegano l'aeroporto con Trapani, Agrigento, Sciacca, Catania e Messina. I taxi sono in servizio dalle 6 alle 24. Il treno dipende dagli scioperi ferroviari ([[it/sciopero-trenitalia/|sciopero Trenitalia]]); gli autobus per l'aeroporto invece non sono dell'AMAT, quindi uno [[it/sciopero-amat-palermo/|sciopero AMAT]] riguarda i bus urbani di Palermo e non la corsa per Punta Raisi."
+   ],
+   "testo_en": [
+    "Falcone Borsellino airport is in Cinisi, at Punta Raisi, about 35 km from Palermo, a distance that matters when ground transport is on strike. It is run by GESAP S.p.A., whose main shareholders are the Metropolitan City and the Municipality of Palermo, the Palermo and Enna Chamber of Commerce and the Municipality of Cinisi. For baggage assistance the 2026 Service Charter names GH Palermo and ASC Handling: these are two names that may show up in the register when ground staff walk out.",
+    "The terminal has a railway station on level -1, served by the metropolitan rail line to Palermo; timetables are on the Trenitalia website. Buses to the city are run by Prestia e Comandè, and other coach companies link the airport with Trapani, Agrigento, Sciacca, Catania and Messina. Taxis work from 06:00 to midnight. The train depends on rail strikes (see [[trains/|train strikes]]), while the airport coach is not run by AMAT, the city bus company: a strike listed on the [[palermo/|Palermo strikes]] page for AMAT concerns city buses, not the run to Punta Raisi."
+   ]
+  },
+  "bari": {
+   "gestore": "Aeroporti di Puglia",
+   "uff_it": "Aeroporto Karol Wojtyla di Bari",
+   "uff_en": "Bari Karol Wojtyla Airport",
+   "luogo_it": "Bari",
+   "luogo_en": "Bari",
+   "classe": "strategico",
+   "isola": false,
+   "fonti": [
+    {
+     "nome_it": "Carta dei Servizi 2026 di Aeroporti di Puglia, pubblicata dall'ENAC",
+     "nome_en": "Aeroporti di Puglia 2026 Service Charter, published by ENAC",
+     "url": "https://www.enac.gov.it/app/uploads/2026/06/Carta_dei_Servizi_2026-bari.pdf"
+    }
+   ],
+   "testo_it": [
+    "L'aeroporto Karol Wojtyla di Bari fa parte della rete gestita da Aeroporti di Puglia, che ha in concessione totale per quarant'anni anche gli scali di Brindisi, Foggia e Taranto. Per questo uno sciopero che il registro attribuisce al personale di Aeroporti di Puglia, senza nominare un solo scalo, viene mostrato sia in questa pagina sia in quella di [[it/aeroporti/brindisi/|Brindisi]]. Quando invece lo sciopero riguarda solo i controllori di volo di uno scalo, il registro lo scrive nel nome: per esempio «ENAV APT BARI».",
+    "Dalla Stazione Centrale di piazza Moro l'aeroporto si raggiunge in tre modi: con la linea urbana 16 dell'AMTAB, con lo shuttle di Autoservizi Tempesta (25-30 minuti) e con il treno di Ferrotramviaria sulla linea Bari – Aeroporto – Barletta. Sono tre aziende diverse: uno sciopero dell'AMTAB riguarda l'autobus urbano, non il treno, che non è di Trenitalia. Il Pugliairbus collega poi l'aeroporto con gli altri scali pugliesi e con Matera. Prima di partire guarda [[it/sciopero-amtab-bari/|sciopero AMTAB]] e [[it/bari/|sciopero a Bari]]."
+   ],
+   "testo_en": [
+    "Bari Karol Wojtyla airport belongs to the network run by Aeroporti di Puglia, which holds a forty-year concession covering Brindisi, Foggia and Taranto as well. That is why a strike the register assigns to Aeroporti di Puglia staff, without naming a single airport, is shown both here and on the [[airports/brindisi/|Brindisi]] page. When a strike concerns only the air traffic controllers of one airport, the register says so in the name, for example «ENAV APT BARI».",
+    "From Bari Centrale station in Piazza Moro there are three ways to the terminal: AMTAB city bus line 16, the Autoservizi Tempesta shuttle (25 to 30 minutes) and the Ferrotramviaria train on the Bari – Airport – Barletta line. They are three separate companies: an AMTAB strike concerns the city bus, not the train, which is not a Trenitalia service. The Pugliairbus coach also links the airport with the other Apulian airports and with Matera. Before you leave, check the [[bari/|Bari strikes]] page and [[local-transport/|bus and metro strikes]]."
+   ]
+  },
+  "turin": {
+   "gestore": "SAGAT S.p.A.",
+   "uff_it": "Aeroporto di Torino",
+   "uff_en": "Torino Airport",
+   "luogo_it": "Caselle Torinese (Torino)",
+   "luogo_en": "Caselle Torinese, near Turin",
+   "classe": "strategico",
+   "isola": false,
+   "fonti": [
+    {
+     "nome_it": "Carta dei Servizi 2026 di SAGAT, pubblicata dall'ENAC",
+     "nome_en": "SAGAT 2026 Service Charter, published by ENAC",
+     "url": "https://www.enac.gov.it/app/uploads/2026/05/cartadeiservizi2026_Torino.pdf"
+    }
+   ],
+   "testo_it": [
+    "L'aeroporto di Torino, a Caselle, è gestito da SAGAT S.p.A. La Carta dei Servizi 2026 spiega che a terra lavorano due società di handling: SAGAT Handling, controllata al 100% dal gestore, e Aviapartner. È un dettaglio utile per leggere il registro: uno sciopero «del personale SAGAT Handling» o «Aviapartner» riguarda check-in, imbarchi e bagagli dei voli che quella società assiste, non l'intero scalo.",
+    "La stazione dei treni è di fronte agli Arrivi: la linea ferroviaria porta a Torino Porta Susa in circa mezz'ora, con tre corse all'ora, e gli orari sono sul sito di Trenitalia. In autobus ci sono Arriva Italia e Flibco, entrambi con fermata davanti a Torino Porta Nuova. Treno e autobus dell'aeroporto non sono di GTT: uno [[it/sciopero-gtt-torino/|sciopero GTT]] riguarda metro, tram e bus della città, non per forza il collegamento con Caselle. Se scioperano i treni guarda [[it/sciopero-trenitalia/|sciopero Trenitalia]]; il quadro della città è in [[it/torino/|sciopero a Torino]]."
+   ],
+   "testo_en": [
+    "Turin airport, at Caselle, is run by SAGAT S.p.A. Its 2026 Service Charter explains that two ground handlers work there: SAGAT Handling, wholly owned by the operator, and Aviapartner. This helps when reading the register: a strike by «SAGAT Handling» or «Aviapartner» staff concerns check-in, boarding and baggage for the flights that company handles, not the whole airport.",
+    "The railway station faces the Arrivals hall: the line reaches Torino Porta Susa in about half an hour, three times an hour, with timetables on the Trenitalia website. Coaches are run by Arriva Italia and Flibco, both stopping in front of Torino Porta Nuova. Neither the airport train nor the coaches belong to GTT, so a GTT strike hits the city's metro, trams and buses but not necessarily the link to Caselle. For rail strikes see [[trains/|train strikes]]; the city picture is on the [[turin/|Turin strikes]] page."
+   ]
+  },
+  "verona": {
+   "gestore": "Aeroporto Valerio Catullo di Verona Villafranca S.p.A.",
+   "uff_it": "Aeroporto Valerio Catullo di Verona Villafranca",
+   "uff_en": "Verona Villafranca Valerio Catullo Airport",
+   "luogo_it": "Villafranca (Verona)",
+   "luogo_en": "Villafranca, near Verona",
+   "classe": "interesse nazionale",
+   "isola": false,
+   "fonti": [
+    {
+     "nome_it": "Carta dei Servizi 2026 dell'Aeroporto Valerio Catullo, pubblicata dall'ENAC",
+     "nome_en": "Valerio Catullo Airport 2026 Service Charter, published by ENAC",
+     "url": "https://www.enac.gov.it/app/uploads/2026/05/Carta-servizi-VRN-2026-v.5.pdf"
+    }
+   ],
+   "testo_it": [
+    "Il Valerio Catullo è gestito dalla società Aeroporto Valerio Catullo di Verona Villafranca S.p.A., che gestisce anche lo scalo di Brescia; SAVE, entrata nel capitale nel 2014, ne possiede il 45,34%. Nella Carta dei Servizi 2026 gli uffici bagagli smarriti fanno capo a tre società di handling: GH/Avia Partner, AGS/FC Handling e Skytanking. Se il registro nomina una di loro, lo sciopero tocca i voli che quella società assiste e non gli altri.",
+    "Tra l'aeroporto e la stazione di Verona Porta Nuova c'è la navetta Verona Airlink: circa 15 minuti, con un biglietto unico treno + bus in vendita sui canali di Trenitalia. Per il biglietto cumulativo con le ferrovie tedesche e austriache la Carta cita ATV, l'azienda dei bus di Verona: uno sciopero del trasporto locale in città può quindi riguardare anche la navetta, e gli avvisi sono sul sito di [[L:op_atv|ATV]]. D'estate c'è un autobus diretto per le località del Lago di Garda. Gli scioperi locali sono in [[it/verona/|sciopero a Verona]]."
+   ],
+   "testo_en": [
+    "Valerio Catullo is run by Aeroporto Valerio Catullo di Verona Villafranca S.p.A., which also manages Brescia airport; SAVE, a shareholder since 2014, owns 45.34% of it. In the 2026 Service Charter the lost baggage desks belong to three ground handlers: GH/Avia Partner, AGS/FC Handling and Skytanking. If the register names one of them, the strike affects the flights that company handles and not the others.",
+    "Between the terminal and Verona Porta Nuova station runs the Verona Airlink shuttle: about 15 minutes, with a combined train + bus ticket sold through Trenitalia's channels. For the through ticket with the German and Austrian railways the Charter names ATV, Verona's bus company, so a local transport strike in the city can involve the shuttle too; notices are on the [[L:op_atv|ATV website]]. In summer a direct bus runs to the Lake Garda resorts. Local strikes are on the [[verona/|Verona strikes]] page."
+   ]
+  },
+  "cagliari": {
+   "gestore": "SOGAER (So.G.Aer. S.p.A.)",
+   "uff_it": "Aeroporto Mario Mameli di Cagliari",
+   "uff_en": "Cagliari Mario Mameli Airport",
+   "luogo_it": "Elmas, a 7 km dal centro di Cagliari",
+   "luogo_en": "Elmas, 7 km from the centre of Cagliari",
+   "classe": "strategico",
+   "isola": true,
+   "fonti": [
+    {
+     "nome_it": "SOGAER, pagina «Sogaer SPA»",
+     "nome_en": "SOGAER, company page",
+     "url": "https://www.sogaer.it/it/sogaer-spa"
+    },
+    {
+     "nome_it": "SOGAER, «Da e per l'aeroporto»",
+     "nome_en": "SOGAER, getting to the airport",
+     "url": "https://www.sogaer.it/it/da-per-aeroporto"
+    }
+   ],
+   "testo_it": [
+    "L'aeroporto di Cagliari è intitolato a Mario Mameli e si trova a Elmas, a 7 km dal centro. Lo gestisce SOGAER (So.G.Aer. S.p.A.), nata nel 1990 e titolare dal 2007 della concessione quarantennale per la gestione totale dello scalo. Nella storia del gruppo compaiono Sogaerdyn, costituita per i servizi di handling, e Sogaer Security, per la sicurezza aeroportuale: sono i nomi da riconoscere nel registro quando lo sciopero riguarda il personale di terra di Cagliari.",
+    "Dal 2013 l'aeroporto ha una stazione, «Elmas Aeroporto», a due passi dal terminal: il treno arriva alla stazione di Cagliari in circa 6 minuti e i biglietti sono quelli di Trenitalia. È il collegamento più semplice, ma dipende dagli scioperi dei treni: nei giorni di [[it/sciopero-trenitalia/|sciopero Trenitalia]] conviene controllare le corse garantite oppure muoversi in auto lungo la statale 130. Gli scioperi locali della città sono in [[it/cagliari/|sciopero a Cagliari]]."
+   ],
+   "testo_en": [
+    "Cagliari airport is named after Mario Mameli and lies in Elmas, 7 km from the city centre. It is run by SOGAER (So.G.Aer. S.p.A.), founded in 1990 and holder since 2007 of the forty-year concession for the whole airport. The group's history includes Sogaerdyn, set up for ground handling, and Sogaer Security, for airport security: these are the names to recognise in the register when a strike concerns ground staff in Cagliari.",
+    "Since 2013 the airport has had its own station, «Elmas Aeroporto», a short walk from the terminal: the train reaches Cagliari station in about 6 minutes on a Trenitalia ticket. It is the simplest link, but it depends on rail strikes: on those days check the guaranteed services under [[trains/|train strikes]] or travel by car along state road 130. Local strikes in Sardinia are under [[local-transport/|bus and metro strikes]]."
+   ]
+  },
+  "rome-ciampino": {
+   "gestore": "Aeroporti di Roma S.p.A. (gruppo Mundys)",
+   "uff_it": "Aeroporto G.B. Pastine di Roma Ciampino",
+   "uff_en": "Rome Ciampino G.B. Pastine Airport",
+   "luogo_it": "via Appia Nuova, a 15 km dal centro di Roma",
+   "luogo_en": "Via Appia Nuova, 15 km from the centre of Rome",
+   "classe": "interesse nazionale",
+   "isola": false,
+   "fonti": [
+    {
+     "nome_it": "Carta dei Servizi 2026 di Aeroporti di Roma per Ciampino, pubblicata dall'ENAC",
+     "nome_en": "Aeroporti di Roma 2026 Service Charter for Ciampino, published by ENAC",
+     "url": "https://www.enac.gov.it/app/uploads/2026/05/ADR_REL_CartaServizi_Ciampino-2026.pdf"
+    }
+   ],
+   "testo_it": [
+    "Ciampino, intitolato a G.B. Pastine, è gestito come Fiumicino da Aeroporti di Roma S.p.A., società del gruppo Mundys e concessionaria esclusiva del sistema aeroportuale della Capitale. Per questo nel registro i due scali possono comparire insieme, e uno sciopero registrato per la provincia di Roma senza il nome dello scalo viene mostrato sia qui sia a [[it/aeroporti/roma-fiumicino/|Fiumicino]]; se la fonte indica solo Fiumicino, qui non compare. L'aeroporto è sulla via Appia Nuova, a 15 km dal centro.",
+    "In aeroporto il treno non arriva: la Carta dei Servizi 2026 indica il collegamento ferroviario da Roma Termini alla stazione di Ciampino (circa 15 minuti) e da lì l'autobus ATRAL per il terminal; il servizio treno + bus si chiama Ciampino Airlink. In alternativa ci sono gli autobus diretti da Termini e dal centro: la Carta cita Rome Airport Bus, SIT Bus Shuttle, Terravision e ATAC. Uno sciopero dei treni tocca il primo tratto, uno sciopero dei bus il secondo: guarda [[it/sciopero-trenitalia/|sciopero Trenitalia]], [[it/sciopero-atac-roma/|sciopero ATAC]] e [[it/roma/|sciopero a Roma]]."
+   ],
+   "testo_en": [
+    "Ciampino, named after G.B. Pastine, is run like Fiumicino by Aeroporti di Roma S.p.A., a Mundys group company and sole concession holder for the capital's airport system. This is why the two airports can appear together in the register, and why a strike filed for the province of Rome without naming an airport is shown both here and on the [[airports/rome-fiumicino/|Fiumicino]] page; one filed for Fiumicino only is not shown here. The airport is on Via Appia Nuova, 15 km from the centre.",
+    "No train reaches the terminal: the 2026 Service Charter describes the rail link from Roma Termini to Ciampino town station (about 15 minutes) and then the ATRAL bus to the airport; the combined train + bus service is called Ciampino Airlink. Direct coaches from Termini and the centre are the alternative: the Charter lists Rome Airport Bus, SIT Bus Shuttle, Terravision and ATAC. A rail strike hits the first leg, a bus strike the second: see [[trains/|train strikes]] and the [[rome/|Rome strikes]] page."
+   ],
+   "gestore_en": "Aeroporti di Roma S.p.A. (Mundys group)"
+  },
+  "treviso": {
+   "gestore": "AER TRE S.p.A.",
+   "uff_it": "Aeroporto Antonio Canova di Treviso",
+   "uff_en": "Treviso Antonio Canova Airport",
+   "luogo_it": "Treviso, a 20 km dall'aeroporto di Venezia",
+   "luogo_en": "Treviso, 20 km from Venice airport",
+   "classe": "interesse nazionale",
+   "isola": false,
+   "fonti": [
+    {
+     "nome_it": "Carta dei Servizi 2026 di AER TRE, pubblicata dall'ENAC",
+     "nome_en": "AER TRE 2026 Service Charter, published by ENAC",
+     "url": "https://www.enac.gov.it/app/uploads/2026/07/Carta-servizi-2026-Treviso.pdf"
+    }
+   ],
+   "testo_it": [
+    "L'aeroporto Antonio Canova di Treviso è gestito da AER TRE S.p.A. e dal 1996 fa parte del sistema aeroportuale di Venezia: SAVE, la società che gestisce il Marco Polo, possiede l'80% di AER TRE. I due scali distano 20 km. La Carta dei Servizi 2026 descrive Treviso come uno scalo dedicato a voli regionali, low-cost e charter: qui contano soprattutto gli scioperi delle singole compagnie, che trovi in [[it/aerei/|sciopero aerei]]. Gli scioperi che riguardano il Marco Polo sono nella pagina di [[it/aeroporti/venezia-marco-polo/|Venezia]].",
+    "Il treno non arriva in aeroporto. Dalle stazioni di Treviso e di Venezia Mestre si prosegue con autobus di linea o taxi; gli autobus collegano il Canova anche con piazzale Roma a Venezia e con le località balneari. La Carta elenca quattro operatori: ATVO, Mobilità di Marca, Barzi Service e FSBusitalia. Se uno sciopero locale ferma una di queste aziende, le altre possono viaggiare: controlla quale ti serve prima di cambiare programma. Gli scioperi dei mezzi in Veneto sono in [[it/mezzi-pubblici/|sciopero mezzi pubblici]]."
+   ],
+   "testo_en": [
+    "Treviso Antonio Canova is run by AER TRE S.p.A. and has been part of the Venice airport system since 1996: SAVE, the company that runs Venice Marco Polo, owns 80% of AER TRE. The two airports are 20 km apart. The 2026 Service Charter describes Treviso as an airport for regional, low-cost and charter flights, so strikes at individual airlines matter most here: they are listed under [[flights/|flight strikes]]. Strikes concerning Marco Polo are on the [[airports/venice/|Venice]] page.",
+    "No train reaches the airport. From Treviso and Venezia Mestre stations you continue by scheduled bus or taxi; buses also link Canova with Piazzale Roma in Venice and with the seaside resorts. The Charter lists four operators: ATVO, Mobilità di Marca, Barzi Service and FSBusitalia. If a local strike stops one of them the others may still run, so check which one you need before changing plans. Local transport strikes in Veneto are under [[local-transport/|bus and metro strikes]]."
+   ]
+  },
+  "olbia": {
+   "gestore": "Geasar S.p.A.",
+   "uff_it": "Aeroporto Olbia Costa Smeralda",
+   "uff_en": "Olbia Costa Smeralda Airport",
+   "luogo_it": "Olbia, a 4 km dal centro",
+   "luogo_en": "Olbia, 4 km from the town centre",
+   "classe": "interesse nazionale",
+   "isola": true,
+   "fonti": [
+    {
+     "nome_it": "Carta dei Servizi 2026 di Geasar, pubblicata dall'ENAC",
+     "nome_en": "Geasar 2026 Service Charter, published by ENAC",
+     "url": "https://www.enac.gov.it/app/uploads/2026/07/CARTA-DEI-SERVIZI-OLBIA-2026.pdf"
+    }
+   ],
+   "testo_it": [
+    "L'aeroporto Olbia Costa Smeralda è gestito da Geasar S.p.A., costituita nel 1985 e titolare dal 2004 della concessione quarantennale; il socio principale è F2i Ligantia, con il 79,8%. A differenza di altri scali, qui Geasar svolge direttamente anche l'handling, cioè l'assistenza a terra dei passeggeri e degli aerei di linea e charter: uno sciopero del personale Geasar può quindi toccare sia i servizi dell'aeroporto sia check-in e bagagli.",
+    "Lo scalo è a 4 km dal centro di Olbia. Il trasporto urbano è garantito dalla compagnia ASPO; tra le compagnie di autobus la Carta dei Servizi 2026 cita anche ARST. In auto i tempi indicati sono circa un'ora da Nuoro e da Sassari, mezz'ora da Porto Cervo e poco meno di tre ore da Cagliari. La Carta non indica collegamenti ferroviari con il terminal: se uno sciopero locale ferma gli autobus restano taxi e auto, e conviene saperlo prima anche per una distanza così breve."
+   ],
+   "testo_en": [
+    "Olbia Costa Smeralda is run by Geasar S.p.A., founded in 1985 and holder of the forty-year concession since 2004; its main shareholder is F2i Ligantia, with 79.8%. Unlike at other airports, Geasar also provides ground handling itself, that is the assistance on the ground to passengers and to scheduled and charter aircraft: a strike by Geasar staff can therefore affect both airport services and check-in and baggage.",
+    "The terminal is 4 km from the centre of Olbia. Urban transport is provided by the ASPO company; among coach operators the 2026 Service Charter also lists ARST. Driving times given are about an hour from Nuoro and from Sassari, half an hour from Porto Cervo and just under three hours from Cagliari. The Charter lists no rail link to the terminal: if a local strike stops the buses, taxis and cars are what is left, which is worth knowing in advance even for such a short distance."
+   ],
+   "nota_it": "Per Olbia non usiamo la provincia di Sassari: in quella provincia c'è anche l'aeroporto di Alghero, e uno sciopero locale senza il nome dello scalo potrebbe riguardare l'uno o l'altro. Uno sciopero di questo tipo lo trovi comunque in [[it/aerei/|sciopero aerei]].",
+   "nota_en": "For Olbia we do not use the province of Sassari: Alghero airport is in the same province, and a local strike that names no airport could concern either. Such a strike is still listed under [[flights/|flight strikes]]."
+  },
+  "lamezia-terme": {
+   "gestore": "S.A.CAL. S.p.A. (Società Aeroportuale Calabrese)",
+   "uff_it": "Aeroporto di Lamezia Terme",
+   "uff_en": "Lamezia Terme Airport",
+   "luogo_it": "Lamezia Terme (Catanzaro), a 2 km dalla stazione di Lamezia Terme Centrale",
+   "luogo_en": "Lamezia Terme (province of Catanzaro), 2 km from Lamezia Terme Centrale station",
+   "classe": "strategico",
+   "isola": false,
+   "fonti": [
+    {
+     "nome_it": "Carta dei Servizi 2026 di SACAL per Lamezia Terme, pubblicata dall'ENAC",
+     "nome_en": "SACAL 2026 Service Charter for Lamezia Terme, published by ENAC",
+     "url": "https://www.enac.gov.it/app/uploads/2026/05/CdSGuida_Lamezia-Terme_2026.pdf"
+    }
+   ],
+   "testo_it": [
+    "L'aeroporto di Lamezia Terme è gestito da S.A.CAL. S.p.A., la Società Aeroportuale Calabrese, che gestisce tutti e tre gli scali della Calabria: Lamezia, Reggio Calabria e Crotone. Nel registro uno sciopero «del personale SACAL» può quindi riguardare più aeroporti: questa pagina mostra quelli che nominano Lamezia o SACAL e quelli registrati per la provincia di Catanzaro. SACAL è una società a capitale misto, con il 97,1% delle azioni in mano a enti pubblici.",
+    "L'aeroporto è a 1 km dallo svincolo dell'autostrada A2 e a 2 km dalla stazione di Lamezia Terme Centrale, collegata con autobus e taxi. Gli autobus per le città calabresi sono di più aziende: Lamezia Multiservizi per le linee urbane, Ferrovie della Calabria (solo nei giorni feriali) per Catanzaro, Cosenza, Vibo Valentia e Tropea, poi Autolinee Federico e Bilotta. Chi arriva in treno dipende dagli scioperi ferroviari fino a Lamezia Terme Centrale: guarda [[it/sciopero-trenitalia/|sciopero Trenitalia]] e [[it/treni/|sciopero treni]]."
+   ],
+   "testo_en": [
+    "Lamezia Terme airport is run by S.A.CAL. S.p.A., the Calabrian airport company, which manages all three airports in Calabria: Lamezia, Reggio Calabria and Crotone. In the register a strike by «SACAL staff» can therefore involve more than one airport: this page shows those that name Lamezia or SACAL and those filed for the province of Catanzaro. SACAL is a mixed-capital company, with 97.1% of its shares held by public bodies.",
+    "The terminal is 1 km from the A2 motorway junction and 2 km from Lamezia Terme Centrale station, which is linked by bus and taxi. Buses to Calabrian towns belong to several companies: Lamezia Multiservizi for urban lines, Ferrovie della Calabria (working days only) for Catanzaro, Cosenza, Vibo Valentia and Tropea, then Autolinee Federico and Bilotta. If you arrive by rail you depend on train strikes as far as Lamezia Terme Centrale: see [[trains/|train strikes]]."
+   ],
+   "gestore_en": "S.A.CAL. S.p.A. (Società Aeroportuale Calabrese, the Calabrian airport company)"
+  },
+  "brindisi": {
+   "gestore": "Aeroporti di Puglia",
+   "uff_it": "Aeroporto del Salento, Brindisi",
+   "uff_en": "Brindisi Airport (Aeroporto del Salento)",
+   "luogo_it": "Brindisi",
+   "luogo_en": "Brindisi",
+   "classe": "interesse nazionale",
+   "isola": false,
+   "fonti": [
+    {
+     "nome_it": "Carta dei Servizi 2026 di Aeroporti di Puglia, pubblicata dall'ENAC",
+     "nome_en": "Aeroporti di Puglia 2026 Service Charter, published by ENAC",
+     "url": "https://www.enac.gov.it/app/uploads/2026/06/Carta_dei_Servizi_2026-brindisi.pdf"
+    }
+   ],
+   "testo_it": [
+    "L'aeroporto di Brindisi, che la Carta dei Servizi chiama anche Aeroporto del Salento, è gestito da Aeroporti di Puglia insieme a Bari, Foggia e Taranto: la concessione è unica per tutta la rete pugliese. Uno sciopero che il registro attribuisce al personale di Aeroporti di Puglia compare quindi sia qui sia nella pagina di [[it/aeroporti/bari-karol-wojtyla/|Bari]], a meno che il registro non nomini uno solo dei due scali.",
+    "In città si arriva con il servizio urbano della STP, la Società Trasporti Pubblici di Brindisi, oppure in taxi; in auto l'uscita «aeroporto» è sulla statale 379, sia per chi viene da Bari sia per chi viene da Lecce. Il Pugliairbus collega lo scalo con gli aeroporti di Bari, Foggia e Taranto e con Matera: è il collegamento da conoscere se la compagnia sposta il tuo volo su Bari. Gli scioperi del trasporto locale in Puglia sono in [[it/mezzi-pubblici/|sciopero mezzi pubblici]]."
+   ],
+   "testo_en": [
+    "Brindisi airport, which the Service Charter also calls Aeroporto del Salento, is run by Aeroporti di Puglia together with Bari, Foggia and Taranto under a single concession for the whole Apulian network. A strike the register assigns to Aeroporti di Puglia staff therefore appears both here and on the [[airports/bari/|Bari]] page, unless the register names only one of the two airports.",
+    "The city is reached by the urban service of STP, the Brindisi public transport company, or by taxi; by car, the «aeroporto» exit is on state road 379 whether you come from Bari or from Lecce. The Pugliairbus coach links the terminal with Bari, Foggia and Taranto airports and with Matera, which is the connection to know about if your airline moves your flight to Bari. Local transport strikes in Apulia are listed under [[local-transport/|bus and metro strikes]]."
+   ]
+  },
+  "genoa": {
+   "gestore": "Aeroporto di Genova S.p.A.",
+   "uff_it": "Aeroporto Cristoforo Colombo di Genova",
+   "uff_en": "Genoa Cristoforo Colombo Airport",
+   "luogo_it": "Genova, a circa 9 km dal centro",
+   "luogo_en": "Genoa, about 9 km from the city centre",
+   "classe": "interesse nazionale",
+   "isola": false,
+   "fonti": [
+    {
+     "nome_it": "Carta dei Servizi 2026 di Aeroporto di Genova, pubblicata dall'ENAC",
+     "nome_en": "Aeroporto di Genova 2026 Service Charter, published by ENAC",
+     "url": "https://www.enac.gov.it/app/uploads/2026/07/carta-dei-servizi-2026_Genova.pdf"
+    }
+   ],
+   "testo_it": [
+    "Il Cristoforo Colombo è gestito da Aeroporto di Genova S.p.A., che opera in regime di concessione totale e, come gestore, fornisce anche i servizi di assistenza a terra (ground handling). A Genova quindi uno sciopero del personale della società di gestione può riguardare insieme l'aerostazione, i check-in e i bagagli. Lo scalo è a circa 9 km dal centro, dove si trovano le stazioni di Genova Piazza Principe e di Genova Brignole.",
+    "La stazione più vicina è Genova Sestri Ponente Aeroporto: da lì parte la navetta Airlink di AMT, ogni 15 minuti circa tra le 5:50 e le 22:10, con un tragitto di 5-10 minuti. La navetta è un servizio AMT: nei giorni di sciopero del trasporto locale a Genova può non viaggiare fuori dalle fasce garantite, mentre il treno fino a Sestri Ponente dipende dagli scioperi ferroviari. Le fasce di AMT e le prossime date sono in [[it/sciopero-amt-genova/|sciopero AMT Genova]]; il resto in [[it/genova/|sciopero a Genova]]."
+   ],
+   "testo_en": [
+    "Cristoforo Colombo is run by Aeroporto di Genova S.p.A., which holds a full concession and, as airport operator, also provides ground handling. In Genoa, then, a strike by the staff of the managing company can affect the terminal, check-in and baggage all at once. The airport is about 9 km from the centre, where Genova Piazza Principe and Genova Brignole stations are.",
+    "The nearest station is Genova Sestri Ponente Aeroporto: from there the AMT Airlink shuttle leaves roughly every 15 minutes between 05:50 and 22:10 and takes 5 to 10 minutes. The shuttle is an AMT service: on local transport strike days in Genoa it may not run outside the guaranteed hours, while the train to Sestri Ponente depends on rail strikes. Upcoming dates are on the [[genoa/|Genoa strikes]] page and under [[trains/|train strikes]]."
+   ]
+  },
+  "trieste": {
+   "gestore": "Aeroporto Friuli Venezia Giulia S.p.A.",
+   "uff_it": "Trieste Airport, aeroporto di Ronchi dei Legionari",
+   "uff_en": "Trieste Airport (Ronchi dei Legionari)",
+   "luogo_it": "Ronchi dei Legionari, in provincia di Gorizia",
+   "luogo_en": "Ronchi dei Legionari, province of Gorizia",
+   "classe": "interesse nazionale",
+   "isola": false,
+   "fonti": [
+    {
+     "nome_it": "Trieste Airport, profilo aziendale",
+     "nome_en": "Trieste Airport, company profile",
+     "url": "https://triesteairport.it/it/corporate/lazienda/aeroporto-fvg/profilo-aziendale-1/"
+    },
+    {
+     "nome_it": "Trieste Airport, Polo Intermodale",
+     "nome_en": "Trieste Airport, intermodal hub",
+     "url": "https://triesteairport.it/it/airport/polo-intermodale/"
+    }
+   ],
+   "testo_it": [
+    "L'aeroporto di Trieste non è in provincia di Trieste: si trova a Ronchi dei Legionari, in provincia di Gorizia. Lo gestisce dal 1997 Aeroporto Friuli Venezia Giulia S.p.A.; dal 2019 il 55% della società è di 2i Aeroporti e il 45% della Regione. La stessa società fa anche da handler, cioè fornisce l'assistenza a terra a passeggeri, merci e aerei: uno sciopero del suo personale tocca tutto lo scalo. Per questo nel registro cerchiamo anche «Ronchi dei Legionari» e la provincia di Gorizia.",
+    "Dal 19 marzo 2018 l'aeroporto ha un polo intermodale: una passerella sopraelevata collega l'aerostazione alla fermata ferroviaria «Trieste Airport», sulla linea Trieste – Venezia, alla stazione degli autobus e ai parcheggi. I treni per Trieste, Udine, Monfalcone e Venezia sono di Trenitalia, gli autobus locali di APT Gorizia. Uno sciopero dei treni toglie quindi il collegamento più comodo: controlla [[it/sciopero-trenitalia/|sciopero Trenitalia]] e, per i mezzi della città, [[it/trieste/|sciopero a Trieste]]."
+   ],
+   "testo_en": [
+    "Trieste airport is not in the province of Trieste: it is at Ronchi dei Legionari, in the province of Gorizia. It has been run since 1997 by Aeroporto Friuli Venezia Giulia S.p.A.; since 2019, 55% of the company belongs to 2i Aeroporti and 45% to the Region. The same company also acts as ground handler, assisting passengers, cargo and aircraft, so a strike by its staff touches the whole airport. This is why we also search the register for «Ronchi dei Legionari» and the province of Gorizia.",
+    "Since 19 March 2018 the airport has had an intermodal hub: an elevated walkway links the terminal to the «Trieste Airport» rail stop on the Trieste – Venice line, to the bus station and to the car parks. Trains to Trieste, Udine, Monfalcone and Venice are run by Trenitalia, local buses by APT Gorizia. A rail strike therefore removes the handiest connection: check [[trains/|train strikes]] and, for city transport, the [[trieste/|Trieste strikes]] page."
+   ]
+  }
+ }
+}

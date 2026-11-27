@@ -12,6 +12,7 @@ from pathlib import Path
 
 import aziende as AZ
 import pagine_aziende as PA
+import pagine_aeroporti as PAP
 
 RADICE = Path(__file__).resolve().parent
 luoghi = json.loads((RADICE / "dati" / "luoghi.json").read_text(encoding="utf-8"))
@@ -540,6 +541,7 @@ def costruisci(g):
         r2 = "/"
         u = g.L(a["link"])
         sito = f'<a href="{escape(u)}" rel="noopener">sito ufficiale dell\'aeroporto</a>' if u else "sito ufficiale dell'aeroporto"
+        sopra, regole, sotto = PAP.sezioni_it(g, a) if PAP.ha_scheda(a) else ("", "", "")
         pagina(f"it/aeroporti/{a['slug_it']}/", f"Sciopero aeroporto {a['nome_it']} ({a['iata']}): oggi e prossime date",
                f"C'è sciopero all'aeroporto di {a['nome_it']} ({a['iata']})? Prossimi scioperi del controllo del traffico aereo, delle compagnie e del personale aeroportuale, dal registro ufficiale.",
                f"""<section class="hero"><h1>Scioperi all'aeroporto {escape(a["nome_it"])} ({a["iata"]})</h1>
@@ -548,11 +550,15 @@ def costruisci(g):
 {AVVISO}
 <h2 id="next">Prossimi scioperi</h2>
 {blocco("upcoming", "airport:" + a["slug"])}
+{sopra}
 {AD}
 <h2>Cosa fare</h2>
 <ul><li>Controlla il tuo volo con la compagnia aerea e sul {sito}.</li>
 <li>Durante gli scioperi del trasporto aereo i voli in programma dalle 7 alle 10 e dalle 18 alle 21 devono essere effettuati{f', insieme ai <a href="{escape(enac)}" rel="noopener">voli garantiti indicati dall' + "'" + 'ENAC</a>' if enac else ''}.</li>
-{PA.voce_aeroporti_it()}</ul>
+{regole}{PA.voce_aeroporti_it()}</ul>
+{sotto}
+<h2>Altri aeroporti</h2>
+{PAP.griglia_it(g, a)}
 {modulo(r2)}""", briciole=[("Aeroporti", "it/aeroporti/"), (a["nome_it"], f"it/aeroporti/{a['slug_it']}/")])
 
     # guide

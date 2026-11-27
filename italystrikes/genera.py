@@ -63,6 +63,7 @@ sys.path.append(str(RADICE.parent / "studio-business" / "strumenti"))
 import monetizzazione as MON  # noqa: E402
 import aziende as AZ  # noqa: E402  (pagine per azienda e per data: regole in aziende.py)
 import pagine_aziende as PA  # noqa: E402
+import pagine_aeroporti as PAP  # noqa: E402  (schede dei 13 aeroporti aggiunti il 27/11/2026: fatti in dati/aeroporti.json)
 SITO_ID = "italystrikes"  # nome del sito in monetizzazione.json ("adsense_siti")
 ADSENSE_HEAD = MON.script_adsense(SITO_ID)  # "" con AdSense spento; altrimenti a capo + script ufficiale, subito dopo il meta di verifica Google
 
@@ -347,11 +348,57 @@ def ore_leggibili(testo):
     return t[:1].upper() + t[1:] if t else t
 
 
+def _parola_in(parola, testo_maiuscolo):
+    """La parola intera (non un pezzo di un'altra: «BARI» non è in «BARILLA»)."""
+    return re.search(r"(?<![A-Z0-9])" + re.escape(parola) + r"(?![A-Z0-9])", testo_maiuscolo) is not None
+
+
 def aeroporti_in(testo):
-    up = testo.upper()
-    trovati = [a["slug"] for a in AEROPORTI if any(p in up for p in a["parole"])]
-    altri = [p for p in luoghi["altri_aeroporti"] if p in up]
+    """Aeroporti nominati nella colonna «categoria» del registro. «Friuli Venezia Giulia» è una regione (e il nome del gestore
+    dell'aeroporto di Trieste), non l'aeroporto di Venezia."""
+    up = re.sub(r"FRIULI[\s-]*VENEZIA[\s-]*GIULIA", "FRIULI VG", testo.upper())
+    trovati = [a["slug"] for a in AEROPORTI if any(_parola_in(p, up) for p in a["parole"])]
+    altri = [p for p in luoghi["altri_aeroporti"] if _parola_in(p, up)]
     return trovati, altri
+
+
+def aeroporti_ambito(ambito):
+    """Aeroporti indicati dall'«ambito geografico» del calendario della Commissione di garanzia (es. «FIUMICINO», «MILANO, VARESE»,
+    «OLBIA», «SICILIA»). È più preciso della provincia ricavata dalla raccolta: Fiumicino e Ciampino sono tutti e due in provincia
+    di Roma, Olbia e Alghero in quella di Sassari. Per ogni luogo: prima il nome di uno scalo, poi la provincia, poi la regione."""
+    apt, altri = [], []
+    for pezzo in [x.strip().upper() for x in ambito.split(",") if x.strip()]:
+        a, b = aeroporti_in(pezzo)
+        if not a and not b:
+            a = [x["slug"] for x in AEROPORTI if pezzo in [y.upper() for y in province_aeroporto(x)]
+                 or x["regione"].upper().replace("-", " ") == pezzo.replace("-", " ")]
+        apt += [x for x in a if x not in apt]
+        altri += [x for x in b if x not in altri]
+    return [a["slug"] for a in AEROPORTI if a["slug"] in apt], altri
+
+
+def aeroporti_sciopero(s):
+    """Aeroporti di uno sciopero del trasporto aereo: quelli nominati nella «categoria»; per le voci della Commissione di garanzia
+    conta anche l'ambito geografico. Se tutti e due indicano degli scali vale la parte in comune («AEROPORTI DI PUGLIA» con ambito
+    «BARI» è Bari, non Brindisi); se non hanno scali in comune vale l'ambito (il luogo dello sciopero)."""
+    apt, altri = aeroporti_in(s["categoria"])
+    if s.get("ambito_cgsse"):
+        apt2, altri2 = aeroporti_ambito(s["ambito_cgsse"])
+        if apt2 or altri2:
+            comuni = [a for a in apt if a in apt2]
+            if comuni:
+                apt, altri = comuni, altri + [x for x in altri2 if x not in altri]
+            elif not (set(altri) & set(altri2)):
+                apt, altri = apt2, altri2
+    elif len(apt) > 1 and s["provincia"].strip().upper() not in ("TUTTE", ""):
+        # registro MIT: un gestore con più scali («SEA», «AEROPORTI DI PUGLIA») e una sola provincia -> lo scalo di quella provincia
+        apt = [a for a in apt if s["provincia"] in province_aeroporto(APT[a])] or apt
+    return apt, altri
+
+
+def province_aeroporto(a):
+    """Province del registro che indicano questo aeroporto quando lo sciopero non lo nomina (vuoto: la provincia ha più scali)."""
+    return [x for x in [a.get("provincia", "")] + a.get("province", []) if x]
 
 
 def leggi(s):
@@ -392,9 +439,9 @@ def leggi(s):
     apt, apt_altri = ([], [])
     if "flights" in settori:
         if sett == "Aereo":
-            apt, apt_altri = aeroporti_in(s["categoria"])
+            apt, apt_altri = aeroporti_sciopero(s)
         if not apt and not apt_altri:
-            apt = [a["slug"] for a in AEROPORTI if nazionale or (a["regione"] == reg and (tutta_regione or a["provincia"] == prov))]
+            apt = [a["slug"] for a in AEROPORTI if nazionale or (a["regione"] == reg and (tutta_regione or prov in province_aeroporto(a)))]
     # città: settori passeggeri nazionali, della regione o della provincia; aeroporti collegati
     citta = []
     passeggeri = [x for x in settori if x in PASSEGGERI]
@@ -1005,6 +1052,7 @@ nav.menu{display:none}
 .piede-top{grid-template-columns:1fr;gap:20px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 """.replace("__M_INFO__", _maschera("info")).replace("__M_CHECK__", _maschera("check-circle")).replace("__M_PIN__", _maschera("pin"))
+CSS += PAP.CSS  # scheda degli aeroporti nati il 27/11/2026
 CSS += PA.CSS  # riquadro di risposta, citazioni e tabella dello storico delle pagine per azienda e per data
 
 # Riquadro Italo: regole per capire se uno sciopero treni può riguardare Italo (usate da italo_forse() e da italoForse() nel JS)
@@ -1982,19 +2030,22 @@ def pagina_aeroporto(a):
     u = L(a["link"])
     sito = f'<a href="{escape(u)}" rel="noopener">official airport website</a>' if u else "the official airport website"
     enac = L("enac_voli_garantiti")
+    sopra, regole, sotto = PAP.sezioni_en(sys.modules[__name__], a, rel) if PAP.ha_scheda(a) else ("", "", "")
     corpo = f"""<section class="hero"><h1>{escape(a["nome"])} airport ({a["iata"]}) strikes</h1>
 <p class="lead">Strikes that can affect flights at {escape(a["nome"])}: national air traffic control and airline strikes, and strikes of staff working at this airport.</p>{fresco()}</section>
 {riquadri("airport:" + a["slug"], rel)}
 {AVVISO}
 <h2 id="next">Upcoming strikes</h2>
 {blocco("upcoming", "airport:" + a["slug"])}
+{sopra}
 {box_affiliati()}
 {AD}
 <h2>What to do</h2>
 <ul>
 <li>Check your flight with your airline and on the {sito}.</li>
 <li>During air transport strikes, flights scheduled between 07:00 and 10:00 and between 18:00 and 21:00 must operate{f', as well as the <a href="{escape(enac)}" rel="noopener">essential flights listed by ENAC</a>' if enac else ''}. More in <a href="{rel}guides/flights-during-strikes/">flights during strikes</a>.</li>
-</ul>
+{regole}</ul>
+{sotto}
 <h2>Other airports</h2>
 <div class="griglia">{"".join(f'<a href="{rel}airports/{x["slug"]}/">{escape(x["nome"])}<small>{x["iata"]}</small></a>' for x in AEROPORTI if x is not a)}</div>
 {modulo(rel)}"""

@@ -7,7 +7,8 @@
    "provincia": "Roma",
    "regione": "Lazio",
    "aeroporti": [
-    "rome-fiumicino"
+    "rome-fiumicino",
+    "rome-ciampino"
    ],
    "operatori": [
     "op_atac"
@@ -88,7 +89,9 @@
    "it": "Torino",
    "provincia": "Torino",
    "regione": "Piemonte",
-   "aeroporti": [],
+   "aeroporti": [
+    "turin"
+   ],
    "operatori": [
     "op_gtt"
    ]
@@ -112,7 +115,9 @@
    "it": "Genova",
    "provincia": "Genova",
    "regione": "Liguria",
-   "aeroporti": [],
+   "aeroporti": [
+    "genoa"
+   ],
    "operatori": [
     "op_amt_genova"
    ]
@@ -123,7 +128,9 @@
    "it": "Verona",
    "provincia": "Verona",
    "regione": "Veneto",
-   "aeroporti": [],
+   "aeroporti": [
+    "verona"
+   ],
    "operatori": [
     "op_atv"
    ]
@@ -134,7 +141,9 @@
    "it": "Palermo",
    "provincia": "Palermo",
    "regione": "Sicilia",
-   "aeroporti": [],
+   "aeroporti": [
+    "palermo"
+   ],
    "operatori": [
     "op_amat_palermo"
    ]
@@ -145,7 +154,9 @@
    "it": "Bari",
    "provincia": "Bari",
    "regione": "Puglia",
-   "aeroporti": [],
+   "aeroporti": [
+    "bari"
+   ],
    "operatori": [
     "op_amtab"
    ]
@@ -156,7 +167,9 @@
    "it": "Catania",
    "provincia": "Catania",
    "regione": "Sicilia",
-   "aeroporti": [],
+   "aeroporti": [
+    "catania"
+   ],
    "operatori": [
     "op_amts"
    ]
@@ -178,7 +191,9 @@
    "it": "Trieste",
    "provincia": "Trieste",
    "regione": "Friuli-Venezia Giulia",
-   "aeroporti": [],
+   "aeroporti": [
+    "trieste"
+   ],
    "operatori": [
     "op_trieste"
    ]
@@ -192,7 +207,9 @@
    "provincia": "Roma",
    "regione": "Lazio",
    "parole": [
-    "FIUMICINO"
+    "FIUMICINO",
+    "ADR",
+    "AEROPORTI DI ROMA"
    ],
    "link": "apt_fco",
    "slug_it": "roma-fiumicino",
@@ -205,7 +222,8 @@
    "provincia": "Varese",
    "regione": "Lombardia",
    "parole": [
-    "MALPENSA"
+    "MALPENSA",
+    "SEA"
    ],
    "link": "apt_mxp_lin",
    "slug_it": "milano-malpensa",
@@ -218,7 +236,8 @@
    "provincia": "Milano",
    "regione": "Lombardia",
    "parole": [
-    "LINATE"
+    "LINATE",
+    "SEA"
    ],
    "link": "apt_mxp_lin",
    "slug_it": "milano-linate",
@@ -232,7 +251,8 @@
    "regione": "Lombardia",
    "parole": [
     "ORIO AL SERIO",
-    "BERGAMO"
+    "BERGAMO",
+    "SACBO"
    ],
    "link": "apt_bgy",
    "slug_it": "bergamo-orio-al-serio",
@@ -247,7 +267,8 @@
    "parole": [
     "MARCO POLO",
     "VENEZIA",
-    "TESSERA"
+    "TESSERA",
+    "SAVE"
    ],
    "link": "apt_vce",
    "slug_it": "venezia-marco-polo",
@@ -261,7 +282,8 @@
    "regione": "Campania",
    "parole": [
     "CAPODICHINO",
-    "NAPOLI"
+    "NAPOLI",
+    "GESAC"
    ],
    "link": "apt_nap",
    "slug_it": "napoli-capodichino",
@@ -287,7 +309,8 @@
    "provincia": "Pisa",
    "regione": "Toscana",
    "parole": [
-    "PISA"
+    "PISA",
+    "TOSCANA AEROPORTI"
    ],
    "link": "apt_psa",
    "slug_it": "pisa-galilei",
@@ -301,29 +324,214 @@
    "regione": "Toscana",
    "parole": [
     "PERETOLA",
-    "FIRENZE"
+    "FIRENZE",
+    "TOSCANA AEROPORTI"
    ],
    "link": "apt_flr",
    "slug_it": "firenze-peretola",
    "nome_it": "Firenze Peretola"
+  },
+  {
+   "slug": "catania",
+   "nome": "Catania Fontanarossa",
+   "iata": "CTA",
+   "provincia": "Catania",
+   "regione": "Sicilia",
+   "parole": [
+    "CATANIA",
+    "FONTANAROSSA",
+    "SAC"
+   ],
+   "link": "apt_cta",
+   "slug_it": "catania-fontanarossa",
+   "nome_it": "Catania Fontanarossa"
+  },
+  {
+   "slug": "palermo",
+   "nome": "Palermo Falcone Borsellino",
+   "iata": "PMO",
+   "provincia": "Palermo",
+   "regione": "Sicilia",
+   "parole": [
+    "PALERMO",
+    "PUNTA RAISI",
+    "GESAP"
+   ],
+   "link": "apt_pmo",
+   "slug_it": "palermo-falcone-borsellino",
+   "nome_it": "Palermo Falcone Borsellino"
+  },
+  {
+   "slug": "bari",
+   "nome": "Bari Karol Wojtyla",
+   "iata": "BRI",
+   "provincia": "Bari",
+   "regione": "Puglia",
+   "parole": [
+    "BARI",
+    "AEROPORTI DI PUGLIA"
+   ],
+   "link": "apt_puglia",
+   "slug_it": "bari-karol-wojtyla",
+   "nome_it": "Bari Karol Wojtyla"
+  },
+  {
+   "slug": "turin",
+   "nome": "Turin Caselle",
+   "iata": "TRN",
+   "provincia": "Torino",
+   "regione": "Piemonte",
+   "parole": [
+    "TORINO",
+    "CASELLE",
+    "SAGAT"
+   ],
+   "link": "apt_trn",
+   "slug_it": "torino-caselle",
+   "nome_it": "Torino Caselle"
+  },
+  {
+   "slug": "verona",
+   "nome": "Verona Villafranca",
+   "iata": "VRN",
+   "provincia": "Verona",
+   "regione": "Veneto",
+   "parole": [
+    "VERONA",
+    "VILLAFRANCA",
+    "VALERIO CATULLO"
+   ],
+   "link": "apt_vrn",
+   "slug_it": "verona-villafranca",
+   "nome_it": "Verona Villafranca"
+  },
+  {
+   "slug": "cagliari",
+   "nome": "Cagliari Elmas",
+   "iata": "CAG",
+   "provincia": "Cagliari",
+   "regione": "Sardegna",
+   "parole": [
+    "CAGLIARI",
+    "ELMAS",
+    "SOGAER",
+    "SOGAERDYN"
+   ],
+   "link": "apt_cag",
+   "slug_it": "cagliari-elmas",
+   "nome_it": "Cagliari Elmas"
+  },
+  {
+   "slug": "rome-ciampino",
+   "nome": "Rome Ciampino",
+   "iata": "CIA",
+   "provincia": "Roma",
+   "regione": "Lazio",
+   "parole": [
+    "CIAMPINO",
+    "ADR",
+    "AEROPORTI DI ROMA"
+   ],
+   "link": "apt_fco",
+   "slug_it": "roma-ciampino",
+   "nome_it": "Roma Ciampino"
+  },
+  {
+   "slug": "treviso",
+   "nome": "Treviso Canova",
+   "iata": "TSF",
+   "provincia": "Treviso",
+   "regione": "Veneto",
+   "parole": [
+    "TREVISO",
+    "AERTRE",
+    "AER TRE"
+   ],
+   "link": "apt_tsf",
+   "slug_it": "treviso-canova",
+   "nome_it": "Treviso Canova"
+  },
+  {
+   "slug": "olbia",
+   "nome": "Olbia Costa Smeralda",
+   "iata": "OLB",
+   "provincia": "",
+   "regione": "Sardegna",
+   "parole": [
+    "OLBIA",
+    "GEASAR",
+    "COSTA SMERALDA"
+   ],
+   "link": "apt_olb",
+   "slug_it": "olbia-costa-smeralda",
+   "nome_it": "Olbia Costa Smeralda",
+   "province": [
+    "Olbia-Tempio",
+    "Gallura Nord-Est Sardegna",
+    "Nord-Est Sardegna"
+   ]
+  },
+  {
+   "slug": "lamezia-terme",
+   "nome": "Lamezia Terme",
+   "iata": "SUF",
+   "provincia": "Catanzaro",
+   "regione": "Calabria",
+   "parole": [
+    "LAMEZIA",
+    "SACAL",
+    "S.A.CAL"
+   ],
+   "link": "",
+   "slug_it": "lamezia-terme",
+   "nome_it": "Lamezia Terme"
+  },
+  {
+   "slug": "brindisi",
+   "nome": "Brindisi",
+   "iata": "BDS",
+   "provincia": "Brindisi",
+   "regione": "Puglia",
+   "parole": [
+    "BRINDISI",
+    "AEROPORTI DI PUGLIA"
+   ],
+   "link": "apt_puglia",
+   "slug_it": "brindisi",
+   "nome_it": "Brindisi"
+  },
+  {
+   "slug": "genoa",
+   "nome": "Genoa Cristoforo Colombo",
+   "iata": "GOA",
+   "provincia": "Genova",
+   "regione": "Liguria",
+   "parole": [
+    "GENOVA",
+    "CRISTOFORO COLOMBO"
+   ],
+   "link": "",
+   "slug_it": "genova-cristoforo-colombo",
+   "nome_it": "Genova Cristoforo Colombo"
+  },
+  {
+   "slug": "trieste",
+   "nome": "Trieste Ronchi dei Legionari",
+   "iata": "TRS",
+   "provincia": "Gorizia",
+   "regione": "Friuli-Venezia Giulia",
+   "parole": [
+    "TRIESTE",
+    "RONCHI DEI LEGIONARI",
+    "AEROPORTO FRIULI"
+   ],
+   "link": "apt_trs",
+   "slug_it": "trieste-ronchi-dei-legionari",
+   "nome_it": "Trieste Ronchi dei Legionari"
   }
  ],
  "altri_aeroporti": [
-  "CIAMPINO",
-  "BARI",
-  "BRINDISI",
-  "CATANIA",
-  "PALERMO",
-  "CAGLIARI",
-  "OLBIA",
   "ALGHERO",
-  "TORINO",
-  "CASELLE",
-  "GENOVA",
-  "VERONA",
-  "TREVISO",
-  "TRIESTE",
-  "LAMEZIA",
   "REGGIO CALABRIA",
   "PESCARA",
   "ANCONA",
@@ -380,7 +588,8 @@
    "provincia": "Roma",
    "regione": "Lazio",
    "aeroporti": [
-    "rome-fiumicino"
+    "rome-fiumicino",
+    "rome-ciampino"
    ],
    "operatori": [
     "op_atac"
@@ -420,7 +629,9 @@
    "nome": "Torino",
    "provincia": "Torino",
    "regione": "Piemonte",
-   "aeroporti": [],
+   "aeroporti": [
+    "turin"
+   ],
    "operatori": [
     "op_gtt"
    ],
@@ -472,7 +683,9 @@
    "nome": "Genova",
    "provincia": "Genova",
    "regione": "Liguria",
-   "aeroporti": [],
+   "aeroporti": [
+    "genoa"
+   ],
    "operatori": [
     "op_amt_genova"
    ],
@@ -483,7 +696,9 @@
    "nome": "Bari",
    "provincia": "Bari",
    "regione": "Puglia",
-   "aeroporti": [],
+   "aeroporti": [
+    "bari"
+   ],
    "operatori": [
     "op_amtab"
    ],
@@ -494,7 +709,9 @@
    "nome": "Palermo",
    "provincia": "Palermo",
    "regione": "Sicilia",
-   "aeroporti": [],
+   "aeroporti": [
+    "palermo"
+   ],
    "operatori": [
     "op_amat_palermo"
    ],
@@ -505,7 +722,9 @@
    "nome": "Catania",
    "provincia": "Catania",
    "regione": "Sicilia",
-   "aeroporti": [],
+   "aeroporti": [
+    "catania"
+   ],
    "operatori": [
     "op_amts"
    ],
@@ -516,7 +735,9 @@
    "nome": "Verona",
    "provincia": "Verona",
    "regione": "Veneto",
-   "aeroporti": [],
+   "aeroporti": [
+    "verona"
+   ],
    "operatori": [
     "op_atv"
    ],
@@ -538,7 +759,9 @@
    "nome": "Trieste",
    "provincia": "Trieste",
    "regione": "Friuli-Venezia Giulia",
-   "aeroporti": [],
+   "aeroporti": [
+    "trieste"
+   ],
    "operatori": [
     "op_trieste"
    ],
@@ -582,7 +805,9 @@
    "nome": "Cagliari",
    "provincia": "Cagliari",
    "regione": "Sardegna",
-   "aeroporti": [],
+   "aeroporti": [
+    "cagliari"
+   ],
    "operatori": [],
    "en": ""
   },

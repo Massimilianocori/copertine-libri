@@ -372,6 +372,10 @@ def costruisci_it(g, k):
         utili += "".join(f'<li><a href="/it/{SETT_PAGINA_IT[s]}/">Tutti gli scioperi: {SETT_TITOLO_IT[s]}</a></li>' for s in a["settori"] if s in SETT_PAGINA_IT)
         if a.get("aeroporti"):
             utili += '<li><a href="/it/aeroporti/">Scioperi per aeroporto</a></li>'
+        apt_citta = [x for x in g.AEROPORTI if any(x["slug"] in c["aeroporti"] for c in g.CITTA_IT if c["slug"] in a["citta"])]
+        if apt_citta:  # aeroporti delle città servite dall'azienda (27/11/2026)
+            utili += "<li>Scioperi negli aeroporti vicini: " + ", ".join(
+                f'<a href="/it/aeroporti/{x["slug_it"]}/">{escape(x["nome_it"])}</a>' for x in apt_citta) + "</li>"
         utili += '<li><a href="/it/oggi/">Scioperi di oggi</a> e <a href="/it/domani/">di domani</a></li>'
         p = f"it/{a['pagina']}/"
         k.pagina(p, f"Sciopero {a['nome_pagina']}: prossime date e orari ufficiali",
