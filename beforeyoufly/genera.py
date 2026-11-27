@@ -18,6 +18,7 @@ Il controllo del passaporto gira nel browser (JS in pagina, nessuno script ester
 (verifica_passaporto) per gli esempi e per verifica.py, che confronta Python e JS su casi fatti a mano e casuali.
 """
 import json
+import os
 import re
 import shutil
 import sys
@@ -2738,6 +2739,7 @@ def pagina_aeroporto(A, nazionale=False):
            briciole=[("Liquids by airport", "liquids/"), (titolo_breve, f"liquids/{A['slug']}/")], ld_extra=faq_ld)
     if A.get("controllato_il"):
         LASTMOD[f"liquids/{A['slug']}/"] = A["controllato_il"]  # 25/11/2026: data della lettura della pagina ufficiale
+    GRUPPO_VICINE[f"liquids/{A['slug']}/"] = "liquidi:" + (A.get("paese") or "")
 
 
 def indice_liquidi():
@@ -3552,6 +3554,7 @@ def pagina_compagnia(C):
            briciole=[("Cabin bags", f"{BAG_BASE}/"), (C["nome"], f"{BAG_BASE}/{C['slug']}/")], ld_extra=faq_ld)
     if C.get("controllato_il"):
         LASTMOD[f"{BAG_BASE}/{C['slug']}/"] = C["controllato_il"]  # 25/11/2026: data della lettura della pagina della compagnia
+    GRUPPO_VICINE[f"{BAG_BASE}/{C['slug']}/"] = "bagagli:" + (C.get("area") or "")
 
 
 def esiti_misura(m):
@@ -3759,6 +3762,7 @@ STARLINK_ROAM_CERCATO = set(json.loads(_f_sd.read_text(encoding="utf-8")).get("r
 PAESI_ISO = {p["iso2"]: p for p in json.loads((DATI / "paesi_iso.json").read_text(encoding="utf-8"))["paesi"]} if (DATI / "paesi_iso.json").exists() else {}
 SERVIZI_SRV = SRV["servizi"] if SRV else []
 SRV_PER = {S["slug"]: S for S in SERVIZI_SRV}
+GRUPPO_VICINE = {}  # percorso -> gruppo di pagine «vicine» (stesso Paese, stessa area): lo usa il blocco «Related» delle pagine di arrivo
 LASTMOD = {}  # percorso -> data vera dell'ultimo cambio del contenuto (sitemap); le pagine senza voce prendono la data di oggi
 # Nome breve della fonte nelle frasi e "lista" come la descrive la fonte stessa (frasi *_lista in dati/servizi.json)
 SRV_TESTI = {
@@ -4334,6 +4338,7 @@ def pagina_srv_paese(S, c):
     pagina(url_srv(S, c), scegli(titoli_srv(S, c), LIMITE_TITOLO), scegli(descrizioni_srv(S, c), LIMITE_DESCRIZIONE), corpo,
            briciole=[("Available in?", f"{SRV_BASE}/"), (n, url_srv(S)), (nome_srv(c), url_srv(S, c))], ld_extra=faq_ld, js=APP_JS_FILTRO)
     LASTMOD[url_srv(S, c)] = S["letto_il"]
+    GRUPPO_VICINE[url_srv(S, c)] = "paese:" + c
 
 
 def ordine_srv(c):
@@ -6381,6 +6386,7 @@ def pagina_big(a):
     pagina(url_big(a["slug"]), scegli([titolo_big(a)], LIMITE_TITOLO_BIG), descrizione_big(a), corpo,
            briciole=[("Ticket release dates", url_big()), (a["nome"], url_big(a["slug"]))], js=BIG_JS, ld_extra=faq_ld)
     LASTMOD[url_big(a["slug"])] = data_big(a)  # 25/11/2026: le date calcolate cambiano ogni giorno, la regola solo quando si rilegge la fonte
+    GRUPPO_VICINE[url_big(a["slug"])] = "biglietti:" + {"Vatican City": "Italy"}.get(a.get("paese"), a.get("paese") or "")
 
 
 def regola_breve_big(a):
@@ -10306,7 +10312,7 @@ def date_lastmod():
     reg = json.loads(REGISTRO_LASTMOD.read_text(encoding="utf-8"))["pagine"] if REGISTRO_LASTMOD.exists() else {}
     oggi = OGGI.isoformat()
     nuovo = {}
-    for u in URLS:
+    for u in URLS + sorted(SFOLTITE):  # le pagine uscite con lo sfoltimento restano nel registro: se rientrano, riprendono la loro data
         imp, dato = IMPRONTE[u], LASTMOD.get(u)
         if u in reg and reg[u][1] == imp:
             d = reg[u][0]
@@ -10343,7 +10349,7 @@ def scrivi_sitemap():
         indice.append(f"<sitemap><loc>{URL_SITO}/sitemap-{nome}.xml</loc><lastmod>{max(date_[u] for u in uu)}</lastmod></sitemap>")
     (SITO / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex {xmlns}>{"".join(indice)}</sitemapindex>\n')
     # vecchi indirizzi: solo quelli la cui pagina esiste ancora (il vecchio host risponde 301 verso la stessa pagina, che risponde 200)
-    vecchi = [p for p in VECCHI["percorsi"] if (SITO / (p if p.endswith(".html") else p + "index.html")).is_file()]
+    vecchi = [p for p in VECCHI["percorsi"] if (SITO / (p if p.endswith(".html") else p + "index.html")).is_file() and p not in SFOLTITE]
     if vecchi:
         voci = "".join(f"<url><loc>https://{VECCHI['host']}/{p}</loc></url>" for p in vecchi)
         (SITO / "sitemap-vecchi-indirizzi.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset {xmlns}>{voci}</urlset>\n')
@@ -10361,17 +10367,10 @@ def _rel_da(u):
 
 def _link_interni(u, html, pagine):
     """Percorsi delle pagine del sito linkate dalla pagina u (senza se stessa)."""
-    import posixpath
-    base = "/" + (u if u.endswith("/") or not u else u.rsplit("/", 1)[0] + "/" if "/" in u else "")
     out = set()
     for href in re.findall(r'<a\b[^>]*?\bhref="([^"#?]*)', html):
-        if href.startswith(URL_SITO + "/"):
-            href = href[len(URL_SITO):]
-        elif not href or re.match(r"[a-z][a-z0-9+.-]*:", href) or href.startswith("//"):
-            continue
-        t = posixpath.normpath(posixpath.join(base, href))
-        t = "" if t in ("/", ".") else t.lstrip("/") + ("/" if not t.endswith(".html") else "")
-        if t in pagine and t != u:
+        t = _bersaglio(u, href)
+        if t is not None and t in pagine and t != u:
             out.add(t)
     return out
 
@@ -10416,6 +10415,170 @@ def _dopo_apertura(html):
         j += m.end()
 
 
+# ---------------------------------------------------------------- Sfoltimento del 2/12/2026: regola pronta, SPENTA (27/11/2026)
+# studio-business/BYF-PIANO-RILANCIO-2026-11-27.md, sezione 3.3 (primo gruppo), azione P6. Fino al 9/12 vale il fermo di
+# STRATEGIA-RECUPERO.md (nessuna nuova ondata di noindex): la regola si accende solo nella data decisa, una volta sola.
+# Una pagina in indice ESCE se sono vere tutte:
+#  1. ha meno di MIN_PAROLE_PROPRIE parole proprie (la misura del cancello della pubblicità, PAROLE_PROPRIE);
+#  2. ha zero visite da qualunque sorgente dal 17/10/2026 (dati/visite.json, scritto da raccolta/visite.py: rimisurare il giorno prima);
+#  3. non è la home, un indice di sezione, l'indice di un servizio (una pagina con altre pagine sotto) o una pagina di servizio;
+#  4. non è della sezione liquidi (SFOLT_MAI);
+#  e, quando c'è dati/impressioni_vecchia.json (esportazione P2 della proprietà vecchia di Search Console: {"impressioni": {percorso: n}}),
+#  ha meno di MIN_IMPRESSIONI_VECCHIA impressioni. Senza quel file questa parte non si applica (sta scritto in dati/sfoltimento.json).
+# La regola si CALCOLA a ogni generazione (elenco e conteggi in dati/sfoltimento.json; il blocco «Related» delle pagine di arrivo linka
+# solo pagine che restano) ma si APPLICA solo con l'interruttore acceso. Con l'interruttore spento il sito è identico a prima.
+# Acceso (per la prova in locale: BYF_SFOLTIMENTO=1 python3 beforeyoufly/genera.py; per la pubblicazione decisa: SFOLTIMENTO = True):
+#  - le pagine escono dalla sitemap (e i loro vecchi URL dalla sitemap dei vecchi indirizzi); il registro del lastmod le tiene;
+#  - noindex: <meta name="robots" content="noindex"> e niente canonical, come le pagine di dati/noindex.json; nella sezione «Available in»
+#    (SFOLT_SOLO_GOOGLE) solo <meta name="googlebot" content="noindex">, con il canonical: Bing e gli assistenti continuano a vederle;
+#  - home e indici (pagine con altre pagine sotto): la riga resta con il suo dato, senza il link alla pagina uscita; «Most used» e
+#    «Related» linkano solo pagine in indice (recupero() lavora su URLS, da cui le pagine uscite sono tolte);
+#  - pubblicità e affiliazioni: già tolte dal cancello (sono tutte sotto la soglia). Nessun 301, nessun URL cambiato, niente robots.txt.
+# Si annulla rigenerando con l'interruttore spento. verifica.py, punto 41.
+SFOLTIMENTO = os.environ.get("BYF_SFOLTIMENTO") == "1"  # SPENTO. Non accendere prima di SFOLTIMENTO_NON_PRIMA (verifica.py lo blocca)
+SFOLTIMENTO_NON_PRIMA = "2026-12-02"
+SFOLT_SOLO_GOOGLE = (f"{SRV_BASE}/",)
+SFOLT_MAI = ("liquids/",)
+MIN_IMPRESSIONI_VECCHIA = 10
+MAX_GIORNI_VISITE = 2  # con la regola accesa, dati/visite.json deve essere stato letto da non più di tanti giorni
+META_SOLO_GOOGLE = '<meta name="googlebot" content="noindex">'
+_f_visite = DATI / "visite.json"
+VISITE = json.loads(_f_visite.read_text(encoding="utf-8")) if _f_visite.exists() else {"visite": {}, "periodo": "", "letto_il": ""}
+_f_impressioni = DATI / "impressioni_vecchia.json"
+IMPRESSIONI = json.loads(_f_impressioni.read_text(encoding="utf-8")) if _f_impressioni.exists() else None
+DA_SFOLTIRE = {}  # percorso -> "google" (noindex solo per Google) o "tutti": risultato della regola, calcolato sempre
+SFOLTITE = set()  # pagine uscite davvero in questa generazione (vuoto con l'interruttore spento)
+
+
+def _con_pagine_sotto(urls):
+    """Le pagine che hanno altre pagine sotto di sé (indici di sezione, di servizio, di patente…)."""
+    out = set()
+    for u in urls:
+        p = u.rstrip("/")
+        while "/" in p:
+            p = p.rsplit("/", 1)[0]
+            out.add(p + "/")
+    return out
+
+
+def regola_sfoltimento():
+    """{percorso: "google" | "tutti"} delle pagine in indice che la regola del 2/12 fa uscire (vedi sopra). Non cambia nulla."""
+    if not VISITE["visite"]:
+        return {}
+    # indici: le pagine con altre pagine sotto e le pagine dei servizi «Available in» anche senza pagine Paese (Apple Music)
+    v, indici = VISITE["visite"], _con_pagine_sotto(URLS) | {url_srv(S) for S in SERVIZI_SRV}
+    imp = (IMPRESSIONI or {}).get("impressioni", {})
+    return {u: ("google" if u.startswith(SFOLT_SOLO_GOOGLE) else "tutti") for u in URLS
+            if PAROLE_PROPRIE[u] < MIN_PAROLE_PROPRIE and not v.get(u) and u.count("/") > 1 and not u.endswith(".html") and u not in indici
+            and not u.startswith(SFOLT_MAI) and imp.get(u, 0) < MIN_IMPRESSIONI_VECCHIA}
+
+
+def _bersaglio(u, href):
+    """Percorso della pagina del sito a cui porta href scritto nella pagina u; None se il link va fuori dal sito."""
+    import posixpath
+    if href.startswith(URL_SITO + "/"):
+        href = href[len(URL_SITO):]
+    elif not href or re.match(r"[a-z][a-z0-9+.-]*:", href) or href.startswith("//"):
+        return None
+    base = "/" + (u if u.endswith("/") or not u else u.rsplit("/", 1)[0] + "/" if "/" in u else "")
+    t = posixpath.normpath(posixpath.join(base, href))
+    return "" if t in ("/", ".") else t.lstrip("/") + ("/" if not t.endswith(".html") else "")
+
+
+def _senza_link_verso(u, html, via):
+    """(html, n): la pagina u senza i link, dentro <main>, verso le pagine dell'insieme `via`. Del link resta il contenuto (il testo, il
+    bollino con il dato): la riga dell'indice non perde nulla. Il testo visibile non cambia, quindi l'impronta del lastmod non si muove."""
+    i, j = html.index('<main id="main">'), html.index("</main>")
+    n = 0
+
+    def senza(m):
+        nonlocal n
+        if _bersaglio(u, m.group(1)) not in via:
+            return m.group(0)
+        n += 1
+        return f"<span>{m.group(2)}</span>"  # lo <span> tiene il confine del tag: il testo dell'impronta resta identico («Togo</a>:»)
+    corpo = re.sub(r'(?s)<a\b[^>]*?\bhref="([^"#?]*)[^"]*"[^>]*>(.*?)</a>', senza, html[i:j])
+    return html[:i] + corpo + html[j:], n
+
+
+def sfoltimento():
+    """Calcola la regola del 2/12 e scrive dati/sfoltimento.json. Con SFOLTIMENTO acceso la applica alle pagine già scritte (dopo il
+    cancello della pubblicità, prima dei blocchi di recupero e della sitemap). Con SFOLTIMENTO spento non tocca nessuna pagina."""
+    from collections import Counter
+    DA_SFOLTIRE.update(regola_sfoltimento())
+    indici = sorted(u for u in ({""} | _con_pagine_sotto(URLS)) if u in URLS and u not in DA_SFOLTIRE)
+    if SFOLTIMENTO:  # 27/11: il controllo viene prima di riscrivere gli indici
+        eta = (OGGI - date.fromisoformat(VISITE["letto_il"])).days if VISITE.get("letto_il") else 999
+        if not DA_SFOLTIRE or eta > MAX_GIORNI_VISITE:
+            raise SystemExit(f"sfoltimento acceso ma dati/visite.json manca o è stato letto {eta} giorni fa: rimisurare prima "
+                             "(python3 -I beforeyoufly/raccolta/visite.py), poi rigenerare")
+    via = set(DA_SFOLTIRE)
+    link_indici = {}
+    for u in indici:
+        h, n = _senza_link_verso(u, _file_di(u).read_text(encoding="utf-8"), via)
+        if n:
+            link_indici[u] = n
+            if SFOLTIMENTO:
+                _file_di(u).write_text(h, encoding="utf-8")
+    if SFOLTIMENTO:
+        for u, chi in DA_SFOLTIRE.items():
+            h = _file_di(u).read_text(encoding="utf-8")
+            canonico, colore = f'<link rel="canonical" href="{URL_SITO}/{u}">\n', '<meta name="color-scheme" content="light dark">\n\n'
+            assert h.count(canonico) == 1 and h.count(colore) == 1 and 'content="noindex"' not in h[:h.index("</head>")], u
+            if chi == "google":
+                h = h.replace(colore, colore[:-1] + META_SOLO_GOOGLE + "\n")
+            else:
+                h = h.replace(canonico, "\n").replace(colore, colore[:-1] + '<meta name="robots" content="noindex">\n')
+            _file_di(u).write_text(h, encoding="utf-8")
+        SFOLTITE.update(DA_SFOLTIRE)
+        URLS[:] = [u for u in URLS if u not in SFOLTITE]
+    fam = Counter(u.split("/")[0] for u in DA_SFOLTIRE)
+    vecchi = sum(1 for p in VECCHI["percorsi"] if p in DA_SFOLTIRE)
+    (DATI / "sfoltimento.json").write_text(json.dumps({
+        "_nota": "Scritto da genera.py (sfoltimento): pagine che la regola del 2/12/2026 fa uscire da sitemap, link degli indici e indice di "
+                 "Google (studio-business/BYF-PIANO-RILANCIO-2026-11-27.md, sezione 3.3; regola in genera.py, SFOLTIMENTO). "
+                 "\"acceso\": false = la regola è solo calcolata, il sito non cambia. Non modificare a mano: si riscrive a ogni generazione.",
+        "acceso": SFOLTIMENTO, "non_prima_del": SFOLTIMENTO_NON_PRIMA, "soglia_parole_proprie": MIN_PAROLE_PROPRIE,
+        "periodo_visite": VISITE.get("periodo", ""), "visite_lette_il": VISITE.get("letto_il", ""),
+        "impressioni_proprieta_vecchia": (f"applicate: restano le pagine con almeno {MIN_IMPRESSIONI_VECCHIA} impressioni" if IMPRESSIONI
+                                           else "non applicate: manca dati/impressioni_vecchia.json (esportazione P2 del titolare)"),
+        "pagine_in_indice_prima": len(URLS) + len(SFOLTITE), "escono": len(DA_SFOLTIRE), "restano": len(URLS) + len(SFOLTITE) - len(DA_SFOLTIRE),
+        "noindex_per_tutti": sum(1 for x in DA_SFOLTIRE.values() if x == "tutti"), "noindex_solo_google": sum(1 for x in DA_SFOLTIRE.values() if x == "google"),
+        "link_dagli_indici": sum(link_indici.values()), "indici_con_link": len(link_indici), "vecchi_indirizzi": vecchi,
+        "per_sezione": dict(sorted(fam.items())), "link_per_indice": dict(sorted(link_indici.items())),
+        "pagine": dict(sorted(DA_SFOLTIRE.items()))}, ensure_ascii=False, indent=0) + "\n", encoding="utf-8")
+    print(f"Sfoltimento del 2/12 ({'ACCESO' if SFOLTIMENTO else 'spento: solo calcolato'}; visite {VISITE.get('periodo', '')}): la regola fa uscire "
+          f"{len(DA_SFOLTIRE)} pagine su {len(URLS) + len(SFOLTITE)} ({', '.join(f'{k} {n}' for k, n in sorted(fam.items()))}); noindex solo per "
+          f"Google {sum(1 for x in DA_SFOLTIRE.values() if x == 'google')}; link dagli indici {sum(link_indici.values())} in {len(link_indici)} "
+          f"pagine; vecchi indirizzi {vecchi}")
+
+
+# Blocco «Related» in alto sulle pagine di arrivo (27/11/2026, piano di rilancio, azione P4). Chi arriva da un assistente guarda una
+# pagina e va via: sotto la risposta si mettono 3-5 link a pagine vicine che restano dopo lo sfoltimento del 2/12. Niente elenco a mano:
+#  - pagine di arrivo = le pagine nominate nel piano (ARRIVO_PIANO) più le N_ARRIVO pagine con più visite (dati/visite.json, senza la home);
+#  - il blocco va su quelle pagine e sulle pagine della stessa cartella con almeno MIN_VISITE_VICINE visite (per un indice: le pagine sotto);
+#  - i link: prima fino a N_VICINE_GRUPPO pagine dello stesso gruppo (GRUPPO_VICINE: stesso Paese per biglietti, aeroporti e servizi,
+#    stessa area per le compagnie; per visite, a parità nell'ordine dei dati), poi le più visitate tra le pagine che la pagina già linka o che la linkano e quelle della stessa
+#    cartella; solo pagine in indice che la regola dello sfoltimento NON fa uscire; mai la pagina stessa né le pagine di servizio.
+# Sta tra B_INIZIO e B_FINE dentro un <nav>: fuori dall'impronta del lastmod e dalla misura delle parole proprie. Titoli e URL non cambiano.
+ARRIVO_PIANO = ["cabin-bags/united/", "cabin-bags/", "ticket-release-dates/vatican-museums/", "ticket-release-dates/colosseum/", f"{SRV_BASE}/starlink/"]
+N_ARRIVO, MIN_VISITE_VICINE, N_VICINE, N_VICINE_GRUPPO, MIN_VICINE = 10, 1, 5, 3, 3
+
+
+def _dopo_risposta(html):
+    """Posizione subito dopo il riquadro della risposta (<section class="card summary">); senza riquadro: dopo l'apertura e dopo il
+    blocco «Most used in this section» se c'è (pagine indice)."""
+    i = html.find('<section class="card summary"', html.index('<main id="main">'))
+    if i > 0:
+        j = html.index("</section>", i) + len("</section>")
+        assert "<section" not in html[i + 1:j]
+        return j
+    j = _dopo_apertura(html)
+    if html[j:].lstrip("\n").startswith(B_INIZIO):
+        j = html.index(B_FINE, j) + len(B_FINE)
+    return j
+
+
 def recupero():
     """Blocchi «Most used» (home e indici) e «Related» (pagine con pochi link in entrata), scritti nelle pagine già generate."""
     from collections import defaultdict
@@ -10428,7 +10591,7 @@ def recupero():
         uscita[u] = _link_interni(u, h, pagine)
         for t in uscita[u]:
             entrata[t].add(u)
-    assert not (uscita[""] & set(FUORI_INDICE)), f"la home linka pagine fuori indice: {sorted(uscita[''] & set(FUORI_INDICE))}"
+    assert not (uscita[""] & (set(FUORI_INDICE) | SFOLTITE)), f"la home linka pagine fuori indice: {sorted(uscita[''] & (set(FUORI_INDICE) | SFOLTITE))}"
     visite = {u: n for u, n in USATE["visite"].items() if u in indic and u}
     ordine = sorted(visite, key=lambda u: (-visite[u], u))
     etichetta = {u: etichetta_pagina(pagine[u]) for u in indic}
@@ -10501,8 +10664,42 @@ def recupero():
                 continue
             h = nuove.get(t, pagine[t])
             metti(t, h.rindex("</div>\n</main>"), blocco_recupero("Related pages", [(_rel_da(t) + x, etichetta[x]) for x in scelti]) + "\n", scelti)
+    # 4) «Related» in alto sulle pagine di arrivo e sulle pagine con visite della stessa cartella (27/11/2026, vedi ARRIVO_PIANO)
+    vis = VISITE["visite"]
+    restano = indic - set(DA_SFOLTIRE)
+    servizio = {"", "about/", "contact/", f"{COME_BASE}/", "privacy.html"}
+    indici_ = _con_pagine_sotto(indic)
+
+    def cartella(u):
+        return u.rstrip("/").rsplit("/", 1)[0] + "/" if "/" in u.rstrip("/") else ""
+    arrivo = list(dict.fromkeys([u for u in ARRIVO_PIANO if u in indic] + sorted((u for u in indic if u and vis.get(u)), key=lambda u: (-vis[u], u))[:N_ARRIVO]))
+    cartelle = {u if u in indici_ else cartella(u) for u in arrivo} - {""}
+    con_blocco = [u for u in sorted(indic) if u and (u in arrivo or (vis.get(u, 0) >= MIN_VISITE_VICINE and (cartella(u) in cartelle or u in cartelle)))]
+    nel_corpo, verso = {}, defaultdict(set)  # link scritti dentro <main> (non menu né piè di pagina), nei due sensi
+    for u, h in pagine.items():
+        nel_corpo[u] = _link_interni(u, h[h.index('<main id="main">'):h.index("</main>")], pagine) if u in indic else set()
+        for t in nel_corpo[u]:
+            verso[t].add(u)
+    vicine, senza = {}, []
+    ord_gruppo = {u: i for i, u in enumerate(GRUPPO_VICINE)}  # ordine in cui le pagine sono state generate = ordine dei dati
+    for u in con_blocco:
+        h = nuove.get(u, pagine[u])
+        gia = {_bersaglio(u, x) for b in re.findall(re.escape(B_INIZIO) + "(.*?)" + re.escape(B_FINE), h, re.S) for x in re.findall(r'href="([^"]+)"', b)}
+        g, c = GRUPPO_VICINE.get(u), cartella(u)
+        rosa = (nel_corpo[u] | verso[u] | ({t for t in indic if cartella(t) == c} if c else set())) & restano - servizio - gia - {u}
+        # a parità di visite, l'ordine dei dati (bagagli.json mette prima le compagnie più grandi: United -> American, Delta)
+        gruppo = sorted((t for t in rosa if g and GRUPPO_VICINE.get(t) == g), key=lambda t: (-vis.get(t, 0), ord_gruppo[t]))[:N_VICINE_GRUPPO]
+        # 27/11 (revisione): dopo il gruppo, prima le pagine della stessa sezione (es. available-in/starlink), poi le altre
+        sez = lambda x: "/".join(x.split("/")[:2]) if x.startswith("available-in/") else x.split("/")[0]
+        scelti = (gruppo + sorted((t for t in rosa if t not in gruppo and vis.get(t)), key=lambda t: (sez(t) != sez(u), -vis[t], t)))[:N_VICINE]
+        if len(scelti) < MIN_VICINE:
+            senza.append(u)
+            continue
+        metti(u, _dopo_risposta(h), blocco_recupero("Related", [(_rel_da(u) + t, etichetta[t]) for t in scelti], "vicine"), scelti)
+        vicine[u] = scelti
     for u, h in nuove.items():
         _file_di(u).write_text(h, encoding="utf-8")
+    RECUPERO.update(arrivo=arrivo, vicine=vicine, vicine_senza=senza)
     dopo = {u: len(entrata[u] | aggiunti[u]) for u in indic}
     RECUPERO.update(top=top, prima={u: len(entrata[u]) for u in indic}, dopo=dopo, pochi=pochi, indici=indici,
                     ancora_pochi=[u for u in pochi if dopo[u] <= MAX_ENTRATA_CORRELATE])
@@ -11080,9 +11277,12 @@ def main():
     contatti()
     privacy()
     cancello_pubblicita()
+    sfoltimento()
     recupero()
     extra()
     auto = sum(1 for P in PAESI if P["regola"])
+    print(f"«Related» delle pagine di arrivo: {len(RECUPERO['vicine'])} pagine ({len(RECUPERO['arrivo'])} di arrivo + pagine con visite della stessa "
+          f"cartella; {len(RECUPERO['vicine_senza'])} senza abbastanza pagine vicine), {sum(len(v) for v in RECUPERO['vicine'].values())} link")
     print(f"Fuori indice e senza AdSense (dati/noindex.json): {len(FUORI_INDICE)} pagine; senza AdSense ma in indice: "
           f"{', '.join(x for x in NOINDEX['senza_pubblicita'] if x != '404.html')}")
     print(f"Sito generato in {SITO}: {len(URLS)} pagine indicizzabili + 404; {len(PAESI)} paesi ({auto} con controllo automatico), "

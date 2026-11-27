@@ -9,24 +9,8 @@ X-WR-TIMEZONE:Pacific/Honolulu
 REFRESH-INTERVAL;VALUE=DURATION:P1D
 X-PUBLISHED-TTL:P1D
 BEGIN:VEVENT
-UID:pearl-harbor-chiusura-chiusure-2026-11-26@before-you-fly.com
-DTSTAMP:20261126T000000Z
-DTSTART;VALUE=DATE:20261126
-DTEND;VALUE=DATE:20261127
-SUMMARY:Pearl Harbor (USS Arizona Memorial): closed
-DESCRIPTION:Official rule: “Closed Days: Thanksgiving Day\, December 25\,
-  and January 1.”\nSource: https://www.nps.gov/perl/planyourvisit/hours.h
- tm (checked on 14 November 2026)\nDate calculated by Before You Fly from t
- he official rule. Rules can change: check the official page before you boo
- k.\nOfficial tickets: https://www.recreation.gov/ticket/facility/233338\nh
- ttps://before-you-fly.com/ticket-release-dates/pearl-harbor/
-URL:https://before-you-fly.com/ticket-release-dates/pearl-harbor/
-TRANSP:TRANSPARENT
-STATUS:CONFIRMED
-END:VEVENT
-BEGIN:VEVENT
 UID:pearl-harbor-chiusura-chiusure-2026-12-25@before-you-fly.com
-DTSTAMP:20261126T000000Z
+DTSTAMP:20261127T000000Z
 DTSTART;VALUE=DATE:20261225
 DTEND;VALUE=DATE:20261226
 SUMMARY:Pearl Harbor (USS Arizona Memorial): closed
@@ -42,7 +26,7 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:pearl-harbor-chiusura-chiusure-2027-01-01@before-you-fly.com
-DTSTAMP:20261126T000000Z
+DTSTAMP:20261127T000000Z
 DTSTART;VALUE=DATE:20270101
 DTEND;VALUE=DATE:20270102
 SUMMARY:Pearl Harbor (USS Arizona Memorial): closed

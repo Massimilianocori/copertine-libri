@@ -236,6 +236,14 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
     nell'indice; NESSUN link di affiliazione nel riquadro né nell'indice (solo le fonti ufficiali e i link interni) e voce
     «_powerbank_amazon» di affiliati.json presente e vuota; frasi di ricerca nell'H2, nella descrizione e nel titolo dell'indice solo se
     misurate con volume > 0 (dati/powerbank_domanda.json); indice con una riga per compagnia (celle = dati, fonte, data), nella sitemap.
+40. Recupero dopo il cambio di dominio (25/11/2026): sitemap di sezione = pagine in indice, lastmod dal registro, vecchi indirizzi a parte,
+    blocchi «Most used» e «Related pages»; dal 27/11/2026 anche il blocco «Related» in alto sulle pagine di arrivo (piano di rilancio, P4):
+    uno per pagina, 3-5 link, subito dopo il riquadro della risposta, solo verso pagine in indice che lo sfoltimento del 2/12 non fa uscire.
+41. Sfoltimento del 2/12/2026 (27/11/2026, piano di rilancio, sezione 3.3; genera.py, SFOLTIMENTO, spento): regola ricalcolata qui (meno
+    di 100 parole proprie con la misura del punto 33, zero visite in dati/visite.json, non home né indice né pagina di servizio, non
+    liquidi, meno di 10 impressioni nella proprietà vecchia se c'è il file) = dati/sfoltimento.json. Spenta: nessuna pagina toccata.
+    Accesa: errore prima del 2/12; visite rimisurate da non più di 2 giorni; «Available in» con <meta name="googlebot" content="noindex">
+    e canonical, le altre con noindex e senza canonical; fuori dalla sitemap e dai vecchi indirizzi; nessun link dagli indici e dalla home.
 AVVISI (10/11/2026): le copie delle fonti in raccolta/.cache/ non sono nel repository. Il ricalcolo dalla copia (frasi, impronte, tabelle,
 seconda lettura dei PDF) dei punti 13, 17, 18, 20-29 si salta con un avviso (stampato, contato, elencato in fondo, non è un errore) se la
 copia manca, se è una pagina di blocco o anti-robot (titolo), o se è più recente dell'ultima lettura buona dei dati (la raccolta ha
@@ -269,6 +277,10 @@ RP = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(RP)
 
 SITO = G.SITO
+# 27/11/2026: pagine uscite con lo sfoltimento del 2/12 (dati/sfoltimento.json con "acceso": true; vuoto con la regola spenta). I controlli
+# di sezione che chiedono «in sitemap» o «linkata dall'indice» le saltano: le controlla il punto 41 (meta, sitemap, link tolti).
+_SF_V = json.loads((SITO.parent / "dati" / "sfoltimento.json").read_text(encoding="utf-8")) if (SITO.parent / "dati" / "sfoltimento.json").exists() else {}
+SFOLTITE_V = set(_SF_V.get("pagine", {})) if _SF_V.get("acceso") else set()
 P = {p["slug"]: p for p in G.PASS["paesi"]}
 
 # ---------------------------------------------------------------- avvisi sulle copie salvate (10/11/2026)
@@ -541,7 +553,7 @@ def controlla_struttura():
         if f'<meta name="google-site-verification" content="{G.GOOGLE_VERIFICA}">' not in t:
             errori.append(f"meta Google mancante in {f.relative_to(SITO)}")
         # pagine fuori indice (dati/noindex.json): senza canonical, le controlla il punto 33
-        if f.name != "404.html" and not G.fuori_indice(_percorso(f)) and f'<link rel="canonical" href="{G.URL_SITO}/' not in t:
+        if f.name != "404.html" and not G.fuori_indice(_percorso(f)) and _percorso(f) not in SFOLTITE_V and f'<link rel="canonical" href="{G.URL_SITO}/' not in t:
             errori.append(f"canonical mancante in {f.relative_to(SITO)}")
         # ammessi solo il contatore GoatCounter e lo script AdSense (quello lo controlla il punto 19, monetizzazione.py); il tag Grow è
         # uno script in linea senza src (crea lui faves.grow.me/main.js): lo controlla il punto 35
@@ -554,7 +566,8 @@ def controlla_struttura():
     if 'rel="canonical"' in nf or 'content="noindex"' not in nf:
         errori.append("404: deve essere noindex e senza canonical")
     sm = leggi("sitemap.xml")
-    n_pagine = sum(1 for f in SITO.rglob("*.html") if f.name != "404.html" and not f.name.startswith("google") and not G.fuori_indice(_percorso(f)))
+    n_pagine = sum(1 for f in SITO.rglob("*.html") if f.name != "404.html" and not f.name.startswith("google") and not G.fuori_indice(_percorso(f))
+                   and _percorso(f) not in SFOLTITE_V)
     if sm.count("<url>") != n_pagine or "404.html" in sm:
         errori.append("sitemap: numero di URL sbagliato o 404 presente")
     if f"Sitemap: {G.URL_SITO}/sitemap.xml" not in (SITO / "robots.txt").read_text():
@@ -1275,7 +1288,7 @@ def controlla_esteri():
             if f"Do {c['pop']} need a visa for {escape(G.nome_frase(v))}?" not in t or 'id="passport"' not in t:
                 errori.append(f"{k} {v['slug']}: domande sul visto o sulla validità mancanti")
             # d) collegamenti: indice, pagine britanniche della stessa destinazione (andata e ritorno)
-            if f'href="../{v["url_pag"]}"' not in t_ind:
+            if f'href="../{v["url_pag"]}"' not in t_ind and v["url_pag"] not in SFOLTITE_V:
                 errori.append(f"{k} {v['slug']}: manca nell'indice {c['base']}/")
             for s in v["uk"]:
                 tu = leggi(f"passport-validity/{s}/index.html")
@@ -2283,7 +2296,7 @@ def controlla_servizi():
                 conti["citazioni"] += 1
                 if escape(D["frasi"][k]["frase"]) not in t:
                     errori.append(f"{rel}: citazione {k} mancante")
-            if not G.fuori_indice(rel) and f"<loc>{G.URL_SITO}/{rel}</loc><lastmod>{S['letto_il']}</lastmod>" not in sm:
+            if not G.fuori_indice(rel) and rel not in SFOLTITE_V and f"<loc>{G.URL_SITO}/{rel}</loc><lastmod>{S['letto_il']}</lastmod>" not in sm:
                 errori.append(f"{rel}: non in sitemap o lastmod diverso dalla lettura")
             # FAQ: JSON-LD = testo visibile, prima risposta = prima frase della pagina
             ld = [json.loads(x) for x in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t)]
@@ -2542,7 +2555,7 @@ def controlla_patenti():
             for x in G.ingresso_srv(c, "../../../"):
                 if x not in t:
                     errori.append(f"{rel}: manca il link alla pagina passaporto/visto dello stesso Paese")
-            if f"<loc>{G.URL_SITO}/{rel}</loc><lastmod>{G.data_pat(pat, v)}</lastmod>" not in sm:
+            if f"<loc>{G.URL_SITO}/{rel}</loc><lastmod>{G.data_pat(pat, v)}</lastmod>" not in sm and rel not in SFOLTITE_V:
                 errori.append(f"{rel}: non in sitemap o lastmod diverso dalla lettura")
             ld = [json.loads(x) for x in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t)]
             faq = [x for x in ld if x.get("@type") == "FAQPage"]
@@ -4647,7 +4660,7 @@ def controlla_animali():
         if pp and not re.match(r"Taking a Dog to (?:the )?" + re.escape(pp["nome"]) + r" from the UK \(", tit):
             errori.append(f"{rel}: il titolo non comincia con «Taking a Dog to <Paese> from the UK»: {tit}")
         lm = re.search(re.escape(f"<loc>{G.URL_SITO}/{rel}</loc><lastmod>") + r"(\d{4}-\d{2}-\d{2})</lastmod>", sm)
-        if not G.fuori_indice(rel) and (not lm or lm.group(1) not in {F["letto_il"] for F in G.PET["fonti"].values()}):
+        if not G.fuori_indice(rel) and rel not in SFOLTITE_V and (not lm or lm.group(1) not in {F["letto_il"] for F in G.PET["fonti"].values()}):
             errori.append(f"{rel}: non in sitemap o lastmod diverso da una data di lettura delle fonti")
         m = re.search(r'<p class="lead" id="answer">(.*?)</p>', t, re.S)
         lead = unescape(re.sub(r"<[^>]+>", "", m.group(1))) if m else ""
@@ -4738,7 +4751,7 @@ def controlla_animali():
             extra = _numeri_ped(q["pre"] + " " + q["post"]) - numeri_cit
             if extra:
                 errori.append(f"{rel}: numeri non presi dalle citazioni nella FAQ «{q['q']}»: {sorted(extra)}")
-        if f'href="../{G.url_pet(p)[len(G.PET_BASE) + 1:]}"' not in hub and f'href="../{rel}"' not in hub:
+        if f'href="../{G.url_pet(p)[len(G.PET_BASE) + 1:]}"' not in hub and f'href="../{rel}"' not in hub and rel not in SFOLTITE_V:
             errori.append(f"indice pets senza link a {rel}")
         if f'href="../../{G.PET_CALC}?dest={c}"' not in t:
             errori.append(f"{rel}: manca il link al calcolatore con il Paese scelto")
@@ -4956,7 +4969,7 @@ def controlla_india():
         """Controlli di ogni pagina della sezione."""
         conti["pagine"] += 1
         vis = _vis_in(t)
-        if f"<loc>{G.URL_SITO}/{rel[:-len('index.html')]}</loc><lastmod>{I['controllato_il']}</lastmod>" not in sm:
+        if f"<loc>{G.URL_SITO}/{rel[:-len('index.html')]}</loc><lastmod>{I['controllato_il']}</lastmod>" not in sm and rel[:-len('index.html')] not in SFOLTITE_V:
             errori.append(f"{rel}: non in sitemap o lastmod diverso dalla data di lettura")
         tit = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
         if len(tit) > G.LIMITE_TITOLO_IN or str(G.ANNO) not in tit:
@@ -5034,7 +5047,7 @@ def controlla_india():
                 if unescape(re.sub(r"<[^>]+>", "", cel)) != attesa_cella(iso.upper(), k):
                     errori.append(f"{idx}: riga {iso}, {k}: «{unescape(re.sub(r'<[^>]+>', '', cel))}» invece di «{attesa_cella(iso.upper(), k)}»")
         for g in G.IN_PAGINE:
-            if f'href="../{G.url_in(g)}"' not in t:
+            if f'href="../{G.url_in(g)}"' not in t and G.url_in(g) not in SFOLTITE_V:
                 errori.append(f"{idx}: manca il link alla pagina {g['iso2']}")
         for x in ("data-in-cerca", "data-in-tipo", "data-in-tab", f'href="../{G.IN_DE}/"', f'href="../{G.IN_FR}/"', 'id="ports"'):
             if x not in t:
@@ -5292,7 +5305,9 @@ def controlla_recupero():
     for h in re.findall(r'<a\b[^>]*?\bhref="([^"#?:]*)', home):
         if h in fuori and h:
             errori.append(f"home: link a una pagina fuori indice ({h})")
-    n_indici = n_corr = 0
+    n_indici = n_corr = n_vic = 0
+    _sf = SITO.parent / "dati" / "sfoltimento.json"
+    da_sfoltire = set(json.loads(_sf.read_text(encoding="utf-8"))["pagine"]) if _sf.exists() else set()
     for f in SITO.rglob("*.html"):
         t = f.read_text(encoding="utf-8")
         if G.B_INIZIO not in t:
@@ -5302,11 +5317,25 @@ def controlla_recupero():
             errori.append(f"{u}: blocco di recupero aperto e non chiuso, o in una pagina fuori indice")
             continue
         for b in re.findall(re.escape(G.B_INIZIO) + "(.*?)" + re.escape(G.B_FINE), t, re.S):
-            tipo = "indice" if "Most used in this section" in b else "correlate" if "Related pages" in b else "home" if u == "" else "?"
+            tipo = ("vicine" if 'class="usate vicine"' in b else "indice" if "Most used in this section" in b else "correlate" if "Related pages" in b
+                    else "home" if u == "" else "?")
             n_indici += tipo == "indice"
             n_corr += tipo == "correlate"
+            n_vic += tipo == "vicine"
             ll = re.findall(r'<a href="([^"]+)">([^<]*)</a>', b)
-            lim = {"indice": (5, 10), "correlate": (3, 5), "home": (20, 30)}.get(tipo)
+            lim = {"indice": (5, 10), "correlate": (3, 5), "home": (20, 30), "vicine": (3, 5)}.get(tipo)
+            if tipo == "vicine":
+                # 27/11/2026 (piano di rilancio, P4): «Related» delle pagine di arrivo, in alto (dopo il riquadro della risposta, se c'è),
+                # uno per pagina, solo verso pagine che restano dopo lo sfoltimento del 2/12 (dati/sfoltimento.json, anche a regola spenta)
+                if t.count('class="usate vicine"') != 1 or 'aria-label="Related"' not in b:
+                    errori.append(f"{u}: blocco «Related» delle pagine di arrivo doppio o senza etichetta")
+                pos, ris = t.index('class="usate vicine"'), t.find('<section class="card summary"')
+                if ris > 0 and not (t.index("</section>", ris) < pos < t.index("</section>", ris) + 60):
+                    errori.append(f"{u}: il blocco «Related» delle pagine di arrivo non sta subito dopo il riquadro della risposta")
+                for h, _ in ll:
+                    dest = os.path.normpath(os.path.join(os.path.dirname(str(f)), h))
+                    if _percorso(Path(dest) / "index.html" if h.endswith("/") else Path(dest)) in da_sfoltire:
+                        errori.append(f"{u}: il blocco «Related» linka {h}, che la regola del 2/12 fa uscire (dati/sfoltimento.json)")
             if not lim or not (lim[0] <= len(ll) <= lim[1]) or len(ll) != b.count("<a "):
                 errori.append(f"{u}: blocco «{tipo}» con {len(ll)} link")
             for h, testo in ll:
@@ -5330,7 +5359,7 @@ def controlla_recupero():
         if parola not in come:
             errori.append(f"How we check: manca la sezione «{parola}»")
     return errori, {"sitemap": len(nomi), "url": len(voci), "date": len(date), "comune": date.most_common(1)[0][1] if date else 0, "vecchi": len(vecchi),
-                    "home": len(link_home), "indici": n_indici, "correlate": n_corr}
+                    "home": len(link_home), "indici": n_indici, "correlate": n_corr, "vicine": n_vic}
 
 
 def controlla_indexnow():
@@ -5726,7 +5755,7 @@ def controlla_bluebadge():
             errori.append("blue badge: prefisso della prima frase senza le date della guida GOV.UK")
         if p["nome"] not in tit and G.nf_bb(p) not in tit or tit != G.scegli(G.titoli_bb(p), G.LIMITE_TITOLO_BB):
             errori.append(f"{rel}: titolo senza il Paese o non tra le forme previste: {tit}")
-        if f"<loc>{G.URL_SITO}/{G.url_bb(p)}</loc><lastmod>{G.data_pagina_bb(p)}</lastmod>" not in sm:
+        if f"<loc>{G.URL_SITO}/{G.url_bb(p)}</loc><lastmod>{G.data_pagina_bb(p)}</lastmod>" not in sm and G.url_bb(p) not in SFOLTITE_V:
             errori.append(f"{rel}: non in sitemap o lastmod diverso dalla data di lettura")
         riga = f"<td>{escape(p['nome_gov'])}</td><td>{escape(p['riconosciuto'])}</td>"
         if riga not in t:
@@ -5774,7 +5803,7 @@ def controlla_bluebadge():
             celle = [unescape(re.sub(r"<[^>]+>", "", x)) for x in re.findall(r"<td[^>]*>(.*?)</td>", r)]
             if celle[1:3] != [righe[p["nome_gov"]]["riconosciuto"], righe[p["nome_gov"]]["info"] or "–"]:
                 errori.append(f"{idx}: riga {cod} diversa dalla tabella GOV.UK: {celle}")
-            if p["pagina"] != (f'href="../{G.url_bb(p)}"' in r):
+            if (p["pagina"] and G.url_bb(p) not in SFOLTITE_V) != (f'href="../{G.url_bb(p)}"' in r):
                 errori.append(f"{idx}: riga {cod} con o senza link alla pagina in modo diverso dai dati")
         faq_ok(idx, t, G.BB["faq_indice"], cit_numeri | {str(G.ANNO)})
         if f'href="../{G.PAT_BASE}/"' not in t:
@@ -6301,8 +6330,8 @@ def controlla_noindex():
             if rel.rstrip("/").rsplit("/", 1)[-1] + "/" not in madre and rel != f"{G.IT_BASE}/":
                 errori.append(f"{rel}: pagina fuori indice senza link dalla pagina indice {su}")
         else:
-            c["indice"] += 1
-            if noindex or not canon or rel not in in_sitemap:
+            c["indice"] += rel not in SFOLTITE_V  # le pagine sfoltite il 2/12 (meta, canonical, sitemap): punto 41
+            if (noindex or not canon or rel not in in_sitemap) and rel not in SFOLTITE_V:
                 errori.append(f"{rel}: pagina in indice senza canonical, fuori dalla sitemap o con noindex")
             if rel in senza_ads:
                 c["senza_ads"] += 1
@@ -6488,7 +6517,7 @@ def controlla_nuovi_srv():
             if len(tit) > 65 or len(des) > 160 or (not G.fuori_indice(rel) and (len(titoli.get(tit, [])) != 1 or len(descr.get(des, [])) != 1)):
                 errori.append(f"{rel}: titolo > 65 o descrizione > 160 o non unici nel sito: {tit}")
             # link in entrata: indice, pagina del servizio, tabella "Other services" delle altre pagine dello stesso Paese
-            if f'href="../{rel}"' not in indice or f'href="../../{rel}"' not in pag_s:
+            if (f'href="../{rel}"' not in indice or f'href="../../{rel}"' not in pag_s) and rel not in SFOLTITE_V:
                 errori.append(f"{rel}: nessun link dall'indice o dalla pagina del servizio")
             for S2 in D["servizi"]:
                 r2 = SITO / G.SRV_BASE / S2["slug"] / G.slug_srv(k) / "index.html"
@@ -6603,6 +6632,82 @@ GIUDIZI_DA = re.compile(r"\b(?:best|cheapest|cheaper|we recommend|our pick|top p
 def _numeri_da(s_):
     """Numeri di un testo nostro, senza date e senza separatori delle migliaia."""
     return _numeri_ped(re.sub(r"\bHTTP \d{3}\b|(?i:k9 ?jets)", " ", s_))
+
+
+def controlla_sfoltimento():
+    """Punto 41: regola dello sfoltimento del 2/12/2026 (genera.py, SFOLTIMENTO; piano di rilancio, sezione 3.3). Ricalcolata qui sul sito
+    finito (parole proprie con la misura di sotto_cancello(), visite da dati/visite.json, indici dai file) e confrontata con
+    dati/sfoltimento.json. Spenta: nessuna pagina toccata (nessun noindex solo per Google, tutte le pagine della regola in indice e in
+    sitemap). Accesa: non prima del giorno deciso, visite rimisurate da poco, meta giusti, fuori dalla sitemap e dai vecchi indirizzi,
+    nessun link dagli indici e dalla home."""
+    errori, c = [], {"escono": 0, "google": 0, "tutti": 0, "acceso": False, "per_sezione": {}}
+    f = SITO.parent / "dati" / "sfoltimento.json"
+    if not f.exists():
+        return ["dati/sfoltimento.json assente: genera.py deve scriverlo a ogni generazione"], c
+    S = json.loads(f.read_text(encoding="utf-8"))
+    V = json.loads((SITO.parent / "dati" / "visite.json").read_text(encoding="utf-8"))
+    acceso, pagine = S["acceso"], S["pagine"]
+    c.update(escono=len(pagine), google=sum(1 for x in pagine.values() if x == "google"), tutti=sum(1 for x in pagine.values() if x == "tutti"),
+             acceso=acceso, per_sezione=S["per_sezione"], restano=S["restano"])
+    if acceso != G.SFOLTIMENTO:
+        errori.append("dati/sfoltimento.json e genera.py non dicono la stessa cosa sull'interruttore")
+    if acceso and G.OGGI.isoformat() < G.SFOLTIMENTO_NON_PRIMA:
+        errori.append(f"sfoltimento ACCESO prima del {G.SFOLTIMENTO_NON_PRIMA} (fermo di STRATEGIA-RECUPERO.md): rigenerare con la regola spenta")
+    if S["soglia_parole_proprie"] != G.MIN_PAROLE_PROPRIE or G.MIN_PAROLE_PROPRIE < 100:
+        errori.append("sfoltimento: soglia delle parole proprie diversa dal cancello della pubblicità")
+    testi = {_percorso(x): x.read_text(encoding="utf-8") for x in SITO.rglob("*.html") if x.name != "404.html" and not x.name.startswith("google")}
+    testa = {u: h[:h.index("</head>")] for u, h in testi.items()}
+    in_indice = {u for u, h in testa.items() if 'content="noindex"' not in h}
+    base = in_indice | (set(pagine) if acceso else set())  # le pagine in indice prima della regola
+    sotto, vis = sotto_cancello(), V["visite"]
+    imp_f = SITO.parent / "dati" / "impressioni_vecchia.json"
+    imp = json.loads(imp_f.read_text(encoding="utf-8"))["impressioni"] if imp_f.exists() else {}
+    con_sotto = {f"{G.SRV_BASE}/{S['slug']}/" for S in G.SERVIZI_SRV}  # le pagine dei servizi sono indici anche senza pagine Paese
+    for u in base:
+        p_ = u.rstrip("/")
+        while "/" in p_:
+            p_ = p_.rsplit("/", 1)[0]
+            con_sotto.add(p_ + "/")
+    attese = {u: ("google" if u.startswith(G.SRV_BASE + "/") else "tutti") for u in base
+              if u in sotto and not vis.get(u) and u.count("/") > 1 and not u.endswith(".html") and u not in con_sotto
+              and not u.startswith("liquids/") and imp.get(u, 0) < 10}
+    if attese != pagine:
+        diversi = sorted(set(attese) ^ set(pagine)) or sorted(u for u in attese if attese[u] != pagine[u])
+        errori.append(f"sfoltimento: la regola ricalcolata qui è diversa da dati/sfoltimento.json in {len(diversi)} pagine (es. {diversi[:5]})")
+    if any(u.startswith("liquids/") or vis.get(u) for u in pagine):
+        errori.append("sfoltimento: una pagina dei liquidi o con visite è nell'elenco")
+    if S["escono"] != len(pagine) or S["restano"] + S["escono"] != len(base) or S["restano"] != len(base) - len(pagine):
+        errori.append(f"sfoltimento: conteggi di dati/sfoltimento.json ({S['escono']} + {S['restano']}) diversi dalle pagine in indice ({len(base)})")
+    sm = leggi("sitemap.xml")
+    in_sm = set(re.findall(r"<loc>" + re.escape(G.URL_SITO) + r"/(.*?)</loc>", sm))
+    vecchi = set(re.findall(r"<loc>https://[^/]+/([^<]*)</loc>", (SITO / "sitemap-vecchi-indirizzi.xml").read_text(encoding="utf-8")))
+    canon = lambda u: f'<link rel="canonical" href="{G.URL_SITO}/{u}">' in testa[u]  # noqa: E731
+    if not acceso:
+        if any(G.META_SOLO_GOOGLE in h for h in testa.values()):
+            errori.append("sfoltimento spento ma una pagina ha il noindex solo per Google")
+        fuori = sorted(u for u in pagine if u not in in_indice or u not in in_sm or not canon(u))
+        if fuori:
+            errori.append(f"sfoltimento spento ma {len(fuori)} pagine della regola sono fuori indice, fuori sitemap o senza canonical (es. {fuori[:3]})")
+        return errori, c
+    eta = (G.OGGI - G.date.fromisoformat(V["letto_il"])).days if V.get("letto_il") else 999
+    if eta > G.MAX_GIORNI_VISITE:
+        errori.append(f"sfoltimento acceso con dati/visite.json letto {eta} giorni fa: rimisurare")
+    for u, chi in pagine.items():
+        h = testa[u]
+        ok = (G.META_SOLO_GOOGLE in h and canon(u) and '<meta name="robots" content="noindex">' not in h) if chi == "google" else \
+             ('<meta name="robots" content="noindex">' in h and not canon(u) and G.META_SOLO_GOOGLE not in h)
+        if not ok or u in in_sm or u in vecchi or "adsbygoogle" in h:
+            errori.append(f"{u}: pagina sfoltita con meta, canonical, sitemap, vecchi indirizzi o AdSense sbagliati")
+    for u in sorted(({""} | con_sotto) & in_indice):
+        corpo = testi[u][testi[u].index('<main id="main">'):testi[u].index("</main>")]
+        dir_ = os.path.dirname(str(SITO / (u if u.endswith(".html") else u + "index.html")))
+        for h in re.findall(r'<a\b[^>]*?\bhref="([^"#?:]*)', corpo):
+            d = os.path.normpath(os.path.join(dir_, h)) if h else dir_
+            r = _percorso(Path(d) / "index.html") if not h.endswith(".html") else _percorso(Path(d))
+            if r in pagine:
+                errori.append(f"{u}: l'indice linka ancora {r}, uscita con lo sfoltimento")
+                break
+    return errori, c
 
 
 def controlla_cani_volo():
@@ -7647,11 +7752,15 @@ def main():
     print(f"40. Recupero dopo il cambio di dominio: indice di {c40['sitemap']} sitemap di sezione con {c40['url']} URL = pagine in indice "
           f"({c40['date']} date diverse, la più comune su {c40['comune']} URL, nessuna nel futuro), sitemap dei vecchi indirizzi a parte "
           f"({c40['vecchi']} URL, non citata in robots.txt né nell'indice), «Most used» in home ({c40['home']} link) e in {c40['indici']} indici, "
-          f"«Related» in {c40['correlate']} pagine, nessun link della home né dei blocchi verso pagine fuori indice, pagina «How we check» "
+          f"«Related pages» in {c40['correlate']} pagine, «Related» in alto in {c40['vicine']} pagine di arrivo (solo verso pagine che restano dopo il 2/12), nessun link della home né dei blocchi verso pagine fuori indice, pagina «How we check» "
           f"e «Who runs it» in About senza dati personali: {len(e40)} errori")
+    e41, c41 = controlla_sfoltimento()
+    print(f"41. Sfoltimento del 2/12 (regola {'ACCESA' if c41['acceso'] else 'spenta: solo calcolata, nessuna pagina toccata'}; dati/sfoltimento.json): "
+          f"la regola ricalcolata qui fa uscire {c41['escono']} pagine ({', '.join(f'{k} {n}' for k, n in sorted(c41['per_sezione'].items()))}), "
+          f"{c41['google']} con noindex solo per Google, {c41['tutti']} con noindex per tutti; restano {c41.get('restano', 0)}: {len(e41)} errori")
     e19, i19 = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
     print("19. " + G.MON.riepilogo(G.SITO_ID, i19, e19))
-    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e40 + e31 + e32 + e33 + e34 + e35 + e36 + e37 + e38 + e39
+    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e40 + e31 + e32 + e33 + e34 + e35 + e36 + e37 + e38 + e39 + e41
     if AVVISI:  # ricalcoli dalle copie salvati saltati (copia mancante, pagina di blocco, raccolta che non ha aggiornato il JSON): non sono errori
         per_punto = {}
         for k, _ in AVVISI:

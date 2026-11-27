@@ -786,7 +786,7 @@
    "url": "https://www.dohahamadairport.com/airport-guide/at-the-airport/security-customs",
    "titolo_fonte": "Hamad International Airport – Security and customs",
    "lettura": "browser",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-11-27"
   },
   {
    "slug": "hong-kong",
@@ -849,7 +849,7 @@
    "url": "https://schiphol.com/en/page/liquids-in-hand-baggage/",
    "titolo_fonte": "Schiphol – Liquids in hand baggage",
    "lettura": "browser",
-   "controllato_il": "2026-10-17",
+   "controllato_il": "2026-11-27",
    "nota": "This Schiphol address opens the page on schiphol.nl (en/prepare-for-your-flight-at-schiphol/liquids-in-hand-baggage); opened directly, schiphol.nl showed our browser a connection check instead of the page."
   },
   {
@@ -965,7 +965,7 @@
    "url": "https://www.brusselsairport.be/en/passenger/travel-planner/liquids-and-gels",
    "titolo_fonte": "Brussels Airport – Liquids and gels in your hand luggage",
    "lettura": "browser",
-   "controllato_il": "2026-10-17"
+   "controllato_il": "2026-11-27"
   },
   {
    "slug": "dubai",
@@ -1188,7 +1188,7 @@
    "url": "https://www.londoncityairport.com/at-the-airport/need-to-know/security-baggage",
    "titolo_fonte": "London City Airport – Security & Baggage",
    "lettura": "browser",
-   "controllato_il": "2026-10-21",
+   "controllato_il": "2026-11-27",
    "nota": "The site answers simple automated requests with HTTP 403, so we read the page in a browser. The page quotes a Department for Transport directive of 9 June 2024 that reintroduced the 100 ml limit at airports with next-generation checkpoints; it gives no date for a future change."
   },
   {
@@ -1233,7 +1233,7 @@
    "url": "https://www.newcastleairport.com/at-the-airport/preparing-for-security-search/",
    "titolo_fonte": "Newcastle International Airport – Preparing for Security Search",
    "lettura": "browser",
-   "controllato_il": "2026-10-21",
+   "controllato_il": "2026-11-27",
    "nota": "The site answers simple automated requests, and sometimes the first browser attempt, with HTTP 403; we read the page in a browser on a second attempt."
   },
   {
