@@ -289,3 +289,8 @@ Prima di ogni lavoro che cambia un sito, un dato, una routine o una decisione: s
 
 ## COMUNICAZIONE (Massimiliano, 27/11/2026: «non voglio sapere niente, voglio solo che tutto funzioni bene»)
 Niente aggiornamenti sul lavoro in corso, sui passaggi o sulle revisioni. A Massimiliano si scrive solo: risultati ottenuti (con numeri), cose che può fare solo lui, e il riassunto del mattino.
+
+## DECISIONI CON RICERCA E CONSEGUENZE; CRESCERE SEMPRE (Massimiliano, 27/11/2026)
+- «ogni volta che prendi una decisione deve essere supportata da una ricerca e dalle conseguenze che porta»: ogni decisione (chiudere, spostare, togliere, cambiare in massa) si scrive con i dati, la ricerca e le conseguenze di farla e di non farla, prima di agire (es. DECISIONE-SITI-2026-11-27.md).
+- «dobbiamo crescere sempre»; «come funzionavano all'inizio possono ancora funzionare»: un sito che ha avuto visite e cala si recupera, non si chiude. Si chiude solo chi non ha mai funzionato (regola: oltre 4-6 settimane con quasi zero visite), con la decisione scritta.
+- Mai più previsioni rassicuranti senza dati («calano per un po'»): si scrive cosa si misura e quando.
