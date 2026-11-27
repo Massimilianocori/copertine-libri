@@ -1,0 +1,273 @@
+{
+"_nota": "Scritto da genera.py: percorso -> [data dell'ultima modifica del contenuto, impronta]. Non modificare a mano.",
+"pagine": {
+"": [
+"2026-11-12",
+"e1ed9e617dd8ca7ebc2a"
+],
+"annuncio-di-lavoro/": [
+"2026-11-27",
+"ce6e845afc07947e64d0"
+],
+"annuncio-di-lavoro/cosa-scrivere/": [
+"2026-11-27",
+"ed1bc4aaf2aa7f7c38ab"
+],
+"api/": [
+"2026-11-27",
+"494c66dfc83649affa85"
+],
+"chi-siamo/": [
+"2026-11-27",
+"6db172e1e0a7b2cac8b9"
+],
+"colf-badanti/": [
+"2026-11-12",
+"49384b55bd7a4f539586"
+],
+"come-lavoriamo/": [
+"2026-11-12",
+"20814ed5c19846a7f9e2"
+],
+"lavoro-domestico/": [
+"2026-11-12",
+"7b984f91fab4b6e9ff9d"
+],
+"lavoro-domestico/livello-a/": [
+"2026-11-12",
+"41b831d933d19b0f6936"
+],
+"lavoro-domestico/livello-as/": [
+"2026-11-12",
+"5046b0cf47b8b004f58f"
+],
+"lavoro-domestico/livello-b/": [
+"2026-11-12",
+"b3954e2704f106d55223"
+],
+"lavoro-domestico/livello-bs/": [
+"2026-11-12",
+"adb09a471ae4a8094ad8"
+],
+"lavoro-domestico/livello-c/": [
+"2026-11-12",
+"825b303738124ed8a0e9"
+],
+"lavoro-domestico/livello-cs/": [
+"2026-11-12",
+"4135741bba2afb6228de"
+],
+"lavoro-domestico/livello-d/": [
+"2026-11-12",
+"b3dfd42d78fc9e740beb"
+],
+"lavoro-domestico/livello-ds/": [
+"2026-11-12",
+"b6cffff68fc38d262e24"
+],
+"logistica-trasporto-merci/": [
+"2026-11-12",
+"61123094f99b6a97a2f9"
+],
+"logistica-trasporto-merci/1-livello/": [
+"2026-11-12",
+"a7c23661a9c79bec523d"
+],
+"logistica-trasporto-merci/2-livello/": [
+"2026-11-12",
+"f3665b6a1085ba10c57b"
+],
+"logistica-trasporto-merci/3-livello-super/": [
+"2026-11-12",
+"c7fb9bd85756cc605e74"
+],
+"logistica-trasporto-merci/3-livello/": [
+"2026-11-12",
+"d9ccba9773fa0e0d3066"
+],
+"logistica-trasporto-merci/4-livello-junior/": [
+"2026-11-12",
+"64630dd670676f364ed9"
+],
+"logistica-trasporto-merci/4-livello/": [
+"2026-11-12",
+"79608b549485a67ec271"
+],
+"logistica-trasporto-merci/5-livello/": [
+"2026-11-12",
+"dff061623cebf0cb5154"
+],
+"logistica-trasporto-merci/6-livello/": [
+"2026-11-12",
+"0555b9ab6e3627c43ec7"
+],
+"logistica-trasporto-merci/livello-a3/": [
+"2026-11-12",
+"a7961df3e1cbcbd4fe20"
+],
+"logistica-trasporto-merci/livello-b3/": [
+"2026-11-12",
+"6a2fb3e527fada794d89"
+],
+"logistica-trasporto-merci/livello-c3/": [
+"2026-11-12",
+"9c84b05c9ea71c3df337"
+],
+"logistica-trasporto-merci/livello-d2/": [
+"2026-11-12",
+"be358fa624653ff0200c"
+],
+"logistica-trasporto-merci/livello-e2/": [
+"2026-11-12",
+"c39868e0a95faa4d97cf"
+],
+"logistica-trasporto-merci/livello-g1/": [
+"2026-11-12",
+"4344b6f175a3be51fa07"
+],
+"logistica-trasporto-merci/livello-h1/": [
+"2026-11-12",
+"94b5a136313e7073a19f"
+],
+"logistica-trasporto-merci/livello-i-primi-6-mesi/": [
+"2026-11-12",
+"a1257d0368ce00d66aab"
+],
+"logistica-trasporto-merci/livello-i/": [
+"2026-11-12",
+"4fa2b389923e87e8be51"
+],
+"logistica-trasporto-merci/livello-l-7-15-mesi/": [
+"2026-11-12",
+"c89a3b5c646c80bcdcb7"
+],
+"logistica-trasporto-merci/livello-l/": [
+"2026-11-12",
+"c798c7d93fde547cf27d"
+],
+"logistica-trasporto-merci/quadro/": [
+"2026-11-12",
+"7f3e61bbabf993cda55c"
+],
+"metalmeccanici-industria/": [
+"2026-11-12",
+"59db63294b52232d3b87"
+],
+"metalmeccanici-industria/livello-a1/": [
+"2026-11-12",
+"33bbb27fe0e193609ce5"
+],
+"metalmeccanici-industria/livello-b1/": [
+"2026-11-12",
+"b8d7f56bfbabfbaeb754"
+],
+"metalmeccanici-industria/livello-b2/": [
+"2026-11-12",
+"348ff67049dcbdf99385"
+],
+"metalmeccanici-industria/livello-b3/": [
+"2026-11-12",
+"d91e52d57d36c5fca0ae"
+],
+"metalmeccanici-industria/livello-c1/": [
+"2026-11-12",
+"df16481c8e6ce2a3f92f"
+],
+"metalmeccanici-industria/livello-c2/": [
+"2026-11-12",
+"eb05ed5adf95c360e859"
+],
+"metalmeccanici-industria/livello-c3/": [
+"2026-11-12",
+"b4208af6ca2d649de00d"
+],
+"metalmeccanici-industria/livello-d1/": [
+"2026-11-12",
+"aa60b5a3981e43eaf38c"
+],
+"metalmeccanici-industria/livello-d2/": [
+"2026-11-12",
+"7b26e9839b2aee151876"
+],
+"multiservizi-pulizie/": [
+"2026-11-12",
+"5820c165d52fa33eb137"
+],
+"multiservizi-pulizie/1-livello/": [
+"2026-11-12",
+"2240c495b184b9dbfe29"
+],
+"multiservizi-pulizie/2-livello/": [
+"2026-11-12",
+"20f677b4f9408e90c5b6"
+],
+"multiservizi-pulizie/3-livello/": [
+"2026-11-12",
+"2dbdbe31bb6855495d14"
+],
+"multiservizi-pulizie/4-livello/": [
+"2026-11-12",
+"d905766e2e89b2e273f0"
+],
+"multiservizi-pulizie/5-livello/": [
+"2026-11-12",
+"895b33b83092bb33ccfb"
+],
+"multiservizi-pulizie/6-livello/": [
+"2026-11-12",
+"e791eefb9e9795402c8e"
+],
+"multiservizi-pulizie/7-livello/": [
+"2026-11-12",
+"8cf4284930a0d3ecc5ce"
+],
+"multiservizi-pulizie/quadro/": [
+"2026-11-12",
+"f78af32db7d768ab89c9"
+],
+"per-consulenti-e-aziende/": [
+"2026-11-27",
+"32602c9831ac57f87c9d"
+],
+"privacy/": [
+"2026-11-27",
+"23be6005a4b3513fd530"
+],
+"terziario-commercio/": [
+"2026-11-12",
+"bda0c493c122ad3f2160"
+],
+"terziario-commercio/1-livello/": [
+"2026-11-12",
+"e75971059a6cdf04401d"
+],
+"terziario-commercio/2-livello/": [
+"2026-11-12",
+"717197e64ab905bf315e"
+],
+"terziario-commercio/3-livello/": [
+"2026-11-12",
+"a912e41a05fb7c484c73"
+],
+"terziario-commercio/4-livello/": [
+"2026-11-12",
+"d6cd70691a3aa7fe46d4"
+],
+"terziario-commercio/5-livello/": [
+"2026-11-12",
+"17abeae770b80d8c942e"
+],
+"terziario-commercio/6-livello/": [
+"2026-11-12",
+"f58af6691f2b2640edba"
+],
+"terziario-commercio/7-livello/": [
+"2026-11-12",
+"d4cf780297bf5acda1a5"
+],
+"terziario-commercio/quadro/": [
+"2026-11-12",
+"ed835585271add73156d"
+]
+}
+}

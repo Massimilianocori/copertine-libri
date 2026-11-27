@@ -1,0 +1,81 @@
+{
+ "_nota": "Prova di domanda «Paga CCNL per chi assume» (27/11/2026, studio-business/schede/2026-11-27-pagaccnl-annuncio.md). Testi di legge copiati parola per parola (apostrofi diritti); etichette brevi delle fonti per la riga dell'annuncio; prezzi della prova (nessuna vendita). verifica.py controlla che le citazioni in pagina siano questi frammenti, che l'impronta non sia cambiata e che le etichette delle fonti corrispondano ai titoli di dati/fonti.json.",
+ "legge": {
+  "atto": "Decreto legislativo 7 maggio 2026, n. 96",
+  "sigla": "D.Lgs. 96/2026",
+  "gazzetta": "Gazzetta Ufficiale n. 125 del 1° giugno 2026",
+  "in_vigore_dal": "2026-06-07",
+  "direttiva": "direttiva (UE) 2023/970",
+  "rubriche": {
+   "2": "Ambito di applicazione",
+   "5": "Trasparenza retributiva prima dell'assunzione",
+   "13": "Adempimenti amministrativi e sanzioni",
+   "17": "Entrata in vigore",
+   "12": "Tutela giudiziaria",
+   "6": "Trasparenza della determinazione delle retribuzioni e dei criteri per la progressione economica"
+  },
+  "frammenti": {
+   "art2_c1": "Il presente decreto si applica ai datori di lavoro del settore pubblico e del settore privato, per gli aspetti non disciplinati dal diritto nazionale, nel rispetto della normativa dell'Unione europea.",
+   "art2_c2": "Il presente decreto si applica ai contratti di lavoro subordinato, a tempo determinato e a tempo indeterminato, anche se a tempo parziale, ivi comprese le posizioni dirigenziali, ad esclusione dei contratti di lavoro domestico e dei contratti di lavoro intermittente.",
+   "art2_c3": "Per le finalità di cui all'articolo 5, il presente decreto si applica anche ai candidati a un impiego.",
+   "art5_c1": "Ferme restando le informazioni da fornire ai lavoratori successivamente all'assunzione, ai candidati ad un impiego sono fornite indicazioni in ordine alla retribuzione iniziale o alla relativa fascia da attribuire alla posizione, sulla base di criteri oggettivi e neutri sotto il profilo del genere, e alle pertinenti disposizioni del contratto collettivo applicato dal datore di lavoro in relazione alla posizione. Tali informazioni sono fornite negli avvisi e nei bandi con cui vengono rese note le opportunità di lavoro.",
+   "art5_c2": "Ai candidati a un impiego non possono essere chieste informazioni sulle retribuzioni percepite negli attuali o nei precedenti rapporti di lavoro. Le stesse informazioni non possono essere acquisite con altre modalità dai datori di lavoro, neanche indirettamente, per il tramite di soggetti ai quali abbiano affidato la fase di selezione o di assunzione.",
+   "art5_c3": "Per non compromettere il diritto alla parità di retribuzione per uno stesso lavoro o per un lavoro di pari valore, le procedure di selezione e assunzione sono condotte in modo non discriminatorio. Gli avvisi e i bandi con cui sono rese note le opportunità di lavoro pubblico e privato sono redatti secondo criteri neutri sotto il profilo del genere, anche in relazione ai titoli professionali richiesti.",
+   "art13_c1": "In caso di accertamento di discriminazioni poste in essere in violazione del presente decreto, si applica l'articolo 41 del codice delle pari opportunità tra uomo e donna, di cui al decreto legislativo 11 aprile 2006, n. 198.",
+   "art17_c1": "Il presente decreto legislativo entra in vigore a decorrere dal 7 giugno 2026.",
+   "art12_c1_p1": "Alle violazioni dei diritti derivanti dal presente decreto si applicano le disposizioni di cui al libro III, titolo I, capo III del codice delle pari opportunità tra uomo e donna, di cui al decreto legislativo 11 aprile 2006, n. 198.",
+   "art6_c2_p1": "L'informativa resa al lavoratore all'atto dell'instaurazione del rapporto di lavoro, ai sensi dell'articolo 1, comma 1, del decreto legislativo 26 maggio 1997, n. 152, costituisce modalità ordinaria di adempimento degli obblighi di trasparenza retributiva, in quanto idonea a rendere conoscibili il livello di inquadramento, la retribuzione iniziale, il contratto collettivo nazionale di lavoro applicato e i relativi criteri di determinazione."
+  },
+  "impronta_frammenti": "24f32367924492f41a1636f79d6d17e6e56a69de274c44db5f74fd6385be9a6b",
+  "fonti": [
+   {
+    "id": "normattiva",
+    "titolo": "Decreto legislativo 7 maggio 2026, n. 96, testo vigente",
+    "chi": "Normattiva (Istituto Poligrafico e Zecca dello Stato)",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2026-05-07;96",
+    "letto_il": "2026-11-27",
+    "come": "Letta la pagina ufficiale degli articoli 2, 5 e 13 attraverso un lettore di pagine: le frasi dei commi di art. 2 e art. 5 e del comma 1 dell'art. 13 sono state confrontate una per una e risultano uguali; rubriche e numero dei commi confermati. La pagina non si scarica direttamente da questa macchina (connessione chiusa), quindi il file non è salvato tra i grezzi."
+   },
+   {
+    "id": "miolegale",
+    "titolo": "D.Lgs. 96/2026, testo completo ripreso da Normattiva (vigente al 24 ottobre 2026)",
+    "chi": "MioLegale.it",
+    "url": "https://miolegale.it/norme/dlgs-96-2026/",
+    "letto_il": "2026-11-27",
+    "come": "Scaricata la pagina (HTTP 200): da qui è copiato il testo dei frammenti. La pagina dichiara come fonte Normattiva, licenza CC BY 4.0."
+   }
+  ],
+  "non_trovato": [
+   "importo di una sanzione specifica per l'annuncio senza retribuzione",
+   "regola transitoria per gli annunci pubblicati prima del 7 giugno 2026",
+   "soglia di dipendenti per l'art. 5"
+  ],
+  "nota_frammenti": "art12_c1_p1 e art6_c2_p1 sono il primo periodo dei commi, copiati dalla copia di MioLegale (27/11/2026); non riletti frase per frase su Normattiva come gli articoli 2, 5 e 13."
+ },
+ "fonte_breve": {
+  "terziario": "testo unico del CCNL del 3 febbraio 2026 depositato al CNEL e tabelle dei minimi di Filcams CGIL",
+  "metalmeccanici": "tabelle del Ministero del Lavoro allegate al decreto n. 94 del 26 ottobre 2026 e accordo di rinnovo del 22 novembre 2025",
+  "multiservizi": "tabelle del Ministero del Lavoro allegate al decreto n. 25 del 30 marzo 2026 e accordo del 6 agosto 2025 depositato al CNEL",
+  "logistica": "testo del CCNL del 25 settembre 2025 depositato al CNEL e tabelle del Ministero del Lavoro (decreto n. 135 del 19 dicembre 2025)",
+  "domestico": "tabella dei minimi 2026 del Ministero del Lavoro e copia depositata al CNEL con il verbale dell'11 febbraio 2026"
+ },
+ "prezzi": {
+  "pro_anno": 149,
+  "pro_mese": 19,
+  "api_mese": 49,
+  "in_vendita": false
+ },
+ "eventi": {
+  "calcolo": "pagaccnl.com/clic/annuncio-calcolo",
+  "copia": "pagaccnl.com/clic/annuncio-copia",
+  "pro": "pagaccnl.com/clic/pro-prezzo",
+  "api": "pagaccnl.com/clic/api-chiave",
+  "api_prezzo": "pagaccnl.com/clic/api-prezzo"
+ },
+ "esempio_api": {
+  "contratto": "terziario",
+  "livello": "iv"
+ },
+ "aggiornato_il": "2026-11-27",
+ "cancellazione_entro": "2027-03-31"
+}

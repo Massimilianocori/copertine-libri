@@ -118,9 +118,21 @@ table.dati caption{caption-side:bottom;text-align:left;padding:8px 12px;font-siz
 .disclaimer{margin:34px 0 0;padding:14px 16px;border-radius:var(--r-s);background:var(--mute);font-size:.88rem;color:var(--ink-2)}
 .ad-slot{min-height:0;margin:26px 0}
 .form{display:grid;gap:12px;max-width:640px}.form label{display:grid;gap:6px;font-weight:700;font-size:.92rem}
-.form input,.form textarea{font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line-2);border-radius:var(--r-s);padding:9px 11px;width:100%}
+.form input,.form textarea,.form select{font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line-2);border-radius:var(--r-s);padding:9px 11px;width:100%}
 .form .check{display:flex;gap:10px;align-items:flex-start;font-weight:600}.form .check input{width:18px;height:18px;margin-top:3px;flex:none}
 .hp{position:absolute;left:-9999px}
+.riga-out{font:inherit;font-size:.98rem;line-height:1.5;width:100%;min-height:170px;resize:vertical;color:var(--ink);background:var(--card);border:1.5px solid var(--line-2);border-radius:var(--r-s);padding:11px 13px;font-weight:400}
+.riga-out.breve{min-height:96px}
+.riga-az{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
+.riga-es{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--ok);border-radius:var(--r-s);padding:12px 16px;margin:0 0 12px;max-width:860px}
+.riga-es small{display:block;color:var(--ink-3);font-size:.82rem;font-weight:800;letter-spacing:.03em;margin-bottom:4px}
+blockquote.legge{margin:0 0 14px;padding:12px 16px;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--warm);border-radius:var(--r-s);max-width:860px}
+blockquote.legge p{font-family:var(--serif);font-size:1.04rem;margin:0}blockquote.legge cite{display:block;font-style:normal;font-size:.84rem;color:var(--ink-3);margin-top:6px}
+.prezzi{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:18px 0 10px}
+.prezzo{display:grid;gap:8px;align-content:start}.prezzo h3{margin:0}.prezzo .cifra-p{font-family:var(--serif);font-size:2rem;font-weight:700;line-height:1.1;color:var(--accent);margin:0;font-variant-numeric:tabular-nums}
+.prezzo .cifra-p small{font-family:var(--sans);font-size:.9rem;color:var(--ink-3);font-weight:600}
+pre.codice{margin:0 0 14px;padding:14px 16px;background:var(--deep);color:var(--on-deep);border:1px solid var(--line);border-radius:var(--r-s);overflow-x:auto;font-size:.82rem;line-height:1.5;max-width:100%;white-space:pre}
+table.dati code{font-size:.86em;overflow-wrap:anywhere}.btn:disabled{opacity:.55;cursor:default}
 .btn{display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:.93rem;font-weight:800;background:var(--accent);color:var(--on-accent);border:0;border-radius:var(--r-s);padding:10px 16px;cursor:pointer;min-height:44px;text-decoration:none;justify-self:start}
 .btn:hover{background:var(--accent-h);color:var(--on-accent)}
 .contratto-h{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 12px;margin:40px 0 10px}
@@ -129,10 +141,10 @@ table.dati caption{caption-side:bottom;text-align:left;padding:8px 12px;font-siz
 footer{margin-top:56px;background:var(--deep);color:var(--on-deep-2);font-size:.9rem}
 footer .wrap{padding-top:32px;padding-bottom:30px}
 footer a{color:var(--on-deep)}footer h2{color:#fff;font-size:1rem;margin:0 0 8px}
-.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px}
+.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
 footer ul{list-style:none;margin:0;padding:0}footer li{margin-bottom:6px}
 .f-base{margin:24px 0 0;padding-top:16px;border-top:1px solid rgba(255,255,255,.12);font-size:.84rem}
-@media (max-width:900px){nav.menu{display:none}.nav-m{display:block}.f-grid{grid-template-columns:1fr 1fr}.f-grid>div:first-child{grid-column:1/-1}}
+@media (max-width:1060px){nav.menu{display:none}.nav-m{display:block}}\n@media (max-width:900px){.f-grid{grid-template-columns:1fr 1fr}.f-grid>div:first-child{grid-column:1/-1}}
 @media (max-width:720px){.cifre{grid-template-columns:1fr 1fr}.cifra:nth-child(2){border-right:0}.cifra:nth-child(-n+2){border-bottom:1px solid var(--line)}
 .calc-g{grid-template-columns:1fr}.calc-in{border-right:0;border-bottom:1px solid var(--line)}}
 @media (max-width:560px){.nascondi-m{display:none}}

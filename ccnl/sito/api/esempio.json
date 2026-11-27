@@ -1,0 +1,55 @@
+{
+  "versione": "bozza",
+  "contratto": {
+    "id": "terziario-commercio",
+    "nome": "Terziario, distribuzione e servizi (Confcommercio)",
+    "codice_cnel": "H011",
+    "scadenza": "2027-03-31"
+  },
+  "livello": {
+    "id": "4-livello",
+    "nome": "4° livello"
+  },
+  "valuta": "EUR",
+  "in_vigore_dal": "2026-11-01",
+  "minimo_mensile_lordo": "1816.68",
+  "voci": [
+    {
+      "nome": "Paga base",
+      "importo": "1292.46"
+    },
+    {
+      "nome": "Contingenza + EDR",
+      "importo": "524.22"
+    }
+  ],
+  "mensilita": 14,
+  "minimo_annuo_lordo": "25433.52",
+  "ore_settimanali": 40,
+  "divisore_orario": 168,
+  "paga_oraria_lorda": "10.81",
+  "prossimi_minimi": [
+    {
+      "dal": "2027-02-01",
+      "minimo_mensile_lordo": "1856.68"
+    }
+  ],
+  "riga_annuncio": "Retribuzione iniziale: 1.816,68 € lordi al mese per 14 mensilità (25.433,52 € lordi l'anno), tempo pieno (40 ore settimanali). Inquadramento: 4° livello, CCNL Terziario, distribuzione e servizi (Confcommercio), codice CNEL H011. Importo: minimo del contratto in vigore dal 1° novembre 2026. Fonte: testo unico del CCNL del 3 febbraio 2026 depositato al CNEL e tabelle dei minimi di Filcams CGIL; cifre controllate il 12 novembre 2026.",
+  "fonti": [
+    {
+      "titolo": "Testo unico del CCNL Terziario, distribuzione e servizi del 3 febbraio 2026 (deposito CNEL 246574)",
+      "editore": "CNEL, archivio dei contratti",
+      "url": "https://www.cnel.it/Archivio-Contratti",
+      "letto_il": "2026-11-12",
+      "sha256": "fe08f93d704e606da4f8ac3f25f3434dbabc0fee8212fece3d163441f781e77b"
+    },
+    {
+      "titolo": "Terziario Confcommercio: minimi dal 1/04/2023 al 1/02/2027",
+      "editore": "Filcams CGIL (sindacato firmatario)",
+      "url": "https://www.filcams.cgil.it/article/confcommercio_terziario/43d4ef3a-29a5-4ba3-9c2d-514d057c4bb9",
+      "letto_il": "2026-11-12",
+      "sha256": "5acece90ffcf29c62f935abd1538eeb79cec6a5b33c48a133d86f910057a17db"
+    }
+  ],
+  "controllato_il": "2026-11-12"
+}

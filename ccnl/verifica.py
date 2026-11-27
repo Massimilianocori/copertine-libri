@@ -252,10 +252,11 @@ def voci_confermate(cid, L, dt):
         arr(D(b["annuo_base"]) / 12) * 12 == D(b["annuo_base"]) and arr(D(b["annuo_epa"]) / 12) * 12 == D(b["annuo_epa"])
 
 
-def corrente(lista, cid, L):
+def corrente(lista, cid, L, giorno=None):
     """(riga mostrata, righe sospese): stessa regola di genera.stato_livello, rifatta qui dagli estratti.
-    Se la riga in vigore non è pubblicabile ma le sue voci sono confermate, la pagina resta sull'ultima riga verificata e lo dichiara."""
-    pas = [x for x in lista if x[0] <= OGGI.isoformat()]
+    Se la riga in vigore non è pubblicabile ma le sue voci sono confermate, la pagina resta sull'ultima riga verificata e lo dichiara.
+    giorno (AAAA-MM-GG): lo stato in un altro giorno, per i passi a data futura dello strumento dell'annuncio."""
+    pas = [x for x in lista if x[0] <= (giorno or OGGI.isoformat())]
     sosp = []
     while len(pas) > 1 and not pas[-1][1] and voci_confermate(cid, L, pas[-1][0]):
         sosp.insert(0, pas.pop())
@@ -429,6 +430,7 @@ def controlla_pagine():
                     errore(f"{rel}: ancora {href} inesistente")
                 continue
             percorso, _, ancora = href.partition("#")
+            percorso = percorso.partition("?")[0]  # i riquadri dell'annuncio passano contratto e livello allo strumento (?c=…&l=…)
             if not percorso.startswith("/"):
                 errore(f"{rel}: link relativo {href}")
                 continue
@@ -711,6 +713,452 @@ def controlla_js():
         print(f"JS: calcolo del browser = Python su {sum(len(c[3]) for c in CASI_JS)} casi")
 
 
+# ---------------------------------------------------------------- 8 bis. annuncio di lavoro, Pro, API (prova di domanda del 27/11/2026)
+# Tutto rifatto qui senza genera.py e senza genera_annuncio.py: lo stato di ogni livello a ogni data viene da estratti.json
+# (atteso_livello, corrente), la riga dell'annuncio è riscritta da capo (riga_attesa) e il codice del browser si esegue con node.
+P_ANN = {"strumento": "annuncio-di-lavoro/", "guida": "annuncio-di-lavoro/cosa-scrivere/", "pro": "per-consulenti-e-aziende/", "api": "api/"}
+EVENTI_ANN = {"calcolo": "pagaccnl.com/clic/annuncio-calcolo", "copia": "pagaccnl.com/clic/annuncio-copia", "pro": "pagaccnl.com/clic/pro-prezzo",
+              "api": "pagaccnl.com/clic/api-chiave", "api_prezzo": "pagaccnl.com/clic/api-prezzo"}
+RE_PAGAMENTO = re.compile(r"stripe|paypal|gumroad|lemonsqueezy|paddle\.|checkout|satispay|sumup|shopify|klarna|nexi|buy\.|/pay\b|/acquista|/carrello", re.I)
+CASI_ANNUNCIO = []
+
+
+def stato_annuncio(cid, L, att, giorno):
+    """Cifre che lo strumento può dare per il livello nel giorno indicato, oppure None (riga sospesa, tabella del lavoro domestico
+    dell'anno prima, cifra non pubblicabile): in quei giorni lo strumento non deve dare nessuna riga."""
+    cur, sosp = corrente(att, cid, L, giorno)
+    if not (cur and cur[1]) or sosp:
+        return None
+    if cid == "domestico":
+        if date.fromisoformat(giorno).year > date.fromisoformat(cur[0]).year:
+            return None
+        a = cur[3]
+        ind = D(a["A_indennita"]) if a.get("A_indennita") else Decimal(0)
+        return {"m": int((D(a["A_mensile"]) + ind) * 100), "o": int(D(a["C_oraria"]) * 100), "ind": 1 if ind else 0, "t": data_lunga(cur[0])}
+    return {"m": int(arr(cur[2]) * 100), "t": data_lunga(cur[0])}
+
+
+def passi_attesi(cid, L, att):
+    oggi = OGGI.isoformat()
+    giorni = sorted({x[0] for x in att if x[0] > oggi} | ({date(OGGI.year + 1, 1, 1).isoformat()} if cid == "domestico" else set()))
+    passi = []
+    for g in [""] + giorni:
+        st = stato_annuncio(cid, L, att, g or oggi)
+        p = dict(st, dal=g) if st else {"dal": g, "no": 1}
+        if passi and {k: v for k, v in passi[-1].items() if k != "dal"} == {k: v for k, v in p.items() if k != "dal"}:
+            continue
+        passi.append(p)
+    return passi
+
+
+def riga_attesa(cid, m, L, st, modo, n, fonte, off=0):
+    """La riga dell'annuncio riscritta qui: (riga completa, centesimi al mese, centesimi l'anno, riga breve).
+    off: retribuzione mensile offerta in centesimi, più alta del minimo: la riga dà la fascia «da… a…»."""
+    mens = m["mensilita"]["valore"]
+    e = lambda c: euro(Decimal(c) / 100)  # noqa: E731
+    dopo = ""
+    if cid == "domestico":
+        if modo == "aore":
+            mese = int(orario52(Decimal(st["o"]) / 100, n) * 100)
+            testa = (f"{e(st['o'])} lordi l'ora; per {n} ore settimanali {e(mese)} lordi al mese per {mens} mensilità "
+                     f"({e(mese * mens)} lordi l'anno), lavoratore non convivente.")
+        else:
+            mese = st["m"]
+            testa = f"{e(mese)} lordi al mese per {mens} mensilità ({e(mese * mens)} lordi l'anno), lavoratore convivente; vitto e alloggio a parte."
+            if st["ind"]:
+                dopo = ", indennità di funzione compresa"
+    else:
+        ore = m["ore"]["valore"]
+        if modo == "ore":
+            mese, coda = int(prorata(Decimal(st["m"]) / 100, n, ore) * 100), f"part time di {n} ore settimanali su {ore}"
+        elif modo == "pct":
+            mese, coda = int(prorata(Decimal(st["m"]) / 100, n, 100) * 100), f"part time al {n}%"
+        else:
+            mese, coda = st["m"], f"tempo pieno ({ore} ore settimanali)"
+        if modo != "pieno":
+            dopo = ", riproporzionato all'orario"
+        if off:
+            testa = f"da {e(mese)} a {e(off)} lordi al mese per {mens} mensilità (da {e(mese * mens)} a {e(off * mens)} lordi l'anno), {coda}."
+        else:
+            testa = f"{e(mese)} lordi al mese per {mens} mensilità ({e(mese * mens)} lordi l'anno), {coda}."
+    nome = L["nome"][0].lower() + L["nome"][1:]
+    breve = f"Retribuzione iniziale: {testa} Inquadramento: {nome}, CCNL {m['nome']}, codice CNEL {m['codice_cnel']}."
+    importo = f"minimo del contratto in vigore dal {st['t']}{dopo}"
+    if off:
+        importo = f"fascia dal {importo} alla retribuzione offerta dall'azienda"
+    testo = f"{breve} Importo: {importo}. Fonte: {fonte}; cifre controllate il {data_lunga(CONTROLLO.isoformat())}."
+    return testo, mese, mese * mens, breve
+
+
+def _principale(html):
+    """Parole del contenuto (senza moduli, script, stili e icone), contate qui come fa il cancello della pubblicità."""
+    corpo = re.search(r"<main[^>]*>(.*?)</main>", html, re.S).group(1)
+    corpo = re.sub(r"<(form|script|style|svg)\b.*?</\1>", " ", corpo, flags=re.S | re.I)
+    return len(re.findall(r"\w+", unescape(re.sub(r"<[^>]+>", " ", corpo))))
+
+
+def _campi_modulo(html, nome):
+    m_ = re.search(rf'<form\b[^>]*\bname="{nome}"[^>]*>.*?</form>', html, re.S)
+    return (m_.group(0), set(re.findall(r'<(?:input|select|textarea)\b[^>]*\bname="([^"]+)"', m_.group(0)))) if m_ else (None, set())
+
+
+def impronta_pagina(testo):
+    """Impronta del contenuto di una pagina, rifatta qui: titolo, descrizione, JSON-LD e <main>, senza il riquadro dell'annuncio,
+    senza le date di controllo e di lettura delle fonti e senza i nomi con impronta dei file in /assets/."""
+    import hashlib
+    date_c = {CONTROLLO.isoformat(), data_lunga(CONTROLLO.isoformat())}
+    for es in list(FJ["fonti"].values()) + list(FJ["pagine"].values()):
+        date_c |= {es["letto_il"], data_lunga(es["letto_il"])}
+    testo = re.sub(r"<!--annuncio-->.*?<!--/annuncio-->", "", testo, flags=re.S)
+    testo = re.sub(r"(Controllato il|controllate il|Letto il|Ultimo aggiornamento:) (?:1°|\d{1,2}) [a-z]+ \d{4}", r"\1 {data}", testo)
+    testo = re.sub(r"(/assets/[a-z]+)\.[0-9a-f]{10}\.", r"\1.", testo)
+    for d_ in sorted(date_c, key=len, reverse=True):
+        testo = testo.replace(d_, "{data}")
+    pezzi = [(re.search(r"<title>(.*?)</title>", testo, re.S) or [0, ""])[1], (re.search(r'<meta name="description" content="(.*?)">', testo, re.S) or [0, ""])[1]]
+    pezzi += re.findall(r'<script type="application/ld\+json">(.*?)</script>', testo, re.S)
+    pezzi.append((re.search(r'<main id="main">(.*?)</main>', testo, re.S) or [0, ""])[1])
+    return hashlib.sha256("\n".join(pezzi).encode("utf-8")).hexdigest()[:20]
+
+
+def controlla_lastmod(nuove, data_nuove):
+    """Sitemap con la data vera di ogni pagina: registro dati/lastmod.json = impronta rifatta qui = data nella sitemap."""
+    sm = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    voci = dict(re.findall(r"<url><loc>https://pagaccnl\.com/([^<]*)</loc><lastmod>(\d{4}-\d{2}-\d{2})</lastmod></url>", sm))
+    if sm.count("<url>") != len(voci):
+        errore("sitemap: una voce senza lastmod")
+    for u in nuove:
+        if voci.get(u, "") < data_nuove:
+            errore(f"sitemap: /{u} ha lastmod {voci.get(u)}, prima della sua pubblicazione ({data_nuove})")
+    for u, d_ in voci.items():
+        if not "2026-11-12" <= d_ <= OGGI.isoformat():
+            errore(f"sitemap: /{u} ha una data impossibile ({d_})")
+        t = leggi_html(SITO / u / "index.html")
+        senza = re.sub(r"<!--annuncio-->.*?<!--/annuncio-->", "", t, flags=re.S).replace(f"Controllato il {data_lunga(CONTROLLO.isoformat())}", "Controllato il 3 marzo 2031")
+        if impronta_pagina(t) != impronta_pagina(senza):
+            errore(f"/{u}: il riquadro dell'annuncio o la data «Controllato il» entrano nell'impronta del lastmod")
+    if len(set(voci.values())) < 2:
+        errore("sitemap: tutte le pagine hanno la stessa data (lastmod non per pagina)")
+    if os.environ.get("CCNL_OGGI"):
+        return  # prova di una data futura: genera.py non riscrive il registro
+    f = DATI / "lastmod.json"
+    if not f.exists():
+        errore("manca dati/lastmod.json")
+        return
+    reg = json.loads(f.read_text(encoding="utf-8"))["pagine"]
+    if set(reg) != set(voci):
+        errore(f"lastmod.json: pagine diverse dalla sitemap ({sorted(set(reg) ^ set(voci))[:5]})")
+    for u, (d_, imp) in reg.items():
+        if voci.get(u) != d_:
+            errore(f"/{u}: lastmod {voci.get(u)} nella sitemap, {d_} nel registro")
+        if (SITO / u / "index.html").exists() and impronta_pagina(leggi_html(SITO / u / "index.html")) != imp:
+            errore(f"/{u}: l'impronta del registro non è quella della pagina (rigenerare)")
+    print(f"Lastmod: {len(voci)} pagine con la data del loro contenuto ({len(set(voci.values()))} date diverse), registro = sitemap = impronta ricalcolata")
+
+
+def controlla_annuncio():
+    AN = carica("annuncio.json")
+    legge, fr = AN["legge"], AN["legge"]["frammenti"]
+    import hashlib
+    import tempfile
+    # 1. testi di legge: i frammenti salvati non sono stati ritoccati
+    if hashlib.sha256(json.dumps(fr, ensure_ascii=False, sort_keys=True).encode("utf-8")).hexdigest() != legge["impronta_frammenti"]:
+        errore("annuncio.json: i frammenti di legge sono cambiati rispetto all'impronta salvata (rileggere il testo ufficiale e aggiornare l'impronta)")
+    if AN["eventi"] != EVENTI_ANN:
+        errore("annuncio.json: nomi degli eventi diversi da quelli della scheda")
+    if AN["prezzi"] != {"pro_anno": 149, "pro_mese": 19, "api_mese": 49, "in_vendita": False}:
+        errore("annuncio.json: prezzi diversi dalla scheda, oppure la vendita risulta aperta")
+    html = {}
+    for k, perc in P_ANN.items():
+        f = SITO / perc / "index.html"
+        if not f.exists():
+            errore(f"annuncio: pagina /{perc} assente")
+            return
+        html[k] = leggi_html(f)
+    sm = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    vis = {k: visibile(t) for k, t in html.items()}
+    for k, perc in P_ANN.items():
+        t = html[k]
+        if f"<loc>https://pagaccnl.com/{perc}</loc>" not in sm or 'name="robots" content="noindex"' in t:
+            errore(f"/{perc}: non è nella sitemap o è noindex")
+        # cancello della pubblicità: testo vero, almeno 400 parole fuori dai moduli, e il tag di AdSense presente
+        if _principale(t) < 400:
+            errore(f"/{perc}: solo {_principale(t)} parole di contenuto (minimo 400)")
+        if MON.SEGNO_SENZA_ADSENSE in t:
+            errore(f"/{perc}: pagina segnata senza pubblicità (non passa il cancello delle 400 parole)")
+        if "verifica con il tuo consulente" not in vis[k]:
+            errore(f"/{perc}: manca la frase «verifica con il tuo consulente»")
+    # 2. citazioni di legge: ogni citazione in pagina è un frammento salvato, parola per parola
+    n_cit = 0
+    for k in ("strumento", "guida"):
+        for chiave, testo in re.findall(r'<blockquote class="legge" data-frammento="([^"]+)"><p>«(.*?)»</p>', html[k], re.S):
+            n_cit += 1
+            if chiave not in fr or norm(unescape(testo)) != norm(fr[chiave]):
+                errore(f"/{P_ANN[k]}: la citazione {chiave} non è uguale al frammento salvato")
+        if html[k].count("<blockquote") != len(re.findall(r'<blockquote class="legge" data-frammento="[^"]+"><p>«', html[k])):
+            errore(f"/{P_ANN[k]}: citazione senza il frammento di riferimento")
+    for chiave in ("art5_c1", "art5_c2", "art5_c3", "art2_c1", "art2_c2", "art2_c3", "art13_c1", "art12_c1_p1", "art6_c2_p1"):
+        if f'data-frammento="{chiave}"' not in html["guida"]:
+            errore(f"guida: manca la citazione {chiave}")
+    if 'data-frammento="art5_c1"' not in html["strumento"]:
+        errore("strumento: manca il primo comma dell'art. 5")
+    for x in (legge["gazzetta"], data_lunga(legge["in_vigore_dal"]), legge["direttiva"], "esclusi lavoro domestico e lavoro intermittente, art. 2 comma 2", "non c'è una regola transitoria",
+              "non c'è una soglia di dipendenti", "Tutela giudiziaria", "è una nostra lettura"):
+        if norm(x) not in vis["guida"]:
+            errore(f"guida: manca «{x}»")
+    # nessun importo di sanzione: la guida, tolti gli esempi di riga, non contiene cifre in euro; nessuna pagina del sito accosta «sanzione» a una cifra
+    senza_esempi = visibile(re.sub(r'<p\b[^>]*class="riga-es".*?</p>', " ", html["guida"], flags=re.S))
+    if re.search(r"\d\s*(€|euro)", senza_esempi):
+        errore("guida: una cifra in euro fuori dagli esempi di riga (nessun importo di sanzione va scritto)")
+    if "non è indicato un importo di sanzione" not in vis["guida"]:
+        errore("guida: manca la frase che dice che l'importo della sanzione non è nelle fonti lette")
+    for p in pagine_html():
+        if re.search(r"sanzion[^.]{0,160}\d[\d.,]*\s*(€|euro)|\d[\d.,]*\s*(€|euro)[^.]{0,160}sanzion", visibile(leggi_html(p)), re.I):
+            errore(f"{p.relative_to(SITO)}: un importo accanto a «sanzione»")
+    for f in legge["fonti"]:
+        if f'href="{f["url"]}"' not in html["guida"].replace("&amp;", "&"):
+            errore(f"guida: manca il link alla fonte {f['id']}")
+    # 3. moduli Netlify «pro» e «api»: attributo netlify, campo trappola, campi chiesti dalla scheda, consenso
+    attesi = {"pro": ("pro", {"form-name", "bot-field", "nome", "ruolo", "tipo", "volume", "piano", "email", "contratti", "consenso"}),
+              "api": ("api", {"form-name", "bot-field", "nome", "azienda", "email", "uso", "richieste", "contratti", "consenso"})}
+    for k, (nome, campi) in attesi.items():
+        modulo, trovati = _campi_modulo(html[k], nome)
+        if not modulo:
+            errore(f"/{P_ANN[k]}: modulo «{nome}» assente")
+            continue
+        testa = modulo[:modulo.index(">")]
+        if 'data-netlify="true"' not in testa or 'netlify-honeypot="bot-field"' not in testa or 'method="POST"' not in testa:
+            errore(f"modulo «{nome}»: manca data-netlify, il campo trappola o il metodo POST")
+        if re.search(r'\baction="(?!/)', testa):
+            errore(f"modulo «{nome}»: invia i dati fuori dal sito")
+        if f'<input type="hidden" name="form-name" value="{nome}">' not in modulo:
+            errore(f"modulo «{nome}»: manca il campo form-name")
+        if trovati != campi:
+            errore(f"modulo «{nome}»: campi {sorted(trovati ^ campi)} diversi da quelli attesi")
+        if not re.search(r'<input type="email" name="email" required', modulo) or not re.search(r'<input type="checkbox" name="consenso" value="si" required', modulo):
+            errore(f"modulo «{nome}»: email o consenso non obbligatori")
+        if re.search(r'name="(carta|iban|card|cvv|pagamento)', modulo, re.I):
+            errore(f"modulo «{nome}»: chiede dati di pagamento")
+    if "Avvisami all'apertura" not in visibile(_campi_modulo(html["pro"], "pro")[0] or "") or "Chiedi una chiave di prova" not in vis["api"]:
+        errore("moduli: mancano «Avvisami all'apertura» o «Chiedi una chiave di prova»")
+    nomi = []
+    for p in pagine_html():
+        nomi += re.findall(r'<form\b[^>]*\bname="([^"]+)"', leggi_html(p))
+    if sorted(nomi) != ["api", "pro", "segnalazioni"]:
+        errore(f"moduli del sito: {sorted(nomi)} invece di api, pro, segnalazioni (uno per pagina)")
+    # 4. eventi GoatCounter
+    if f'data-ev-calcolo="{EVENTI_ANN["calcolo"]}"' not in html["strumento"] or f'data-ev-copia="{EVENTI_ANN["copia"]}"' not in html["strumento"]:
+        errore("strumento: mancano gli eventi del calcolo o della copia")
+    if not re.search(r"goatcounter\.count\(\{path:p,title:t,event:true\}\)", html["strumento"]) or "conta(box.getAttribute('data-ev-calcolo')" not in html["strumento"] \
+            or "conta(box.getAttribute('data-ev-copia')" not in html["strumento"]:
+        errore("strumento: il codice non invia gli eventi a GoatCounter")
+    bott = re.findall(rf'<a class="btn"[^>]*data-goatcounter-click="{re.escape(EVENTI_ANN["pro"])}"[^>]*>(.*?)</a>', html["pro"])
+    if len(bott) < 2 or any(b != "Mi interessa" for b in bott):
+        errore(f"Pro: i pulsanti «Mi interessa» con l'evento pro-prezzo sono {bott}")
+    bott = re.findall(rf'<a class="btn"[^>]*data-goatcounter-click="{re.escape(EVENTI_ANN["api"])}"[^>]*>(.*?)</a>', html["api"])
+    if bott != ["Chiedi una chiave di prova"]:
+        errore(f"API: il pulsante con l'evento api-chiave è {bott}")
+    if len(re.findall(rf'<a class="btn" href="/api/" data-goatcounter-click="{re.escape(EVENTI_ANN["api_prezzo"])}"', html["pro"])) != 1:
+        errore("Pro: il pulsante della scheda API non ha l'evento api-prezzo")
+    # due righe (breve e completa), ognuna con il suo pulsante «Copia»; il campo della retribuzione offerta
+    for x in ('data-riga-breve', 'data-copia="breve"', 'data-copia="completa"', 'name="offerta"', "Riga breve per l'annuncio", "Riga completa per il fascicolo",
+              "Retribuzione offerta, se più alta del minimo"):
+        if x not in html["strumento"]:
+            errore(f"strumento: manca «{x}»")
+    for p in pagine_html():
+        for ev in re.findall(r'data-(?:goatcounter-click|ev-\w+)="([^"]+)"', leggi_html(p)):
+            if ev not in EVENTI_ANN.values():
+                errore(f"{p.relative_to(SITO)}: evento sconosciuto {ev}")
+    # 5. nessuna vendita: niente link o moduli verso sistemi di pagamento, e la pagina lo dice
+    for p in pagine_html():
+        for u in re.findall(r'(?:href|src|action)="([^"]+)"', leggi_html(p)):
+            if RE_PAGAMENTO.search(u):
+                errore(f"{p.relative_to(SITO)}: link a un sistema di pagamento o di acquisto ({u[:80]})")
+    n_liv = sum(1 for cid, m in C.items() for L in m["livelli"] if (lambda c: c and c[1])(corrente(atteso_livello(cid, L), cid, L)[0]))
+    for k, frasi in {"pro": ["Non è ancora in vendita", f"5 contratti e {n_liv} livelli", "misuriamo l'interesse", "149 €", "19 €", "49 €", "Nessun pagamento oggi",
+                             "in valutazione"],
+                     "api": ["In valutazione", "oggi non c'è un servizio a cui collegarsi", f"5 contratti, {n_liv} livelli", "49 € al mese", "Non è in vendita",
+                             "chiave senza trattativa, quando il servizio esiste", "non ancora attiva"],
+                     "strumento": [f"{n_liv} livelli", "Non sono in vendita"]}.items():
+        for x in frasi:
+            if norm(x) not in vis[k]:
+                errore(f"/{P_ANN[k]}: manca «{x}»")
+    for k in ("pro", "api"):
+        if re.search(r"in preparazione|chiave subito", vis[k], re.I) or "(non ancora attiva)" not in unescape(re.search(r"<title>(.*?)</title>", html["api"]).group(1)):
+            errore(f"/{P_ANN[k]}: il servizio va detto «in valutazione» e «non ancora attivo», senza «in preparazione» o «chiave subito»")
+        if not re.search(r"\(base giuridica: il tuo consenso; dettagli e tempi nella privacy ?\)", vis[k]):
+            errore(f"/{P_ANN[k]}: la casella del consenso non dice la base giuridica")
+    for p in pagine_html():
+        if re.search(r"https?://api\.|api\.pagaccnl", leggi_html(p)):
+            errore(f"{p.relative_to(SITO)}: indirizzo di un servizio API che non esiste")
+    # 6. dati dello strumento = stato di ogni livello rifatto da estratti.json, oggi e a ogni data futura
+    m_ = re.search(r'<script type="application/json" id="annuncio-dati">(.*?)</script>', html["strumento"], re.S)
+    js_ = re.search(r'<script id="annuncio-js">(.*?)</script>', html["strumento"], re.S)
+    if not m_ or not js_:
+        errore("strumento: dati o codice assenti")
+        return
+    dati = json.loads(m_.group(1).replace("<\\/", "</"))
+    if dati.get("ctrl") != data_lunga(CONTROLLO.isoformat()):
+        errore("strumento: data del controllo diversa da contratti_meta.json")
+    oggi = OGGI.isoformat()
+    attese_oggi = {}
+    for cid, m in C.items():
+        dc = dati["c"].get(cid)
+        if not dc:
+            errore(f"strumento: manca il contratto {cid}")
+            continue
+        fonte = AN["fonte_breve"][cid]
+        # l'etichetta breve della fonte cita solo numeri e date che stanno nei titoli delle due fonti del contratto
+        titoli = FJ["definizioni"][m["fonte_a"]]["titolo"] + " " + FJ["definizioni"][m["fonte_b"]]["titolo"]
+        if set(re.findall(r"\d+", fonte)) - set(re.findall(r"\d+", titoli)):
+            errore(f"annuncio.json: la fonte breve di {cid} cita numeri che non sono nei titoli delle sue due fonti")
+        ore = 40 if cid == "domestico" else m["ore"]["valore"]
+        if (dc["n"], dc["k"], dc["s"], dc["mens"], dc["ore"], dc["f"], bool(dc["dom"])) != \
+                (m["nome"], m["codice_cnel"], m["slug"], m["mensilita"]["valore"], ore, fonte, cid == "domestico"):
+            errore(f"strumento: dati del contratto {cid} diversi da contratti_meta.json")
+        pubblicati = []
+        for L in m["livelli"]:
+            att = atteso_livello(cid, L)
+            cur = corrente(att, cid, L)[0]
+            if cur and cur[1]:
+                pubblicati.append((L, att))
+        if [x["id"] for x in dc["l"]] != [L["id"] for L, _ in pubblicati]:
+            errore(f"strumento: i livelli di {cid} non sono quelli pubblicati")
+            continue
+        for (L, att), dl in zip(pubblicati, dc["l"]):
+            passi = passi_attesi(cid, L, att)
+            if dl["p"] != passi or dl["n"] != L["nome"] or dl["s"] != L["slug"] or dl["g"] != L.get("gruppo_nome", ""):
+                errore(f"strumento {cid}/{L['id']}: cifre o date diverse dal ricalcolo ({dl['p']} invece di {passi})")
+                continue
+            for p in passi:
+                g = p["dal"] or oggi
+                if p.get("no"):
+                    CASI_ANNUNCIO.append((cid, L["id"], "conv" if cid == "domestico" else "pieno", 0, g, "NO", 0, 0, 0, ""))
+                    continue
+                if cid == "domestico":
+                    casi = [("conv", 0)] + [("aore", n) for n in range(1, 41)]
+                    fuori = [("aore", 0), ("aore", 41), ("aore", "20.5"), ("aore", "20,5"), ("aore", ""), ("aore", "1e1")]
+                else:
+                    casi = [("pieno", 0)] + [("ore", n) for n in range(1, ore)] + [("pct", n) for n in range(1, 100)]
+                    fuori = [("ore", 0), ("ore", ore), ("pct", 0), ("pct", 100), ("ore", "20.5"), ("ore", "20,5"), ("ore", ""), ("pct", "50.5"), ("pct", "-5")]
+                for modo, n in casi:
+                    testo, mese, anno, breve = riga_attesa(cid, m, L, p, modo, n, fonte)
+                    CASI_ANNUNCIO.append((cid, L["id"], modo, n, g, testo, mese, anno, 0, breve))
+                    if g == oggi:
+                        attese_oggi[(cid, L["id"], modo, n)] = testo
+                    # retribuzione offerta: più alta del minimo -> fascia; uguale -> riga normale; più bassa -> rifiutata; lavoro domestico -> non prevista
+                    if cid == "domestico":
+                        if n in (0, 20):
+                            CASI_ANNUNCIO.append((cid, L["id"], modo, n, g, "NULL", 0, 0, mese + 100, ""))
+                    elif modo == "pieno" or n in (1, 20, 24, 50, 99):
+                        for off in (mese + 1, mese + 12345, 1000000):
+                            t2, _, _, b2 = riga_attesa(cid, m, L, p, modo, n, fonte, off)
+                            CASI_ANNUNCIO.append((cid, L["id"], modo, n, g, t2, mese, anno, off, b2))
+                        CASI_ANNUNCIO.append((cid, L["id"], modo, n, g, testo, mese, anno, mese, breve))
+                        CASI_ANNUNCIO.append((cid, L["id"], modo, n, g, "BASSO", mese, 0, mese - 1, ""))
+                for modo, n in fuori:
+                    CASI_ANNUNCIO.append((cid, L["id"], modo, n, g, "NULL", 0, 0, 0, ""))
+                # la riga a tempo pieno riporta le stesse cifre che si leggono nella pagina del livello
+                if g == oggi:
+                    vis_l = visibile(leggi_html(SITO / m["slug"] / L["slug"] / "index.html"))
+                    _, mese, anno, _ = riga_attesa(cid, m, L, p, "conv" if cid == "domestico" else "pieno", 0, fonte)
+                    for x in (euro(Decimal(mese) / 100), euro(Decimal(anno) / 100)):
+                        if x not in vis_l:
+                            errore(f"strumento {cid}/{L['id']}: la cifra {x} della riga non è nella pagina del livello")
+    # 7. JS = Python: il codice del browser, eseguito con node, dà la stessa riga e le stesse cifre in ogni caso
+    app = next((SITO / "assets").glob("app.*.js")).read_text(encoding="utf-8")
+    prova = ("var fs=require('fs');var window={};var document={querySelector:function(){return null},querySelectorAll:function(){return []},getElementById:function(){return null}};\n"
+             + app + "\n" + js_.group(1) + "\nvar x=JSON.parse(fs.readFileSync(process.argv[2],'utf8'));var err=0;x.casi.forEach(function(c){"
+             "var r=window.PagaAnnuncio.riga(x.D,c[0],c[1],{modo:c[2],n:String(c[3]),off:c[8]},c[4]);var ok;"
+             "if(c[5]==='NULL')ok=r===null;else if(c[5]==='NO')ok=!!(r&&r.no===true&&!r.testo);else if(c[5]==='BASSO')ok=!!(r&&r.basso===true&&!r.testo&&r.mensile===c[6]);"
+             "else ok=!!(r&&r.testo===c[5]&&r.breve===c[9]&&r.testo.indexOf(r.breve+' Importo: ')===0&&r.mensile===c[6]&&r.annuo===c[7]);"
+             "if(!ok){err++;if(err<4)console.log(JSON.stringify(c),JSON.stringify(r));}});"
+             "x.soldi.forEach(function(c){var r=window.PagaAnnuncio.centesimi(c[0]);if(!(r===c[1]||(c[1]===null&&r!==r))){err++;console.log('centesimi',c[0],r);}});"
+             "console.log('ANNUNCIO_ERRORI='+err);")
+    # il campo «retribuzione offerta»: scritture italiane e con il punto, e scritture sbagliate (None = rifiutata)
+    soldi = [("", 0), ("2000", 200000), ("2.000", 200000), ("2.000,50", 200050), ("2000,5", 200050), ("2000.50", 200050), (" 1 950 € ", 195000),
+             ("1.234.567,89", 123456789), ("2000,505", None), ("duemila", None), ("-2000", None), ("2,000.50", None), ("1e3", None)]
+    with tempfile.TemporaryDirectory() as tmp:
+        (Path(tmp) / "prova.js").write_text(prova, encoding="utf-8")
+        (Path(tmp) / "casi.json").write_text(json.dumps({"D": dati, "casi": CASI_ANNUNCIO, "soldi": soldi}, ensure_ascii=False), encoding="utf-8")
+        r = subprocess.run(["node", str(Path(tmp) / "prova.js"), str(Path(tmp) / "casi.json")], capture_output=True, text=True, timeout=120)
+    if "ANNUNCIO_ERRORI=0" not in r.stdout:
+        errore(f"strumento: la riga del browser è diversa da quella ricalcolata: {r.stdout[-600:]} {r.stderr[-300:]}")
+    # 8. esempi di riga nelle pagine: quelli visibili sono la riga di oggi, quelli nascosti la riga del giorno indicato
+    n_es = 0
+    per_giorno = {(c, l, mo, n, g): t for c, l, mo, n, g, t, _, _, off, _ in CASI_ANNUNCIO if not off}
+    for k in ("strumento", "guida"):
+        nascosti = RE_DAL.findall(html[k])
+        oggi_html = RE_DAL.sub(" ", html[k])
+        for giorno, pezzo in [(oggi, oggi_html)] + nascosti:
+            for chiave, testo in re.findall(r'<p\b[^>]*class="riga-es"[^>]*data-esempio="([^"]+)"[^>]*><small>.*?</small>(.*?)</p>', pezzo, re.S):
+                cid, lid, modo, n = chiave.split("/")
+                n_es += 1
+                if norm(unescape(testo)) != norm(per_giorno.get((cid, lid, modo, int(n), giorno), "")):
+                    errore(f"/{P_ANN[k]}: l'esempio {chiave} del {giorno} non è la riga ricalcolata")
+        if "riga-es" not in oggi_html:
+            errore(f"/{P_ANN[k]}: nessun esempio di riga visibile")
+    # 9. esempio dell'API: JSON vero, uguale al file, con le cifre del livello rifatte da estratti.json
+    cid, lid = AN["esempio_api"]["contratto"], AN["esempio_api"]["livello"]
+    m, L = C[cid], next(x for x in C[cid]["livelli"] if x["id"] == lid)
+    att = atteso_livello(cid, L)
+    cur = corrente(att, cid, L)[0]
+    try:
+        es = json.loads(unescape(re.search(r'<code id="api-esempio">(.*?)</code>', html["api"], re.S).group(1)))
+        if es != json.loads((SITO / "api" / "esempio.json").read_text(encoding="utf-8")):
+            errore("API: l'esempio in pagina è diverso dal file /api/esempio.json")
+        tot = arr(cur[2])
+        div_o, mens = m["divisore_orario"]["valore"], m["mensilita"]["valore"]
+        atteso = {"in_vigore_dal": cur[0], "minimo_mensile_lordo": f"{tot:.2f}", "mensilita": mens, "minimo_annuo_lordo": f"{tot * mens:.2f}",
+                  "ore_settimanali": m["ore"]["valore"], "divisore_orario": div_o, "paga_oraria_lorda": f"{arr(tot / div_o):.2f}",
+                  "prossimi_minimi": [{"dal": x[0], "minimo_mensile_lordo": f"{arr(x[2]):.2f}"} for x in att if x[0] > oggi and x[1]],
+                  "riga_annuncio": attese_oggi.get((cid, lid, "pieno", 0)), "controllato_il": CONTROLLO.isoformat(), "valuta": "EUR"}
+        for campo, val in atteso.items():
+            if es.get(campo) != val:
+                errore(f"API: campo {campo} = {es.get(campo)!r}, ricalcolo {val!r}")
+        if sum(D(v["importo"]) for v in es["voci"]) != tot:
+            errore("API: le voci dell'esempio non sommano al minimo")
+        if (es["contratto"]["nome"], es["contratto"]["codice_cnel"], es["contratto"]["id"], es["livello"]["id"], es["livello"]["nome"]) != \
+                (m["nome"], m["codice_cnel"], m["slug"], L["slug"], L["nome"]):
+            errore("API: contratto o livello dell'esempio diversi dai dati")
+        if [f["sha256"] for f in es["fonti"]] != [FJ["fonti"][m["fonte_a"]]["sha256"], FJ["fonti"][m["fonte_b"]]["sha256"]]:
+            errore("API: le fonti dell'esempio non sono le due fonti del contratto")
+    except (AttributeError, ValueError, KeyError, TypeError) as e:
+        errore(f"API: esempio JSON assente o non leggibile ({e})")
+    # 10. riquadro «Devi scrivere la paga nell'annuncio?»: uno per pagina livello, contratto e home, con il link giusto e senza cifre
+    n_riq = 0
+    attesi_riq = {SITO / "index.html": "/annuncio-di-lavoro/"}
+    for cid, m in C.items():
+        attesi_riq[SITO / m["slug"] / "index.html"] = f"/annuncio-di-lavoro/?c={cid}"
+        for d in dati["c"].get(cid, {}).get("l", []):
+            attesi_riq[SITO / m["slug"] / d["s"] / "index.html"] = f"/annuncio-di-lavoro/?c={cid}&amp;l={d['id']}"
+    for p in pagine_html():
+        t = leggi_html(p)
+        riq = re.findall(r"<!--annuncio-->(.*?)<!--/annuncio-->", t, re.S)
+        if p not in attesi_riq:
+            if riq:
+                errore(f"{p.relative_to(SITO)}: riquadro dell'annuncio in una pagina che non deve averlo")
+            continue
+        if len(riq) != 1:
+            errore(f"{p.relative_to(SITO)}: {len(riq)} riquadri dell'annuncio invece di 1")
+            continue
+        n_riq += 1
+        r = riq[0]
+        if f'href="{attesi_riq[p]}"' not in r or "Devi scrivere la paga nell'annuncio?" not in r:
+            errore(f"{p.relative_to(SITO)}: riquadro dell'annuncio senza titolo o con il link sbagliato")
+        if "<table" in r or "<h2" in r or re.search(r"\d\s*€", r):
+            errore(f"{p.relative_to(SITO)}: il riquadro dell'annuncio contiene tabelle, titoli o cifre")
+        if ("lavoro-domestico" in p.parts) != ("non vale" in r):
+            errore(f"{p.relative_to(SITO)}: il riquadro deve dire che l'obbligo non vale solo per il lavoro domestico")
+    # 11. privacy: la frase sui due moduli
+    priv = leggi_html(SITO / "privacy" / "index.html")
+    if 'id="lista"' not in priv or "Avvisami all'apertura" not in visibile(priv) or "Chiedi una chiave di prova" not in visibile(priv) or "non è un acquisto" not in visibile(priv) \
+            or "comunque entro il 31 marzo 2027 se non apriamo" not in visibile(priv) or f"Ultimo aggiornamento: {data_lunga(max(META['controllato_il'], AN['aggiornato_il']))}" not in visibile(priv):
+        errore("privacy: manca la frase sui moduli «Avvisami all'apertura» e «Chiedi una chiave di prova»")
+    controlla_lastmod(set(P_ANN.values()), AN["aggiornato_il"])
+    print(f"Annuncio: {len(CASI_ANNUNCIO)} righe del browser = ricalcolo (ogni livello, tempo pieno, part time in ore e in percentuale, date future); "
+          f"{n_cit} citazioni di legge uguali ai frammenti; {n_es} esempi; {n_riq} riquadri; moduli pro e api; nessun link di pagamento")
+
+
 # ---------------------------------------------------------------- 9. rete e browser
 def controlla_rete():
     urls = set()
@@ -730,7 +1178,7 @@ def controlla_rete():
 
 
 PAGINE_BROWSER = ["/", "/terziario-commercio/4-livello/", "/lavoro-domestico/livello-cs/", "/logistica-trasporto-merci/", "/metalmeccanici-industria/livello-c2/",
-                  "/colf-badanti/"]
+                  "/colf-badanti/", "/annuncio-di-lavoro/", "/annuncio-di-lavoro/cosa-scrivere/", "/per-consulenti-e-aziende/", "/api/"]
 
 
 def controlla_browser():
@@ -787,6 +1235,20 @@ def controlla_browser():
                         box.locator(".chips button").first.click()
                         if box.locator(".chips button").first.get_attribute("aria-pressed") != "true":
                             errore(f"browser {u}: il pulsante delle ore non si attiva")
+                    if u == "/annuncio-di-lavoro/":
+                        # strumento dell'annuncio: la riga compare solo dopo «Crea la riga» ed è quella attesa per il livello scelto
+                        if pg.locator("[data-esito]").is_visible():
+                            errore(f"browser {u}: la riga è visibile prima del clic")
+                        pg.select_option("[data-annuncio] [name=contratto]", "metalmeccanici")
+                        pg.select_option("[data-annuncio] [name=livello]", "c3")
+                        pg.click("[data-crea]")
+                        visto = pg.input_value("[data-riga]")
+                        atteso = next((t for c, l, mo, n, g, t, _, _, off, _ in CASI_ANNUNCIO if (c, l, mo, off) == ("metalmeccanici", "c3", "pieno", 0) and g == OGGI.isoformat()), None)
+                        if not atteso or visto != atteso:
+                            errore(f"browser {u}: riga «{visto[:60]}…» diversa da quella attesa")
+                        pg.select_option("[data-annuncio] [name=orario]", "pct")
+                        if pg.locator("[data-esito]").is_visible():
+                            errore(f"browser {u}: cambiando l'orario la riga vecchia resta visibile")
                     if u == "/":
                         pg.fill("[data-cerca]", "commercio 4 livello")
                         vis = pg.locator("[data-riga]:visible").count()
@@ -823,6 +1285,7 @@ def main():
     controlla_testi()
     controlla_monetizzazione()
     controlla_js()
+    controlla_annuncio()
     if "--rete" in sys.argv:
         controlla_rete()
     if "--browser" in sys.argv:

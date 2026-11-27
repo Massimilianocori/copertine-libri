@@ -29,6 +29,7 @@ sys.path.insert(0, str(RADICE))
 sys.path.append(str(RADICE.parent / "studio-business" / "strumenti"))
 import monetizzazione as MON  # noqa: E402
 import stile  # noqa: E402
+import genera_annuncio as AN  # noqa: E402  prova di domanda «Paga CCNL per chi assume» (27/11/2026): strumento, guida, Pro, API
 
 URL_SITO = "https://pagaccnl.com"  # unico punto da cambiare se il nome del sito su Netlify è diverso
 NOME = "Paga CCNL"
@@ -384,7 +385,8 @@ def ico(nome, cls="ico"):
 URLS = []
 AD = '<div class="ad-slot" aria-hidden="true"></div>'
 MENU = [("terziario-commercio/", "Commercio"), ("metalmeccanici-industria/", "Metalmeccanici"), ("multiservizi-pulizie/", "Multiservizi"),
-        ("logistica-trasporto-merci/", "Logistica"), ("colf-badanti/", "Colf e badanti"), ("come-lavoriamo/", "Come lavoriamo")]
+        ("logistica-trasporto-merci/", "Logistica"), ("colf-badanti/", "Colf e badanti"), ("annuncio-di-lavoro/", "Per chi assume"),
+        ("come-lavoriamo/", "Come lavoriamo")]
 DISCLAIMER = ("<strong>Importi lordi minimi del contratto nazionale.</strong> Non comprendono scatti di anzianità, superminimi, premi, indennità "
               "aziendali, straordinari e contratti integrativi, e sono prima di contributi e tasse: il netto non lo calcoliamo. Sono informazioni "
               "generali, non consulenza: per il tuo caso chiedi a un consulente del lavoro, al sindacato o a un patronato.")
@@ -470,6 +472,9 @@ di un sindacato o di un'associazione di imprese.</p>
 </div><div>
 <h2>Contratti</h2><ul>{contratti_piede}<li><a href="/colf-badanti/">Colf e badanti: guida per le famiglie</a></li></ul>
 </div><div>
+<h2>Per chi assume</h2><ul><li><a href="/{AN.P_STRUMENTO}">Retribuzione per l'annuncio di lavoro</a></li><li><a href="/{AN.P_GUIDA}">Cosa scrivere nell'annuncio</a></li>
+<li><a href="/{AN.P_PRO}">Per consulenti e aziende</a></li><li><a href="/{AN.P_API}">API</a></li></ul>
+</div><div>
 <h2>Il sito</h2><ul><li><a href="/come-lavoriamo/">Come lavoriamo</a></li><li><a href="/come-lavoriamo/#segnala">Segnala un errore</a></li>
 <li><a href="/chi-siamo/">Chi siamo</a></li><li><a href="/privacy/">Privacy</a></li></ul>
 </div></div>
@@ -481,9 +486,53 @@ dei contratti sono nell'<a href="https://www.cnel.it/Archivio-Contratti" rel="no
 </body>
 </html>
 """
+    if indicizza:
+        IMPRONTE[percorso] = impronta_contenuto(testo)
     dest = SITO / file
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(testo, encoding="utf-8")
+
+
+# ---------------------------------------------------------------- lastmod vero per ogni pagina della sitemap (27/11/2026)
+# Stesso metodo di Visa Income ed EsameB1 (studio-business/PIANO-VISITE-VISA-CCNL-2026-11-27.md, B1). Il registro dati/lastmod.json
+# tiene per ogni pagina la data dell'ultima modifica del contenuto e la sua impronta: titolo, descrizione, JSON-LD e <main>.
+# Fuori dall'impronta: menu, piede e CSS (uguali in tutte le pagine), le date di controllo e di lettura delle fonti (cambiano a ogni
+# giro mensile anche se le cifre restano uguali), i nomi dei file in /assets/ (cambiano con il CSS) e il riquadro dell'annuncio.
+# A ogni generazione: impronta uguale -> la data resta; diversa o pagina nuova -> data di oggi. Con CCNL_OGGI (prova di una data
+# futura) il registro non si riscrive.
+REGISTRO_LASTMOD = DATI / "lastmod.json"
+IMPRONTE = {}
+_RE_RIQUADRO = re.compile(r"<!--annuncio-->.*?<!--/annuncio-->", re.S)
+_RE_DATA_CONTROLLO = re.compile(r"(Controllato il|controllate il|Letto il|Ultimo aggiornamento:) (?:1°|\d{1,2}) [a-z]+ \d{4}")
+_RE_ASSET = re.compile(r"(/assets/[a-z]+)\.[0-9a-f]{10}\.")
+
+
+def impronta_contenuto(testo):
+    date_c = {CONTROLLO.isoformat(), data_lunga(CONTROLLO)}
+    for es in list(FONTI.values()) + list(PAGINE_UFF.values()):
+        date_c |= {es["letto_il"], data_lunga(es["letto_il"])}
+    testo = _RE_RIQUADRO.sub("", testo)
+    testo = _RE_DATA_CONTROLLO.sub(r"\1 {data}", testo)
+    testo = _RE_ASSET.sub(r"\1.", testo)
+    for d_ in sorted(date_c, key=len, reverse=True):
+        testo = testo.replace(d_, "{data}")
+    tit = re.search(r"<title>(.*?)</title>", testo, re.S)
+    des = re.search(r'<meta name="description" content="(.*?)">', testo, re.S)
+    ld = re.findall(r'<script type="application/ld\+json">(.*?)</script>', testo, re.S)
+    main_ = re.search(r'<main id="main">(.*?)</main>', testo, re.S)
+    pezzi = [tit.group(1) if tit else "", des.group(1) if des else ""] + ld + [main_.group(1) if main_ else ""]
+    return hashlib.sha256("\n".join(pezzi).encode("utf-8")).hexdigest()[:20]
+
+
+def date_lastmod():
+    reg = json.loads(REGISTRO_LASTMOD.read_text(encoding="utf-8"))["pagine"] if REGISTRO_LASTMOD.exists() else {}
+    oggi = OGGI.isoformat()
+    nuovo = {u: [reg[u][0] if u in reg and reg[u][1] == IMPRONTE[u] else oggi, IMPRONTE[u]] for u in URLS}
+    if not os.environ.get("CCNL_OGGI"):
+        REGISTRO_LASTMOD.write_text(json.dumps({
+            "_nota": "Scritto da genera.py: percorso -> [data dell'ultima modifica del contenuto, impronta]. Non modificare a mano.",
+            "pagine": dict(sorted(nuovo.items()))}, ensure_ascii=False, indent=0) + "\n", encoding="utf-8")
+    return {u: v[0] for u, v in nuovo.items()}
 
 
 def banda(eyebrow, titolo, sub, extra="", corta=False, icona="euro"):
@@ -774,6 +823,7 @@ def pagina_livello(cid, L):
     corpo += (f'<div class="formula">{euro(v["mensile"])} × {mens} = <strong>{euro(v["annuo"])}</strong>'
               f'<small>{mens} mensilità: {h(m["mensilita"]["dove"])}{rim.ref(m["mensilita"]["fonte"])}</small></div>')
     corpo += (f'<p>È il minimo annuo a tempo pieno con la tabella {"qui sopra" if v["sospese"] else "in vigore oggi"}. Se nell\'anno arriva un aumento, il totale dell\'anno sarà più alto.</p>')
+    corpo += AN.riquadro(sys.modules[__name__], cid, L)
     # aumenti futuri e storico
     corpo += aumenti_html(cid, L, v, rim)
     # vicini
@@ -961,6 +1011,7 @@ def pagina_domestico(L):
               f'<small>Quota giornaliera: 1/26 della retribuzione mensile (chiarimenti a verbale, punto 1).{rim.ref("cnel_245143")}</small></div>')
     corpo += (f'<div class="formula">{euro(v["conv_tot"])} × 13 = <strong>{euro(v["annuo_conv"])}</strong> l\'anno'
               f'<small>Tredicesima: una mensilità in più a dicembre, che comprende anche il valore di vitto e alloggio (art. 39).{rim.ref("cnel_245143")}</small></div>')
+    corpo += AN.riquadro(sys.modules[__name__], cid, L)
     # aumenti
     corpo += '<h2 id="aumenti">Aumenti già firmati</h2>'
     corpo += f'<p>{h(m["aumenti_futuri"]["testo"])}{rim.ref(m["aumenti_futuri"]["fonte"])}</p>'
@@ -1057,6 +1108,7 @@ def pagina_contratto(cid):
                 corpo += ('<p class="small">Gli operatori di vendita hanno una tabella a parte nello stesso contratto; qui riportiamo solo il minimo mensile, '
                           f'confrontato con Filcams, senza pagina dedicata.{rim.ref([fa, fb])}</p>' + tabella(["Categoria", "Minimo al mese"], rr))
         corpo += calendario(cid, pub, rim)
+    corpo += AN.riquadro(sys.modules[__name__], cid)
     corpo += AD
     # regole
     corpo += '<h2 id="regole">Le regole del contratto usate per i calcoli</h2><div class="testo"><ul>'
@@ -1278,6 +1330,7 @@ def home():
     corpo += avvisi_sc
     corpo += nota_domestico()
     corpo += blocchi + '<p class="vuoto-ricerca" data-vuoto hidden>Nessun livello trovato. Prova con il nome del contratto (commercio, metalmeccanici, multiservizi, logistica, colf).</p>'
+    corpo += AN.riquadro(sys.modules[__name__])
     corpo += AD
     corpo += '<h2 id="come">Come leggiamo le cifre</h2><div class="testo">'
     corpo += (f'<p>Per ogni contratto usiamo due fonti indipendenti: il testo depositato al CNEL e le tabelle del Ministero del Lavoro, oppure l\'accordo pubblicato '
@@ -1382,9 +1435,10 @@ def chi_siamo():
              'un sito all\'altro. Qui ogni cifra ha accanto le sue due fonti.</p></div>'
              '<h2>Cosa non siamo</h2><div class="testo"><ul><li>Non siamo il CNEL, il Ministero del Lavoro, un sindacato o un\'associazione di imprese, e non siamo '
              'legati a nessuno di loro.</li><li>Non facciamo consulenza del lavoro e non calcoliamo il netto in busta paga.</li><li>Non raccogliamo dati di chi legge, '
-             'a parte il modulo facoltativo per segnalare un errore.</li></ul></div>'
+             'a parte i moduli facoltativi: quello per segnalare un errore e quelli della lista d\'attesa per professionisti.</li></ul></div>'
              '<h2>Come si sostiene</h2><div class="testo"><p>Il sito può mostrare pubblicità di Google AdSense. La pubblicità non cambia nessuna cifra e nessuno '
-             'paga per comparire.</p><p>Paga CCNL fa parte di una piccola rete di siti informativi gratuiti dello stesso gestore. Come controlliamo le cifre: '
+             'paga per comparire.</p><p>Stiamo valutando una versione a pagamento <a href="/per-consulenti-e-aziende/">per consulenti e aziende</a>: oggi non è in vendita, '
+             'e le pagine dei livelli restano gratuite.</p><p>Paga CCNL fa parte di una piccola rete di siti informativi gratuiti dello stesso gestore. Come controlliamo le cifre: '
              '<a href="/come-lavoriamo/">come lavoriamo</a>.</p></div>')
     testata = banda("Chi siamo", "Chi siamo", "Un sito indipendente che rende leggibili i minimi dei contratti nazionali.", corta=True, icona="info")
     pagina("chi-siamo/", "Chi siamo | Paga CCNL", "Paga CCNL è un sito indipendente e gratuito con i minimi dei contratti nazionali per livello, presi da due fonti ufficiali.",
@@ -1406,9 +1460,10 @@ def privacy():
              'la tua email. Il modulo è gestito da Netlify Forms per nostro conto. Usiamo questi dati solo per controllare la segnalazione e, se hai lasciato l\'email, '
              'risponderti; li cancelliamo quando la segnalazione è chiusa. La base giuridica è il consenso dato con la casella del modulo (art. 6.1.a GDPR), che puoi ritirare quando vuoi: '
              'per chiedere la cancellazione basta un\'altra segnalazione. Non ci sono account né newsletter.</p>'
+             f'{AN.PRIVACY}'
              '<h2>I tuoi diritti</h2><p>Puoi chiedere accesso, correzione, cancellazione, limitazione, portabilità e opposizione (artt. 15-22 GDPR) e fare reclamo al Garante per la protezione dei dati '
              'personali (<a href="https://www.garanteprivacy.it" rel="noopener">garanteprivacy.it</a>).</p>'
-             f'<h2>Modifiche</h2><p>Aggiorniamo questa pagina quando il sito cambia. Ultimo aggiornamento: {data_lunga(CONTROLLO)}.</p></div>')
+             f'<h2>Modifiche</h2><p>Aggiorniamo questa pagina quando il sito cambia. Ultimo aggiornamento: {data_lunga(max(CONTROLLO, AN.AGGIORNATO))}.</p></div>')
     breve = MON.privacy_breve("it", SITO_ID) or "Cosa raccogliamo (pochissimo) e come funziona il contatore delle visite."
     testata = banda("Privacy", "Privacy", h(breve), corta=True, icona="lock")
     pagina("privacy/", "Privacy | Paga CCNL", "Privacy di Paga CCNL: calcolo nel browser, contatore delle visite senza cookie e pubblicità di Google solo con il tuo consenso.",
@@ -1426,7 +1481,8 @@ def extra():
     (SITO / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {URL_SITO}/sitemap.xml\n", encoding="utf-8")
     (SITO / f"{CHIAVE_INDEXNOW}.txt").write_text(CHIAVE_INDEXNOW, encoding="utf-8")
     MON.scrivi_ads_txt(SITO_ID, SITO)
-    voci = "".join(f"<url><loc>{URL_SITO}/{u}</loc><lastmod>{CONTROLLO.isoformat()}</lastmod></url>" for u in URLS)
+    date_ = date_lastmod()
+    voci = "".join(f"<url><loc>{URL_SITO}/{u}</loc><lastmod>{date_[u]}</lastmod></url>" for u in URLS)
     (SITO / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{voci}</urlset>\n', encoding="utf-8")
     (SITO / "netlify.toml").write_text("""[build]
   publish = "."
@@ -1512,6 +1568,7 @@ def main():
         for L in livelli_pubblicati(cid):
             (pagina_domestico if cid == "domestico" else lambda x: pagina_livello(cid, x))(L)
     colf_badanti()
+    AN.genera(sys.modules[__name__])  # 27/11/2026: /annuncio-di-lavoro/, /annuncio-di-lavoro/cosa-scrivere/, /per-consulenti-e-aziende/, /api/
     come_lavoriamo()
     chi_siamo()
     privacy()

@@ -195,3 +195,17 @@ descrizioni e FAQ; profili dell'art. 9 (domestico) e dell'art. 6 (logistica) con
   `CCNL_OGGI=2027-01-02`): la pagina dice «Tabella 2026», la risposta pronta e il JSON-LD no. Descrizioni con l'anno della tabella, non fisso.
 - Descrizione delle pagine con riga sospesa: «ultimo minimo verificato … quello in vigore oggi è più alto» invece di «stipendio minimo … dal».
 - Da ricordare: la FAQ «tabelle retributive metalmeccanici» nomina il decreto n. 94/2026: riscriverla quando arriva il decreto di giugno 2027.
+
+## Paga CCNL per chi assume: prova di domanda (27/11/2026)
+Scheda: `studio-business/schede/2026-11-27-pagaccnl-annuncio.md` (deviazioni in fondo). Codice in `genera_annuncio.py`, dati in `dati/annuncio.json`.
+- `/annuncio-di-lavoro/`: riga pronta per l'annuncio da contratto e livello (53 livelli), tempo pieno, part time in ore o in percentuale; lavoro domestico convivente o a ore. Stessi dati delle pagine livello (`valori`, `prorata`, `orario52`). Il browser sceglie il passo del giorno: se la riga in vigore è sospesa non dà nessuna riga.
+- `/annuncio-di-lavoro/cosa-scrivere/`: art. 5 del D.Lgs. 96/2026 citato dai frammenti salvati (art. 2, 5, 13). Nessun importo di sanzione. Il lavoro domestico è escluso dal decreto (art. 2, comma 2).
+- `/per-consulenti-e-aziende/` (modulo Netlify `pro`) e `/api/` (modulo `api`, esempio JSON vero, file fermo `/api/esempio.json`): prezzi 149 €/anno, 19 €/mese, 49 €/mese. **Niente è in vendita**: nessun pagamento, nessun servizio API.
+- Riquadro `<!--annuncio-->` in home, 5 pagine contratto e 53 pagine livello.
+- Eventi GoatCounter: `pagaccnl.com/clic/annuncio-calcolo`, `annuncio-copia`, `pro-prezzo`, `api-chiave`.
+- `verifica.py`, `controlla_annuncio()`: stato di ogni livello rifatto da `estratti.json` a oggi e a ogni data futura; circa 18.000 righe del codice del browser (node) uguali alla riga riscritta in Python; citazioni = frammenti e impronta; moduli con netlify e campo trappola; eventi; nessun link di pagamento; esempio API ricalcolato; 59 riquadri; frase nella privacy. `--browser` prova anche le 4 pagine nuove.
+- Soglia al 15/1/2027: almeno 300 usi e 10 email Pro, oppure 2 richieste di chiave. Stop al 31/1/2027 sotto 100 usi o 3 email.
+- Se il testo di legge cambia: rileggere Normattiva, aggiornare i frammenti e `impronta_frammenti` in `dati/annuncio.json`.
+- Secondo giro (27/11): due righe (breve per l'annuncio, completa per il fascicolo), campo «retribuzione offerta» che dà la fascia «da… a…», ore solo intere, evento `api-prezzo`, servizio detto «in valutazione».
+- **Lastmod per pagina** (`dati/lastmod.json`, `impronta_contenuto` e `date_lastmod` in `genera.py`): la data di una pagina in sitemap cambia solo se cambia il suo contenuto (titolo, descrizione, JSON-LD, `<main>`); non contano date di controllo e di lettura, file in `/assets/`, riquadro dell'annuncio, menu e piede. `verifica.py` (`controlla_lastmod`) rifà l'impronta. Con `CCNL_OGGI` il registro non si riscrive. Dopo il giro mensile (`controllato_il` nuovo) le pagine con le stesse cifre tengono la loro data.
+- Impegno in privacy: dati dei moduli `pro` e `api` cancellati entro il 31/3/2027 se non si apre.
