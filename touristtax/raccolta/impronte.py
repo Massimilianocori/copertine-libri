@@ -1,4 +1,4 @@
-"""Ricontrollo delle impronte delle fonti (campo "impronta" in dati/destinazioni.json, anche dentro "evento", in dati/spagna_licenze.json e in dati/canarie.json).
+"""Ricontrollo delle impronte delle fonti (campo "impronta" in dati/destinazioni.json, anche dentro "evento", in dati/spagna_licenze.json, in dati/canarie.json e in dati/usa_regno_unito.json).
 
 Uso (dalla radice del repository):
     python3 -I touristtax/raccolta/impronte.py            # riscarica le fonti con impronta e dice quali sono cambiate
@@ -87,6 +87,22 @@ def main():
             ok = codice == 200 and tipo == f["impronta_di"] and imp == f["impronta"]
         cambiate += not ok
         print(f"{'ok      ' if ok else 'CAMBIATA'} canarie/{k}: HTTP {codice} {f['url']}")
+    # Hawaii, New York City, Manchester, Liverpool, Galles, Inghilterra (27/11/2026): fonti in dati/usa_regno_unito.json. Stessa regola delle
+    # Canarie: i PDF hanno l'impronta del file, le pagine HTML "impronta_di": "frammenti" (ogni frammento letto deve essere ancora nel testo).
+    # liverpoolexpress.co.uk a volte risponde con una pagina di attesa: risulta CAMBIATA e va riletta a mano (non si aggira). La notizia del
+    # 3/6/2025 sul ricorso (liv_ricorso) è stata tolta dalle fonti il 27/11/2026: alla revisione dava solo la pagina di attesa.
+    # nyc.gov e gov.wales rispondono 403 a una richiesta normale: non sono fra le fonti (decisione del coordinatore, 27/11/2026).
+    # liverpool.gov.uk a volte chiude la connessione (HTTP 0): riprovare più tardi.
+    usa_uk = json.loads((DATI.parent / "usa_regno_unito.json").read_text(encoding="utf-8"))["fonti"]
+    for k, f in usa_uk.items():
+        codice, corpo = scarica(f["url"])
+        if f["impronta_di"] == "frammenti":
+            ok = codice == 200 and all(re.sub(r"\s+", " ", x).strip() in testo_di(corpo) for x in f["frammenti"])
+        else:
+            tipo, imp = impronta(corpo)
+            ok = codice == 200 and tipo == f["impronta_di"] and imp == f["impronta"]
+        cambiate += not ok
+        print(f"{'ok      ' if ok else 'CAMBIATA'} usa_regno_unito/{k}: HTTP {codice} {f['url']}")
     print(f"Fonti con impronta cambiata o non leggibile: {cambiate}")
 
 

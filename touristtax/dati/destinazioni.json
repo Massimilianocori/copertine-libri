@@ -6721,11 +6721,11 @@
    "categorie": [
     {
      "id": "higher",
-     "label": "Hotels, B&Bs, guesthouses, self-catering and holiday lets, homestays (Airbnb-type), caravans, glamping and all other accommodation (higher rate, guests of all ages)"
+     "label": "Hotels, guesthouses, B&Bs, self-catering and holiday lets, Airbnbs, holiday parks and all other visitor accommodation (higher rate, guests of all ages)"
     },
     {
      "id": "lower",
-     "label": "Shared room in a hostel, bunkhouse, bothy or dormitory, or a tent pitch (lower rate: count adults only, under-18s do not pay)"
+     "label": "Camping pitch, or a dormitory or other room shared with people on a different booking, such as a hostel dormitory (lower rate: count adults only, under-18s are not counted)"
     }
    ],
    "tariffe": [
@@ -6743,55 +6743,48 @@
    "esente_da_notti": 32,
    "in_vigore_dal": "2027-04-01",
    "valid_from": "2027-04-01",
-   "chi_riscuote": "The accommodation provider, who pays it to the Welsh Revenue Authority and may pass it on to the guest (VAT, if any, applies to the total).",
+   "chi_riscuote": "The accommodation provider is the person liable under the Act; the money goes to the Welsh Revenue Authority, which passes it on to the council. Cardiff Council says a VAT-registered provider must apply 20% VAT to the levy it collects.",
    "fonti": [
     {
-     "titolo": "Welsh Government (gov.wales) - Visitor Levy in Wales / Visitor Levy in Cardiff: stays from 1 April 2027, £1.30 and 75p per person per night, refunds",
-     "url": "https://www.gov.wales/visitor-levy-wales",
+     "titolo": "Cardiff Council news, 26 March 2026 - Visitor Levy approved by Full Council: £1.30 and 75p per person per night, overnight stays from 1 April 2027, VAT, exemptions",
+     "url": "https://www.cardiffnewsroom.co.uk/releases/e2014/37008.html",
      "http": 200,
      "formato": "HTML (English)",
-     "controllato_il": "2026-10-26",
+     "controllato_il": "2026-11-27"
+    },
+    {
+     "titolo": "Visitor Accommodation (Register and Levy) Etc. (Wales) Act 2025 (2025 asc 5), text as enacted (legislation.gov.uk): excluded stays (s. 29), who is liable (s. 30), who is counted (s. 31), rates (s. 32), lower-rate accommodation (s. 33), repayments (s. 35)",
+     "url": "https://www.legislation.gov.uk/asc/2025/5/enacted",
+     "http": 200,
+     "formato": "HTML (English)",
+     "controllato_il": "2026-11-27",
      "nota": "Open Government Licence: contains public sector information licensed under the Open Government Licence v3.0."
     },
     {
-     "titolo": "Welsh Revenue Authority guide, step 2 - Check if your council charges the levy: Cardiff Council starts the levy on 1 April 2027",
-     "url": "https://www.gov.wales/visitor-levy-accommodation-providers-steps/check",
+     "titolo": "Cardiff Council news, 28 August 2026 - Memorandum of Understanding for the Visitor Levy: providers account for the levy on bookings made from 28 September 2026",
+     "url": "https://www.cardiffnewsroom.co.uk/releases/e2014/37721.html",
      "http": 200,
      "formato": "HTML (English)",
-     "controllato_il": "2026-10-26"
-    },
-    {
-     "titolo": "Welsh Revenue Authority guide, step 4 - How much you must pay: rates, under-18s at the lower rate, bookings of 32 nights or more",
-     "url": "https://www.gov.wales/visitor-levy-accommodation-providers-steps/how-much",
-     "http": 200,
-     "formato": "HTML (English)",
-     "controllato_il": "2026-10-26"
-    },
-    {
-     "titolo": "Welsh Revenue Authority guide, step 5 - Record new bookings in advance: Cardiff bookings made from 28 September 2026",
-     "url": "https://www.gov.wales/visitor-levy-accommodation-providers-steps/before-levy-starts",
-     "http": 200,
-     "formato": "HTML (English)",
-     "controllato_il": "2026-10-26"
+     "controllato_il": "2026-11-27"
     }
    ],
    "note": [
-    "The Visitor Levy starts in Cardiff on 1 April 2027. No other Welsh council charges it or is consulting on it on the date we checked.",
-    "£1.30 per person per night (guests of all ages, babies included) in hotels, B&Bs, self-catering, holiday lets, caravans, glamping and homestays; 75p per adult per night in shared hostel rooms, bunkhouses, bothies, dormitories and tent pitches, where under-18s do not pay.",
-    "It applies to bookings made from 28 September 2026 (and to nights or guests added to an earlier booking from that date) for stays from 1 April 2027.",
-    "One booking of 32 nights or more is not charged (the nights do not have to be in a row).",
-    "After the stay, carers looking after a disabled person, people who were temporarily homeless and people fleeing harm or domestic violence can ask the Welsh Revenue Authority for a refund."
+    "The Visitor Levy starts in Cardiff on 1 April 2027. Cardiff is the only council whose decision we have read: the Welsh Revenue Authority's list of councils (www.gov.wales) answered HTTP 403 to a plain request on 27 November 2026, so we did not read it and cannot say whether another council has decided.",
+    "£1.30 per person per night (the Act counts every person, whatever their age) in all visitor accommodation outside the lower-rate group; 75p per person per night on camping pitches and in dormitories or rooms shared with people on a different booking, where under-18s are not counted.",
+    "The Welsh Revenue Authority, quoted by Cardiff Council on 28 August 2026, says providers must account for the levy on new bookings made from 28 September 2026, and on extra nights or guests added to existing bookings from that date, for stays from 1 April 2027.",
+    "A booking that entitles the guest to stay for more than 31 nights (32 or more) is not charged; the nights do not have to be in a row.",
+    "After the stay, the person who paid can ask the Welsh Revenue Authority, within 90 days, to repay the levy when someone stayed because they could not live at home owing to a risk to their health, safety or welfare, or was homeless, and for a person who accompanied and cared for someone receiving a disability benefit (section 35 of the Act)."
    ],
    "esenzioni": [
-    "Under-18s staying at the lower rate (shared hostel rooms, bunkhouses, bothies, dormitories, tent pitches)",
-    "One booking of 32 nights or more",
-    "Temporary housing provided by a local council",
-    "Employees, contractors or apprentices staying in their employer's accommodation for work",
-    "Refund after the stay: carers of a disabled person, people temporarily homeless, people fleeing harm or domestic violence"
+    "Under-18s at the lower rate (camping pitches and shared rooms such as hostel dormitories)",
+    "A booking of more than 31 nights (32 or more)",
+    "Homelessness accommodation arranged by a council, and accommodation provided under asylum-support, bail and probation legislation",
+    "Staff, apprentices and contractors of the accommodation provider staying under their work contract",
+    "Repayment after the stay (apply to the Welsh Revenue Authority within 90 days): people who could not stay at home because of a risk to their health, safety or welfare, people who were homeless, and a person accompanying and caring for someone who receives a disability benefit"
    ],
-   "controllato_il": "2026-10-26",
+   "controllato_il": "2026-11-27",
    "breve_seo": "£1.30 per night from 1 Apr 2027",
-   "risposta": "From 1 April 2027 Cardiff charges the Welsh Visitor Levy: £1.30 per person per night in hotels, B&Bs, self-catering, holiday lets and homestays (guests of all ages), and 75p per adult per night in shared hostel rooms, bunkhouses and tent pitches. It applies to bookings made from 28 September 2026; one booking of 32 nights or more is not charged."
+   "risposta": "From 1 April 2027 Cardiff charges the Welsh Visitor Levy: £1.30 per person per night in hotels, B&Bs, self-catering, holiday lets and Airbnbs (guests of all ages), and 75p per adult per night on camping pitches and in shared rooms such as hostel dormitories. Accommodation providers account for it on bookings made from 28 September 2026; a booking of more than 31 nights is not charged."
   },
   {
    "slug": "malta",

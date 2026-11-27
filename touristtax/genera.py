@@ -1572,7 +1572,7 @@ def pagina_destinazione(R):
 {fonti_html(R)}
 <p class="small">Spotted a change in the official rate? <a href="{rel}contact/?ref={slug}">Tell us</a>.</p>
 {box_affiliati()}
-{link_sorelle}{cn_callout(rel) if R.get("gruppo") == "balearics" else ""}
+{link_sorelle}{cn_callout(rel) if R.get("gruppo") == "balearics" else ""}{ur_callout_uk(rel) if R["country_slug"] == "united-kingdom" else ""}
 <p><a href="{rel}country/{R['country_slug']}/">All tourist taxes in {escape(paese)}</a> · <a href="{rel}tourist-taxes-europe-2026/">Tourist taxes in Europe {ANNO}</a></p>
 {blocco_dati(id_dati, [R])}"""
     pagina(f"{slug}/", titolo_seo(R), descrizione_seo(R), corpo,
@@ -4362,6 +4362,9 @@ def pagina_us_hub():
 {AD}
 <h2>States</h2>
 <div class="griglia"><a href="{rel}{US_FLS}">Florida<small>{us_pct(tt[0])}–{us_pct(tt[-1])} by county · all 67 counties</small></a><a href="{rel}{US_TXS}">Texas<small>6% state + local · {len(cc)} cities, {len(kk)} counties</small></a></div>
+<h2>Hawaii and New York City</h2>
+{ur_griglia(rel, list(UR_US))}
+<p class="small">These two pages explain the taxes with worked examples; the calculator above covers Florida and Texas only.</p>
 <h2>Florida: counties and cities</h2>
 {us_griglia(rel, us_voci_stato("fl"))}
 <h2>Texas: cities and counties</h2>
@@ -4370,7 +4373,7 @@ def pagina_us_hub():
 {faq_html}
 <h2>Official sources</h2>
 {us_fonti_elenco(["fl_tdt", "fl_dss", "fl_local", "tx_hot", "tx_faq", "tx_dati", "census"])}
-<p class="small">Other states are not covered yet. Spotted a change? <a href="{rel}contact/?ref=usa">Tell us</a>.</p>
+<p class="small">States other than Florida, Texas, Hawaii and New York (New York City only) are not covered yet. Spotted a change? <a href="{rel}contact/?ref=usa">Tell us</a>.</p>
 <p><a href="{rel}">Tourist tax calculator</a> · <a href="{rel}tourist-taxes-europe-2026/">Tourist taxes in Europe</a></p>"""
     pagina(US_HUB, f"Hotel tax in the USA: Florida {us_pct(tt[0])}–{us_pct(tt[-1])}, Texas 6% + local rates",
            f"Hotel tax in Florida ({us_pct(tt[0])}–{us_pct(tt[-1])} by county) and Texas (6% state + city and county rates), from the official state files, with a calculator.",
@@ -4938,6 +4941,570 @@ def pagine_canarie():
     cn_pagina_lanzarote()
 
 
+# ---------------------------------------------------------------- Hawaii, New York City, Manchester, Liverpool, Galles (27/11/2026)
+# Dati: dati/usa_regno_unito.json. Ogni fatto delle 5 pagine (usa/hawaii/, usa/new-york-city/, manchester/, liverpool/, wales/) e della
+# risposta della pagina paese Regno Unito viene da lì: ogni fonte ha la data di lettura e i frammenti letti. Pagine USA: stile americano
+# (date «January 1, 2026», virgolette “ ”); pagine del Regno Unito: stile britannico (date «1 April 2027», virgolette ‘ ’).
+# Dove una fonte ufficiale non si è aperta (contee di Maui, Hawaii e Kauai, Comune di Manchester, Parlamento britannico) la pagina lo dice
+# e non scrive il dato. verifica.py, controllo 17.
+UR = json.loads((DATI / "usa_regno_unito.json").read_text(encoding="utf-8"))
+UR_F = UR["fonti"]
+UR_HI, UR_NY, UR_MA, UR_LI, UR_GA, UR_EN = UR["hawaii"], UR["nyc"], UR["manchester"], UR["liverpool"], UR["galles"], UR["inghilterra"]
+UR_OAHU = next(c for c in UR_HI["contee"] if c["id"] == "honolulu")
+UR_US = ("hawaii", "nyc")  # pagine in stile americano
+
+
+def ur_data(iso, us=False):
+    d = date.fromisoformat(iso)
+    return f"{MESI[d.month - 1]} {d.day}, {d.year}" if us else data_lunga(iso)
+
+
+def ur_check(us=False):
+    return ur_data(UR["controllato_il"], us)
+
+
+def usd(v):
+    return soldi(v, "USD") if round(v * 100) % 100 else soldi_breve(v, "USD")
+
+
+def usd2(v):
+    return soldi(v, "USD")
+
+
+def gbp(v):
+    return f"{round(v * 100)}p" if v < 1 else soldi_breve(v, "GBP")
+
+
+def ur_link(k, testo=None):
+    f = UR_F[k]
+    return f'<a href="{escape(f["url"])}" rel="noopener">{escape(testo or f["breve"])}</a>'
+
+
+def ur_fonte(chiavi, us=False):
+    """Riga della fonte sotto un fatto: fonti ufficiali con la data della lettura."""
+    return (f'<p class="fonte">Official source{"s" if len(chiavi) > 1 else ""}: ' + " · ".join(ur_link(k) for k in chiavi) +
+            f' · checked on {ur_data(max(UR_F[k]["controllato_il"] for k in chiavi), us)}</p>')
+
+
+def ur_fonti_elenco(chiavi, us=False):
+    return "<ul>" + "".join(f'<li><a href="{escape(UR_F[k]["url"])}" rel="noopener">{escape(UR_F[k]["titolo"])}</a> – {escape(UR_F[k]["ente"])}, '
+                            f'{escape(UR_F[k]["formato"])}, checked {ur_data(UR_F[k]["controllato_il"], us)}</li>' for k in dict.fromkeys(chiavi)) + "</ul>"
+
+
+def ur_non_lette(voci, us=False):
+    return "<ul>" + "".join(f'<li>{escape(x["nome"])}: {escape(x["esito"])} on {ur_check(us)}. We do not get around blocks, so we did not read it.</li>' for x in voci) + "</ul>"
+
+
+# ---- cifre calcolate dai dati
+def hi_tot():
+    return round(UR_HI["tat_stato"] + UR_OAHU["tat_contea"] + UR_HI["get_ricarico_max"], 4)
+
+
+def hi_parti(base):
+    """Le tre righe di una fattura a Oahu, ognuna arrotondata al centesimo."""
+    return [r2(base * UR_HI["tat_stato"] / 100), r2(base * UR_OAHU["tat_contea"] / 100), r2(base * UR_HI["get_ricarico_max"] / 100)]
+
+
+def ny_pct():
+    return round(UR_NY["vendite"] + UR_NY["albergo_pct"], 4)
+
+
+def ny_fisso():
+    """Parte fissa massima a stanza a notte: 2,00 $ della città (massimo letto) + 1,50 $ dello Stato."""
+    return UR_NY["per_stanza_max"] + UR_NY["unit_fee"]
+
+
+def ny_parti(prezzo, notti):
+    """Imposta sulle vendite, parte percentuale dell'imposta alberghiera, parte fissa della città (massimo: stanze da 200 $ in su), tassa statale."""
+    tot = prezzo * notti
+    return [r2(tot * UR_NY["vendite"] / 100), r2(tot * UR_NY["albergo_pct"] / 100), r2(UR_NY["per_stanza_max"] * notti), r2(UR_NY["unit_fee"] * notti)]
+
+
+def ur_edimburgo():
+    e = next(d for d in DEST if d["slug"] == "edinburgh")
+    return e, fascia_breve(e, _vigenti(e, OGGI.isoformat()))
+
+
+UR_PAG = {  # chiave -> (percorso, title ≤ 70, H1 = la domanda, etichetta per griglie e briciole)
+    "hawaii": ("usa/hawaii/", f"Hawaii tourist tax {ANNO}: 11% state tax, {us_pct(hi_tot())} on an Oahu bill", f"How much is the tourist tax in Hawaii in {ANNO}?", "Hawaii"),
+    "nyc": ("usa/new-york-city/", f"NYC hotel tax {ANNO}: {us_pct(ny_pct())} plus up to {usd2(ny_fisso())} per room a night", f"How much is the hotel tax in New York City in {ANNO}?", "New York City"),
+    "manchester": ("manchester/", f"Manchester tourist tax {ANNO}: {gbp(UR_MA['importo'])} per room per night, who adds it", f"Is there a tourist tax in Manchester in {ANNO}?", "Manchester"),
+    "liverpool": ("liverpool/", f"Liverpool tourist tax {ANNO}: {gbp(UR_LI['importo'])} per room per night, larger hotels", f"Is there a tourist tax in Liverpool in {ANNO}?", "Liverpool"),
+    "wales": ("wales/", f"Wales tourism tax {ANNO}: none yet, Cardiff {gbp(UR_GA['alta'])} from April {UR_GA['consigli'][0]['dal'][:4]}", f"Is there a tourism tax in Wales in {ANNO}?", "Wales"),
+}
+
+
+def ur_sub(k):
+    """Riga breve per le griglie (home, pagine sorelle, sezione USA)."""
+    return {"hawaii": f"{us_pct(UR_HI['tat_stato'])} state tax · {us_pct(hi_tot())} on Oahu",
+            "nyc": f"{us_pct(ny_pct())} + up to {usd2(ny_fisso())} per room",
+            "manchester": f"{gbp(UR_MA['importo'])} per room per night",
+            "liverpool": f"{gbp(UR_LI['importo'])} per room per night",
+            "wales": f"Cardiff starts in April {UR_GA['consigli'][0]['dal'][:4]}"}[k]
+
+
+def ur_risposta(k):
+    """Prima frase = risposta alla domanda del titolo, con la data della lettura; a capo dopo la seconda frase. Cifre da dati/usa_regno_unito.json."""
+    if k == "hawaii":
+        H = UR_HI
+        return (f"Short answer: on Oahu, taxes add up to {us_pct(hi_tot())} to a hotel or vacation rental bill in {ANNO} (checked on {ur_check(True)}): the {us_pct(H['tat_stato'])} state "
+                f"transient accommodations tax (TAT), Honolulu's {us_pct(UR_OAHU['tat_contea'])} county TAT and up to {us_pct(H['get_ricarico_max'])} general excise tax. "
+                f"The state TAT rose from {us_pct(H['tat_prima'])} to {us_pct(H['tat_stato'])} on {ur_data(H['dal'], True)}, under {H['legge']}, the law news reports call the “Green Fee.”\n"
+                f"On Maui, Kauai and Hawaii Island the state tax and the excise tax are the same, and state law caps each county's own TAT at {us_pct(H['tat_contea_max'])}, so the total "
+                f"cannot be higher than on Oahu; those counties' websites refused our request, so we could not read their ordinances. The increase is inside the room tax: "
+                "the Act creates no separate fee per visitor.")
+    if k == "nyc":
+        N, e = UR_NY, UR_NY["esempio"]
+        p1 = ny_parti(e["prezzo"], 1)
+        return (f"Short answer: {us_pct(ny_pct())} of the room rate plus up to {usd2(ny_fisso())} per room per night (checked on {ur_check(True)}). That is {us_pct(N['vendite'])} New York State and "
+                f"City sales tax, the {us_pct(N['albergo_pct'])} New York City hotel room occupancy tax, a city amount of {usd2(N['per_stanza_min'])} to {usd2(N['per_stanza_max'])} per room per day "
+                f"that depends on the room rate, and the {usd2(N['unit_fee'])} state hotel unit fee.\n"
+                f"On a {usd(e['prezzo'])} room that comes to {usd2(sum(p1))} a night. The city's Department of Finance site, which lists the room-rate bands for the "
+                f"per-room amount, refused our request, so we show only the range and the {usd2(N['esempio_ibo']['per_stanza'])} that the city's Independent Budget Office applies to a "
+                f"{usd(N['esempio_ibo']['prezzo'])} room.")
+    if k == "manchester":
+        M = UR_MA
+        return (f"Short answer: yes, in practice: larger hotels and serviced apartments in central Manchester and Salford add a {M['nome']} of {gbp(M['importo'])} per room per night, "
+                f"plus VAT where applicable (checked on {ur_check()}). It is not a council tax: it funds the Manchester Accommodation Business Improvement District (BID), "
+                f"has been charged since April {M['dal'][:4]} and is collected by {M['strutture']} places as of September {M['strutture_al'][:4]}.\n"
+                "It is per room or apartment, not per person, and small or out-of-centre places do not add it. A bill that would let the Mayor of Greater Manchester charge a "
+                f"percentage levy instead was introduced in Parliament on {ur_data(UR_EN['presentato'])} and is not law yet.")
+    if k == "liverpool":
+        L = UR_LI
+        return (f"Short answer: yes, in practice: larger hotels and serviced apartments in Liverpool pay a levy of {gbp(L['importo'])} per occupied room per night and may add it to "
+                f"your bill (checked on {ur_check()}). It started on {ur_data(L['dal'])} after the city's hotels voted {L['voti_si']} to {L['voti_no']} for it, and it is a Business "
+                "Improvement District (BID) levy, not a council tax.\n"
+                f"It is per room, not per person, and applies only to places with a rateable value of {soldi_breve(L['soglia_valore_catastale'], 'GBP')} or more. "
+                f"The council's policy paper of {L['politica']['documento']} still describes the {gbp(L['importo'])} levy as in place.")
+    G_, c = UR_GA, UR_GA["consigli"][0]
+    return (f"Short answer: not yet: the Welsh visitor levy cannot be charged anywhere before April {c['dal'][:4]} (checked on {ur_check()}). Cardiff Council has approved it and "
+            f"starts on {ur_data(c['dal'])}: {gbp(G_['alta'])} per person per night, or {gbp(G_['bassa'])} per person on camping pitches and in shared rooms such as hostel dormitories.\n"
+            "Cardiff is the only council whose decision we have read; the Welsh Revenue Authority's list of councils refused our request, so we cannot say that no other council has decided. "
+            f"Under the Act a council must publish a notice at least {G_['preavviso_mesi']} months ahead and can start only on {' or '.join(G_['date_ammesse'])}.")
+
+
+def ur_descrizione(k):
+    """Meta description ≤ 160 caratteri: la risposta in una riga e la data della lettura."""
+    c = UR["controllato_il"]
+    us = k in UR_US
+    coda = f" Checked {MESI[int(c[5:7]) - 1][:3]} {int(c[8:])}, {c[:4]}." if us else f" Checked {int(c[8:])} {MESI[int(c[5:7]) - 1][:3]} {c[:4]}."
+    return {"hawaii": f"Hawaii's state hotel tax is {us_pct(UR_HI['tat_stato'])} since Jan 1, 2026. With county tax and excise tax an Oahu bill carries {us_pct(hi_tot())}.",
+            "nyc": f"NYC hotel tax in {ANNO}: {us_pct(UR_NY['vendite'])} sales tax, {us_pct(UR_NY['albergo_pct'])} hotel tax, up to {usd(UR_NY['per_stanza_max'])} city amount, {usd2(UR_NY['unit_fee'])} state fee per room a night.",
+            "manchester": f"Manchester's City Visitor Charge is {gbp(UR_MA['importo'])} per room per night plus VAT at {UR_MA['strutture']} city-centre hotels and apartments. Not a council tax.",
+            "liverpool": f"Liverpool's larger hotels pay a {gbp(UR_LI['importo'])} levy per occupied room per night since 1 June 2025 and may add it to your bill.",
+            "wales": f"The Welsh visitor levy cannot be charged before April 2027. Cardiff starts then: {gbp(UR_GA['alta'])} per person per night, {gbp(UR_GA['bassa'])} in shared rooms."}[k] + coda
+
+
+def ur_tab(testa, righe, classe="tab sintesi"):
+    return cn_tab(testa, righe, classe)
+
+
+def ur_griglia(rel, chiavi, extra=()):
+    return ('<div class="griglia">' + "".join(f'<a href="{rel}{UR_PAG[c][0]}">{escape(UR_PAG[c][3])}<small>{escape(ur_sub(c))}</small></a>' for c in chiavi) +
+            "".join(f'<a href="{rel}{p}">{escape(n)}<small>{escape(s)}</small></a>' for p, n, s in extra) + "</div>")
+
+
+def ur_callout_uk(rel):
+    """Riquadro di collegamento (pagina paese Regno Unito, Cardiff, Edimburgo)."""
+    return (f'<section class="card callout uk-box" aria-label="Tourist taxes in the UK"><span class="ic">{ico("info")}</span>'
+            f'<p><strong>Elsewhere in the UK:</strong> larger hotels in <a href="{rel}manchester/">Manchester</a> add {gbp(UR_MA["importo"])} per room per night and larger hotels in '
+            f'<a href="{rel}liverpool/">Liverpool</a> pay {gbp(UR_LI["importo"])}, which they may add to your bill; in <a href="{rel}wales/">Wales</a> Cardiff starts the visitor levy in April {UR_GA["consigli"][0]["dal"][:4]} '
+            f'(checked on {ur_check()}).</p></section>')
+
+
+def ur_righe_paese(rel):
+    """Righe di Manchester, Liverpool e Galles nella tabella della pagina paese Regno Unito (revisione del 27/11/2026)."""
+    anno = UR_GA["consigli"][0]["dal"][:4]
+    return (f'<tr><td><a href="{rel}manchester/">Manchester</a></td><td>{gbp(UR_MA["importo"])} per room per night, added by larger city-centre hotels</td><td>–</td><td>–</td></tr>'
+            f'<tr><td><a href="{rel}liverpool/">Liverpool</a></td><td>{gbp(UR_LI["importo"])} per occupied room per night, paid by larger hotels, which may add it to the bill</td><td>–</td><td>–</td></tr>'
+            f'<tr><td><a href="{rel}wales/">Wales</a> (outside Cardiff)</td><td>No levy in {ANNO}; no other council decision that we have read</td><td>–</td><td>–</td></tr>')
+
+
+UR_CONFRONTO = ["man_abid", "liv_voto", "gal_testo", "car_approvazione"]  # fonti della tabella di confronto
+
+
+def ur_confronto_uk(rel):
+    """Tabella «dove si paga nel Regno Unito»: celle brevi, uguali sulle tre pagine britanniche."""
+    e, pct = ur_edimburgo()
+    c = UR_GA["consigli"][0]
+    return ur_tab(["Place", "Charge", "Since"], [
+        (f'<a href="{rel}manchester/">Manchester</a>', f"{gbp(UR_MA['importo'])} per room per night", f"April {UR_MA['dal'][:4]}"),
+        (f'<a href="{rel}liverpool/">Liverpool</a>', f"{gbp(UR_LI['importo'])} per room per night", ur_data(UR_LI["dal"])),
+        (f'<a href="{rel}edinburgh/">Edinburgh</a>', f"{pct} of the room price", ur_data(min(t["dal"] for t in e["tariffe"] if t.get("dal")))),
+        (f'<a href="{rel}cardiff/">Cardiff</a>', f"{gbp(UR_GA['alta'])} per person per night", f"starts April {c['dal'][:4]}"),
+    ]) + ur_fonte(UR_CONFRONTO) + fonte_breve(e)
+
+
+def ur_pagina(k, sezioni, faq, fonti, altre, avviso):
+    perc, tit, h1, nome = UR_PAG[k]
+    us = k in UR_US
+    rel = "../" * perc.count("/")
+    faq_html, ld = cn_faq_html(faq)
+    a, b = ur_risposta(k).split("\n")
+    if not us:
+        fonti = fonti + [x for x in UR_CONFRONTO if x not in fonti]
+    if us:
+        piede = (f'<p><a href="{rel}{US_HUB}">Hotel tax in the USA</a> · <a href="{rel}{US_FLS}">Florida</a> · <a href="{rel}{US_TXS}">Texas</a> · '
+                 f'<a href="{rel}">Tourist tax calculator</a></p>')
+        briciole = [("USA", US_HUB), (nome, perc)]
+    else:
+        piede = (f'<p><a href="{rel}country/united-kingdom/">Tourist taxes in the United Kingdom</a> · <a href="{rel}tourist-taxes-europe-2026/">Tourist taxes in Europe {ANNO}</a> · '
+                 f'<a href="{rel}">Tourist tax calculator</a></p>')
+        briciole = [("United Kingdom", "country/united-kingdom/"), (nome, perc)]
+    corpo = f"""<section class="hero"><h1>{escape(h1)}</h1>
+<p class="risposta">{escape(a)}</p>
+<p class="risposta-seguito">{escape(b)}</p>
+{ur_fonte(fonti[:3], us)}</section>
+{sezioni}
+<h2>Questions</h2>
+{faq_html}
+<h2>{altre[0]}</h2>
+{altre[1]}
+<h2>Sources</h2>
+{ur_fonti_elenco(fonti, us)}
+<p class="small">Spotted a change in the official rules? <a href="{rel}contact/?ref={perc.strip('/').split('/')[-1]}">Tell us</a>.</p>
+{piede}"""
+    pagina(perc, tit, ur_descrizione(k), corpo, briciole=briciole, jsonld_extra=ld)
+
+
+AVVISO_UR_US = ('<p class="avviso"><strong>Not tax advice.</strong> This page adds up the rates in official state, county and city documents read on the date shown. '
+                'Your hotel or host applies the tax: check the final amount on your booking.</p>')
+AVVISO_UR_UK = ('<p class="avviso"><strong>Not tax advice.</strong> This page summarises official documents read on the date shown. These charges are set locally and '
+                'the law is changing: check the final amount with your accommodation.</p>')
+
+
+def ur_pagina_hawaii():
+    rel, H, O, us = "../../", UR_HI, UR_OAHU, True
+    e = H["esempio"]
+    base = e["prezzo"] * e["notti"]
+    p = hi_parti(base)
+    base2 = (e["prezzo"] + e["resort_fee"]) * e["notti"]
+    p2 = hi_parti(base2)
+    prima = r2(base * (H["tat_stato"] - H["tat_prima"]) / 100)
+    tat, cty, get, tot = us_pct(H["tat_stato"]), us_pct(O["tat_contea"]), us_pct(H["get_ricarico_max"]), us_pct(hi_tot())
+    cap = us_pct(H["tat_contea_max"])
+    sintesi = ur_tab(["Tax on the bill", "Rate", "Set by"], [
+        ("Transient accommodations tax (TAT), state", f"{tat} ({us_pct(H['tat_prima'])} before {ur_data(H['dal'], us)})", f"State of Hawaii, {H['legge']}"),
+        ("County TAT on Oahu (OTAT)", cty, f"{O['nome']}, {O['ordinanza']}"),
+        ("County TAT on Maui, Kauai and Hawaii Island", f"At most {cap} by state law; rate not read", "Each county, by ordinance"),
+        ("General excise tax (GET) passed on to you", f"At most {get}", "State, with a county surcharge"),
+        ("Total on Oahu", f"<strong>{tot}</strong>", ""),
+    ])
+    contee = ur_tab(["County", "Islands and resorts", "County TAT", "What we read"], [
+        (escape(c["nome"]), f"{escape(c['isole'])}: {escape(', '.join(c['luoghi']))}",
+         f"{us_pct(c['tat_contea'])} since {ur_data(c['dal'], us)}" if c["letta"] else f"At most {cap}",
+         f"{escape(c['ordinanza'])}, in the county's own announcement" if c["letta"] else f"Nothing: {escape(c['sito'])} answered {escape(c['esito'])}") for c in H["contee"]])
+    cr = H["crociere"]
+    sezioni = f"""<h2>What is added to a room bill in Hawaii</h2>
+{sintesi}
+{ur_fonte(["hi_ann2601", "hon_otat", "hi_schema", "hi_get"], us)}
+{AVVISO_UR_US}
+{AD}
+<h2>Worked example: five nights on Oahu</h2>
+<p>A room at {usd(e['prezzo'])} a night for {e['notti']} nights is {usd(base)} before tax. State TAT: {tat} × {usd(base)} = {usd2(p[0])}. Honolulu county TAT: {cty} × {usd(base)} = {usd2(p[1])}. Excise tax passed on at {get}: {usd2(p[2])}. Taxes for the stay: {usd2(p[0])} + {usd2(p[1])} + {usd2(p[2])} = <strong>{usd2(sum(p))}</strong>.</p>
+<p>Add a mandatory resort fee of {usd(e['resort_fee'])} a night and the taxes are worked out on {usd(e['prezzo'] + e['resort_fee'])} a night, because the Department of Taxation counts mandatory resort fees, cleaning fees and similar charges as part of the room charge: {usd2(p2[0])} + {usd2(p2[1])} + {usd2(p2[2])} = <strong>{usd2(sum(p2))}</strong> on {usd(base2)}.</p>
+<p>The same {usd(base)} stay in 2025, at {us_pct(H['tat_prima'])}, carried {usd2(prima)} less state tax: that is the whole effect of the {ANNO} increase on this booking.</p>
+{ur_fonte(["hi_tf962", "hi_ann2601", "hon_otat", "hi_get"], us)}
+<h2>What changed on {ur_data(H['dal'], us)}: Act 96, the “Green Fee”</h2>
+<p>{H['legge']} ({H['disegno']}) raised the state TAT from {us_pct(H['tat_prima'])} to {tat} for the period from {ur_data(H['dal'], us)}, to {ur_data(H['fino_al'], us)}. The Act opens by saying that Hawaii “is experiencing a climate emergency,” which is why news reports call the increase a green fee or a climate fee.</p>
+<p>The Department of Taxation's summaries of the Act list two measures only: the higher rate and the extension of the tax to cruise fares. Neither is a fee per visitor or a charge on arrival, so there is nothing to pay at the airport. The extra {round(H['tat_stato'] - H['tat_prima'], 2)} percentage points are inside the tax your hotel or host already adds.</p>
+<p>Paid in 2025 for a {ANNO} stay? The rate follows the date the operator received the money. Operators are presumed to keep their books on a cash basis: payments received before {ur_data(H['dal'], us)}, are taxed at {us_pct(H['tat_prima'])}, and payments received on or after that date at {tat}.</p>
+{ur_fonte(["hi_act96", "hi_ann2503", "hi_ann2601"], us)}
+<h2>County by county</h2>
+{contee}
+<p>State law lets each county set its own TAT by ordinance, “not to exceed three per cent.” For Oahu we read the county's own announcement: {cty}. For the other three counties the official websites did not open for us, so the table shows the legal maximum and not a rate we have read. A county TAT line above {cap} on a bill from Maui, Kauai or Hawaii Island would be above what state law allows.</p>
+{ur_fonte(["hi_schema", "hon_otat", "hon_pagina"], us)}
+<h2>General excise tax: why the bill says {get}</h2>
+<p>GET is Hawaii's general excise tax on business activity, not a tourist tax: businesses of every kind may pass it on to their customers. The rate is {us_pct(H['get'])} plus a {us_pct(H['get_contea'])} county surcharge that all four counties apply until {ur_data(H['get_contea_fino_al'], us)}. The business owes it and may choose to pass it on; when it does, the most it may add is {get} on every island.</p>
+{ur_fonte(["hi_get", "hi_tf962"], us)}
+<h2>Which stays are taxed</h2>
+<p>TAT applies to a room, apartment, house, condominium or similar place rented to a transient for less than {H['giorni_transiente']} consecutive days, so hotels, vacation rentals and timeshares are all covered. A transient is anyone with a permanent home elsewhere, Hawaii residents included. In law the tax falls on the operator, who normally shows it on your bill.</p>
+{ur_fonte(["hi_tf962"], us)}
+<h2>Cruise passengers</h2>
+<p>Act 96 also applies the {tat} TAT to cruise fares, in proportion to the days a ship is docked in Hawaii ports. A federal appeals court, the Ninth Circuit, blocked that part on {ur_data(cr['ingiunzione'], us)}, and on {ur_data(cr['annuncio'], us)}, the Department of Taxation announced that it will not enforce it “until further notice.” On {ur_check(us)}, the Department's list of announcements showed nothing later about cruise ships.</p>
+{ur_fonte(["hi_ann2601", "hi_elenco"], us)}
+<h2>What we could not read</h2>
+{ur_non_lette(H['non_lette'], us)}
+<p>We read the text of Act 96 on the Legislature's document server instead, and the rates in the Department of Taxation's own announcements.</p>"""
+    faq = [
+        (f"How much is the tourist tax in Hawaii in {ANNO}?",
+         f"The state transient accommodations tax is {tat} since {ur_data(H['dal'], us)}. Each county may add its own tax of at most {cap}, and operators usually pass on the general excise tax of up to {get}. "
+         f"On Oahu, where the county tax is {cty}, the three add up to {tot} of the room charge."),
+        ("What is Hawaii's Green Fee and when did it start?",
+         f"It is the name news reports give to {H['legge']}, which raised the state transient accommodations tax from {us_pct(H['tat_prima'])} to {tat} from {ur_data(H['dal'], us)}, until {ur_data(H['fino_al'], us)}. "
+         "It is a higher rate on accommodation, not a separate fee."),
+        ("Do I pay Hawaii's Green Fee at the airport?",
+         "No. The Department of Taxation describes Act 96 as a higher transient accommodations tax rate and an extension of that tax to cruise fares. The increase is collected through the tax on your room, by the hotel or host."),
+        ("Is the tax different on Maui, Kauai or the Big Island?",
+         f"The state tax ({tat}) and the excise tax (at most {get}) are the same on every island. Only the county tax can differ, and state law caps it at {cap}. We read Honolulu's rate ({cty}); "
+         "the websites of the counties of Maui, Hawaii and Kauai did not open for us, so check the county line on your bill."),
+        ("Are resort fees taxed in Hawaii?",
+         "Yes. The Department of Taxation says the taxable room charge includes mandatory resort fees and other fees a guest must pay in order to stay, such as cleaning fees."),
+        ("Do cruise passengers pay the Hawaii tax?",
+         f"Not at present, as far as the official record shows. Act 96 extends the tax to cruise fares, but a federal appeals court blocked that part on {ur_data(cr['ingiunzione'], us)}, and the Department of Taxation "
+         "said it will not enforce it until further notice."),
+    ]
+    altre = ("Other US hotel taxes", ur_griglia(rel, ["nyc"], [(US_FLS, "Florida", "All 67 counties"), (US_TXS, "Texas", "State and city rates"), (US_HUB, "USA", "Hotel tax calculator")]))
+    ur_pagina("hawaii", sezioni, faq, ["hi_ann2601", "hon_otat", "hi_get", "hi_act96", "hi_ann2503", "hi_schema", "hi_tf962", "hon_pagina", "hi_elenco"], altre, AVVISO_UR_US)
+
+
+def ur_pagina_nyc():
+    rel, N, us = "../../", UR_NY, True
+    e, ibo = N["esempio"], N["esempio_ibo"]
+    sv, ht, fee = us_pct(N["vendite"]), us_pct(N["albergo_pct"]), usd2(N["unit_fee"])
+    lo, hi = usd2(N["per_stanza_min"]), usd2(N["per_stanza_max"])
+    p3 = ny_parti(e["prezzo"], e["notti"])
+    p4 = ny_parti(ibo["prezzo"], 4)
+    sintesi = ur_tab(["Line on the bill", "Amount", "Collected by"], [
+        ("New York State and City sales tax", f"{sv} of the room rate", "New York State Tax Department"),
+        ("NYC hotel room occupancy tax, percentage part", f"{ht} of the room rate", "New York City"),
+        ("NYC hotel room occupancy tax, daily part", f"{lo} to {hi} per room per day, by room rate ({hi} on a {usd(ibo['prezzo'])} room)", "New York City"),
+        ("New York State hotel unit fee", f"{fee} per unit per day", "New York State Tax Department"),
+        ("Total", f"<strong>{us_pct(ny_pct())} + up to {usd2(ny_fisso())}</strong> per room per night", ""),
+    ])
+    sezioni = f"""<h2>The four lines on a New York City hotel bill</h2>
+{sintesi}
+{ur_fonte(["nyc_311", "nyc_ibo", "nys_pub718", "nys_tb331"], us)}
+{AVVISO_UR_US}
+{AD}
+<h2>Worked examples</h2>
+<p>One room at {usd(e['prezzo'])} a night for {e['notti']} nights is {usd(e['prezzo'] * e['notti'])} before tax. Sales tax: {sv} × {usd(e['prezzo'] * e['notti'])} = {usd2(p3[0])}. Hotel tax: {ht} × {usd(e['prezzo'] * e['notti'])} = {usd2(p3[1])}. City daily amount: {e['notti']} × {hi} = {usd2(p3[2])}. State unit fee: {e['notti']} × {fee} = {usd2(p3[3])}. Total taxes and fees: <strong>{usd2(sum(p3))}</strong>. A hotel that rounds night by night can be a cent or two away from this figure.</p>
+<p>One room at {usd(ibo['prezzo'])} a night for 4 nights, the case the Independent Budget Office uses: {usd2(p4[0])} sales tax + {usd2(p4[1])} hotel tax + 4 × {hi} = {usd2(p4[2])} + 4 × {fee} = {usd2(p4[3])}, in all <strong>{usd2(sum(p4))}</strong> on {usd(ibo['prezzo'] * 4)}.</p>
+<p>Both examples use the top daily amount of {hi}. We have read it applied to a {usd(ibo['prezzo'])} room; for a much cheaper room it can be as low as {lo}, and we could not read the bands.</p>
+{ur_fonte(["nyc_ibo", "nyc_311", "nys_pub718", "nys_tb331"], us)}
+<h2>The city hotel tax has two parts</h2>
+<p>The Independent Budget Office, a city agency, describes the New York City hotel room occupancy tax as two components: {ht} of the rent the guest pays, and a daily amount per room that ranges from {lo} to {hi} depending on the room rate. NYC311, the city's information service, says the {ht} rate went into effect on {ur_data(N['albergo_pct_dal'], us)}, and is still in effect.</p>
+<p>The same purchases also carry state and local sales tax. In New York City the combined sales tax rate is {sv}, in the state's list of rates in force since {ur_data(N['pub718_dal'], us)}.</p>
+{ur_fonte(["nyc_ibo", "nyc_311", "nys_pub718"], us)}
+<h2>The {fee} state hotel unit fee</h2>
+<p>On top of the taxes, hotels in New York City charge a state unit fee of {fee} per unit per day. It applies in all five boroughs, which the state names by county: Bronx, Kings (Brooklyn), New York (Manhattan), Queens and Richmond (Staten Island).</p>
+{ur_fonte(["nys_tb331", "nys_pub848"], us)}
+<h2>Is tax charged on the taxes?</h2>
+<p>No. Each percentage is applied to the room rent. The state's bulletin says the {fee} unit fee is not subject to sales tax, and local hotel taxes are not subject to sales tax either. The bill must show the taxes and the unit fee as separate lines.</p>
+{ur_fonte(["nys_tb331"], us)}
+<h2>Long stays</h2>
+<p>After {N['residente_giorni_stato']} consecutive days in the same hotel the state sales tax and the unit fee stop; inside New York City the local part of the sales tax goes on until day {N['residente_giorni_citta']}. These are the state's rules for the sales tax; we have not read the city's own rule for long stays under its hotel tax.</p>
+{ur_fonte(["nys_tb331"], us)}
+<h2>Airbnb and other short-term rentals</h2>
+<p>The state's bulletin of {ur_data(N['tb331_del'], us)}, says a booking service that arranges a short-term rental must collect the sales tax, and that operators and booking services must charge the {fee} unit fee in New York City. Whether a given host must also collect the city hotel tax is a Department of Finance rule that we could not read.</p>
+{ur_fonte(["nys_tb331"], us)}
+<h2>What we could not read</h2>
+{ur_non_lette(N['non_lette'], us)}
+<p>So this page does not give the room-rate bands for the daily amount, the rule for suites or any end date for the {ht} rate. The figures above come from NYC311, the Independent Budget Office and the New York State Tax Department.</p>"""
+    faq = [
+        (f"How much is hotel tax in NYC in {ANNO}?",
+         f"{us_pct(ny_pct())} of the room rate plus up to {usd2(ny_fisso())} per room per night: {sv} sales tax, {ht} New York City hotel room occupancy tax, a city daily amount of {lo} to {hi} per room "
+         f"that depends on the room rate, and a {fee} state hotel unit fee."),
+        ("What are the flat dollar amounts on my New York hotel bill?",
+         f"Two charges: a daily amount per room that is part of the city hotel room occupancy tax ({lo} to {hi}, with {hi} on a {usd(ibo['prezzo'])} room), and the New York State hotel unit fee of {fee} per unit per day."),
+        ("Is the NYC hotel tax per person or per room?",
+         "Per room. The percentages apply to the room rent and the flat amounts are per room or unit per day, whatever the number of guests."),
+        ("Is hotel tax the same in Manhattan and Brooklyn?",
+         f"Yes. The {sv} sales tax rate is for New York City as a whole, and the state unit fee applies in the five counties of the city: Bronx, Kings, New York, Queens and Richmond."),
+        ("Do Airbnb stays in New York City pay these taxes?",
+         f"Booking services must collect the sales tax on short-term rentals, and the {fee} unit fee applies in New York City. We could not read the city's rule on which hosts must collect the city hotel tax."),
+    ]
+    altre = ("Other US hotel taxes", ur_griglia(rel, ["hawaii"], [(US_FLS, "Florida", "All 67 counties"), (US_TXS, "Texas", "State and city rates"), (US_HUB, "USA", "Hotel tax calculator")]))
+    ur_pagina("nyc", sezioni, faq, ["nyc_311", "nyc_ibo", "nys_tb331", "nys_pub718", "nys_pub848"], altre, AVVISO_UR_US)
+
+
+def ur_bill_frase(luogo):
+    E = UR_EN
+    return (f"On {ur_data(E['presentato'])} the UK Government introduced the {E['disegno']} in the House of Commons. It would let mayors in England, {luogo}, charge a levy on overnight "
+            f"stays set as a percentage of the accommodation cost, not a flat fee. The Government says {E['sindaci']} mayors have promised to keep any levy at {E['tetto_sindaci_pct']}% or less.")
+
+
+def ur_pagina_manchester():
+    rel, M = "../", UR_MA
+    q = gbp(M["importo"])
+    sezioni = f"""<h2>Who adds the charge, and where</h2>
+<p>The {M['nome']} is added by hotels and short-stay serviced apartments in Manchester city centre and the part of Salford next to it, broadly inside the Manchester and Salford inner ring road, when the property has a rateable value of {soldi_breve(M['soglia_valore_catastale'], 'GBP')} or more. As of September {M['strutture_al'][:4]} that is {M['strutture']} places, and any new hotel that opens inside the zone joins automatically.</p>
+<p>A guest house, a small hotel below that rateable value or a hotel outside the zone is not part of the scheme. The BID publishes the map and the list of contributors.</p>
+{ur_fonte(["man_zona", "man_piano"])}
+{AVVISO_UR_UK}
+{AD}
+<h2>How much: worked examples</h2>
+<p>The charge is {q} per room or unit per night, plus VAT where applicable, whatever the number of guests and whatever the reason for the trip.</p>
+<ul><li>Two people in one room for 3 nights: 1 × 3 × {q} = <strong>{gbp(3 * M['importo'])}</strong>, plus VAT where applicable.</li>
+<li>A family in two rooms for 4 nights: 2 × 4 × {q} = <strong>{gbp(8 * M['importo'])}</strong>, plus VAT where applicable.</li>
+<li>Six friends in one serviced apartment for 2 nights: 1 × 2 × {q} = <strong>{gbp(2 * M['importo'])}</strong>, plus VAT where applicable.</li></ul>
+{ur_fonte(["man_abid", "man_piano"])}
+<h2>Is it a tax?</h2>
+<p>Not in the legal sense. What the law creates is a BID levy owed by the accommodation business; the BID's own site says the {q} is ‘added to accommodation costs’ for guests and that the equivalent is then collected from the businesses ‘by way of a statutory BID levy’. Manchester City Council has a seat on the BID board, but the charge was set in the BID's business plan, which the hotels voted for, and it pays for the BID's programme.</p>
+<p>The business plan asks properties to show the charge as a separate line and to explain it in their booking terms. Our sources do not say whether a guest may decline it: that depends on the terms of your booking.</p>
+{ur_fonte(["man_abid", "man_chi", "man_piano"])}
+<h2>How long it lasts</h2>
+<p>Hotels voted for the BID in a ballot in {M['voto']}. It began on {ur_data(M['dal'])} for {M['durata_anni']} years, so the present term runs to {ur_data(M['fine_mandato'])}. A BID cannot last longer than five years without a new ballot of the businesses that pay.</p>
+{ur_fonte(["man_piano", "man_chi", "liv_politica"])}
+<h2>What could replace it: a visitor levy for Greater Manchester</h2>
+<p>{escape(ur_bill_frase('the Mayor of Greater Manchester included'))} In the same announcement the Mayor of Greater Manchester says the region campaigned for the power and calls the City Visitor Charge proof that ‘the model can work’.</p>
+<p>The bill is not law, and no rate or start date has been set for Greater Manchester. Under the Government's plan a mayor must consult locally first, and plans for spending the money are expected by {UR_EN['piani_entro']}. Until then the {q} charge is what you pay.</p>
+{ur_fonte(["uk_legge", "uk_risposta"])}
+<h2>Manchester and other UK cities</h2>
+{ur_confronto_uk(rel)}
+<p>Liverpool's charge works the same way as Manchester's, through an accommodation BID. Edinburgh's and Cardiff's are levies created by law and set by the council.</p>
+<h2>What we could not read</h2>
+{ur_non_lette(M['non_lette'] + UR_EN['non_lette'])}
+<p>So the facts here come from the BID's own site and business plan and from GOV.UK, and we could not check how far the bill has moved through Parliament since it was introduced.</p>"""
+    faq = [
+        (f"Is there a tourist tax in Manchester in {ANNO}?",
+         f"There is no council tourist tax, but {M['strutture']} larger hotels and serviced apartments in central Manchester and Salford add a {M['nome']} of {q} per room per night, plus VAT where applicable. "
+         "It funds the Manchester Accommodation Business Improvement District."),
+        ("Is the Manchester City Visitor Charge per person or per room?",
+         f"Per room or unit. Two people sharing a room for three nights pay {gbp(3 * M['importo'])} in total, plus VAT where applicable, not {gbp(6 * M['importo'])}."),
+        ("Do all Manchester hotels add the City Visitor Charge?",
+         f"No. Only paid accommodation inside the BID zone with a rateable value of {soldi_breve(M['soglia_valore_catastale'], 'GBP')} or more: {M['strutture']} places as of September {M['strutture_al'][:4]}. Smaller places and hotels outside the zone are not in the scheme."),
+        ("Do business travellers pay the Manchester charge?",
+         "Yes. The BID's business plan says the charge is due from every room or unit occupied, regardless of the purpose of the trip."),
+        ("Will Manchester get a bigger tourist tax?",
+         f"Possibly. A bill introduced in Parliament on {ur_data(UR_EN['presentato'])} would let mayors in England charge a percentage levy on overnight stays. It is not law yet and Greater Manchester has not set a rate or a date."),
+    ]
+    altre = ("Other UK pages", ur_griglia(rel, ["liverpool", "wales"], [("edinburgh/", "Edinburgh", "Visitor levy calculator"), ("cardiff/", "Cardiff", "Visitor levy calculator")]))
+    ur_pagina("manchester", sezioni, faq, ["man_abid", "man_zona", "man_piano", "man_chi", "uk_legge", "uk_risposta", "liv_politica"], altre, AVVISO_UR_UK)
+
+
+def ur_pagina_liverpool():
+    rel, L = "../", UR_LI
+    q = gbp(L["importo"])
+    P = L["politica"]
+    sezioni = f"""<h2>Who pays it, and where</h2>
+<p>The levy falls on hotels and serviced accommodation in Liverpool with a rateable value of {soldi_breve(L['soglia_valore_catastale'], 'GBP')} or more. Liverpool BID Company, which runs the Accommodation BID, counts {L['paganti']} levy-paying businesses and says small and independent hotels and apartments do not need to pay.</p>
+{ur_fonte(["liv_voto", "liv_bid"])}
+{AVVISO_UR_UK}
+{AD}
+<h2>How much: worked examples</h2>
+<p>The amount is {q} for each occupied room for each night. The number of guests in the room makes no difference.</p>
+<ul><li>A couple in one room for 2 nights: 1 × 2 × {q} = <strong>{gbp(2 * L['importo'])}</strong>.</li>
+<li>Two rooms for 3 nights: 2 × 3 × {q} = <strong>{gbp(6 * L['importo'])}</strong>.</li>
+<li>One room for a week: 1 × 7 × {q} = <strong>{gbp(7 * L['importo'])}</strong>.</li></ul>
+{ur_fonte(["liv_voto", "liv_politica"])}
+<h2>Will it be a line on my bill?</h2>
+<p>Not always. The council bills the business, not the guest, and works the bill out from the average room occupancy for Liverpool published each month by Smith Travel Research, not from each hotel's own bookings. The council's policy paper says the business ‘may then choose to pass on the levy specifically as an item on a guest's bill or absorb it into their general operating costs’.</p>
+<p>So one hotel may show {q} a night as a visitor charge and another may simply price it in. Either way it is the same {q} per occupied room.</p>
+{ur_fonte(["liv_politica", "liv_voto"])}
+<h2>The vote, and whether the levy is still in place</h2>
+<p>Liverpool City Council held the ballot from {ur_data(L['voto_dal'])} to {ur_data(L['voto_il'])}: {L['voti_si']} votes in favour, {L['voti_no']} against and {L['voti_nulli']} invalid, on a {L['affluenza_pct']}% turnout. The new levy replaced one based on a percentage of rateable value and took effect on {ur_data(L['dal'])}.</p>
+{ur_fonte(["liv_voto", "liv_notizia"])}
+<p>The council's policy paper of {P['documento']} says that, at the time of publication, Liverpool was covered by BID arrangements which ‘place a {q} per night levy on occupied units in larger hotels and serviced accommodation’, approved in a ballot of levy payers in April 2025. That is the latest official statement we have read: the {q} levy is in place.</p>
+{ur_fonte(["liv_politica"])}
+<h2>What comes next</h2>
+<p>The Accommodation BID began its first term on {ur_data(L['abid_dal'])}, and the council notes that BID arrangements have a statutory limit of five years and need a new ballot to continue.</p>
+<p>{escape(ur_bill_frase('the Mayor of the Liverpool City Region included'))} In that announcement the city region's mayor says a levy there ‘could potentially raise up to £18m a year’. The bill is not law, and no rate or date has been set.</p>
+<p>Liverpool City Council consulted from {ur_data(P['consultazione_dal'])} to {ur_data(P['consultazione_al'])} on what happens if both exist, received {P['risposte']} responses and adopted this policy: no premises or visitor should be subject to both a BID levy and the overnight visitor levy.</p>
+{ur_fonte(["uk_legge", "liv_politica_pag", "liv_politica", "liv_bid"])}
+<h2>Liverpool and other UK cities</h2>
+{ur_confronto_uk(rel)}
+<p>Manchester's {gbp(UR_MA['importo'])} charge is the other accommodation BID in the UK. Edinburgh and Cardiff use levies written into Scottish and Welsh law.</p>
+<h2>What we could not read</h2>
+{ur_non_lette(L['non_lette'] + UR_EN['non_lette'])}
+<p>For that reason this page says nothing about the legal challenge to the ballot, and we cannot say which stage the bill has reached in Parliament since {ur_data(UR_EN['presentato'])}.</p>"""
+    faq = [
+        (f"Is there a tourist tax in Liverpool in {ANNO}?",
+         f"There is no council tourist tax, but since {ur_data(L['dal'])} larger hotels and serviced apartments in Liverpool pay a Business Improvement District levy of {q} per occupied room per night, which they may add to guests' bills."),
+        ("Is the Liverpool visitor charge per person or per room?",
+         f"Per occupied room per night. A couple sharing one room for two nights is {gbp(2 * L['importo'])} in total."),
+        ("Do all Liverpool hotels charge the £2?",
+         f"No. The levy applies to hotels and serviced accommodation with a rateable value of {soldi_breve(L['soglia_valore_catastale'], 'GBP')} or more ({L['paganti']} businesses, according to Liverpool BID Company). "
+         "Those businesses may show it on the bill or absorb it."),
+        (f"Is the Liverpool {q} visitor charge still in place?",
+         f"Yes, according to the latest official document we have read: Liverpool City Council's policy paper of {P['documento']} describes the {q} per night levy on occupied units in larger hotels and serviced accommodation as in place."),
+        ("Will Liverpool have both the £2 charge and a new visitor levy?",
+         "The council's adopted policy is that no premises or visitor should be subject to both a BID levy and the proposed overnight visitor levy. The levy itself depends on a bill that is not law yet."),
+    ]
+    altre = ("Other UK pages", ur_griglia(rel, ["manchester", "wales"], [("edinburgh/", "Edinburgh", "Visitor levy calculator"), ("cardiff/", "Cardiff", "Visitor levy calculator")]))
+    ur_pagina("liverpool", sezioni, faq, ["liv_voto", "liv_politica", "liv_bid", "liv_notizia", "liv_politica_pag", "uk_legge"], altre, AVVISO_UR_UK)
+
+
+def ur_pagina_wales():
+    rel, W = "../", UR_GA
+    c = W["consigli"][0]
+    a, b = gbp(W["alta"]), gbp(W["bassa"])
+    anno = c["dal"][:4]
+    dove = ur_tab(["Council area", "Visitor levy", "From"], [
+        (f'<a href="{rel}cardiff/">Cardiff</a>', f"{a} per person per night; {b} per person on camping pitches and in shared rooms", ur_data(c["dal"])),
+        ("Every other council in Wales", "No decision that we have read; the official list was not readable", "–"),
+    ])
+    sezioni = f"""<h2>Where the levy applies, council by council</h2>
+{dove}
+<p>Cardiff's Full Council approved the levy, the council announced on {ur_data(c['approvato'])}, after a consultation in which {c['favorevoli_pct']}% of respondents were in favour and {c['contrari_pct']}% against. The council says the legislation lets councils across Wales charge ‘from April {anno}’, which is why nowhere charges in {ANNO}, and that Cardiff's levy will be introduced in April {anno}; the Welsh Revenue Authority, quoted in the same release, gives the day: overnight stays from {ur_data(c['dal'])}. The council expects about £{c['gettito_mln']} million a year.</p>
+<p><strong>Booked ahead?</strong> In the council's release of {ur_data(UR_F['car_intesa']['pubblicato_il'])} the Welsh Revenue Authority says that from {ur_data(c['prenotazioni_dal'])} providers must account for the levy on new bookings, and on any extra nights or guests added to existing bookings, for stays from {ur_data(c['dal'])}. So a Cardiff booking made since that date for a night on or after {ur_data(c['dal'])} can already include the levy.</p>
+<p>The Welsh Revenue Authority, which collects the levy, keeps the official list of councils. Its site refused our request, so this table is not that list: it shows the one decision we could read.</p>
+{ur_fonte(["car_approvazione", "car_intesa"])}
+{AVVISO_UR_UK}
+{AD}
+<h2>The two rates in the Act</h2>
+<ul><li><strong>Higher rate, {a} per person per night:</strong> all visitor accommodation that is not in the lower-rate group.</li>
+<li><strong>Lower rate, {b} per person per night:</strong> a pitch or area provided for camping, and a dormitory or other room normally shared with people on a different booking, such as a hostel dormitory.</li></ul>
+<p>Cardiff Council says the levy covers hotels, hostels, guesthouses, Airbnbs, campsites and temporary event accommodation. At the lower rate, anyone aged under {W['eta_adulto']} at the start of the stay is left out of the count. The Act lets Welsh Ministers change the two rates by regulations, and lets them allow councils to add an extra amount.</p>
+{ur_fonte(["gal_testo", "car_approvazione"])}
+<h2>Worked examples for Cardiff from April {anno}</h2>
+<ul><li>Two adults in a hotel for 3 nights: 2 × 3 × {a} = <strong>{gbp(2 * 3 * W['alta'])}</strong>.</li>
+<li>Two adults and two children in a holiday let for 3 nights: 4 × 3 × {a} = <strong>{gbp(4 * 3 * W['alta'])}</strong>, because the higher rate counts every person.</li>
+<li>Two adults and a child of 10 on a camping pitch for 2 nights: 2 × 2 × {b} = <strong>{gbp(2 * 2 * W['bassa'])}</strong>, because under-{W['eta_adulto']}s are not counted at the lower rate.</li></ul>
+<p>Cardiff Council adds that a VAT-registered accommodation provider must apply VAT at {W['iva_pct']}% to the levy it collects, so the line on a bill can be higher than these figures. For other dates and party sizes use the <a href="{rel}cardiff/">Cardiff visitor levy calculator</a>.</p>
+{ur_fonte(["gal_testo", "car_approvazione"])}
+<h2>Stays that are not charged</h2>
+<ul><li>A booking that entitles the guest to stay for more than {W['notti_max']} nights, even if the nights are not in a row.</li>
+<li>Children under {W['eta_adulto']} on camping pitches and in shared rooms.</li>
+<li>Emergency or temporary accommodation arranged by the council.</li></ul>
+{ur_fonte(["gal_testo", "car_approvazione"])}
+<h2>How a council brings the levy in</h2>
+<p>The Act does not impose a levy anywhere: it gives each principal council in Wales the power to introduce one in its own area. The council must publish a notice with the start date, and that date cannot be earlier than {W['preavviso_mesi']} months after the notice, unless the council and the Welsh Revenue Authority agree a shorter period, and must be {' or '.join(W['date_ammesse'])}.</p>
+<p>A council may not change its levy, for example by adding an extra amount, until it has been in effect for 12 months. So if your destination's council has not published a notice, a levy there is normally at least a year away.</p>
+{ur_fonte(["gal_testo"])}
+<h2>The law behind it</h2>
+<p>The {W['legge']} received Royal Assent on {ur_data(W['assenso'])}. Besides the levy, it requires the Welsh Revenue Authority to keep a register of visitor accommodation providers.</p>
+{ur_fonte(["gal_testo", "gal_atto"])}
+<h2>Wales and the rest of the UK</h2>
+{ur_confronto_uk(rel)}
+<p>Wales charges per person, Manchester and Liverpool per room, and Edinburgh a percentage of the price.</p>
+<h2>What we could not read</h2>
+{ur_non_lette(W['non_lette'])}
+<p>For that reason this page does not say which councils, if any, are consulting on a levy, and it takes the rules from the text of the Act and from Cardiff Council's own announcements.</p>"""
+    faq = [
+        (f"Is there a tourism tax in Wales in {ANNO}?",
+         f"Not in {ANNO}. Cardiff Council says the legislation lets councils charge from April {anno}, and Cardiff, the one council whose decision we have read, starts then."),
+        ("How much is the Wales visitor levy?",
+         f"The Act sets two rates: {a} per person per night for most accommodation, and {b} per person per night for camping pitches and shared rooms such as hostel dormitories. VAT-registered providers add VAT to the levy."),
+        ("Which councils in Wales charge the visitor levy?",
+         f"Cardiff has approved it and starts on {ur_data(c['dal'])}. We have read no decision by any other council, but the Welsh Revenue Authority's official list did not open for us, so check with your accommodation."),
+        ("Do children pay the Welsh visitor levy?",
+         f"At the higher rate of {a}, yes: the Act counts every person. At the lower rate of {b} for camping pitches and shared rooms, under-{W['eta_adulto']}s are not counted."),
+        ("Will Snowdonia, Pembrokeshire or Anglesey charge a tourism tax?",
+         f"We have read no decision for those areas. Under the Act their councils would have to publish a notice at least {W['preavviso_mesi']} months before the start date, which must be {' or '.join(W['date_ammesse'])}."),
+    ]
+    altre = ("Other UK pages", ur_griglia(rel, ["manchester", "liverpool"], [("cardiff/", "Cardiff", "Visitor levy calculator"), ("edinburgh/", "Edinburgh", "Visitor levy calculator")]))
+    ur_pagina("wales", sezioni, faq, ["car_approvazione", "gal_testo", "car_intesa", "gal_atto"], altre, AVVISO_UR_UK)
+
+
+def ur_risposta_paese():
+    """Titolo, H1 e risposta della pagina paese Regno Unito (piano del 27/11/2026: «tourist tax uk», 720 ricerche al mese)."""
+    e, pct = ur_edimburgo()
+    c = UR_GA["consigli"][0]
+    risp = (f"The UK has no national tourist tax in {ANNO}. Edinburgh charges a visitor levy of {pct} of the room price, larger hotels in Manchester add {gbp(UR_MA['importo'])} per room per night "
+            f"and in Liverpool {gbp(UR_LI['importo'])} (Business Improvement District charges, not council taxes), and Cardiff starts the Welsh visitor levy in April {c['dal'][:4]} at "
+            f"{gbp(UR_GA['alta'])} per person per night. For the rest of England, a bill that would let mayors charge a percentage levy was introduced in Parliament on "
+            f"{ur_data(UR_EN['presentato'])} and is not law yet (checked on {ur_check()}).")
+    return (f"Tourist tax UK {ANNO}: Edinburgh {pct}, Manchester {gbp(UR_MA['importo'])}, Liverpool {gbp(UR_LI['importo'])}, Wales",
+            f"Tourist tax in the UK {ANNO}: where you pay and how much", risp)
+
+
+def ur_descrizione_paese():
+    """Meta description della pagina paese Regno Unito: gli importi e la data della lettura (≤ 160 caratteri)."""
+    _, pct = ur_edimburgo()
+    c = UR["controllato_il"]
+    return (f"No national tourist tax in the UK in {ANNO}: Edinburgh {pct}, Manchester {gbp(UR_MA['importo'])} and Liverpool {gbp(UR_LI['importo'])} per room a night, "
+            f"Cardiff {gbp(UR_GA['alta'])} from April {UR_GA['consigli'][0]['dal'][:4]}. Checked {int(c[8:])} {MESI[int(c[5:7]) - 1][:3]} {c[:4]}.")
+
+
+def pagine_usa_regno_unito():
+    ur_pagina_hawaii()
+    ur_pagina_nyc()
+    ur_pagina_manchester()
+    ur_pagina_liverpool()
+    ur_pagina_wales()
+
+
 def fr_slug_map():
     m, usati = {}, set()
     for code, nome, dep, _ in FR_TOP["comuni"]:
@@ -5055,14 +5622,14 @@ def pagina_paese(slug):
 {f'<p class="small">What changes next: <a href="{rel}tourist-tax-changes-2027/">tourist tax changes in 2027</a>.</p>' if any(cambi_di(d["slug"]) for d in dd) else ""}
 {(jt_callout(rel) + jp_callout(rel)) if slug == "japan" else ""}
 {(es_callout(rel) + cn_callout(rel)) if slug == "spain" else ""}
-<div class="tab"><table><thead><tr><th>Destination</th><th>Rate {ANNO}</th><th>Max taxable nights</th><th>Exempt</th></tr></thead><tbody>{righe}</tbody></table></div>
+<div class="tab"><table><thead><tr><th>Destination</th><th>Rate {ANNO}</th><th>Max taxable nights</th><th>Exempt</th></tr></thead><tbody>{righe}{ur_righe_paese(rel) if slug == "united-kingdom" else ""}</tbody></table></div>{ur_fonte(["man_abid", "liv_voto", "liv_politica", "car_approvazione"]) if slug == "united-kingdom" else ""}
 {AVVISO}
 {AD}
 <h2>Calculators</h2>
-<div class="griglia">{''.join(f'<a href="{rel}{d["slug"]}/">{escape(d["name"])}<small>{escape(riassunto(d))}</small></a>' for d in dd)}</div>
+<div class="griglia">{''.join(f'<a href="{rel}{d["slug"]}/">{escape(d["name"])}<small>{escape(riassunto(d))}</small></a>' for d in dd)}</div>{('<h2>Guides without a calculator</h2>' + ur_griglia(rel, ["manchester", "liverpool", "wales"])) if slug == "united-kingdom" else ""}
 <p><a href="{rel}tourist-taxes-europe-2026/">Tourist taxes in Europe {ANNO}</a> · <a href="{rel}">All destinations</a></p>"""
     pagina(f"country/{slug}/", tit or f"Tourist taxes in {nome} {ANNO}: rates and calculators",
-           (re.split(r"(?<=\.) ", risp)[0] + " Official sources and calculators.") if risp else
+           ur_descrizione_paese() if slug == "united-kingdom" else (re.split(r"(?<=\.) ", risp)[0] + " Official sources and calculators.") if risp else
            f"Official tourist tax rates in {nome} for {ANNO}, destination by destination, with calculators and official sources.",
            corpo, briciole=[(nome, f"country/{slug}/")])
 
@@ -5104,6 +5671,8 @@ def paese_seo(slug, dd):
                 + ". It is the same in Istanbul, Antalya, Bodrum and everywhere else; with board or all-inclusive, food and other services sold with the stay count too.")
         return (f"Tourist tax in Turkey {anni(t)}: {breve(t)} (calculator)",
                 f"Tourist tax in Turkey {anni(t)}: {breve(t, lungo=True)}", risp)
+    if slug == "united-kingdom":
+        return ur_risposta_paese()
     return "", "", ""
 
 
@@ -5131,6 +5700,7 @@ def home():
     griglia += "".join(f'<a href="{L["pagina"]}">{escape(L["nome"])}<small>United States · {escape(sub)}</small></a>'
                        for L, sub in us_voci_stato("fl") + us_voci_stato("tx") if not L["pagina"].endswith("-county/"))  # USA (7/11/2026): città con pagina
     griglia += "".join(f'<a href="{cn_percorso(c)}">{escape(CN_TITOLI[c][2])}<small>Spain · {escape(cn_sub(c))}</small></a>' for c in CN_TITOLI)  # Canarie (27/11/2026)
+    griglia += "".join(f'<a href="{UR_PAG[c][0]}">{escape(UR_PAG[c][3])}<small>{"United States" if c in UR_US else "United Kingdom"} · {escape(ur_sub(c))}</small></a>' for c in UR_PAG)  # Hawaii, New York, Manchester, Liverpool, Galles (27/11/2026)
     griglia += (f'<div class="fr-card"><a href="france/">{ico("search")}France: {len(FR["comuni"]):,} towns{ico("arrow")}</a>'
                 f'<p class="fr-top" style="margin:0">' + " · ".join(f'<a href="france/{FR_SLUG[c[0]]}/">{escape(c[1])}</a>' for c in FR_TOP["comuni"][:24]) + '</p></div>')
     tipi = "".join(f'<li><span class="ic">{ico(i)}</span><strong>{t}</strong>{e}</li>' for i, t, e in TIPI_HOME)
@@ -5153,9 +5723,9 @@ def home():
 <div class="sez-h"><h2>Find a destination</h2></div>
 <div class="cerca-box">{ico("search")}<input class="cerca" type="search" placeholder="Search a place" data-filtro="lista-dest" aria-label="Search destinations"></div>
 <div class="griglia sez dest" id="lista-dest">{griglia}</div>
-<p><a href="france/">All French towns</a> · <a href="{US_HUB}">Hotel tax in the USA (Florida, Texas)</a> · <a href="tourist-taxes-europe-2026/">Tourist taxes in Europe {ANNO}</a> · <a href="tourist-tax-changes-2027/">Changes in 2027</a> · <a href="how-tourist-taxes-work/">How tourist taxes work</a></p>
+<p><a href="france/">All French towns</a> · <a href="{US_HUB}">Hotel tax in the USA (Florida, Texas, Hawaii, New York City)</a> · <a href="tourist-taxes-europe-2026/">Tourist taxes in Europe {ANNO}</a> · <a href="tourist-tax-changes-2027/">Changes in 2027</a> · <a href="how-tourist-taxes-work/">How tourist taxes work</a></p>
 <h2>Countries</h2>
-<div class="griglia">{''.join(f'<a href="{link_paese(s)}">{escape(PAESI[s])}<small>{plur(len(gruppi.get(s, [])) if s != "france" else len(FR_TOP["comuni"]), "destination page")}</small></a>' for s in PAESI)}<a href="{US_HUB}">United States<small>Florida and Texas hotel tax · {plur(len(us_pagine()) + 3, "page")}</small></a></div>
+<div class="griglia">{''.join(f'<a href="{link_paese(s)}">{escape(PAESI[s])}<small>{plur((len(gruppi.get(s, [])) + (len(UR_PAG) - len(UR_US) if s == "united-kingdom" else 0)) if s != "france" else len(FR_TOP["comuni"]), "destination page")}</small></a>' for s in PAESI)}<a href="{US_HUB}">United States<small>Florida, Texas, Hawaii and New York City · {plur(len(us_pagine()) + 5, "page")}</small></a></div>
 {box_affiliati()}
 {blocco_dati('tutte', DEST)}"""
     pagina("", f"Tourist Tax Calculator {ANNO}: official rates per night for {len(DEST)} destination pages and 10,900 French towns",
@@ -5185,7 +5755,8 @@ def pagina_europa():
 {AD}
 <h2>Not covered yet</h2>
 <p>We only publish a destination when we can read a complete official source. Not covered on the date we checked: Venice, Lisbon and the Algarve, Budapest, Croatia (Dubrovnik, Split), Cyprus, Glasgow, Antwerp. See <a href="{rel}about/">About and sources</a>.</p>
-<p>The Canary Islands are not in the table because they have no regional tourist tax: see <a href="{rel}{CN_HUB}">is there a tourist tax in the Canary Islands?</a> (checked on {CN_CHECK}).</p>"""
+<p>The Canary Islands are not in the table because they have no regional tourist tax: see <a href="{rel}{CN_HUB}">is there a tourist tax in the Canary Islands?</a> (checked on {CN_CHECK}).</p>
+<p>In England, <a href="{rel}manchester/">Manchester</a> and <a href="{rel}liverpool/">Liverpool</a> have a charge per room per night on larger hotels, set through a Business Improvement District and not a council tax, and in <a href="{rel}wales/">Wales</a> Cardiff starts the visitor levy in April 2027 (checked on {ur_check()}).</p>"""
     pagina("tourist-taxes-europe-2026/", f"Tourist taxes in Europe {ANNO}: city by city table (official rates)",
            f"Tourist taxes in Europe {ANNO}: official rates for Paris, Barcelona, Mallorca, Greece, Amsterdam, Berlin, Vienna, Prague, Edinburgh, Cardiff, Rome, Florence, Milan, Malta, Porto, Iceland and Turkey.",
            corpo, briciole=[(f"Tourist taxes in Europe {ANNO}", "tourist-taxes-europe-2026/")])
@@ -5309,13 +5880,15 @@ def about():
 <h2>Licences and attributions</h2>
 <ul><li>France: "Tarifs taxe de séjour – DELTA", Direction générale des Finances publiques (DGFiP), <a href="{escape(FR['fonte'])}" rel="noopener">data.economie.gouv.fr</a>, Licence Ouverte / Open Licence version 2.0 (Etalab). Dataset updated {data_lunga(FR['dataset_modificato'])}; we keep only rates with a {ANNO} effective date. Modified: rates are reorganised and the totals for unclassified accommodation are calculated by us.</li>
 <li>France, choice of town pages: INSEE, <a href="{escape(FR['insee'])}" rel="noopener">Capacité des communes en hébergement touristique 2026</a>, Licence Ouverte / Open Licence.</li>
-<li>Wales (Cardiff): contains public sector information licensed under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="noopener">Open Government Licence v3.0</a> (gov.wales, Welsh Revenue Authority).</li>
+<li>Wales (Cardiff): contains public sector information licensed under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="noopener">Open Government Licence v3.0</a> (the Act on legislation.gov.uk); Cardiff Council's newsroom for the council's own announcements.</li>
 <li>Mexico: laws of the State of Quintana Roo (Congress of Quintana Roo), the Ley Federal de Derechos (Chamber of Deputies), the decree of 30 June 2025 (SIDOF) and the UMA values of INEGI are cited as facts with a link to the official text; the Visitax amounts are calculated by us from the formula in the law (2.50 UMA). See the <a href="{rel}mexico/">Mexico page</a> for all sources.</li>
 <li>Japan accommodation tax: the list of taxes in force and approved comes from the Ministry of Internal Affairs and Communications (法定外税の状況); rates from the Minister's consents published by the Ministry and from prefecture and city pages, cited as facts with a link; see the <a href="{rel}{JT_HUB}">Japan accommodation tax page</a> and each place's page for all sources.</li>
 <li>Japan tax-free refund: rules from the Japan Tourism Agency, the National Tax Agency and Japan Customs (Ministry of Finance), cited as facts with a link to each official page; see the <a href="{rel}japan-tax-free-refund/">Japan tax-free refund page</a> for all sources.</li>
 <li>Spain, holiday let licences: counts from INE (experimental statistics on tourist homes, source: INE), the Generalitat Valenciana open data (CC BY 4.0), the Junta de Andalucía OPEN RTA (CC BY 4.0) and the Generalitat de Catalunya open data (Registre de Turisme de Catalunya); we publish only counts by municipality and month, never names, addresses or contact details. Laws on BOE, BOCM and the Junta de Andalucía site are cited as facts with a link. See the <a href="{rel}{ES_SLUG}">Spain holiday let licence page</a> for all sources.</li>
 <li>United States (Florida and Texas hotel tax): rates from the Florida Department of Revenue (forms DR-15TDT and DR-15DSS) and from the Texas Comptroller of Public Accounts (hotel occupancy tax pages and the Local Hotel Occupancy Tax Reporting dataset on data.texas.gov, rates as reported by each city and county); counties of each city from the U.S. Census Bureau's 2020 place-by-county file (public domain). See the <a href="{rel}{US_HUB}">USA hotel tax page</a> for all sources.</li>
 <li>Canary Islands: municipal ordinances from the Boletín Oficial de la Provincia de Las Palmas, votes and bills from the Parlamento de Canarias, Teide trail fees from the Cabildo de Tenerife and the IGIC rate from the Boletín Oficial de Canarias, cited as facts with a link. The one press report we use (on the court ruling about Mogán's fee) is labelled as a press report on each page. See the <a href="{rel}{CN_HUB}">Canary Islands page</a> for all sources.</li>
+<li>Hawaii and New York City: rates from the Hawaii Department of Taxation, the Hawaii State Legislature (Act 96 of 2025), the City and County of Honolulu, NYC311, the New York City Independent Budget Office and the New York State Department of Taxation and Finance, cited as facts with a link. See the <a href="{rel}usa/hawaii/">Hawaii</a> and <a href="{rel}usa/new-york-city/">New York City</a> pages.</li>
+<li>Manchester, Liverpool, Wales and England: the Manchester Accommodation BID and Liverpool BID Company sites, Liverpool City Council, Cardiff Council's newsroom, legislation.gov.uk and GOV.UK; contains public sector information licensed under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="noopener">Open Government Licence v3.0</a>. See the <a href="{rel}manchester/">Manchester</a>, <a href="{rel}liverpool/">Liverpool</a> and <a href="{rel}wales/">Wales</a> pages.</li>
 <li>Laws, ordinances and official decisions are cited as facts with a link to the official text; we do not reproduce the documents.</li></ul>
 <h2>Destinations not published (official source not readable or incomplete)</h2>
 <p>Venice, Lisbon, the Algarve, Budapest, Croatia (Dubrovnik, Split), Cyprus, Naples, Bologna, Glasgow, Antwerp, Egypt and Morocco. We will add them when we can verify a complete official source.</p>
@@ -5456,6 +6029,7 @@ def main():
     pagine_es()
     pagine_us()
     pagine_canarie()
+    pagine_usa_regno_unito()
     pagina_francia()
     for c in FR_TOP["comuni"]:
         pagina_francia_comune(c[0])

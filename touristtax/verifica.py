@@ -51,6 +51,7 @@ import re
 import subprocess
 import sys
 import tempfile
+from datetime import date
 from html import unescape
 from html.parser import HTMLParser
 from pathlib import Path
@@ -1638,6 +1639,258 @@ def controlla_canarie():
         {s: len(fs & set().union(*(v for k, v in frasi.items() if k != s))) / max(1, len(fs)) for s, fs in frasi.items()}
 
 
+# 17. Hawaii, New York City, Manchester, Liverpool, Galles e pagina paese Regno Unito (27/11/2026). Fatti letti a mano il 27/11/2026 nei testi
+# ufficiali (annunci 2025-03 e 2026-01 del Department of Taxation delle Hawaii, Act 96 SLH 2025, annuncio OTAT 2022-01 di Honolulu, pagina
+# sulla county surcharge; pagina e modulo NYC-HTX 2026 del Department of Finance, TB-ST-331 e Publication 718 dello Stato di New York; sito e
+# piano del Manchester Accommodation BID; avviso del voto e documento di novembre 2026 del Comune di Liverpool; testo della legge gallese su
+# legislation.gov.uk e notizie del Comune di Cardiff (cardiffnewsroom.co.uk); comunicato GOV.UK del 4/11/2026), scritti qui una seconda volta: se
+# dati/usa_regno_unito.json cambia senza una nuova lettura, il controllo si ferma.
+UR_ATTESI = {
+    "hawaii": {"tat_stato": 11.0, "tat_prima": 10.25, "dal": "2026-01-01", "fino_al": "2030-12-31", "tat_contea_max": 3.0, "get": 4.0, "get_contea": 0.5,
+               "get_ricarico_max": 4.712, "giorni_transiente": 180},
+    "nyc": {"vendite": 8.875, "albergo_pct": 5.875, "albergo_pct_dal": "2013-12-20", "per_stanza_min": 0.5, "per_stanza_max": 2.0, "unit_fee": 1.5,
+            "esempio_ibo": {"prezzo": 200, "per_stanza": 2.0}, "residente_giorni_citta": 180, "residente_giorni_stato": 90},
+    "manchester": {"importo": 1.0, "dal": "2023-04-01", "durata_anni": 5, "fine_mandato": "2028-03-31", "soglia_valore_catastale": 75000, "strutture": 83},
+    "liverpool": {"importo": 2.0, "dal": "2025-06-01", "soglia_valore_catastale": 45000, "voti_si": 26, "voti_no": 18, "voti_nulli": 1, "affluenza_pct": 53, "paganti": 82,
+                  "abid_dal": "2023-01-15"},
+    "galles": {"alta": 1.30, "bassa": 0.75, "eta_adulto": 18, "notti_max": 31, "preavviso_mesi": 12, "date_ammesse": ["1 April", "1 October"], "assenso": "2025-09-18", "iva_pct": 20},
+    "inghilterra": {"presentato": "2026-11-04", "legge": False, "tetto_sindaci_pct": 5, "sindaci": 10},
+}
+UR_FRAMMENTI = [  # (fonte, testo che deve essere fra i frammenti letti)
+    ("hi_ann2601", "from 10.25 percent to 11 percent, shall be effective as of January 1, 2026"), ("hi_ann2601", "until December 31, 2030"),
+    ("hi_ann2601", "until further notice"), ("hi_ann2503", "from 10.25% to 11.00%"), ("hi_act96", "[10.25] eleven per cent"),
+    ("hi_schema", "not to exceed three per cent"), ("hon_otat", "the OTAT is levied at a rate of 3%"), ("hon_otat", "Ordinance No. 21-33"),
+    ("hi_get", "City and County of Honolulu: 4.7120%"), ("hi_get", "County of Maui: 4.7120%"), ("hi_get", "County of Kauai: 4.7120%"),
+    ("hi_tf962", "mandatory resort fees"), ("hi_tf962", "less than 180 consecutive days"), ("hi_tf962", "4% plus 0.5% county surcharge"),
+    ("nyc_ibo", "first, a 5.875% tax on the total rent paid by the consumer; second, a daily room rate that ranges from $0.50 to $2.00 per day"),
+    ("nyc_ibo", "($200 x 5.875%) + ($2.00 x 4)"), ("nyc_311", "rate of 5.875% went into effect on December 20, 2013"), ("nys_pub718", "*New York City 8⅞ 8081"),
+    ("nys_tb331", "unit fee of $1.50 per unit per day"), ("nys_tb331", "at least 90 consecutive days"), ("nys_tb331", "at least 180 consecutive days"),
+    ("nys_tb331", "is not subject to state and local sales taxes"), ("nys_pub848", "Bronx, Kings, New York, Queens and Richmond"),
+    ("man_abid", "a supplementary £1 (plus VAT, where applicable) Charge per room/unit per night"), ("man_abid", "since April 2023"),
+    ("man_zona", "rateable value of £75,000 or more"), ("man_zona", "As of September 2026, 83 accommodation establishments"),
+    ("man_piano", "commence on 1st April 2023, lasting for a period of 5 years"), ("man_piano", "regardless of the trip purpose"),
+    ("liv_voto", "a £2 per night levy would be payable per occupied room"), ("liv_voto", "rateable value of £45,000 or more"),
+    ("liv_voto", "Votes in favour: 26 Votes against: 18 Invalid votes: 1"), ("liv_voto", "take effect from 1st June 2025"), ("liv_notizia", "53% turnout"),
+    ("liv_politica", "place a £2 per night levy on occupied units"), ("liv_politica", "under both the OVL and a BID"),
+    ("liv_bid", "82 BID Levy Paying Businesses"), ("liv_bid", "15th January, 2023"),
+    ("car_approvazione", "approved by Full Council"), ("car_approvazione", "to charge a small fee to overnight visitors from April 2027"),
+    ("car_approvazione", "£1.30 per person per night for most accommodation types 75p per person per night for campsites and shared rooms"),
+    ("car_approvazione", "62% in favour , 33% opposed"), ("car_approvazione", "£3.5 million each year"), ("car_approvazione", "standard rate VAT (20% in the UK)"),
+    ("car_approvazione", "more than 31 nights in a single booking"), ("car_intesa", "will be introduced in Cardiff in April 2027"),
+    ("gal_testo", "(a) the lower rate is £0.75, and (b) the higher rate is £1.30"), ("gal_testo", "must be either 1 April or 1 October"),
+    ("gal_testo", "period of 12 months starting with the day on which the notice was published"), ("gal_testo", "aged under 18"),
+    ("gal_testo", "more than 31 nights"), ("gal_testo", "[18 September 2025]"), ("gal_atto", "2025 asc 5"),
+    ("uk_legge", "introduced in the House of Commons today"), ("uk_legge", "no higher than 5%"), ("uk_risposta", "percentage of the accommodation cost"),
+]
+UR_DOMINI = ("https://portal.311.nyc.gov/", "https://www.ibo.nyc.gov/", "https://www.cardiffnewsroom.co.uk/", "https://files.hawaii.gov/tax/", "https://tax.hawaii.gov/", "https://data.capitol.hawaii.gov/", "https://www.honolulu.gov/bfs/",
+             "https://www.tax.ny.gov/", "https://manchesterabid.com/", "https://manchester-abid.files.svdcdn.com/", "https://liverpool.gov.uk/",
+             "https://liverpoolexpress.co.uk/", "https://liverpoolbidcompany.com/", "https://www.legislation.gov.uk/", "https://www.gov.uk/",
+             "https://assets.publishing.service.gov.uk/")
+UR_VIETATI = ("https://www.nyc.gov/", "https://www.gov.wales/")  # 27/11/2026: 403 a una richiesta senza User-Agent di browser = blocco: non sono fonti
+UR_PAGINE = {"hawaii": "usa/hawaii", "nyc": "usa/new-york-city", "manchester": "manchester", "liverpool": "liverpool", "wales": "wales"}
+UR_INIZIO = {  # inizio esatto della risposta, pagina per pagina
+    "hawaii": "Short answer: on Oahu, taxes add up to 18.712% to a hotel or vacation rental bill in",
+    "nyc": "Short answer: 14.75% of the room rate plus up to $3.50 per room per night",
+    "manchester": "Short answer: yes, in practice: larger hotels and serviced apartments in central Manchester and Salford add a City Visitor Charge of £1 per room per night",
+    "liverpool": "Short answer: yes, in practice: larger hotels and serviced apartments in Liverpool pay a levy of £2 per occupied room per night",
+    "wales": "Short answer: not yet: the Welsh visitor levy cannot be charged anywhere before April 2027",
+}
+UR_PAROLA = {"hawaii": "tourist tax", "nyc": "hotel tax", "manchester": "tourist tax", "liverpool": "tourist tax", "wales": "tourism tax"}
+UR_ESEMPI = [  # (pagina, testo atteso, calcolo a mano)
+    ("hawaii", "$165.00 + $45.00 + $70.68 = <strong>$280.68</strong>", 1500 * 0.11 + 1500 * 0.03 + 70.68),      # 1.500 × 4,712 % = 70,68
+    ("hawaii", "$189.75 + $51.75 + $81.28 = <strong>$322.78</strong>", 189.75 + 51.75 + 81.28),                   # 1.725 × 11 %, × 3 %, × 4,712 % = 81,282
+    ("hawaii", "carried $11.25 less state tax", 1500 * 0.0075),
+    ("nyc", "Total taxes and fees: <strong>$121.12</strong>", 66.56 + 44.06 + 6 + 4.5),                             # 750 × 8,875 % = 66,5625; × 5,875 % = 44,0625
+    ("nyc", "$71.00 sales tax + $47.00 hotel tax + 4 × $2.00 = $8.00 + 4 × $1.50 = $6.00, in all <strong>$132.00</strong>", 71 + 47 + 8 + 6),  # 800 × 8,875 % = 71; × 5,875 % = 47
+    ("nyc", "that comes to $40.38 a night", 22.19 + 14.69 + 2 + 1.5),                                               # 250 × 8,875 % = 22,1875; × 5,875 % = 14,6875
+    ("manchester", "1 × 3 × £1 = <strong>£3</strong>", 3), ("manchester", "2 × 4 × £1 = <strong>£8</strong>", 8), ("manchester", "1 × 2 × £1 = <strong>£2</strong>", 2),
+    ("liverpool", "1 × 2 × £2 = <strong>£4</strong>", 4), ("liverpool", "2 × 3 × £2 = <strong>£12</strong>", 12), ("liverpool", "1 × 7 × £2 = <strong>£14</strong>", 14),
+    ("wales", "2 × 3 × £1.30 = <strong>£7.80</strong>", 7.80), ("wales", "4 × 3 × £1.30 = <strong>£15.60</strong>", 15.60), ("wales", "2 × 2 × 75p = <strong>£3</strong>", 3),
+]
+UR_AMMESSI = {  # ogni importo scritto nel corpo delle pagine: dai dati o da un esempio a mano
+    "hawaii": {"$300", "$1,500", "$165.00", "$45.00", "$70.68", "$280.68", "$45", "$345", "$189.75", "$51.75", "$81.28", "$322.78", "$1,725", "$11.25",
+               "$3.50"},   # $3.50: riga della griglia verso la pagina New York
+    "nyc": {"$3.50", "$0.50", "$2.00", "$1.50", "$250", "$40.38", "$200", "$750", "$66.56", "$44.06", "$6.00", "$4.50", "$121.12", "$71.00", "$47.00", "$8.00",
+            "$132.00", "$800"},
+    "manchester": {"£1", "£75,000", "£3", "£8", "£2", "£6", "£1.30"},
+    "liverpool": {"£2", "£45,000", "£4", "£12", "£14", "£18", "£1", "£1.30"},   # £18m: frase del sindaco nel comunicato GOV.UK del 4/11/2026
+    "wales": {"£1.30", "75p", "£7.80", "£15.60", "£3", "£1", "£2", "£3.5"},   # £3.5 million: gettito stimato dal Comune di Cardiff
+}
+UR_SENZA_FONTE = ("Questions", "Other US hotel taxes", "Other UK pages", "What we could not read")  # sezioni senza cifre proprie
+UR_SOGLIA_PAROLE_UNICHE = 110
+UR_MAX_FRASI_COMUNI = 0.40
+
+
+def controlla_usa_regno_unito():
+    """17. Fonti (domini ufficiali, HTTP 200, data, impronta del file o frammenti letti, nessuna stampa); fatti = attesi letti a mano = frammenti;
+    esempi a mano; 5 pagine: titolo ≤ 70, H1 = domanda, risposta con la data divisa dopo la seconda frase, descrizione ≤ 160 con la data, stile
+    delle virgolette e delle date, ogni fonte linkata con la data, importi = dati, FAQ = JSON-LD, sitemap, link; pagina paese Regno Unito;
+    parole uniche e frasi in comune (anche con Cardiff, Edimburgo, la pagina paese e la sezione USA)."""
+    errori = []
+    U, F = G.UR, G.UR_F
+    for k, f in F.items():
+        if f["tipo"] != "ufficiale" or not f["url"].startswith(UR_DOMINI):
+            errori.append(f"USA/UK: fonte non ufficiale o su un dominio non atteso: {k} {f['url']}")
+        if f["http"] != 200 or f.get("controllato_il", "") < "2026-11-27" or not f.get("frammenti") or not f.get("breve") or not f.get("ente"):
+            errori.append(f"USA/UK: fonte non letta, senza data, senza frammenti o senza nome breve: {k}")
+        if (f["formato"] == "PDF") != (f["impronta_di"] == "file") or f["impronta_di"] not in ("file", "frammenti"):
+            errori.append(f"USA/UK: tipo di impronta sbagliato: {k}")
+        if f["impronta_di"] == "file" and not re.fullmatch(r"sha256:[0-9a-f]{64}", f.get("impronta", "")):
+            errori.append(f"USA/UK: PDF senza impronta sha256: {k}")
+    for sez, attesi in UR_ATTESI.items():
+        for campo, v in attesi.items():
+            if U[sez].get(campo) != v:
+                errori.append(f"USA/UK: {sez}.{campo} = {U[sez].get(campo)!r}, letto a mano {v!r}")
+    for k, pezzo in UR_FRAMMENTI:
+        if pezzo not in " ".join(F.get(k, {}).get("frammenti", [])):
+            errori.append(f"USA/UK: il frammento letto non è più nei dati: {k}: {pezzo}")
+    H = U["hawaii"]
+    oahu = [c for c in H["contee"] if c["id"] == "honolulu"]
+    if len(H["contee"]) != 4 or not oahu or (oahu[0]["tat_contea"], oahu[0]["letta"], oahu[0]["dal"], oahu[0]["fonte"]) != (3.0, True, "2021-12-14", "hon_otat"):
+        errori.append("USA/UK: Hawaii, contea di Honolulu diversa dall'annuncio OTAT 2022-01 (3 % dal 14/12/2021)")
+    for c in H["contee"]:
+        if c["id"] != "honolulu" and (c["letta"] is not False or c["tat_contea"] is not None):
+            errori.append(f"USA/UK: Hawaii, contea {c['id']}: un'aliquota senza una fonte letta")
+    if H["crociere"]["stato"] != "sospesa" or H["crociere"]["ingiunzione"] != "2025-12-31" or H["crociere"]["annuncio"] != "2026-01-02":
+        errori.append("USA/UK: Hawaii, stato delle crociere diverso dall'annuncio 2026-01")
+    if abs(G.hi_tot() - 18.712) > 1e-9 or abs(G.ny_pct() - 14.75) > 1e-9 or abs(G.ny_fisso() - 3.5) > 1e-9:
+        errori.append("USA/UK: totali (18,712 % a Oahu; 14,75 % + 3,50 $ a New York) diversi dal calcolo a mano")
+    W = U["galles"]
+    c0 = W["consigli"]
+    if len(c0) != 1 or (c0[0]["nome"], c0[0]["dal"], c0[0]["approvato"], c0[0]["favorevoli_pct"], c0[0]["contrari_pct"], c0[0]["gettito_mln"]) != \
+            ("Cardiff", "2027-04-01", "2026-03-26", 62, 33, 3.5):
+        errori.append("USA/UK: Galles, Cardiff diverso dalla notizia del Comune del 26/3/2026 (aprile 2027; per legge l'inizio è il 1° aprile o il 1° ottobre)")
+    card = D["cardiff"]
+    if sorted(t["valore"] for t in card["tariffe"]) != [W["bassa"], W["alta"]] or min(t["dal"] for t in card["tariffe"]) != c0[0]["dal"]:
+        errori.append("USA/UK: Galles, tariffe o data diverse dalla pagina Cardiff (dati/destinazioni.json)")
+    for k, f in F.items():
+        if f["url"].startswith(UR_VIETATI):
+            errori.append(f"USA/UK: fonte su un sito che blocca le richieste normali (non è una fonte letta): {k}")
+    # pagine
+    sm = _sitemap()
+    testi, frasi = {}, {}
+    for k, perc in UR_PAGINE.items():
+        f = SITO / perc / "index.html"
+        if not f.exists():
+            errori.append(f"USA/UK: pagina mancante {perc}")
+            continue
+        t = testi[k] = f.read_text(encoding="utf-8")
+        us = k in G.UR_US
+        rel = "../" * (perc.count("/") + 1)
+        titolo = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        descr = unescape(re.search(r'<meta name="description" content="([^"]*)"', t).group(1))
+        data_d = r"Checked [A-Z][a-z]{2} \d{1,2}, 20\d\d\.$" if us else r"Checked \d{1,2} [A-Z][a-z]{2} 20\d\d\.$"
+        if len(descr) > 160 or not re.search(data_d, descr):
+            errori.append(f"USA/UK: {k}: descrizione oltre 160 caratteri o senza la data: {len(descr)}")
+        if len(titolo) > 70 or UR_PAROLA[k] not in titolo or str(G.ANNO) not in titolo or titolo != G.UR_PAG[k][1]:
+            errori.append(f"USA/UK: {k}: titolo oltre 70 caratteri o senza la parola cercata e l'anno: {titolo}")
+        h1 = unescape(re.sub(r"<[^>]+>", "", re.search(r"<h1>(.*?)</h1>", t, re.S).group(1)))
+        if not h1.startswith(("Is there a ", "How much is the ")) or not h1.endswith("?"):
+            errori.append(f"USA/UK: {k}: l'H1 non è la domanda")
+        r = re.search(r'<p class="risposta">(.*?)</p>', t, re.S)
+        r2_ = re.search(r'<p class="risposta-seguito">(.*?)</p>', t, re.S)
+        prima_p = unescape(r.group(1)) if r else ""
+        data_p = r"checked on [A-Z][a-z]+ \d{1,2}, 20\d\d" if us else r"checked on \d{1,2} [A-Z][a-z]+ 20\d\d"
+        if not prima_p.startswith(UR_INIZIO[k]) or not re.search(data_p, prima_p):
+            errori.append(f"USA/UK: {k}: la prima frase non è la risposta con la data della lettura")
+        if not r2_ or len(re.findall(r"(?<=[.)”]) (?=[A-Z])", prima_p)) > 1:
+            errori.append(f"USA/UK: {k}: la risposta non è divisa in due paragrafi dopo la seconda frase")
+        if any(v in t for v in UR_VIETATI):
+            errori.append(f"USA/UK: {k}: link a un sito non letto (nyc.gov o gov.wales)")
+        if "«" in t or "»" in t or (us and "‘" in t) or (not us and ("“" in t or "”" in t)):
+            errori.append(f"USA/UK: {k}: virgolette nello stile sbagliato")
+        corpo = _cn_main(t)
+        testo_corpo = unescape(re.sub(r"<[^>]+>", " ", corpo))
+        if us and re.search(r"\b\d{1,2} (January|February|March|April|May|June|July|August|September|October|November|December) 20\d\d", testo_corpo):
+            errori.append(f"USA/UK: {k}: una data in stile britannico su una pagina americana")
+        if not us and re.search(r"\b(January|February|March|April|May|June|July|August|September|October|November|December) \d{1,2}, 20\d\d", testo_corpo):
+            errori.append(f"USA/UK: {k}: una data in stile americano su una pagina britannica")
+        for m in re.finditer(r'<p class="fonte[^"]*">(.*?)</p>', t, re.S):
+            p = m.group(0)
+            if not re.findall(r'href="([^"]+)"', p) or not re.search(data_p, p):
+                errori.append(f"USA/UK: {k}: riga di fonte senza link o senza data")
+        elenco = t[t.find("<h2>Sources</h2>"):]
+        for kk, x in F.items():
+            if G.escape(x["url"]) in corpo and G.escape(x["url"]) not in elenco:
+                errori.append(f"USA/UK: {k}: fonte usata ma non nell'elenco finale: {kk}")
+        for h2 in re.split(r"<h2>", corpo)[1:]:
+            if re.search(r"[$£]\d|\d%", h2) and 'class="fonte' not in h2 and not h2.startswith(UR_SENZA_FONTE):
+                errori.append(f"USA/UK: {k}: sezione con una cifra ma senza riga di fonte: {h2[:50]}")
+        for v in set(re.findall(r"[$£]\d[\d,]*(?:\.\d+)?|\b\d+p\b", testo_corpo)):
+            if v not in UR_AMMESSI[k]:
+                errori.append(f"USA/UK: {k}: importo {v} che non viene dai dati o da un esempio a mano")
+        faq_v = re.findall(r'<details class="faq"><summary>(.*?)</summary><p>(.*?)</p></details>', t, re.S)
+        ld = [json.loads(x) for x in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t, re.S)]
+        fp = next((x for x in ld if x.get("@type") == "FAQPage"), None)
+        if not fp or len(faq_v) < 4 or [(unescape(q), unescape(a)) for q, a in faq_v] != [(x["name"], x["acceptedAnswer"]["text"]) for x in fp["mainEntity"]]:
+            errori.append(f"USA/UK: {k}: FAQ visibili diverse dal JSON-LD o meno di 4")
+        if f"{G.URL_SITO}/{perc}/" not in sm:
+            errori.append(f"USA/UK: {k}: non nella sitemap")
+        attesi_link = ["usa/", "usa/florida/", "usa/texas/", "usa/hawaii/" if k == "nyc" else "usa/new-york-city/"] if us else \
+            [x + "/" for x in ("manchester", "liverpool", "wales", "cardiff", "edinburgh", "country/united-kingdom") if x != k]
+        for dest in attesi_link:
+            if f'href="{rel}{dest}"' not in t:
+                errori.append(f"USA/UK: {k}: manca il link a {dest}")
+        if 'class="ad-slot"' not in t or "Not tax advice" not in t:
+            errori.append(f"USA/UK: {k}: manca lo spazio pubblicitario o l'avviso")
+        frasi[k] = _cn_frasi(t)
+        parole = {w for w in re.findall(r"[a-zà-ÿ0-9€$£.%]+", " ".join(frasi[k]))}
+        if len(parole) < UR_SOGLIA_PAROLE_UNICHE:
+            errori.append(f"USA/UK: {k}: {len(parole)} parole uniche (soglia {UR_SOGLIA_PAROLE_UNICHE})")
+    if "rate not read" not in testi.get("hawaii", "") or testi.get("hawaii", "").count("At most 3%") < 4:
+        errori.append("USA/UK: Hawaii: la pagina non dice che l'aliquota di Maui, Hawaii e Kauai non è stata letta")
+    if "is not law yet" not in testi.get("manchester", "") or "not law" not in testi.get("liverpool", ""):
+        errori.append("USA/UK: Manchester o Liverpool: la pagina non dice che il disegno di legge non è legge")
+    if "this table is not that list" not in testi.get("wales", "") or "we cannot say that no other council has decided" not in testi.get("wales", ""):
+        errori.append("USA/UK: Galles: la pagina non dice che l'elenco ufficiale dei consigli non è stato letto")
+    if "we could not read the bands" not in testi.get("nyc", "") or "plus up to" not in testi.get("nyc", ""):
+        errori.append("USA/UK: New York: la pagina non dice che le fasce della parte giornaliera non sono state lette o dà il totale come completo")
+    vicine = {p: _cn_frasi((SITO / p / "index.html").read_text(encoding="utf-8")) for p in ("cardiff", "edinburgh", "country/united-kingdom", "usa", "usa/florida", "usa/texas")}
+    for k, fs in frasi.items():
+        altre = set().union(*(v for kk, v in frasi.items() if kk != k), *vicine.values())
+        quota = len(fs & altre) / max(1, len(fs))
+        if quota > UR_MAX_FRASI_COMUNI:
+            errori.append(f"USA/UK: {k}: {quota:.0%} delle frasi è uguale a un'altra pagina (massimo {UR_MAX_FRASI_COMUNI:.0%})")
+    for k, atteso, mano in UR_ESEMPI:
+        cifra = float(re.findall(r"[$£](\d[\d,]*(?:\.\d+)?)", atteso)[-1].replace(",", ""))
+        if abs(cifra - mano) > 0.005 or atteso not in testi.get(k, ""):
+            errori.append(f"USA/UK: esempio a mano non trovato o sbagliato in {k}: {atteso}")
+    # pagina paese Regno Unito e link in entrata
+    uk = (SITO / "country" / "united-kingdom" / "index.html").read_text(encoding="utf-8")
+    tit_uk = unescape(re.search(r"<title>(.*?)</title>", uk).group(1))
+    r_uk = re.search(r'<p class="risposta">(.*?)</p>', uk, re.S)
+    if not tit_uk.startswith(f"Tourist tax UK {G.ANNO}: ") or len(tit_uk) > 70 or not r_uk or \
+            not unescape(r_uk.group(1)).startswith(f"The UK has no national tourist tax in {G.ANNO}.") or "is not law yet (checked on" not in r_uk.group(1) or "https://www.gov.wales" in uk or 'class="card callout uk-box"' in uk:
+        errori.append("USA/UK: pagina paese Regno Unito: titolo o prima frase diversi dal piano («tourist tax uk»)")
+    for p, livello in (("country/united-kingdom", "../../"), ("cardiff", "../"), ("edinburgh", "../")):
+        tt = (SITO / p / "index.html").read_text(encoding="utf-8")
+        if any(f'href="{livello}{x}/"' not in tt for x in ("manchester", "liverpool", "wales")):
+            errori.append(f"USA/UK: la pagina {p} non linka Manchester, Liverpool e Galles")
+    # revisione del 27/11/2026: la pagina Cardiff e la voce Cardiff dei cambi 2027 hanno solo fonti lette con una richiesta normale
+    # (legislation.gov.uk, cardiffnewsroom.co.uk); nessun link a gov.wales; la pagina paese ha le righe di Manchester, Liverpool e Galles
+    for p in ("cardiff", "tourist-tax-changes-2027", "tourist-taxes-europe-2026", "about", "country/united-kingdom"):
+        if any(v in (SITO / p / "index.html").read_text(encoding="utf-8") for v in UR_VIETATI):
+            errori.append(f"USA/UK: la pagina {p} linka un sito non letto (nyc.gov o gov.wales)")
+    if any(not x["url"].startswith(("https://www.legislation.gov.uk/", "https://www.cardiffnewsroom.co.uk/")) or x["controllato_il"] < "2026-11-27" for x in card["fonti"]):
+        errori.append("USA/UK: Cardiff: una fonte non letta con una richiesta normale o con la data vecchia")
+    if "Whitbread" in testi.get("liverpool", "") or "liv_ricorso" in F or any("28 September 2026" not in testi.get(k, "") for k in ("wales",)):
+        errori.append("USA/UK: Liverpool cita ancora il ricorso senza fonte, o il Galles non dà la data delle prenotazioni (28/9/2026)")
+    if uk.count("<tr><td>") < 5 or "United Kingdom<small>5 destination pages</small>" not in (SITO / "index.html").read_text(encoding="utf-8"):
+        errori.append("USA/UK: pagina paese Regno Unito senza le righe di Manchester, Liverpool e Galles, o conteggio sbagliato nella home")
+    hub = (SITO / "usa" / "index.html").read_text(encoding="utf-8")
+    if 'href="../usa/hawaii/"' not in hub or 'href="../usa/new-york-city/"' not in hub:
+        errori.append("USA/UK: la pagina USA non linka Hawaii e New York City")
+    home = (SITO / "index.html").read_text(encoding="utf-8")
+    if any(f'<a href="{p}/">' not in home for p in UR_PAGINE.values()):
+        errori.append("USA/UK: la home non elenca le 5 pagine")
+    eur = (SITO / "tourist-taxes-europe-2026" / "index.html").read_text(encoding="utf-8")
+    if any(f'href="../{x}/"' not in eur for x in ("manchester", "liverpool", "wales")):
+        errori.append("USA/UK: la pagina Europa non linka Manchester, Liverpool e Galles")
+    conta = lambda f: len({w for w in re.findall(r"[a-zà-ÿ0-9€$£.%]+", " ".join(f))})
+    return errori, {k: conta(f) for k, f in frasi.items()}, \
+        {k: len(fs & set().union(*(v for kk, v in frasi.items() if kk != k), *vicine.values())) / max(1, len(fs)) for k, fs in frasi.items()}
+
+
 def voce_futura_nel_titolo(titolo, attese, oggi):
     fut = [x for x in attese if x[0] > oggi]
     return bool(fut) and G.soldi(fut[0][1], "MXN") in titolo
@@ -1686,9 +1939,14 @@ def main():
     print(f"Canarie ({len(G.CN_F)} fonti con data e frammenti letti, fatti = letti a mano = frammenti, {len(CN_ESEMPI)} esempi a mano, 5 pagine: titolo, domanda, "
           f"risposta con data, fonti linkate, stampa dichiarata, importi = dati, FAQ = JSON-LD, sitemap, link; parole uniche "
           f"{min(pu.values()) if pu else 0}-{max(pu.values()) if pu else 0} (soglia {CN_SOGLIA_PAROLE_UNICHE}), frasi in comune fino al {max(dop.values()) if dop else 0:.0%}): {len(ecn)} errori")
+    eur_, pu17, dop17 = controlla_usa_regno_unito()
+    print(f"Hawaii, New York City, Manchester, Liverpool, Galles ({len(G.UR_F)} fonti con data e frammenti letti, fatti = letti a mano = frammenti, {len(UR_ESEMPI)} esempi a mano, "
+          f"5 pagine: titolo, domanda, risposta con data, fonti linkate, importi = dati, FAQ = JSON-LD, sitemap, link, pagina paese Regno Unito; parole uniche "
+          f"{min(pu17.values()) if pu17 else 0}-{max(pu17.values()) if pu17 else 0} (soglia {UR_SOGLIA_PAROLE_UNICHE}), frasi in comune fino al {max(dop17.values()) if dop17 else 0:.0%}): {len(eur_)} errori")
+    print("  parole uniche: " + ", ".join(f"{k} {v}" for k, v in pu17.items()) + "; frasi in comune: " + ", ".join(f"{k} {v:.0%}" for k, v in dop17.items()))
     em, im = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
     print(G.MON.riepilogo(G.SITO_ID, im, em))
-    tutti = errori + ej + el + ef + ea + ei + e7 + en + et + ex + ejp + ejt + ebe + esn + ees + eus + ecn + em
+    tutti = errori + ej + el + ef + ea + ei + e7 + en + et + ex + ejp + ejt + ebe + esn + ees + eus + ecn + eur_ + em
     for e in tutti[:40]:
         print("  -", e)
     if tutti:

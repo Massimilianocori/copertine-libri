@@ -95,8 +95,8 @@
    "dal": "2027-04-01",
    "luogo": "Cardiff (Wales)",
    "slug": "cardiff",
-   "cosa": "The Welsh Visitor Levy starts in Cardiff, the first council in Wales to charge it. It applies to bookings made from 28 September 2026; one booking of 32 nights or more is not charged.",
-   "importo": "£1.30 per person per night (all ages); 75p per adult per night in shared hostel rooms, bunkhouses and tent pitches",
+   "cosa": "The Welsh Visitor Levy starts in Cardiff. Accommodation providers account for it on bookings made from 28 September 2026; a booking of more than 31 nights is not charged.",
+   "importo": "£1.30 per person per night (all ages); 75p per adult per night on camping pitches and in shared rooms such as hostel dormitories",
    "prima": "no levy",
    "riserva": "",
    "verifica": [
@@ -106,10 +106,10 @@
     ]
    ],
    "fonte": {
-    "titolo": "Welsh Revenue Authority (gov.wales) - Check if your council charges the levy; Visitor Levy in Wales",
-    "url": "https://www.gov.wales/visitor-levy-accommodation-providers-steps/check",
+    "titolo": "Cardiff Council news, 26 March 2026 - Visitor Levy approved by Full Council: overnight stays from 1 April 2027",
+    "url": "https://www.cardiffnewsroom.co.uk/releases/e2014/37008.html",
     "http": 200,
-    "controllato_il": "2026-10-26"
+    "controllato_il": "2026-11-27"
    },
    "importo_breve": "£1.30, hostels 75p (new)"
   },

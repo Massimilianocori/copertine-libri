@@ -1,0 +1,782 @@
+{
+ "_nota": "Hawaii, New York City, Manchester, Liverpool, Galles e pagina paese Regno Unito (27/11/2026). Ogni fatto delle pagine viene da qui. Ogni fonte ha la data di lettura e i frammenti letti (copiati dal testo); i PDF hanno anche l'impronta sha256 del file. Ricontrollo: python3 -I touristtax/raccolta/impronte.py. verifica.py, controllo 17.",
+ "controllato_il": "2026-11-27",
+ "fonti": {
+  "hi_ann2601": {
+   "url": "https://files.hawaii.gov/tax/news/announce/ann26-01.pdf",
+   "titolo": "Hawaii Department of Taxation, Announcement No. 2026-01, January 2, 2026: enjoinment of Act 96 as applied to cruise ships",
+   "ente": "State of Hawaii, Department of Taxation",
+   "formato": "PDF",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "pubblicato_il": "2026-01-02",
+   "impronta": "sha256:01d71fc3c88bc1ad2b71ca763e04d22a35dd39e6e9655d9fdd4e58cd2fee4a93",
+   "impronta_di": "file",
+   "frammenti": [
+    "Act 96 increases the transient accommodations tax (TAT) rate from 10.25 percent to 11 percent for the period beginning on January 1, 2026, until December 31, 2030",
+    "enjoined enforcement of the portions of Act 96 that relate and apply to cruise ships in an order issued on December 31, 2025",
+    "until further notice, the Department of Taxation (DOTAX) will refrain from enforcing Act 96 as it relates and applies to cruise ships",
+    "All other provisions in Act 96, including the increase in the TAT rate from 10.25 percent to 11 percent, shall be effective as of January 1, 2026."
+   ],
+   "breve": "Hawaii Department of Taxation, Announcement 2026-01"
+  },
+  "hi_ann2503": {
+   "url": "https://files.hawaii.gov/tax/news/announce/ann25-03.pdf",
+   "titolo": "Hawaii Department of Taxation, Announcement No. 2025-03, June 9, 2025: transient accommodations tax law changes from the 2025 legislative session",
+   "ente": "State of Hawaii, Department of Taxation",
+   "formato": "PDF",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "pubblicato_il": "2025-06-09",
+   "impronta": "sha256:7f2f9d93535850fb95b157a3850509b242f3acef43e550c733621574846eec4a",
+   "impronta_di": "file",
+   "frammenti": [
+    "Act 96, effective January 1, 2026, increases TAT by .75% from 10.25% to 11.00% on the gross rental or gross rental proceeds derived from furnishing transient accommodations and resort time share vacation units.",
+    "will be subject to the 10.25% TAT rate if actually or constructively received before January 1, 2026",
+    "all taxpayers are presumed to use the cash basis method of accounting",
+    "prorated according to the ratio of the ship’s days docked in State ports to the duration of the total voyage"
+   ],
+   "breve": "Hawaii Department of Taxation, Announcement 2025-03"
+  },
+  "hi_act96": {
+   "url": "https://data.capitol.hawaii.gov/sessions/sessionlaws/Years/SLH2025/SLH2025_Act96.pdf",
+   "titolo": "Act 96, Session Laws of Hawaii 2025 (S.B. No. 1396), A Bill for an Act Relating to Economic Development",
+   "ente": "Hawaii State Legislature",
+   "formato": "PDF",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "impronta": "sha256:1ad7ddafaeddf4d00a30c91a15facc0f1a6b01f4f6efab4a6d5ee7e504f8ca94",
+   "impronta_di": "file",
+   "frammenti": [
+    "A Bill for an Act Relating to Economic Development.",
+    "shall be [10.25] eleven per cent for the period beginning on January 1, 2018, to December 31, 2030",
+    "The legislature finds that Hawaii is experiencing a climate emergency."
+   ],
+   "nota": "Letto su data.capitol.hawaii.gov; www.capitol.hawaii.gov (pagina della misura SB1396) risponde 403 con la pagina di blocco: non aggirata.",
+   "breve": "Act 96, Session Laws of Hawaii 2025"
+  },
+  "hi_elenco": {
+   "url": "https://tax.hawaii.gov/news/announce/",
+   "titolo": "Hawaii Department of Taxation: list of Tax Announcements by date",
+   "ente": "State of Hawaii, Department of Taxation",
+   "formato": "HTML",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "impronta_di": "frammenti",
+   "frammenti": [
+    "2026-01 January 2, 2026 Enjoinment of Act 96, Session Laws of Hawaii 2025, as Applied to Cruise Ships",
+    "2026-06 July 31, 2026 Tax Law Changes from the 2026 Regular Legislative Session"
+   ],
+   "nota": "Letto il 27/11/2026: gli annunci del 2026 vanno da 2026-01 a 2026-10; dopo il 2026-01 nessuno ha nel titolo le crociere o la TAT. Il 2026-06 (leggi del 2026) letto per intero: nessuna legge sulla TAT.",
+   "breve": "Hawaii Department of Taxation, list of Tax Announcements"
+  },
+  "hi_schema": {
+   "url": "https://files.hawaii.gov/tax/news/pubs/25outline.pdf",
+   "titolo": "Outline of the Hawaii Tax System as of July 1, 2025",
+   "ente": "State of Hawaii, Department of Taxation",
+   "formato": "PDF",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "impronta": "sha256:7d18d699945f26f69e18fed2139d531ee8a5e91e1ed0a62b1d5bd5e0676be75f",
+   "impronta_di": "file",
+   "frammenti": [
+    "Effective January 1, 2022, each county may establish a county transient accommodations tax not to exceed three per cent of the gross rental, gross rental proceeds, and fair market rental value.",
+    "A county electing to establish a transient accommodations tax"
+   ],
+   "breve": "Outline of the Hawaii Tax System (July 1, 2025)"
+  },
+  "hi_tf962": {
+   "url": "https://files.hawaii.gov/tax/legal/taxfacts/tf2025-96-2.pdf",
+   "titolo": "Tax Facts 96-2, Transient Accommodations Tax (revised May 2025)",
+   "ente": "State of Hawaii, Department of Taxation",
+   "formato": "PDF",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "impronta": "sha256:b77cda8f5ad21a3d8026b41b813993ff96ce2f31bc974471595276f9a8ad966a",
+   "impronta_di": "file",
+   "frammenti": [
+    "Gross rental proceeds also include any mandatory resort fees charged for use of the transient accommodation’s property, services, or amenities.",
+    "rented to a transient for less than 180 consecutive days",
+    "A transient is any person, including a Hawaii resident,",
+    "the TAT is levied on the operator of the transient accommodation",
+    "must also pay the general excise tax (GET) at the rate of 4% plus 0.5% county surcharge"
+   ],
+   "nota": "Revisione di maggio 2025: l'aliquota scritta è ancora 10,25 % (prima dell'Act 96). Usata solo per la base imponibile (resort fee), i 180 giorni e la GET.",
+   "breve": "Hawaii Department of Taxation, Tax Facts 96-2"
+  },
+  "hi_get": {
+   "url": "https://tax.hawaii.gov/geninfo/countysurcharge/",
+   "titolo": "County Surcharge on General Excise and Use Tax (maximum pass-on rates)",
+   "ente": "State of Hawaii, Department of Taxation",
+   "formato": "HTML",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "impronta_di": "frammenti",
+   "frammenti": [
+    "City and County of Honolulu: The county surcharge at the rate of 0.5% is effective from January 1, 2007 to December 31, 2030.",
+    "County of Maui: The county surcharge at the rate of 0.5% is effective from January 1, 2024 to December 31, 2030.",
+    "Businesses may choose to pass on the GET and any applicable county surcharge to its customers but are not required to do so.",
+    "City and County of Honolulu: 4.7120% (effective January 1, 2007 – December 31, 2030)",
+    "County of Kauai: 4.7120% (effective January 1, 2019 – December 31, 2030)",
+    "County of Maui: 4.7120% (effective January 1, 2024 – December 31, 2030)",
+    "4.7120% (effective January 1, 2020 – December 31, 2030)"
+   ],
+   "breve": "Hawaii Department of Taxation, county surcharge on general excise tax"
+  },
+  "hon_otat": {
+   "url": "https://www.honolulu.gov/bfs/wp-content/uploads/sites/62/2025/05/OTAT_Announcement_2022-01.pdf",
+   "titolo": "City and County of Honolulu, OTAT Announcement No. 2022-01: Oahu Transient Accommodations Tax",
+   "ente": "City and County of Honolulu, Department of Budget and Fiscal Services",
+   "formato": "PDF",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "impronta": "sha256:9bbc4c8f17f394168c4ca627b4cfe121d210eae8c0a2851f913f70b258f7b6e3",
+   "impronta_di": "file",
+   "frammenti": [
+    "allowed the four counties the right to establish and administer their own transient accommodations tax at a maximum rate of 3%",
+    "Ordinance No. 21-33 was signed into law by Mayor Rick Blangiardi on December 14, 2021",
+    "Effective December 14, 2021, the OTAT is levied at a rate of 3% on every taxpayer"
+   ],
+   "breve": "City and County of Honolulu, OTAT Announcement 2022-01"
+  },
+  "hon_pagina": {
+   "url": "https://www.honolulu.gov/bfs/otat/",
+   "titolo": "Oahu Transient Accommodations Tax (OTAT), City and County of Honolulu",
+   "ente": "City and County of Honolulu, Department of Budget and Fiscal Services",
+   "formato": "HTML",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "impronta_di": "frammenti",
+   "frammenti": [
+    "in accordance with Ordinance No. 21-33, which established the OTAT effective December 14, 2021"
+   ],
+   "breve": "City and County of Honolulu, OTAT page"
+  },
+  "nys_tb331": {
+   "url": "https://www.tax.ny.gov/pubs_and_bulls/tg_bulletins/st/hotel_and_motel_occupancy.htm",
+   "titolo": "Tax Bulletin ST-331 (TB-ST-331), Hotel and Short-Term Rental Unit Occupancy, issued July 30, 2025",
+   "ente": "New York State Department of Taxation and Finance",
+   "formato": "HTML",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "pubblicato_il": "2025-07-30",
+   "impronta_di": "frammenti",
+   "frammenti": [
+    "This amount is taxable at the combined state and local sales tax rate.",
+    "operators and booking services must also charge a unit fee of $1.50 per unit per day of occupancy in New York City",
+    "The New York City unit fee is not subject to state and local sales taxes.",
+    "These local bed taxes are not subject to state and local sales taxes.",
+    "To be a permanent resident, a guest must stay in the hotel or short-term rental unit for at least 90 consecutive days without interruption.",
+    "In New York City, the local sales tax applies until a guest has stayed for at least 180 consecutive days.",
+    "A booking service that facilitates sales of short-term rental unit occupancy in New York State for an operator must collect sales tax on the charge for occupancy of that unit."
+   ],
+   "breve": "New York State Tax Department, Tax Bulletin ST-331"
+  },
+  "nys_pub718": {
+   "url": "https://www.tax.ny.gov/pdf/publications/sales/pub718.pdf",
+   "titolo": "Publication 718, New York State Sales and Use Tax Rates by Jurisdiction, effective March 1, 2025",
+   "ente": "New York State Department of Taxation and Finance",
+   "formato": "PDF",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "pubblicato_il": "2025-03-01",
+   "impronta": "sha256:697364430b70f44db8d6a5b89b743afa97d0ebb2daa0d53a728b8c253aa7d127",
+   "impronta_di": "file",
+   "frammenti": [
+    "Effective March 1, 2025",
+    "*New York City 8⅞ 8081"
+   ],
+   "breve": "New York State Tax Department, Publication 718"
+  },
+  "nyc_ibo": {
+   "url": "https://www.ibo.nyc.gov/assets/ibo/downloads/pdf/taxes-and-other-revenues/2025/2025-july-how-has-taxing-hotel-remarketers-affect-city-hotel-occupancy-tax-revenue.pdf",
+   "titolo": "How Has Taxing Hotel Remarketers Affected City Hotel Occupancy Tax Revenue? (July 2025)",
+   "ente": "New York City Independent Budget Office",
+   "formato": "PDF",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "pubblicato_il": "2025-07-01",
+   "impronta": "sha256:b1e5f45b91d8545465ed62fa65708b38857d2e341260b2203d3d0a6b9e849e01",
+   "impronta_di": "file",
+   "frammenti": [
+    "The New York City Hotel Room Occupancy Tax has two components: first, a 5.875% tax on the total rent paid by the consumer; second, a daily room rate that ranges from $0.50 to $2.00 per day based on the day hotel room rate.",
+    "a four-day stay in a hotel room that cost $200 per night would be subject to Hotel Room Occupancy Tax equal to ($200 x 5.875%) + ($2.00 x 4)",
+    "Purchases subject to the City Hotel Room Occupancy Tax are also subject to local and state General Sales Tax."
+   ],
+   "nota": "Nell'esempio dell'IBO il risultato scritto (19,75 $) non torna con la formula: in pagina usiamo solo le aliquote e i 2,00 $ al giorno per una stanza da 200 $, non quel totale.",
+   "breve": "NYC Independent Budget Office, hotel occupancy tax brief (July 2025)"
+  },
+  "nys_pub848": {
+   "url": "https://www.tax.ny.gov/pdf/publications/sales/pub848.pdf",
+   "titolo": "Publication 848, A Guide to Sales Tax for Hotel and Motel Operators",
+   "ente": "New York State Department of Taxation and Finance",
+   "formato": "PDF",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "impronta": "sha256:ca449e91675c66dcb04357b72f6a2035f9ed16f656481eab61669a4b534f3382",
+   "impronta_di": "file",
+   "frammenti": [
+    "a hotel unit fee in the amount of $1.50 per unit per day",
+    "within New York City (Bronx, Kings, New York, Queens and Richmond Counties)"
+   ],
+   "breve": "New York State Tax Department, Publication 848"
+  },
+  "nyc_311": {
+   "url": "https://portal.311.nyc.gov/article/?kanumber=KA-02794",
+   "titolo": "Hotel Room Occupancy Tax, NYC311",
+   "ente": "City of New York (NYC311)",
+   "formato": "HTML",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "impronta_di": "frammenti",
+   "frammenti": [
+    "The Hotel Room Occupancy Tax rate of 5.875% went into effect on December 20, 2013. It is still in effect."
+   ],
+   "breve": "City of New York, NYC311: hotel room occupancy tax"
+  },
+  "man_abid": {
+   "url": "https://manchesterabid.com/",
+   "titolo": "Manchester Accommodation Business Improvement District: how it works",
+   "ente": "Manchester Accommodation BID",
+   "formato": "HTML",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "impronta_di": "frammenti",
+   "frammenti": [
+    "The above activities are funded by the City Visitor Charge; a supplementary £1 (plus VAT, where applicable) Charge per room/unit per night for guests, added to accommodation costs.",
+    "The Charge has been in place since April 2023 and applies to most paid accommodation establishments within the Manchester Accommodation BID zone.",
+    "by way of a statutory BID levy"
+   ],
+   "breve": "Manchester Accommodation BID, home page"
+  },
+  "man_zona": {
+   "url": "https://manchesterabid.com/contributors/",
+   "titolo": "Manchester Accommodation BID: contributors and zone",
+   "ente": "Manchester Accommodation BID",
+   "formato": "HTML",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "impronta_di": "frammenti",
+   "frammenti": [
+    "Any paid accommodation establishment that falls within the Zone and that has a rateable value of £75,000 or more currently collects the City Visitor Charge.",
+    "As of September 2026, 83 accommodation establishments meet the above criteria",
+    "any new hotels opening within its geographical Zone whilst the Manchester Accommodation BID is in place will automatically participate and contribute"
+   ],
+   "breve": "Manchester Accommodation BID, contributors"
+  },
+  "man_chi": {
+   "url": "https://manchesterabid.com/who-we-are/",
+   "titolo": "Manchester Accommodation BID: who we are",
+   "ente": "Manchester Accommodation BID",
+   "formato": "HTML",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "impronta_di": "frammenti",
+   "frammenti": [
+    "It was established following a successful ballot in autumn 2022",
+    "Additional Board places are filled by representatives from Marketing Manchester, CityCo, Manchester City Council, and The Growth Company"
+   ],
+   "breve": "Manchester Accommodation BID, who we are"
+  },
+  "man_piano": {
+   "url": "https://manchester-abid.files.svdcdn.com/production/files/ABID-Business-Plan-Final.pdf",
+   "titolo": "Manchester Accommodation Business Improvement District 2023–2028: business plan",
+   "ente": "Manchester Accommodation BID",
+   "formato": "PDF",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "impronta": "sha256:df8fc9f9aa11d79dc93b6aeb1ba7a89594a4626cd3659f8500f09a81e1cf30cb",
+   "impronta_di": "file",
+   "frammenti": [
+    "The ABID will commence on 1st April 2023, lasting for a period of 5 years.",
+    "The charge will be due from every room/unit occupied, regardless of the trip purpose.",
+    "Hotels in Salford near the City Centre with a rateable value of £75,000 or more.",
+    "broadly within the Manchester/Salford inner ring road"
+   ],
+   "breve": "Manchester Accommodation BID, business plan 2023–2028"
+  },
+  "liv_voto": {
+   "url": "https://liverpool.gov.uk/council/consultation-and-engagement/consultation-results/results-of-the-accommodation-bid-alteration-ballot-on-the-introduction-of-a-visitor-charge-in-liverpool/",
+   "titolo": "Results of the Accommodation BID alteration ballot on the introduction of a visitor charge in Liverpool",
+   "ente": "Liverpool City Council",
+   "formato": "HTML",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "impronta_di": "frammenti",
+   "frammenti": [
+    "such that a £2 per night levy would be payable per occupied room, based upon estimated average occupation figures for the sector in Liverpool published by Smith Travel Research (STR) each month",
+    "The levy would continue to only be payable in respect of hotel or serviced accommodation with a rateable value of £45,000 or more.",
+    "Votes in favour: 26 Votes against: 18 Invalid votes: 1",
+    "the revised BID levy will now take effect from 1st June 2025"
+   ],
+   "breve": "Liverpool City Council, result of the Accommodation BID ballot"
+  },
+  "liv_notizia": {
+   "url": "https://liverpoolexpress.co.uk/yes-vote-on-2-overnight-visitor-charge-in-liverpool/",
+   "titolo": "Yes vote on £2 overnight visitor charge in Liverpool (Liverpool Express, the council's news site, 25 April 2025)",
+   "ente": "Liverpool City Council",
+   "formato": "HTML",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "pubblicato_il": "2025-04-25",
+   "impronta_di": "frammenti",
+   "frammenti": [
+    "The change was supported by 26 votes to 18 against on a 53% turnout.",
+    "a £2 per night charge per occupied bedroom/apartment"
+   ],
+   "breve": "Liverpool City Council news, 25 April 2025"
+  },
+  "liv_politica_pag": {
+   "url": "https://liverpool.gov.uk/council/consultation-and-engagement/consultation-results/overnight-visitor-levy-and-business-improvement-districts-proposed-policy/",
+   "titolo": "Overnight visitor levy and business improvement districts proposed policy: consultation result",
+   "ente": "Liverpool City Council",
+   "formato": "HTML",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "impronta_di": "frammenti",
+   "frammenti": [
+    "This consultation ran from 7 August to 13 September 2026.",
+    "Seven responses were received from individuals or organisations.",
+    "it was appropriate to adopt and publish the policy in an amended form"
+   ],
+   "breve": "Liverpool City Council, consultation on the overnight visitor levy and BIDs"
+  },
+  "liv_politica": {
+   "url": "https://liverpool.gov.uk/media/5kxpxnrg/policy-in-relation-to-business-improvement-districts-and-the-overnight-visitor-levy.pdf",
+   "titolo": "Policy in relation to Business Improvement Districts and the Overnight Visitor Levy, November 2026",
+   "ente": "Liverpool City Council",
+   "formato": "PDF",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "pubblicato_il": "2026-11-01",
+   "impronta": "sha256:30f1bc967b6d7ed0702ceeed46e1bb8192de4606d7cb3925797f9df2457150dd",
+   "impronta_di": "file",
+   "frammenti": [
+    "place a £2 per night levy on occupied units in larger hotels and serviced accommodation",
+    "The levy payer may then choose to pass on the levy specifically as an item on a guest’s bill or absorb it into their general operating costs.",
+    "The council’s policy is that no premises or visitor should be subject to an occupation-based levy under both the OVL and a BID.",
+    "the statutory five-year limit on duration for BID arrangements",
+    "requirement for any new or renewed BID arrangements to be approved in a ballot of levy payers"
+   ],
+   "nota": "Il documento porta solo «November 2026» come data: pubblicato_il = primo giorno del mese, in pagina si scrive «November 2026».",
+   "breve": "Liverpool City Council, policy on BIDs and the overnight visitor levy (November 2026)"
+  },
+  "liv_bid": {
+   "url": "https://liverpoolbidcompany.com/accommodation-bid/",
+   "titolo": "Accommodation Business Improvement District, Liverpool BID Company",
+   "ente": "Liverpool BID Company",
+   "formato": "HTML",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "impronta_di": "frammenti",
+   "frammenti": [
+    "The Accommodation Business Improvement District began its first term on 15th January, 2023.",
+    "From 1st June 2025, the Liverpool ABID Charge came into effect and is one of only two Accommodation BID’s in the UK.",
+    "82 BID Levy Paying Businesses",
+    "meaning small and independent hotels and apartments within the Business Improvement District do not need to pay"
+   ],
+   "breve": "Liverpool BID Company, Accommodation BID"
+  },
+  "gal_atto": {
+   "url": "https://www.legislation.gov.uk/asc/2025/5/contents/enacted",
+   "titolo": "Visitor Accommodation (Register and Levy) Etc. (Wales) Act 2025 (2025 asc 5): contents",
+   "ente": "legislation.gov.uk (The National Archives)",
+   "formato": "HTML",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "impronta_di": "frammenti",
+   "frammenti": [
+    "Visitor Accommodation (Register and Levy) Etc. (Wales) Act 2025",
+    "Acts of Senedd Cymru 2025 asc 5"
+   ],
+   "breve": "Visitor Accommodation (Register and Levy) Etc. (Wales) Act 2025 on legislation.gov.uk"
+  },
+  "car_approvazione": {
+   "url": "https://www.cardiffnewsroom.co.uk/releases/e2014/37008.html",
+   "titolo": "Visitor Levy Will Be Introduced for Overnight Stays in Cardiff Following Approval (Cardiff Council newsroom, 26 March 2026)",
+   "ente": "Cardiff Council",
+   "formato": "HTML",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "pubblicato_il": "2026-03-26",
+   "impronta_di": "frammenti",
+   "frammenti": [
+    "The levy, which has now been approved by Full Council, follows the passing of new Welsh legislation, which received Royal Assent in September 2025, allowing councils across Wales to charge a small fee to overnight visitors from April 2027.",
+    "with 62% in favour , 33% opposed and 5% neutral",
+    "estimated at £3.5 million each year",
+    "£1.30 per person per night for most accommodation types 75p per person per night for campsites and shared rooms such as hostels",
+    "If an accommodation provider is VAT-registered, they must apply standard rate VAT (20% in the UK) to the amount collected for the levy.",
+    "Children under 18 staying in campsites or shared rooms People staying more than 31 nights in a single booking Those in emergency or temporary accommodation arranged by the Council",
+    "for overnight stays from 1 April 2027",
+    "will be paid to the Welsh Revenue Authority, which would then pass the levy on to local authorities"
+   ],
+   "breve": "Cardiff Council news, 26 March 2026"
+  },
+  "car_intesa": {
+   "url": "https://www.cardiffnewsroom.co.uk/releases/e2014/37721.html",
+   "titolo": "Cardiff Council and UKHospitality Cymru Sign Memorandum of Understanding for the Visitor Levy (Cardiff Council newsroom, 28 August 2026)",
+   "ente": "Cardiff Council",
+   "formato": "HTML",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "pubblicato_il": "2026-08-28",
+   "impronta_di": "frammenti",
+   "frammenti": [
+    "the implementation of the levy, which will be introduced in Cardiff in April 2027",
+    "From 28 September 2026, providers need to account for the levy on new bookings, and on any extra nights or guests added to existing bookings, for stays from 1 April 2027."
+   ],
+   "breve": "Cardiff Council news, 28 August 2026"
+  },
+  "gal_testo": {
+   "url": "https://www.legislation.gov.uk/asc/2025/5/enacted",
+   "titolo": "Visitor Accommodation (Register and Levy) Etc. (Wales) Act 2025 (2025 asc 5): full text as enacted",
+   "ente": "legislation.gov.uk (The National Archives)",
+   "formato": "HTML",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "impronta_di": "frammenti",
+   "frammenti": [
+    "(a) the lower rate is £0.75, and (b) the higher rate is £1.30, but this is subject to any additional amount that may be added by a principal council (see section 34).",
+    "the end of the period of 12 months starting with the day on which the notice was published",
+    "as may be agreed by the principal council and WRA, and (b) must be either 1 April or 1 October",
+    "until the end of the period of 12 months starting with the date on which the levy came into effect in its area",
+    "(a) a pitch or area provided for camping, or (b) a dormitory or other room or area normally provided on the basis that it may be shared with other people",
+    "do not include a person who was aged under 18 at the start of the first night",
+    "for more than 31 nights (whether or not those nights are consecutive)",
+    "Part 2 of this Act requires the Welsh Revenue Authority to keep a register of visitor accommodation providers.",
+    "[18 September 2025]",
+    "The person liable to pay the levy on an overnight stay in visitor accommodation is the visitor accommodation provider.",
+    "was unable to reside in their sole or main residence due to a risk to their health, safety or welfare",
+    "accompanied a person in receipt of a disability benefit",
+    "(homelessness)",
+    "does not include a contract of service, contract of apprenticeship, or a contract for services"
+   ],
+   "breve": "Visitor Accommodation (Register and Levy) Etc. (Wales) Act 2025, text as enacted"
+  },
+  "uk_legge": {
+   "url": "https://www.gov.uk/government/news/new-visitor-levy-powers-to-put-money-back-into-local-communities",
+   "titolo": "New visitor levy powers to put money back into local communities (press release, 4 November 2026)",
+   "ente": "Ministry of Housing, Communities and Local Government (GOV.UK)",
+   "formato": "HTML",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "pubblicato_il": "2026-11-04",
+   "impronta_di": "frammenti",
+   "frammenti": [
+    "This Visitor Levy Bill, introduced in the House of Commons today",
+    "requiring the levy to be charged as a percentage rate of the cost of accommodation, rather than as a flat fee",
+    "Ten mayors have also committed that any levy introduced in their areas would be no higher than 5%",
+    "Our industry-led City Visitor Charge has shown that the model can work",
+    "A modest levy on overnight stays could potentially raise up to £18m a year"
+   ],
+   "breve": "UK Government press release, 4 November 2026"
+  },
+  "uk_risposta": {
+   "url": "https://assets.publishing.service.gov.uk/media/6aa2980c5f6e942efe37f0c9/Visitor_Levy_in_England_-_government_response.pdf",
+   "titolo": "Visitor levy in England: government response to the consultation (10 September 2026)",
+   "ente": "Ministry of Housing, Communities and Local Government and HM Treasury (GOV.UK)",
+   "formato": "PDF",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "pubblicato_il": "2026-09-10",
+   "impronta": "sha256:d7c5b0f1268b670bbb330ce1cc6c5c21d88c0488574f41414c27ca36ca4b5e53",
+   "impronta_di": "file",
+   "frammenti": [
+    "All mayoral and foundation strategic authorities (FSAs) will have Overnight Visitor Levy powers.",
+    "The levy will be set as a percentage of the accommodation cost",
+    "Mayors and other local leaders will be required to consult locally before introducing a levy",
+    "Accommodation providers will be the persons liable for the levy.",
+    "The government does not intend to set a cap on the visitor levy rate",
+    "we expect local leaders to be able to set out plans for how revenues will be invested by March 2028"
+   ],
+   "breve": "UK Government response to the visitor levy consultation"
+  },
+  "uk_consultazione": {
+   "url": "https://www.gov.uk/government/consultations/overnight-visitor-levy-in-england",
+   "titolo": "Visitor levy in England: consultation outcome",
+   "ente": "Ministry of Housing, Communities and Local Government and HM Treasury (GOV.UK)",
+   "formato": "HTML",
+   "tipo": "ufficiale",
+   "http": 200,
+   "controllato_il": "2026-11-27",
+   "impronta_di": "frammenti",
+   "frammenti": [
+    "This consultation ran from 1:30pm on 26 November 2025 to 11:59pm on 18 February 2026",
+    "10 September 2026 Government response to the consultation added."
+   ],
+   "breve": "GOV.UK, visitor levy in England consultation"
+  }
+ },
+ "hawaii": {
+  "tat_stato": 11.0,
+  "tat_prima": 10.25,
+  "dal": "2026-01-01",
+  "fino_al": "2030-12-31",
+  "legge": "Act 96, Session Laws of Hawaii 2025",
+  "disegno": "S.B. 1396",
+  "tat_contea_max": 3.0,
+  "get": 4.0,
+  "get_contea": 0.5,
+  "get_ricarico_max": 4.712,
+  "get_contea_fino_al": "2030-12-31",
+  "giorni_transiente": 180,
+  "contee": [
+   {
+    "id": "honolulu",
+    "nome": "City and County of Honolulu",
+    "isole": "Oahu",
+    "luoghi": [
+     "Honolulu",
+     "Waikiki",
+     "Ko Olina",
+     "the North Shore"
+    ],
+    "tat_contea": 3.0,
+    "letta": true,
+    "sigla": "OTAT",
+    "ordinanza": "Ordinance No. 21-33",
+    "dal": "2021-12-14",
+    "fonte": "hon_otat"
+   },
+   {
+    "id": "maui",
+    "nome": "County of Maui",
+    "isole": "Maui, Molokai and Lanai",
+    "luoghi": [
+     "Lahaina",
+     "Kaanapali",
+     "Wailea",
+     "Kihei"
+    ],
+    "tat_contea": null,
+    "letta": false,
+    "esito": "HTTP 403 (block page)",
+    "sito": "mauicounty.gov"
+   },
+   {
+    "id": "hawaii",
+    "nome": "County of Hawaii",
+    "isole": "Hawaii Island (the Big Island)",
+    "luoghi": [
+     "Kailua-Kona",
+     "Hilo",
+     "Waikoloa"
+    ],
+    "tat_contea": null,
+    "letta": false,
+    "esito": "HTTP 403",
+    "sito": "hawaiicounty.gov"
+   },
+   {
+    "id": "kauai",
+    "nome": "County of Kauai",
+    "isole": "Kauai",
+    "luoghi": [
+     "Lihue",
+     "Poipu",
+     "Princeville"
+    ],
+    "tat_contea": null,
+    "letta": false,
+    "esito": "HTTP 403 (access denied)",
+    "sito": "kauai.gov"
+   }
+  ],
+  "crociere": {
+   "ingiunzione": "2025-12-31",
+   "annuncio": "2026-01-02",
+   "stato": "sospesa",
+   "ultimo_annuncio_letto": "2026-10",
+   "fonte": "hi_ann2601"
+  },
+  "non_lette": [
+   {
+    "nome": "www.capitol.hawaii.gov (Hawaii State Legislature, measure page for S.B. 1396)",
+    "esito": "HTTP 403 (block page)"
+   },
+   {
+    "nome": "mauicounty.gov (County of Maui)",
+    "esito": "HTTP 403 (block page)"
+   },
+   {
+    "nome": "hawaiicounty.gov (County of Hawaii)",
+    "esito": "HTTP 403"
+   },
+   {
+    "nome": "kauai.gov (County of Kauai)",
+    "esito": "HTTP 403 (access denied)"
+   }
+  ],
+  "esempio": {
+   "prezzo": 300,
+   "notti": 5,
+   "resort_fee": 45
+  }
+ },
+ "nyc": {
+  "vendite": 8.875,
+  "albergo_pct": 5.875,
+  "albergo_pct_dal": "2013-12-20",
+  "per_stanza_min": 0.5,
+  "per_stanza_max": 2.0,
+  "esempio_ibo": {
+   "prezzo": 200,
+   "per_stanza": 2.0
+  },
+  "unit_fee": 1.5,
+  "residente_giorni_citta": 180,
+  "residente_giorni_stato": 90,
+  "pub718_dal": "2025-03-01",
+  "tb331_del": "2025-07-30",
+  "esempio": {
+   "prezzo": 250,
+   "notti": 3
+  },
+  "non_lette": [
+   {
+    "nome": "www.nyc.gov (NYC Department of Finance: hotel room occupancy tax page and Form NYC-HTX)",
+    "esito": "HTTP 403 to a plain request"
+   },
+   {
+    "nome": "codelibrary.amlegal.com (New York City Administrative Code)",
+    "esito": "HTTP 403"
+   }
+  ]
+ },
+ "manchester": {
+  "importo": 1.0,
+  "unita": "per room or unit per night",
+  "iva": "plus VAT, where applicable",
+  "dal": "2023-04-01",
+  "durata_anni": 5,
+  "fine_mandato": "2028-03-31",
+  "soglia_valore_catastale": 75000,
+  "strutture": 83,
+  "strutture_al": "2026-09",
+  "voto": "autumn 2022",
+  "nome": "City Visitor Charge",
+  "ente": "Manchester Accommodation BID",
+  "non_lette": [
+   {
+    "nome": "manchester.gov.uk and democracy.manchester.gov.uk (Manchester City Council)",
+    "esito": "HTTP 403 (block page)"
+   },
+   {
+    "nome": "visitmanchester.com (Marketing Manchester)",
+    "esito": "HTTP 403"
+   }
+  ]
+ },
+ "liverpool": {
+  "importo": 2.0,
+  "unita": "per occupied room per night",
+  "dal": "2025-06-01",
+  "soglia_valore_catastale": 45000,
+  "voti_si": 26,
+  "voti_no": 18,
+  "voti_nulli": 1,
+  "affluenza_pct": 53,
+  "voto_dal": "2025-03-27",
+  "voto_il": "2025-04-24",
+  "abid_dal": "2023-01-15",
+  "paganti": 82,
+  "politica": {
+   "consultazione_dal": "2026-08-07",
+   "consultazione_al": "2026-09-13",
+   "risposte": 7,
+   "documento": "November 2026"
+  },
+  "non_lette": [
+   {
+    "nome": "liverpoolexpress.co.uk (Liverpool City Council's news item on a legal challenge to the Accommodation BID levy)",
+    "esito": "a verification page instead of the article"
+   }
+  ]
+ },
+ "galles": {
+  "alta": 1.3,
+  "bassa": 0.75,
+  "eta_adulto": 18,
+  "notti_max": 31,
+  "consigli": [
+   {
+    "nome": "Cardiff",
+    "dal": "2027-04-01",
+    "approvato": "2026-03-26",
+    "pagina": "cardiff/",
+    "favorevoli_pct": 62,
+    "contrari_pct": 33,
+    "gettito_mln": 3.5,
+    "prenotazioni_dal": "2026-09-28"
+   }
+  ],
+  "preavviso_mesi": 12,
+  "date_ammesse": [
+   "1 April",
+   "1 October"
+  ],
+  "iva_pct": 20,
+  "legge": "Visitor Accommodation (Register and Levy) Etc. (Wales) Act 2025",
+  "assenso": "2025-09-18",
+  "non_lette": [
+   {
+    "nome": "www.gov.wales (Welsh Revenue Authority: the official list of councils that charge the levy, and its guidance)",
+    "esito": "HTTP 403 to a plain request"
+   },
+   {
+    "nome": "www.cardiff.gov.uk and cardiff.moderngov.co.uk (Cardiff Council)",
+    "esito": "HTTP 403"
+   },
+   {
+    "nome": "senedd.wales (Welsh Parliament)",
+    "esito": "HTTP 403"
+   }
+  ]
+ },
+ "inghilterra": {
+  "disegno": "Visitor Levy Bill",
+  "presentato": "2026-11-04",
+  "legge": false,
+  "tetto_sindaci_pct": 5,
+  "sindaci": 10,
+  "risposta": "2026-09-10",
+  "consultazione_dal": "2025-11-26",
+  "consultazione_al": "2026-02-18",
+  "piani_entro": "March 2028",
+  "non_lette": [
+   {
+    "nome": "bills.parliament.uk, hansard.parliament.uk and commonslibrary.parliament.uk (UK Parliament)",
+    "esito": "HTTP 403 (block page)"
+   }
+  ]
+ }
+}
