@@ -286,3 +286,6 @@ Prima di ogni lavoro che cambia un sito, un dato, una routine o una decisione: s
 2. Ogni allarme nuovo si indaga lo stesso giorno, senza aspettare Massimiliano: sezioni e pagine che calano, fonte del calo, controlli tecnici dal vivo; causa e azione nel cruscotto; l'azione parte subito se è nelle regole.
 3. Il riassunto del mattino ha sempre la riga dei 3 siti principali con la variazione sulla settimana prima e gli allarmi aperti.
 4. Un calo che Massimiliano vede prima di noi è un errore nostro: va nel REGISTRO-RISCHI-ERRORI.md.
+
+## COMUNICAZIONE (Massimiliano, 27/11/2026: «non voglio sapere niente, voglio solo che tutto funzioni bene»)
+Niente aggiornamenti sul lavoro in corso, sui passaggi o sulle revisioni. A Massimiliano si scrive solo: risultati ottenuti (con numeri), cose che può fare solo lui, e il riassunto del mattino.
