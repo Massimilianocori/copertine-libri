@@ -430,6 +430,26 @@ def m_main(h):
     return m.group(1) if m else ""
 
 
+def controlli_clic_affiliati(err, sotto_soglia):
+    """28/11/2026 (scheda 2026-11-28-clic-affiliazioni): ogni link di affiliazione di sito/ ha l'evento GoatCounter
+    esameb1.eu/clic/aff-<programma>-<sezione> (programma: italki o amazon; sezione: prima cartella dell'indirizzo); il conteggio è
+    quello di monetizzazione.py; l'attributo resta fuori dall'impronta del lastmod; nessun evento nelle pagine sotto la soglia."""
+    sys.path.insert(0, str(SITO.parent))
+    import genera
+    ec, riga = genera.MON.verifica_clic(genera.SITO_ID, SITO, "esameb1.eu", genera.PROGRAMMI_CLIC, genera.sezione_clic)
+    err.extend(ec)
+    if set(genera.PROGRAMMI_CLIC.values()) - {"italki", "amazon"}:
+        err.append(f"contatore dei clic: programmi non previsti {sorted(genera.PROGRAMMI_CLIC.values())}")
+    prova = '<title>t</title><main><a href="x" rel="sponsored noopener" target="_blank"{}>y</a></main>'
+    if genera.impronta_contenuto(prova.format(' data-goatcounter-click="esameb1.eu/clic/aff-italki-citta"')) != genera.impronta_contenuto(prova.format("")):
+        err.append("contatore dei clic: l'attributo data-goatcounter-click dei link di affiliazione cambia l'impronta del lastmod")
+    for rel in sotto_soglia:
+        f = SITO / rel
+        if f.exists() and "/clic/aff-" in f.read_text(encoding="utf-8"):
+            err.append(f"{rel}: pagina sotto la soglia con un evento di clic di affiliazione")
+    return riga
+
+
 def main():
     err = []
     pagine = sorted(SITO.rglob("*.html"))
@@ -543,9 +563,11 @@ def main():
     con_script, sotto, sotto_soglia = controlli_cancello(err)
     n_schede = controlli_scuole(err, sotto_soglia)
     n_cit = controlli_citabile(err, registro, dict(voci), sotto_soglia)
+    riga_clic = controlli_clic_affiliati(err, sotto_soglia)
     print(f"cancello della pubblicità (misura rifatta qui, soglia {SOGLIA_PAROLE_PROPRIE} parole proprie): script AdSense su {con_script} pagine, "
           f"{sotto} pagine in indice sotto la soglia senza script e senza link di affiliazione, privacy senza script, home con lo script")
     print(f"pagine CPIA controllate contro i dati: {n_cpia}")
+    print(riga_clic)
     print(f"per le scuole: pagina, modulo «scuole», 3 eventi di clic, pulsante «Sei questa sede?» su {n_schede[0]} schede di {n_schede[1]} pagine città, fuori dall'impronta del lastmod")
     print(f"formato citabile: {n_cit} pagine (più le pagine di controllo, senza formato) con riquadro dei dati ufficiali, data = dateModified = lastmod, fonte e data in ogni riga, titoli e H1 invariati")
     print(f"pagine {len(pagine)}, in sitemap {len(sitemap)}, link interni {n_link}, domande FAQ {n_faq}, errori {len(err)}")

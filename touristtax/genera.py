@@ -1127,7 +1127,8 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 """
     dest = SITO / file
     dest.parent.mkdir(parents=True, exist_ok=True)
-    dest.write_text(testo, encoding="utf-8")
+    # contatore dei clic sui link di affiliazione (28/11/2026): un attributo sul link, niente di visibile
+    dest.write_text(MON.segna_clic(testo, DOMINIO_CLIC, sezione_clic(file), PROGRAMMI_CLIC), encoding="utf-8")
 
 
 def modulo_calcolatore(id_dati, con_destinazione=False, rel="", cat_default=""):
@@ -1167,6 +1168,23 @@ def blocco_dati(id_, dati):
             for d in dati]
     return (f'<script type="application/json" id="{id_}">' +
             json.dumps(dati, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/") + "</script>")
+
+
+# Contatore dei clic sui link di affiliazione (28/11/2026, scheda studio-business/schede/2026-11-28-clic-affiliazioni.md): pagina()
+# aggiunge a ogni link rel="sponsored" l'evento GoatCounter <dominio>/clic/aff-<programma>-<sezione> (lo conta count.js, già
+# nella pagina: nessuno script nuovo). Nel nome solo il programma e la sezione del sito, mai gli ID del partner.
+DOMINIO_CLIC = URL_SITO.split("//")[1]
+PROGRAMMI_CLIC = MON.programmi_clic(AFFILIATI, {"_discovercars_messico": "discovercars", "stay22": "stay22", "booking": "booking"})
+
+
+def sezione_clic(file):
+    """Sezione del sito per il nome dell'evento, dal percorso del file: pagine Messico (/mexico/ e le sue destinazioni) -> "messico",
+    "index.html" -> "home"; altrimenti la prima cartella."""
+    pezzi = file.split("/")
+    primo = pezzi[0] if len(pezzi) > 1 else "home"
+    if primo == "mexico" or any(d["slug"] == primo and d["country_slug"] == "mexico" for d in DEST):
+        return "messico"
+    return primo
 
 
 def box_affiliati():

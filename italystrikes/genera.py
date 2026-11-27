@@ -1336,7 +1336,8 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, con_dati=False, 
 """
     dest = SITO / file
     dest.parent.mkdir(parents=True, exist_ok=True)
-    dest.write_text(testo, encoding="utf-8")
+    # contatore dei clic sui link di affiliazione (28/11/2026): un attributo sul link, niente di visibile
+    dest.write_text(MON.segna_clic(testo, DOMINIO_CLIC, sezione_clic(file), PROGRAMMI_CLIC), encoding="utf-8")
 
 
 def classi_scheda(v):
@@ -1485,6 +1486,31 @@ AD = '<div class="ad-slot" aria-hidden="true"></div>'
 AFF_STILE = {  # icona e testo del pulsante per ogni partner (i testi stanno in dati/affiliati.json)
     "safetywing": ("heart", "See cover"), "ekta": ("shield", "See cover"), "omio": ("route", "Compare trips"),
     "welcome": ("car", "Book a transfer"), "airalo": ("phone", "Get an eSIM")}
+
+
+# Contatore dei clic sui link di affiliazione (28/11/2026, scheda studio-business/schede/2026-11-28-clic-affiliazioni.md): pagina()
+# aggiunge a ogni link rel="sponsored" l'evento GoatCounter <dominio>/clic/aff-<programma>-<sezione> (lo conta count.js, già
+# nella pagina: nessuno script nuovo). Nel nome solo il programma e la sezione del sito, mai gli ID del partner.
+DOMINIO_CLIC = URL_SITO.split("//")[1]
+PROGRAMMI_CLIC = MON.programmi_clic(AFFILIATI, {k: k for k in ("safetywing", "italo", "omio", "welcome", "airalo", "ekta")})
+SEZIONI_CLIC = {"airports": "aeroporti", "guides": "guide", "today": "periodo", "tomorrow": "periodo", "this-week": "periodo",
+                "next-week": "periodo"}
+
+
+def sezione_clic(file):
+    """Sezione del sito per il nome dell'evento, dal percorso del file: "rome/index.html" -> "citta", "trains/..." -> "settori",
+    "2026/december/..." -> "mesi", "strike-4-december-2026/..." -> "scioperi", "index.html" -> "home"; altrimenti la prima cartella."""
+    pezzi = file.split("/")
+    primo = pezzi[0] if len(pezzi) > 1 else "home"
+    if primo in SETTORI:
+        return "settori"
+    if any(c["slug"] == primo for c in CITTA):
+        return "citta"
+    if re.fullmatch(r"\d{4}", primo):
+        return "mesi"
+    if primo.startswith("strike-"):
+        return "scioperi"
+    return SEZIONI_CLIC.get(primo, primo)
 
 
 def box_affiliati():

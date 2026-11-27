@@ -216,6 +216,24 @@ def riquadro_preparati(rel, gratis=None, scritto=False):
 </section>"""
 
 
+# Contatore dei clic sui link di affiliazione (28/11/2026, scheda 2026-11-28-clic-affiliazioni): ogni link rel="sponsored" porta
+# l'evento GoatCounter esameb1.eu/clic/aff-<programma>-<sezione> (come i riquadri del libro: lo conta count.js, nessuno script
+# nuovo). Lo mettono le tre funzioni che scrivono le pagine (pagina, pagina_en, pagina_l), così nessun link esce senza. La sezione
+# è la prima cartella dell'indirizzo ("home" per la pagina iniziale). L'attributo resta fuori dall'impronta del lastmod.
+DOMINIO_CLIC = URL_SITO.split("//")[1]
+PROGRAMMI_CLIC = MON.programmi_clic(AFFILIATI, {"italki": "italki", "amazon": "amazon"})
+
+
+def sezione_clic(percorso):
+    """Sezione del sito per il nome dell'evento: "citta/roma/index.html" -> "citta", "en/cost/" -> "en", "index.html" -> "home"."""
+    pezzi = percorso.split("/")
+    return pezzi[0] if len(pezzi) > 1 and pezzi[0] else "home"
+
+
+def con_clic(testo, percorso):
+    return MON.segna_clic(testo, DOMINIO_CLIC, sezione_clic(percorso), PROGRAMMI_CLIC)
+
+
 def riquadro_trasparenza(corpo, lingua="it"):
     """Riga di trasparenza sui link di affiliazione in fondo al contenuto della pagina ("Alcuni link sono di affiliazione: ..."):
     vuota finché la pagina non ha link rel="sponsored" o se un riquadro di affiliazione la mostra già."""
@@ -999,7 +1017,7 @@ Questo sito non dà consulenza sulla pratica di cittadinanza: per quella vedi la
 """
     dest = SITO / percorso
     dest.parent.mkdir(parents=True, exist_ok=True)
-    dest.write_text(testo)
+    dest.write_text(con_clic(testo, percorso))
 
 
 def tile(iso):
@@ -1668,6 +1686,7 @@ _RE_CONTROLLO = re.compile(r"\b(lett[oaie]|controllat[oaie]|[Uu]ltimo controllo 
 def impronta_contenuto(testo):
     import hashlib
     testo = _RE_CONTROLLO.sub(r"\1", _RE_LIBRO.sub("", _RE_PIU.sub("", testo)))
+    testo = MON.senza_clic(testo)  # 28/11/2026: il contatore dei clic sui link di affiliazione è un attributo, non contenuto
     testo = _RE_CIT_DATA.sub("", testo)  # 27/11/2026: la data «Pagina aggiornata il» e dateModified sono la data del registro stesso
     testo = _RE_CONTA.sub(r"\1\2\3", testo).replace("https://esameb1.netlify.app", URL_SITO)
     tit = re.search(r"<title>(.*?)</title>", testo, re.S)

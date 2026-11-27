@@ -11,6 +11,8 @@ Cosa fa, per ogni sito (identificato dal nome della sua cartella: "esameb1", "vi
 - privacy_cookie(lingua, sito, affiliati): le sezioni privacy su cookie, link di affiliazione e pubblicità, oppure "" se
   il sito non ha né pubblicità né link di affiliazione (in quel caso ogni sito tiene il suo testo di oggi, invariato);
 - riga_trasparenza(html, lingua): la riga "Some links are affiliate links..." quando la pagina ha link rel="sponsored";
+- segna_clic(html, dominio, sezione, programmi): l'evento GoatCounter data-goatcounter-click="<dominio>/clic/aff-<programma>-<sezione>"
+  su ogni link rel="sponsored" (dal 28/11/2026); controlla_clic(...) è il controllo per i verifica.py;
 - controlla_sito(sito, cartella_sito): i controlli comuni usati da ogni verifica.py (link di affiliazione solo verso i
   domini ammessi, con rel="sponsored noopener" e la riga di trasparenza; AdSense, ads.txt e privacy coerenti).
 
@@ -446,6 +448,122 @@ def controlla_sito(sito, cartella_sito):
         if n_aff and not re.search(r"affiliate link|di affiliazione|de afiliación|d'affiliation", testo, re.I):
             errori.append(f"{nome}: il sito ha link di affiliazione ma la privacy non li spiega")
     return errori, {"adsense": attivo, "pagine": len(pagine), "link_affiliati": n_aff, "pagine_con_affiliati": pagine_aff}
+
+
+# ---------------------------------------------------------------- contatore dei clic sui link di affiliazione
+# 28/11/2026 (scheda 2026-11-28-clic-affiliazioni): ogni link rel="sponsored" porta l'evento GoatCounter
+#     data-goatcounter-click="<dominio del sito>/clic/aff-<programma>-<sezione>"
+# Stesso meccanismo del riquadro del libro (count.js conta il clic da solo: nessuno script nuovo, nessun cookie). Nel nome
+# entrano solo il nome del programma e la sezione del sito: mai l'URL del partner né i suoi ID. L'attributo non è contenuto:
+# non si vede nella pagina e i siti con il registro dei lastmod lo tolgono dall'impronta (senza_clic).
+
+_SLUG_CLIC = r"[a-z0-9]+(?:-[a-z0-9]+)*"
+RE_ATTR_CLIC = re.compile(r' data-goatcounter-click="[^"]*/clic/aff-[^"]*"')
+_RE_A_SPONSOR = re.compile(r'<a\b[^>]*\brel="[^"]*\bsponsored\b[^"]*"[^>]*>', re.I)
+
+
+def evento_clic(dominio, programma, sezione):
+    """Nome dell'evento: <dominio>/clic/aff-<programma>-<sezione>. Errore se programma o sezione non sono parole semplici."""
+    for nome, v in (("programma", programma), ("sezione", sezione)):
+        if not re.fullmatch(_SLUG_CLIC, v or ""):
+            raise SystemExit(f"contatore dei clic: {nome} '{v}' non valido (solo minuscole, cifre e trattini)")
+    return f"{dominio}/clic/aff-{programma}-{sezione}"
+
+
+def programmi_clic(affiliati, nomi):
+    """{URL del link: nome del programma} dalle voci di dati/affiliati.json. nomi: {chiave della voce: nome del programma};
+    una voce con "url" ma senza nome è un errore (un programma nuovo deve avere il suo nome nell'evento)."""
+    out = {}
+    for k, v in affiliati.items():
+        if not isinstance(v, dict) or not (v.get("url") or "").strip():
+            continue
+        if k not in nomi:
+            if k.startswith("_"):
+                continue  # voce di servizio (URL di riserva, non usato nelle pagine): se un giorno finisce in pagina, segna_clic si ferma
+            raise SystemExit(f"contatore dei clic: la voce '{k}' di affiliati.json ha un URL ma non un nome di programma per l'evento")
+        out[v["url"].strip()] = nomi[k]
+    return out
+
+
+def segna_clic(html, dominio, sezione, programmi):
+    """Aggiunge data-goatcounter-click a ogni link rel="sponsored" della pagina (chi lo ha già resta com'è).
+    programmi: {URL: nome del programma} (programmi_clic). Un link verso un URL non previsto ferma la generazione:
+    nessun link di affiliazione esce senza contatore. Non cambia nient'altro del link (href, rel, target, testo)."""
+    def metti(m):
+        a = m.group(0)
+        if "data-goatcounter-click=" in a:
+            return a
+        href = re.search(r'\bhref="([^"]*)"', a)
+        url = unescape(href.group(1)) if href else ""
+        if url not in programmi:
+            raise SystemExit(f"contatore dei clic: link di affiliazione verso un URL senza nome di programma ({url[:60]})")
+        return a[:-1] + f' data-goatcounter-click="{evento_clic(dominio, programmi[url], sezione)}">'
+    return _RE_A_SPONSOR.sub(metti, html)
+
+
+def senza_clic(html):
+    """La pagina senza gli attributi del contatore dei clic di affiliazione (per le impronte dei lastmod)."""
+    return RE_ATTR_CLIC.sub("", html)
+
+
+def controlla_clic(cartella_sito, dominio, programmi, sezione_di):
+    """Controllo per i verifica.py: ogni link di affiliazione di sito/ (gli stessi di link_affiliati) ha l'evento giusto.
+    programmi: {URL: nome del programma}; sezione_di(percorso della pagina) -> sezione attesa.
+    Il numero dei link con l'evento deve essere uguale al numero dei link di affiliazione che conta controlla_sito.
+    Restituisce (errori, {"link_affiliati", "con_evento", "pagine", "eventi": {evento: quanti}})."""
+    cartella = Path(cartella_sito)
+    errori, n, eventi, n_aff, n_pagine = [], 0, {}, 0, 0
+    for f in sorted(cartella.rglob("*.html")):
+        nome = f.relative_to(cartella).as_posix()
+        t = f.read_text(encoding="utf-8", errors="replace")
+        aff_pagina = len(link_affiliati(t))
+        n_aff += aff_pagina
+        n_pagine += bool(aff_pagina)
+        for m in _RE_A.finditer(t):
+            tag = m.group(0)
+            a = {k.lower(): unescape(v) for k, v in _RE_ATTR.findall(tag)}
+            ev = a.get("data-goatcounter-click", "")
+            aff = bool(link_affiliati(tag))
+            if not aff:
+                if "/clic/aff-" in ev:
+                    errori.append(f"{nome}: evento di affiliazione «{ev}» su un link che non è di affiliazione")
+                continue
+            href = a.get("href", "")
+            if not ev:
+                errori.append(f"{nome}: link di affiliazione senza data-goatcounter-click ({href[:50]})")
+                continue
+            if tag.count("data-goatcounter-click=") != 1:
+                errori.append(f"{nome}: link di affiliazione con più di un data-goatcounter-click")
+            if href not in programmi:
+                errori.append(f"{nome}: link di affiliazione verso un URL senza nome di programma ({href[:50]})")
+                continue
+            atteso = f"{dominio}/clic/aff-{programmi[href]}-{sezione_di(nome)}"
+            if ev != atteso or not re.fullmatch(re.escape(dominio) + r"/clic/aff-" + _SLUG_CLIC, ev):
+                errori.append(f"{nome}: evento «{ev}» diverso da «{atteso}»")
+                continue
+            if set(a.get("rel", "").split()) != {"sponsored", "noopener"} or a.get("target") != "_blank":
+                errori.append(f"{nome}: link di affiliazione con l'evento ma senza rel=\"sponsored noopener\" target=\"_blank\"")
+            if re.search(r"\d{4,}", ev.split("/clic/")[1]):
+                errori.append(f"{nome}: l'evento «{ev}» contiene un numero lungo (gli ID dei programmi non entrano nel nome)")
+            n += 1
+            eventi[ev] = eventi.get(ev, 0) + 1
+        if "/clic/aff-" in t and "gc.zgo.at/count.js" not in t:
+            errori.append(f"{nome}: evento di affiliazione ma la pagina non carica il contatore GoatCounter")
+    if n != n_aff:
+        errori.append(f"contatore dei clic: {n} link con l'evento giusto su {n_aff} link di affiliazione")
+    return errori, {"link_affiliati": n_aff, "con_evento": n, "pagine": n_pagine, "eventi": dict(sorted(eventi.items()))}
+
+
+def verifica_clic(sito, cartella_sito, dominio, programmi, sezione_di):
+    """Per i verifica.py: controlla_clic più il confronto con il conteggio di controlla_sito. Restituisce (errori, riga da stampare)."""
+    errori, info = controlla_clic(cartella_sito, dominio, programmi, sezione_di)
+    atteso = controlla_sito(sito, cartella_sito)[1]
+    if (info["link_affiliati"], info["pagine"]) != (atteso["link_affiliati"], atteso["pagine_con_affiliati"]):
+        errori.append(f"contatore dei clic: {info['link_affiliati']} link in {info['pagine']} pagine, ma monetizzazione.py ne conta "
+                      f"{atteso['link_affiliati']} in {atteso['pagine_con_affiliati']}")
+    nomi = ", ".join(f"{e.split('/clic/')[1]} {q}" for e, q in info["eventi"].items())
+    return errori, (f"Contatore dei clic di affiliazione ({sito}): {info['con_evento']} link con l'evento su {info['link_affiliati']} "
+                    f"link di affiliazione in {info['pagine']} pagine ({nomi or 'nessuno'}): {len(errori)} errori")
 
 
 def riepilogo(sito, info, errori):

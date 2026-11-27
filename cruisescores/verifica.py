@@ -392,6 +392,11 @@ def controlla_monetizzazione():
     for e in errori:
         errore(e)
     print(G.MON.riepilogo(G.SITO_ID, info, errori) + ".")
+    # 28/11/2026: ogni link di affiliazione ha l'evento GoatCounter <dominio>/clic/aff-<programma>-<sezione>; conteggio = monetizzazione.py
+    errori, riga = G.MON.verifica_clic(G.SITO_ID, SITO, G.DOMINIO_CLIC, G.PROGRAMMI_CLIC, G.sezione_clic)
+    for e in errori:
+        errore(e)
+    print(riga + ".")
 
 
 # ---------------------------------------------------------------- controlli 11-17 (31/10/2026)

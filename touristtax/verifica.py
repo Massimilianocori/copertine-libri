@@ -1946,6 +1946,10 @@ def main():
     print("  parole uniche: " + ", ".join(f"{k} {v}" for k, v in pu17.items()) + "; frasi in comune: " + ", ".join(f"{k} {v:.0%}" for k, v in dop17.items()))
     em, im = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
     print(G.MON.riepilogo(G.SITO_ID, im, em))
+    # 28/11/2026: ogni link di affiliazione ha l'evento GoatCounter <dominio>/clic/aff-<programma>-<sezione>; conteggio = monetizzazione.py
+    ec, riga_clic = G.MON.verifica_clic(G.SITO_ID, SITO, G.DOMINIO_CLIC, G.PROGRAMMI_CLIC, G.sezione_clic)
+    print(riga_clic)
+    em = em + ec
     tutti = errori + ej + el + ef + ea + ei + e7 + en + et + ex + ejp + ejt + ebe + esn + ees + eus + ecn + eur_ + em
     for e in tutti[:40]:
         print("  -", e)

@@ -197,6 +197,17 @@ def controlla_dati():
             err("aziende.py", f"«può riguardare» sbagliato per «{rec['categoria']}»: {AZ.generici(rec, sett, amb, [])} invece di {atteso}")
 
 
+def controlla_clic_affiliati():
+    """28/11/2026 (scheda 2026-11-28-clic-affiliazioni): ogni link di affiliazione di sito/ ha l'evento GoatCounter
+    italy-strikes-today.netlify.app/clic/aff-<programma>-<sezione>; il conteggio è quello di monetizzazione.py."""
+    import genera as G
+    if G.DOMINIO_CLIC != urlparse(URL_SITO).hostname:
+        err("genera.py", f"dominio degli eventi di clic {G.DOMINIO_CLIC} diverso dal sito")
+    ec, riga = G.MON.verifica_clic(G.SITO_ID, SITO, G.DOMINIO_CLIC, G.PROGRAMMI_CLIC, G.sezione_clic)
+    errori.extend(ec)
+    print(riga + ".")
+
+
 def controlla_lettura():
     """Prove fisse su leggi() di genera.py (revisione del 27/11/2026): appalti ferroviari, esclusioni, taxi."""
     import genera as G
@@ -860,6 +871,7 @@ def main():
     for iso in sorted(i for i in attesi if i >= OGGI):
         if f'href="/it/{AZ.slug_data_it(iso)}/"' not in home:
             err("it/", f"la home non collega il giorno {iso}")
+    controlla_clic_affiliati()
     if "--rete" in sys.argv:
         controlla_rete()
     for a in avvisi:

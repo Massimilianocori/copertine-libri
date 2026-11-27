@@ -706,7 +706,7 @@ def pagina_l(G, lg, percorso, titolo, descrizione, corpo, jsonld=None):
 """
     dest = G.SITO / percorso / "index.html"
     dest.parent.mkdir(parents=True, exist_ok=True)
-    dest.write_text(testo, encoding="utf-8")
+    dest.write_text(G.con_clic(testo, percorso), encoding="utf-8")  # contatore dei clic sui link di affiliazione (28/11/2026)
     SCRITTE.append({"lg": lg, "p": percorso + "index.html", "it": voce[1], "en": voce[2], "rif": voce[3], "cit": voce[4]})
 
 

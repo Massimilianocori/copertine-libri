@@ -451,7 +451,7 @@ This site gives no legal advice on citizenship or residence permits: see the <a 
 """
     dest = G.SITO / percorso / "index.html"
     dest.parent.mkdir(parents=True, exist_ok=True)
-    dest.write_text(testo)
+    dest.write_text(G.con_clic(testo, percorso))  # contatore dei clic sui link di affiliazione (28/11/2026)
     PAGINE.append({"en": percorso + "index.html", "it": it, "rif": voce[2]})
 
 

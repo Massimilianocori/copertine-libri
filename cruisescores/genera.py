@@ -653,7 +653,8 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 """
     dest = SITO / file
     dest.parent.mkdir(parents=True, exist_ok=True)
-    dest.write_text(testo, encoding="utf-8")
+    # contatore dei clic sui link di affiliazione (28/11/2026): un attributo sul link, niente di visibile
+    dest.write_text(MON.segna_clic(testo, DOMINIO_CLIC, sezione_clic(file), PROGRAMMI_CLIC), encoding="utf-8")
 
 
 def banda(eyebrow, titolo, sub, extra="", piatta=False):
@@ -670,6 +671,21 @@ def trust(epidemie=False):
                 f'<li>{ico("check")}Each row links to the CDC</li><li>{ico("info")}Independent site, not the CDC</li></ul>')
     return (f'<ul class="trust"><li>{ico("doc")}Source: CDC public records</li><li>{ico("calendar")}Data checked on {data_lunga(CONTROLLATO)}</li>'
             f'<li>{ico("check")}Pass mark: 86 out of 100</li><li>{ico("info")}Independent site, not the CDC</li></ul>')
+
+
+# Contatore dei clic sui link di affiliazione (28/11/2026, scheda studio-business/schede/2026-11-28-clic-affiliazioni.md): pagina()
+# aggiunge a ogni link rel="sponsored" l'evento GoatCounter <dominio>/clic/aff-<programma>-<sezione> (lo conta count.js, già
+# nella pagina: nessuno script nuovo). Nel nome solo il programma e la sezione del sito, mai gli ID del partner.
+DOMINIO_CLIC = URL_SITO.split("//")[1]
+PROGRAMMI_CLIC = MON.programmi_clic(AFFILIATI, {"assicurazione": "safetywing"})
+SEZIONI_CLIC = {"ships": "navi", "cruise-lines": "compagnie"}
+
+
+def sezione_clic(file):
+    """Sezione del sito per il nome dell'evento, dal percorso del file: "ships/..." -> "navi", "index.html" -> "home"."""
+    pezzi = file.split("/")
+    primo = pezzi[0] if len(pezzi) > 1 else "home"
+    return SEZIONI_CLIC.get(primo, primo)
 
 
 def box_affiliati():
