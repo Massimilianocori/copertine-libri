@@ -294,3 +294,6 @@ Niente aggiornamenti sul lavoro in corso, sui passaggi o sulle revisioni. A Mass
 - «ogni volta che prendi una decisione deve essere supportata da una ricerca e dalle conseguenze che porta»: ogni decisione (chiudere, spostare, togliere, cambiare in massa) si scrive con i dati, la ricerca e le conseguenze di farla e di non farla, prima di agire (es. DECISIONE-SITI-2026-11-27.md).
 - «dobbiamo crescere sempre»; «come funzionavano all'inizio possono ancora funzionare»: un sito che ha avuto visite e cala si recupera, non si chiude. Si chiude solo chi non ha mai funzionato (regola: oltre 4-6 settimane con quasi zero visite), con la decisione scritta.
 - Mai più previsioni rassicuranti senza dati («calano per un po'»): si scrive cosa si misura e quando.
+
+## LIMITE FABLE (27/11/2026)
+Il limite Fable è finito il 27/11 alle 11:00 circa e si azzera il **2/12/2026 alle 20:00 UTC (21:00 in Italia)**. Fino ad allora costruttori, revisori e ricercatori usano il modello normale (opus), con le stesse regole (revisione indipendente ≥ 8,5). Gli agenti Fable fermati si riprendono con SendMessage dopo l'azzeramento solo se il lavoro non è già stato rifatto.
