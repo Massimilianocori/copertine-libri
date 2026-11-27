@@ -297,3 +297,5 @@ Niente aggiornamenti sul lavoro in corso, sui passaggi o sulle revisioni. A Mass
 
 ## LIMITE FABLE (27/11/2026)
 Il limite Fable è finito il 27/11 alle 11:00 circa e si azzera il **2/12/2026 alle 20:00 UTC (21:00 in Italia)**. Fino ad allora costruttori, revisori e ricercatori usano il modello normale (opus), con le stesse regole (revisione indipendente ≥ 8,5). Gli agenti Fable fermati si riprendono con SendMessage dopo l'azzeramento solo se il lavoro non è già stato rifatto.
+
+- 27/11/2026: Massimiliano ha comprato il pacchetto da 500 crediti Netlify (5 $). Saldo stimato dopo le 8 pubblicazioni del 27/11: circa 580 fino al 15/12. Avvisarlo di nuovo sotto ~100.

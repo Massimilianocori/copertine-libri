@@ -762,56 +762,56 @@
 "63a9314a5d92fd8be3d9"
 ],
 "country/austria/": [
-"2026-11-25",
-"3792fe0aadb9312141c4"
+"2026-11-27",
+"41f4db00e1d95b8f6443"
 ],
 "country/croatia/": [
-"2026-11-25",
-"a2e7ff69940b64585275"
+"2026-11-27",
+"f958a7eff5aa4e449896"
 ],
 "country/denmark/": [
-"2026-11-25",
-"2d6711237883e6617f8a"
+"2026-11-27",
+"92c19c15a3a04575677a"
 ],
 "country/france/": [
-"2026-11-25",
-"faa2bb7c388c66800838"
+"2026-11-27",
+"05c45f668c66d05af81e"
 ],
 "country/germany/": [
-"2026-11-25",
-"273207add67639d5f664"
+"2026-11-27",
+"e5b959b4280c4e4ba10c"
 ],
 "country/hungary/": [
 "2026-11-25",
 "7851b680d6245b173fe7"
 ],
 "country/ireland/": [
-"2026-11-25",
-"2115841021a6808cd228"
+"2026-11-27",
+"1da26cfc16bed5550ab5"
 ],
 "country/italy/": [
 "2026-11-12",
 "aaf08eb938a0e89b137f"
 ],
 "country/netherlands/": [
-"2026-11-25",
-"d91cedb59e40236aeb9c"
+"2026-11-27",
+"d585ad3913abdde9230e"
 ],
 "country/portugal/": [
-"2026-11-25",
-"a02c8a21665149087ec0"
+"2026-11-27",
+"65ef5ff5ef1327240aea"
 ],
 "country/spain/": [
-"2026-11-25",
-"07d12552b79054ccb342"
+"2026-11-27",
+"18423113fa9104ceae04"
 ],
 "country/sweden/": [
-"2026-11-25",
-"ce5637979a6ff9bb4ece"
+"2026-11-27",
+"4520d533f8cf75eab4a3"
 ],
 "country/united-kingdom/": [
 "2026-11-27",
-"78717fa35a29c7466ff3"
+"fb709d8b26e3c90045e8"
 ],
 "croatia-digital-nomad-visa/": [
 "2026-11-25",
@@ -822,8 +822,8 @@
 "97ea76de6255fb3534a9"
 ],
 "digital-nomad-visa-income-requirements/": [
-"2026-11-25",
-"693e551585a1ca589764"
+"2026-11-27",
+"8e335153d29399a61bfc"
 ],
 "es/": [
 "2026-10-31",
@@ -3250,8 +3250,8 @@
 "e10100b9268ffcd7fc2e"
 ],
 "work-visa-salary-thresholds/": [
-"2026-11-25",
-"93ec38bdf65e77ebc968"
+"2026-11-27",
+"26af25b70783f79d1c67"
 ]
 }
 }
