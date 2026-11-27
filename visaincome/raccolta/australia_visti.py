@@ -10,15 +10,15 @@ Fonti (lette il 18/11/2026 con richieste HTTP dirette, nessun browser; i file gr
   189, 190, 491, 482 (Skills in Demand, Core Skills e Specialist Skills), 500, 417, 462, 600, 820/801, 309/100, la pagina
   "Who can help you with your application?" e la licenza (CC BY 3.0 AU). Il testo sta nell'HTML, dentro campi nascosti in JSON
   (sequenze \\uXXXX): lo script le scioglie e toglie i marcatori.
-- Federal Register of Legislation (legislation.gov.au): Migration Regulations 1994, compilazione n. 292 del 12 novembre 2026
-  (F2026C01219), volume 1 (regolamento 1.03 e 2.12C, Schedule 1 = visa application charge di ogni classe di visto) e volume 3
+- Federal Register of Legislation (legislation.gov.au): Migration Regulations 1994, compilazione n. 293 del 13 novembre 2026
+  (F2026C01242), volume 1 (regolamento 1.03 e 2.12C, Schedule 1 = visa application charge di ogni classe di visto) e volume 3
   (Schedule 6D = test a punti); Home Affairs Legislation Amendment (2026 Measures No. 1) Regulations 2026 (F2026L00874), che dal
   1° luglio 2026 ha riscritto gli importi della Schedule 1.
 - NON usata: la tabella dei prezzi di Home Affairs (pagina "current visa pricing"). La pagina è leggibile, ma gli importi non sono
   nell'HTML: arrivano da un'interfaccia separata che qui non interroghiamo. Tutti gli importi vengono quindi dalla Schedule 1.
   Per lo stesso motivo le pagine dei visti di Home Affairs non mostrano il costo ("From" senza cifra).
 - LETTURE: ogni frammento è stato letto A MANO il 18/11/2026. A ogni lancio si controlla che sia ancora nella fonte: se ne manca
-  uno, o se la compilazione in vigore non è più la F2026C01219, il JSON NON si aggiorna (codice 1) finché qualcuno non rilegge.
+  uno, o se la compilazione in vigore non è più la F2026C01242, il JSON NON si aggiorna (codice 1) finché qualcuno non rilegge.
 - PUNTI: ogni riga ha le parole della tabella di Home Affairs (controllate nelle tre tabelle, con il punteggio subito dopo) e la
   voce della Schedule 6D con lo stesso punteggio.
 - TARIFFE: gli importi NON sono scritti a mano: si leggono dal frammento della Schedule 1 ("$6 135" -> 6135).
@@ -44,8 +44,8 @@ UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, 
 HA = "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/"
 ED_HA = "Australian Government Department of Home Affairs"
 ED_LEG = "Federal Register of Legislation (Australian Government)"
-COMPILAZIONE = "F2026C01219"     # compilazione n. 292 delle Migration Regulations 1994, del 12 novembre 2026 (fino al 25/11/2026: n. 291, F2026C01194, del 3 novembre)
-EPUB = "https://www.legislation.gov.au/F1996B03551/2026-11-12/2026-11-12/text/original/epub/OEBPS/"
+COMPILAZIONE = "F2026C01242"     # compilazione n. 293 delle Migration Regulations 1994, del 13 novembre 2026 (registrata il 27/11/2026; cambia solo la voce 1229, subclass 485, che non usiamo. Prima: n. 292, F2026C01219, del 12 novembre; fino al 25/11/2026: n. 291, F2026C01194, del 3 novembre)
+EPUB = "https://www.legislation.gov.au/F1996B03551/2026-11-13/2026-11-13/text/original/epub/OEBPS/"
 PUBBLICO_REG = "https://www.legislation.gov.au/F1996B03551/latest/text"
 
 FONTI = {
@@ -74,9 +74,9 @@ FONTI = {
     "migexp": {"titolo": "Migration Expert, home page (the company's own description; not an official source)", "editore": "Migration Expert",
                "url": "https://www.migrationexpert.com.au/", "partner": True},
     "reg_ultima": {"titolo": "Migration Regulations 1994, latest version (page of the register)", "editore": ED_LEG, "url": PUBBLICO_REG, "legge": True},
-    "reg1": {"titolo": "Migration Regulations 1994, compilation No. 292 (12 November 2026), volume 1: regulations and Schedule 1", "editore": ED_LEG,
+    "reg1": {"titolo": "Migration Regulations 1994, compilation No. 293 (13 November 2026), volume 1: regulations and Schedule 1", "editore": ED_LEG,
              "url": EPUB + "document_1/document_1.html", "pubblico": PUBBLICO_REG, "legge": True},
-    "reg3": {"titolo": "Migration Regulations 1994, compilation No. 292 (12 November 2026), volume 3: Schedule 6D (general points test)", "editore": ED_LEG,
+    "reg3": {"titolo": "Migration Regulations 1994, compilation No. 293 (13 November 2026), volume 3: Schedule 6D (general points test)", "editore": ED_LEG,
              "url": EPUB + "document_3/document_3.html", "pubblico": PUBBLICO_REG, "legge": True},
     "amd": {"titolo": "Home Affairs Legislation Amendment (2026 Measures No. 1) Regulations 2026 (F2026L00874), Schedule 3: fees for visa applications",
             "editore": ED_LEG, "url": "https://www.legislation.gov.au/F2026L00874/asmade/2026-06-30/text/original/epub/OEBPS/document_1/document_1.html",
@@ -273,8 +273,8 @@ LETTURE = {
     "reg_familiare": ("reg1", "Additional applicant charge is paid by an applicant who claims to be a member of the family unit of another applicant and seeks to combine the application with that applicant's application."),
     "reg_successiva": ("reg1", "(6) The amount of subsequent temporary application charge is $700.", {"valore": 700}),
     "reg_pacifico": ("reg1", "Pacific-regional country means each of the following: (a) Federated States of Micronesia; (b) Fiji; (c) Kiribati; (d) Nauru; (e) Palau; (f) Papua New Guinea; (g) Republic of the Marshall Islands; (h) Samoa; (i) Solomon Islands; (j) Timor-Leste; (k) Tonga; (l) Tuvalu; (m) Vanuatu."),
-    "reg_compilazione": ("reg1", "Compilation No. 292 Compilation date: 12 November 2026"),
-    "reg_testo": ("reg1", "This is a compilation of the Migration Regulations 1994 that shows the text of the law as amended and in force on 12 November 2026"),
+    "reg_compilazione": ("reg1", "Compilation No. 293 Compilation date: 13 November 2026"),
+    "reg_testo": ("reg1", "This is a compilation of the Migration Regulations 1994 that shows the text of the law as amended and in force on 13 November 2026"),
     "amd_data": ("amd", "1. The whole of this instrument 1 July 2026."),
     "amd_titolo": ("amd", "Schedule 3—Fees for visa applications"),
     "pr_tabella": ("prezzi", "Use the Visa Prices table to help find the price of your visa. The table groups visas by what you plan to do in Australia."),
@@ -470,7 +470,7 @@ def main():
         domanda = nuova_domanda()
     cont = {"url": {k: f["url"] for k, f in fonti.items()}, "letture": letture, "punti": punti, "nomina": nomina, "tariffe": tariffe, "domanda": domanda}
     out = {"_nota": "Generato da raccolta/australia_visti.py: non modificare a mano. Letture, punti e tariffe sono frammenti dei testi ufficiali, ricontrollati a ogni lancio; gli importi si leggono dai frammenti.",
-           "letto_il": oggi, "compilazione": {"id": COMPILAZIONE, "numero": 292, "data": "2026-11-12"}, "modifica": {"id": "F2026L00874", "dal": "2026-07-01"},
+           "letto_il": oggi, "compilazione": {"id": COMPILAZIONE, "numero": 293, "data": "2026-11-13"}, "modifica": {"id": "F2026L00874", "dal": "2026-07-01"},
            "fonti": fonti, "letture": letture, "punti": punti, "nomina": nomina, "tariffe": tariffe, "domanda": domanda}
     out["impronta"] = hashlib.sha256(json.dumps(cont, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20]
     USCITA.write_text(json.dumps(out, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")

@@ -950,7 +950,9 @@ def controlla_rifiuti(online=True):
                     break
                 time.sleep(3)
             controllati += 1
-            if st not in (200, 206):
+            if st in (429, 503) or (isinstance(st, str) and "reset by peer" in st):  # server occupato o limite di richieste: il link non è rotto
+                avviso(7, f"link esterno {u2} risponde {st} ora (non riletto)")
+            elif st not in (200, 206):
                 errori.append(f"Rifiuti: link esterno {u2} risponde {st}")
     return errori, len(pagine), controllati
 
@@ -6871,7 +6873,7 @@ def main():
         per_punto = {}
         for k, _ in AVVISI:
             per_punto[k] = per_punto.get(k, 0) + 1
-        print(f"AVVISI: {len(AVVISI)} (" + ", ".join(f"punto {k}: {n}" for k, n in sorted(per_punto.items(), key=lambda x: int(x[0]))) +
+        print(f"AVVISI: {len(AVVISI)} (" + ", ".join(f"punto {k}: {n}" for k, n in sorted(per_punto.items(), key=lambda x: (0, int(x[0]), "") if x[0].isdigit() else (1, 0, x[0]))) +
               "); riletture online saltate, tutti gli altri controlli fatti:")
         for k, a in AVVISI:
             print(f" ~ [{k}] {a}")
