@@ -51,6 +51,7 @@ import genera_en as EN  # noqa: E402  sezione inglese /en/ (dal 31/10/2026)
 import genera_lingue as LG  # noqa: E402  sezioni /uk/ e /ro/ (dal 31/10/2026); hreflang e menu delle lingue per tutto il sito
 import genera_cpia as CP  # noqa: E402  pagine CPIA: una per CPIA più l'indice /cpia/ (20/11/2026)
 import genera_prova as PV  # noqa: E402  prova B1 online gratuita scritta da noi e prova di domanda «Pass EsameB1» (26/11/2026)
+import genera_scuole as SC  # noqa: E402  /per-le-scuole/ e pulsante «Sei questa sede?» sulle schede delle pagine città: prova di domanda (27/11/2026)
 import genera_livelli as LV  # noqa: E402  prove d'esempio per livello: CILS B1 standard, A1, C1, C2 (25/11/2026)
 import genera_dopo as DP  # noqa: E402  pagine «dopo l'esame» (certificato, tempi per sessione, esame non superato) ed esempi A2 e B2 (15/11/2026)
 import genera_guide as GU  # noqa: E402  test A2, carta di soggiorno, cittadinanza per matrimonio, stato della pratica (13/11/2026); ricongiungimento familiare, documenti, permesso per motivi familiari, idoneità alloggiativa (14/11/2026)
@@ -105,6 +106,7 @@ def _parole_main(html):
     if not m:
         return None
     t = _RE_RIQUADRO_AFF.sub(" ", m.group(1))  # il riquadro di affiliazione non conta: sotto la soglia viene tolto (stessa misura prima e dopo)
+    t = re.sub(r'<a class="sede-tu".*?</a>', " ", t, flags=re.S)  # 27/11/2026: il pulsante «Sei questa sede?» non è testo della pagina (misura uguale a prima)
     t = re.sub(r"<(nav|script|style|svg|select)\b.*?</\1>", " ", t, flags=re.S | re.I)
     return re.findall(r"\w+", unescape(re.sub(r"<[^>]+>", " ", t)).lower())
 
@@ -941,7 +943,7 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None, indiciz
 <meta name="google-site-verification" content="{GOOGLE_VERIFICA_DOMINIO}">{testa_adsense(corpo, indicizza)}
 <link rel="icon" href="{FAVICON}">
 <link rel="preload" href="/fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
-<style>{CSS}</style>
+<style>{CSS}{SC.CSS_SEDE_TU if 'class="sede-tu"' in corpo else ""}</style>
 {ld}
 </head>
 <body>
@@ -1244,7 +1246,9 @@ def avviso_sede(s):
     return "".join(f'<div class="avviso">{ic("attenzione")}<div>{testo_avviso(a)}</div></div>' for a in avvisi_di([s]))
 
 
-def scheda_sede(s, con_citta=False):
+def scheda_sede(s, con_citta=False, sei_tu=None, in_provincia=False):
+    """sei_tu: slug della pagina città (27/11/2026). Solo lì la scheda finisce con il pulsante «Sei questa sede? Aggiungi corso e date»
+    (genera_scuole.pulsante_sede): è l'ultimo elemento, non cambia il resto della scheda e resta fuori dall'impronta del lastmod."""
     righe = [escape(s["indirizzo"])] if s["indirizzo"] else []
     luogo = " ".join(x for x in [s.get("cap", ""), s["citta"], f'({s["sigla"]})' if s.get("sigla") else ""] if x)
     if luogo:
@@ -1263,7 +1267,7 @@ def scheda_sede(s, con_citta=False):
     return f"""<li class="s-{s['ente'].replace('.', '')}"><div class="nome">{eb(s['ente'])}<span>{escape(s['nome'])}</span></div>
 {f'<div class="det">{ic("pin")}<span>{"<br>".join(righe)}</span></div>' if righe else ""}
 {f'<div class="contatti">{"".join(contatti)}</div>' if contatti else ""}
-<div class="fonte">{ic("doc")}<span>Fonte: <a href="{escape(s.get('fonte_pagina') or s['fonte'])}" rel="noopener">elenco ufficiale {escape(s['ente'])}</a></span></div>{avviso_sede(s)}</li>"""
+<div class="fonte">{ic("doc")}<span>Fonte: <a href="{escape(s.get('fonte_pagina') or s['fonte'])}" rel="noopener">elenco ufficiale {escape(s['ente'])}</a></span></div>{avviso_sede(s)}{SC.pulsante_sede(sei_tu, in_provincia) if sei_tu else ""}</li>"""
 
 
 def jsonld_sessioni(lista):
@@ -1630,7 +1634,8 @@ def scrivi_piu_usate(urls):
 REGISTRO_LASTMOD = DATI / "lastmod.json"
 _RE_CONTA = re.compile(r'(<span class="conta)[^"]*("[^>]*>)[^<]*(</span>)')
 _RE_LIBRO = re.compile(r'<div class="libro-mini">.*?</a></div></div>|<section class="card libro libro-top" id="libro">.*?</section>'
-                       r'|<aside class="libro-top".*?</aside>|<section class="card pass" id="pass".*?</section>', re.S)
+                       r'|<aside class="libro-top".*?</aside>|<section class="card pass" id="pass".*?</section>'
+                       r'|<a class="sede-tu".*?</a>', re.S)  # 27/11/2026: pulsante «Sei questa sede?» sulle schede delle pagine città
 
 
 # Date di controllo («controllato il 23 novembre 2026», «letta il…», «checked on…», «verificat la…», «перевірено…»): rileggere una
@@ -2144,10 +2149,10 @@ def pagina_citta(c, prossime):
         tutte = (f'<p class="small"><a href="../../ente/{SLUG_ENTE[e]}/#{slug(regione)}">Tutte le sedi {e} in {escape(regione)}</a></p>'
                  if regione else "")
         if lista:
-            blocchi.append(f'<h3 id="sedi-{SLUG_ENTE[e]}">{eb(e)} {e} {a_(c)} ({len(lista)})</h3><ul class="sedi">{"".join(scheda_sede(s) for s in lista)}</ul>{tutte}')
+            blocchi.append(f'<h3 id="sedi-{SLUG_ENTE[e]}">{eb(e)} {e} {a_(c)} ({len(lista)})</h3><ul class="sedi">{"".join(scheda_sede(s, sei_tu=c["slug"]) for s in lista)}</ul>{tutte}')
         elif not solo_comune and any(s["ente"] == e for s in in_prov):
             blocchi.append(f'<h3 id="sedi-{SLUG_ENTE[e]}">{eb(e)} {e} in provincia {di_prov}</h3>'
-                           f'<ul class="sedi">{"".join(scheda_sede(s) for s in in_prov if s["ente"] == e)}</ul>{tutte}')
+                           f'<ul class="sedi">{"".join(scheda_sede(s, sei_tu=c["slug"], in_provincia=True) for s in in_prov if s["ente"] == e)}</ul>{tutte}')
     mancano = [e for e in ENTE if not any(s["ente"] == e for s in locale)]
     if solo_comune:
         if in_prov:
@@ -2157,7 +2162,7 @@ def pagina_citta(c, prossime):
         altre_prov = [s for s in in_prov if any(x["ente"] == s["ente"] for x in in_citta)]
         if altre_prov:
             blocchi.append(f'<details><summary>Altre sedi in provincia {di_prov} ({len(altre_prov)}){ic("giu")}</summary>'
-                           f'<ul class="sedi">{"".join(scheda_sede(s) for s in altre_prov)}</ul></details>')
+                           f'<ul class="sedi">{"".join(scheda_sede(s, sei_tu=c["slug"], in_provincia=True) for s in altre_prov)}</ul></details>')
     nota_mancano = ""
     if mancano:
         dove_m = a_(c) if solo_comune else f"in provincia {di_prov}"
@@ -5509,7 +5514,8 @@ PLIDA (Società Dante Alighieri) o CERT.IT (Università Roma Tre). CILS, CELI, P
 Per ricevere un'email quando escono nuove date nella tua città c'è il modulo <a href="../#avvisami">«Avvisami»</a>. Non rispondiamo a domande sulla singola
 pratica di cittadinanza: per quelle scrivi alla tua Prefettura (trovi i contatti nella pagina <a href="../cittadinanza/">domanda di cittadinanza</a>).</p>
 <p>{NOME} fa parte di una piccola rete di siti informativi gratuiti dello stesso gestore, elencati in fondo a ogni pagina («Altri strumenti utili»).
-<a href="../come-lavoriamo/">Come raccogliamo e controlliamo i dati</a>.</p>"""
+<a href="../come-lavoriamo/">Come raccogliamo e controlliamo i dati</a>.</p>
+<p>Sei una sede d'esame o una scuola di italiano? C'è una pagina per te: <a href="../{SC.PERCORSO}">{NOME} per le sedi d'esame e le scuole</a>.</p>"""
     pagina("chi-siamo/index.html", titolo_pagina("Chi siamo: un sito indipendente sull'esame B1 cittadinanza"),
            descrizione_pagina(f"{NOME} è un sito informativo indipendente e gratuito: date, sedi e regole dell'esame B1 per la cittadinanza, "
                               "dalle fonti ufficiali."), corpo)
@@ -5624,6 +5630,7 @@ def privacy():
 <h2>Quali dati raccogliamo</h2><p>Solo se compili il modulo "Avvisami": la tua email, la città e l'ente che scegli, e la pagina o il link da cui arrivi (per capire quali canali funzionano).</p>
 <p>Se lasci l'email nel riquadro «Libro in arrivo»: solo l'email e la pagina da cui arrivi, che usiamo con il tuo consenso per scriverti una sola email quando esce il libro; dopo quell'email la cancelliamo, se non sei iscritto anche agli avvisi sulle date.</p>
 <p>Se lasci l'email nel riquadro «Pass EsameB1»: solo l'email e la pagina da cui arrivi, che usiamo con il tuo consenso per scriverti quando il Pass (le prove online a pagamento, oggi in preparazione) è pronto; dopo quell'email la cancelliamo, se non sei iscritto anche agli avvisi sulle date. Se decidiamo di non fare il Pass, cancelliamo l'email senza scriverti. Lasciare l'email non è un acquisto e non ti impegna a pagare.</p>
+<p>Se compili il modulo della pagina <a href="{SC.PERCORSO}">per le sedi d'esame e le scuole</a>: il nome della scuola, la città, le risposte che scegli, l'email e il messaggio. Li usiamo solo per risponderti su quelle offerte e sulla scheda della tua sede. Base giuridica: la tua richiesta (art. 6.1.b GDPR). Li cancelliamo dopo averti risposto; se aspetti un'offerta, quando ti abbiamo scritto che è pronta o che non la facciamo. Compilare il modulo non è un ordine e non ti impegna a pagare.</p>
 <p>Se usi il modulo "Segnala un errore" o il modulo della pagina <a href="contatti/">Contatti</a> (è lo stesso modulo): il testo che scrivi, la pagina e il link che indichi e, solo se la lasci, la tua email. Li usiamo solo per controllare e correggere il dato segnalato e, se lasci l'email, per risponderti; la base giuridica è il nostro legittimo interesse a correggere gli errori del sito (art. 6.1.f GDPR). Non ti iscriviamo agli avvisi e cancelliamo la segnalazione quando l'abbiamo gestita.</p>
 <h2>Perché</h2><p>Per mandarti avvisi sulle date e sulle scadenze dell'esame B1. La base giuridica è il tuo consenso (art. 6.1.a GDPR), che puoi ritirare quando vuoi.</p>
 <h2>Chi li gestisce per noi</h2><p>Il sito e il modulo sono ospitati da Netlify, Inc., che conserva i dati del modulo per nostro conto. Netlify può trattare i dati fuori dall'UE con le garanzie previste dal GDPR (clausole contrattuali standard). Non vendiamo né cediamo i tuoi dati.</p>
@@ -5821,6 +5828,7 @@ def main():
             urls.append(f"cittadinanza/{pref_url(sl)}/")
     urls += DP.genera(sys.modules[__name__], prossime)  # 15/11/2026: /dopo-esame/ (indice, 4 enti, non superato) ed /esempi/a2/, /esempi/b2/ (genera_dopo.py)
     urls += PV.genera(sys.modules[__name__])  # 26/11/2026: /prova-b1-online/, prova gratuita scritta da noi (genera_prova.py)
+    urls += SC.genera(sys.modules[__name__])  # 27/11/2026: /per-le-scuole/, prova di domanda per sedi d'esame e scuole (genera_scuole.py)
     urls += LV.genera(sys.modules[__name__], prossime)  # 25/11/2026: /esempi/cils-b1-standard/, /esempi/a1/, /esempi/c1/, /esempi/c2/ (genera_livelli.py); 26/11/2026: /esempi/ascolto/, /esempi/prova-orale/, /esempi/celi-2/
     urls += CP.genera(sys.modules[__name__], prossime)  # 20/11/2026: /cpia/ e una pagina per CPIA (genera_cpia.py)
     urls += GU.genera(sys.modules[__name__])  # 4 guide del 13/11/2026, 3 sul ricongiungimento familiare e 1 sull'idoneità alloggiativa del 14/11/2026 (genera_guide.py)
@@ -5840,6 +5848,7 @@ def main():
     n_l = LG.controlli(sys.modules[__name__])
     DP.controlli(sys.modules[__name__])  # frasi tra «» = frasi citate, ricerche misurate, FAQ visibili
     PV.controlli(sys.modules[__name__])  # prova B1 online: 24 domande, avviso «non ufficiale», un solo riquadro del Pass
+    SC.controlli(sys.modules[__name__])  # per le scuole: modulo, pulsanti che non vendono, pulsante su ogni scheda delle pagine città e fuori dall'impronta
     LV.controlli(sys.modules[__name__])  # esempi per livello: frasi tra «» = frasi citate, FAQ visibili, file solo sui siti degli enti, riquadro del libro
     CP.controlli(sys.modules[__name__])  # pagine CPIA: frasi tra «» = frasi citate, sedi dell'anagrafe, titolo = ricerca misurata, riquadro del libro
     GU.controlli(sys.modules[__name__])  # cifre delle 4 guide nelle frasi citate, FAQ visibili  # cifre /uk/ e /ro/, hreflang reciproci su tutto il sito, calcolatore identico in 4 lingue

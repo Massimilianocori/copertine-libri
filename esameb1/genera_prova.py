@@ -429,6 +429,7 @@ Se vuoi allenarti con il tempo, usa il <a href="../esempi/simulazione/#cronometr
 <h2 id="domande">{ic("info")}Domande frequenti</h2>
 {faq_html}
 </section>
+<p>{ic("edificio")} Insegni italiano o lavori in una sede d'esame? Guarda la pagina <a href="../per-le-scuole/">EsameB1 per le sedi d'esame e le scuole</a>.</p>
 <section>
 <h2>{ic("libro")}Continua a prepararti</h2>
 <div class="altre"><a href="../esempi/cils/">Prova d'esempio ufficiale CILS B1 Cittadinanza</a><a href="../esempi/">Le prove ufficiali dei 4 enti</a><a href="../esempi/ascolto/">L'ascolto, con gli audio ufficiali</a><a href="../esempi/confronto/">I 4 esami a confronto</a><a href="../#date">Le prossime date d'esame</a></div>
