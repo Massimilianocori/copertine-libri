@@ -35,3 +35,7 @@ Massimiliano, 27/11: «abbiamo aperto molti siti e li devi controllare a uno a u
 1. **Chiudere subito**: EsamiDiStato (già deciso il 1/12), Flood Cost, FHA Condos. Da parte nostra: fuori da indexnow, salute e routine. Da parte di Massimiliano: cancellare i 3 progetti su Netlify.
 2. **Verdetto il 10/12** (4 settimane) per i 12 siti nati dal 8/11 in poi, con la stessa regola: meno di 10 pagine viste nella settimana 3-9/12 → si chiudono. Promemoria già attivo il 10/12, esteso a tutti i 12.
 3. **Far funzionare e crescere** i 9 siti con visite: recupero di EsameB1, Visa, Before You Fly e Paga CCNL (piani in BYF-PIANO-RILANCIO-2026-11-27.md e PIANO-VISITE-VISA-CCNL-2026-11-27.md), allarme visite giornaliero su tutti, crescita di Tourist Tax, Aste, Cruise, Italy Strikes (picchi di dicembre).
+
+
+## Aggiornamento 28/11/2026 (dati GoatCounter)
+FHA Condos 16 pagine viste negli ultimi 7 giorni (7 giorni prima: 2) e Flood Cost 12 (1): non sono più «mai funzionato». La chiusura di questi due è sospesa; si decide il 10/12 con la regola dei siti giovani (meno di 10 pagine viste nella settimana 3-9/12 → chiusura). Resta proposta la chiusura di EsamiDiStato (3 pagine viste in 7 giorni).
