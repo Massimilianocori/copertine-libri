@@ -130,15 +130,15 @@
  "op_atac": {
   "url": "https://www.atac.roma.it/",
   "status": "browser",
-  "verificato_il": "2026-10-10",
-  "nota": "dominio ufficiale trovato con la ricerca; il sito blocca le richieste automatiche dal server",
+  "verificato_il": "2026-11-28",
+  "nota": "indirizzo collegato dalla home di Roma Servizi per la Mobilità, romamobilita.it (letta il 28/11/2026); il sito manda le richieste automatiche dal server a una pagina di verifica (28/11/2026)",
   "nome": "ATAC Rome"
  },
  "apt_fco": {
   "url": "https://www.adr.it/web/aeroporti-di-roma-en",
   "status": "browser",
-  "verificato_il": "2026-10-10",
-  "nota": "dominio ufficiale trovato con la ricerca; il sito blocca le richieste automatiche dal server"
+  "verificato_il": "2026-11-28",
+  "nota": "dominio ufficiale (www.adr.it) scritto nella Carta dei Servizi 2026 di Fiumicino pubblicata dall'ENAC (letta il 28/11/2026); il sito non risponde alle richieste automatiche dal server (risposta 202 vuota il 28/11/2026)"
  },
  "apt_bgy": {
   "url": "https://www.milanbergamoairport.it/en/",
@@ -148,8 +148,8 @@
  "apt_vce": {
   "url": "https://www.veniceairport.it/en/",
   "status": "browser",
-  "verificato_il": "2026-10-10",
-  "nota": "dominio ufficiale trovato con la ricerca; il sito blocca le richieste automatiche dal server"
+  "verificato_il": "2026-11-28",
+  "nota": "indirizzo scritto nell'elenco ENAC «Aeroporti in Italia» (letto il 28/11/2026); il sito rifiuta le richieste automatiche dal server (403 il 28/11/2026)"
  },
  "apt_nap": {
   "url": "https://www.aeroportodinapoli.it/en",
@@ -160,8 +160,8 @@
  "apt_psa": {
   "url": "https://www.pisa-airport.com/en/",
   "status": "browser",
-  "verificato_il": "2026-10-10",
-  "nota": "dominio ufficiale trovato con la ricerca; il sito blocca le richieste automatiche dal server"
+  "verificato_il": "2026-11-28",
+  "nota": "dominio ufficiale (www.pisa-airport.com) scritto nella Carta dei Servizi 2026 di Pisa pubblicata dall'ENAC (letta il 28/11/2026); il sito chiude la connessione alle richieste automatiche dal server (28/11/2026)"
  },
  "op_gest": {
   "url": "https://www.gestramvia.it/",

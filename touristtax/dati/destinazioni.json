@@ -2014,7 +2014,7 @@
      "http": 403,
      "formato": "HTML",
      "controllato_il": "2026-10-10",
-     "nota": "Blocks automated reading (403): checked by hand each quarter."
+     "nota": "Blocks automated reading (403): checked by hand each quarter. Automated read tried again on 28 November 2026: still HTTP 403, so the date shown is the last real read."
     }
    ],
    "note": [
@@ -2379,7 +2379,7 @@
      "http": 403,
      "formato": "HTML",
      "controllato_il": "2026-10-10",
-     "nota": "Blocks automated reading (403): checked by hand each quarter."
+     "nota": "Blocks automated reading (403): checked by hand each quarter. Automated read tried again on 28 November 2026: still HTTP 403, so the date shown is the last real read."
     }
    ],
    "note": [
@@ -2744,7 +2744,7 @@
      "http": 403,
      "formato": "HTML",
      "controllato_il": "2026-10-10",
-     "nota": "Blocks automated reading (403): checked by hand each quarter."
+     "nota": "Blocks automated reading (403): checked by hand each quarter. Automated read tried again on 28 November 2026: still HTTP 403, so the date shown is the last real read."
     }
    ],
    "note": [
@@ -3109,7 +3109,7 @@
      "http": 403,
      "formato": "HTML",
      "controllato_il": "2026-10-10",
-     "nota": "Blocks automated reading (403): checked by hand each quarter."
+     "nota": "Blocks automated reading (403): checked by hand each quarter. Automated read tried again on 28 November 2026: still HTTP 403, so the date shown is the last real read."
     }
    ],
    "note": [
@@ -3475,7 +3475,7 @@
      "http": 403,
      "formato": "HTML",
      "controllato_il": "2026-10-10",
-     "nota": "Blocks automated reading (403): checked by hand each quarter."
+     "nota": "Blocks automated reading (403): checked by hand each quarter. Automated read tried again on 28 November 2026: still HTTP 403, so the date shown is the last real read."
     }
    ],
    "note": [
@@ -3840,7 +3840,7 @@
      "http": 403,
      "formato": "HTML",
      "controllato_il": "2026-10-10",
-     "nota": "Blocks automated reading (403): checked by hand each quarter."
+     "nota": "Blocks automated reading (403): checked by hand each quarter. Automated read tried again on 28 November 2026: still HTTP 403, so the date shown is the last real read."
     }
    ],
    "note": [
@@ -4205,7 +4205,7 @@
      "http": 403,
      "formato": "HTML",
      "controllato_il": "2026-10-10",
-     "nota": "Blocks automated reading (403): checked by hand each quarter."
+     "nota": "Blocks automated reading (403): checked by hand each quarter. Automated read tried again on 28 November 2026: still HTTP 403, so the date shown is the last real read."
     }
    ],
    "note": [
@@ -4570,7 +4570,7 @@
      "http": 403,
      "formato": "HTML",
      "controllato_il": "2026-10-10",
-     "nota": "Blocks automated reading (403): checked by hand each quarter."
+     "nota": "Blocks automated reading (403): checked by hand each quarter. Automated read tried again on 28 November 2026: still HTTP 403, so the date shown is the last real read."
     }
    ],
    "note": [
@@ -4883,7 +4883,7 @@
      "http": 403,
      "formato": "HTML",
      "controllato_il": "2026-10-10",
-     "nota": "Blocks automated reading: checked by hand."
+     "nota": "Blocks automated reading: checked by hand. Automated read tried again on 28 November 2026: still HTTP 403, so the date shown is the last real read."
     }
    ],
    "note": [
@@ -6336,7 +6336,8 @@
      "url": "https://hokkaido-shukuhakuzei.pref.hokkaido.lg.jp/poster/PDF/tax_B2pos_C-05kuchan.pdf",
      "http": 200,
      "formato": "PDF/JPG (Japanese and English)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-10-10",
+     "nota": "Downloaded again on 28 November 2026: same poster file (dated September 2025, unchanged on the Hokkaido server since 2 April 2026); the rate itself was not re-read that day."
     },
     {
      "titolo": "Ministry of Internal Affairs and Communications - list of non-statutory taxes as of 27 November 2026 (Hokkaido and Kutchan taxes in force)",
@@ -6689,7 +6690,8 @@
      "url": "https://www.althingi.is/lagas/nuna/2011087.html",
      "http": 200,
      "formato": "HTML (Icelandic)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-10-10",
+     "nota": "Automated read tried again on 28 November 2026: the Althingi site answered with a verification page (HTTP 403), so the date shown is the last real read. The amounts were confirmed on the Skatturinn page below."
     },
     {
      "titolo": "Iceland Revenue and Customs (Skatturinn) - accommodation tax: amounts and what counts as one unit",

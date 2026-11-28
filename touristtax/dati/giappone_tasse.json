@@ -764,7 +764,8 @@
      "url": "https://hokkaido-shukuhakuzei.pref.hokkaido.lg.jp/poster/PDF/tax_B2pos_C-05kuchan.pdf",
      "http": 200,
      "formato": "PDF (Japanese and English)",
-     "controllato_il": "2026-10-10"
+     "controllato_il": "2026-10-10",
+     "nota": "Downloaded again on 28 November 2026: same poster file (dated September 2025, unchanged on the Hokkaido server since 2 April 2026); the rate itself was not re-read that day."
     },
     {
      "titolo": "Hokkaido Government - 北海道宿泊税及び市町村宿泊税の税率一覧 (Hokkaido and municipal accommodation tax rates, as of 1 March 2026)",

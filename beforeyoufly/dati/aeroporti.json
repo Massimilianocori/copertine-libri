@@ -44,7 +44,9 @@
    "url": "https://www.gatwickairport.com/passenger-guides/security.html",
    "titolo_fonte": "London Gatwick – Security",
    "lettura": "diretta",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-10-10",
+   "ultimo_tentativo_fallito": "2026-11-28",
+   "ultimo_errore": "richiesta semplice: 403, pagina di verifica Cloudflare; pagina non letta, da leggere a mano"
   },
   {
    "slug": "edinburgh",
@@ -67,7 +69,9 @@
    "url": "https://www.edinburghairport.com/prepare/airport-security/liquids-food-items-electricals",
    "titolo_fonte": "Edinburgh Airport – Liquids, food items and electricals",
    "lettura": "browser",
-   "controllato_il": "2026-10-10"
+   "controllato_il": "2026-10-10",
+   "ultimo_tentativo_fallito": "2026-11-28",
+   "ultimo_errore": "richiesta semplice: 403, pagina di verifica Cloudflare; pagina non letta, da leggere a mano"
   },
   {
    "slug": "bristol",
@@ -333,6 +337,8 @@
    "titolo_fonte": "Aeroporti di Roma – Fiumicino security checks",
    "lettura": "browser",
    "controllato_il": "2026-10-10",
+   "ultimo_tentativo_fallito": "2026-11-28",
+   "ultimo_errore": "richiesta semplice: risposta 202 vuota (blocco dei programmi automatici); pagina non letta, da leggere a mano",
    "risposta": "Yes, with exceptions"
   },
   {

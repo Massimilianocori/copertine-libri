@@ -61,8 +61,14 @@ def controlla(nostro, riga_html):
         if k in ("data_stato", "scadenza"):
             v = usa(a)
         elif k == "unita":
-            if a is not None and not re.search(rf"(?<!\d)\(?{a}\)?\s*(?:-\s*)?(?:[A-Za-z.'/-]+\s+){{0,3}}units?\b", grezzo, re.I):
-                errori.append(f"unità: {a} non trovato nel testo HUD")
+            # 28/11/2026: il numero può avere la virgola delle migliaia ("2,426 UNITS", D004773) o stare dopo la parola
+            # ("Total units 124.", P020939; "TOTAL NUMBER OF UNITS IN PROJECT IS 204", D005297): prima questi due casi davano un falso errore.
+            if a is not None:
+                num = rf"(?:{a}|{a:,})"
+                prima = rf"(?<![\d,])\(?{num}\)?\s*(?:-\s*)?(?:[A-Za-z.'/-]+\s+){{0,3}}units?\b"
+                dopo = rf"\bunits?\s*(?:in\s+(?:the\s+)?project\s*)?(?:is|of|=|:|-)?\s*{num}(?![\d,]*\d)"
+                if not re.search(prima, grezzo, re.I) and not re.search(dopo, grezzo, re.I):
+                    errori.append(f"unità: {a} non trovato nel testo HUD")
             continue
         else:
             v = a or ""

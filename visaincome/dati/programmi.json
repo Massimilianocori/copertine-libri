@@ -475,6 +475,8 @@
      "url": "https://www.gazzettaufficiale.it/eli/gu/2024/04/04/79/sg/pdf",
      "formato": "official gazette (PDF of the issue)",
      "controllato_il": "2026-10-10",
+     "ultimo_tentativo_fallito": "2026-11-28",
+     "ultimo_errore": "gazzettaufficiale.it chiude la connessione alle richieste dal server (connection reset, 3 tentativi): fonte da leggere a mano",
      "http": 200,
      "nota": "Art. 3: minimum annual income from lawful sources not lower than three times the minimum level for exemption from healthcare co-payments; family reunification under art. 29 of the Consolidated Act."
     },
