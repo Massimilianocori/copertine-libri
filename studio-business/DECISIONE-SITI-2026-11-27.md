@@ -42,3 +42,4 @@ FHA Condos 16 pagine viste negli ultimi 7 giorni (7 giorni prima: 2) e Flood Cos
 
 ## Chiusura EsamiDiStato — 28/11/2026
 Massimiliano, 28/11: «chiudi esamidistato». Tolto dai controlli di salute.py e da IndexNow (NON_ONLINE in strumenti/indexnow.py). Il progetto Netlify «esamidistato» lo cancella Massimiliano (passi dati in chat il 28/11). La cartella esamidistato/ resta nel repository come archivio.
+Netlify: progetto cancellato da Massimiliano il 28/11/2026; esamidistato.netlify.app risponde 404 (controllato).
