@@ -39,3 +39,6 @@ Massimiliano, 27/11: «abbiamo aperto molti siti e li devi controllare a uno a u
 
 ## Aggiornamento 28/11/2026 (dati GoatCounter)
 FHA Condos 16 pagine viste negli ultimi 7 giorni (7 giorni prima: 2) e Flood Cost 12 (1): non sono più «mai funzionato». La chiusura di questi due è sospesa; si decide il 10/12 con la regola dei siti giovani (meno di 10 pagine viste nella settimana 3-9/12 → chiusura). Resta proposta la chiusura di EsamiDiStato (3 pagine viste in 7 giorni).
+
+## Chiusura EsamiDiStato — 28/11/2026
+Massimiliano, 28/11: «chiudi esamidistato». Tolto dai controlli di salute.py e da IndexNow (NON_ONLINE in strumenti/indexnow.py). Il progetto Netlify «esamidistato» lo cancella Massimiliano (passi dati in chat il 28/11). La cartella esamidistato/ resta nel repository come archivio.
