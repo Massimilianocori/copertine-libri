@@ -252,6 +252,7 @@ def controlli_cancello(err):
         if not m:
             continue
         corpo = re.sub(r'<section class="card prep".*?</section>', " ", m.group(1), flags=re.S)
+        corpo = re.sub(r'<section class="card libro-cils" id="libro-cils".*?</section>', " ", corpo, flags=re.S)  # 28/11/2026: riquadro «libro CILS in preparazione», fuori dalla misura
         corpo = re.sub(r'<a class="sede-tu".*?</a>', " ", corpo, flags=re.S)  # 27/11/2026: pulsante «Sei questa sede?» delle schede, fuori dalla misura
         corpo = re.sub(r"<(nav|script|style|svg|select)\b.*?</\1>", " ", corpo, flags=re.S | re.I)
         testi[str(f.relative_to(SITO))] = (re.findall(r"\w+", unescape(re.sub(r"<[^>]+>", " ", corpo)).lower()), h)
@@ -450,6 +451,91 @@ def controlli_clic_affiliati(err, sotto_soglia):
     return riga
 
 
+PAGINE_LIBRO_CILS = ("esempi/cils/index.html", "ente/cils/index.html", "risultati/cils/index.html")  # scritte a mano apposta, come nella scheda
+RE_LIBRO_CILS = re.compile(r'<section class="card libro-cils" id="libro-cils".*?</section>', re.S)
+
+
+def controlli_libro_cils(err, registro, sotto_soglia):
+    """28/11/2026 (scheda 2026-11-28-libro-cils-prova): riquadro «libro CILS B1 Cittadinanza in preparazione».
+    a) c'è una volta sola in ognuna delle 3 pagine CILS e in nessun'altra pagina; b) un solo evento GoatCounter
+    esameb1.eu/clic/libro-cils, su un pulsante che non è un link; c) modulo Netlify «avvisami» con fonte=libro-cils: l'unico campo
+    da scrivere è l'email, più la casella del consenso; d) testo onesto: «preparando», «non è ancora in vendita», nessun prezzo, nessun
+    link a un negozio, e le sole date scritte sono quelle della decisione e della cancellazione delle email; e) il riquadro resta fuori
+    dall'impronta del lastmod e dalla misura delle parole; il riquadro del libro 1 e quello del Pass ci sono ancora."""
+    evento = 'data-goatcounter-click="esameb1.eu/clic/libro-cils"'
+    for f in sorted(SITO.rglob("*.html")):
+        rel = f.relative_to(SITO).as_posix()
+        h = f.read_text(encoding="utf-8")
+        riquadri = RE_LIBRO_CILS.findall(h)
+        if rel not in PAGINE_LIBRO_CILS:
+            if riquadri or "libro-cils" in h:
+                err.append(f"{rel}: riquadro o evento del libro CILS fuori dalle 3 pagine CILS")
+            continue
+        if len(riquadri) != 1 or h.count('id="libro-cils"') != 1 or riquadri[0] not in m_main(h):
+            err.append(f"{rel}: riquadro del libro CILS assente, doppio o fuori dal <main>")
+            continue
+        r = riquadri[0]
+        # b) evento
+        tag = re.findall(r"<(\w+)\b([^>]*" + re.escape(evento) + r"[^>]*)>", r)
+        if h.count("/clic/libro-cils") != 1 or len(tag) != 1 or tag[0][0] != "button" or 'type="button"' not in tag[0][1] or "data-goatcounter-title=" not in tag[0][1]:
+            err.append(f"{rel}: l'evento esameb1.eu/clic/libro-cils non è una volta sola, su un pulsante con il titolo")
+        if 'aria-controls="libro-cils-pannello"' not in r or not re.search(r'<div class="libro-cils-pannello" id="libro-cils-pannello" tabindex="-1" hidden>', r):
+            err.append(f"{rel}: il pulsante del libro CILS non apre il pannello del modulo, o il pannello non nasce chiuso")
+        # c) modulo
+        moduli = re.findall(r"<form\b([^>]*)>(.*?)</form>", r, re.S)
+        if len(moduli) != 1:
+            err.append(f"{rel}: il riquadro del libro CILS non ha un solo modulo")
+            continue
+        attr, dentro = moduli[0]
+        for pezzo in ('class="form avvisami"', 'name="avvisami"', 'method="POST"', 'action="/"', 'data-netlify="true"', 'netlify-honeypot="bot-field"'):
+            if pezzo not in attr:
+                err.append(f"{rel}: modulo del libro CILS senza {pezzo}")
+        campi = sorted((re.search(r'name="([^"]*)"', c).group(1), (re.search(r'type="([^"]*)"', c) or [None, "text"])[1])
+                       for c in re.findall(r"<(?:input|select|textarea)\b[^>]*>", dentro))
+        if campi != [("bot-field", "text"), ("consenso", "checkbox"), ("email", "email"), ("fonte", "hidden"), ("form-name", "hidden"), ("source", "hidden")]:
+            err.append(f"{rel}: campi del modulo del libro CILS diversi dal previsto (solo email e consenso, più i campi nascosti): {campi}")
+        for pezzo in ('<input type="hidden" name="form-name" value="avvisami">', '<input type="hidden" name="fonte" value="libro-cils">',
+                      '<input type="email" name="email" required', '<input type="checkbox" name="consenso" value="si" required>', 'href="/privacy.html"',
+                      "data-errore hidden"):
+            if pezzo not in dentro:
+                err.append(f"{rel}: nel modulo del libro CILS manca {pezzo}")
+        if "data-ok hidden" not in r[r.find("</form>"):]:
+            err.append(f"{rel}: dopo il modulo del libro CILS manca il messaggio di conferma")
+        # d) testo onesto
+        vis = testo(re.sub(r"<(script|style)\b.*?</\1>", " ", r, flags=re.S))
+        for frase in ("Pensiamo di fare un libro di sole prove CILS B1 Cittadinanza", "Non è ancora in vendita", "la data di uscita e il prezzo non sono decisi",
+                      "una sola email quando il libro esce", "Posso cancellarmi quando voglio", "solo per questo avviso",
+                      "se non lo facciamo, cancelliamo la tua email entro il 15 gennaio 2027", "Non paghi niente"):
+            if frase not in vis:
+                err.append(f"{rel}: nel riquadro del libro CILS manca «{frase}»")
+        if re.search(r"€|\beuro\b|amazon|sconto|gratis|garantit|supera", vis, re.I) or re.search(r'<a\b[^>]*href="(?!/privacy\.html")', r):
+            err.append(f"{rel}: il riquadro del libro CILS ha un prezzo, una promessa o un link che non è la privacy")
+        date_ = re.findall(r"\b\d{1,2} (?:gennaio|febbraio|marzo|aprile|maggio|giugno|luglio|agosto|settembre|ottobre|novembre|dicembre) \d{4}\b|\b\d{1,2}/\d{1,2}(?:/\d{2,4})?\b|\b20\d\d\b", vis)
+        if sorted(set(date_)) != ["10 gennaio 2027", "15 gennaio 2027"]:
+            err.append(f"{rel}: nel riquadro del libro CILS ci sono date diverse da decisione (10 gennaio 2027) e cancellazione (15 gennaio 2027): {date_}")
+        if re.search(r"[\w.+-]+@(?!esempio\.it)[\w-]+\.\w+", vis):
+            err.append(f"{rel}: un indirizzo email scritto nel riquadro del libro CILS")
+        # e) impronta, misura delle parole, altri riquadri
+        import genera
+        senza = h.replace(r, "")
+        voce = registro.get(rel[:-len("index.html")], [None, None])[1]
+        if genera.impronta_contenuto(h) != genera.impronta_contenuto(senza) or (rel not in sotto_soglia and voce != genera.impronta_contenuto(senza)):
+            err.append(f"{rel}: il riquadro del libro CILS entra nell'impronta del lastmod (o l'impronta non è quella del registro)")
+        if genera._parole_main(h) != genera._parole_main(senza) or genera.parole_principali(m_main(h)) != genera.parole_principali(m_main(senza)):
+            err.append(f"{rel}: il riquadro del libro CILS entra nella misura delle parole della pubblicità")
+        # /risultati/cils/ non ha mai avuto il riquadro del libro 1
+        if (not rel.startswith("risultati/") and 'data-libro-proprio="si"' not in senza) or (rel.startswith("esempi/") and senza.count('id="pass"') != 1):
+            err.append(f"{rel}: con il riquadro del libro CILS è sparito il riquadro del libro 1 o quello del Pass")
+    for rel in PAGINE_LIBRO_CILS:
+        if not (SITO / rel).exists():
+            err.append(f"{rel}: pagina CILS mancante")
+    # nessun dato personale nel repository: nessun file di iscrizioni fra i dati
+    for f in sorted((SITO.parent / "dati").iterdir()):
+        if re.search(r"iscri|avvisami|email|libro-cils", f.name, re.I):
+            err.append(f"dati/{f.name}: un file che sembra un elenco di iscrizioni non deve stare nel repository")
+    return len(PAGINE_LIBRO_CILS)
+
+
 def main():
     err = []
     pagine = sorted(SITO.rglob("*.html"))
@@ -564,11 +650,13 @@ def main():
     n_schede = controlli_scuole(err, sotto_soglia)
     n_cit = controlli_citabile(err, registro, dict(voci), sotto_soglia)
     riga_clic = controlli_clic_affiliati(err, sotto_soglia)
+    n_cils = controlli_libro_cils(err, registro, sotto_soglia)
     print(f"cancello della pubblicità (misura rifatta qui, soglia {SOGLIA_PAROLE_PROPRIE} parole proprie): script AdSense su {con_script} pagine, "
           f"{sotto} pagine in indice sotto la soglia senza script e senza link di affiliazione, privacy senza script, home con lo script")
     print(f"pagine CPIA controllate contro i dati: {n_cpia}")
     print(riga_clic)
     print(f"per le scuole: pagina, modulo «scuole», 3 eventi di clic, pulsante «Sei questa sede?» su {n_schede[0]} schede di {n_schede[1]} pagine città, fuori dall'impronta del lastmod")
+    print(f"libro CILS in preparazione: riquadro solo su {n_cils} pagine CILS, evento esameb1.eu/clic/libro-cils, modulo «avvisami» con solo email e consenso (fonte=libro-cils), fuori dall'impronta del lastmod e dalla misura delle parole")
     print(f"formato citabile: {n_cit} pagine (più le pagine di controllo, senza formato) con riquadro dei dati ufficiali, data = dateModified = lastmod, fonte e data in ogni riga, titoli e H1 invariati")
     print(f"pagine {len(pagine)}, in sitemap {len(sitemap)}, link interni {n_link}, domande FAQ {n_faq}, errori {len(err)}")
     for e in err[:60]:

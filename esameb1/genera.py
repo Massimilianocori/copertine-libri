@@ -76,7 +76,8 @@ GRUPPO_PAROLE = 5
 
 def parole_principali(corpo):
     """Parole del contenuto principale di una pagina: testo visibile del corpo, senza moduli, script, stili e icone SVG."""
-    t = re.sub(r"<(form|script|style|svg)\b.*?</\1>", " ", corpo, flags=re.S | re.I)
+    t = re.sub(r'<section class="card libro-cils" id="libro-cils".*?</section>', " ", corpo, flags=re.S)  # 28/11/2026: prova di domanda, non è testo della pagina
+    t = re.sub(r"<(form|script|style|svg)\b.*?</\1>", " ", t, flags=re.S | re.I)
     t = unescape(re.sub(r"<[^>]+>", " ", t))
     return len(re.findall(r"\w+", t))
 
@@ -106,6 +107,7 @@ def _parole_main(html):
     if not m:
         return None
     t = _RE_RIQUADRO_AFF.sub(" ", m.group(1))  # il riquadro di affiliazione non conta: sotto la soglia viene tolto (stessa misura prima e dopo)
+    t = re.sub(r'<section class="card libro-cils" id="libro-cils".*?</section>', " ", t, flags=re.S)  # 28/11/2026: riquadro «libro CILS in preparazione», fuori dalla misura (misura uguale a prima)
     t = re.sub(r'<a class="sede-tu".*?</a>', " ", t, flags=re.S)  # 27/11/2026: il pulsante «Sei questa sede?» non è testo della pagina (misura uguale a prima)
     t = re.sub(r"<(nav|script|style|svg|select)\b.*?</\1>", " ", t, flags=re.S | re.I)
     return re.findall(r"\w+", unescape(re.sub(r"<[^>]+>", " ", t)).lower())
@@ -936,6 +938,8 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None, indiciz
     elif percorso.startswith("esempi/") and percorso.split("/")[1] not in PASS_ESCLUSE:
         i_pass = fine_primo_blocco_di_contenuto(corpo)
         corpo = corpo[:i_pass] + "\n" + riquadro_pass(rel) + corpo[i_pass:]
+    if chiave_cit in LIBRO_CILS_PRIMA:
+        corpo = con_libro_cils(corpo, chiave_cit)  # 28/11/2026: prova di domanda del libro «CILS B1 Cittadinanza» sulle 3 pagine CILS
     if (percorso[:-10] if percorso.endswith("index.html") else percorso) in LIBRO_IN_ALTO:
         corpo = libro_in_alto(corpo, rel)  # 25/11/2026: riquadro del libro subito sotto il titolo nelle 10 pagine più viste
     avvisami = "#avvisami" if 'id="avvisami"' in corpo else f"{rel or '/'}#avvisami"
@@ -1218,6 +1222,65 @@ def riquadro_pass(rel, qui=False):
 </div>
 <script>{JS_PASS}</script>
 </section>"""
+
+
+# Prova di domanda del libro «CILS B1 Cittadinanza» (28/11/2026, studio-business/schede/2026-11-28-libro-cils-prova.md), dal 30/11 al
+# 20/12/2026 (al più tardi 10/1/2027). Solo sulle 3 pagine CILS; il riquadro va subito prima del blocco indicato qui (un pezzo di
+# HTML che la pagina ha una volta sola): dopo i file ufficiali, dopo «Come prepararti», dopo «Se non hai superato l'esame».
+LIBRO_CILS_PRIMA = {"esempi/cils/": '<h2 id="prove">', "ente/cils/": '<section class="card prep" id="preparati"', "risultati/cils/": '<h2 id="prove">'}
+CLIC_LIBRO_CILS = "libro-cils"       # evento GoatCounter esameb1.eu/clic/libro-cils (clic su «Avvisami quando esce»)
+FONTE_LIBRO_CILS = "libro-cils"      # campo nascosto «fonte» del modulo Netlify «avvisami»: distingue queste iscrizioni
+LIBRO_CILS_DECISIONE = "2027-01-10"  # ultimo giorno per decidere se fare il libro (scheda: 20/12/2026, prolungabile al 10/1/2027)
+LIBRO_CILS_CANCELLA = "2027-01-15"   # se il libro non si fa, le email raccolte si cancellano entro questo giorno
+CSS_LIBRO_CILS = (".libro-cils{margin:22px 0;border:2px dashed var(--brand)}"
+                  ".libro-cils-riga{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between}"
+                  ".libro-cils-riga p{margin:0;flex:1 1 300px}"
+                  ".libro-cils-pannello{border-top:1px solid var(--line);margin-top:16px;padding-top:14px;max-width:560px}"
+                  ".libro-cils-pannello:focus{outline:none}.libro-cils-pannello>p{margin:0}")
+JS_LIBRO_CILS = ("(function(){var b=document.querySelector('[data-libro-cils-apri]'),p=document.getElementById('libro-cils-pannello');if(!b||!p)return;"
+                 "b.addEventListener('click',function(){p.hidden=false;b.setAttribute('aria-expanded','true');"
+                 "try{p.focus({preventScroll:true});p.scrollIntoView({block:'nearest'});}catch(e){}});})();")
+
+
+def riquadro_libro_cils():
+    """Riquadro «libro CILS in preparazione»: NON vende e non promette né data né prezzo (non sono decisi). Il pulsante conta il clic
+    (esameb1.eu/clic/libro-cils) e apre il modulo Netlify «avvisami» con il solo campo email (più il consenso) e fonte=libro-cils.
+    Le email stanno solo su Netlify, mai nel repository. Fuori dall'impronta del lastmod (_RE_LIBRO) e dalle misure delle parole."""
+    return f"""<section class="card libro-cils" id="libro-cils" aria-label="Libro CILS B1 Cittadinanza in preparazione">
+<style>{CSS_LIBRO_CILS}</style>
+<div class="libro-cils-riga"><p><strong>Pensiamo di fare un libro di sole prove CILS B1 Cittadinanza.</strong> Non è ancora in vendita: decidiamo entro il 10 gennaio 2027 se farlo; la data di uscita e il prezzo non sono decisi. Vuoi saperlo se esce?</p>
+<button class="btn" type="button" data-libro-cils-apri aria-expanded="false" aria-controls="libro-cils-pannello" data-goatcounter-click="esameb1.eu/clic/{CLIC_LIBRO_CILS}" data-goatcounter-title="Libro CILS B1 Cittadinanza: avvisami">{ic("campana")}Avvisami quando esce</button></div>
+<noscript><p class="small">Per lasciare l'email serve JavaScript attivo nel browser.</p></noscript>
+<div class="libro-cils-pannello" id="libro-cils-pannello" tabindex="-1" hidden>
+<p>Lasciaci l'email: se il libro esce, ti scriviamo una sola volta. Non paghi niente e non ti impegni a comprare.</p>
+<form class="form avvisami" name="avvisami" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
+<input type="hidden" name="form-name" value="avvisami">
+<input type="hidden" name="fonte" value="{FONTE_LIBRO_CILS}">
+<input type="hidden" name="source" value="">
+<p class="hp"><label>Non compilare <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+<label>La tua email<input type="email" name="email" required autocomplete="email" placeholder="nome@esempio.it"></label>
+<label class="check"><input type="checkbox" name="consenso" value="si" required>
+<span>Accetto di ricevere da {NOME} una sola email quando il libro esce. Posso cancellarmi quando voglio. Ho letto la <a href="/privacy.html">privacy</a>.</span></label>
+<button class="btn" type="submit">{ic("campana")}Avvisami</button>
+<p class="errore" data-errore hidden>Non è stato possibile inviare. Riprova tra poco.</p>
+<p class="small">Usiamo la tua email solo per questo avviso, poi la cancelliamo. Decidiamo entro {il(LIBRO_CILS_DECISIONE)}{data_breve(LIBRO_CILS_DECISIONE)} se fare il libro: se non lo facciamo, cancelliamo la tua email entro {il(LIBRO_CILS_CANCELLA)}{data_breve(LIBRO_CILS_CANCELLA)}, senza scriverti.</p>
+</form>
+<div class="ok" data-ok hidden>{ic("ok")}<span><strong>Fatto!</strong> Ti scriviamo se e quando il libro esce. Non hai pagato niente.</span></div>
+</div>
+<script>{JS_LIBRO_CILS}</script>
+</section>"""
+
+
+def con_libro_cils(corpo, chiave):
+    """Mette il riquadro subito prima del blocco (<section>) che contiene il pezzo di LIBRO_CILS_PRIMA[chiave]. Errore se il pezzo
+    non c'è una volta sola: la pagina è cambiata e il posto va scelto di nuovo."""
+    pezzo = LIBRO_CILS_PRIMA[chiave]
+    if corpo.count(pezzo) != 1 or 'id="libro-cils"' in corpo:
+        raise SystemExit(f"{chiave}: riquadro del libro CILS, «{pezzo}» non compare una volta sola o il riquadro c'è già")
+    i = corpo.rfind("<section", 0, corpo.find(pezzo) + len("<section"))
+    if i < 0:
+        raise SystemExit(f"{chiave}: riquadro del libro CILS, nessun blocco prima di «{pezzo}»")
+    return corpo[:i] + riquadro_libro_cils() + "\n" + corpo[i:]
 
 
 COPERTINA_LIBRO = "libro-b1.jpg"  # copertina in esameb1/assets/ (se manca: segnaposto «B1»); main() la copia in sito/
@@ -1669,6 +1732,7 @@ REGISTRO_LASTMOD = DATI / "lastmod.json"
 _RE_CONTA = re.compile(r'(<span class="conta)[^"]*("[^>]*>)[^<]*(</span>)')
 _RE_LIBRO = re.compile(r'<div class="libro-mini">.*?</a></div></div>|<section class="card libro libro-top" id="libro">.*?</section>'
                        r'|<aside class="libro-top".*?</aside>|<section class="card pass" id="pass".*?</section>'
+                       r'|<section class="card libro-cils" id="libro-cils".*?</section>'
                        r'|<a class="sede-tu".*?</a>', re.S)  # 27/11/2026: pulsante «Sei questa sede?» sulle schede delle pagine città
 
 
@@ -5891,6 +5955,7 @@ def privacy():
 <h2>Chi tratta i dati</h2><p>Titolare del trattamento è Massimiliano Cori (Italia), che gestisce {NOME} come progetto indipendente. Puoi scriverci rispondendo a qualsiasi email che ti mandiamo.</p>
 <h2>Quali dati raccogliamo</h2><p>Solo se compili il modulo "Avvisami": la tua email, la città e l'ente che scegli, e la pagina o il link da cui arrivi (per capire quali canali funzionano).</p>
 <p>Se lasci l'email nel riquadro «Libro in arrivo»: solo l'email e la pagina da cui arrivi, che usiamo con il tuo consenso per scriverti una sola email quando esce il libro; dopo quell'email la cancelliamo, se non sei iscritto anche agli avvisi sulle date.</p>
+<p>Se lasci l'email nel riquadro del libro «CILS B1 Cittadinanza» (in preparazione): solo l'email e la pagina da cui arrivi, che usiamo con il tuo consenso per scriverti una sola email quando esce il libro; dopo quell'email la cancelliamo. Se entro il 10 gennaio 2027 decidiamo di non farlo, cancelliamo l'email entro il 15 gennaio 2027 senza scriverti.</p>
 <p>Se lasci l'email nel riquadro «Pass EsameB1»: solo l'email e la pagina da cui arrivi, che usiamo con il tuo consenso per scriverti quando il Pass (le prove online a pagamento, oggi in preparazione) è pronto; dopo quell'email la cancelliamo, se non sei iscritto anche agli avvisi sulle date. Se decidiamo di non fare il Pass, cancelliamo l'email senza scriverti. Lasciare l'email non è un acquisto e non ti impegna a pagare.</p>
 <p>Se compili il modulo della pagina <a href="{SC.PERCORSO}">per le sedi d'esame e le scuole</a>: il nome della scuola, la città, le risposte che scegli, l'email e il messaggio. Li usiamo solo per risponderti su quelle offerte e sulla scheda della tua sede. Base giuridica: la tua richiesta (art. 6.1.b GDPR). Li cancelliamo dopo averti risposto; se aspetti un'offerta, quando ti abbiamo scritto che è pronta o che non la facciamo. Compilare il modulo non è un ordine e non ti impegna a pagare.</p>
 <p>Se usi il modulo "Segnala un errore" o il modulo della pagina <a href="contatti/">Contatti</a> (è lo stesso modulo): il testo che scrivi, la pagina e il link che indichi e, solo se la lasci, la tua email. Li usiamo solo per controllare e correggere il dato segnalato e, se lasci l'email, per risponderti; la base giuridica è il nostro legittimo interesse a correggere gli errori del sito (art. 6.1.f GDPR). Non ti iscriviamo agli avvisi e cancelliamo la segnalazione quando l'abbiamo gestita.</p>

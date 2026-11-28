@@ -565,6 +565,29 @@ nav.menu details.lingue li a[aria-current]{color:var(--brand-ink);background:var
 <h2 id="prepararsi"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-libro"/></svg>Come prepararti</h2>
 <div class="griglia link3"><a href="../../esempi/cils/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-libro"/></svg><span>Prova d'esempio CILS<small>PDF e audio ufficiali, gratis</small></span></a><a href="../../esempi/simulazione/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg><span>Simulazione con il cronometro<small>le prove con i tempi veri</small></span></a><a href="../../esempi/prova-scritta/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-matita"/></svg><span>La prova scritta<small>tracce, parole, criteri</small></span></a><a href="../../esenzioni-e-domande/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-voce"/></svg><span>L'orale<small>com'è e quanto dura</small></span></a></div>
 </section>
+<section class="card libro-cils" id="libro-cils" aria-label="Libro CILS B1 Cittadinanza in preparazione">
+<style>.libro-cils{margin:22px 0;border:2px dashed var(--brand)}.libro-cils-riga{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between}.libro-cils-riga p{margin:0;flex:1 1 300px}.libro-cils-pannello{border-top:1px solid var(--line);margin-top:16px;padding-top:14px;max-width:560px}.libro-cils-pannello:focus{outline:none}.libro-cils-pannello>p{margin:0}</style>
+<div class="libro-cils-riga"><p><strong>Pensiamo di fare un libro di sole prove CILS B1 Cittadinanza.</strong> Non è ancora in vendita: decidiamo entro il 10 gennaio 2027 se farlo; la data di uscita e il prezzo non sono decisi. Vuoi saperlo se esce?</p>
+<button class="btn" type="button" data-libro-cils-apri aria-expanded="false" aria-controls="libro-cils-pannello" data-goatcounter-click="esameb1.eu/clic/libro-cils" data-goatcounter-title="Libro CILS B1 Cittadinanza: avvisami"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-campana"/></svg>Avvisami quando esce</button></div>
+<noscript><p class="small">Per lasciare l'email serve JavaScript attivo nel browser.</p></noscript>
+<div class="libro-cils-pannello" id="libro-cils-pannello" tabindex="-1" hidden>
+<p>Lasciaci l'email: se il libro esce, ti scriviamo una sola volta. Non paghi niente e non ti impegni a comprare.</p>
+<form class="form avvisami" name="avvisami" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
+<input type="hidden" name="form-name" value="avvisami">
+<input type="hidden" name="fonte" value="libro-cils">
+<input type="hidden" name="source" value="">
+<p class="hp"><label>Non compilare <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+<label>La tua email<input type="email" name="email" required autocomplete="email" placeholder="nome@esempio.it"></label>
+<label class="check"><input type="checkbox" name="consenso" value="si" required>
+<span>Accetto di ricevere da EsameB1 una sola email quando il libro esce. Posso cancellarmi quando voglio. Ho letto la <a href="/privacy.html">privacy</a>.</span></label>
+<button class="btn" type="submit"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-campana"/></svg>Avvisami</button>
+<p class="errore" data-errore hidden>Non è stato possibile inviare. Riprova tra poco.</p>
+<p class="small">Usiamo la tua email solo per questo avviso, poi la cancelliamo. Decidiamo entro il 10 gennaio 2027 se fare il libro: se non lo facciamo, cancelliamo la tua email entro il 15 gennaio 2027, senza scriverti.</p>
+</form>
+<div class="ok" data-ok hidden><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg><span><strong>Fatto!</strong> Ti scriviamo se e quando il libro esce. Non hai pagato niente.</span></div>
+</div>
+<script>(function(){var b=document.querySelector('[data-libro-cils-apri]'),p=document.getElementById('libro-cils-pannello');if(!b||!p)return;b.addEventListener('click',function(){p.hidden=false;b.setAttribute('aria-expanded','true');try{p.focus({preventScroll:true});p.scrollIntoView({block:'nearest'});}catch(e){}});})();</script>
+</section>
 <section class="card prep" id="preparati" aria-labelledby="preparati-titolo">
 <span class="bolla"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-voce"/></svg></span>
 <div>

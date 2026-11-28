@@ -14,3 +14,20 @@ Da `ricerca-2026-11-28-grandi-opportunita.md`, scelta 2.
 10. Dopo la pubblicazione: controllo online, IndexNow, salute.py, riga in DA-PUBBLICARE.md; lettura dei numeri ogni lunedì; esito il 21/12.
 
 Chiusura: [ ] riquadro online (data, commit) · [ ] evento arrivato · [ ] foto BookBeam ricevuta · [ ] esito del 21/12 con i numeri.
+
+## Deviazioni (costruzione del 28/11/2026, non ancora pubblicato né in git)
+
+- **Pagine e posto del riquadro.** Solo `/esempi/cils/`, `/ente/cils/`, `/risultati/cils/`. Non è in alto (lì restano il riquadro del libro 1 e quello del Pass): sta dopo i file ufficiali in `/esempi/cils/`, dopo «Come prepararti» in `/ente/cils/`, dopo «Se non hai superato l'esame» in `/risultati/cils/`. Se al primo lunedì i clic sono zero, la prima cosa da provare è spostarlo più in alto.
+- **Un pulsante, poi il modulo.** Come per il Pass: il pulsante «Avvisami quando esce» conta il clic (`esameb1.eu/clic/libro-cils`) e apre il modulo. Così si leggono due numeri separati: clic e iscrizioni.
+- **Modulo.** È il modulo Netlify «avvisami» che c'è già, con il campo nascosto `fonte=libro-cils` per distinguere queste iscrizioni. Si scrive solo l'email; in più c'è la casella del consenso (obbligatoria, come nel Pass). Niente città, niente ente.
+- **Date scritte nel riquadro.** Nessuna data di uscita e nessun prezzo («non sono decisi»). Ci sono solo due date, che riguardano i dati: «decidiamo entro il 10 gennaio 2027» (lo stop della scheda è il 20/12, prolungabile al 10/1: ho scritto la più lontana, per non dover cambiare il testo) e «se non lo facciamo, cancelliamo la tua email entro il 15 gennaio 2027». **Impegno da rispettare:** se l'esito è «stop», le iscrizioni con `fonte=libro-cils` vanno cancellate da Netlify entro il 15/1/2027.
+- **«Con audio».** Il testo dice «libro di sole prove CILS B1 Cittadinanza, con audio», come nella ricerca. Se il libro si fa senza audio, il testo va cambiato prima.
+- **Informativa privacy non toccata.** Il registro del lastmod non doveva cambiare, quindi `privacy.html` è rimasta com'è: il testo sui dati sta tutto nel riquadro. L'informativa ha già il paragrafo «Libro in arrivo» (solo email, una sola email, poi cancellata), ma non dice «se il libro non si fa». Consiglio: aggiungere una riga sul libro CILS alla prossima modifica dell'informativa (la data di `privacy.html` cambierà, ed è giusto).
+- **Fuori dalle misure.** Il riquadro è fuori dall'impronta del lastmod (`dati/lastmod.json` identico) e dalle due misure delle parole della pubblicità (`dati/cancello_pubblicita.json` identico). Rispetto a prima cambiano solo le 3 pagine, e solo per il riquadro; titoli, URL, description invariati.
+- **Controlli.** `verifica.py` ha il nuovo `controlli_libro_cils` (riquadro solo sulle 3 pagine, evento una volta sola su un pulsante, campi del modulo, frasi oneste, nessun prezzo, date ammesse, impronta, parole): 0 errori. `monetizzazione.py verifica esameb1`: 0 errori. Playwright a 390 e 1280 px sulle 3 pagine: nessuno scorrimento orizzontale, 0 errori in console, il clic manda l'evento `esameb1.eu/clic/libro-cils`, l'invio manda solo `email`, `consenso`, `fonte=libro-cils` e `source`. Prova fatta in locale: l'arrivo vero dell'evento su GoatCounter e la prima iscrizione su Netlify si controllano dopo la pubblicazione.
+- **Non fatto qui:** commit, pubblicazione, IndexNow, riga in DA-PUBBLICARE.md, revisione indipendente, foto BookBeam.
+
+### Dopo la revisione indipendente (8,7) — 28/11/2026
+- Tolto «con audio» (non deciso). Frase d'apertura ora «Pensiamo di fare un libro…» con «decidiamo entro il 10 gennaio 2027 se farlo»; conferma «Ti scriviamo se e quando il libro esce».
+- privacy.html: aggiunto il paragrafo del riquadro CILS (una sola email se esce; se non lo facciamo, email cancellate entro il 15/1/2027 senza scrivere). Lastmod mosso solo su privacy.html (contenuto cambiato davvero).
+- Impegno: se l'esito è «stop», cancellare in Netlify le iscrizioni `fonte=libro-cils` entro il 15/1/2027 (promemoria in agenda).
